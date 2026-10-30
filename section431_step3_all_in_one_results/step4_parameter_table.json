@@ -1,0 +1,1480 @@
+{
+  "generated_utc": "2026-10-30T23:05:39.271789+00:00",
+  "frozen_protocol": "protocol_20261029T032641Z.json",
+  "frozen_protocol_sha256": "3d6f0c96fce1c05f8e94d1a8c6e6b14a5b5b1c9f013e6a95dd1e96498cbfff8b",
+  "probe": {
+    "sessions": 24,
+    "session_length": 72,
+    "probe_session": 23,
+    "probe_slot": 65
+  },
+  "counts": {
+    "PASS": 35,
+    "FAIL": 1,
+    "NO_SPEC": 45
+  },
+  "rows": [
+    {
+      "output": "return_1m",
+      "group": "original",
+      "extracted": {
+        "L": 1,
+        "kind": "ret",
+        "min": 1,
+        "slot": 1,
+        "sess": 0,
+        "S": 0
+      },
+      "frozen": {
+        "L": 1,
+        "kind": "ret",
+        "min": 1,
+        "slot": 1,
+        "sess": 0,
+        "S": 0
+      },
+      "status": "PASS",
+      "problems": []
+    },
+    {
+      "output": "abs_return_1m",
+      "group": "original",
+      "extracted": {
+        "L": 1,
+        "kind": "ret",
+        "min": 1,
+        "slot": 1,
+        "sess": 0,
+        "S": 0
+      },
+      "frozen": {
+        "L": 1,
+        "kind": "ret",
+        "min": 1,
+        "slot": 1,
+        "sess": 0,
+        "S": 0
+      },
+      "status": "PASS",
+      "problems": []
+    },
+    {
+      "output": "intrabar_range_log",
+      "group": "original",
+      "extracted": {
+        "L": 0,
+        "kind": "bar",
+        "min": 1,
+        "slot": 0,
+        "sess": 0,
+        "S": 0
+      },
+      "frozen": {
+        "L": 0,
+        "kind": "bar",
+        "min": 1,
+        "slot": 0,
+        "sess": 0,
+        "S": 0
+      },
+      "status": "PASS",
+      "problems": []
+    },
+    {
+      "output": "raw_volume",
+      "group": "original",
+      "extracted": {
+        "L": 0,
+        "kind": "bar",
+        "min": 1,
+        "slot": 0,
+        "sess": 0,
+        "S": 0
+      },
+      "frozen": {
+        "L": 0,
+        "kind": "bar",
+        "min": 1,
+        "slot": 0,
+        "sess": 0,
+        "S": 0
+      },
+      "status": "PASS",
+      "problems": []
+    },
+    {
+      "output": "log_raw_volume",
+      "group": "original",
+      "extracted": {
+        "L": 0,
+        "kind": "bar",
+        "min": 1,
+        "slot": 0,
+        "sess": 0,
+        "S": 0
+      },
+      "frozen": {
+        "L": 0,
+        "kind": "bar",
+        "min": 1,
+        "slot": 0,
+        "sess": 0,
+        "S": 0
+      },
+      "status": "PASS",
+      "problems": []
+    },
+    {
+      "output": "relative_volume20",
+      "group": "original",
+      "extracted": {
+        "L": 0,
+        "kind": "sess",
+        "min": 10,
+        "slot": 0,
+        "sess": 10,
+        "S": 20
+      },
+      "frozen": {
+        "L": 0,
+        "kind": "sess",
+        "min": 10,
+        "slot": 0,
+        "sess": 10,
+        "S": 20
+      },
+      "status": "PASS",
+      "problems": []
+    },
+    {
+      "output": "log_relative_volume20",
+      "group": "original",
+      "extracted": {
+        "L": 0,
+        "kind": "sess",
+        "min": 10,
+        "slot": 0,
+        "sess": 10,
+        "S": 20
+      },
+      "frozen": {
+        "L": 0,
+        "kind": "sess",
+        "min": 10,
+        "slot": 0,
+        "sess": 10,
+        "S": 20
+      },
+      "status": "PASS",
+      "problems": []
+    },
+    {
+      "output": "rv5_strict",
+      "group": "original",
+      "extracted": {
+        "L": 5,
+        "kind": "ret",
+        "min": 5,
+        "slot": 5,
+        "sess": 0,
+        "S": 0
+      },
+      "frozen": {
+        "L": 5,
+        "kind": "ret",
+        "min": 5,
+        "slot": 5,
+        "sess": 0,
+        "S": 0
+      },
+      "status": "PASS",
+      "problems": []
+    },
+    {
+      "output": "downside5_strict",
+      "group": "original",
+      "extracted": {
+        "L": 5,
+        "kind": "ret",
+        "min": 5,
+        "slot": 5,
+        "sess": 0,
+        "S": 0
+      },
+      "frozen": {
+        "L": 5,
+        "kind": "ret",
+        "min": 5,
+        "slot": 5,
+        "sess": 0,
+        "S": 0
+      },
+      "status": "PASS",
+      "problems": []
+    },
+    {
+      "output": "momentum5_strict",
+      "group": "original",
+      "extracted": {
+        "L": 5,
+        "kind": "ret",
+        "min": 5,
+        "slot": 5,
+        "sess": 0,
+        "S": 0
+      },
+      "frozen": {
+        "L": 5,
+        "kind": "ret",
+        "min": 5,
+        "slot": 5,
+        "sess": 0,
+        "S": 0
+      },
+      "status": "PASS",
+      "problems": []
+    },
+    {
+      "output": "rv5_partial90",
+      "group": "original",
+      "extracted": {
+        "L": 5,
+        "kind": "ret",
+        "min": 5,
+        "slot": 5,
+        "sess": 0,
+        "S": 0
+      },
+      "frozen": {
+        "L": 5,
+        "kind": "ret",
+        "min": 5,
+        "slot": 5,
+        "sess": 0,
+        "S": 0
+      },
+      "status": "PASS",
+      "problems": []
+    },
+    {
+      "output": "momentum5_endpoint",
+      "group": "original",
+      "extracted": {
+        "L": 5,
+        "kind": "bar",
+        "min": 2,
+        "slot": 5,
+        "sess": 0,
+        "S": 0
+      },
+      "frozen": {
+        "L": 5,
+        "kind": "bar",
+        "min": 2,
+        "slot": 5,
+        "sess": 0,
+        "S": 0
+      },
+      "status": "PASS",
+      "problems": []
+    },
+    {
+      "output": "rv10_strict",
+      "group": "original",
+      "extracted": {
+        "L": 10,
+        "kind": "ret",
+        "min": 10,
+        "slot": 10,
+        "sess": 0,
+        "S": 0
+      },
+      "frozen": {
+        "L": 10,
+        "kind": "ret",
+        "min": 10,
+        "slot": 10,
+        "sess": 0,
+        "S": 0
+      },
+      "status": "PASS",
+      "problems": []
+    },
+    {
+      "output": "downside10_strict",
+      "group": "original",
+      "extracted": {
+        "L": 10,
+        "kind": "ret",
+        "min": 10,
+        "slot": 10,
+        "sess": 0,
+        "S": 0
+      },
+      "frozen": {
+        "L": 10,
+        "kind": "ret",
+        "min": 10,
+        "slot": 10,
+        "sess": 0,
+        "S": 0
+      },
+      "status": "PASS",
+      "problems": []
+    },
+    {
+      "output": "momentum10_strict",
+      "group": "original",
+      "extracted": {
+        "L": 10,
+        "kind": "ret",
+        "min": 10,
+        "slot": 10,
+        "sess": 0,
+        "S": 0
+      },
+      "frozen": {
+        "L": 10,
+        "kind": "ret",
+        "min": 10,
+        "slot": 10,
+        "sess": 0,
+        "S": 0
+      },
+      "status": "PASS",
+      "problems": []
+    },
+    {
+      "output": "rv10_partial90",
+      "group": "original",
+      "extracted": {
+        "L": 10,
+        "kind": "ret",
+        "min": 9,
+        "slot": 10,
+        "sess": 0,
+        "S": 0
+      },
+      "frozen": {
+        "L": 10,
+        "kind": "ret",
+        "min": 9,
+        "slot": 10,
+        "sess": 0,
+        "S": 0
+      },
+      "status": "PASS",
+      "problems": []
+    },
+    {
+      "output": "momentum10_endpoint",
+      "group": "original",
+      "extracted": {
+        "L": 10,
+        "kind": "bar",
+        "min": 2,
+        "slot": 10,
+        "sess": 0,
+        "S": 0
+      },
+      "frozen": {
+        "L": 10,
+        "kind": "bar",
+        "min": 2,
+        "slot": 10,
+        "sess": 0,
+        "S": 0
+      },
+      "status": "PASS",
+      "problems": []
+    },
+    {
+      "output": "rv15_strict",
+      "group": "original",
+      "extracted": {
+        "L": 15,
+        "kind": "ret",
+        "min": 15,
+        "slot": 15,
+        "sess": 0,
+        "S": 0
+      },
+      "frozen": {
+        "L": 15,
+        "kind": "ret",
+        "min": 15,
+        "slot": 15,
+        "sess": 0,
+        "S": 0
+      },
+      "status": "PASS",
+      "problems": []
+    },
+    {
+      "output": "downside15_strict",
+      "group": "original",
+      "extracted": {
+        "L": 15,
+        "kind": "ret",
+        "min": 15,
+        "slot": 15,
+        "sess": 0,
+        "S": 0
+      },
+      "frozen": {
+        "L": 15,
+        "kind": "ret",
+        "min": 15,
+        "slot": 15,
+        "sess": 0,
+        "S": 0
+      },
+      "status": "PASS",
+      "problems": []
+    },
+    {
+      "output": "momentum15_strict",
+      "group": "original",
+      "extracted": {
+        "L": 15,
+        "kind": "ret",
+        "min": 15,
+        "slot": 15,
+        "sess": 0,
+        "S": 0
+      },
+      "frozen": {
+        "L": 15,
+        "kind": "ret",
+        "min": 15,
+        "slot": 15,
+        "sess": 0,
+        "S": 0
+      },
+      "status": "PASS",
+      "problems": []
+    },
+    {
+      "output": "rv15_partial90",
+      "group": "original",
+      "extracted": {
+        "L": 15,
+        "kind": "ret",
+        "min": 14,
+        "slot": 15,
+        "sess": 0,
+        "S": 0
+      },
+      "frozen": {
+        "L": 15,
+        "kind": "ret",
+        "min": 14,
+        "slot": 15,
+        "sess": 0,
+        "S": 0
+      },
+      "status": "PASS",
+      "problems": []
+    },
+    {
+      "output": "momentum15_endpoint",
+      "group": "original",
+      "extracted": {
+        "L": 15,
+        "kind": "bar",
+        "min": 2,
+        "slot": 15,
+        "sess": 0,
+        "S": 0
+      },
+      "frozen": {
+        "L": 15,
+        "kind": "bar",
+        "min": 2,
+        "slot": 15,
+        "sess": 0,
+        "S": 0
+      },
+      "status": "PASS",
+      "problems": []
+    },
+    {
+      "output": "rv30_strict",
+      "group": "original",
+      "extracted": {
+        "L": 30,
+        "kind": "ret",
+        "min": 30,
+        "slot": 30,
+        "sess": 0,
+        "S": 0
+      },
+      "frozen": {
+        "L": 30,
+        "kind": "ret",
+        "min": 30,
+        "slot": 30,
+        "sess": 0,
+        "S": 0
+      },
+      "status": "PASS",
+      "problems": []
+    },
+    {
+      "output": "downside30_strict",
+      "group": "original",
+      "extracted": {
+        "L": 30,
+        "kind": "ret",
+        "min": 30,
+        "slot": 30,
+        "sess": 0,
+        "S": 0
+      },
+      "frozen": {
+        "L": 30,
+        "kind": "ret",
+        "min": 30,
+        "slot": 30,
+        "sess": 0,
+        "S": 0
+      },
+      "status": "PASS",
+      "problems": []
+    },
+    {
+      "output": "momentum30_strict",
+      "group": "original",
+      "extracted": {
+        "L": 30,
+        "kind": "ret",
+        "min": 30,
+        "slot": 30,
+        "sess": 0,
+        "S": 0
+      },
+      "frozen": {
+        "L": 30,
+        "kind": "ret",
+        "min": 30,
+        "slot": 30,
+        "sess": 0,
+        "S": 0
+      },
+      "status": "PASS",
+      "problems": []
+    },
+    {
+      "output": "rv30_partial90",
+      "group": "original",
+      "extracted": {
+        "L": 30,
+        "kind": "ret",
+        "min": 27,
+        "slot": 30,
+        "sess": 0,
+        "S": 0
+      },
+      "frozen": {
+        "L": 30,
+        "kind": "ret",
+        "min": 27,
+        "slot": 30,
+        "sess": 0,
+        "S": 0
+      },
+      "status": "PASS",
+      "problems": []
+    },
+    {
+      "output": "momentum30_endpoint",
+      "group": "original",
+      "extracted": {
+        "L": 30,
+        "kind": "bar",
+        "min": 2,
+        "slot": 30,
+        "sess": 0,
+        "S": 0
+      },
+      "frozen": {
+        "L": 30,
+        "kind": "bar",
+        "min": 2,
+        "slot": 30,
+        "sess": 0,
+        "S": 0
+      },
+      "status": "PASS",
+      "problems": []
+    },
+    {
+      "output": "rv60_strict",
+      "group": "original",
+      "extracted": {
+        "L": 60,
+        "kind": "ret",
+        "min": 60,
+        "slot": 60,
+        "sess": 0,
+        "S": 0
+      },
+      "frozen": {
+        "L": 60,
+        "kind": "ret",
+        "min": 60,
+        "slot": 60,
+        "sess": 0,
+        "S": 0
+      },
+      "status": "PASS",
+      "problems": []
+    },
+    {
+      "output": "downside60_strict",
+      "group": "original",
+      "extracted": {
+        "L": 60,
+        "kind": "ret",
+        "min": 60,
+        "slot": 60,
+        "sess": 0,
+        "S": 0
+      },
+      "frozen": {
+        "L": 60,
+        "kind": "ret",
+        "min": 60,
+        "slot": 60,
+        "sess": 0,
+        "S": 0
+      },
+      "status": "PASS",
+      "problems": []
+    },
+    {
+      "output": "momentum60_strict",
+      "group": "original",
+      "extracted": {
+        "L": 60,
+        "kind": "ret",
+        "min": 60,
+        "slot": 60,
+        "sess": 0,
+        "S": 0
+      },
+      "frozen": {
+        "L": 60,
+        "kind": "ret",
+        "min": 60,
+        "slot": 60,
+        "sess": 0,
+        "S": 0
+      },
+      "status": "PASS",
+      "problems": []
+    },
+    {
+      "output": "rv60_partial90",
+      "group": "original",
+      "extracted": {
+        "L": 60,
+        "kind": "ret",
+        "min": 54,
+        "slot": 60,
+        "sess": 0,
+        "S": 0
+      },
+      "frozen": {
+        "L": 60,
+        "kind": "ret",
+        "min": 54,
+        "slot": 60,
+        "sess": 0,
+        "S": 0
+      },
+      "status": "PASS",
+      "problems": []
+    },
+    {
+      "output": "momentum60_endpoint",
+      "group": "original",
+      "extracted": {
+        "L": 60,
+        "kind": "bar",
+        "min": 2,
+        "slot": 60,
+        "sess": 0,
+        "S": 0
+      },
+      "frozen": {
+        "L": 60,
+        "kind": "bar",
+        "min": 2,
+        "slot": 60,
+        "sess": 0,
+        "S": 0
+      },
+      "status": "PASS",
+      "problems": []
+    },
+    {
+      "output": "downside15_partial90",
+      "group": "original",
+      "extracted": {
+        "L": 15,
+        "kind": "ret",
+        "min": 14,
+        "slot": 15,
+        "sess": 0,
+        "S": 0
+      },
+      "frozen": {
+        "L": 15,
+        "kind": "ret",
+        "min": 14,
+        "slot": 15,
+        "sess": 0,
+        "S": 0
+      },
+      "status": "PASS",
+      "problems": []
+    },
+    {
+      "output": "rv60_sampled5_exact",
+      "group": "original",
+      "extracted": {
+        "L": 60,
+        "kind": "bar",
+        "min": 13,
+        "slot": 60,
+        "sess": 0,
+        "S": 0
+      },
+      "frozen": {
+        "L": 60,
+        "kind": "bar",
+        "min": 13,
+        "slot": 60,
+        "sess": 0,
+        "S": 0
+      },
+      "status": "PASS",
+      "problems": []
+    },
+    {
+      "output": "shock_prior60_mad",
+      "group": "original",
+      "extracted": {
+        "L": 61,
+        "kind": "ret",
+        "min": 61,
+        "slot": 61,
+        "sess": 0,
+        "S": 0
+      },
+      "frozen": {
+        "L": 61,
+        "kind": "ret",
+        "min": 61,
+        "slot": 61,
+        "sess": 0,
+        "S": 0
+      },
+      "status": "PASS",
+      "problems": []
+    },
+    {
+      "output": "close_location_proxy",
+      "group": "added",
+      "extracted": {
+        "L": 0,
+        "kind": "bar",
+        "min": 1,
+        "slot": 0,
+        "sess": 0,
+        "S": 0
+      },
+      "frozen": null,
+      "status": "NO_SPEC",
+      "problems": []
+    },
+    {
+      "output": "overnight_return_open",
+      "group": "added",
+      "extracted": {
+        "L": 65,
+        "kind": "bar",
+        "min": 2,
+        "slot": 0,
+        "sess": 1,
+        "S": 1
+      },
+      "frozen": null,
+      "status": "FAIL",
+      "problems": [
+        "frozen clocks.overnight: 'No overnight returns; first-minute return absent every session'"
+      ]
+    },
+    {
+      "output": "bipower_15",
+      "group": "added",
+      "extracted": {
+        "L": 15,
+        "kind": "ret",
+        "min": 15,
+        "slot": 15,
+        "sess": 0,
+        "S": 0
+      },
+      "frozen": null,
+      "status": "NO_SPEC",
+      "problems": []
+    },
+    {
+      "output": "jump_variation_15",
+      "group": "added",
+      "extracted": {
+        "L": 15,
+        "kind": "ret",
+        "min": 15,
+        "slot": 15,
+        "sess": 0,
+        "S": 0
+      },
+      "frozen": null,
+      "status": "NO_SPEC",
+      "problems": []
+    },
+    {
+      "output": "drawdown_15",
+      "group": "added",
+      "extracted": {
+        "L": 15,
+        "kind": "ret",
+        "min": 15,
+        "slot": 15,
+        "sess": 0,
+        "S": 0
+      },
+      "frozen": null,
+      "status": "NO_SPEC",
+      "problems": []
+    },
+    {
+      "output": "amihud_15",
+      "group": "added",
+      "extracted": {
+        "L": 15,
+        "kind": "ret",
+        "min": 15,
+        "slot": 15,
+        "sess": 0,
+        "S": 0
+      },
+      "frozen": null,
+      "status": "NO_SPEC",
+      "problems": []
+    },
+    {
+      "output": "skew_15",
+      "group": "added",
+      "extracted": {
+        "L": 15,
+        "kind": "ret",
+        "min": 15,
+        "slot": 15,
+        "sess": 0,
+        "S": 0
+      },
+      "frozen": null,
+      "status": "NO_SPEC",
+      "problems": []
+    },
+    {
+      "output": "kurtosis_excess_15",
+      "group": "added",
+      "extracted": {
+        "L": 15,
+        "kind": "ret",
+        "min": 15,
+        "slot": 15,
+        "sess": 0,
+        "S": 0
+      },
+      "frozen": null,
+      "status": "NO_SPEC",
+      "problems": []
+    },
+    {
+      "output": "variance_ratio2_15",
+      "group": "added",
+      "extracted": {
+        "L": 15,
+        "kind": "ret",
+        "min": 15,
+        "slot": 15,
+        "sess": 0,
+        "S": 0
+      },
+      "frozen": null,
+      "status": "NO_SPEC",
+      "problems": []
+    },
+    {
+      "output": "directional_efficiency_15",
+      "group": "added",
+      "extracted": {
+        "L": 15,
+        "kind": "ret",
+        "min": 15,
+        "slot": 15,
+        "sess": 0,
+        "S": 0
+      },
+      "frozen": null,
+      "status": "NO_SPEC",
+      "problems": []
+    },
+    {
+      "output": "vol_of_vol_15",
+      "group": "added",
+      "extracted": {
+        "L": 15,
+        "kind": "ret",
+        "min": 15,
+        "slot": 15,
+        "sess": 0,
+        "S": 0
+      },
+      "frozen": null,
+      "status": "NO_SPEC",
+      "problems": []
+    },
+    {
+      "output": "extreme_loss_15",
+      "group": "added",
+      "extracted": {
+        "L": 15,
+        "kind": "ret",
+        "min": 15,
+        "slot": 15,
+        "sess": 0,
+        "S": 0
+      },
+      "frozen": null,
+      "status": "NO_SPEC",
+      "problems": []
+    },
+    {
+      "output": "volume_variability_15",
+      "group": "added",
+      "extracted": {
+        "L": 15,
+        "kind": "ret",
+        "min": 15,
+        "slot": 15,
+        "sess": 0,
+        "S": 0
+      },
+      "frozen": null,
+      "status": "NO_SPEC",
+      "problems": []
+    },
+    {
+      "output": "volume_adjusted_range_15",
+      "group": "added",
+      "extracted": {
+        "L": 15,
+        "kind": "ret",
+        "min": 15,
+        "slot": 15,
+        "sess": 0,
+        "S": 0
+      },
+      "frozen": null,
+      "status": "NO_SPEC",
+      "problems": []
+    },
+    {
+      "output": "reversal_15",
+      "group": "added",
+      "extracted": {
+        "L": 15,
+        "kind": "ret",
+        "min": 15,
+        "slot": 15,
+        "sess": 0,
+        "S": 0
+      },
+      "frozen": null,
+      "status": "NO_SPEC",
+      "problems": []
+    },
+    {
+      "output": "return_autocorr1_15",
+      "group": "added",
+      "extracted": {
+        "L": 15,
+        "kind": "ret",
+        "min": 15,
+        "slot": 15,
+        "sess": 0,
+        "S": 0
+      },
+      "frozen": null,
+      "status": "NO_SPEC",
+      "problems": []
+    },
+    {
+      "output": "bipower_30",
+      "group": "added",
+      "extracted": {
+        "L": 30,
+        "kind": "ret",
+        "min": 30,
+        "slot": 30,
+        "sess": 0,
+        "S": 0
+      },
+      "frozen": null,
+      "status": "NO_SPEC",
+      "problems": []
+    },
+    {
+      "output": "jump_variation_30",
+      "group": "added",
+      "extracted": {
+        "L": 30,
+        "kind": "ret",
+        "min": 30,
+        "slot": 30,
+        "sess": 0,
+        "S": 0
+      },
+      "frozen": null,
+      "status": "NO_SPEC",
+      "problems": []
+    },
+    {
+      "output": "drawdown_30",
+      "group": "added",
+      "extracted": {
+        "L": 30,
+        "kind": "ret",
+        "min": 30,
+        "slot": 30,
+        "sess": 0,
+        "S": 0
+      },
+      "frozen": null,
+      "status": "NO_SPEC",
+      "problems": []
+    },
+    {
+      "output": "amihud_30",
+      "group": "added",
+      "extracted": {
+        "L": 30,
+        "kind": "ret",
+        "min": 30,
+        "slot": 30,
+        "sess": 0,
+        "S": 0
+      },
+      "frozen": null,
+      "status": "NO_SPEC",
+      "problems": []
+    },
+    {
+      "output": "skew_30",
+      "group": "added",
+      "extracted": {
+        "L": 30,
+        "kind": "ret",
+        "min": 30,
+        "slot": 30,
+        "sess": 0,
+        "S": 0
+      },
+      "frozen": null,
+      "status": "NO_SPEC",
+      "problems": []
+    },
+    {
+      "output": "kurtosis_excess_30",
+      "group": "added",
+      "extracted": {
+        "L": 30,
+        "kind": "ret",
+        "min": 30,
+        "slot": 30,
+        "sess": 0,
+        "S": 0
+      },
+      "frozen": null,
+      "status": "NO_SPEC",
+      "problems": []
+    },
+    {
+      "output": "variance_ratio2_30",
+      "group": "added",
+      "extracted": {
+        "L": 30,
+        "kind": "ret",
+        "min": 30,
+        "slot": 30,
+        "sess": 0,
+        "S": 0
+      },
+      "frozen": null,
+      "status": "NO_SPEC",
+      "problems": []
+    },
+    {
+      "output": "directional_efficiency_30",
+      "group": "added",
+      "extracted": {
+        "L": 30,
+        "kind": "ret",
+        "min": 30,
+        "slot": 30,
+        "sess": 0,
+        "S": 0
+      },
+      "frozen": null,
+      "status": "NO_SPEC",
+      "problems": []
+    },
+    {
+      "output": "vol_of_vol_30",
+      "group": "added",
+      "extracted": {
+        "L": 30,
+        "kind": "ret",
+        "min": 30,
+        "slot": 30,
+        "sess": 0,
+        "S": 0
+      },
+      "frozen": null,
+      "status": "NO_SPEC",
+      "problems": []
+    },
+    {
+      "output": "extreme_loss_30",
+      "group": "added",
+      "extracted": {
+        "L": 30,
+        "kind": "ret",
+        "min": 30,
+        "slot": 30,
+        "sess": 0,
+        "S": 0
+      },
+      "frozen": null,
+      "status": "NO_SPEC",
+      "problems": []
+    },
+    {
+      "output": "volume_variability_30",
+      "group": "added",
+      "extracted": {
+        "L": 30,
+        "kind": "ret",
+        "min": 30,
+        "slot": 30,
+        "sess": 0,
+        "S": 0
+      },
+      "frozen": null,
+      "status": "NO_SPEC",
+      "problems": []
+    },
+    {
+      "output": "volume_adjusted_range_30",
+      "group": "added",
+      "extracted": {
+        "L": 30,
+        "kind": "ret",
+        "min": 30,
+        "slot": 30,
+        "sess": 0,
+        "S": 0
+      },
+      "frozen": null,
+      "status": "NO_SPEC",
+      "problems": []
+    },
+    {
+      "output": "reversal_30",
+      "group": "added",
+      "extracted": {
+        "L": 30,
+        "kind": "ret",
+        "min": 30,
+        "slot": 30,
+        "sess": 0,
+        "S": 0
+      },
+      "frozen": null,
+      "status": "NO_SPEC",
+      "problems": []
+    },
+    {
+      "output": "return_autocorr1_30",
+      "group": "added",
+      "extracted": {
+        "L": 30,
+        "kind": "ret",
+        "min": 30,
+        "slot": 30,
+        "sess": 0,
+        "S": 0
+      },
+      "frozen": null,
+      "status": "NO_SPEC",
+      "problems": []
+    },
+    {
+      "output": "bipower_60",
+      "group": "added",
+      "extracted": {
+        "L": 60,
+        "kind": "ret",
+        "min": 60,
+        "slot": 60,
+        "sess": 0,
+        "S": 0
+      },
+      "frozen": null,
+      "status": "NO_SPEC",
+      "problems": []
+    },
+    {
+      "output": "jump_variation_60",
+      "group": "added",
+      "extracted": {
+        "L": 60,
+        "kind": "ret",
+        "min": 60,
+        "slot": 60,
+        "sess": 0,
+        "S": 0
+      },
+      "frozen": null,
+      "status": "NO_SPEC",
+      "problems": []
+    },
+    {
+      "output": "drawdown_60",
+      "group": "added",
+      "extracted": {
+        "L": 60,
+        "kind": "ret",
+        "min": 60,
+        "slot": 60,
+        "sess": 0,
+        "S": 0
+      },
+      "frozen": null,
+      "status": "NO_SPEC",
+      "problems": []
+    },
+    {
+      "output": "amihud_60",
+      "group": "added",
+      "extracted": {
+        "L": 60,
+        "kind": "ret",
+        "min": 60,
+        "slot": 60,
+        "sess": 0,
+        "S": 0
+      },
+      "frozen": null,
+      "status": "NO_SPEC",
+      "problems": []
+    },
+    {
+      "output": "skew_60",
+      "group": "added",
+      "extracted": {
+        "L": 60,
+        "kind": "ret",
+        "min": 60,
+        "slot": 60,
+        "sess": 0,
+        "S": 0
+      },
+      "frozen": null,
+      "status": "NO_SPEC",
+      "problems": []
+    },
+    {
+      "output": "kurtosis_excess_60",
+      "group": "added",
+      "extracted": {
+        "L": 60,
+        "kind": "ret",
+        "min": 60,
+        "slot": 60,
+        "sess": 0,
+        "S": 0
+      },
+      "frozen": null,
+      "status": "NO_SPEC",
+      "problems": []
+    },
+    {
+      "output": "variance_ratio2_60",
+      "group": "added",
+      "extracted": {
+        "L": 60,
+        "kind": "ret",
+        "min": 60,
+        "slot": 60,
+        "sess": 0,
+        "S": 0
+      },
+      "frozen": null,
+      "status": "NO_SPEC",
+      "problems": []
+    },
+    {
+      "output": "directional_efficiency_60",
+      "group": "added",
+      "extracted": {
+        "L": 60,
+        "kind": "ret",
+        "min": 60,
+        "slot": 60,
+        "sess": 0,
+        "S": 0
+      },
+      "frozen": null,
+      "status": "NO_SPEC",
+      "problems": []
+    },
+    {
+      "output": "vol_of_vol_60",
+      "group": "added",
+      "extracted": {
+        "L": 60,
+        "kind": "ret",
+        "min": 60,
+        "slot": 60,
+        "sess": 0,
+        "S": 0
+      },
+      "frozen": null,
+      "status": "NO_SPEC",
+      "problems": []
+    },
+    {
+      "output": "extreme_loss_60",
+      "group": "added",
+      "extracted": {
+        "L": 60,
+        "kind": "ret",
+        "min": 60,
+        "slot": 60,
+        "sess": 0,
+        "S": 0
+      },
+      "frozen": null,
+      "status": "NO_SPEC",
+      "problems": []
+    },
+    {
+      "output": "volume_variability_60",
+      "group": "added",
+      "extracted": {
+        "L": 60,
+        "kind": "ret",
+        "min": 60,
+        "slot": 60,
+        "sess": 0,
+        "S": 0
+      },
+      "frozen": null,
+      "status": "NO_SPEC",
+      "problems": []
+    },
+    {
+      "output": "volume_adjusted_range_60",
+      "group": "added",
+      "extracted": {
+        "L": 60,
+        "kind": "ret",
+        "min": 60,
+        "slot": 60,
+        "sess": 0,
+        "S": 0
+      },
+      "frozen": null,
+      "status": "NO_SPEC",
+      "problems": []
+    },
+    {
+      "output": "reversal_60",
+      "group": "added",
+      "extracted": {
+        "L": 60,
+        "kind": "ret",
+        "min": 60,
+        "slot": 60,
+        "sess": 0,
+        "S": 0
+      },
+      "frozen": null,
+      "status": "NO_SPEC",
+      "problems": []
+    },
+    {
+      "output": "return_autocorr1_60",
+      "group": "added",
+      "extracted": {
+        "L": 60,
+        "kind": "ret",
+        "min": 60,
+        "slot": 60,
+        "sess": 0,
+        "S": 0
+      },
+      "frozen": null,
+      "status": "NO_SPEC",
+      "problems": []
+    },
+    {
+      "output": "lee_mykland_approx60",
+      "group": "added",
+      "extracted": {
+        "L": 61,
+        "kind": "ret",
+        "min": 61,
+        "slot": 61,
+        "sess": 0,
+        "S": 0
+      },
+      "frozen": null,
+      "status": "NO_SPEC",
+      "problems": []
+    },
+    {
+      "output": "lee_mykland_jump60",
+      "group": "added",
+      "extracted": {
+        "L": 61,
+        "kind": "ret",
+        "min": 61,
+        "slot": 61,
+        "sess": 0,
+        "S": 0
+      },
+      "frozen": null,
+      "status": "NO_SPEC",
+      "problems": []
+    }
+  ]
+}

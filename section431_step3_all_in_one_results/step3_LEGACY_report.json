@@ -1,0 +1,874 @@
+{
+  "era": "LEGACY",
+  "generated_utc": "2026-10-30T22:38:14.481689+00:00",
+  "checks": {
+    "inventory": {
+      "status": "PASS",
+      "original_count": 35,
+      "additional_output_count": 46
+    },
+    "formula_all_outputs": {
+      "status": "PASS",
+      "outputs_compared": 81,
+      "formulas_verified": 81,
+      "lm_threshold": 5.4667038249290965,
+      "errors": [],
+      "per_output": {
+        "abs_return_1m": {
+          "status": "PASS",
+          "finite": 2362,
+          "oracle_finite": 2362,
+          "max_rel_err": 0.0
+        },
+        "amihud_15": {
+          "status": "PASS",
+          "finite": 1853,
+          "oracle_finite": 1853,
+          "max_rel_err": 0.0
+        },
+        "amihud_30": {
+          "status": "PASS",
+          "finite": 1374,
+          "oracle_finite": 1374,
+          "max_rel_err": 0.0
+        },
+        "amihud_60": {
+          "status": "PASS",
+          "finite": 644,
+          "oracle_finite": 644,
+          "max_rel_err": 0.0
+        },
+        "bipower_15": {
+          "status": "PASS",
+          "finite": 1956,
+          "oracle_finite": 1956,
+          "max_rel_err": 0.0
+        },
+        "bipower_30": {
+          "status": "PASS",
+          "finite": 1545,
+          "oracle_finite": 1545,
+          "max_rel_err": 0.0
+        },
+        "bipower_60": {
+          "status": "PASS",
+          "finite": 803,
+          "oracle_finite": 803,
+          "max_rel_err": 0.0
+        },
+        "close_location_proxy": {
+          "status": "PASS",
+          "finite": 2370,
+          "oracle_finite": 2370,
+          "max_rel_err": 0.0
+        },
+        "directional_efficiency_15": {
+          "status": "PASS",
+          "finite": 1956,
+          "oracle_finite": 1956,
+          "max_rel_err": 0.0
+        },
+        "directional_efficiency_30": {
+          "status": "PASS",
+          "finite": 1545,
+          "oracle_finite": 1545,
+          "max_rel_err": 0.0
+        },
+        "directional_efficiency_60": {
+          "status": "PASS",
+          "finite": 803,
+          "oracle_finite": 803,
+          "max_rel_err": 0.0
+        },
+        "downside10_strict": {
+          "status": "PASS",
+          "finite": 2101,
+          "oracle_finite": 2101,
+          "max_rel_err": 2.1964197024118804e-14
+        },
+        "downside15_partial90": {
+          "status": "PASS",
+          "finite": 1970,
+          "oracle_finite": 1970,
+          "max_rel_err": 9.80523327273318e-15
+        },
+        "downside15_strict": {
+          "status": "PASS",
+          "finite": 1956,
+          "oracle_finite": 1956,
+          "max_rel_err": 9.80523327273318e-15
+        },
+        "downside30_strict": {
+          "status": "PASS",
+          "finite": 1545,
+          "oracle_finite": 1545,
+          "max_rel_err": 2.548718788079374e-15
+        },
+        "downside5_strict": {
+          "status": "PASS",
+          "finite": 2246,
+          "oracle_finite": 2246,
+          "max_rel_err": 1.6360575490291893e-10
+        },
+        "downside60_strict": {
+          "status": "PASS",
+          "finite": 803,
+          "oracle_finite": 803,
+          "max_rel_err": 9.704281418767208e-16
+        },
+        "drawdown_15": {
+          "status": "PASS",
+          "finite": 1956,
+          "oracle_finite": 1956,
+          "max_rel_err": 0.0
+        },
+        "drawdown_30": {
+          "status": "PASS",
+          "finite": 1545,
+          "oracle_finite": 1545,
+          "max_rel_err": 0.0
+        },
+        "drawdown_60": {
+          "status": "PASS",
+          "finite": 803,
+          "oracle_finite": 803,
+          "max_rel_err": 0.0
+        },
+        "extreme_loss_15": {
+          "status": "PASS",
+          "finite": 1956,
+          "oracle_finite": 1956,
+          "max_rel_err": 0.0
+        },
+        "extreme_loss_30": {
+          "status": "PASS",
+          "finite": 1545,
+          "oracle_finite": 1545,
+          "max_rel_err": 0.0
+        },
+        "extreme_loss_60": {
+          "status": "PASS",
+          "finite": 803,
+          "oracle_finite": 803,
+          "max_rel_err": 0.0
+        },
+        "intrabar_range_log": {
+          "status": "PASS",
+          "finite": 2391,
+          "oracle_finite": 2391,
+          "max_rel_err": 0.0
+        },
+        "jump_variation_15": {
+          "status": "PASS",
+          "finite": 1956,
+          "oracle_finite": 1956,
+          "max_rel_err": 0.0
+        },
+        "jump_variation_30": {
+          "status": "PASS",
+          "finite": 1545,
+          "oracle_finite": 1545,
+          "max_rel_err": 0.0
+        },
+        "jump_variation_60": {
+          "status": "PASS",
+          "finite": 803,
+          "oracle_finite": 803,
+          "max_rel_err": 0.0
+        },
+        "kurtosis_excess_15": {
+          "status": "PASS",
+          "finite": 1956,
+          "oracle_finite": 1956,
+          "max_rel_err": 0.0
+        },
+        "kurtosis_excess_30": {
+          "status": "PASS",
+          "finite": 1545,
+          "oracle_finite": 1545,
+          "max_rel_err": 0.0
+        },
+        "kurtosis_excess_60": {
+          "status": "PASS",
+          "finite": 803,
+          "oracle_finite": 803,
+          "max_rel_err": 0.0
+        },
+        "lee_mykland_approx60": {
+          "status": "PASS",
+          "finite": 780,
+          "oracle_finite": 780,
+          "max_rel_err": 3.1521789194920233e-16
+        },
+        "lee_mykland_jump60": {
+          "status": "PASS",
+          "finite": 780,
+          "oracle_finite": 780,
+          "max_rel_err": 0.0
+        },
+        "log_raw_volume": {
+          "status": "PASS",
+          "finite": 2382,
+          "oracle_finite": 2382,
+          "max_rel_err": 0.0
+        },
+        "log_relative_volume20": {
+          "status": "PASS",
+          "finite": 1382,
+          "oracle_finite": 1382,
+          "max_rel_err": 0.0
+        },
+        "momentum10_endpoint": {
+          "status": "PASS",
+          "finite": 2146,
+          "oracle_finite": 2146,
+          "max_rel_err": 0.0
+        },
+        "momentum10_strict": {
+          "status": "PASS",
+          "finite": 2101,
+          "oracle_finite": 2101,
+          "max_rel_err": 6.648570373542952e-13
+        },
+        "momentum15_endpoint": {
+          "status": "PASS",
+          "finite": 2026,
+          "oracle_finite": 2026,
+          "max_rel_err": 0.0
+        },
+        "momentum15_strict": {
+          "status": "PASS",
+          "finite": 1956,
+          "oracle_finite": 1956,
+          "max_rel_err": 1.6120831425510418e-13
+        },
+        "momentum30_endpoint": {
+          "status": "PASS",
+          "finite": 1668,
+          "oracle_finite": 1668,
+          "max_rel_err": 0.0
+        },
+        "momentum30_strict": {
+          "status": "PASS",
+          "finite": 1545,
+          "oracle_finite": 1545,
+          "max_rel_err": 1.2695762720188735e-13
+        },
+        "momentum5_endpoint": {
+          "status": "PASS",
+          "finite": 2266,
+          "oracle_finite": 2266,
+          "max_rel_err": 0.0
+        },
+        "momentum5_strict": {
+          "status": "PASS",
+          "finite": 2246,
+          "oracle_finite": 2246,
+          "max_rel_err": 4.4253030679922426e-13
+        },
+        "momentum60_endpoint": {
+          "status": "PASS",
+          "finite": 952,
+          "oracle_finite": 952,
+          "max_rel_err": 0.0
+        },
+        "momentum60_strict": {
+          "status": "PASS",
+          "finite": 803,
+          "oracle_finite": 803,
+          "max_rel_err": 5.695338272859525e-14
+        },
+        "overnight_return_open": {
+          "status": "PASS",
+          "finite": 2000,
+          "oracle_finite": 2000,
+          "max_rel_err": 0.0
+        },
+        "raw_volume": {
+          "status": "PASS",
+          "finite": 2391,
+          "oracle_finite": 2391,
+          "max_rel_err": 0.0
+        },
+        "relative_volume20": {
+          "status": "PASS",
+          "finite": 1387,
+          "oracle_finite": 1387,
+          "max_rel_err": 0.0
+        },
+        "return_1m": {
+          "status": "PASS",
+          "finite": 2362,
+          "oracle_finite": 2362,
+          "max_rel_err": 0.0
+        },
+        "return_autocorr1_15": {
+          "status": "PASS",
+          "finite": 1956,
+          "oracle_finite": 1956,
+          "max_rel_err": 2.359436741241545e-13
+        },
+        "return_autocorr1_30": {
+          "status": "PASS",
+          "finite": 1545,
+          "oracle_finite": 1545,
+          "max_rel_err": 4.558145645436188e-13
+        },
+        "return_autocorr1_60": {
+          "status": "PASS",
+          "finite": 803,
+          "oracle_finite": 803,
+          "max_rel_err": 1.1387352799213413e-12
+        },
+        "reversal_15": {
+          "status": "PASS",
+          "finite": 1956,
+          "oracle_finite": 1956,
+          "max_rel_err": 0.0
+        },
+        "reversal_30": {
+          "status": "PASS",
+          "finite": 1545,
+          "oracle_finite": 1545,
+          "max_rel_err": 0.0
+        },
+        "reversal_60": {
+          "status": "PASS",
+          "finite": 803,
+          "oracle_finite": 803,
+          "max_rel_err": 0.0
+        },
+        "rv10_partial90": {
+          "status": "PASS",
+          "finite": 2115,
+          "oracle_finite": 2115,
+          "max_rel_err": 7.551037146235566e-15
+        },
+        "rv10_strict": {
+          "status": "PASS",
+          "finite": 2101,
+          "oracle_finite": 2101,
+          "max_rel_err": 7.551037146235566e-15
+        },
+        "rv15_partial90": {
+          "status": "PASS",
+          "finite": 1970,
+          "oracle_finite": 1970,
+          "max_rel_err": 4.128384005457665e-15
+        },
+        "rv15_strict": {
+          "status": "PASS",
+          "finite": 1956,
+          "oracle_finite": 1956,
+          "max_rel_err": 4.128384005457665e-15
+        },
+        "rv30_partial90": {
+          "status": "PASS",
+          "finite": 1680,
+          "oracle_finite": 1680,
+          "max_rel_err": 1.7844133253658302e-15
+        },
+        "rv30_strict": {
+          "status": "PASS",
+          "finite": 1545,
+          "oracle_finite": 1545,
+          "max_rel_err": 1.7844133253658302e-15
+        },
+        "rv5_partial90": {
+          "status": "PASS",
+          "finite": 2246,
+          "oracle_finite": 2246,
+          "max_rel_err": 6.512887693089297e-14
+        },
+        "rv5_strict": {
+          "status": "PASS",
+          "finite": 2246,
+          "oracle_finite": 2246,
+          "max_rel_err": 6.512887693089297e-14
+        },
+        "rv60_partial90": {
+          "status": "PASS",
+          "finite": 960,
+          "oracle_finite": 960,
+          "max_rel_err": 5.531063206755735e-16
+        },
+        "rv60_sampled5_exact": {
+          "status": "PASS",
+          "finite": 924,
+          "oracle_finite": 924,
+          "max_rel_err": 0.0
+        },
+        "rv60_strict": {
+          "status": "PASS",
+          "finite": 803,
+          "oracle_finite": 803,
+          "max_rel_err": 5.531063206755735e-16
+        },
+        "shock_prior60_mad": {
+          "status": "PASS",
+          "finite": 780,
+          "oracle_finite": 780,
+          "max_rel_err": 0.0
+        },
+        "skew_15": {
+          "status": "PASS",
+          "finite": 1956,
+          "oracle_finite": 1956,
+          "max_rel_err": 0.0
+        },
+        "skew_30": {
+          "status": "PASS",
+          "finite": 1545,
+          "oracle_finite": 1545,
+          "max_rel_err": 0.0
+        },
+        "skew_60": {
+          "status": "PASS",
+          "finite": 803,
+          "oracle_finite": 803,
+          "max_rel_err": 0.0
+        },
+        "variance_ratio2_15": {
+          "status": "PASS",
+          "finite": 1956,
+          "oracle_finite": 1956,
+          "max_rel_err": 0.0
+        },
+        "variance_ratio2_30": {
+          "status": "PASS",
+          "finite": 1545,
+          "oracle_finite": 1545,
+          "max_rel_err": 0.0
+        },
+        "variance_ratio2_60": {
+          "status": "PASS",
+          "finite": 803,
+          "oracle_finite": 803,
+          "max_rel_err": 0.0
+        },
+        "vol_of_vol_15": {
+          "status": "PASS",
+          "finite": 1956,
+          "oracle_finite": 1956,
+          "max_rel_err": 0.0
+        },
+        "vol_of_vol_30": {
+          "status": "PASS",
+          "finite": 1545,
+          "oracle_finite": 1545,
+          "max_rel_err": 0.0
+        },
+        "vol_of_vol_60": {
+          "status": "PASS",
+          "finite": 803,
+          "oracle_finite": 803,
+          "max_rel_err": 0.0
+        },
+        "volume_adjusted_range_15": {
+          "status": "PASS",
+          "finite": 1853,
+          "oracle_finite": 1853,
+          "max_rel_err": 0.0
+        },
+        "volume_adjusted_range_30": {
+          "status": "PASS",
+          "finite": 1374,
+          "oracle_finite": 1374,
+          "max_rel_err": 0.0
+        },
+        "volume_adjusted_range_60": {
+          "status": "PASS",
+          "finite": 644,
+          "oracle_finite": 644,
+          "max_rel_err": 0.0
+        },
+        "volume_variability_15": {
+          "status": "PASS",
+          "finite": 1956,
+          "oracle_finite": 1956,
+          "max_rel_err": 0.0
+        },
+        "volume_variability_30": {
+          "status": "PASS",
+          "finite": 1545,
+          "oracle_finite": 1545,
+          "max_rel_err": 0.0
+        },
+        "volume_variability_60": {
+          "status": "PASS",
+          "finite": 803,
+          "oracle_finite": 803,
+          "max_rel_err": 0.0
+        }
+      },
+      "scope": "synthetic 24x100 panel with missing bars, zero volume, zero-range bars, missing open/close endpoints and two large moves"
+    },
+    "formula_spot_checks": {
+      "status": "PASS",
+      "errors": [],
+      "scope": "independent scalar checks for selected implemented formulas, NOT all formulas"
+    },
+    "real_train_prefix_invariance": {
+      "status": "PASS",
+      "cuts": [
+        209700,
+        129540,
+        791760,
+        1242750,
+        484530
+      ],
+      "errors": [],
+      "method": "40-session slice ending at the cut, rebuilt alone; last 15 sessions of the slice compared with the full run"
+    },
+    "prior_session_isolation": {
+      "status": "PASS",
+      "errors": [],
+      "method": "40-session slice ending at the blanked session, rebuilt alone; the 15 sessions before the blanked one compared with the full run"
+    },
+    "numerical_sanity": {
+      "status": "PASS",
+      "errors": []
+    },
+    "deferred_implementations": {
+      "status": "PASS",
+      "unimplemented": []
+    },
+    "provider_isolation": {
+      "status": "PASS",
+      "errors": [],
+      "method": "era-scoped loader; session dates on the correct side of 2022-03-04/2022-03-07; no value inside a window's first bars of a session; first 10 sessions have no relative volume; first-session overnight NaN"
+    }
+  },
+  "source_hashes": {
+    "panel": "b5967d9691c547a3b8a277f97fe2a95e1b1c4a49e4d6476c008a08076ce098df",
+    "etf": "7cd10dfb3e5896b9574a53f35914ce43053705cff9c5ef7029ccb2b88a6c83f7"
+  },
+  "coverage_summary": {
+    "original.return_1m": {
+      "finite": 1488062,
+      "total": 1562460
+    },
+    "original.abs_return_1m": {
+      "finite": 1488062,
+      "total": 1562460
+    },
+    "original.intrabar_range_log": {
+      "finite": 1514451,
+      "total": 1562460
+    },
+    "original.raw_volume": {
+      "finite": 1514451,
+      "total": 1562460
+    },
+    "original.log_raw_volume": {
+      "finite": 1514451,
+      "total": 1562460
+    },
+    "original.relative_volume20": {
+      "finite": 1510551,
+      "total": 1562460
+    },
+    "original.log_relative_volume20": {
+      "finite": 1510551,
+      "total": 1562460
+    },
+    "original.rv5_strict": {
+      "finite": 1398432,
+      "total": 1562460
+    },
+    "original.downside5_strict": {
+      "finite": 1398432,
+      "total": 1562460
+    },
+    "original.momentum5_strict": {
+      "finite": 1398432,
+      "total": 1562460
+    },
+    "original.rv5_partial90": {
+      "finite": 1398432,
+      "total": 1562460
+    },
+    "original.momentum5_endpoint": {
+      "finite": 1455688,
+      "total": 1562460
+    },
+    "original.rv10_strict": {
+      "finite": 1296682,
+      "total": 1562460
+    },
+    "original.downside10_strict": {
+      "finite": 1296682,
+      "total": 1562460
+    },
+    "original.momentum10_strict": {
+      "finite": 1296682,
+      "total": 1562460
+    },
+    "original.rv10_partial90": {
+      "finite": 1329215,
+      "total": 1562460
+    },
+    "original.momentum10_endpoint": {
+      "finite": 1431924,
+      "total": 1562460
+    },
+    "original.rv15_strict": {
+      "finite": 1201273,
+      "total": 1562460
+    },
+    "original.downside15_strict": {
+      "finite": 1201273,
+      "total": 1562460
+    },
+    "original.momentum15_strict": {
+      "finite": 1201273,
+      "total": 1562460
+    },
+    "original.rv15_partial90": {
+      "finite": 1231652,
+      "total": 1562460
+    },
+    "original.momentum15_endpoint": {
+      "finite": 1411774,
+      "total": 1562460
+    },
+    "original.rv30_strict": {
+      "finite": 949397,
+      "total": 1562460
+    },
+    "original.downside30_strict": {
+      "finite": 949397,
+      "total": 1562460
+    },
+    "original.momentum30_strict": {
+      "finite": 949397,
+      "total": 1562460
+    },
+    "original.rv30_partial90": {
+      "finite": 1213296,
+      "total": 1562460
+    },
+    "original.momentum30_endpoint": {
+      "finite": 1354761,
+      "total": 1562460
+    },
+    "original.rv60_strict": {
+      "finite": 589594,
+      "total": 1562460
+    },
+    "original.downside60_strict": {
+      "finite": 589594,
+      "total": 1562460
+    },
+    "original.momentum60_strict": {
+      "finite": 589594,
+      "total": 1562460
+    },
+    "original.rv60_partial90": {
+      "finite": 1133212,
+      "total": 1562460
+    },
+    "original.momentum60_endpoint": {
+      "finite": 1240478,
+      "total": 1562460
+    },
+    "original.downside15_partial90": {
+      "finite": 1231652,
+      "total": 1562460
+    },
+    "original.rv60_sampled5_exact": {
+      "finite": 915971,
+      "total": 1562460
+    },
+    "original.shock_prior60_mad": {
+      "finite": 579333,
+      "total": 1562460
+    },
+    "additional.close_location_proxy": {
+      "finite": 1505039,
+      "total": 1562460
+    },
+    "additional.overnight_return_open": {
+      "finite": 1345740,
+      "total": 1562460
+    },
+    "additional.bipower_15": {
+      "finite": 1201273,
+      "total": 1562460
+    },
+    "additional.jump_variation_15": {
+      "finite": 1201273,
+      "total": 1562460
+    },
+    "additional.drawdown_15": {
+      "finite": 1201273,
+      "total": 1562460
+    },
+    "additional.amihud_15": {
+      "finite": 1201273,
+      "total": 1562460
+    },
+    "additional.skew_15": {
+      "finite": 1201258,
+      "total": 1562460
+    },
+    "additional.kurtosis_excess_15": {
+      "finite": 1201258,
+      "total": 1562460
+    },
+    "additional.variance_ratio2_15": {
+      "finite": 1201258,
+      "total": 1562460
+    },
+    "additional.directional_efficiency_15": {
+      "finite": 1201258,
+      "total": 1562460
+    },
+    "additional.vol_of_vol_15": {
+      "finite": 1201273,
+      "total": 1562460
+    },
+    "additional.extreme_loss_15": {
+      "finite": 1201273,
+      "total": 1562460
+    },
+    "additional.volume_variability_15": {
+      "finite": 1201273,
+      "total": 1562460
+    },
+    "additional.volume_adjusted_range_15": {
+      "finite": 1201273,
+      "total": 1562460
+    },
+    "additional.reversal_15": {
+      "finite": 1189921,
+      "total": 1562460
+    },
+    "additional.return_autocorr1_15": {
+      "finite": 1201245,
+      "total": 1562460
+    },
+    "additional.bipower_30": {
+      "finite": 949397,
+      "total": 1562460
+    },
+    "additional.jump_variation_30": {
+      "finite": 949397,
+      "total": 1562460
+    },
+    "additional.drawdown_30": {
+      "finite": 949397,
+      "total": 1562460
+    },
+    "additional.amihud_30": {
+      "finite": 949397,
+      "total": 1562460
+    },
+    "additional.skew_30": {
+      "finite": 949397,
+      "total": 1562460
+    },
+    "additional.kurtosis_excess_30": {
+      "finite": 949397,
+      "total": 1562460
+    },
+    "additional.variance_ratio2_30": {
+      "finite": 949397,
+      "total": 1562460
+    },
+    "additional.directional_efficiency_30": {
+      "finite": 949397,
+      "total": 1562460
+    },
+    "additional.vol_of_vol_30": {
+      "finite": 949397,
+      "total": 1562460
+    },
+    "additional.extreme_loss_30": {
+      "finite": 949397,
+      "total": 1562460
+    },
+    "additional.volume_variability_30": {
+      "finite": 949397,
+      "total": 1562460
+    },
+    "additional.volume_adjusted_range_30": {
+      "finite": 949397,
+      "total": 1562460
+    },
+    "additional.reversal_30": {
+      "finite": 947882,
+      "total": 1562460
+    },
+    "additional.return_autocorr1_30": {
+      "finite": 949397,
+      "total": 1562460
+    },
+    "additional.bipower_60": {
+      "finite": 589594,
+      "total": 1562460
+    },
+    "additional.jump_variation_60": {
+      "finite": 589594,
+      "total": 1562460
+    },
+    "additional.drawdown_60": {
+      "finite": 589594,
+      "total": 1562460
+    },
+    "additional.amihud_60": {
+      "finite": 589594,
+      "total": 1562460
+    },
+    "additional.skew_60": {
+      "finite": 589594,
+      "total": 1562460
+    },
+    "additional.kurtosis_excess_60": {
+      "finite": 589594,
+      "total": 1562460
+    },
+    "additional.variance_ratio2_60": {
+      "finite": 589594,
+      "total": 1562460
+    },
+    "additional.directional_efficiency_60": {
+      "finite": 589594,
+      "total": 1562460
+    },
+    "additional.vol_of_vol_60": {
+      "finite": 589594,
+      "total": 1562460
+    },
+    "additional.extreme_loss_60": {
+      "finite": 589594,
+      "total": 1562460
+    },
+    "additional.volume_variability_60": {
+      "finite": 589594,
+      "total": 1562460
+    },
+    "additional.volume_adjusted_range_60": {
+      "finite": 589594,
+      "total": 1562460
+    },
+    "additional.reversal_60": {
+      "finite": 589456,
+      "total": 1562460
+    },
+    "additional.return_autocorr1_60": {
+      "finite": 589594,
+      "total": 1562460
+    },
+    "additional.lee_mykland_approx60": {
+      "finite": 580214,
+      "total": 1562460
+    },
+    "additional.lee_mykland_jump60": {
+      "finite": 580214,
+      "total": 1562460
+    }
+  },
+  "status": "PASS",
+  "notes": []
+}

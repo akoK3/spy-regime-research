@@ -1,0 +1,26 @@
+# Whitelist only: everything in Downloads is ignored (data files, results folders, zips,
+# research_hmm_env and any other environment) except the Step 3/4 code, reports and hashes below.
+/*
+!/.gitignore
+!/step3_all_in_one.py
+!/step3_431_verification.py
+!/step4_extract_parameters.py
+
+!/section431_step3_all_in_one_results/
+/section431_step3_all_in_one_results/*
+!/section431_step3_all_in_one_results/step3_RAW_report.json
+!/section431_step3_all_in_one_results/step3_LEGACY_report.json
+!/section431_step3_all_in_one_results/step3_summary.json
+!/section431_step3_all_in_one_results/step3_final_sha256.txt
+!/section431_step3_all_in_one_results/step4_parameter_table.json
+!/section431_step3_all_in_one_results/step4_parameter_table.md
+!/section431_step3_all_in_one_results/step4_final_sha256.txt
+!/section431_step3_all_in_one_results/step4_run_log.txt
+!/section431_step3_all_in_one_results/run_log_RAW_final.txt
+!/section431_step3_all_in_one_results/run_log_LEGACY_final.txt
+
+!/section431_step3_verification/
+/section431_step3_verification/*
+!/section431_step3_verification/prototype_sources/
+/section431_step3_verification/prototype_sources/*
+!/section431_step3_verification/prototype_sources/*.py

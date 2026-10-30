@@ -1,0 +1,236 @@
+[    0.0 min] RAW: loading panel and ETF files
+[    0.0 min] RAW: loaded 274050 rows, 705 sessions
+[    0.0 min]   RAW full run: original features
+[    0.1 min]   RAW full run: additional features
+[    0.2 min]   RAW full run: session 35/705, about 2.5 min left in this pass
+[    0.3 min]   RAW full run: session 70/705, about 2.4 min left in this pass
+[    0.4 min]   RAW full run: session 105/705, about 2.3 min left in this pass
+[    0.6 min]   RAW full run: session 140/705, about 2.1 min left in this pass
+[    0.7 min]   RAW full run: session 175/705, about 2.0 min left in this pass
+[    0.8 min]   RAW full run: session 210/705, about 1.9 min left in this pass
+[    1.0 min]   RAW full run: session 245/705, about 1.7 min left in this pass
+[    1.1 min]   RAW full run: session 280/705, about 1.6 min left in this pass
+[    1.2 min]   RAW full run: session 315/705, about 1.5 min left in this pass
+[    1.4 min]   RAW full run: session 350/705, about 1.3 min left in this pass
+[    1.5 min]   RAW full run: session 385/705, about 1.2 min left in this pass
+[    1.6 min]   RAW full run: session 420/705, about 1.1 min left in this pass
+[    1.7 min]   RAW full run: session 455/705, about 0.9 min left in this pass
+[    1.9 min]   RAW full run: session 490/705, about 0.8 min left in this pass
+[    2.0 min]   RAW full run: session 525/705, about 0.7 min left in this pass
+[    2.1 min]   RAW full run: session 560/705, about 0.5 min left in this pass
+[    2.2 min]   RAW full run: session 595/705, about 0.4 min left in this pass
+[    2.4 min]   RAW full run: session 630/705, about 0.3 min left in this pass
+[    2.5 min]   RAW full run: session 665/705, about 0.1 min left in this pass
+[    2.6 min]   RAW full run: session 700/705, about 0.0 min left in this pass
+[    2.6 min]   RAW full run: done
+[    2.6 min] RAW: hashing source files
+[    2.6 min] RAW: formula checks, all 81 outputs, synthetic panel
+[    2.7 min] RAW: formula spot checks
+[    2.7 min]   RAW prefix 1/5: original features
+[    2.7 min]   RAW prefix 1/5: additional features
+[    2.7 min]   RAW prefix 1/5: session 2/40, about 0.1 min left in this pass
+[    2.7 min]   RAW prefix 1/5: session 4/40, about 0.1 min left in this pass
+[    2.7 min]   RAW prefix 1/5: session 6/40, about 0.1 min left in this pass
+[    2.7 min]   RAW prefix 1/5: session 8/40, about 0.1 min left in this pass
+[    2.7 min]   RAW prefix 1/5: session 10/40, about 0.1 min left in this pass
+[    2.7 min]   RAW prefix 1/5: session 12/40, about 0.1 min left in this pass
+[    2.7 min]   RAW prefix 1/5: session 14/40, about 0.1 min left in this pass
+[    2.7 min]   RAW prefix 1/5: session 16/40, about 0.1 min left in this pass
+[    2.7 min]   RAW prefix 1/5: session 18/40, about 0.1 min left in this pass
+[    2.7 min]   RAW prefix 1/5: session 20/40, about 0.1 min left in this pass
+[    2.7 min]   RAW prefix 1/5: session 22/40, about 0.1 min left in this pass
+[    2.8 min]   RAW prefix 1/5: session 24/40, about 0.1 min left in this pass
+[    2.8 min]   RAW prefix 1/5: session 26/40, about 0.1 min left in this pass
+[    2.8 min]   RAW prefix 1/5: session 28/40, about 0.0 min left in this pass
+[    2.8 min]   RAW prefix 1/5: session 30/40, about 0.0 min left in this pass
+[    2.8 min]   RAW prefix 1/5: session 32/40, about 0.0 min left in this pass
+[    2.8 min]   RAW prefix 1/5: session 34/40, about 0.0 min left in this pass
+[    2.8 min]   RAW prefix 1/5: session 36/40, about 0.0 min left in this pass
+[    2.8 min]   RAW prefix 1/5: session 38/40, about 0.0 min left in this pass
+[    2.8 min]   RAW prefix 1/5: done
+[    2.8 min]   RAW prefix 2/5: original features
+[    2.8 min]   RAW prefix 2/5: additional features
+[    2.8 min]   RAW prefix 2/5: session 2/40, about 0.1 min left in this pass
+[    2.8 min]   RAW prefix 2/5: session 4/40, about 0.1 min left in this pass
+[    2.8 min]   RAW prefix 2/5: session 6/40, about 0.1 min left in this pass
+[    2.8 min]   RAW prefix 2/5: session 8/40, about 0.1 min left in this pass
+[    2.8 min]   RAW prefix 2/5: session 10/40, about 0.1 min left in this pass
+[    2.9 min]   RAW prefix 2/5: session 12/40, about 0.1 min left in this pass
+[    2.9 min]   RAW prefix 2/5: session 14/40, about 0.1 min left in this pass
+[    2.9 min]   RAW prefix 2/5: session 16/40, about 0.1 min left in this pass
+[    2.9 min]   RAW prefix 2/5: session 18/40, about 0.1 min left in this pass
+[    2.9 min]   RAW prefix 2/5: session 20/40, about 0.1 min left in this pass
+[    2.9 min]   RAW prefix 2/5: session 22/40, about 0.1 min left in this pass
+[    2.9 min]   RAW prefix 2/5: session 24/40, about 0.1 min left in this pass
+[    2.9 min]   RAW prefix 2/5: session 26/40, about 0.1 min left in this pass
+[    2.9 min]   RAW prefix 2/5: session 28/40, about 0.0 min left in this pass
+[    2.9 min]   RAW prefix 2/5: session 30/40, about 0.0 min left in this pass
+[    2.9 min]   RAW prefix 2/5: session 32/40, about 0.0 min left in this pass
+[    2.9 min]   RAW prefix 2/5: session 34/40, about 0.0 min left in this pass
+[    2.9 min]   RAW prefix 2/5: session 36/40, about 0.0 min left in this pass
+[    3.0 min]   RAW prefix 2/5: session 38/40, about 0.0 min left in this pass
+[    3.0 min]   RAW prefix 2/5: done
+[    3.0 min]   RAW prefix 3/5: original features
+[    3.0 min]   RAW prefix 3/5: additional features
+[    3.0 min]   RAW prefix 3/5: session 2/40, about 0.1 min left in this pass
+[    3.0 min]   RAW prefix 3/5: session 4/40, about 0.1 min left in this pass
+[    3.0 min]   RAW prefix 3/5: session 6/40, about 0.1 min left in this pass
+[    3.0 min]   RAW prefix 3/5: session 8/40, about 0.1 min left in this pass
+[    3.0 min]   RAW prefix 3/5: session 10/40, about 0.1 min left in this pass
+[    3.0 min]   RAW prefix 3/5: session 12/40, about 0.1 min left in this pass
+[    3.0 min]   RAW prefix 3/5: session 14/40, about 0.1 min left in this pass
+[    3.0 min]   RAW prefix 3/5: session 16/40, about 0.1 min left in this pass
+[    3.0 min]   RAW prefix 3/5: session 18/40, about 0.1 min left in this pass
+[    3.0 min]   RAW prefix 3/5: session 20/40, about 0.1 min left in this pass
+[    3.0 min]   RAW prefix 3/5: session 22/40, about 0.1 min left in this pass
+[    3.1 min]   RAW prefix 3/5: session 24/40, about 0.1 min left in this pass
+[    3.1 min]   RAW prefix 3/5: session 26/40, about 0.1 min left in this pass
+[    3.1 min]   RAW prefix 3/5: session 28/40, about 0.0 min left in this pass
+[    3.1 min]   RAW prefix 3/5: session 30/40, about 0.0 min left in this pass
+[    3.1 min]   RAW prefix 3/5: session 32/40, about 0.0 min left in this pass
+[    3.1 min]   RAW prefix 3/5: session 34/40, about 0.0 min left in this pass
+[    3.1 min]   RAW prefix 3/5: session 36/40, about 0.0 min left in this pass
+[    3.1 min]   RAW prefix 3/5: session 38/40, about 0.0 min left in this pass
+[    3.1 min]   RAW prefix 3/5: done
+[    3.1 min]   RAW prefix 4/5: original features
+[    3.1 min]   RAW prefix 4/5: additional features
+[    3.1 min]   RAW prefix 4/5: session 2/40, about 0.1 min left in this pass
+[    3.1 min]   RAW prefix 4/5: session 4/40, about 0.1 min left in this pass
+[    3.1 min]   RAW prefix 4/5: session 6/40, about 0.1 min left in this pass
+[    3.1 min]   RAW prefix 4/5: session 8/40, about 0.1 min left in this pass
+[    3.1 min]   RAW prefix 4/5: session 10/40, about 0.1 min left in this pass
+[    3.2 min]   RAW prefix 4/5: session 12/40, about 0.1 min left in this pass
+[    3.2 min]   RAW prefix 4/5: session 14/40, about 0.1 min left in this pass
+[    3.2 min]   RAW prefix 4/5: session 16/40, about 0.1 min left in this pass
+[    3.2 min]   RAW prefix 4/5: session 18/40, about 0.1 min left in this pass
+[    3.2 min]   RAW prefix 4/5: session 20/40, about 0.1 min left in this pass
+[    3.2 min]   RAW prefix 4/5: session 22/40, about 0.1 min left in this pass
+[    3.2 min]   RAW prefix 4/5: session 24/40, about 0.1 min left in this pass
+[    3.2 min]   RAW prefix 4/5: session 26/40, about 0.1 min left in this pass
+[    3.2 min]   RAW prefix 4/5: session 28/40, about 0.0 min left in this pass
+[    3.2 min]   RAW prefix 4/5: session 30/40, about 0.0 min left in this pass
+[    3.2 min]   RAW prefix 4/5: session 32/40, about 0.0 min left in this pass
+[    3.2 min]   RAW prefix 4/5: session 34/40, about 0.0 min left in this pass
+[    3.2 min]   RAW prefix 4/5: session 36/40, about 0.0 min left in this pass
+[    3.2 min]   RAW prefix 4/5: session 38/40, about 0.0 min left in this pass
+[    3.3 min]   RAW prefix 4/5: done
+[    3.3 min]   RAW prefix 5/5: original features
+[    3.3 min]   RAW prefix 5/5: additional features
+[    3.3 min]   RAW prefix 5/5: session 2/40, about 0.1 min left in this pass
+[    3.3 min]   RAW prefix 5/5: session 4/40, about 0.1 min left in this pass
+[    3.3 min]   RAW prefix 5/5: session 6/40, about 0.1 min left in this pass
+[    3.3 min]   RAW prefix 5/5: session 8/40, about 0.1 min left in this pass
+[    3.3 min]   RAW prefix 5/5: session 10/40, about 0.1 min left in this pass
+[    3.3 min]   RAW prefix 5/5: session 12/40, about 0.1 min left in this pass
+[    3.3 min]   RAW prefix 5/5: session 14/40, about 0.1 min left in this pass
+[    3.3 min]   RAW prefix 5/5: session 16/40, about 0.1 min left in this pass
+[    3.3 min]   RAW prefix 5/5: session 18/40, about 0.1 min left in this pass
+[    3.3 min]   RAW prefix 5/5: session 20/40, about 0.1 min left in this pass
+[    3.3 min]   RAW prefix 5/5: session 22/40, about 0.1 min left in this pass
+[    3.3 min]   RAW prefix 5/5: session 24/40, about 0.1 min left in this pass
+[    3.3 min]   RAW prefix 5/5: session 26/40, about 0.0 min left in this pass
+[    3.4 min]   RAW prefix 5/5: session 28/40, about 0.0 min left in this pass
+[    3.4 min]   RAW prefix 5/5: session 30/40, about 0.0 min left in this pass
+[    3.4 min]   RAW prefix 5/5: session 32/40, about 0.0 min left in this pass
+[    3.4 min]   RAW prefix 5/5: session 34/40, about 0.0 min left in this pass
+[    3.4 min]   RAW prefix 5/5: session 36/40, about 0.0 min left in this pass
+[    3.4 min]   RAW prefix 5/5: session 38/40, about 0.0 min left in this pass
+[    3.4 min]   RAW prefix 5/5: done
+[    3.4 min]   RAW isolation 1/4: original features
+[    3.4 min]   RAW isolation 1/4: additional features
+[    3.4 min]   RAW isolation 1/4: session 2/40, about 0.1 min left in this pass
+[    3.4 min]   RAW isolation 1/4: session 4/40, about 0.1 min left in this pass
+[    3.4 min]   RAW isolation 1/4: session 6/40, about 0.1 min left in this pass
+[    3.4 min]   RAW isolation 1/4: session 8/40, about 0.1 min left in this pass
+[    3.4 min]   RAW isolation 1/4: session 10/40, about 0.1 min left in this pass
+[    3.4 min]   RAW isolation 1/4: session 12/40, about 0.1 min left in this pass
+[    3.5 min]   RAW isolation 1/4: session 14/40, about 0.1 min left in this pass
+[    3.5 min]   RAW isolation 1/4: session 16/40, about 0.1 min left in this pass
+[    3.5 min]   RAW isolation 1/4: session 18/40, about 0.1 min left in this pass
+[    3.5 min]   RAW isolation 1/4: session 20/40, about 0.1 min left in this pass
+[    3.5 min]   RAW isolation 1/4: session 22/40, about 0.1 min left in this pass
+[    3.5 min]   RAW isolation 1/4: session 24/40, about 0.1 min left in this pass
+[    3.5 min]   RAW isolation 1/4: session 26/40, about 0.1 min left in this pass
+[    3.5 min]   RAW isolation 1/4: session 28/40, about 0.0 min left in this pass
+[    3.5 min]   RAW isolation 1/4: session 30/40, about 0.0 min left in this pass
+[    3.5 min]   RAW isolation 1/4: session 32/40, about 0.0 min left in this pass
+[    3.5 min]   RAW isolation 1/4: session 34/40, about 0.0 min left in this pass
+[    3.5 min]   RAW isolation 1/4: session 36/40, about 0.0 min left in this pass
+[    3.5 min]   RAW isolation 1/4: session 38/40, about 0.0 min left in this pass
+[    3.5 min]   RAW isolation 1/4: done
+[    3.5 min]   RAW isolation 2/4: original features
+[    3.5 min]   RAW isolation 2/4: additional features
+[    3.6 min]   RAW isolation 2/4: session 2/40, about 0.1 min left in this pass
+[    3.6 min]   RAW isolation 2/4: session 4/40, about 0.1 min left in this pass
+[    3.6 min]   RAW isolation 2/4: session 6/40, about 0.1 min left in this pass
+[    3.6 min]   RAW isolation 2/4: session 8/40, about 0.1 min left in this pass
+[    3.6 min]   RAW isolation 2/4: session 10/40, about 0.1 min left in this pass
+[    3.6 min]   RAW isolation 2/4: session 12/40, about 0.1 min left in this pass
+[    3.6 min]   RAW isolation 2/4: session 14/40, about 0.1 min left in this pass
+[    3.6 min]   RAW isolation 2/4: session 16/40, about 0.1 min left in this pass
+[    3.6 min]   RAW isolation 2/4: session 18/40, about 0.1 min left in this pass
+[    3.6 min]   RAW isolation 2/4: session 20/40, about 0.1 min left in this pass
+[    3.6 min]   RAW isolation 2/4: session 22/40, about 0.1 min left in this pass
+[    3.6 min]   RAW isolation 2/4: session 24/40, about 0.1 min left in this pass
+[    3.6 min]   RAW isolation 2/4: session 26/40, about 0.1 min left in this pass
+[    3.7 min]   RAW isolation 2/4: session 28/40, about 0.0 min left in this pass
+[    3.7 min]   RAW isolation 2/4: session 30/40, about 0.0 min left in this pass
+[    3.7 min]   RAW isolation 2/4: session 32/40, about 0.0 min left in this pass
+[    3.7 min]   RAW isolation 2/4: session 34/40, about 0.0 min left in this pass
+[    3.7 min]   RAW isolation 2/4: session 36/40, about 0.0 min left in this pass
+[    3.7 min]   RAW isolation 2/4: session 38/40, about 0.0 min left in this pass
+[    3.7 min]   RAW isolation 2/4: done
+[    3.7 min]   RAW isolation 3/4: original features
+[    3.7 min]   RAW isolation 3/4: additional features
+[    3.7 min]   RAW isolation 3/4: session 2/40, about 0.1 min left in this pass
+[    3.7 min]   RAW isolation 3/4: session 4/40, about 0.1 min left in this pass
+[    3.7 min]   RAW isolation 3/4: session 6/40, about 0.1 min left in this pass
+[    3.7 min]   RAW isolation 3/4: session 8/40, about 0.1 min left in this pass
+[    3.7 min]   RAW isolation 3/4: session 10/40, about 0.1 min left in this pass
+[    3.7 min]   RAW isolation 3/4: session 12/40, about 0.1 min left in this pass
+[    3.7 min]   RAW isolation 3/4: session 14/40, about 0.1 min left in this pass
+[    3.7 min]   RAW isolation 3/4: session 16/40, about 0.1 min left in this pass
+[    3.8 min]   RAW isolation 3/4: session 18/40, about 0.1 min left in this pass
+[    3.8 min]   RAW isolation 3/4: session 20/40, about 0.1 min left in this pass
+[    3.8 min]   RAW isolation 3/4: session 22/40, about 0.1 min left in this pass
+[    3.8 min]   RAW isolation 3/4: session 24/40, about 0.1 min left in this pass
+[    3.8 min]   RAW isolation 3/4: session 26/40, about 0.1 min left in this pass
+[    3.8 min]   RAW isolation 3/4: session 28/40, about 0.0 min left in this pass
+[    3.8 min]   RAW isolation 3/4: session 30/40, about 0.0 min left in this pass
+[    3.8 min]   RAW isolation 3/4: session 32/40, about 0.0 min left in this pass
+[    3.8 min]   RAW isolation 3/4: session 34/40, about 0.0 min left in this pass
+[    3.8 min]   RAW isolation 3/4: session 36/40, about 0.0 min left in this pass
+[    3.8 min]   RAW isolation 3/4: session 38/40, about 0.0 min left in this pass
+[    3.8 min]   RAW isolation 3/4: done
+[    3.8 min]   RAW isolation 4/4: original features
+[    3.8 min]   RAW isolation 4/4: additional features
+[    3.8 min]   RAW isolation 4/4: session 2/40, about 0.1 min left in this pass
+[    3.8 min]   RAW isolation 4/4: session 4/40, about 0.1 min left in this pass
+[    3.9 min]   RAW isolation 4/4: session 6/40, about 0.1 min left in this pass
+[    3.9 min]   RAW isolation 4/4: session 8/40, about 0.1 min left in this pass
+[    3.9 min]   RAW isolation 4/4: session 10/40, about 0.1 min left in this pass
+[    3.9 min]   RAW isolation 4/4: session 12/40, about 0.1 min left in this pass
+[    3.9 min]   RAW isolation 4/4: session 14/40, about 0.1 min left in this pass
+[    3.9 min]   RAW isolation 4/4: session 16/40, about 0.1 min left in this pass
+[    3.9 min]   RAW isolation 4/4: session 18/40, about 0.1 min left in this pass
+[    3.9 min]   RAW isolation 4/4: session 20/40, about 0.1 min left in this pass
+[    3.9 min]   RAW isolation 4/4: session 22/40, about 0.1 min left in this pass
+[    3.9 min]   RAW isolation 4/4: session 24/40, about 0.1 min left in this pass
+[    3.9 min]   RAW isolation 4/4: session 26/40, about 0.1 min left in this pass
+[    3.9 min]   RAW isolation 4/4: session 28/40, about 0.0 min left in this pass
+[    3.9 min]   RAW isolation 4/4: session 30/40, about 0.0 min left in this pass
+[    3.9 min]   RAW isolation 4/4: session 32/40, about 0.0 min left in this pass
+[    4.0 min]   RAW isolation 4/4: session 34/40, about 0.0 min left in this pass
+[    4.0 min]   RAW isolation 4/4: session 36/40, about 0.0 min left in this pass
+[    4.0 min]   RAW isolation 4/4: session 38/40, about 0.0 min left in this pass
+[    4.0 min]   RAW isolation 4/4: done
+[    4.0 min] RAW: numerical sanity checks
+RAW: PASS — C:\Users\kakij\Downloads\section431_step3_all_in_one_results\step3_RAW_report.json
+  inventory: PASS
+  formula_all_outputs: PASS
+  formula_spot_checks: PASS
+  real_train_prefix_invariance: PASS
+  prior_session_isolation: PASS
+  numerical_sanity: PASS
+  deferred_implementations: PASS
+  provider_isolation: PASS

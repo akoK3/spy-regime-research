@@ -1,0 +1,7 @@
+{
+  "reports": {
+    "RAW": "PASS",
+    "LEGACY": "PASS"
+  },
+  "rule": "an era is PASS only if every check in its report is PASS"
+}
