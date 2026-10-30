@@ -1,0 +1,257 @@
+{
+  "generated_utc": "2026-10-30T23:33:17.259931+00:00",
+  "verification_report": "policy_4_3_1_P1_verification_20261030T233210Z.json",
+  "verification_report_sha256": "ebef788e7fab08254a6bd4828bf0cf10f176dbf3757604da61be4d44f72d32a2",
+  "datasets": {
+    "synthetic panel": {
+      "rv10_partial90": {
+        "mismatching_rows": 22,
+        "rows_compared": 2376,
+        "original_nan_delayed_finite": 22,
+        "original_finite_delayed_nan": 0,
+        "both_finite_but_different": 0,
+        "delayed_slots_with_mismatch": [
+          10
+        ],
+        "sessions_with_mismatch": 22,
+        "expected_edge": "delayed slot == W (first computable row; original needs slot >= W)",
+        "W": 10,
+        "all_mismatches_at_slot_W_only": true
+      },
+      "rv15_partial90": {
+        "mismatching_rows": 22,
+        "rows_compared": 2376,
+        "original_nan_delayed_finite": 22,
+        "original_finite_delayed_nan": 0,
+        "both_finite_but_different": 0,
+        "delayed_slots_with_mismatch": [
+          15
+        ],
+        "sessions_with_mismatch": 22,
+        "expected_edge": "delayed slot == W (first computable row; original needs slot >= W)",
+        "W": 15,
+        "all_mismatches_at_slot_W_only": true
+      },
+      "rv30_partial90": {
+        "mismatching_rows": 24,
+        "rows_compared": 2376,
+        "original_nan_delayed_finite": 24,
+        "original_finite_delayed_nan": 0,
+        "both_finite_but_different": 0,
+        "delayed_slots_with_mismatch": [
+          30
+        ],
+        "sessions_with_mismatch": 24,
+        "expected_edge": "delayed slot == W (first computable row; original needs slot >= W)",
+        "W": 30,
+        "all_mismatches_at_slot_W_only": true
+      },
+      "rv60_partial90": {
+        "mismatching_rows": 24,
+        "rows_compared": 2376,
+        "original_nan_delayed_finite": 24,
+        "original_finite_delayed_nan": 0,
+        "both_finite_but_different": 0,
+        "delayed_slots_with_mismatch": [
+          60
+        ],
+        "sessions_with_mismatch": 24,
+        "expected_edge": "delayed slot == W (first computable row; original needs slot >= W)",
+        "W": 60,
+        "all_mismatches_at_slot_W_only": true
+      },
+      "downside15_partial90": {
+        "mismatching_rows": 22,
+        "rows_compared": 2376,
+        "original_nan_delayed_finite": 22,
+        "original_finite_delayed_nan": 0,
+        "both_finite_but_different": 0,
+        "delayed_slots_with_mismatch": [
+          15
+        ],
+        "sessions_with_mismatch": 22,
+        "expected_edge": "delayed slot == W (first computable row; original needs slot >= W)",
+        "W": 15,
+        "all_mismatches_at_slot_W_only": true
+      }
+    },
+    "RAW 40-session slice": {
+      "relative_volume20": {
+        "mismatching_rows": 19,
+        "rows_compared": 15380,
+        "original_nan_delayed_finite": 0,
+        "original_finite_delayed_nan": 0,
+        "both_finite_but_different": 19,
+        "delayed_slots_with_mismatch": [
+          210
+        ],
+        "sessions_with_mismatch": 19,
+        "expected_edge": "slot right after an early-close session's last bar, in the 20 sessions after it",
+        "W": null,
+        "early_close_session_indexes": [
+          20
+        ],
+        "all_mismatches_after_early_close": true
+      },
+      "log_relative_volume20": {
+        "mismatching_rows": 19,
+        "rows_compared": 15380,
+        "original_nan_delayed_finite": 0,
+        "original_finite_delayed_nan": 0,
+        "both_finite_but_different": 19,
+        "delayed_slots_with_mismatch": [
+          210
+        ],
+        "sessions_with_mismatch": 19,
+        "expected_edge": "slot right after an early-close session's last bar, in the 20 sessions after it",
+        "W": null,
+        "early_close_session_indexes": [
+          20
+        ],
+        "all_mismatches_after_early_close": true
+      },
+      "rv10_partial90": {
+        "mismatching_rows": 40,
+        "rows_compared": 15380,
+        "original_nan_delayed_finite": 40,
+        "original_finite_delayed_nan": 0,
+        "both_finite_but_different": 0,
+        "delayed_slots_with_mismatch": [
+          10
+        ],
+        "sessions_with_mismatch": 40,
+        "expected_edge": "delayed slot == W (first computable row; original needs slot >= W)",
+        "W": 10,
+        "all_mismatches_at_slot_W_only": true
+      },
+      "rv15_partial90": {
+        "mismatching_rows": 40,
+        "rows_compared": 15380,
+        "original_nan_delayed_finite": 40,
+        "original_finite_delayed_nan": 0,
+        "both_finite_but_different": 0,
+        "delayed_slots_with_mismatch": [
+          15
+        ],
+        "sessions_with_mismatch": 40,
+        "expected_edge": "delayed slot == W (first computable row; original needs slot >= W)",
+        "W": 15,
+        "all_mismatches_at_slot_W_only": true
+      },
+      "rv30_partial90": {
+        "mismatching_rows": 40,
+        "rows_compared": 15380,
+        "original_nan_delayed_finite": 40,
+        "original_finite_delayed_nan": 0,
+        "both_finite_but_different": 0,
+        "delayed_slots_with_mismatch": [
+          30
+        ],
+        "sessions_with_mismatch": 40,
+        "expected_edge": "delayed slot == W (first computable row; original needs slot >= W)",
+        "W": 30,
+        "all_mismatches_at_slot_W_only": true
+      },
+      "rv60_partial90": {
+        "mismatching_rows": 40,
+        "rows_compared": 15380,
+        "original_nan_delayed_finite": 40,
+        "original_finite_delayed_nan": 0,
+        "both_finite_but_different": 0,
+        "delayed_slots_with_mismatch": [
+          60
+        ],
+        "sessions_with_mismatch": 40,
+        "expected_edge": "delayed slot == W (first computable row; original needs slot >= W)",
+        "W": 60,
+        "all_mismatches_at_slot_W_only": true
+      },
+      "downside15_partial90": {
+        "mismatching_rows": 40,
+        "rows_compared": 15380,
+        "original_nan_delayed_finite": 40,
+        "original_finite_delayed_nan": 0,
+        "both_finite_but_different": 0,
+        "delayed_slots_with_mismatch": [
+          15
+        ],
+        "sessions_with_mismatch": 40,
+        "expected_edge": "delayed slot == W (first computable row; original needs slot >= W)",
+        "W": 15,
+        "all_mismatches_at_slot_W_only": true
+      }
+    },
+    "LEGACY 40-session slice": {
+      "rv10_partial90": {
+        "mismatching_rows": 32,
+        "rows_compared": 15560,
+        "original_nan_delayed_finite": 32,
+        "original_finite_delayed_nan": 0,
+        "both_finite_but_different": 0,
+        "delayed_slots_with_mismatch": [
+          10
+        ],
+        "sessions_with_mismatch": 32,
+        "expected_edge": "delayed slot == W (first computable row; original needs slot >= W)",
+        "W": 10,
+        "all_mismatches_at_slot_W_only": true
+      },
+      "rv15_partial90": {
+        "mismatching_rows": 31,
+        "rows_compared": 15560,
+        "original_nan_delayed_finite": 31,
+        "original_finite_delayed_nan": 0,
+        "both_finite_but_different": 0,
+        "delayed_slots_with_mismatch": [
+          15
+        ],
+        "sessions_with_mismatch": 31,
+        "expected_edge": "delayed slot == W (first computable row; original needs slot >= W)",
+        "W": 15,
+        "all_mismatches_at_slot_W_only": true
+      },
+      "rv30_partial90": {
+        "mismatching_rows": 35,
+        "rows_compared": 15560,
+        "original_nan_delayed_finite": 35,
+        "original_finite_delayed_nan": 0,
+        "both_finite_but_different": 0,
+        "delayed_slots_with_mismatch": [
+          30
+        ],
+        "sessions_with_mismatch": 35,
+        "expected_edge": "delayed slot == W (first computable row; original needs slot >= W)",
+        "W": 30,
+        "all_mismatches_at_slot_W_only": true
+      },
+      "rv60_partial90": {
+        "mismatching_rows": 35,
+        "rows_compared": 15560,
+        "original_nan_delayed_finite": 35,
+        "original_finite_delayed_nan": 0,
+        "both_finite_but_different": 0,
+        "delayed_slots_with_mismatch": [
+          60
+        ],
+        "sessions_with_mismatch": 35,
+        "expected_edge": "delayed slot == W (first computable row; original needs slot >= W)",
+        "W": 60,
+        "all_mismatches_at_slot_W_only": true
+      },
+      "downside15_partial90": {
+        "mismatching_rows": 31,
+        "rows_compared": 15560,
+        "original_nan_delayed_finite": 31,
+        "original_finite_delayed_nan": 0,
+        "both_finite_but_different": 0,
+        "delayed_slots_with_mismatch": [
+          15
+        ],
+        "sessions_with_mismatch": 31,
+        "expected_edge": "delayed slot == W (first computable row; original needs slot >= W)",
+        "W": 15,
+        "all_mismatches_at_slot_W_only": true
+      }
+    }
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "policy": "4.3.1-P1",
+  "created_utc": "2026-10-30T23:31:23.585756+00:00",
+  "created_america_new_york": "2026-10-30T19:31:23.585756-04:00",
+  "status": "POLICY_WRITTEN_AFTER_IMPLEMENTATION",
+  "written_after_implementation": {
+    "statement": "This policy was written after the features were implemented and audited. It states the rules the implementation follows and that later work must keep; it is not an ex-ante preregistration.",
+    "evidence_sha256": {
+      "step3_all_in_one.py": "f42150ccc1a45fb44a184c58b31e93f57e00f1e6318756f871ba3fb15cf5f40d",
+      "step4_extract_parameters.py": "8a62f1dae57a6c26451860d0015300c7d22954afa53016268f48b28e807e18b1",
+      "section4_3_1_candidates.py": "4c8d2b528ff8b86a2885426d974e9be97fbc3d264d60b4e2bf38f16981204878",
+      "section431_additions.py": "c8a550f7777abcfdd3e46132f76c25748ed62be15b430d40a5c23556f6308448",
+      "step3_RAW_report.json": "b586ee682467f3ac978884dd1895e7b1078713a7b173f7a419246b459dafc61b",
+      "step3_LEGACY_report.json": "35461cda5821c1038d05add319afb8fc808c756df47b9919b32fea6988182f3c",
+      "step4_parameter_table.json": "f8ca6c42300b6118a0abe038221cf6fda9fbfa8864ed47001212ad35dcf73df9",
+      "amendment_4_3_1_A2_20261030T231344Z.json": "2e2beb61489203c62988fda83ec0b1b7696f2a4d3bb1aa7f68a85275cae93ad5"
+    },
+    "evidence_git_commit": "e608a2d962cbed1d6d0f557c156d66d9d88bc6c5"
+  },
+  "basis": {
+    "frozen_protocol": {
+      "file": "protocol_20261029T032641Z.json",
+      "sha256": "3d6f0c96fce1c05f8e94d1a8c6e6b14a5b5b1c9f013e6a95dd1e96498cbfff8b"
+    },
+    "amendment_A2": {
+      "file": "amendment_4_3_1_A2_20261030T231344Z.json",
+      "sha256": "2e2beb61489203c62988fda83ec0b1b7696f2a4d3bb1aa7f68a85275cae93ad5"
+    }
+  },
+  "rules": [
+    {
+      "id": "R1",
+      "title": "Availability",
+      "rule": "A bar stamped t (minute start) covers [t, t+60 s). The bar and anything computed from it are known only at t+1 minute, so a feature row stamped t may be used only at decision times >= t+1 minute. No feature at row t may use a bar stamped after t.",
+      "enforced_by": "load_development asserts available == t + 60 s for every bar; construction is trailing-only (Step 4 finds no output that reads bars after t).",
+      "verified_by": "Step 3 reports (loader assertion ran without error, prefix invariance), Step 4 table (no lookahead), delay test"
+    },
+    {
+      "id": "R2",
+      "title": "Session reset",
+      "rule": "Every window resets at the session open: a feature at slot j uses only bars of the same session at slots <= j, so the first W bars of a session (W = the output's lookback) are NaN. The only cross-session value is the baseline of relative_volume20 and log_relative_volume20: the median of positive volumes at the same slot over the previous 20 sessions of the same era, with at least 10 required. No other detector output uses data from another session.",
+      "enforced_by": "construct, construct_additions and construct_deferred work per session; relative_volume uses the previous 20 sessions of the loaded era.",
+      "verified_by": "Step 4 table (sessions of history), Step 3 provider_isolation and prior_session_isolation, delay test"
+    },
+    {
+      "id": "R3",
+      "title": "Provider boundary",
+      "rule": "LEGACY (through 2022-03-04) and RAW (from 2022-03-07) are loaded and computed separately. No return, window, volume history (including the relative-volume baseline), scaler, fit or state crosses the boundary. The first 10 sessions of each era have no relative volume.",
+      "enforced_by": "run(era) in step3_all_in_one.py loads one era at a time; load_development requires a single source_epoch.",
+      "verified_by": "Step 3 provider_isolation (both eras), Step 3 source hashes against the frozen protocol"
+    },
+    {
+      "id": "R4",
+      "title": "Overnight excluded",
+      "rule": "overnight_return_open is excluded from detector inputs and reserved for the overnight analysis (amendment A2). The detector feature set is the other 80 outputs.",
+      "enforced_by": "Declarative: A2 and the Step 4 check. No detector code exists yet to enforce it.",
+      "verified_by": "A2, Step 4 table"
+    }
+  ],
+  "delay_invariance_test": {
+    "statement": "Shift every bar-level input of each session one slot later (slot 0 becomes missing, the last bar is dropped) and recompute. Each of the 80 detector features at slot s+1 must equal the original at slot s, and must not equal the original at shift 0 or 2.",
+    "datasets": [
+      "synthetic panel with missing bars",
+      "RAW slice of 40 sessions including the 2022-11-25 early close",
+      "LEGACY slice of 40 sessions"
+    ],
+    "tolerance": "rtol 1e-9, atol 0, NaN equals NaN"
+  },
+  "limits": [
+    "Step 3 audited TRAIN spans only (LEGACY 2003-01-02..2018-12-21, RAW 2022-03-07..2024-12-23); the days next to the 2022-03-04/2022-03-07 boundary were not in the audited LEGACY span. R3 rests on era-separate loading and the first-10-sessions check.",
+    "R3 and R4 are enforced by how the audit scripts are built, not by a guard a future pooled pipeline would inherit."
+  ]
+}

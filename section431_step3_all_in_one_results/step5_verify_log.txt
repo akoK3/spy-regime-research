@@ -1,0 +1,14 @@
+﻿delay test synthetic panel: 75/80 outputs shift exactly one bar; early-close sessions 24
+delay test RAW 40-session slice: 73/80 outputs shift exactly one bar; early-close sessions 1
+delay test LEGACY 40-session slice: 75/80 outputs shift exactly one bar; early-close sessions 0
+| Rule / test | Status | Failed checks |
+|---|---|---|
+| R1 usable at t+1 minute | PASS | - |
+| R2 session reset | PASS | - |
+| R3 no LEGACY/RAW crossing | PASS | - |
+| R4 overnight excluded | PASS | - |
+| delay by 1 minute shifts every feature exactly 1 bar: synthetic panel | FAIL | rv10_partial90, rv15_partial90, rv30_partial90, rv60_partial90, downside15_partial90 |
+| delay by 1 minute shifts every feature exactly 1 bar: RAW 40-session slice | FAIL | relative_volume20, log_relative_volume20, rv10_partial90, rv15_partial90, rv30_partial90, rv60_partial90 |
+| delay by 1 minute shifts every feature exactly 1 bar: LEGACY 40-session slice | FAIL | rv10_partial90, rv15_partial90, rv30_partial90, rv60_partial90, downside15_partial90 |
+
+overall: FAIL | policy_4_3_1_P1_verification_20261030T233210Z.json | SHA-256: ebef788e7fab08254a6bd4828bf0cf10f176dbf3757604da61be4d44f72d32a2

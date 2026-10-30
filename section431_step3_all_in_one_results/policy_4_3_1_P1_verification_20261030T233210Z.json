@@ -1,0 +1,173 @@
+{
+  "generated_utc": "2026-10-30T23:32:10.577206+00:00",
+  "generated_america_new_york": "2026-10-30T19:32:10.577206-04:00",
+  "policy": "policy_4_3_1_P1_20261030T233123Z.json",
+  "policy_sha256": "580b9c9c4f4df578ba3f4aeda61556d73d8aaed486ec7866a11f93eaf103f75c",
+  "note": "Rules R1-R4 were checked against saved Step 3/4 results and A2; Step 3 and 4 were not rerun. Only the delay test is new.",
+  "overall": "FAIL",
+  "table": [
+    {
+      "item": "R1 usable at t+1 minute",
+      "status": "PASS",
+      "checks": [
+        {
+          "check": "loader asserts available == t + 60 s (and is the audited file)",
+          "ok": true
+        },
+        {
+          "check": "both Step 3 reports have no execution error, so the assertion held",
+          "ok": true
+        },
+        {
+          "check": "Step 3 prefix invariance PASS in both eras",
+          "ok": true
+        },
+        {
+          "check": "Step 4: no output reads bars after t",
+          "ok": true
+        },
+        {
+          "check": "earlier panel audit flags availability at t+1 in both eras",
+          "ok": true
+        }
+      ]
+    },
+    {
+      "item": "R2 session reset",
+      "status": "PASS",
+      "checks": [
+        {
+          "check": "Step 4: no cross-session history except relative volume (20 sessions)",
+          "ok": true
+        },
+        {
+          "check": "Step 4: only relative volume needs earlier sessions (first session 10), all others warm up inside session 0",
+          "ok": true
+        },
+        {
+          "check": "relative-volume baseline: 20 sessions, at least 10 valid",
+          "ok": true
+        },
+        {
+          "check": "Step 4: every detector lookback within the A2 cap",
+          "ok": true
+        },
+        {
+          "check": "Step 3 provider_isolation (no value inside a window's first bars) PASS in both eras",
+          "ok": true
+        },
+        {
+          "check": "Step 3 prior_session_isolation PASS in both eras",
+          "ok": true
+        }
+      ]
+    },
+    {
+      "item": "R3 no LEGACY/RAW crossing",
+      "status": "PASS",
+      "checks": [
+        {
+          "check": "Step 3 provider_isolation PASS in both eras",
+          "ok": true
+        },
+        {
+          "check": "each report is one era, from different source files",
+          "ok": true
+        },
+        {
+          "check": "source files equal the frozen protocol's hashes",
+          "ok": true
+        },
+        {
+          "check": "loader requires a single source_epoch",
+          "ok": true
+        },
+        {
+          "check": "first 10 sessions of an era have no relative volume (Step 4 warmup session 10)",
+          "ok": true
+        }
+      ]
+    },
+    {
+      "item": "R4 overnight excluded",
+      "status": "PASS",
+      "checks": [
+        {
+          "check": "A2 excludes overnight_return_open",
+          "ok": true
+        },
+        {
+          "check": "Step 4 marks it EXCLUDED",
+          "ok": true
+        },
+        {
+          "check": "detector set is 80 outputs without it",
+          "ok": true
+        },
+        {
+          "check": "Step 4: 80 PASS, 0 FAIL, 1 EXCLUDED",
+          "ok": true
+        }
+      ]
+    },
+    {
+      "item": "delay by 1 minute shifts every feature exactly 1 bar: synthetic panel",
+      "status": "FAIL",
+      "detail": {
+        "dataset": "synthetic panel",
+        "sessions": 24,
+        "rows": 2400,
+        "early_close_sessions": 24,
+        "outputs_tested": 80,
+        "passed": 75,
+        "failed": [
+          "rv10_partial90",
+          "rv15_partial90",
+          "rv30_partial90",
+          "rv60_partial90",
+          "downside15_partial90"
+        ]
+      }
+    },
+    {
+      "item": "delay by 1 minute shifts every feature exactly 1 bar: RAW 40-session slice",
+      "status": "FAIL",
+      "detail": {
+        "dataset": "RAW 40-session slice",
+        "sessions": 40,
+        "rows": 15420,
+        "early_close_sessions": 1,
+        "outputs_tested": 80,
+        "passed": 73,
+        "failed": [
+          "relative_volume20",
+          "log_relative_volume20",
+          "rv10_partial90",
+          "rv15_partial90",
+          "rv30_partial90",
+          "rv60_partial90",
+          "downside15_partial90"
+        ]
+      }
+    },
+    {
+      "item": "delay by 1 minute shifts every feature exactly 1 bar: LEGACY 40-session slice",
+      "status": "FAIL",
+      "detail": {
+        "dataset": "LEGACY 40-session slice",
+        "sessions": 40,
+        "rows": 15600,
+        "early_close_sessions": 0,
+        "outputs_tested": 80,
+        "passed": 75,
+        "failed": [
+          "rv10_partial90",
+          "rv15_partial90",
+          "rv30_partial90",
+          "rv60_partial90",
+          "downside15_partial90"
+        ]
+      }
+    }
+  ]
+}
