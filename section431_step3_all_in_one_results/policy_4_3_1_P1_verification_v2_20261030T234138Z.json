@@ -1,0 +1,320 @@
+{
+  "generated_utc": "2026-10-30T23:41:38.002728+00:00",
+  "generated_america_new_york": "2026-10-30T19:41:38.002728-04:00",
+  "policy": "policy_4_3_1_P1_20261030T233123Z.json",
+  "policy_sha256": "580b9c9c4f4df578ba3f4aeda61556d73d8aaed486ec7866a11f93eaf103f75c",
+  "addendum": "policy_4_3_1_P1_addendum_20261030T234021Z.json",
+  "addendum_sha256": "4e27eb3a3b8db6529788ad10804e185242a19e4426b5a6ea13a360430d53c719",
+  "retained_original_report": {
+    "file": "policy_4_3_1_P1_verification_20261030T233210Z.json",
+    "sha256": "ebef788e7fab08254a6bd4828bf0cf10f176dbf3757604da61be4d44f72d32a2"
+  },
+  "note": "R1-R4 re-checked against saved Step 3/4 results (not rerun). The original shift test is retained and labeled mis-specified; it is not counted.",
+  "overall": "PASS",
+  "table": [
+    {
+      "item": "R1 usable at t+1 minute",
+      "status": "PASS",
+      "checks": [
+        {
+          "check": "loader asserts available == t + 60 s (and is the audited file)",
+          "ok": true
+        },
+        {
+          "check": "both Step 3 reports have no execution error, so the assertion held",
+          "ok": true
+        },
+        {
+          "check": "Step 3 prefix invariance PASS in both eras",
+          "ok": true
+        },
+        {
+          "check": "Step 4: no output reads bars after t",
+          "ok": true
+        },
+        {
+          "check": "earlier panel audit flags availability at t+1 in both eras",
+          "ok": true
+        }
+      ]
+    },
+    {
+      "item": "R2 session reset",
+      "status": "PASS",
+      "checks": [
+        {
+          "check": "Step 4: no cross-session history except relative volume (20 sessions)",
+          "ok": true
+        },
+        {
+          "check": "Step 4: only relative volume needs earlier sessions (first session 10), all others warm up inside session 0",
+          "ok": true
+        },
+        {
+          "check": "relative-volume baseline: 20 sessions, at least 10 valid",
+          "ok": true
+        },
+        {
+          "check": "Step 4: every detector lookback within the A2 cap",
+          "ok": true
+        },
+        {
+          "check": "Step 3 provider_isolation (no value inside a window's first bars) PASS in both eras",
+          "ok": true
+        },
+        {
+          "check": "Step 3 prior_session_isolation PASS in both eras",
+          "ok": true
+        }
+      ]
+    },
+    {
+      "item": "R3 no LEGACY/RAW crossing",
+      "status": "PASS",
+      "checks": [
+        {
+          "check": "Step 3 provider_isolation PASS in both eras",
+          "ok": true
+        },
+        {
+          "check": "each report is one era, from different source files",
+          "ok": true
+        },
+        {
+          "check": "source files equal the frozen protocol's hashes",
+          "ok": true
+        },
+        {
+          "check": "loader requires a single source_epoch",
+          "ok": true
+        },
+        {
+          "check": "first 10 sessions of an era have no relative volume (Step 4 warmup session 10)",
+          "ok": true
+        }
+      ]
+    },
+    {
+      "item": "R4 overnight excluded",
+      "status": "PASS",
+      "checks": [
+        {
+          "check": "A2 excludes overnight_return_open",
+          "ok": true
+        },
+        {
+          "check": "Step 4 marks it EXCLUDED",
+          "ok": true
+        },
+        {
+          "check": "detector set is 80 outputs without it",
+          "ok": true
+        },
+        {
+          "check": "Step 4: 80 PASS, 0 FAIL, 1 EXCLUDED",
+          "ok": true
+        }
+      ]
+    },
+    {
+      "item": "ORIGINAL one-bar shift test: synthetic panel",
+      "status": "FAIL",
+      "label": "MIS-SPECIFIED (retained, not counted)",
+      "detail": {
+        "dataset": "synthetic panel",
+        "sessions": 24,
+        "rows": 2400,
+        "early_close_sessions": 24,
+        "outputs_tested": 80,
+        "passed": 75,
+        "failed": [
+          "rv10_partial90",
+          "rv15_partial90",
+          "rv30_partial90",
+          "rv60_partial90",
+          "downside15_partial90"
+        ]
+      }
+    },
+    {
+      "item": "ORIGINAL one-bar shift test: RAW 40-session slice",
+      "status": "FAIL",
+      "label": "MIS-SPECIFIED (retained, not counted)",
+      "detail": {
+        "dataset": "RAW 40-session slice",
+        "sessions": 40,
+        "rows": 15420,
+        "early_close_sessions": 1,
+        "outputs_tested": 80,
+        "passed": 73,
+        "failed": [
+          "relative_volume20",
+          "log_relative_volume20",
+          "rv10_partial90",
+          "rv15_partial90",
+          "rv30_partial90",
+          "rv60_partial90",
+          "downside15_partial90"
+        ]
+      }
+    },
+    {
+      "item": "ORIGINAL one-bar shift test: LEGACY 40-session slice",
+      "status": "FAIL",
+      "label": "MIS-SPECIFIED (retained, not counted)",
+      "detail": {
+        "dataset": "LEGACY 40-session slice",
+        "sessions": 40,
+        "rows": 15600,
+        "early_close_sessions": 0,
+        "outputs_tested": 80,
+        "passed": 75,
+        "failed": [
+          "rv10_partial90",
+          "rv15_partial90",
+          "rv30_partial90",
+          "rv60_partial90",
+          "downside15_partial90"
+        ]
+      }
+    },
+    {
+      "item": "extra 1-minute delay, all feature values identical: synthetic panel",
+      "status": "PASS",
+      "detail": {
+        "outputs": 80,
+        "different": []
+      }
+    },
+    {
+      "item": "extra 1-minute delay, available_at = t+2 minutes: synthetic panel",
+      "status": "PASS",
+      "detail": {
+        "outputs": 80,
+        "finite_values_checked": 125633,
+        "wrong": []
+      }
+    },
+    {
+      "item": "extra 1-minute delay, point-in-time replay: synthetic panel",
+      "status": "PASS",
+      "detail": {
+        "replay": [
+          {
+            "row": 1377,
+            "visible_rows_at_t_plus_2": 1378,
+            "visible_rows_at_t_plus_1": 1377,
+            "visibility_ok": true,
+            "differing_outputs": []
+          },
+          {
+            "row": 1870,
+            "visible_rows_at_t_plus_2": 1871,
+            "visible_rows_at_t_plus_1": 1870,
+            "visibility_ok": true,
+            "differing_outputs": []
+          },
+          {
+            "row": 2279,
+            "visible_rows_at_t_plus_2": 2280,
+            "visible_rows_at_t_plus_1": 2279,
+            "visibility_ok": true,
+            "differing_outputs": []
+          }
+        ]
+      }
+    },
+    {
+      "item": "extra 1-minute delay, all feature values identical: RAW 40-session slice",
+      "status": "PASS",
+      "detail": {
+        "outputs": 80,
+        "different": []
+      }
+    },
+    {
+      "item": "extra 1-minute delay, available_at = t+2 minutes: RAW 40-session slice",
+      "status": "PASS",
+      "detail": {
+        "outputs": 80,
+        "finite_values_checked": 1118621,
+        "wrong": []
+      }
+    },
+    {
+      "item": "extra 1-minute delay, point-in-time replay: RAW 40-session slice",
+      "status": "PASS",
+      "detail": {
+        "replay": [
+          {
+            "row": 5807,
+            "visible_rows_at_t_plus_2": 5808,
+            "visible_rows_at_t_plus_1": 5807,
+            "visibility_ok": true,
+            "differing_outputs": []
+          },
+          {
+            "row": 10135,
+            "visible_rows_at_t_plus_2": 10136,
+            "visible_rows_at_t_plus_1": 10135,
+            "visibility_ok": true,
+            "differing_outputs": []
+          },
+          {
+            "row": 14013,
+            "visible_rows_at_t_plus_2": 14014,
+            "visible_rows_at_t_plus_1": 14013,
+            "visibility_ok": true,
+            "differing_outputs": []
+          }
+        ]
+      }
+    },
+    {
+      "item": "extra 1-minute delay, all feature values identical: LEGACY 40-session slice",
+      "status": "PASS",
+      "detail": {
+        "outputs": 80,
+        "different": []
+      }
+    },
+    {
+      "item": "extra 1-minute delay, available_at = t+2 minutes: LEGACY 40-session slice",
+      "status": "PASS",
+      "detail": {
+        "outputs": 80,
+        "finite_values_checked": 777738,
+        "wrong": []
+      }
+    },
+    {
+      "item": "extra 1-minute delay, point-in-time replay: LEGACY 40-session slice",
+      "status": "PASS",
+      "detail": {
+        "replay": [
+          {
+            "row": 5826,
+            "visible_rows_at_t_plus_2": 5827,
+            "visible_rows_at_t_plus_1": 5826,
+            "visibility_ok": true,
+            "differing_outputs": []
+          },
+          {
+            "row": 10225,
+            "visible_rows_at_t_plus_2": 10226,
+            "visible_rows_at_t_plus_1": 10225,
+            "visibility_ok": true,
+            "differing_outputs": []
+          },
+          {
+            "row": 14168,
+            "visible_rows_at_t_plus_2": 14169,
+            "visible_rows_at_t_plus_1": 14168,
+            "visibility_ok": true,
+            "differing_outputs": []
+          }
+        ]
+      }
+    }
+  ]
+}

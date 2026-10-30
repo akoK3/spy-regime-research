@@ -11,7 +11,7 @@ sys.path.insert(0, str(ROOT))
 import step5_policy as p  # noqa: E402
 
 OUT = p.OUT
-report_file = sorted(OUT.glob("policy_4_3_1_P1_verification_*.json"))[-1]
+report_file = sorted(OUT.glob("policy_4_3_1_P1_verification_2*.json"))[-1]  # the original (v1) report
 report = json.loads(report_file.read_text(encoding="utf-8"))
 failed = {r["detail"]["dataset"]: r["detail"]["failed"] for r in report["table"] if "detail" in r}
 

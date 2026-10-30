@@ -1,0 +1,23 @@
+﻿delay v2 synthetic panel: values identical 80/80, available_at = t+2min 80/80 outputs (125633 finite values), replay 3/3
+delay v2 RAW 40-session slice: values identical 80/80, available_at = t+2min 80/80 outputs (1118621 finite values), replay 3/3
+delay v2 LEGACY 40-session slice: values identical 80/80, available_at = t+2min 80/80 outputs (777738 finite values), replay 3/3
+| Rule / test | Status | Note |
+|---|---|---|
+| R1 usable at t+1 minute | PASS | - |
+| R2 session reset | PASS | - |
+| R3 no LEGACY/RAW crossing | PASS | - |
+| R4 overnight excluded | PASS | - |
+| ORIGINAL one-bar shift test: synthetic panel | FAIL | MIS-SPECIFIED (retained, not counted) |
+| ORIGINAL one-bar shift test: RAW 40-session slice | FAIL | MIS-SPECIFIED (retained, not counted) |
+| ORIGINAL one-bar shift test: LEGACY 40-session slice | FAIL | MIS-SPECIFIED (retained, not counted) |
+| extra 1-minute delay, all feature values identical: synthetic panel | PASS | - |
+| extra 1-minute delay, available_at = t+2 minutes: synthetic panel | PASS | - |
+| extra 1-minute delay, point-in-time replay: synthetic panel | PASS | - |
+| extra 1-minute delay, all feature values identical: RAW 40-session slice | PASS | - |
+| extra 1-minute delay, available_at = t+2 minutes: RAW 40-session slice | PASS | - |
+| extra 1-minute delay, point-in-time replay: RAW 40-session slice | PASS | - |
+| extra 1-minute delay, all feature values identical: LEGACY 40-session slice | PASS | - |
+| extra 1-minute delay, available_at = t+2 minutes: LEGACY 40-session slice | PASS | - |
+| extra 1-minute delay, point-in-time replay: LEGACY 40-session slice | PASS | - |
+
+overall (counted rows): PASS | policy_4_3_1_P1_verification_v2_20261030T234138Z.json | SHA-256: 6bad34c84d3bc71e1a9e234323a6b279223634188b217d2fff5bc51eafd3800e

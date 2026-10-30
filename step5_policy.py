@@ -155,7 +155,8 @@ def real_slice(era):
     return z
 
 
-def verify():
+def rule_checks():
+    """R1-R4 checked against the saved Step 3/4 results and A2 (nothing is rerun)."""
     policy_file = one("policy_4_3_1_P1_2*.json")
     policy_sha = sha(policy_file)
     assert policy_file.with_suffix(".sha256").read_text().split()[0] == policy_sha, "policy hash mismatch"
@@ -202,6 +203,12 @@ def verify():
         ],
     }
 
+    return policy_file, policy_sha, rules, rows
+
+
+def verify_v1():
+    """Original verification with the strict one-bar shift test. Retained as run; the addendum labels that test mis-specified."""
+    policy_file, policy_sha, rules, rows = rule_checks()
     tests = []
     synth_summary, synth = delay_test(s.synthetic_panel(), "synthetic panel")
     tests.append(synth_summary)
@@ -232,8 +239,118 @@ def verify():
     return 0 if report["overall"] == "PASS" else 1
 
 
+MINUTE = 60_000_000_000
+
+
+def write_addendum():
+    assert not list(OUT.glob("policy_4_3_1_P1_addendum_2*.json")), "an addendum already exists; never overwrite"
+    policy = one("policy_4_3_1_P1_2*.json")
+    old_report = one("policy_4_3_1_P1_verification_2*.json")
+    diagnosis = OUT / "step5_delay_failure_diagnosis.json"
+    old = json.loads(old_report.read_text(encoding="utf-8"))
+    now, stamp, ny = now_stamp()
+    doc = {
+        "addendum": "4.3.1-P1-A",
+        "created_utc": now.isoformat(), "created_america_new_york": ny,
+        "status": "WRITTEN_AFTER_SEEING_THE_ORIGINAL_TEST_FAIL",
+        "statement": "This addendum was written after the original delay test had been run and had failed. It replaces that test; it does not change rules R1-R4 or any feature.",
+        "amends": {"policy": policy.name, "sha256": sha(policy), "section": "delay_invariance_test"},
+        "original_delay_test": {
+            "label": "MIS-SPECIFIED (retained; result unchanged)",
+            "definition": "Shift every bar-level input of each session one slot later and require every detector feature at slot s+1 to equal the original at slot s.",
+            "result": {t["detail"]["dataset"]: f"FAIL {t['detail']['passed']}/{t['detail']['outputs_tested']}" for t in old["table"] if "detail" in t},
+            "verification_report": {"file": old_report.name, "sha256": sha(old_report)},
+            "diagnosis": {"file": diagnosis.name, "sha256": sha(diagnosis), "finding": "every mismatch is at a known clock-position edge row; no value leaked"},
+            "why_mis_specified": [
+                "R1 concerns when a value becomes available, not what its value is. A delay moves availability; it does not move a feature to a different bar. The test checked shift-equivariance of data content, which R1 does not require.",
+                "The frozen definitions are clock-position rules (slot >= W), so shifting content one slot fails at the first computable row of the partial90 outputs by design.",
+                "The shift drops the last bar of each session, so the relative-volume baseline changes at the slot after an early close ends.",
+            ],
+        },
+        "replacement_delay_test": {
+            "definition": "Add an extra 1-minute delay: every bar becomes available at t+2 minutes instead of t+1. Then (V) all 80 detector feature values, NaN pattern included, are identical to the undelayed run; (A) the available_at of every finite feature value equals t+2 minutes; (P) in a point-in-time replay, at decision time t+2 minutes the features computed from only the visible bars equal the full-run value at row t, and at decision time t+1 minute row t is not yet visible.",
+            "available_at_definition": "available_at of a feature row stamped t is the availability of bar t, the newest bar it may read (R1: no output reads a later bar).",
+            "datasets": ["synthetic panel with missing bars", "RAW slice of 40 sessions including the 2022-11-25 early close", "LEGACY slice of 40 sessions"],
+            "replay": "3 decision rows per dataset, slot >= 70 and session >= 12; features recomputed from only the rows with available <= decision time",
+            "tolerance": "V exact (NaN equals NaN); P rtol 1e-9, atol 0",
+        },
+        "unchanged": ["R1-R4 text in " + policy.name, "the 80 detector outputs and overnight_return_open exclusion (A2)"],
+    }
+    path = OUT / f"policy_4_3_1_P1_addendum_{stamp}.json"
+    digest = write_hashed(path, (json.dumps(doc, indent=2, ensure_ascii=False) + "\n").encode("utf-8"))
+    print(path.name, "\nSHA-256:", digest, "\ncreated_utc:", now.isoformat(), "| NY:", ny)
+
+
+def delay_v2(d, label, rows):
+    detector = [n for n in rows if n != EXCLUDED]
+    d2 = dict(d); d2["available"] = d["available"] + MINUTE
+    assert (d["available"] - d["t"] == MINUTE).all() and len(detector) == 80
+    base, late = compute(d), compute(d2)
+    different = [n for n in detector if not np.array_equal(base[n], late[n], equal_nan=True)]
+    lag = d2["available"] - d["t"]
+    wrong_lag, finite_rows = [], 0
+    for n in detector:
+        fin = np.isfinite(base[n]); finite_rows += int(fin.sum())
+        if (lag[fin] != 2 * MINUTE).any(): wrong_lag.append(n)
+    first = np.asarray(d["first"]); rowsess = np.searchsorted(first, np.arange(len(d["t"])), side="right") - 1
+    cand = np.flatnonzero((d["slot"] >= 70) & (rowsess >= 12))
+    picks = sorted(int(i) for i in np.random.default_rng(s.SEED + 5).choice(cand, size=3, replace=False))
+    replay = []
+    for idx in picks:
+        t = int(d2["t"][idx])
+        vis_new = int(np.searchsorted(d2["available"], t + 2 * MINUTE, side="right"))
+        vis_old = int(np.searchsorted(d2["available"], t + MINUTE, side="right"))
+        prefix = compute(s.truncate(d2, vis_new))
+        off = [n for n in detector if not np.isclose(prefix[n][idx], base[n][idx], rtol=1e-9, atol=0, equal_nan=True)]
+        replay.append(dict(row=idx, visible_rows_at_t_plus_2=vis_new, visible_rows_at_t_plus_1=vis_old,
+                           visibility_ok=(vis_new == idx + 1 and vis_old == idx), differing_outputs=off))
+    ok_replay = all(r["visibility_ok"] and not r["differing_outputs"] for r in replay)
+    print(f"delay v2 {label}: values identical {80 - len(different)}/80, available_at = t+2min {len(detector) - len(wrong_lag)}/80 outputs ({finite_rows} finite values), replay {sum(r['visibility_ok'] and not r['differing_outputs'] for r in replay)}/3", flush=True)
+    return [
+        dict(item=f"extra 1-minute delay, all feature values identical: {label}", status="PASS" if not different else "FAIL", detail=dict(outputs=len(detector), different=different)),
+        dict(item=f"extra 1-minute delay, available_at = t+2 minutes: {label}", status="PASS" if not wrong_lag and finite_rows > 0 else "FAIL", detail=dict(outputs=len(detector), finite_values_checked=finite_rows, wrong=wrong_lag)),
+        dict(item=f"extra 1-minute delay, point-in-time replay: {label}", status="PASS" if ok_replay else "FAIL", detail=dict(replay=replay)),
+    ]
+
+
+def verify2():
+    addendum = one("policy_4_3_1_P1_addendum_2*.json")
+    add_sha = sha(addendum)
+    assert addendum.with_suffix(".sha256").read_text().split()[0] == add_sha, "addendum hash mismatch"
+    policy_file, policy_sha, rules, rows = rule_checks()
+    old_file = one("policy_4_3_1_P1_verification_2*.json")
+    old = json.loads(old_file.read_text(encoding="utf-8"))
+    table = [dict(item=name, status="PASS" if all(ok for _, ok in checks) else "FAIL", checks=[dict(check=c, ok=ok) for c, ok in checks]) for name, checks in rules.items()]
+    for r in old["table"]:
+        if r["item"].startswith("delay by 1 minute"):
+            table.append(dict(item=r["item"].replace("delay by 1 minute shifts every feature exactly 1 bar", "ORIGINAL one-bar shift test"),
+                              status="FAIL", label="MIS-SPECIFIED (retained, not counted)", detail=r["detail"]))
+    table.extend(delay_v2(s.synthetic_panel(), "synthetic panel", rows))
+    for era in ("RAW", "LEGACY"):
+        table.extend(delay_v2(real_slice(era), f"{era} 40-session slice", rows))
+    now, stamp, ny = now_stamp()
+    counted = [r for r in table if "label" not in r]
+    report = dict(generated_utc=now.isoformat(), generated_america_new_york=ny, policy=policy_file.name, policy_sha256=policy_sha,
+                  addendum=addendum.name, addendum_sha256=add_sha, retained_original_report=dict(file=old_file.name, sha256=sha(old_file)),
+                  note="R1-R4 re-checked against saved Step 3/4 results (not rerun). The original shift test is retained and labeled mis-specified; it is not counted.",
+                  overall="PASS" if all(r["status"] == "PASS" for r in counted) else "FAIL", table=table)
+    path = OUT / f"policy_4_3_1_P1_verification_v2_{stamp}.json"
+    digest = write_hashed(path, (json.dumps(report, indent=2, ensure_ascii=False) + "\n").encode("utf-8"))
+    lines = ["| Rule / test | Status | Note |", "|---|---|---|"]
+    for r in table:
+        note = r.get("label", "")
+        if not note and r["status"] != "PASS": note = "; ".join(c["check"] for c in r.get("checks", []) if not c["ok"]) or json.dumps(r.get("detail"))[:200]
+        lines.append(f"| {r['item']} | {r['status']} | {note or '-'} |")
+    path.with_suffix(".md").write_text("\n".join(lines) + "\n", encoding="utf-8")
+    print("\n".join(lines))
+    print("\noverall (counted rows):", report["overall"], "|", path.name, "| SHA-256:", digest)
+    return 0 if report["overall"] == "PASS" else 1
+
+
 if __name__ == "__main__":
     mode = sys.argv[1] if len(sys.argv) > 1 else ""
     if mode == "write": write_policy()
-    elif mode == "verify": sys.exit(verify())
-    else: sys.exit("usage: step5_policy.py write|verify")
+    elif mode == "verify": sys.exit(verify_v1())
+    elif mode == "addendum": write_addendum()
+    elif mode == "verify2": sys.exit(verify2())
+    else: sys.exit("usage: step5_policy.py write|verify|addendum|verify2")

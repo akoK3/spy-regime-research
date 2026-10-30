@@ -1,0 +1,50 @@
+{
+  "addendum": "4.3.1-P1-A",
+  "created_utc": "2026-10-30T23:40:21.718133+00:00",
+  "created_america_new_york": "2026-10-30T19:40:21.718133-04:00",
+  "status": "WRITTEN_AFTER_SEEING_THE_ORIGINAL_TEST_FAIL",
+  "statement": "This addendum was written after the original delay test had been run and had failed. It replaces that test; it does not change rules R1-R4 or any feature.",
+  "amends": {
+    "policy": "policy_4_3_1_P1_20261030T233123Z.json",
+    "sha256": "580b9c9c4f4df578ba3f4aeda61556d73d8aaed486ec7866a11f93eaf103f75c",
+    "section": "delay_invariance_test"
+  },
+  "original_delay_test": {
+    "label": "MIS-SPECIFIED (retained; result unchanged)",
+    "definition": "Shift every bar-level input of each session one slot later and require every detector feature at slot s+1 to equal the original at slot s.",
+    "result": {
+      "synthetic panel": "FAIL 75/80",
+      "RAW 40-session slice": "FAIL 73/80",
+      "LEGACY 40-session slice": "FAIL 75/80"
+    },
+    "verification_report": {
+      "file": "policy_4_3_1_P1_verification_20261030T233210Z.json",
+      "sha256": "ebef788e7fab08254a6bd4828bf0cf10f176dbf3757604da61be4d44f72d32a2"
+    },
+    "diagnosis": {
+      "file": "step5_delay_failure_diagnosis.json",
+      "sha256": "3677fc1766078aa0e4fcb0a15202cd83863211dba28f1aab5f2be0b8b3c04f95",
+      "finding": "every mismatch is at a known clock-position edge row; no value leaked"
+    },
+    "why_mis_specified": [
+      "R1 concerns when a value becomes available, not what its value is. A delay moves availability; it does not move a feature to a different bar. The test checked shift-equivariance of data content, which R1 does not require.",
+      "The frozen definitions are clock-position rules (slot >= W), so shifting content one slot fails at the first computable row of the partial90 outputs by design.",
+      "The shift drops the last bar of each session, so the relative-volume baseline changes at the slot after an early close ends."
+    ]
+  },
+  "replacement_delay_test": {
+    "definition": "Add an extra 1-minute delay: every bar becomes available at t+2 minutes instead of t+1. Then (V) all 80 detector feature values, NaN pattern included, are identical to the undelayed run; (A) the available_at of every finite feature value equals t+2 minutes; (P) in a point-in-time replay, at decision time t+2 minutes the features computed from only the visible bars equal the full-run value at row t, and at decision time t+1 minute row t is not yet visible.",
+    "available_at_definition": "available_at of a feature row stamped t is the availability of bar t, the newest bar it may read (R1: no output reads a later bar).",
+    "datasets": [
+      "synthetic panel with missing bars",
+      "RAW slice of 40 sessions including the 2022-11-25 early close",
+      "LEGACY slice of 40 sessions"
+    ],
+    "replay": "3 decision rows per dataset, slot >= 70 and session >= 12; features recomputed from only the rows with available <= decision time",
+    "tolerance": "V exact (NaN equals NaN); P rtol 1e-9, atol 0"
+  },
+  "unchanged": [
+    "R1-R4 text in policy_4_3_1_P1_20261030T233123Z.json",
+    "the 80 detector outputs and overnight_return_open exclusion (A2)"
+  ]
+}
