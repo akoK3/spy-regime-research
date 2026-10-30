@@ -1,0 +1,870 @@
+{
+  "amendment": "4.3.1-A2",
+  "created_utc": "2026-10-30T23:13:44.794567+00:00",
+  "created_america_new_york": "2026-10-30T19:13:44.794567-04:00",
+  "status": "SPECIFICATION_WRITTEN_AFTER_IMPLEMENTATION",
+  "written_after_implementation": {
+    "statement": "These specifications were written AFTER the 45 outputs were implemented, run and measured. They describe what the code does; they were not set before the code existed and must not be presented as preregistered or ex ante. Passing the Step 4 comparison shows the code still behaves as written here, not that these choices were made in advance.",
+    "implementation_and_evidence_sha256": {
+      "step3_all_in_one.py": "f42150ccc1a45fb44a184c58b31e93f57e00f1e6318756f871ba3fb15cf5f40d",
+      "step4_extract_parameters.py": "a8c93199f28716664c83743a97356f64340ddd16c5037519b7e05102df8ad9b3",
+      "section431_additions.py": "c8a550f7777abcfdd3e46132f76c25748ed62be15b430d40a5c23556f6308448",
+      "section4_3_1_candidates.py": "4c8d2b528ff8b86a2885426d974e9be97fbc3d264d60b4e2bf38f16981204878",
+      "step3_RAW_report.json": "b586ee682467f3ac978884dd1895e7b1078713a7b173f7a419246b459dafc61b",
+      "step3_LEGACY_report.json": "35461cda5821c1038d05add319afb8fc808c756df47b9919b32fea6988182f3c",
+      "step4_parameter_table.json": "505f202d7d91a2b67cfa63f41f34cc2d1c146d10f7d15ac7a2971e3d72e33e97"
+    },
+    "evidence_git_commit": "d44c1d24add972df6349a4a9c25f05814155395f",
+    "values_source": "Measured from the code by step4_extract_parameters.py; copied into this file by write_amendment_4_3_1_A2.py, not typed."
+  },
+  "basis": {
+    "frozen_protocol": {
+      "file": "protocol_20261029T032641Z.json",
+      "sha256": "3d6f0c96fce1c05f8e94d1a8c6e6b14a5b5b1c9f013e6a95dd1e96498cbfff8b",
+      "change": "none; its 35 candidate features and definitions are unchanged"
+    },
+    "amendment_proposal_A1": {
+      "file": "protocol_amendment_4_3_0_A1_20261029T034121Z.json",
+      "sha256": "a57d55ccc760c2359d2d5d14c12d52a3fb1ba29a1bd3e222a71e6284886724ae",
+      "relation": "A1 stays an unapproved proposal; this amendment does not approve it. It replaces A1's max_feature_lookback_minutes=60 with the cap defined below for the detector features."
+    }
+  },
+  "cap": {
+    "max_prior_bars": 60,
+    "definition": "A detector feature at bar t may use the returns of the 60 bars before t (t-60..t-1) and of bar t itself. The close of the bar before the earliest used return is only the reference price of that return and is not counted as a further bar. Same session only; no interpolation or fill.",
+    "step4_lookback_limit_bars": 61,
+    "step4_lookback_meaning": "Step 4 'lookback' is the distance from t to the earliest close an output uses. Return-based outputs with 60 prior returns plus the current one reach c[t-61], so the limit is 61 in those units.",
+    "frozen_outputs_inside_cap": "shock_prior60_mad (frozen) uses 60 prior returns plus the current return (Step 4 lookback 61) and is inside the cap by this definition. A literal cap that counted the reference close as a 61st prior bar would exclude it and the Lee-Mykland outputs.",
+    "not_changed": "relative_volume20 keeps its frozen cross-session history of 20 same-slot sessions; this cap is a within-session limit."
+  },
+  "excluded_from_detector_features": [
+    {
+      "output": "overnight_return_open",
+      "reserved_for": "the overnight analysis, to be specified separately",
+      "reason": "The frozen protocol says 'No overnight returns; first-minute return absent every session'. The output also reaches back to the session open and the prior session (Step 4 lookback 65 bars and 1 session), beyond the cap.",
+      "rule": "Must not be an input to the detector, any scaler or any HMM. The audit script may keep computing it for its own checks.",
+      "measured": {
+        "lookback_bars": 65,
+        "lookback_sessions": 1,
+        "min_valid_bars": 2,
+        "first_session": 1
+      }
+    }
+  ],
+  "detector_feature_outputs": {
+    "count": 80,
+    "frozen_protocol_outputs": [
+      "return_1m",
+      "abs_return_1m",
+      "intrabar_range_log",
+      "raw_volume",
+      "log_raw_volume",
+      "relative_volume20",
+      "log_relative_volume20",
+      "rv5_strict",
+      "downside5_strict",
+      "momentum5_strict",
+      "rv5_partial90",
+      "momentum5_endpoint",
+      "rv10_strict",
+      "downside10_strict",
+      "momentum10_strict",
+      "rv10_partial90",
+      "momentum10_endpoint",
+      "rv15_strict",
+      "downside15_strict",
+      "momentum15_strict",
+      "rv15_partial90",
+      "momentum15_endpoint",
+      "rv30_strict",
+      "downside30_strict",
+      "momentum30_strict",
+      "rv30_partial90",
+      "momentum30_endpoint",
+      "rv60_strict",
+      "downside60_strict",
+      "momentum60_strict",
+      "rv60_partial90",
+      "momentum60_endpoint",
+      "downside15_partial90",
+      "rv60_sampled5_exact",
+      "shock_prior60_mad"
+    ],
+    "specified_by_this_amendment": [
+      "close_location_proxy",
+      "bipower_15",
+      "jump_variation_15",
+      "drawdown_15",
+      "amihud_15",
+      "skew_15",
+      "kurtosis_excess_15",
+      "variance_ratio2_15",
+      "directional_efficiency_15",
+      "vol_of_vol_15",
+      "extreme_loss_15",
+      "volume_variability_15",
+      "volume_adjusted_range_15",
+      "reversal_15",
+      "return_autocorr1_15",
+      "bipower_30",
+      "jump_variation_30",
+      "drawdown_30",
+      "amihud_30",
+      "skew_30",
+      "kurtosis_excess_30",
+      "variance_ratio2_30",
+      "directional_efficiency_30",
+      "vol_of_vol_30",
+      "extreme_loss_30",
+      "volume_variability_30",
+      "volume_adjusted_range_30",
+      "reversal_30",
+      "return_autocorr1_30",
+      "bipower_60",
+      "jump_variation_60",
+      "drawdown_60",
+      "amihud_60",
+      "skew_60",
+      "kurtosis_excess_60",
+      "variance_ratio2_60",
+      "directional_efficiency_60",
+      "vol_of_vol_60",
+      "extreme_loss_60",
+      "volume_variability_60",
+      "volume_adjusted_range_60",
+      "reversal_60",
+      "return_autocorr1_60",
+      "lee_mykland_approx60",
+      "lee_mykland_jump60"
+    ]
+  },
+  "missing_data_rule": "Inherited from the frozen protocol: no interpolation or fill; NaN is never zero; an output is NaN unless its minimum valid observations are present.",
+  "specified_outputs": [
+    {
+      "output": "close_location_proxy",
+      "family": "close_location",
+      "definition": "(Close-Low)/(High-Low) of the current completed bar; defined only if High>Low and the bar has Close>0, High>=Close>=Low, Low>0, Volume>=0, all finite",
+      "source": "step3_all_in_one.py construct_deferred (ported from section-4.3.1.py close_location)",
+      "lookback_bars": 0,
+      "lookback_sessions": 0,
+      "min_valid_obs": {
+        "count": 1,
+        "unit": "bars"
+      },
+      "warmup": {
+        "first_slot": 0,
+        "first_session": 0
+      }
+    },
+    {
+      "output": "bipower_15",
+      "family": "bipower",
+      "definition": "(pi/2)*sum of |r_i||r_(i-1)| over the w-1 adjacent pairs of the w returns ending at t (w=15)",
+      "source": "section431_additions.py construct_additions",
+      "lookback_bars": 15,
+      "lookback_sessions": 0,
+      "min_valid_obs": {
+        "count": 15,
+        "unit": "returns"
+      },
+      "warmup": {
+        "first_slot": 15,
+        "first_session": 0
+      }
+    },
+    {
+      "output": "jump_variation_15",
+      "family": "jump_variation",
+      "definition": "max(0, sum of r_i^2 over the w returns - bipower_w) (w=15)",
+      "source": "section431_additions.py construct_additions",
+      "lookback_bars": 15,
+      "lookback_sessions": 0,
+      "min_valid_obs": {
+        "count": 15,
+        "unit": "returns"
+      },
+      "warmup": {
+        "first_slot": 15,
+        "first_session": 0
+      }
+    },
+    {
+      "output": "drawdown_15",
+      "family": "drawdown",
+      "definition": "Close_t / max(Close over t-w..t) - 1, from w+1 exact closes; zero or negative (w=15)",
+      "source": "section431_additions.py construct_additions",
+      "lookback_bars": 15,
+      "lookback_sessions": 0,
+      "min_valid_obs": {
+        "count": 15,
+        "unit": "returns"
+      },
+      "warmup": {
+        "first_slot": 15,
+        "first_session": 0
+      }
+    },
+    {
+      "output": "amihud_15",
+      "family": "amihud",
+      "definition": "mean over the w bars of |r_i| / (Volume_i*Close_i); needs all volumes finite and dollar volume > 0 (w=15)",
+      "source": "section431_additions.py construct_additions",
+      "lookback_bars": 15,
+      "lookback_sessions": 0,
+      "min_valid_obs": {
+        "count": 15,
+        "unit": "returns"
+      },
+      "warmup": {
+        "first_slot": 15,
+        "first_session": 0
+      }
+    },
+    {
+      "output": "skew_15",
+      "family": "skew",
+      "definition": "mean(z^3) with z=(r-mean)/sd over the w returns, population sd (ddof=0); needs sd>0 (w=15)",
+      "source": "section431_additions.py construct_additions",
+      "lookback_bars": 15,
+      "lookback_sessions": 0,
+      "min_valid_obs": {
+        "count": 15,
+        "unit": "returns"
+      },
+      "warmup": {
+        "first_slot": 15,
+        "first_session": 0
+      }
+    },
+    {
+      "output": "kurtosis_excess_15",
+      "family": "kurtosis_excess",
+      "definition": "mean(z^4)-3 with the same z; needs sd>0 (w=15)",
+      "source": "section431_additions.py construct_additions",
+      "lookback_bars": 15,
+      "lookback_sessions": 0,
+      "min_valid_obs": {
+        "count": 15,
+        "unit": "returns"
+      },
+      "warmup": {
+        "first_slot": 15,
+        "first_session": 0
+      }
+    },
+    {
+      "output": "variance_ratio2_15",
+      "family": "variance_ratio2",
+      "definition": "mean((r_i+r_(i-1))^2) over adjacent pairs / (2*mean(r_i^2)); needs positive variance (w=15)",
+      "source": "section431_additions.py construct_additions",
+      "lookback_bars": 15,
+      "lookback_sessions": 0,
+      "min_valid_obs": {
+        "count": 15,
+        "unit": "returns"
+      },
+      "warmup": {
+        "first_slot": 15,
+        "first_session": 0
+      }
+    },
+    {
+      "output": "directional_efficiency_15",
+      "family": "directional_efficiency",
+      "definition": "|ln(Close_t/Close_(t-w))| / sum|r_i| over the w returns; undefined if sum|r_i|=0 (w=15)",
+      "source": "section431_additions.py construct_additions",
+      "lookback_bars": 15,
+      "lookback_sessions": 0,
+      "min_valid_obs": {
+        "count": 15,
+        "unit": "returns"
+      },
+      "warmup": {
+        "first_slot": 15,
+        "first_session": 0
+      }
+    },
+    {
+      "output": "vol_of_vol_15",
+      "family": "vol_of_vol",
+      "definition": "sample SD (ddof=1) of the w/5 non-overlapping 5-return realized volatilities sqrt(sum r^2) in the window (w=15)",
+      "source": "section431_additions.py construct_additions",
+      "lookback_bars": 15,
+      "lookback_sessions": 0,
+      "min_valid_obs": {
+        "count": 15,
+        "unit": "returns"
+      },
+      "warmup": {
+        "first_slot": 15,
+        "first_session": 0
+      }
+    },
+    {
+      "output": "extreme_loss_15",
+      "family": "extreme_loss",
+      "definition": "min(r_i) over the w returns (w=15)",
+      "source": "section431_additions.py construct_additions",
+      "lookback_bars": 15,
+      "lookback_sessions": 0,
+      "min_valid_obs": {
+        "count": 15,
+        "unit": "returns"
+      },
+      "warmup": {
+        "first_slot": 15,
+        "first_session": 0
+      }
+    },
+    {
+      "output": "volume_variability_15",
+      "family": "volume_variability",
+      "definition": "SD(ddof=1)/mean of Volume over the w bars; needs mean>0; also requires the w returns to be finite (w=15)",
+      "source": "section431_additions.py construct_additions",
+      "lookback_bars": 15,
+      "lookback_sessions": 0,
+      "min_valid_obs": {
+        "count": 15,
+        "unit": "returns"
+      },
+      "warmup": {
+        "first_slot": 15,
+        "first_session": 0
+      }
+    },
+    {
+      "output": "volume_adjusted_range_15",
+      "family": "volume_adjusted_range",
+      "definition": "mean over the w bars of ln(High/Low)/Volume; needs all Volume>0 and finite ranges; also requires the w returns to be finite (w=15)",
+      "source": "section431_additions.py construct_additions",
+      "lookback_bars": 15,
+      "lookback_sessions": 0,
+      "min_valid_obs": {
+        "count": 15,
+        "unit": "returns"
+      },
+      "warmup": {
+        "first_slot": 15,
+        "first_session": 0
+      }
+    },
+    {
+      "output": "reversal_15",
+      "family": "reversal",
+      "definition": "1.0 if sign(sum of first w//2 returns) != sign(sum of the rest), else 0.0; undefined if either sum is 0 (w=15)",
+      "source": "section431_additions.py construct_additions",
+      "lookback_bars": 15,
+      "lookback_sessions": 0,
+      "min_valid_obs": {
+        "count": 15,
+        "unit": "returns"
+      },
+      "warmup": {
+        "first_slot": 15,
+        "first_session": 0
+      }
+    },
+    {
+      "output": "return_autocorr1_15",
+      "family": "return_autocorr1",
+      "definition": "Pearson correlation of (r_i, r_(i-1)) over the w-1 adjacent pairs; needs both SDs > 0 (w=15)",
+      "source": "section431_additions.py construct_additions",
+      "lookback_bars": 15,
+      "lookback_sessions": 0,
+      "min_valid_obs": {
+        "count": 15,
+        "unit": "returns"
+      },
+      "warmup": {
+        "first_slot": 15,
+        "first_session": 0
+      }
+    },
+    {
+      "output": "bipower_30",
+      "family": "bipower",
+      "definition": "(pi/2)*sum of |r_i||r_(i-1)| over the w-1 adjacent pairs of the w returns ending at t (w=30)",
+      "source": "section431_additions.py construct_additions",
+      "lookback_bars": 30,
+      "lookback_sessions": 0,
+      "min_valid_obs": {
+        "count": 30,
+        "unit": "returns"
+      },
+      "warmup": {
+        "first_slot": 30,
+        "first_session": 0
+      }
+    },
+    {
+      "output": "jump_variation_30",
+      "family": "jump_variation",
+      "definition": "max(0, sum of r_i^2 over the w returns - bipower_w) (w=30)",
+      "source": "section431_additions.py construct_additions",
+      "lookback_bars": 30,
+      "lookback_sessions": 0,
+      "min_valid_obs": {
+        "count": 30,
+        "unit": "returns"
+      },
+      "warmup": {
+        "first_slot": 30,
+        "first_session": 0
+      }
+    },
+    {
+      "output": "drawdown_30",
+      "family": "drawdown",
+      "definition": "Close_t / max(Close over t-w..t) - 1, from w+1 exact closes; zero or negative (w=30)",
+      "source": "section431_additions.py construct_additions",
+      "lookback_bars": 30,
+      "lookback_sessions": 0,
+      "min_valid_obs": {
+        "count": 30,
+        "unit": "returns"
+      },
+      "warmup": {
+        "first_slot": 30,
+        "first_session": 0
+      }
+    },
+    {
+      "output": "amihud_30",
+      "family": "amihud",
+      "definition": "mean over the w bars of |r_i| / (Volume_i*Close_i); needs all volumes finite and dollar volume > 0 (w=30)",
+      "source": "section431_additions.py construct_additions",
+      "lookback_bars": 30,
+      "lookback_sessions": 0,
+      "min_valid_obs": {
+        "count": 30,
+        "unit": "returns"
+      },
+      "warmup": {
+        "first_slot": 30,
+        "first_session": 0
+      }
+    },
+    {
+      "output": "skew_30",
+      "family": "skew",
+      "definition": "mean(z^3) with z=(r-mean)/sd over the w returns, population sd (ddof=0); needs sd>0 (w=30)",
+      "source": "section431_additions.py construct_additions",
+      "lookback_bars": 30,
+      "lookback_sessions": 0,
+      "min_valid_obs": {
+        "count": 30,
+        "unit": "returns"
+      },
+      "warmup": {
+        "first_slot": 30,
+        "first_session": 0
+      }
+    },
+    {
+      "output": "kurtosis_excess_30",
+      "family": "kurtosis_excess",
+      "definition": "mean(z^4)-3 with the same z; needs sd>0 (w=30)",
+      "source": "section431_additions.py construct_additions",
+      "lookback_bars": 30,
+      "lookback_sessions": 0,
+      "min_valid_obs": {
+        "count": 30,
+        "unit": "returns"
+      },
+      "warmup": {
+        "first_slot": 30,
+        "first_session": 0
+      }
+    },
+    {
+      "output": "variance_ratio2_30",
+      "family": "variance_ratio2",
+      "definition": "mean((r_i+r_(i-1))^2) over adjacent pairs / (2*mean(r_i^2)); needs positive variance (w=30)",
+      "source": "section431_additions.py construct_additions",
+      "lookback_bars": 30,
+      "lookback_sessions": 0,
+      "min_valid_obs": {
+        "count": 30,
+        "unit": "returns"
+      },
+      "warmup": {
+        "first_slot": 30,
+        "first_session": 0
+      }
+    },
+    {
+      "output": "directional_efficiency_30",
+      "family": "directional_efficiency",
+      "definition": "|ln(Close_t/Close_(t-w))| / sum|r_i| over the w returns; undefined if sum|r_i|=0 (w=30)",
+      "source": "section431_additions.py construct_additions",
+      "lookback_bars": 30,
+      "lookback_sessions": 0,
+      "min_valid_obs": {
+        "count": 30,
+        "unit": "returns"
+      },
+      "warmup": {
+        "first_slot": 30,
+        "first_session": 0
+      }
+    },
+    {
+      "output": "vol_of_vol_30",
+      "family": "vol_of_vol",
+      "definition": "sample SD (ddof=1) of the w/5 non-overlapping 5-return realized volatilities sqrt(sum r^2) in the window (w=30)",
+      "source": "section431_additions.py construct_additions",
+      "lookback_bars": 30,
+      "lookback_sessions": 0,
+      "min_valid_obs": {
+        "count": 30,
+        "unit": "returns"
+      },
+      "warmup": {
+        "first_slot": 30,
+        "first_session": 0
+      }
+    },
+    {
+      "output": "extreme_loss_30",
+      "family": "extreme_loss",
+      "definition": "min(r_i) over the w returns (w=30)",
+      "source": "section431_additions.py construct_additions",
+      "lookback_bars": 30,
+      "lookback_sessions": 0,
+      "min_valid_obs": {
+        "count": 30,
+        "unit": "returns"
+      },
+      "warmup": {
+        "first_slot": 30,
+        "first_session": 0
+      }
+    },
+    {
+      "output": "volume_variability_30",
+      "family": "volume_variability",
+      "definition": "SD(ddof=1)/mean of Volume over the w bars; needs mean>0; also requires the w returns to be finite (w=30)",
+      "source": "section431_additions.py construct_additions",
+      "lookback_bars": 30,
+      "lookback_sessions": 0,
+      "min_valid_obs": {
+        "count": 30,
+        "unit": "returns"
+      },
+      "warmup": {
+        "first_slot": 30,
+        "first_session": 0
+      }
+    },
+    {
+      "output": "volume_adjusted_range_30",
+      "family": "volume_adjusted_range",
+      "definition": "mean over the w bars of ln(High/Low)/Volume; needs all Volume>0 and finite ranges; also requires the w returns to be finite (w=30)",
+      "source": "section431_additions.py construct_additions",
+      "lookback_bars": 30,
+      "lookback_sessions": 0,
+      "min_valid_obs": {
+        "count": 30,
+        "unit": "returns"
+      },
+      "warmup": {
+        "first_slot": 30,
+        "first_session": 0
+      }
+    },
+    {
+      "output": "reversal_30",
+      "family": "reversal",
+      "definition": "1.0 if sign(sum of first w//2 returns) != sign(sum of the rest), else 0.0; undefined if either sum is 0 (w=30)",
+      "source": "section431_additions.py construct_additions",
+      "lookback_bars": 30,
+      "lookback_sessions": 0,
+      "min_valid_obs": {
+        "count": 30,
+        "unit": "returns"
+      },
+      "warmup": {
+        "first_slot": 30,
+        "first_session": 0
+      }
+    },
+    {
+      "output": "return_autocorr1_30",
+      "family": "return_autocorr1",
+      "definition": "Pearson correlation of (r_i, r_(i-1)) over the w-1 adjacent pairs; needs both SDs > 0 (w=30)",
+      "source": "section431_additions.py construct_additions",
+      "lookback_bars": 30,
+      "lookback_sessions": 0,
+      "min_valid_obs": {
+        "count": 30,
+        "unit": "returns"
+      },
+      "warmup": {
+        "first_slot": 30,
+        "first_session": 0
+      }
+    },
+    {
+      "output": "bipower_60",
+      "family": "bipower",
+      "definition": "(pi/2)*sum of |r_i||r_(i-1)| over the w-1 adjacent pairs of the w returns ending at t (w=60)",
+      "source": "section431_additions.py construct_additions",
+      "lookback_bars": 60,
+      "lookback_sessions": 0,
+      "min_valid_obs": {
+        "count": 60,
+        "unit": "returns"
+      },
+      "warmup": {
+        "first_slot": 60,
+        "first_session": 0
+      }
+    },
+    {
+      "output": "jump_variation_60",
+      "family": "jump_variation",
+      "definition": "max(0, sum of r_i^2 over the w returns - bipower_w) (w=60)",
+      "source": "section431_additions.py construct_additions",
+      "lookback_bars": 60,
+      "lookback_sessions": 0,
+      "min_valid_obs": {
+        "count": 60,
+        "unit": "returns"
+      },
+      "warmup": {
+        "first_slot": 60,
+        "first_session": 0
+      }
+    },
+    {
+      "output": "drawdown_60",
+      "family": "drawdown",
+      "definition": "Close_t / max(Close over t-w..t) - 1, from w+1 exact closes; zero or negative (w=60)",
+      "source": "section431_additions.py construct_additions",
+      "lookback_bars": 60,
+      "lookback_sessions": 0,
+      "min_valid_obs": {
+        "count": 60,
+        "unit": "returns"
+      },
+      "warmup": {
+        "first_slot": 60,
+        "first_session": 0
+      }
+    },
+    {
+      "output": "amihud_60",
+      "family": "amihud",
+      "definition": "mean over the w bars of |r_i| / (Volume_i*Close_i); needs all volumes finite and dollar volume > 0 (w=60)",
+      "source": "section431_additions.py construct_additions",
+      "lookback_bars": 60,
+      "lookback_sessions": 0,
+      "min_valid_obs": {
+        "count": 60,
+        "unit": "returns"
+      },
+      "warmup": {
+        "first_slot": 60,
+        "first_session": 0
+      }
+    },
+    {
+      "output": "skew_60",
+      "family": "skew",
+      "definition": "mean(z^3) with z=(r-mean)/sd over the w returns, population sd (ddof=0); needs sd>0 (w=60)",
+      "source": "section431_additions.py construct_additions",
+      "lookback_bars": 60,
+      "lookback_sessions": 0,
+      "min_valid_obs": {
+        "count": 60,
+        "unit": "returns"
+      },
+      "warmup": {
+        "first_slot": 60,
+        "first_session": 0
+      }
+    },
+    {
+      "output": "kurtosis_excess_60",
+      "family": "kurtosis_excess",
+      "definition": "mean(z^4)-3 with the same z; needs sd>0 (w=60)",
+      "source": "section431_additions.py construct_additions",
+      "lookback_bars": 60,
+      "lookback_sessions": 0,
+      "min_valid_obs": {
+        "count": 60,
+        "unit": "returns"
+      },
+      "warmup": {
+        "first_slot": 60,
+        "first_session": 0
+      }
+    },
+    {
+      "output": "variance_ratio2_60",
+      "family": "variance_ratio2",
+      "definition": "mean((r_i+r_(i-1))^2) over adjacent pairs / (2*mean(r_i^2)); needs positive variance (w=60)",
+      "source": "section431_additions.py construct_additions",
+      "lookback_bars": 60,
+      "lookback_sessions": 0,
+      "min_valid_obs": {
+        "count": 60,
+        "unit": "returns"
+      },
+      "warmup": {
+        "first_slot": 60,
+        "first_session": 0
+      }
+    },
+    {
+      "output": "directional_efficiency_60",
+      "family": "directional_efficiency",
+      "definition": "|ln(Close_t/Close_(t-w))| / sum|r_i| over the w returns; undefined if sum|r_i|=0 (w=60)",
+      "source": "section431_additions.py construct_additions",
+      "lookback_bars": 60,
+      "lookback_sessions": 0,
+      "min_valid_obs": {
+        "count": 60,
+        "unit": "returns"
+      },
+      "warmup": {
+        "first_slot": 60,
+        "first_session": 0
+      }
+    },
+    {
+      "output": "vol_of_vol_60",
+      "family": "vol_of_vol",
+      "definition": "sample SD (ddof=1) of the w/5 non-overlapping 5-return realized volatilities sqrt(sum r^2) in the window (w=60)",
+      "source": "section431_additions.py construct_additions",
+      "lookback_bars": 60,
+      "lookback_sessions": 0,
+      "min_valid_obs": {
+        "count": 60,
+        "unit": "returns"
+      },
+      "warmup": {
+        "first_slot": 60,
+        "first_session": 0
+      }
+    },
+    {
+      "output": "extreme_loss_60",
+      "family": "extreme_loss",
+      "definition": "min(r_i) over the w returns (w=60)",
+      "source": "section431_additions.py construct_additions",
+      "lookback_bars": 60,
+      "lookback_sessions": 0,
+      "min_valid_obs": {
+        "count": 60,
+        "unit": "returns"
+      },
+      "warmup": {
+        "first_slot": 60,
+        "first_session": 0
+      }
+    },
+    {
+      "output": "volume_variability_60",
+      "family": "volume_variability",
+      "definition": "SD(ddof=1)/mean of Volume over the w bars; needs mean>0; also requires the w returns to be finite (w=60)",
+      "source": "section431_additions.py construct_additions",
+      "lookback_bars": 60,
+      "lookback_sessions": 0,
+      "min_valid_obs": {
+        "count": 60,
+        "unit": "returns"
+      },
+      "warmup": {
+        "first_slot": 60,
+        "first_session": 0
+      }
+    },
+    {
+      "output": "volume_adjusted_range_60",
+      "family": "volume_adjusted_range",
+      "definition": "mean over the w bars of ln(High/Low)/Volume; needs all Volume>0 and finite ranges; also requires the w returns to be finite (w=60)",
+      "source": "section431_additions.py construct_additions",
+      "lookback_bars": 60,
+      "lookback_sessions": 0,
+      "min_valid_obs": {
+        "count": 60,
+        "unit": "returns"
+      },
+      "warmup": {
+        "first_slot": 60,
+        "first_session": 0
+      }
+    },
+    {
+      "output": "reversal_60",
+      "family": "reversal",
+      "definition": "1.0 if sign(sum of first w//2 returns) != sign(sum of the rest), else 0.0; undefined if either sum is 0 (w=60)",
+      "source": "section431_additions.py construct_additions",
+      "lookback_bars": 60,
+      "lookback_sessions": 0,
+      "min_valid_obs": {
+        "count": 60,
+        "unit": "returns"
+      },
+      "warmup": {
+        "first_slot": 60,
+        "first_session": 0
+      }
+    },
+    {
+      "output": "return_autocorr1_60",
+      "family": "return_autocorr1",
+      "definition": "Pearson correlation of (r_i, r_(i-1)) over the w-1 adjacent pairs; needs both SDs > 0 (w=60)",
+      "source": "section431_additions.py construct_additions",
+      "lookback_bars": 60,
+      "lookback_sessions": 0,
+      "min_valid_obs": {
+        "count": 60,
+        "unit": "returns"
+      },
+      "warmup": {
+        "first_slot": 60,
+        "first_session": 0
+      }
+    },
+    {
+      "output": "lee_mykland_approx60",
+      "family": "lee_mykland",
+      "definition": "r_t / sqrt((pi/2) * (1/59) * sum of |r_i||r_(i-1)| over the 59 adjacent pairs of the 60 prior returns); the current return is excluded from the scale; needs 60 finite prior returns, finite r_t and scale>0",
+      "source": "step3_all_in_one.py construct_deferred (ported from section-4.3.1.py lm_stat60)",
+      "lookback_bars": 61,
+      "lookback_sessions": 0,
+      "min_valid_obs": {
+        "count": 61,
+        "unit": "returns"
+      },
+      "warmup": {
+        "first_slot": 61,
+        "first_session": 0
+      }
+    },
+    {
+      "output": "lee_mykland_jump60",
+      "family": "lee_mykland",
+      "definition": "1.0 if |lee_mykland_approx60| > c0 - s0*ln(-ln(1-alpha)) with n=390, alpha=0.01 (threshold 5.4667), else 0.0; undefined where the statistic is undefined; c0=sqrt(2 ln n)/sqrt(2/pi)-(ln pi+ln ln n)/(2*sqrt(2/pi)*sqrt(2 ln n)), s0=1/(sqrt(2/pi)*sqrt(2 ln n))",
+      "source": "step3_all_in_one.py construct_deferred (ported from section-4.3.1.py lm_jump60)",
+      "lookback_bars": 61,
+      "lookback_sessions": 0,
+      "min_valid_obs": {
+        "count": 61,
+        "unit": "returns"
+      },
+      "warmup": {
+        "first_slot": 61,
+        "first_session": 0
+      }
+    }
+  ],
+  "unchanged": [
+    "all 35 frozen candidate features and definitions",
+    "provider-era separation",
+    "no fitted model, scaler or threshold selection in 4.3.1"
+  ],
+  "verification": "step4_extract_parameters.py re-measures lookback, minimum valid observations and warmup from the code and compares them with the frozen protocol and this amendment."
+}

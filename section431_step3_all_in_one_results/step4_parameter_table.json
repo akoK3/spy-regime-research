@@ -1,7 +1,10 @@
 {
-  "generated_utc": "2026-10-30T23:05:39.271789+00:00",
+  "generated_utc": "2026-10-30T23:17:45.532712+00:00",
   "frozen_protocol": "protocol_20261029T032641Z.json",
   "frozen_protocol_sha256": "3d6f0c96fce1c05f8e94d1a8c6e6b14a5b5b1c9f013e6a95dd1e96498cbfff8b",
+  "amendment": "amendment_4_3_1_A2_20261030T231344Z.json",
+  "amendment_sha256": "2e2beb61489203c62988fda83ec0b1b7696f2a4d3bb1aa7f68a85275cae93ad5",
+  "cap_step4_lookback_limit_bars": 61,
   "probe": {
     "sessions": 24,
     "session_length": 72,
@@ -9,9 +12,9 @@
     "probe_slot": 65
   },
   "counts": {
-    "PASS": 35,
-    "FAIL": 1,
-    "NO_SPEC": 45
+    "PASS": 80,
+    "FAIL": 0,
+    "EXCLUDED": 1
   },
   "rows": [
     {
@@ -33,6 +36,7 @@
         "sess": 0,
         "S": 0
       },
+      "source": "frozen",
       "status": "PASS",
       "problems": []
     },
@@ -55,6 +59,7 @@
         "sess": 0,
         "S": 0
       },
+      "source": "frozen",
       "status": "PASS",
       "problems": []
     },
@@ -77,6 +82,7 @@
         "sess": 0,
         "S": 0
       },
+      "source": "frozen",
       "status": "PASS",
       "problems": []
     },
@@ -99,6 +105,7 @@
         "sess": 0,
         "S": 0
       },
+      "source": "frozen",
       "status": "PASS",
       "problems": []
     },
@@ -121,6 +128,7 @@
         "sess": 0,
         "S": 0
       },
+      "source": "frozen",
       "status": "PASS",
       "problems": []
     },
@@ -143,6 +151,7 @@
         "sess": 10,
         "S": 20
       },
+      "source": "frozen",
       "status": "PASS",
       "problems": []
     },
@@ -165,6 +174,7 @@
         "sess": 10,
         "S": 20
       },
+      "source": "frozen",
       "status": "PASS",
       "problems": []
     },
@@ -187,6 +197,7 @@
         "sess": 0,
         "S": 0
       },
+      "source": "frozen",
       "status": "PASS",
       "problems": []
     },
@@ -209,6 +220,7 @@
         "sess": 0,
         "S": 0
       },
+      "source": "frozen",
       "status": "PASS",
       "problems": []
     },
@@ -231,6 +243,7 @@
         "sess": 0,
         "S": 0
       },
+      "source": "frozen",
       "status": "PASS",
       "problems": []
     },
@@ -253,6 +266,7 @@
         "sess": 0,
         "S": 0
       },
+      "source": "frozen",
       "status": "PASS",
       "problems": []
     },
@@ -275,6 +289,7 @@
         "sess": 0,
         "S": 0
       },
+      "source": "frozen",
       "status": "PASS",
       "problems": []
     },
@@ -297,6 +312,7 @@
         "sess": 0,
         "S": 0
       },
+      "source": "frozen",
       "status": "PASS",
       "problems": []
     },
@@ -319,6 +335,7 @@
         "sess": 0,
         "S": 0
       },
+      "source": "frozen",
       "status": "PASS",
       "problems": []
     },
@@ -341,6 +358,7 @@
         "sess": 0,
         "S": 0
       },
+      "source": "frozen",
       "status": "PASS",
       "problems": []
     },
@@ -363,6 +381,7 @@
         "sess": 0,
         "S": 0
       },
+      "source": "frozen",
       "status": "PASS",
       "problems": []
     },
@@ -385,6 +404,7 @@
         "sess": 0,
         "S": 0
       },
+      "source": "frozen",
       "status": "PASS",
       "problems": []
     },
@@ -407,6 +427,7 @@
         "sess": 0,
         "S": 0
       },
+      "source": "frozen",
       "status": "PASS",
       "problems": []
     },
@@ -429,6 +450,7 @@
         "sess": 0,
         "S": 0
       },
+      "source": "frozen",
       "status": "PASS",
       "problems": []
     },
@@ -451,6 +473,7 @@
         "sess": 0,
         "S": 0
       },
+      "source": "frozen",
       "status": "PASS",
       "problems": []
     },
@@ -473,6 +496,7 @@
         "sess": 0,
         "S": 0
       },
+      "source": "frozen",
       "status": "PASS",
       "problems": []
     },
@@ -495,6 +519,7 @@
         "sess": 0,
         "S": 0
       },
+      "source": "frozen",
       "status": "PASS",
       "problems": []
     },
@@ -517,6 +542,7 @@
         "sess": 0,
         "S": 0
       },
+      "source": "frozen",
       "status": "PASS",
       "problems": []
     },
@@ -539,6 +565,7 @@
         "sess": 0,
         "S": 0
       },
+      "source": "frozen",
       "status": "PASS",
       "problems": []
     },
@@ -561,6 +588,7 @@
         "sess": 0,
         "S": 0
       },
+      "source": "frozen",
       "status": "PASS",
       "problems": []
     },
@@ -583,6 +611,7 @@
         "sess": 0,
         "S": 0
       },
+      "source": "frozen",
       "status": "PASS",
       "problems": []
     },
@@ -605,6 +634,7 @@
         "sess": 0,
         "S": 0
       },
+      "source": "frozen",
       "status": "PASS",
       "problems": []
     },
@@ -627,6 +657,7 @@
         "sess": 0,
         "S": 0
       },
+      "source": "frozen",
       "status": "PASS",
       "problems": []
     },
@@ -649,6 +680,7 @@
         "sess": 0,
         "S": 0
       },
+      "source": "frozen",
       "status": "PASS",
       "problems": []
     },
@@ -671,6 +703,7 @@
         "sess": 0,
         "S": 0
       },
+      "source": "frozen",
       "status": "PASS",
       "problems": []
     },
@@ -693,6 +726,7 @@
         "sess": 0,
         "S": 0
       },
+      "source": "frozen",
       "status": "PASS",
       "problems": []
     },
@@ -715,6 +749,7 @@
         "sess": 0,
         "S": 0
       },
+      "source": "frozen",
       "status": "PASS",
       "problems": []
     },
@@ -737,6 +772,7 @@
         "sess": 0,
         "S": 0
       },
+      "source": "frozen",
       "status": "PASS",
       "problems": []
     },
@@ -759,6 +795,7 @@
         "sess": 0,
         "S": 0
       },
+      "source": "frozen",
       "status": "PASS",
       "problems": []
     },
@@ -781,6 +818,7 @@
         "sess": 0,
         "S": 0
       },
+      "source": "frozen",
       "status": "PASS",
       "problems": []
     },
@@ -795,8 +833,16 @@
         "sess": 0,
         "S": 0
       },
-      "frozen": null,
-      "status": "NO_SPEC",
+      "frozen": {
+        "L": 0,
+        "kind": "bar",
+        "min": 1,
+        "slot": 0,
+        "sess": 0,
+        "S": 0
+      },
+      "source": "A2",
+      "status": "PASS",
       "problems": []
     },
     {
@@ -811,10 +857,9 @@
         "S": 1
       },
       "frozen": null,
-      "status": "FAIL",
-      "problems": [
-        "frozen clocks.overnight: 'No overnight returns; first-minute return absent every session'"
-      ]
+      "source": "A2 exclusion",
+      "status": "EXCLUDED",
+      "problems": []
     },
     {
       "output": "bipower_15",
@@ -827,8 +872,16 @@
         "sess": 0,
         "S": 0
       },
-      "frozen": null,
-      "status": "NO_SPEC",
+      "frozen": {
+        "L": 15,
+        "kind": "ret",
+        "min": 15,
+        "slot": 15,
+        "sess": 0,
+        "S": 0
+      },
+      "source": "A2",
+      "status": "PASS",
       "problems": []
     },
     {
@@ -842,8 +895,16 @@
         "sess": 0,
         "S": 0
       },
-      "frozen": null,
-      "status": "NO_SPEC",
+      "frozen": {
+        "L": 15,
+        "kind": "ret",
+        "min": 15,
+        "slot": 15,
+        "sess": 0,
+        "S": 0
+      },
+      "source": "A2",
+      "status": "PASS",
       "problems": []
     },
     {
@@ -857,8 +918,16 @@
         "sess": 0,
         "S": 0
       },
-      "frozen": null,
-      "status": "NO_SPEC",
+      "frozen": {
+        "L": 15,
+        "kind": "ret",
+        "min": 15,
+        "slot": 15,
+        "sess": 0,
+        "S": 0
+      },
+      "source": "A2",
+      "status": "PASS",
       "problems": []
     },
     {
@@ -872,8 +941,16 @@
         "sess": 0,
         "S": 0
       },
-      "frozen": null,
-      "status": "NO_SPEC",
+      "frozen": {
+        "L": 15,
+        "kind": "ret",
+        "min": 15,
+        "slot": 15,
+        "sess": 0,
+        "S": 0
+      },
+      "source": "A2",
+      "status": "PASS",
       "problems": []
     },
     {
@@ -887,8 +964,16 @@
         "sess": 0,
         "S": 0
       },
-      "frozen": null,
-      "status": "NO_SPEC",
+      "frozen": {
+        "L": 15,
+        "kind": "ret",
+        "min": 15,
+        "slot": 15,
+        "sess": 0,
+        "S": 0
+      },
+      "source": "A2",
+      "status": "PASS",
       "problems": []
     },
     {
@@ -902,8 +987,16 @@
         "sess": 0,
         "S": 0
       },
-      "frozen": null,
-      "status": "NO_SPEC",
+      "frozen": {
+        "L": 15,
+        "kind": "ret",
+        "min": 15,
+        "slot": 15,
+        "sess": 0,
+        "S": 0
+      },
+      "source": "A2",
+      "status": "PASS",
       "problems": []
     },
     {
@@ -917,8 +1010,16 @@
         "sess": 0,
         "S": 0
       },
-      "frozen": null,
-      "status": "NO_SPEC",
+      "frozen": {
+        "L": 15,
+        "kind": "ret",
+        "min": 15,
+        "slot": 15,
+        "sess": 0,
+        "S": 0
+      },
+      "source": "A2",
+      "status": "PASS",
       "problems": []
     },
     {
@@ -932,8 +1033,16 @@
         "sess": 0,
         "S": 0
       },
-      "frozen": null,
-      "status": "NO_SPEC",
+      "frozen": {
+        "L": 15,
+        "kind": "ret",
+        "min": 15,
+        "slot": 15,
+        "sess": 0,
+        "S": 0
+      },
+      "source": "A2",
+      "status": "PASS",
       "problems": []
     },
     {
@@ -947,8 +1056,16 @@
         "sess": 0,
         "S": 0
       },
-      "frozen": null,
-      "status": "NO_SPEC",
+      "frozen": {
+        "L": 15,
+        "kind": "ret",
+        "min": 15,
+        "slot": 15,
+        "sess": 0,
+        "S": 0
+      },
+      "source": "A2",
+      "status": "PASS",
       "problems": []
     },
     {
@@ -962,8 +1079,16 @@
         "sess": 0,
         "S": 0
       },
-      "frozen": null,
-      "status": "NO_SPEC",
+      "frozen": {
+        "L": 15,
+        "kind": "ret",
+        "min": 15,
+        "slot": 15,
+        "sess": 0,
+        "S": 0
+      },
+      "source": "A2",
+      "status": "PASS",
       "problems": []
     },
     {
@@ -977,8 +1102,16 @@
         "sess": 0,
         "S": 0
       },
-      "frozen": null,
-      "status": "NO_SPEC",
+      "frozen": {
+        "L": 15,
+        "kind": "ret",
+        "min": 15,
+        "slot": 15,
+        "sess": 0,
+        "S": 0
+      },
+      "source": "A2",
+      "status": "PASS",
       "problems": []
     },
     {
@@ -992,8 +1125,16 @@
         "sess": 0,
         "S": 0
       },
-      "frozen": null,
-      "status": "NO_SPEC",
+      "frozen": {
+        "L": 15,
+        "kind": "ret",
+        "min": 15,
+        "slot": 15,
+        "sess": 0,
+        "S": 0
+      },
+      "source": "A2",
+      "status": "PASS",
       "problems": []
     },
     {
@@ -1007,8 +1148,16 @@
         "sess": 0,
         "S": 0
       },
-      "frozen": null,
-      "status": "NO_SPEC",
+      "frozen": {
+        "L": 15,
+        "kind": "ret",
+        "min": 15,
+        "slot": 15,
+        "sess": 0,
+        "S": 0
+      },
+      "source": "A2",
+      "status": "PASS",
       "problems": []
     },
     {
@@ -1022,8 +1171,16 @@
         "sess": 0,
         "S": 0
       },
-      "frozen": null,
-      "status": "NO_SPEC",
+      "frozen": {
+        "L": 15,
+        "kind": "ret",
+        "min": 15,
+        "slot": 15,
+        "sess": 0,
+        "S": 0
+      },
+      "source": "A2",
+      "status": "PASS",
       "problems": []
     },
     {
@@ -1037,8 +1194,16 @@
         "sess": 0,
         "S": 0
       },
-      "frozen": null,
-      "status": "NO_SPEC",
+      "frozen": {
+        "L": 30,
+        "kind": "ret",
+        "min": 30,
+        "slot": 30,
+        "sess": 0,
+        "S": 0
+      },
+      "source": "A2",
+      "status": "PASS",
       "problems": []
     },
     {
@@ -1052,8 +1217,16 @@
         "sess": 0,
         "S": 0
       },
-      "frozen": null,
-      "status": "NO_SPEC",
+      "frozen": {
+        "L": 30,
+        "kind": "ret",
+        "min": 30,
+        "slot": 30,
+        "sess": 0,
+        "S": 0
+      },
+      "source": "A2",
+      "status": "PASS",
       "problems": []
     },
     {
@@ -1067,8 +1240,16 @@
         "sess": 0,
         "S": 0
       },
-      "frozen": null,
-      "status": "NO_SPEC",
+      "frozen": {
+        "L": 30,
+        "kind": "ret",
+        "min": 30,
+        "slot": 30,
+        "sess": 0,
+        "S": 0
+      },
+      "source": "A2",
+      "status": "PASS",
       "problems": []
     },
     {
@@ -1082,8 +1263,16 @@
         "sess": 0,
         "S": 0
       },
-      "frozen": null,
-      "status": "NO_SPEC",
+      "frozen": {
+        "L": 30,
+        "kind": "ret",
+        "min": 30,
+        "slot": 30,
+        "sess": 0,
+        "S": 0
+      },
+      "source": "A2",
+      "status": "PASS",
       "problems": []
     },
     {
@@ -1097,8 +1286,16 @@
         "sess": 0,
         "S": 0
       },
-      "frozen": null,
-      "status": "NO_SPEC",
+      "frozen": {
+        "L": 30,
+        "kind": "ret",
+        "min": 30,
+        "slot": 30,
+        "sess": 0,
+        "S": 0
+      },
+      "source": "A2",
+      "status": "PASS",
       "problems": []
     },
     {
@@ -1112,8 +1309,16 @@
         "sess": 0,
         "S": 0
       },
-      "frozen": null,
-      "status": "NO_SPEC",
+      "frozen": {
+        "L": 30,
+        "kind": "ret",
+        "min": 30,
+        "slot": 30,
+        "sess": 0,
+        "S": 0
+      },
+      "source": "A2",
+      "status": "PASS",
       "problems": []
     },
     {
@@ -1127,8 +1332,16 @@
         "sess": 0,
         "S": 0
       },
-      "frozen": null,
-      "status": "NO_SPEC",
+      "frozen": {
+        "L": 30,
+        "kind": "ret",
+        "min": 30,
+        "slot": 30,
+        "sess": 0,
+        "S": 0
+      },
+      "source": "A2",
+      "status": "PASS",
       "problems": []
     },
     {
@@ -1142,8 +1355,16 @@
         "sess": 0,
         "S": 0
       },
-      "frozen": null,
-      "status": "NO_SPEC",
+      "frozen": {
+        "L": 30,
+        "kind": "ret",
+        "min": 30,
+        "slot": 30,
+        "sess": 0,
+        "S": 0
+      },
+      "source": "A2",
+      "status": "PASS",
       "problems": []
     },
     {
@@ -1157,8 +1378,16 @@
         "sess": 0,
         "S": 0
       },
-      "frozen": null,
-      "status": "NO_SPEC",
+      "frozen": {
+        "L": 30,
+        "kind": "ret",
+        "min": 30,
+        "slot": 30,
+        "sess": 0,
+        "S": 0
+      },
+      "source": "A2",
+      "status": "PASS",
       "problems": []
     },
     {
@@ -1172,8 +1401,16 @@
         "sess": 0,
         "S": 0
       },
-      "frozen": null,
-      "status": "NO_SPEC",
+      "frozen": {
+        "L": 30,
+        "kind": "ret",
+        "min": 30,
+        "slot": 30,
+        "sess": 0,
+        "S": 0
+      },
+      "source": "A2",
+      "status": "PASS",
       "problems": []
     },
     {
@@ -1187,8 +1424,16 @@
         "sess": 0,
         "S": 0
       },
-      "frozen": null,
-      "status": "NO_SPEC",
+      "frozen": {
+        "L": 30,
+        "kind": "ret",
+        "min": 30,
+        "slot": 30,
+        "sess": 0,
+        "S": 0
+      },
+      "source": "A2",
+      "status": "PASS",
       "problems": []
     },
     {
@@ -1202,8 +1447,16 @@
         "sess": 0,
         "S": 0
       },
-      "frozen": null,
-      "status": "NO_SPEC",
+      "frozen": {
+        "L": 30,
+        "kind": "ret",
+        "min": 30,
+        "slot": 30,
+        "sess": 0,
+        "S": 0
+      },
+      "source": "A2",
+      "status": "PASS",
       "problems": []
     },
     {
@@ -1217,8 +1470,16 @@
         "sess": 0,
         "S": 0
       },
-      "frozen": null,
-      "status": "NO_SPEC",
+      "frozen": {
+        "L": 30,
+        "kind": "ret",
+        "min": 30,
+        "slot": 30,
+        "sess": 0,
+        "S": 0
+      },
+      "source": "A2",
+      "status": "PASS",
       "problems": []
     },
     {
@@ -1232,8 +1493,16 @@
         "sess": 0,
         "S": 0
       },
-      "frozen": null,
-      "status": "NO_SPEC",
+      "frozen": {
+        "L": 30,
+        "kind": "ret",
+        "min": 30,
+        "slot": 30,
+        "sess": 0,
+        "S": 0
+      },
+      "source": "A2",
+      "status": "PASS",
       "problems": []
     },
     {
@@ -1247,8 +1516,16 @@
         "sess": 0,
         "S": 0
       },
-      "frozen": null,
-      "status": "NO_SPEC",
+      "frozen": {
+        "L": 60,
+        "kind": "ret",
+        "min": 60,
+        "slot": 60,
+        "sess": 0,
+        "S": 0
+      },
+      "source": "A2",
+      "status": "PASS",
       "problems": []
     },
     {
@@ -1262,8 +1539,16 @@
         "sess": 0,
         "S": 0
       },
-      "frozen": null,
-      "status": "NO_SPEC",
+      "frozen": {
+        "L": 60,
+        "kind": "ret",
+        "min": 60,
+        "slot": 60,
+        "sess": 0,
+        "S": 0
+      },
+      "source": "A2",
+      "status": "PASS",
       "problems": []
     },
     {
@@ -1277,8 +1562,16 @@
         "sess": 0,
         "S": 0
       },
-      "frozen": null,
-      "status": "NO_SPEC",
+      "frozen": {
+        "L": 60,
+        "kind": "ret",
+        "min": 60,
+        "slot": 60,
+        "sess": 0,
+        "S": 0
+      },
+      "source": "A2",
+      "status": "PASS",
       "problems": []
     },
     {
@@ -1292,8 +1585,16 @@
         "sess": 0,
         "S": 0
       },
-      "frozen": null,
-      "status": "NO_SPEC",
+      "frozen": {
+        "L": 60,
+        "kind": "ret",
+        "min": 60,
+        "slot": 60,
+        "sess": 0,
+        "S": 0
+      },
+      "source": "A2",
+      "status": "PASS",
       "problems": []
     },
     {
@@ -1307,8 +1608,16 @@
         "sess": 0,
         "S": 0
       },
-      "frozen": null,
-      "status": "NO_SPEC",
+      "frozen": {
+        "L": 60,
+        "kind": "ret",
+        "min": 60,
+        "slot": 60,
+        "sess": 0,
+        "S": 0
+      },
+      "source": "A2",
+      "status": "PASS",
       "problems": []
     },
     {
@@ -1322,8 +1631,16 @@
         "sess": 0,
         "S": 0
       },
-      "frozen": null,
-      "status": "NO_SPEC",
+      "frozen": {
+        "L": 60,
+        "kind": "ret",
+        "min": 60,
+        "slot": 60,
+        "sess": 0,
+        "S": 0
+      },
+      "source": "A2",
+      "status": "PASS",
       "problems": []
     },
     {
@@ -1337,8 +1654,16 @@
         "sess": 0,
         "S": 0
       },
-      "frozen": null,
-      "status": "NO_SPEC",
+      "frozen": {
+        "L": 60,
+        "kind": "ret",
+        "min": 60,
+        "slot": 60,
+        "sess": 0,
+        "S": 0
+      },
+      "source": "A2",
+      "status": "PASS",
       "problems": []
     },
     {
@@ -1352,8 +1677,16 @@
         "sess": 0,
         "S": 0
       },
-      "frozen": null,
-      "status": "NO_SPEC",
+      "frozen": {
+        "L": 60,
+        "kind": "ret",
+        "min": 60,
+        "slot": 60,
+        "sess": 0,
+        "S": 0
+      },
+      "source": "A2",
+      "status": "PASS",
       "problems": []
     },
     {
@@ -1367,8 +1700,16 @@
         "sess": 0,
         "S": 0
       },
-      "frozen": null,
-      "status": "NO_SPEC",
+      "frozen": {
+        "L": 60,
+        "kind": "ret",
+        "min": 60,
+        "slot": 60,
+        "sess": 0,
+        "S": 0
+      },
+      "source": "A2",
+      "status": "PASS",
       "problems": []
     },
     {
@@ -1382,8 +1723,16 @@
         "sess": 0,
         "S": 0
       },
-      "frozen": null,
-      "status": "NO_SPEC",
+      "frozen": {
+        "L": 60,
+        "kind": "ret",
+        "min": 60,
+        "slot": 60,
+        "sess": 0,
+        "S": 0
+      },
+      "source": "A2",
+      "status": "PASS",
       "problems": []
     },
     {
@@ -1397,8 +1746,16 @@
         "sess": 0,
         "S": 0
       },
-      "frozen": null,
-      "status": "NO_SPEC",
+      "frozen": {
+        "L": 60,
+        "kind": "ret",
+        "min": 60,
+        "slot": 60,
+        "sess": 0,
+        "S": 0
+      },
+      "source": "A2",
+      "status": "PASS",
       "problems": []
     },
     {
@@ -1412,8 +1769,16 @@
         "sess": 0,
         "S": 0
       },
-      "frozen": null,
-      "status": "NO_SPEC",
+      "frozen": {
+        "L": 60,
+        "kind": "ret",
+        "min": 60,
+        "slot": 60,
+        "sess": 0,
+        "S": 0
+      },
+      "source": "A2",
+      "status": "PASS",
       "problems": []
     },
     {
@@ -1427,8 +1792,16 @@
         "sess": 0,
         "S": 0
       },
-      "frozen": null,
-      "status": "NO_SPEC",
+      "frozen": {
+        "L": 60,
+        "kind": "ret",
+        "min": 60,
+        "slot": 60,
+        "sess": 0,
+        "S": 0
+      },
+      "source": "A2",
+      "status": "PASS",
       "problems": []
     },
     {
@@ -1442,8 +1815,16 @@
         "sess": 0,
         "S": 0
       },
-      "frozen": null,
-      "status": "NO_SPEC",
+      "frozen": {
+        "L": 60,
+        "kind": "ret",
+        "min": 60,
+        "slot": 60,
+        "sess": 0,
+        "S": 0
+      },
+      "source": "A2",
+      "status": "PASS",
       "problems": []
     },
     {
@@ -1457,8 +1838,16 @@
         "sess": 0,
         "S": 0
       },
-      "frozen": null,
-      "status": "NO_SPEC",
+      "frozen": {
+        "L": 61,
+        "kind": "ret",
+        "min": 61,
+        "slot": 61,
+        "sess": 0,
+        "S": 0
+      },
+      "source": "A2",
+      "status": "PASS",
       "problems": []
     },
     {
@@ -1472,8 +1861,16 @@
         "sess": 0,
         "S": 0
       },
-      "frozen": null,
-      "status": "NO_SPEC",
+      "frozen": {
+        "L": 61,
+        "kind": "ret",
+        "min": 61,
+        "slot": 61,
+        "sess": 0,
+        "S": 0
+      },
+      "source": "A2",
+      "status": "PASS",
       "problems": []
     }
   ]

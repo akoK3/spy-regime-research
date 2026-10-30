@@ -116,7 +116,18 @@ def frozen_spec(name):
     return None
 
 
-FORBIDDEN = {"overnight_return_open": "frozen clocks.overnight: 'No overnight returns; first-minute return absent every session'"}
+KIND = {"returns": "ret", "bars": "bar", "sessions": "sess"}
+
+
+def load_amendment():
+    files = sorted(OUT.glob("amendment_4_3_1_A2_*.json"))
+    assert len(files) == 1, f"expected exactly one A2 amendment, found {len(files)}"
+    f = files[0]
+    digest = hashlib.sha256(f.read_bytes()).hexdigest()
+    assert f.with_suffix(".sha256").read_text().split()[0] == digest, "A2 amendment hash mismatch"
+    a = json.loads(f.read_text(encoding="utf-8"))
+    assert a["basis"]["frozen_protocol"]["sha256"] == PROTOCOL_SHA
+    return f, digest, a
 
 
 def check_protocol():
@@ -140,6 +151,17 @@ def main():
     base_full = compute(d0)
     names = list(base_full)
     assert len(names) == s.EXPECTED_ORIGINAL + s.EXPECTED_ADDITIONAL == 81, len(names)
+    amend_file, amend_sha, amend = load_amendment()
+    excluded = {x["output"] for x in amend["excluded_from_detector_features"]}
+    amended = {x["output"]: dict(L=x["lookback_bars"], kind=KIND[x["min_valid_obs"]["unit"]], min=x["min_valid_obs"]["count"],
+                                 slot=x["warmup"]["first_slot"], sess=x["warmup"]["first_session"], S=x["lookback_sessions"])
+               for x in amend["specified_outputs"]}
+    frozen_listed = set(protocol["candidate_features"])
+    listed = amend["detector_feature_outputs"]
+    detector = set(listed["frozen_protocol_outputs"]) | set(listed["specified_by_this_amendment"])
+    assert set(listed["frozen_protocol_outputs"]) == frozen_listed and set(listed["specified_by_this_amendment"]) == set(amended)
+    assert detector == set(names) - excluded and len(detector) == listed["count"] == 80, "detector set is not 81 outputs minus the exclusions"
+    cap_limit = amend["cap"]["step4_lookback_limit_bars"]
     base = {k: float(v[P]) for k, v in base_full.items()}
     unusable = [k for k, v in base.items() if np.isnan(v)]
     assert not unusable, f"probe row not finite for {unusable}"
@@ -227,39 +249,46 @@ def main():
         else:
             kind = "bar"; mn = len(required[name])
         got = dict(L=L, kind=kind, min=mn, slot=warm[name][1], sess=warm[name][0], S=S)
-        spec = frozen_spec(name)
         problems = []
         if uses_future[name]: problems.append("uses bars after t (lookahead)")
-        if name in FORBIDDEN: problems.append(FORBIDDEN[name])
-        if spec is None:
-            status = "FAIL" if problems else "NO_SPEC"
+        if name in excluded:
+            spec, source = None, "A2 exclusion"
+            if name in detector: problems.append("excluded output is in the detector set")
+            status = "FAIL" if problems else "EXCLUDED"
         else:
-            for key in ("L", "kind", "min", "slot", "sess", "S"):
-                if got[key] != spec[key]: problems.append(f"{key}: code {got[key]} vs frozen {spec[key]}")
+            spec, source = (frozen_spec(name), "frozen") if frozen_spec(name) else (amended.get(name), "A2")
+            if spec is None:
+                problems.append("no specification in the frozen protocol or A2")
+            else:
+                for key in ("L", "kind", "min", "slot", "sess", "S"):
+                    if got[key] != spec[key]: problems.append(f"{key}: code {got[key]} vs {source} {spec[key]}")
+            if got["L"] > cap_limit: problems.append(f"lookback {got['L']} exceeds the cap ({cap_limit})")
             status = "FAIL" if problems else "PASS"
-        table.append(dict(output=name, group="original" if name in s.construct(d0)[0] else "added", extracted=got, frozen=spec, status=status, problems=problems))
+        table.append(dict(output=name, group="original" if name in s.construct(d0)[0] else "added", extracted=got, frozen=spec, source=source, status=status, problems=problems))
 
-    listed = set(protocol["candidate_features"])
     in_code = {r["output"] for r in table if r["group"] == "original"}
-    assert listed == in_code, (sorted(listed ^ in_code))
+    assert frozen_listed == in_code, (sorted(frozen_listed ^ in_code))
     result = dict(generated_utc=datetime.datetime.now(datetime.timezone.utc).isoformat(), frozen_protocol=PROTOCOL.name,
-                  frozen_protocol_sha256=PROTOCOL_SHA, probe=dict(sessions=SESS, session_length=LEN, probe_session=T_SESS, probe_slot=T_SLOT),
-                  counts={k: sum(r["status"] == k for r in table) for k in ("PASS", "FAIL", "NO_SPEC")}, rows=table)
+                  frozen_protocol_sha256=PROTOCOL_SHA, amendment=amend_file.name, amendment_sha256=amend_sha,
+                  cap_step4_lookback_limit_bars=cap_limit, probe=dict(sessions=SESS, session_length=LEN, probe_session=T_SESS, probe_slot=T_SLOT),
+                  counts={k: sum(r["status"] == k for r in table) for k in ("PASS", "FAIL", "EXCLUDED")}, rows=table)
     (OUT / "step4_parameter_table.json").write_text(json.dumps(result, indent=2), encoding="utf-8")
 
     def fmt_min(g):
         unit = {"ret": "returns", "bar": "bars", "sess": "sessions"}[g["kind"]]
         return f"{g['min']} {unit}"
-    lines = ["| # | Output | Lookback (bars / sessions) | Min valid obs | Warmup (first slot / session) | Frozen amendment | Status |", "|---|---|---|---|---|---|---|"]
+    lines = ["| # | Output | Lookback (bars / sessions) | Min valid obs | Warmup (first slot / session) | Specification [source] | Status |", "|---|---|---|---|---|---|---|"]
     for i, r in enumerate(table, 1):
         g, f = r["extracted"], r["frozen"]
-        frozen = "not specified" if f is None else f"{f['L']} / {f['S']}; {fmt_min(f)}; slot {f['slot']} / session {f['sess']}"
+        if r["status"] == "EXCLUDED": frozen = "excluded from detector features [A2]"
+        elif f is None: frozen = "none"
+        else: frozen = f"{f['L']} / {f['S']}; {fmt_min(f)}; slot {f['slot']} / session {f['sess']} [{r['source']}]"
         note = "" if not r["problems"] else " — " + "; ".join(r["problems"])
         lines.append(f"| {i} | {r['output']} | {g['L']} / {g['S']} | {fmt_min(g)} | slot {g['slot']} / session {g['sess']} | {frozen} | {r['status']}{note} |")
     (OUT / "step4_parameter_table.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
     print("\n".join(lines))
-    print("\ncounts:", result["counts"])
-    return 0
+    print("\ncounts:", result["counts"], "| amendment:", amend_file.name, amend_sha)
+    return 1 if result["counts"]["FAIL"] else 0
 
 
 if __name__ == "__main__":
