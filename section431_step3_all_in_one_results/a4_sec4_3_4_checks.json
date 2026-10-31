@@ -1,0 +1,329 @@
+{
+  "definition": "raw / median of the same slot over the previous 20 sessions of the era, at least 10 finite; NaN if baseline missing or <= 0",
+  "eras": {
+    "RAW": {
+      "brute_force_cells": 105000,
+      "brute_force_mismatches": [],
+      "prefix_invariance_mismatches": [],
+      "first_10_sessions_all_nan": true,
+      "prefix_cuts_sessions": [
+        109,
+        612
+      ],
+      "prefix_columns": [
+        "jump_variation_30",
+        "rv60_partial90",
+        "rv60_strict",
+        "vol_of_vol_60",
+        "volume_adjusted_range_30",
+        "volume_adjusted_range_60"
+      ],
+      "status": "PASS"
+    },
+    "LEGACY": {
+      "brute_force_cells": 105000,
+      "brute_force_mismatches": [],
+      "prefix_invariance_mismatches": [],
+      "first_10_sessions_all_nan": true,
+      "prefix_cuts_sessions": [
+        2627,
+        2968
+      ],
+      "prefix_columns": [
+        "intrabar_range_log",
+        "jump_variation_30",
+        "rv30_partial90",
+        "rv5_partial90",
+        "vol_of_vol_30",
+        "vol_of_vol_60"
+      ],
+      "status": "PASS"
+    }
+  },
+  "adjusted_vs_raw_coverage_pct": {
+    "RAW": {
+      "abs_return_1m": {
+        "raw_pct": 99.562,
+        "adjusted_pct": 98.143
+      },
+      "intrabar_range_log": {
+        "raw_pct": 99.85,
+        "adjusted_pct": 98.427
+      },
+      "relative_volume20": {
+        "raw_pct": 98.427,
+        "adjusted_pct": 97.004
+      },
+      "rv5_strict": {
+        "raw_pct": 98.423,
+        "adjusted_pct": 97.018
+      },
+      "downside5_strict": {
+        "raw_pct": 98.423,
+        "adjusted_pct": 97.018
+      },
+      "rv5_partial90": {
+        "raw_pct": 98.423,
+        "adjusted_pct": 97.018
+      },
+      "rv10_strict": {
+        "raw_pct": 97.003,
+        "adjusted_pct": 95.617
+      },
+      "downside10_strict": {
+        "raw_pct": 97.003,
+        "adjusted_pct": 95.617
+      },
+      "rv10_partial90": {
+        "raw_pct": 97.057,
+        "adjusted_pct": 95.67
+      },
+      "rv15_strict": {
+        "raw_pct": 95.584,
+        "adjusted_pct": 94.216
+      },
+      "downside15_strict": {
+        "raw_pct": 95.584,
+        "adjusted_pct": 94.216
+      },
+      "rv15_partial90": {
+        "raw_pct": 95.638,
+        "adjusted_pct": 94.269
+      },
+      "rv30_strict": {
+        "raw_pct": 91.358,
+        "adjusted_pct": 90.044
+      },
+      "downside30_strict": {
+        "raw_pct": 91.358,
+        "adjusted_pct": 90.044
+      },
+      "rv30_partial90": {
+        "raw_pct": 92.11,
+        "adjusted_pct": 90.797
+      },
+      "rv60_strict": {
+        "raw_pct": 82.982,
+        "adjusted_pct": 81.778
+      },
+      "downside60_strict": {
+        "raw_pct": 82.982,
+        "adjusted_pct": 81.778
+      },
+      "rv60_partial90": {
+        "raw_pct": 84.416,
+        "adjusted_pct": 83.212
+      },
+      "downside15_partial90": {
+        "raw_pct": 95.638,
+        "adjusted_pct": 94.269
+      },
+      "rv60_sampled5_exact": {
+        "raw_pct": 84.092,
+        "adjusted_pct": 82.888
+      },
+      "bipower_15": {
+        "raw_pct": 95.584,
+        "adjusted_pct": 94.216
+      },
+      "jump_variation_15": {
+        "raw_pct": 95.584,
+        "adjusted_pct": 86.82
+      },
+      "amihud_15": {
+        "raw_pct": 95.584,
+        "adjusted_pct": 94.216
+      },
+      "vol_of_vol_15": {
+        "raw_pct": 95.584,
+        "adjusted_pct": 94.216
+      },
+      "volume_adjusted_range_15": {
+        "raw_pct": 95.584,
+        "adjusted_pct": 94.216
+      },
+      "bipower_30": {
+        "raw_pct": 91.358,
+        "adjusted_pct": 90.044
+      },
+      "jump_variation_30": {
+        "raw_pct": 91.358,
+        "adjusted_pct": 80.579
+      },
+      "amihud_30": {
+        "raw_pct": 91.358,
+        "adjusted_pct": 90.044
+      },
+      "vol_of_vol_30": {
+        "raw_pct": 91.358,
+        "adjusted_pct": 90.044
+      },
+      "volume_adjusted_range_30": {
+        "raw_pct": 91.358,
+        "adjusted_pct": 90.044
+      },
+      "bipower_60": {
+        "raw_pct": 82.982,
+        "adjusted_pct": 81.778
+      },
+      "jump_variation_60": {
+        "raw_pct": 82.982,
+        "adjusted_pct": 72.342
+      },
+      "amihud_60": {
+        "raw_pct": 82.982,
+        "adjusted_pct": 81.778
+      },
+      "vol_of_vol_60": {
+        "raw_pct": 82.982,
+        "adjusted_pct": 81.778
+      },
+      "volume_adjusted_range_60": {
+        "raw_pct": 82.982,
+        "adjusted_pct": 81.778
+      }
+    },
+    "LEGACY": {
+      "abs_return_1m": {
+        "raw_pct": 95.238,
+        "adjusted_pct": 94.698
+      },
+      "intrabar_range_log": {
+        "raw_pct": 96.927,
+        "adjusted_pct": 96.678
+      },
+      "relative_volume20": {
+        "raw_pct": 96.678,
+        "adjusted_pct": 96.428
+      },
+      "rv5_strict": {
+        "raw_pct": 89.502,
+        "adjusted_pct": 89.255
+      },
+      "downside5_strict": {
+        "raw_pct": 89.502,
+        "adjusted_pct": 89.255
+      },
+      "rv5_partial90": {
+        "raw_pct": 89.502,
+        "adjusted_pct": 89.255
+      },
+      "rv10_strict": {
+        "raw_pct": 82.99,
+        "adjusted_pct": 82.735
+      },
+      "downside10_strict": {
+        "raw_pct": 82.99,
+        "adjusted_pct": 82.735
+      },
+      "rv10_partial90": {
+        "raw_pct": 85.072,
+        "adjusted_pct": 84.826
+      },
+      "rv15_strict": {
+        "raw_pct": 76.883,
+        "adjusted_pct": 76.544
+      },
+      "downside15_strict": {
+        "raw_pct": 76.883,
+        "adjusted_pct": 76.544
+      },
+      "rv15_partial90": {
+        "raw_pct": 78.828,
+        "adjusted_pct": 78.543
+      },
+      "rv30_strict": {
+        "raw_pct": 60.763,
+        "adjusted_pct": 57.059
+      },
+      "downside30_strict": {
+        "raw_pct": 60.763,
+        "adjusted_pct": 57.059
+      },
+      "rv30_partial90": {
+        "raw_pct": 77.653,
+        "adjusted_pct": 77.415
+      },
+      "rv60_strict": {
+        "raw_pct": 37.735,
+        "adjusted_pct": 15.513
+      },
+      "downside60_strict": {
+        "raw_pct": 37.735,
+        "adjusted_pct": 15.513
+      },
+      "rv60_partial90": {
+        "raw_pct": 72.527,
+        "adjusted_pct": 72.306
+      },
+      "downside15_partial90": {
+        "raw_pct": 78.828,
+        "adjusted_pct": 78.543
+      },
+      "rv60_sampled5_exact": {
+        "raw_pct": 58.624,
+        "adjusted_pct": 56.737
+      },
+      "bipower_15": {
+        "raw_pct": 76.883,
+        "adjusted_pct": 76.544
+      },
+      "jump_variation_15": {
+        "raw_pct": 76.883,
+        "adjusted_pct": 74.151
+      },
+      "amihud_15": {
+        "raw_pct": 76.883,
+        "adjusted_pct": 76.544
+      },
+      "vol_of_vol_15": {
+        "raw_pct": 76.883,
+        "adjusted_pct": 76.544
+      },
+      "volume_adjusted_range_15": {
+        "raw_pct": 76.883,
+        "adjusted_pct": 76.544
+      },
+      "bipower_30": {
+        "raw_pct": 60.763,
+        "adjusted_pct": 57.059
+      },
+      "jump_variation_30": {
+        "raw_pct": 60.763,
+        "adjusted_pct": 54.969
+      },
+      "amihud_30": {
+        "raw_pct": 60.763,
+        "adjusted_pct": 57.059
+      },
+      "vol_of_vol_30": {
+        "raw_pct": 60.763,
+        "adjusted_pct": 57.059
+      },
+      "volume_adjusted_range_30": {
+        "raw_pct": 60.763,
+        "adjusted_pct": 57.059
+      },
+      "bipower_60": {
+        "raw_pct": 37.735,
+        "adjusted_pct": 15.513
+      },
+      "jump_variation_60": {
+        "raw_pct": 37.735,
+        "adjusted_pct": 14.931
+      },
+      "amihud_60": {
+        "raw_pct": 37.735,
+        "adjusted_pct": 15.513
+      },
+      "vol_of_vol_60": {
+        "raw_pct": 37.735,
+        "adjusted_pct": 15.513
+      },
+      "volume_adjusted_range_60": {
+        "raw_pct": 37.735,
+        "adjusted_pct": 15.513
+      }
+    }
+  }
+}

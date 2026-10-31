@@ -1,0 +1,142 @@
+{
+  "created_utc": "2026-10-31T02:52:21.954763+00:00",
+  "amendment_A4": {
+    "file": "amendment_4_3_A4_20261031T021111Z.json",
+    "sha256": "1960e83752b4dd5fa25dd022792e8a57f89ba79e9c79df02a50fceba96747304"
+  },
+  "scope": "TRAIN only; RAW then LEGACY; pool 113",
+  "subsections": {
+    "F2 4.3.4 causal baseline": {
+      "status": "PASS",
+      "checks": {
+        "RAW": {
+          "brute_force_cells": 105000,
+          "brute_force_mismatches": [],
+          "prefix_invariance_mismatches": [],
+          "first_10_sessions_all_nan": true,
+          "prefix_cuts_sessions": [
+            109,
+            612
+          ],
+          "prefix_columns": [
+            "jump_variation_30",
+            "rv60_partial90",
+            "rv60_strict",
+            "vol_of_vol_60",
+            "volume_adjusted_range_30",
+            "volume_adjusted_range_60"
+          ],
+          "status": "PASS"
+        },
+        "LEGACY": {
+          "brute_force_cells": 105000,
+          "brute_force_mismatches": [],
+          "prefix_invariance_mismatches": [],
+          "first_10_sessions_all_nan": true,
+          "prefix_cuts_sessions": [
+            2627,
+            2968
+          ],
+          "prefix_columns": [
+            "intrabar_range_log",
+            "jump_variation_30",
+            "rv30_partial90",
+            "rv5_partial90",
+            "vol_of_vol_30",
+            "vol_of_vol_60"
+          ],
+          "status": "PASS"
+        }
+      }
+    },
+    "4.3.7": {
+      "status": "PASS",
+      "checks": {
+        "pool has 78 raw and 35 adjusted columns": true,
+        "none of raw_volume, log_raw_volume, raw_volume__sadj, overnight_return_open is in the pool": true,
+        "primary raw columns equal the Step 6 PASS columns among the 78": true
+      },
+      "primary_pool": 27,
+      "sensitivity_pool": 113
+    },
+    "4.3.8": {
+      "status": "PASS",
+      "checks": {
+        "primary: no two kept columns redundant, every dropped column has a kept partner": true,
+        "sensitivity: no two kept columns redundant, every dropped column has a kept partner": true
+      },
+      "primary": {
+        "pool": 27,
+        "kept": 19,
+        "dropped": 8,
+        "kept_split": {
+          "raw": 13,
+          "adjusted": 6
+        },
+        "dropped_split": {
+          "raw": 5,
+          "adjusted": 3
+        }
+      },
+      "sensitivity_RAW": {
+        "pool": 113,
+        "kept": 83,
+        "dropped": 30,
+        "kept_split": {
+          "raw": 57,
+          "adjusted": 26
+        },
+        "dropped_split": {
+          "raw": 21,
+          "adjusted": 9
+        }
+      }
+    },
+    "F5 pool without diagnostics-only volume columns": {
+      "status": "PASS"
+    }
+  },
+  "overall": "PASS",
+  "output_hashes": [
+    {
+      "label": "4.3.7 eligibility, 113-column pool",
+      "file": "a4_sec4_3_7_eligibility.json",
+      "sha256": "e89db674ac5c1c9121f96cfe09cd425a0ea2ec5686f529ae3a66766e2371ceb5"
+    },
+    {
+      "label": "4.3.8 redundancy outcome, 113-column pool",
+      "file": "a4_sec4_3_8_redundancy.json",
+      "sha256": "9da732a157a8b566782a412990e55200e2d3cbfe76f7d6e5acfa19531309bc49"
+    },
+    {
+      "label": "Spearman, 113 columns, RAW",
+      "file": "a4_sec4_3_8_spearman_RAW_pool.csv",
+      "sha256": "74de3e77644b459fadba946376c8a2b0f0b5118af8da48a423152a96decdca2d"
+    },
+    {
+      "label": "Spearman, primary pool, LEGACY",
+      "file": "a4_sec4_3_8_spearman_primary_LEGACY.csv",
+      "sha256": "89e85888aed9aaf4dbc37476f32c43825e864d3a376ed4713648b5948f80119c"
+    },
+    {
+      "label": "pairwise overlap, RAW",
+      "file": "a4_sec4_3_8_overlap_RAW_pool.csv",
+      "sha256": "dfc8358a2a5ab2414eac73b3b3469f7ce199f10a19adca57a809c633a6bccf44"
+    },
+    {
+      "label": "pairwise overlap, LEGACY primary pool",
+      "file": "a4_sec4_3_8_overlap_primary_LEGACY.csv",
+      "sha256": "a5cc321dfa71cfaa7586407a44848c70f929cdb4bff911fa72219f06eea71aaf"
+    },
+    {
+      "label": "4.3.4 checks and coverage, causal baseline",
+      "file": "a4_sec4_3_4_checks.json",
+      "sha256": "e05e6588bb074cefdd2a3333f3e5d1b0f552839b57cfb876219e5364ffb2bd36"
+    },
+    {
+      "label": "pool matrix (113 rows)",
+      "file": "a4_sec4_3_pool_matrix.csv",
+      "sha256": "91eca14d2d65cdcac05428c454e5a48ff434ac7a8220d1ea45ea0e3f6b254b50"
+    }
+  ]
+}

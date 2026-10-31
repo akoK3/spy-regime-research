@@ -1,0 +1,96 @@
+﻿[   0.0 min] RAW: loading TRAIN rows
+[   0.0 min] RAW: 274050 TRAIN rows, 705 sessions; computing features
+[    0.0 min]   RAW 4.3.4-4.3.9: original features
+[    0.0 min]   RAW 4.3.4-4.3.9: additional features
+[    0.2 min]   RAW 4.3.4-4.3.9: session 35/705, about 2.2 min left in this pass
+[    0.3 min]   RAW 4.3.4-4.3.9: session 70/705, about 2.1 min left in this pass
+[    0.4 min]   RAW 4.3.4-4.3.9: session 105/705, about 2.0 min left in this pass
+[    0.5 min]   RAW 4.3.4-4.3.9: session 140/705, about 1.9 min left in this pass
+[    0.6 min]   RAW 4.3.4-4.3.9: session 175/705, about 1.8 min left in this pass
+[    0.7 min]   RAW 4.3.4-4.3.9: session 210/705, about 1.6 min left in this pass
+[    0.9 min]   RAW 4.3.4-4.3.9: session 245/705, about 1.5 min left in this pass
+[    1.0 min]   RAW 4.3.4-4.3.9: session 280/705, about 1.4 min left in this pass
+[    1.1 min]   RAW 4.3.4-4.3.9: session 315/705, about 1.3 min left in this pass
+[    1.2 min]   RAW 4.3.4-4.3.9: session 350/705, about 1.2 min left in this pass
+[    1.3 min]   RAW 4.3.4-4.3.9: session 385/705, about 1.1 min left in this pass
+[    1.4 min]   RAW 4.3.4-4.3.9: session 420/705, about 0.9 min left in this pass
+[    1.6 min]   RAW 4.3.4-4.3.9: session 455/705, about 0.8 min left in this pass
+[    1.7 min]   RAW 4.3.4-4.3.9: session 490/705, about 0.7 min left in this pass
+[    1.8 min]   RAW 4.3.4-4.3.9: session 525/705, about 0.6 min left in this pass
+[    1.9 min]   RAW 4.3.4-4.3.9: session 560/705, about 0.5 min left in this pass
+[    2.0 min]   RAW 4.3.4-4.3.9: session 595/705, about 0.4 min left in this pass
+[    2.1 min]   RAW 4.3.4-4.3.9: session 630/705, about 0.2 min left in this pass
+[    2.3 min]   RAW 4.3.4-4.3.9: session 665/705, about 0.1 min left in this pass
+[    2.4 min]   RAW 4.3.4-4.3.9: session 700/705, about 0.0 min left in this pass
+[    2.4 min]   RAW 4.3.4-4.3.9: done
+[   2.4 min] RAW: feature columns saved; finite counts equal Step 6 for all 80
+[   2.4 min] RAW: building the 35 causal adjusted columns and checking them
+[   2.5 min] RAW: adjusted columns 10/35
+[   2.5 min] RAW: adjusted columns 20/35
+[   2.6 min] RAW: adjusted columns 30/35
+[   2.7 min] RAW: 4.3.4 checks PASS (105000 brute-force cells)
+[   2.7 min] RAW: 4.3.8 Spearman, 113 columns
+[   2.9 min] RAW pool 113: Spearman 400/6328 pairs
+[   3.2 min] RAW pool 113: Spearman 800/6328 pairs
+[   3.4 min] RAW pool 113: Spearman 1200/6328 pairs
+[   3.7 min] RAW pool 113: Spearman 1600/6328 pairs
+[   3.9 min] RAW pool 113: Spearman 2000/6328 pairs
+[   4.1 min] RAW pool 113: Spearman 2400/6328 pairs
+[   4.3 min] RAW pool 113: Spearman 2800/6328 pairs
+[   4.5 min] RAW pool 113: Spearman 3200/6328 pairs
+[   4.7 min] RAW pool 113: Spearman 3600/6328 pairs
+[   4.9 min] RAW pool 113: Spearman 4000/6328 pairs
+[   5.1 min] RAW pool 113: Spearman 4400/6328 pairs
+[   5.3 min] RAW pool 113: Spearman 4800/6328 pairs
+[   5.5 min] RAW pool 113: Spearman 5200/6328 pairs
+[   5.8 min] RAW pool 113: Spearman 5600/6328 pairs
+[   6.0 min] RAW pool 113: Spearman 6000/6328 pairs
+[   6.1 min] RAW pool 113: Spearman 6328/6328 pairs done
+[   6.1 min] LEGACY: loading TRAIN rows
+[   6.3 min] LEGACY: 1562460 TRAIN rows, 4022 sessions; computing features
+[    6.3 min]   LEGACY 4.3.4-4.3.9: original features
+[    6.3 min]   LEGACY 4.3.4-4.3.9: additional features
+[    6.8 min]   LEGACY 4.3.4-4.3.9: session 201/4022, about 8.8 min left in this pass
+[    7.2 min]   LEGACY 4.3.4-4.3.9: session 402/4022, about 7.9 min left in this pass
+[    7.7 min]   LEGACY 4.3.4-4.3.9: session 603/4022, about 7.6 min left in this pass
+[    8.1 min]   LEGACY 4.3.4-4.3.9: session 804/4022, about 7.2 min left in this pass
+[    8.7 min]   LEGACY 4.3.4-4.3.9: session 1005/4022, about 7.0 min left in this pass
+[    9.1 min]   LEGACY 4.3.4-4.3.9: session 1206/4022, about 6.5 min left in this pass
+[    9.6 min]   LEGACY 4.3.4-4.3.9: session 1407/4022, about 6.1 min left in this pass
+[   10.1 min]   LEGACY 4.3.4-4.3.9: session 1608/4022, about 5.6 min left in this pass
+[   10.5 min]   LEGACY 4.3.4-4.3.9: session 1809/4022, about 5.1 min left in this pass
+[   10.9 min]   LEGACY 4.3.4-4.3.9: session 2010/4022, about 4.6 min left in this pass
+[   11.4 min]   LEGACY 4.3.4-4.3.9: session 2211/4022, about 4.1 min left in this pass
+[   11.8 min]   LEGACY 4.3.4-4.3.9: session 2412/4022, about 3.7 min left in this pass
+[   12.2 min]   LEGACY 4.3.4-4.3.9: session 2613/4022, about 3.2 min left in this pass
+[   12.7 min]   LEGACY 4.3.4-4.3.9: session 2814/4022, about 2.7 min left in this pass
+[   13.1 min]   LEGACY 4.3.4-4.3.9: session 3015/4022, about 2.3 min left in this pass
+[   13.6 min]   LEGACY 4.3.4-4.3.9: session 3216/4022, about 1.8 min left in this pass
+[   14.1 min]   LEGACY 4.3.4-4.3.9: session 3417/4022, about 1.4 min left in this pass
+[   14.6 min]   LEGACY 4.3.4-4.3.9: session 3618/4022, about 0.9 min left in this pass
+[   15.0 min]   LEGACY 4.3.4-4.3.9: session 3819/4022, about 0.5 min left in this pass
+[   15.5 min]   LEGACY 4.3.4-4.3.9: session 4020/4022, about 0.0 min left in this pass
+[   15.5 min]   LEGACY 4.3.4-4.3.9: done
+[  15.7 min] LEGACY: feature columns saved; finite counts equal Step 6 for all 80
+[  15.7 min] LEGACY: building the 35 causal adjusted columns and checking them
+[  16.1 min] LEGACY: adjusted columns 10/35
+[  16.4 min] LEGACY: adjusted columns 20/35
+[  16.8 min] LEGACY: adjusted columns 30/35
+[  16.9 min] LEGACY: 4.3.4 checks PASS (105000 brute-force cells)
+[  16.9 min] LEGACY: primary pool has 27 columns; 4.3.8 Spearman
+[  18.7 min] LEGACY primary pool: Spearman 351/351 pairs done
+[  18.7 min] done
+# 4.3.4, 4.3.7, 4.3.8 rerun under amendment A4 (causal seasonal baseline, 113-column pool)
+
+Run 2026-10-31T02:52:21.954763+00:00 UTC. TRAIN only, RAW then LEGACY. A4 `amendment_4_3_A4_20261031T021111Z.json` SHA-256 `1960e83752b4dd5fa25dd022792e8a57f89ba79e9c79df02a50fceba96747304`.
+
+F2 (4.3.4 checks): PASS. 4.3.7: PASS. 4.3.8: PASS. F5 (pool): PASS. Overall: **PASS**.
+
+| Set | Pool | Kept | Dropped | Kept (raw / adjusted) | Dropped (raw / adjusted) |
+|---|---|---|---|---|---|
+| Primary | 27 | 19 | 8 | 13 / 6 | 5 / 3 |
+| RAW sensitivity | 113 | 83 | 30 | 57 / 26 | 21 / 9 |
+
+## Primary set kept
+
+intrabar_range_log, relative_volume20, intrabar_range_log__sadj, close_location_proxy, return_1m, abs_return_1m, abs_return_1m__sadj, momentum5_endpoint, rv5_strict, downside5_strict, rv5_strict__sadj, downside5_strict__sadj, momentum10_endpoint, rv10_partial90, rv10_partial90__sadj, downside10_strict, downside10_strict__sadj, momentum15_endpoint, momentum30_endpoint
