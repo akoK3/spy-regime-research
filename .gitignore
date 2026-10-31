@@ -15,6 +15,9 @@
 !/step8_sections_4_3_4_to_4_3_9.py
 !/step9_legacy_stale_zero_volume.py
 !/write_note_4_3_N1.py
+!/build_methods_ledger.py
+!/METHODS_LEDGER.md
+!/METHODS_LEDGER.sha256
 !/write_note_4_3_N2.py
 !/step10_pool116_eligibility_redundancy.py
 !/write_closing_addendum_pool116.py
