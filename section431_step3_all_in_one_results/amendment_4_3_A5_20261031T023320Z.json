@@ -1,0 +1,164 @@
+{
+  "amendment": "4.3-A5 audit item 11 and the rv10 approval",
+  "created_utc": "2026-10-31T02:33:20.979939+00:00",
+  "created_america_new_york": "2026-10-30T22:33:20.979939-04:00",
+  "status": "FIXES_AND_DECISIONS_FIXED_BEFORE_THEY_ARE_RUN",
+  "statement": "Each item, its reason and its pass criteria are fixed here before any A5 item is run. Reasons are those of cold_audit_20261030.md, item 11. The approval in G5 is a decision of the repository owner given on this date. No frozen document is edited.",
+  "cites": {
+    "cold_audit": {
+      "file": "cold_audit_20261030.md",
+      "sha256": "d720d46e238a22e5b93da93db14c3a42001e91cb55f9f7813200f5e4665412ac"
+    },
+    "A4": {
+      "file": "amendment_4_3_A4_20261031T021111Z.json",
+      "sha256": "1960e83752b4dd5fa25dd022792e8a57f89ba79e9c79df02a50fceba96747304"
+    },
+    "A2": {
+      "file": "amendment_4_3_1_A2_20261030T231344Z.json",
+      "sha256": "2e2beb61489203c62988fda83ec0b1b7696f2a4d3bb1aa7f68a85275cae93ad5"
+    },
+    "frozen_protocol_v2": {
+      "file": "protocol_20261029T032641Z.json",
+      "sha256": "3d6f0c96fce1c05f8e94d1a8c6e6b14a5b5b1c9f013e6a95dd1e96498cbfff8b"
+    },
+    "split_manifest": {
+      "file": "section430_executable_split_manifest.csv",
+      "sha256": "e87c0f9c2be93a052cd371d408072723b98f5ebf165c70bc9d94a2f70eb346ae"
+    },
+    "A1": {
+      "file": "protocol_amendment_4_3_0_A1_20261029T034121Z.json",
+      "sha256": "a57d55ccc760c2359d2d5d14c12d52a3fb1ba29a1bd3e222a71e6284886724ae"
+    },
+    "step6_coverage": {
+      "file": "step6_coverage_TRAIN.json",
+      "sha256": "a033c150005b8e4deed62398d984973e8b7242829827185f513855098db7d58d"
+    },
+    "A3_run_redundancy": {
+      "file": "sec4_3_8_redundancy.json",
+      "sha256": "babb83734529aaf3fb0b30daaa12ad3b5fdd87236da0fcf091ba3096879831fa"
+    },
+    "section431_additions": {
+      "file": "section431_additions.py",
+      "sha256": "c8a550f7777abcfdd3e46132f76c25748ed62be15b430d40a5c23556f6308448"
+    },
+    "section4_3_1_candidates": {
+      "file": "section4_3_1_candidates.py",
+      "sha256": "4c8d2b528ff8b86a2885426d974e9be97fbc3d264d60b4e2bf38f16981204878"
+    }
+  },
+  "items": {
+    "G1_train_cutoffs": {
+      "audit": "#11, TRAIN cutoffs",
+      "item": 1,
+      "reason": "The TRAIN cutoffs 2018-12-21 (LEGACY) and 2024-12-23 (RAW) are hardcoded in step3_all_in_one.py (CONFIG) and appear in no frozen document.",
+      "rule": "Record, from the manifest copy (partition == TRAIN, per era): first session, last session, number of sessions, and the dates of the EMBARGO sessions and the first EVALUATION_EXPOSED session. Assert that CONFIG in step3_all_in_one.py equals the manifest's TRAIN first and last sessions.",
+      "limit": "The manifest is a derived artifact of 4.3.0, not a frozen document. A1 lists 'version and hash the final approved protocol and executable split manifest' among its items required before finalizing, and that item is not verified. The record shows where the dates come from; it does not approve the manifest.",
+      "output": "a5_train_cutoffs.json",
+      "pass": "the recorded dates equal CONFIG in both eras"
+    },
+    "G2_availability_circularity": {
+      "audit": "#11, availability check",
+      "item": 2,
+      "kind": "disclosure only",
+      "reason": "section4_3_1_candidates.py (load_development) asserts available == t + 60 s, but the availability column is available_utc_assuming_minute_start, built from the same minute-start assumption, so the check cannot fail. RAW has no clock-sensitivity test, and the frozen protocol's legacy -1/0/+1 minute sensitivity is still open.",
+      "rule": "Quote the loader lines and the column name from the source file in the A5 addendum, with the open sensitivity item. No code or data change.",
+      "pass": "the addendum quotes the lines from the file"
+    },
+    "G3_jump_variation": {
+      "audit": "#11, jump_variation",
+      "item": 3,
+      "reason": "jump_variation_w subtracts a bipower term built from w-1 adjacent products from a realized variance of w squared returns. Without jumps, E[RV] = w*sigma^2 and E[unscaled BV] = (w-1)*sigma^2, so the output is biased upward by about one bar's variance.",
+      "supersedes": "the jump_variation_w definition in A2 (and in the closing-report dictionary).",
+      "rule": "jump_variation_w = max(0, sum of r_i^2 over the w returns - (w/(w-1)) * (pi/2) * sum over the w-1 adjacent pairs of |r_i||r_(i-1)|). The bipower_w column keeps its definition (the unscaled (pi/2) sum over w-1 pairs); only the bipower term inside jump_variation_w is scaled (reading stated by the assistant, to be confirmed).",
+      "code": "section431_additions.py (construct_additions) and the oracle in step3_all_in_one.py.",
+      "reruns": "the Step 3 formula check on the synthetic panel; the 4.3.8 redundancy outcome for the RAW sensitivity pool, recomputing every pair that involves jump_variation_w or jump_variation_w__sadj and keeping all other pairs from the A4 rerun; the primary set is checked for membership of those columns.",
+      "bias_check": "On 200,000 simulated Gaussian no-jump windows per w in {15, 30, 60}: mean(RV - unscaled BV) is within 0.05 of 1.0 sigma^2 and mean(RV - scaled BV) is within 0.05 of 0.",
+      "not_rerun": "the prefix and isolation tests of F4 are not rerun for this change.",
+      "pass": "formula check PASS; bias check holds; redundancy outcome recomputed and reported"
+    },
+    "G4_amihud_adjustment_check": {
+      "audit": "#11, amihud",
+      "item": 4,
+      "kind": "report only",
+      "reason": "If LEGACY closes are back-adjusted for dividends, their price level embeds later dividends and the dollar volume in amihud_w is understated in early years. The audit could not confirm this from tracked files; the frozen protocol says LEGACY has 'inherited adjustment/cleaning' and RAW has 'no further dividend scaling'.",
+      "rule": "Two checks, fixed now. (a) Ex-dividend test: approximate SPY ex-dividend dates as the third Friday of March, June, September and December (the previous session if that Friday is not a session). Per era, compute the mean overnight log return (first-bar Open / previous session's last Close) on those dates minus the mean on all other sessions, with a Welch standard error. An unadjusted series shows a gap of about minus the dividend yield for the quarter (roughly 0.3% to 0.5%); a fully adjusted series shows about 0. RAW is the unadjusted reference. (b) Junction: the ratio of the first RAW Open (2022-03-07) to the last LEGACY Close (2022-03-04). Also record the first and last LEGACY close levels.",
+      "output": "a5_amihud_adjustment_check.json and .md",
+      "constraints": "Report only: no data, formula, threshold or classification is changed. The conclusion is stated as an inference with its numbers.",
+      "pass": "the report exists with the numbers of both checks and a plain statement of what they show"
+    },
+    "G5_rv10_approval": {
+      "audit": "#10",
+      "item": 5,
+      "decision": "APPROVED by the repository owner on this date",
+      "rule": "In the frozen comparison tiers, rv15_strict is replaced by rv10_strict and rv15_partial90 by rv10_partial90. Nothing else changes: downside15_strict, rv60_strict, rv60_partial90 and rv60_sampled5_exact stay in their tiers. Tier names are kept.",
+      "tiers_before": {
+        "core15": [
+          "return_1m",
+          "rv15_strict",
+          "downside15_strict",
+          "relative_volume20",
+          "intrabar_range_log"
+        ],
+        "strict60": [
+          "return_1m",
+          "rv15_strict",
+          "rv60_strict"
+        ],
+        "partial60": [
+          "return_1m",
+          "rv15_partial90",
+          "rv60_partial90"
+        ],
+        "sampled60": [
+          "return_1m",
+          "rv15_partial90",
+          "rv60_sampled5_exact"
+        ]
+      },
+      "tiers_after": {
+        "core15": [
+          "return_1m",
+          "rv10_strict",
+          "downside15_strict",
+          "relative_volume20",
+          "intrabar_range_log"
+        ],
+        "strict60": [
+          "return_1m",
+          "rv10_strict",
+          "rv60_strict"
+        ],
+        "partial60": [
+          "return_1m",
+          "rv10_partial90",
+          "rv60_partial90"
+        ],
+        "sampled60": [
+          "return_1m",
+          "rv10_partial90",
+          "rv60_sampled5_exact"
+        ]
+      },
+      "facts": {
+        "members_of_the_amended_tiers_that_are_in_the_step6_table": {
+          "downside15_strict": "BELOW (LEGACY 76.883%, RAW 95.584%)",
+          "intrabar_range_log": "PASS (LEGACY 96.927%, RAW 99.85%)",
+          "relative_volume20": "PASS (LEGACY 96.678%, RAW 98.427%)",
+          "return_1m": "PASS (LEGACY 95.238%, RAW 99.562%)",
+          "rv10_partial90": "PASS (LEGACY 85.072%, RAW 97.057%)",
+          "rv10_strict": "PASS (LEGACY 82.99%, RAW 97.003%)",
+          "rv60_partial90": "BELOW (LEGACY 72.527%, RAW 84.416%)",
+          "rv60_sampled5_exact": "BELOW (LEGACY 58.624%, RAW 84.092%)",
+          "rv60_strict": "BELOW (LEGACY 37.735%, RAW 82.982%)"
+        },
+        "rv10_outcome_in_the_A3_primary_redundancy_run": {
+          "rv10_strict": "dropped: redundant with rv10_partial90",
+          "rv10_partial90": "kept"
+        },
+        "consequence": "With only this replacement, every amended tier still contains at least one column that is BELOW the 80% floor (downside15_strict in core15; rv60_strict, rv60_partial90, rv60_sampled5_exact in the 60-minute tiers), so no tier is made fully primary-eligible. The A4 rerun's outcome for rv10_strict is recorded in the A4 results report."
+      },
+      "frozen_protocol": "not edited; this amendment supersedes its comparison_tiers entry for the replaced columns."
+    }
+  },
+  "order": "G1, G3 (code and formula check), G3 redundancy, G4, then the A5 results report and addendum. Each result is reported PASS or FAIL against the criteria above; the criteria are not changed after a run."
+}
