@@ -95,3 +95,17 @@
 !/section431_step3_verification/prototype_sources/
 /section431_step3_verification/prototype_sources/*
 !/section431_step3_verification/prototype_sources/*.py
+
+!/SECTION5_PROTOCOL.md
+!/SECTION5_PROTOCOL.sha256
+!/PILOT_REPORT.md
+!/PILOT_REPORT.sha256
+!/section5/
+/section5/*
+!/section5/*.py
+!/section5/results/
+/section5/results/*
+!/section5/results/*.json
+!/section5/results/*.md
+!/section5/results/*.sha256
+!/section5/results/*.txt
