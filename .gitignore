@@ -16,6 +16,9 @@
 !/step9_legacy_stale_zero_volume.py
 !/write_note_4_3_N1.py
 !/build_methods_ledger.py
+!/build_section4_complete.py
+!/SECTION4_COMPLETE.md
+!/SECTION4_COMPLETE.sha256
 !/METHODS_LEDGER.md
 !/METHODS_LEDGER.sha256
 !/write_note_4_3_N2.py
