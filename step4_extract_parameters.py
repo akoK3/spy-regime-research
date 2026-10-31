@@ -145,6 +145,7 @@ def check_protocol():
 
 
 def main():
+    s.refuse_overwrite(OUT / "step4_parameter_table.json", OUT / "step4_parameter_table.md")
     protocol = check_protocol()
     bars = base_bars()
     d0 = build(bars)

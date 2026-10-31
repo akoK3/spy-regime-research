@@ -1,0 +1,23 @@
+{
+  "bar_return_mechanism": {
+    "era": "RAW",
+    "missing_bars": 410,
+    "invalid_present_bars": 0,
+    "present_valid_but_ineligible_returns": 789,
+    "isolated_missing_bars": 77,
+    "isolated_missing_bars_followed_by_ineligible_return": 77
+  },
+  "proxy_counts": {
+    "strict5": 269728,
+    "strict60": 227412,
+    "valid_close": 273640,
+    "valid_close_volume": 272851,
+    "valid_ohlc": 273151,
+    "overnight": 704,
+    "amihud_positive_volume_price_only": 273640,
+    "amihud_return_eligible_positive_volume": 272851,
+    "p90_60": 232046,
+    "total_minutes": 274050,
+    "session_transitions": 704
+  }
+}

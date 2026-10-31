@@ -1,0 +1,58 @@
+{
+  "created_utc": "2026-10-31T02:14:18.651584+00:00",
+  "amendment": "4.3-A4 F1",
+  "manifest_sha256": "e87c0f9c2be93a052cd371d408072723b98f5ebf165c70bc9d94a2f70eb346ae",
+  "per_era": {
+    "LEGACY": {
+      "train_sessions": 4022,
+      "manifest_partitions": {
+        "EMBARGO": 5,
+        "EVALUATION_EXPOSED": 800,
+        "EXCLUDED": 2,
+        "TRAIN": 4022
+      },
+      "folds": 30,
+      "last_outer_block_sessions": 116,
+      "sessions_covered_by_folds": 4022,
+      "sessions_touching_embargo_eval_excluded": 0,
+      "first_train": "2003-01-02",
+      "last_train": "2018-12-21"
+    },
+    "RAW": {
+      "train_sessions": 705,
+      "manifest_partitions": {
+        "EMBARGO": 5,
+        "EVALUATION_EXPOSED": 445,
+        "TRAIN": 705
+      },
+      "folds": 4,
+      "last_outer_block_sessions": 75,
+      "sessions_covered_by_folds": 705,
+      "sessions_touching_embargo_eval_excluded": 0,
+      "first_train": "2022-03-07",
+      "last_train": "2024-12-23"
+    }
+  },
+  "comparison_with_frozen_v2": {
+    "LEGACY": {
+      "frozen_v2_folds": 36,
+      "new_folds": 30,
+      "frozen_v2_folds_with_a_window_after_TRAIN_end": 7,
+      "frozen_v2_last_outer_date": "2022-01-06",
+      "train_last_date": "2018-12-21"
+    },
+    "RAW": {
+      "frozen_v2_folds": 4,
+      "new_folds": 4,
+      "frozen_v2_folds_with_a_window_after_TRAIN_end": 1,
+      "frozen_v2_last_outer_date": "2024-12-31",
+      "train_last_date": "2024-12-23"
+    }
+  },
+  "assertions": "all held: every fold session is TRAIN; no fold touches EMBARGO/EVALUATION_EXPOSED/EXCLUDED; windows contiguous; counts as expected",
+  "outputs": {
+    "a4_development_nested_folds_TRAIN.csv": "06258e5a1645327a64aa07d155b59d20949c11c81ce657a26e4d44c27882adfc",
+    "a4_development_terminal_fragments_TRAIN.json": "a5338d955b09046ec0b16f3a9625b7955c763aae07dc722e474e6078745f932f"
+  },
+  "status": "PASS"
+}

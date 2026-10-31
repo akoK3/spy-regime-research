@@ -42,8 +42,8 @@ def main():
     a2, v2, cov = load(a2_f), load(v2_f), load(R / "step6_coverage_TRAIN.json")
     t4 = load(R / "step4_parameter_table.json")
     rep = {e: load(R / f"step3_{e}_report.json") for e in ("RAW", "LEGACY")}
-    m2 = pd.read_csv(ROOT / "section431_step2_final_audit" / "feature_family_eligibility_matrix.csv")
-    s2 = {e: load(ROOT / "section431_step2_final_audit" / f"{e}_summary.json") for e in ("LEGACY", "RAW")}
+    m2 = pd.read_csv(FZ / "feature_family_eligibility_matrix.csv")  # in-repository copies (A4 F7)
+    s2 = {e: load(FZ / f"step2_{e}_summary.json") for e in ("LEGACY", "RAW")}
     assert t4["counts"] == {"PASS": 80, "FAIL": 0, "EXCLUDED": 1} and v2["overall"] == "PASS"
     assert all(r["status"] == "PASS" for r in rep.values()) and cov["counts"] == {"PASS": 20, "BELOW": 60}
 

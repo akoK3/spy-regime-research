@@ -4,7 +4,7 @@
 Reads the A3 file (hash checked) for every rule and list. Columns are the 80 detector outputs; overnight_return_open
 is excluded. Per-era feature columns are written to a temporary folder outside the repository and deleted at the end.
 """
-import sys, json, hashlib, datetime, time, shutil, warnings
+import sys, os, json, hashlib, datetime, time, shutil, tempfile, warnings
 from pathlib import Path
 import numpy as np
 import pandas as pd
@@ -15,7 +15,7 @@ sys.path.insert(0, str(ROOT))
 import step3_all_in_one as s  # noqa: E402
 
 R = s.OUT
-TMP = Path(r"C:\Users\kakij\AppData\Local\Temp\claude\C--Users-kakij-OneDrive-Desktop-data\4f04f2bd-9b49-46e0-9172-37590870166e\scratchpad\sec4349_cols")
+TMP = Path(tempfile.gettempdir()) / f"sec4349_cols_{os.getpid()}"  # own temporary folder, created in main and removed at the end (A4 F7)
 START = time.time()
 ERAS = ("RAW", "LEGACY")
 TRAIN_ROWS = {"LEGACY": 1562460, "RAW": 274050}
@@ -207,6 +207,12 @@ def redundancy(cols, rhos, coverage_of):
 
 
 def main():
+    s.refuse_overwrite(*[R / n for n in (
+        "sec4_3_4_slot_medians_RAW.csv", "sec4_3_4_slot_medians_LEGACY.csv", "sec4_3_5_stale_closes_by_year.csv", "sec4_3_5_stale_closes_by_slot.csv",
+        "sec4_3_6_yearly_median_iqr.csv", "sec4_3_7_eligibility.json", "sec4_3_8_spearman_primary_LEGACY.csv", "sec4_3_8_spearman_RAW_all80.csv",
+        "sec4_3_8_overlap_RAW_all80.csv", "sec4_3_8_overlap_primary_LEGACY.csv", "sec4_3_8_redundancy.json", "sec4_3_9_frozen_matrix.csv",
+        "sec4_3_9_matrix_primary_view.csv", "sec4_3_9_matrix_sensitivity_view.csv", "sec4_3_4_to_4_3_9_report.json", "sec4_3_4_to_4_3_9_report.md",
+        "sec4_3_4_to_4_3_9_report.sha256")])
     TMP.mkdir(parents=True, exist_ok=True)
     state = {}
     stale, seas, rho_tables = {}, {}, {}
@@ -293,7 +299,7 @@ def main():
     write_csv("sec4_3_9_matrix_sensitivity_view.csv", matrix[["output", "feature_class", "adjusted_column", "lookback_bars", "coverage_RAW_pct", "sensitivity_eligible", "sensitivity_redundancy"]], "4.3.9 sensitivity view (80 rows, RAW)")
     matrix_checks = {"80 rows": len(matrix) == 80, "all A3 matrix fields present": all(c in matrix.columns for c in ["feature_class", "adjusted_column", "lookback_bars", "min_valid_obs", "warmup", "coverage_LEGACY_pct", "coverage_RAW_pct", "primary_eligible", "sensitivity_eligible", "primary_redundancy", "sensitivity_redundancy"]),
                      "36 adjusted columns named": int((matrix.adjusted_column != "").sum()) == len(SCALE),
-                     "A3 hash verified": True}
+                     "A3 hash verified": A3_FILE.with_suffix(".sha256").read_text().split()[0] == sha(A3_FILE)}
 
     # ---- report
     flagged = {e: stale[e][0] for e in ERAS}

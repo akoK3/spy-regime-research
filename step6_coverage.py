@@ -18,7 +18,7 @@ sys.path.insert(0, str(ROOT))
 import step3_all_in_one as s  # noqa: E402
 
 OUT = s.OUT
-AMEND = ROOT / "section431_step2_final_audit" / "protocol_amendment_431_A2_FROZEN.json"
+AMEND = ROOT / "frozen_documents" / "protocol_amendment_431_A2_FROZEN_coverage.json"  # in-repository copy (A4 F7)
 EXCLUDED = "overnight_return_open"
 TRAIN_ROWS = {"LEGACY": 1562460, "RAW": 274050}  # section431_panel_audit.json train_rows
 
@@ -48,6 +48,7 @@ def era_counts(era):
 
 
 def main():
+    s.refuse_overwrite(OUT / "step6_coverage_TRAIN.json", OUT / "step6_coverage_TRAIN.csv", OUT / "step6_coverage_TRAIN.md", OUT / "step6_coverage_LEGACY_by_year.csv")
     amend_bytes = AMEND.read_bytes()
     amend = json.loads(amend_bytes)
     floor = amend["coverage_floor"]

@@ -3,7 +3,7 @@
 Requires the original Section 3 ETF files. No evaluation data are loaded.
 Reports FAIL for unimplemented/deferred families rather than silently approving them.
 """
-import sys, json, hashlib, traceback, datetime, time, re
+import sys, os, json, hashlib, traceback, datetime, time, re
 from pathlib import Path
 import numpy as np
 import pandas as pd
@@ -16,6 +16,12 @@ from section431_additions import construct_additions, DEFERRED
 
 OUT=ROOT/"section431_step3_all_in_one_results"
 OUT.mkdir(exist_ok=True)
+
+def refuse_overwrite(*paths):
+    """Frozen outputs are never overwritten unless REGEN_FROZEN_OUTPUT=1 is set (amendment A4, F7)."""
+    if os.environ.get("REGEN_FROZEN_OUTPUT")=="1": return
+    clash=[str(p) for p in paths if Path(p).exists()]
+    if clash: raise FileExistsError("refusing to overwrite frozen output(s): "+", ".join(clash)+"; set REGEN_FROZEN_OUTPUT=1 to regenerate")
 CONFIG={
 "RAW":("2022-03-07","2024-12-23","section3_10_alignment_results/canonical_panel_RAW_1m.csv.gz","section3_4_etf_results/etf_observed_SPY_RAW.csv.gz"),
 "LEGACY":("2003-01-02","2018-12-21","section3_10_alignment_results/canonical_panel_LEGACY_1m.csv.gz","section3_4_etf_results/etf_observed_SPY_LEGACY.csv.gz")
@@ -63,11 +69,25 @@ def copied(d):
 LM_NTESTS=390
 LM_ALPHA=.01
 
+LM_CALIBRATION=OUT/"a4_lm_threshold_calibration.json"
+
 def lm_threshold():
-    k=np.sqrt(2/np.pi); a=np.sqrt(2*np.log(LM_NTESTS))
-    c0=a/k-(np.log(np.pi)+np.log(np.log(LM_NTESTS)))/(2*k*a)
-    s0=1/(k*a)
-    return c0-s0*np.log(-np.log(1-LM_ALPHA))
+    """Simulation-calibrated threshold (amendment A4, F3). The analytic Gumbel constant 5.4667 was on the wrong scale
+    for a statistic that already carries the factor pi/2 (about 0.07% instead of 1% of no-jump sessions flagged)."""
+    if hashlib.sha256(LM_CALIBRATION.read_bytes()).hexdigest()!=LM_CALIBRATION.with_suffix(".sha256").read_text().split()[0]:
+        raise RuntimeError("Lee-Mykland calibration file hash mismatch")
+    return float(json.loads(LM_CALIBRATION.read_text(encoding="utf-8"))["threshold"])
+
+def lm_false_alarm_check(n=20000,seed=43107):
+    """Independent of construct_deferred and of the calibrator: the pandas rolling form of the statistic
+    on simulated no-jump 390-bar sessions. Returns the share of sessions with at least one flag."""
+    rng=np.random.default_rng(seed); thr=lm_threshold(); hits=0
+    for _ in range(n):
+        x=pd.Series(np.r_[np.nan,rng.standard_normal(389)])
+        prod=x.abs()*x.abs().shift(1)
+        lv=(np.pi/2)*prod.shift(1).rolling(59,min_periods=59).sum()/59
+        hits+=bool(((x/lv.where(lv>0).pow(.5)).abs()>thr).any())
+    return hits/n
 
 def load_ohlc(spec,d):
     """Open/High/Low levels on the panel grid; the audited loader keeps only log(High/Low)."""
@@ -319,8 +339,7 @@ def oracle_features(d):
                 if scale>0: shock[a+j]=(win[60]-med)/scale
     loc,on,lm,lj=(new(k) for k in ("close_location_proxy","overnight_return_open","lee_mykland_approx60","lee_mykland_jump60"))
     o,h,l=d["open"],d["high"],d["low"]
-    ln=np.log(LM_NTESTS); kk=2/np.pi
-    thr=np.sqrt(2*ln)/np.sqrt(kk)-(np.log(np.pi)+np.log(ln))/(2*np.sqrt(kk)*np.sqrt(2*ln))+(1/(np.sqrt(kk)*np.sqrt(2*ln)))*(-np.log(-np.log(1-LM_ALPHA)))
+    thr=lm_threshold()
     for k,(a,b) in enumerate(spans):
         for i in range(a,b):
             if c[i]>0 and h[i]>=c[i]>=l[i] and l[i]>0 and v[i]>=0 and np.isfinite(c[i]+h[i]+l[i]+v[i]) and h[i]>l[i]:
@@ -388,12 +407,15 @@ def formula_all_outputs():
         if not ok: errors.append(f"{name}: {per_output[name]}")
     flags=np.asarray(code["lee_mykland_jump60"],float)
     if not (np.nansum(flags==1)>0 and np.nansum(flags==0)>0): errors.append("lee_mykland_jump60: synthetic panel did not exercise both flag values")
+    rate=lm_false_alarm_check()
+    if not (0.007<=rate<=0.013): errors.append(f"lee_mykland_jump60: simulated no-jump per-session false-alarm rate {rate:.4%} is outside 0.7%-1.3%")
     verified=sum(v["status"]=="PASS" for v in per_output.values())
     return {"status":"PASS" if not errors else "FAIL","outputs_compared":len(per_output),"formulas_verified":verified,
-            "lm_threshold":lm_threshold(),"errors":errors[:30],"per_output":per_output,
+            "lm_threshold":lm_threshold(),"lm_simulated_false_alarm_rate":rate,"errors":errors[:30],"per_output":per_output,
             "scope":"synthetic 24x100 panel with missing bars, zero volume, zero-range bars, missing open/close endpoints and two large moves"}
 
 def run(era,config):
+    refuse_overwrite(OUT/f"step3_{era}_report.json")
     checks={}; notes=[]; report={"era":era,"generated_utc":datetime.datetime.now(datetime.timezone.utc).isoformat(),"checks":checks}
     try:
         first,last,panel,etf=config
@@ -483,6 +505,7 @@ def run(era,config):
     return report
 
 if __name__=="__main__":
+    refuse_overwrite(OUT/"step3_summary.json")
     results=[run(era,CONFIG[era]) for era in (sys.argv[1:] or CONFIG)]
     saved={era:json.loads((OUT/f"step3_{era}_report.json").read_text(encoding="utf-8"))["status"] for era in CONFIG if (OUT/f"step3_{era}_report.json").exists()}
     (OUT/"step3_summary.json").write_text(json.dumps({"reports":saved,"rule":"an era is PASS only if every check in its report is PASS"},indent=2),encoding="utf-8")

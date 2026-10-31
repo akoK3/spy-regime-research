@@ -29,6 +29,7 @@ def write(name, content, label):
 
 
 def main():
+    q.s.refuse_overwrite(*sorted(R.glob("sec4_3_7_8_pool116_*")))
     pct, rhos, overlaps, finite = {}, {}, {}, {}
     primary_pool = None
     for era in ERAS:

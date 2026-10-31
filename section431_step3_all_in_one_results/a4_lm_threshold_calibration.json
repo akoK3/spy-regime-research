@@ -1,0 +1,24 @@
+{
+  "created_utc": "2026-10-31T02:12:03.885823+00:00",
+  "amendment": "4.3-A4 F3",
+  "design": "independent normal returns; 390-bar sessions; max |stat| over rows 61-389; 99th percentile",
+  "sessions": 200000,
+  "seeds": [
+    43105,
+    43106
+  ],
+  "threshold": 4.6113,
+  "threshold_unrounded": 4.611304000830262,
+  "ci95_rank_based": [
+    4.599842142291124,
+    4.624533874456042
+  ],
+  "false_alarm_rate_at_threshold": {
+    "seed_43105": 0.010005,
+    "seed_43106": 0.0104
+  },
+  "check_second_seed_between_0_9_and_1_1_pct": "PASS",
+  "old_threshold_5_4667_false_alarm_rate_seed_43106": 0.000655,
+  "audit_threshold_4_36_false_alarm_rate_seed_43106": 0.02308,
+  "script_sha256": "6282b0356cde5ff4edc8d74e9a95ffe90afebd34061f262ccfeee3166401cd51"
+}
