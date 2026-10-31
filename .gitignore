@@ -16,6 +16,7 @@
 !/step9_legacy_stale_zero_volume.py
 !/write_note_4_3_N1.py
 !/build_methods_ledger.py
+!/write_amendment_4_3_A4.py
 !/build_section4_complete.py
 !/SECTION4_COMPLETE.md
 !/SECTION4_COMPLETE.sha256
@@ -53,6 +54,8 @@
 !/section431_step3_all_in_one_results/sec4_3_*
 !/section431_step3_all_in_one_results/note_4_3_N1_*
 !/section431_step3_all_in_one_results/note_4_3_N2_*
+!/section431_step3_all_in_one_results/amendment_4_3_A4_*
+!/section431_step3_all_in_one_results/a4_*
 !/section431_step3_all_in_one_results/sec4_3_7_8_pool116_*
 !/section431_step3_all_in_one_results/section_4_3_closing_report_addendum_*
 !/section431_step3_all_in_one_results/section_4_3_closing_report_section4_*

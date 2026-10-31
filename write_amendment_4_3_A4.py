@@ -1,0 +1,113 @@
+#!/usr/bin/env python3
+"""Write amendment A4: the fixes for the cold audit (cold_audit_20261030.md), dated and hashed BEFORE any of them is run.
+Reads only saved documents; runs no analysis. Refuses to overwrite."""
+import json, hashlib, datetime
+from pathlib import Path
+import pandas as pd
+
+ROOT = Path(__file__).resolve().parent
+R = ROOT / "section431_step3_all_in_one_results"
+FZ = ROOT / "frozen_documents"
+
+
+def sha(p):
+    return hashlib.sha256(Path(p).read_bytes()).hexdigest()
+
+
+def one(pattern):
+    files = sorted(R.glob(pattern))
+    assert len(files) == 1, pattern
+    return files[0]
+
+
+def main():
+    assert not list(R.glob("amendment_4_3_A4_2*.json")), "A4 exists; never overwrite"
+    assert not list(R.glob("a4_*")), "A4 outputs already exist; A4 must be written before its fixes are run"
+    audit = ROOT / "cold_audit_20261030.md"
+    cited = {
+        "cold_audit": audit, "A3": one("amendment_4_3_A3_2*.json"), "N1": one("note_4_3_N1_2*.json"), "N2": one("note_4_3_N2_2*.json"),
+        "A2": one("amendment_4_3_1_A2_*.json"), "frozen_protocol_v2": FZ / "protocol_20261029T032641Z.json",
+        "A1": FZ / "protocol_amendment_4_3_0_A1_20261029T034121Z.json", "approval_of_A1": one("approval_4_3_0_A1_2*.json"),
+        "split_manifest": FZ / "section430_executable_split_manifest.csv", "frozen_v2_fold_csv": FZ / "development_nested_folds_frozen_v2.csv",
+        "builder_coverage_by_year": FZ / "builder_feature_coverage_development.csv", "builder_summary": FZ / "builder_results_v2_summary.json",
+        "closing_report_4_3": one("section_4_3_closing_report_section4_2*.json"), "closing_report_4_3_1": one("section_4_3_1_closing_report_2*.json"),
+    }
+    now = datetime.datetime.now(datetime.timezone.utc)
+    doc = {
+        "amendment": "4.3-A4 fixes for the cold audit",
+        "created_utc": now.isoformat(), "created_america_new_york": pd.Timestamp(now).tz_convert("America/New_York").isoformat(),
+        "status": "FIXES_FIXED_BEFORE_THEY_ARE_RUN",
+        "statement": "Each fix, its reason and its pass criteria are fixed here before any of them is run. The reasons are the findings of cold_audit_20261030.md; findings marked 'inferred' in the audit are verified by the fix itself. Closed reports are not edited: corrections go in an addendum. Nothing below changes a frozen document.",
+        "cites": {k: {"file": p.name, "sha256": sha(p)} for k, p in cited.items()},
+        "fixes": {
+            "F1_folds": {
+                "audit": "#2", "item": 1,
+                "reason": "The 40 frozen folds (36 LEGACY, 4 RAW) were cut on the old development spans of 4,827 and 710 sessions. A1, now approved, moves 2019-2022 into evaluation; the manifest has LEGACY TRAIN 4,022, EMBARGO 5, EVALUATION_EXPOSED 800 and RAW TRAIN 705, EMBARGO 5, EVALUATION_EXPOSED 445. About 6 LEGACY folds and the end of the last RAW fold therefore sit outside TRAIN.",
+                "rule": "Same protocol rules as audit_and_freeze.py lines 149-166 and frozen v2 nested_development, applied to the TRAIN sessions of each era from the manifest (partition == TRAIN), in date order: outer blocks start at TRAIN session 252 and advance 126; an outer block is min(start+126, N); a block with fewer than 63 sessions is excluded as a terminal fragment; inner train = 189 sessions, inner validation = 63 sessions, immediately before the outer block.",
+                "expected_counts": "LEGACY 30 folds (N=4,022; last outer block 116 sessions); RAW 4 folds (N=705; last outer block 75 sessions); no terminal fragment in either era.",
+                "assertions": ["every session of every fold is a TRAIN session of its era", "no fold touches an EMBARGO, EVALUATION_EXPOSED or EXCLUDED session", "outer blocks are contiguous and disjoint; each inner window ends the session before its outer block", "fold counts and block sizes equal the expected counts"],
+                "outputs": ["development_nested_folds_TRAIN.csv", "development_terminal_fragments_TRAIN.json", "comparison with the frozen v2 fold CSV (which stays as frozen and is superseded for use)"],
+                "pass": "all assertions hold",
+            },
+            "F2_seasonal_adjustment": {
+                "audit": "#1", "item": 2,
+                "reason": "The __sadj columns divide each value by a median over all TRAIN rows, including later years: a 2003 value depends on data up to 15 years later. raw_volume__sadj carried the volume level (LEGACY yearly median 0.33 in 2003, 3.06 in 2008, 0.51 in 2017) and is in the kept primary set; Step 10 used these columns for keep/drop decisions.",
+                "supersedes": "A3 rule 4.3.4 'adjusted_version', 'median' and 'median_table'; N1's adjusted columns as defined there.",
+                "rule": "<name>__sadj = raw value / baseline, where the baseline for session k at slot s is the median of the finite values of the same raw column at slot s in sessions k-20..k-1 of the same era, defined only if at least 10 of those values are finite. The adjusted value is NaN if the raw value or the baseline is missing, or the baseline is <= 0. Sessions are the consecutive TRAIN sessions of the era; an early-close session contributes no value at slots it does not have.",
+                "unchanged": "the 36 scale features, their list and the era-separate computation; raw columns.",
+                "rerun": "4.3.4 (new definition and checks), 4.3.7 and 4.3.8 on the new pool (rules of A3 and N2 unchanged). The 4.3.6 rows for adjusted columns and the 4.3.9 matrix computed under the old definition are superseded and are not regenerated in this pass.",
+                "checks_4_3_4": ["a brute-force per-cell recomputation (explicit loop over the prior 20 sessions) on 3,000 random cells per scale column equals the vectorised value, including the min-10 NaN rule", "prefix invariance: adjusted values for sessions before a cut do not change when later sessions are removed (random cuts, both eras)", "the first 10 sessions of each era are NaN"],
+                "pass": "all checks hold in both eras",
+            },
+            "F3_lee_mykland_threshold": {
+                "audit": "#5", "item": 3,
+                "reason": "The statistic carries a factor pi/2, which makes it a z-score, but the threshold 5.4667 belongs to the version without that factor. On 40,000 simulated no-jump sessions 0.0575% were flagged against the design 1% (about 17 times too few). The Step 3 oracle copies the same formula, so Step 3 could not catch it.",
+                "supersedes": "the threshold 5.4667 in A2 for lee_mykland_jump60 only; the statistic lee_mykland_approx60 is unchanged.",
+                "rule": "Calibrate by simulation: independent normal returns, 390-bar sessions (slot 0 has no return), 200,000 sessions, fixed seed 43105. For each session take the maximum of |stat| over rows 61-389 using the unchanged statistic (60 prior returns, bipower scale with pi/2). The threshold is the 99th percentile of that maximum, rounded to 4 decimals, with a rank-based 95% confidence interval. A second seed (43106, 200,000 sessions) must give a false-alarm rate between 0.9% and 1.1% at the threshold.",
+                "decision_by_repository_owner": "Gaussian no-jump sessions were chosen over fat-tailed (Student-t) sessions on 2026-10-31.",
+                "code": "step3_all_in_one.py reads the calibrated constant from the hashed calibration file; its oracle uses the same constant as a parameter and a new independent simulation check (20,000 sessions, cumulative-sum implementation) requires a false-alarm rate between 0.7% and 1.3%.",
+                "known_limit": "Calibrated for full 390-bar sessions; early-close sessions have fewer rows and so a lower per-session rate. Real returns are not Gaussian and have missing bars.",
+                "pass": "second-seed false-alarm rate within 0.9%-1.1%, and the Step 3 formula check on the synthetic panel passes with the new constant",
+            },
+            "F4_tolerances_and_cuts": {
+                "audit": "#8 and #9 (prefix and isolation parts)", "item": 4,
+                "reason": "#8: the absolute tolerance 1e-10 sits above LEGACY's typical yearly median of amihud_* (about 1e-11), so a 5x error passes the prefix and isolation tests. #9: real-data prefix cuts fall only at session ends, so same-session look-ahead cannot be caught.",
+                "rule": "Rerun the real-data prefix and isolation tests in both eras, RAW then LEGACY, with relative tolerance only (rtol 1e-9, atol 0, NaN equals NaN), the 40-session slice method with the last 15 sessions compared, and on the code with the F3 constant. Prefix: 5 session-end cuts plus 5 mid-session cuts (a random row 70 to 10 rows before the session end). Isolation: 4 full-session blankings plus 4 blankings from a random mid-session row to the end of the session. Seeds fixed. A power check scales each feature by 1+1e-6 and requires the comparison to flag it.",
+                "pass": "no feature differs and the power check detects every feature that has a non-zero finite value",
+                "not_done_here": "The look-ahead probe of step4_extract_parameters.py (last session only, 6 bars ahead) from audit #9 is not changed in this pass.",
+            },
+            "F5_protocol_conflicts": {
+                "audit": "#10", "item": 5,
+                "reason": "The frozen protocol says 'Raw/log volume diagnostic candidates only', yet raw_volume is in the kept primary set. Every frozen comparison tier needs an rv15_* column and none is primary-eligible (rv15_strict LEGACY 76.883%, rv15_partial90 78.828%).",
+                "rule": "raw_volume, log_raw_volume and raw_volume__sadj are diagnostics-only and leave the detector set (decision of the repository owner, 2026-10-31). Detector raw columns: 78. Adjusted columns: 35. Pool: 113.",
+                "proposal_not_adopted": "Replace the rv15 columns of the comparison tiers (core15, strict60, partial60, sampled60) by rv10 (rv10_strict and rv10_partial90, LEGACY 82.990% and 85.072%, RAW 97.003% and 97.057%, both primary-eligible). This needs explicit approval and a new dated amendment; the frozen protocol is not edited. Unresolved: rv10_strict was dropped as redundant with rv10_partial90 (rho 1.0) in the primary set.",
+                "pass": "the pool of the F2 rerun has exactly 78 raw and 35 adjusted columns and contains none of the three columns",
+            },
+            "F6_addendum": {
+                "audit": "#3, #4, #6, #7", "item": 6,
+                "rule": "One addendum to the Section 4.3 closing report, closed reports unedited. Disclose #3 (features selected on all of TRAIN outside the folds), #4 (era-crossing decisions contradict the project's own rule), #6 (two of the three replacement delay checks cannot fail; the replay covers 3 rows per dataset). Correct #7 (the closing report's statement about the evaluation period and later development days), using the builder summary and its yearly coverage as evidence.",
+                "pass": "the addendum exists, is hashed, cites the evidence files, and every number in it is read from a file",
+            },
+            "F7_cleanup": {
+                "audit": "#12", "item": 7,
+                "rule": ["step6_coverage.py and write_closing_report_4_3_1.py read the in-repository copies in frozen_documents/ instead of folders outside the repository",
+                         "step8_sections_4_3_4_to_4_3_9.py uses a fresh temporary directory it creates itself instead of another session's directory",
+                         "steps 3, 4, 6, 8 and 10 refuse to overwrite an existing output unless REGEN_FROZEN_OUTPUT=1 is set",
+                         "the hardcoded 'A3 hash verified: True' check in step 8 is replaced by a computed comparison with the A3 sidecar",
+                         "step5_final_sha256.txt (the v1 state) is superseded by step5_v2_final_sha256.txt; a current hash check is recorded and the older file is not edited"],
+                "pass": "each item is in place, the scripts compile, and the current hashes in step5_v2_final_sha256.txt match the files",
+            },
+        },
+        "not_addressed_in_this_pass": ["audit #9: the look-ahead probe in step4_extract_parameters.py", "audit #11: TRAIN cutoffs not in a frozen document, circular availability check, jump_variation_w bias, amihud back-adjustment", "the audit's 'disclosed and still open' items"],
+        "order": "F7 (code cleanup), F3 (threshold), F1 (folds), F2+F5 (4.3.4/4.3.7/4.3.8 rerun), F4 (prefix and isolation rerun), F6 (addendum). Each result is reported PASS or FAIL against the criteria above; the criteria are not changed after a run.",
+    }
+    path = R / f"amendment_4_3_A4_{now.strftime('%Y%m%dT%H%M%SZ')}.json"
+    data = (json.dumps(doc, indent=2, ensure_ascii=False) + "\n").encode("utf-8")
+    path.write_bytes(data)
+    digest = hashlib.sha256(data).hexdigest()
+    path.with_suffix(".sha256").write_text(f"{digest}  {path.name}\n", encoding="ascii")
+    print(path.name, "\nSHA-256:", digest, "\ncreated_utc:", doc["created_utc"])
+
+
+if __name__ == "__main__":
+    main()

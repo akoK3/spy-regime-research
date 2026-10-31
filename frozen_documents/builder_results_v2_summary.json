@@ -1,0 +1,60 @@
+{
+  "created_utc": "2026-10-29T03:32:18.785324+00:00",
+  "status": "PASS_CANDIDATE_CONSTRUCTION",
+  "protocol_file": "C:\\Users\\kakij\\OneDrive\\Desktop\\data\\section4_3_rebuild_20261028\\protocol_20261029T032641Z.json",
+  "protocol_sha256": "3d6f0c96fce1c05f8e94d1a8c6e6b14a5b5b1c9f013e6a95dd1e96498cbfff8b",
+  "runs": {
+    "LEGACY": {
+      "rows": 1875150,
+      "sessions": 4827,
+      "first_session": "2003-01-02",
+      "last_session": "2022-03-04",
+      "feature_count": 35,
+      "output": "C:\\Users\\kakij\\OneDrive\\Desktop\\data\\section4_3_rebuild_20261028\\results_v2\\candidate_features_LEGACY_DEVELOPMENT.csv.gz",
+      "output_sha256": "382f22bc09a1906ac74d547195f0e24dbe1415f099ef0339c61628727369acfd"
+    },
+    "RAW": {
+      "rows": 275820,
+      "sessions": 710,
+      "first_session": "2022-03-07",
+      "last_session": "2024-12-31",
+      "feature_count": 35,
+      "output": "C:\\Users\\kakij\\OneDrive\\Desktop\\data\\section4_3_rebuild_20261028\\results_v2\\candidate_features_RAW_DEVELOPMENT.csv.gz",
+      "output_sha256": "6c8760770d69a086ad1b55fda8e9b08eb7e1d500b3c3bf7d71d0e980551dfe76"
+    }
+  },
+  "tests": [
+    {
+      "era": "LEGACY",
+      "test": "actual_data_future_deletion_all_features",
+      "result": "PASS",
+      "prefix_rows": 15723
+    },
+    {
+      "era": "RAW",
+      "test": "actual_data_future_deletion_all_features",
+      "result": "PASS",
+      "prefix_rows": 15723
+    }
+  ],
+  "original_input_hashes_before": {
+    "C:\\Users\\kakij\\Downloads\\section3_10_alignment_results\\canonical_panel_LEGACY_1m.csv.gz": "b5967d9691c547a3b8a277f97fe2a95e1b1c4a49e4d6476c008a08076ce098df",
+    "C:\\Users\\kakij\\Downloads\\section3_4_etf_results\\etf_observed_SPY_LEGACY.csv.gz": "7cd10dfb3e5896b9574a53f35914ce43053705cff9c5ef7029ccb2b88a6c83f7",
+    "C:\\Users\\kakij\\Downloads\\section3_10_alignment_results\\canonical_panel_RAW_1m.csv.gz": "f1b1c498dc76c7ef11e53a31fec655abacaf6458d8f3b9dd1827f9dd8ec91184",
+    "C:\\Users\\kakij\\Downloads\\section3_4_etf_results\\etf_observed_SPY_RAW.csv.gz": "6c37b2798d3cc5740d71de94c34343d315fa274b95e50a5a7df081c1b7a5928d"
+  },
+  "original_input_hashes_after": {
+    "C:\\Users\\kakij\\Downloads\\section3_10_alignment_results\\canonical_panel_LEGACY_1m.csv.gz": "b5967d9691c547a3b8a277f97fe2a95e1b1c4a49e4d6476c008a08076ce098df",
+    "C:\\Users\\kakij\\Downloads\\section3_4_etf_results\\etf_observed_SPY_LEGACY.csv.gz": "7cd10dfb3e5896b9574a53f35914ce43053705cff9c5ef7029ccb2b88a6c83f7",
+    "C:\\Users\\kakij\\Downloads\\section3_10_alignment_results\\canonical_panel_RAW_1m.csv.gz": "f1b1c498dc76c7ef11e53a31fec655abacaf6458d8f3b9dd1827f9dd8ec91184",
+    "C:\\Users\\kakij\\Downloads\\section3_4_etf_results\\etf_observed_SPY_RAW.csv.gz": "6c37b2798d3cc5740d71de94c34343d315fa274b95e50a5a7df081c1b7a5928d"
+  },
+  "retrospective_evaluation_features_constructed": false,
+  "hmm_fitted": false,
+  "feature_winner_selected": false,
+  "caveats": [
+    "Causal under inherited bar-start/availability assumptions; does not establish vendor causality.",
+    "Partial RV is an extrapolation proxy. Five-minute sampled RV is a different estimator.",
+    "No unexposed final test identified. 2025-2026 has prior outcome/feature exposure."
+  ]
+}
