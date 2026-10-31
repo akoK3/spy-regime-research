@@ -1,0 +1,216 @@
+{
+  "note": "4.3-N4 final Section 4 pass after the re-audit",
+  "created_utc": "2026-10-31T04:19:38.764193+00:00",
+  "created_america_new_york": "2026-10-31T00:19:38.764193-04:00",
+  "status": "WRITTEN_BEFORE_THE_FIXES_ARE_APPLIED",
+  "statement": "Fixed before any of the fixes below is applied. The reasons are the re-audit's findings (reaudit_20261031.md, at repository HEAD 9025958). Closed reports and frozen files are not edited; corrections go into addenda and new versions.",
+  "cites": {
+    "reaudit": {
+      "file": "reaudit_20261031.md",
+      "sha256": "10740f4d554d2b33c796a3e8dd341e69483c9bb6707feee0bf978384219a1566"
+    },
+    "cold_audit": {
+      "file": "cold_audit_20261030.md",
+      "sha256": "d720d46e238a22e5b93da93db14c3a42001e91cb55f9f7813200f5e4665412ac"
+    },
+    "P1": {
+      "file": "policy_4_3_1_P1_20261030T233123Z.json",
+      "sha256": "580b9c9c4f4df578ba3f4aeda61556d73d8aaed486ec7866a11f93eaf103f75c"
+    },
+    "A1": {
+      "file": "protocol_amendment_4_3_0_A1_20261029T034121Z.json",
+      "sha256": "a57d55ccc760c2359d2d5d14c12d52a3fb1ba29a1bd3e222a71e6284886724ae"
+    },
+    "A4": {
+      "file": "amendment_4_3_A4_20261031T021111Z.json",
+      "sha256": "1960e83752b4dd5fa25dd022792e8a57f89ba79e9c79df02a50fceba96747304"
+    },
+    "A5": {
+      "file": "amendment_4_3_A5_20261031T023320Z.json",
+      "sha256": "2637654bac921c171935011a9bc7d22bd7c2168f786397c2b2376d0d0179c35b"
+    },
+    "N1": {
+      "file": "note_4_3_N1_20261031T011048Z.json",
+      "sha256": "0a5ab480a7c44b422af67e4912bd461c80d745e7bb527212dbb88d09a74357a1"
+    },
+    "N2": {
+      "file": "note_4_3_N2_20261031T011552Z.json",
+      "sha256": "3f5b7978e642298ad70a91dfafd8ebaa77504bb2bc1da5f2fb12990759d28e34"
+    },
+    "N3": {
+      "file": "note_4_3_N3_20261031T034021Z.json",
+      "sha256": "65e79a680c6eef72445f1186b3ff8b8603b1870a7d2121fba7dbc30dace0d024"
+    },
+    "frozen_protocol_v2": {
+      "file": "protocol_20261029T032641Z.json",
+      "sha256": "3d6f0c96fce1c05f8e94d1a8c6e6b14a5b5b1c9f013e6a95dd1e96498cbfff8b"
+    },
+    "split_manifest": {
+      "file": "section430_executable_split_manifest.csv",
+      "sha256": "e87c0f9c2be93a052cd371d408072723b98f5ebf165c70bc9d94a2f70eb346ae"
+    },
+    "train_cutoffs": {
+      "file": "a5_train_cutoffs.json",
+      "sha256": "f47d031d365aa1723fc8b61dba08503dcebce363685f676b15a9beb0715359bd"
+    },
+    "matrix_4_3_9_current": {
+      "file": "a4_sec4_3_9_frozen_matrix.csv",
+      "sha256": "63fd07251f68f45df75ada3addea643c2c1b4a284b85306d551ffe9c592daf35"
+    },
+    "regeneration_report": {
+      "file": "a4_sec4_3_6_9_report.json",
+      "sha256": "4169bbaf390f2d6acd64f23d4755ce7c98c78ca2f0167165ca8420c524d43090"
+    },
+    "first_attempt_report": {
+      "file": "a4_first_attempt_sec4_3_6_9_report.json",
+      "sha256": "c2b4325bf937ebe65a20ad8ead713c1ef1db8e85e0287745dfa1cc814ca9c492"
+    }
+  },
+  "decisions": {
+    "D1_P1_R2_amended": {
+      "reaudit": "new #1",
+      "amends": "policy P1, rule R2 (the P1 file is not edited)",
+      "p1_r2_text_superseded": "Every window resets at the session open: a feature at slot j uses only bars of the same session at slots <= j, so the first W bars of a session (W = the output's lookback) are NaN. The only cross-session value is the baseline of relative_volume20 and log_relative_volume20: the median of positive volumes at the same slot over the previous 20 sessions of the same era, with at least 10 required. No other detector output uses data from another session.",
+      "reason": "P1 R2 says relative volume is the only cross-session value and that no other detector output uses data from another session. All 35 __sadj columns cross sessions (A4 F2), six of them in the kept primary set, and nothing recorded the contradiction.",
+      "new_r2": "Every window resets at the session open: a feature at slot j uses only bars of the same session at slots <= j, so the first W bars of a session are NaN. Cross-session values are allowed only as causal past-session baselines: the value for session k may use sessions earlier than k of the same era, and no later session. There are two kinds: the relative-volume baseline of relative_volume20 and log_relative_volume20 (median of positive volumes at the same slot over the previous 20 sessions, at least 10 required) and the seasonal baseline of the __sadj columns (A4 F2: median of the finite raw values at the same slot over the previous 20 sessions, at least 10 required). relative_volume20__sadj chains the two, so its first defined session is the 20th and its reach is 40 sessions. No other detector output uses data from another session.",
+      "post_embargo_behavior": "After the embargo the same rolling past-only rule applies unchanged. The window is always the previous 20 sessions of the same era in date order; partition labels do not change it, so the first evaluation sessions draw on embargo and late TRAIN sessions. No statistic is fitted on evaluation data and no baseline is carried across the era boundary.",
+      "scope_limit": "This settles the rule for causal baselines only. The remainder of open item 3 (A1's 60-minute lookback for within-session windows against the A2 cap) stays open."
+    },
+    "D2_tier_redefinition_deferred": {
+      "reaudit": "new #3",
+      "amends": "amendment A5, item G5",
+      "decision": "The replacement of rv15 by rv10 in the comparison tiers (A5 G5) is deferred to Section 5 and is not in force in Section 4. The approval of 2026-10-31 stays on record as history. The tier redefinition becomes a Section 5 open item.",
+      "reason": "The swap made no tier usable. rv10_strict, now in core15 and strict60, is dropped in both selection sets.",
+      "facts_from_files_amended_tiers": {
+        "core15": [
+          {
+            "column": "return_1m",
+            "primary": "kept",
+            "raw_sensitivity": "kept"
+          },
+          {
+            "column": "rv10_strict",
+            "primary": "dropped",
+            "raw_sensitivity": "dropped"
+          },
+          {
+            "column": "downside15_strict",
+            "primary": "not in the primary pool",
+            "raw_sensitivity": "dropped"
+          },
+          {
+            "column": "relative_volume20",
+            "primary": "kept",
+            "raw_sensitivity": "kept"
+          },
+          {
+            "column": "intrabar_range_log",
+            "primary": "kept",
+            "raw_sensitivity": "kept"
+          }
+        ],
+        "strict60": [
+          {
+            "column": "return_1m",
+            "primary": "kept",
+            "raw_sensitivity": "kept"
+          },
+          {
+            "column": "rv10_strict",
+            "primary": "dropped",
+            "raw_sensitivity": "dropped"
+          },
+          {
+            "column": "rv60_strict",
+            "primary": "not in the primary pool",
+            "raw_sensitivity": "dropped"
+          }
+        ],
+        "partial60": [
+          {
+            "column": "return_1m",
+            "primary": "kept",
+            "raw_sensitivity": "kept"
+          },
+          {
+            "column": "rv10_partial90",
+            "primary": "kept",
+            "raw_sensitivity": "kept"
+          },
+          {
+            "column": "rv60_partial90",
+            "primary": "not in the primary pool",
+            "raw_sensitivity": "dropped"
+          }
+        ],
+        "sampled60": [
+          {
+            "column": "return_1m",
+            "primary": "kept",
+            "raw_sensitivity": "kept"
+          },
+          {
+            "column": "rv10_partial90",
+            "primary": "kept",
+            "raw_sensitivity": "kept"
+          },
+          {
+            "column": "rv60_sampled5_exact",
+            "primary": "not in the primary pool",
+            "raw_sensitivity": "kept"
+          }
+        ]
+      }
+    },
+    "D3_A1_versus_TRAIN_end": {
+      "reaudit": "new #10",
+      "conflict": "A1 says: 'Modern IEX detector is trained only on IEX development (2022-03-07 through 2024-12-31); legacy data cannot train its parameters under current protocol. Evaluate eras separately and avoid claiming pooled multi-decade training.'. RAW TRAIN ends 2024-12-23 and the 5 sessions 2024-12-24 to 2024-12-31 are EMBARGO in the manifest. A5 G1 recorded the cutoffs but did not flag this sentence.",
+      "reconciliation": "A1's 'through 2024-12-31' describes the frozen development span of the RAW era. The training span is RAW TRAIN, 2022-03-07 to 2024-12-23. The five embargo sessions 2024-12-24 to 2024-12-31 are inside the development span and outside training, as A1's own embargo rule requires. For LEGACY the training span is TRAIN, 2003-01-02 to 2018-12-21, and 2019-01-02 onward is evaluation under A1. Where a document and the manifest differ on a training end date, the manifest's TRAIN end governs.",
+      "limit": "The manifest is a derived artifact and is not approved (A1's manifest item is unverified)."
+    },
+    "D4_matrix_regeneration": {
+      "reaudit": "new #4",
+      "statement": "The 4.3.6 and 4.3.9 regeneration (steps 15 and 16) was run without a pre-run document, although A4 said these outputs were not regenerated in that pass and the regenerated report's freeze line requires a new dated amendment for any change. After the first matrix failed its coverage cross-check, the check was reworded to allow the three jump_variation__sadj differences. The failed matrix was not kept, so its recorded hash cannot be verified.",
+      "authorization_after_the_fact": "This note is the dated amendment for the matrix. The matrix of the regeneration report stands as the base; the correction of D5/L5 is issued as a new version (v2) beside it. Neither the base matrix nor the 4.3.6 file is edited."
+    }
+  },
+  "fixes": {
+    "L5_warmup": {
+      "reaudit": "new #5",
+      "rule": "relative_volume20__sadj has warmup session 20 (not 10), lookback 20 + 20 = 40 sessions, and a minimum-observation text that names both baselines. A v2 matrix with its primary and sensitivity views is written beside the base matrix; the builders use v2. Check: the first-defined session of relative_volume20__sadj computed from the data in the 4.3.6 file is session 20 in both eras.",
+      "pass": "v2 differs from the base matrix only in the fields of that row; the data check holds"
+    },
+    "L6_hash_lists": {
+      "reaudit": "new #6",
+      "rule": "A dated check compares every hash list in the results folder with the current files. Each mismatch is listed with the commit that last changed the file. The old lists are not edited. The addendum also states which steps were and were not rerun in full on the current code.",
+      "pass": "the check file exists and lists every mismatch"
+    },
+    "L7_paths": {
+      "reaudit": "new #7",
+      "rule": "The six scripts named by the re-audit read in-repository copies (frozen_documents/). REPORT.md and section431_panel_audit.json, not yet in the repository, are copied with hashes verified identical. A scan finds no OneDrive path in any tracked script.",
+      "pass": "the scan finds no hit and the copies are identical"
+    },
+    "L11_housekeeping": {
+      "reaudit": "new #11",
+      "rule": "audit_and_freeze.py and amend_protocol.py are copied into frozen_documents/ with hashes equal to those recorded in the frozen protocol. .gitignore entries for scripts that do not exist are removed. The order in which F6 ran before F4 is recorded.",
+      "order_fact": "A4 stated the order F7, F3, F1, F2+F5, F4, F6. F6 (the audit addendum) was written before F4 had run, because F4 was stopped for low memory and rerun later. No record said so.",
+      "pass": "the files exist with matching hashes and .gitignore lists only existing scripts"
+    }
+  },
+  "disclosures_to_write": [
+    "new #2: jump_variation_w is still biased upward (the clipped feature, not RV - BV)",
+    "new #4: the matrix regeneration without a pre-run amendment (D4)",
+    "audit #5: the Lee-Mykland threshold was calibrated for Gaussian returns; the false-alarm rate under fat tails and on real data is not controlled",
+    "audit #6: visibility_ok in the replay is true by construction",
+    "audit #7: two repeated copies of the false sentence in the ledger and in SECTION4_COMPLETE.md now carry a pointer to the correction"
+  ],
+  "closing": "After the fixes a final record marks SECTION_4_CLOSED. Its scope is Section 4 as recorded in this repository (4.3.0 to 4.3.9 with A4, A5 and N1 to N4). The 4.1 and 4.2 text was not provided and stays a marked placeholder. The open items for Section 5 are not resolved by closing.",
+  "not_addressed_in_this_pass": [
+    "re-audit new #8 (F4 hashed step 3 only; the G3 change also touched section431_additions.py)",
+    "re-audit new #9 (the bipower_w reading of A5 G3 was never confirmed)",
+    "audit #3: selection inside folds (remains a Section 5 open item)",
+    "audit #4: no Section 5 open item exists for era-crossing decisions",
+    "audit #8: ATOL=1e-10 remains in step3_all_in_one.py",
+    "the rest of the re-audit's 'disclosed and still open' items"
+  ]
+}
