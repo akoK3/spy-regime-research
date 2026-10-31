@@ -1,0 +1,474 @@
+{
+  "created_utc": "2026-10-31T04:02:23.277940+00:00",
+  "amendment": "4.3-A5 G3 correction",
+  "status": "PASS",
+  "reason": "Step 13 ranked columns by the A4-run coverage. After the w/(w-1) scaling about half of the jump_variation values are exactly 0, so the median baseline is 0 on many slots and jump_variation_w__sadj is undefined there; its coverage fell. The corrected run uses the coverage of the current data.",
+  "original_g3_file": "a5_jump_variation_redundancy.json",
+  "original_g3_sha256": "3cce89c71abdc1e8d6588e80e92482b599cc36126fecb914b836e7855be0f0e0",
+  "share_of_exactly_zero_values_among_finite_RAW": {
+    "jump_variation_15": 0.4941,
+    "jump_variation_30": 0.4663,
+    "jump_variation_60": 0.4348
+  },
+  "coverage_changes_RAW": {
+    "jump_variation_15__sadj": {
+      "A4_run": 86.82,
+      "now": 55.836
+    },
+    "jump_variation_30__sadj": {
+      "A4_run": 80.579,
+      "now": 61.209
+    },
+    "jump_variation_60__sadj": {
+      "A4_run": 72.342,
+      "now": 61.527
+    }
+  },
+  "sensitivity_RAW": {
+    "pool": 113,
+    "kept": 83,
+    "dropped": 30,
+    "A4_run": {
+      "kept": 83,
+      "dropped": 30
+    },
+    "original_G3": {
+      "kept": 83,
+      "dropped": 30
+    },
+    "changes_vs_A4_run": {
+      "newly_kept": [],
+      "newly_dropped": []
+    },
+    "changes_vs_original_G3": {
+      "newly_kept": [],
+      "newly_dropped": []
+    }
+  },
+  "primary_set": "unchanged: no jump_variation column is in the primary pool",
+  "checks": {
+    "sample of 150 unchanged pairs equals the A4 run": true,
+    "greedy rule consistent": true,
+    "coverage differs from the A4 run only for jump_variation_w__sadj": true,
+    "no jump_variation column is in the A4 primary pool": true
+  },
+  "priority_order": [
+    "intrabar_range_log",
+    "close_location_proxy",
+    "relative_volume20",
+    "log_relative_volume20",
+    "intrabar_range_log__sadj",
+    "relative_volume20__sadj",
+    "return_1m",
+    "abs_return_1m",
+    "abs_return_1m__sadj",
+    "momentum5_endpoint",
+    "rv5_strict",
+    "downside5_strict",
+    "momentum5_strict",
+    "rv5_partial90",
+    "rv5_strict__sadj",
+    "downside5_strict__sadj",
+    "rv5_partial90__sadj",
+    "momentum10_endpoint",
+    "rv10_partial90",
+    "rv10_strict",
+    "downside10_strict",
+    "momentum10_strict",
+    "rv10_partial90__sadj",
+    "rv10_strict__sadj",
+    "downside10_strict__sadj",
+    "momentum15_endpoint",
+    "rv15_partial90",
+    "downside15_partial90",
+    "rv15_strict",
+    "downside15_strict",
+    "momentum15_strict",
+    "bipower_15",
+    "jump_variation_15",
+    "drawdown_15",
+    "amihud_15",
+    "skew_15",
+    "kurtosis_excess_15",
+    "variance_ratio2_15",
+    "directional_efficiency_15",
+    "vol_of_vol_15",
+    "extreme_loss_15",
+    "volume_variability_15",
+    "volume_adjusted_range_15",
+    "return_autocorr1_15",
+    "reversal_15",
+    "rv15_partial90__sadj",
+    "downside15_partial90__sadj",
+    "rv15_strict__sadj",
+    "downside15_strict__sadj",
+    "bipower_15__sadj",
+    "amihud_15__sadj",
+    "vol_of_vol_15__sadj",
+    "volume_adjusted_range_15__sadj",
+    "jump_variation_15__sadj",
+    "rv30_partial90",
+    "momentum30_endpoint",
+    "rv30_strict",
+    "downside30_strict",
+    "momentum30_strict",
+    "bipower_30",
+    "jump_variation_30",
+    "drawdown_30",
+    "amihud_30",
+    "skew_30",
+    "kurtosis_excess_30",
+    "variance_ratio2_30",
+    "directional_efficiency_30",
+    "vol_of_vol_30",
+    "extreme_loss_30",
+    "volume_variability_30",
+    "volume_adjusted_range_30",
+    "return_autocorr1_30",
+    "reversal_30",
+    "rv30_partial90__sadj",
+    "rv30_strict__sadj",
+    "downside30_strict__sadj",
+    "bipower_30__sadj",
+    "amihud_30__sadj",
+    "vol_of_vol_30__sadj",
+    "volume_adjusted_range_30__sadj",
+    "jump_variation_30__sadj",
+    "rv60_partial90",
+    "momentum60_endpoint",
+    "rv60_sampled5_exact",
+    "rv60_partial90__sadj",
+    "rv60_strict",
+    "downside60_strict",
+    "momentum60_strict",
+    "bipower_60",
+    "jump_variation_60",
+    "drawdown_60",
+    "amihud_60",
+    "skew_60",
+    "kurtosis_excess_60",
+    "variance_ratio2_60",
+    "directional_efficiency_60",
+    "vol_of_vol_60",
+    "extreme_loss_60",
+    "volume_variability_60",
+    "volume_adjusted_range_60",
+    "reversal_60",
+    "return_autocorr1_60",
+    "rv60_sampled5_exact__sadj",
+    "rv60_strict__sadj",
+    "downside60_strict__sadj",
+    "bipower_60__sadj",
+    "amihud_60__sadj",
+    "vol_of_vol_60__sadj",
+    "volume_adjusted_range_60__sadj",
+    "jump_variation_60__sadj",
+    "shock_prior60_mad",
+    "lee_mykland_approx60",
+    "lee_mykland_jump60"
+  ],
+  "kept": [
+    "intrabar_range_log",
+    "close_location_proxy",
+    "relative_volume20",
+    "intrabar_range_log__sadj",
+    "return_1m",
+    "abs_return_1m",
+    "abs_return_1m__sadj",
+    "momentum5_endpoint",
+    "rv5_strict",
+    "downside5_strict",
+    "rv5_strict__sadj",
+    "downside5_strict__sadj",
+    "momentum10_endpoint",
+    "rv10_partial90",
+    "downside10_strict",
+    "rv10_partial90__sadj",
+    "downside10_strict__sadj",
+    "momentum15_endpoint",
+    "downside15_partial90",
+    "bipower_15",
+    "jump_variation_15",
+    "drawdown_15",
+    "amihud_15",
+    "skew_15",
+    "kurtosis_excess_15",
+    "variance_ratio2_15",
+    "directional_efficiency_15",
+    "vol_of_vol_15",
+    "volume_variability_15",
+    "volume_adjusted_range_15",
+    "return_autocorr1_15",
+    "reversal_15",
+    "rv15_partial90__sadj",
+    "downside15_partial90__sadj",
+    "bipower_15__sadj",
+    "amihud_15__sadj",
+    "vol_of_vol_15__sadj",
+    "volume_adjusted_range_15__sadj",
+    "jump_variation_15__sadj",
+    "rv30_partial90",
+    "momentum30_endpoint",
+    "downside30_strict",
+    "jump_variation_30",
+    "drawdown_30",
+    "amihud_30",
+    "skew_30",
+    "kurtosis_excess_30",
+    "variance_ratio2_30",
+    "directional_efficiency_30",
+    "vol_of_vol_30",
+    "volume_variability_30",
+    "volume_adjusted_range_30",
+    "return_autocorr1_30",
+    "reversal_30",
+    "rv30_partial90__sadj",
+    "downside30_strict__sadj",
+    "amihud_30__sadj",
+    "vol_of_vol_30__sadj",
+    "volume_adjusted_range_30__sadj",
+    "jump_variation_30__sadj",
+    "momentum60_endpoint",
+    "rv60_sampled5_exact",
+    "rv60_partial90__sadj",
+    "downside60_strict",
+    "jump_variation_60",
+    "drawdown_60",
+    "amihud_60",
+    "skew_60",
+    "kurtosis_excess_60",
+    "variance_ratio2_60",
+    "directional_efficiency_60",
+    "vol_of_vol_60",
+    "extreme_loss_60",
+    "volume_variability_60",
+    "volume_adjusted_range_60",
+    "reversal_60",
+    "rv60_sampled5_exact__sadj",
+    "downside60_strict__sadj",
+    "amihud_60__sadj",
+    "vol_of_vol_60__sadj",
+    "volume_adjusted_range_60__sadj",
+    "jump_variation_60__sadj",
+    "lee_mykland_jump60"
+  ],
+  "dropped": {
+    "log_relative_volume20": [
+      {
+        "kept_column": "relative_volume20",
+        "era": "RAW",
+        "rho": 1.0
+      }
+    ],
+    "relative_volume20__sadj": [
+      {
+        "kept_column": "relative_volume20",
+        "era": "RAW",
+        "rho": 0.961769
+      }
+    ],
+    "momentum5_strict": [
+      {
+        "kept_column": "momentum5_endpoint",
+        "era": "RAW",
+        "rho": 0.999999
+      }
+    ],
+    "rv5_partial90": [
+      {
+        "kept_column": "rv5_strict",
+        "era": "RAW",
+        "rho": 1.0
+      }
+    ],
+    "rv5_partial90__sadj": [
+      {
+        "kept_column": "rv5_strict__sadj",
+        "era": "RAW",
+        "rho": 1.0
+      }
+    ],
+    "rv10_strict": [
+      {
+        "kept_column": "rv10_partial90",
+        "era": "RAW",
+        "rho": 1.0
+      }
+    ],
+    "momentum10_strict": [
+      {
+        "kept_column": "momentum10_endpoint",
+        "era": "RAW",
+        "rho": 1.0
+      }
+    ],
+    "rv10_strict__sadj": [
+      {
+        "kept_column": "rv10_partial90__sadj",
+        "era": "RAW",
+        "rho": 0.999963
+      }
+    ],
+    "rv15_partial90": [
+      {
+        "kept_column": "rv10_partial90",
+        "era": "RAW",
+        "rho": 0.956536
+      }
+    ],
+    "rv15_strict": [
+      {
+        "kept_column": "rv10_partial90",
+        "era": "RAW",
+        "rho": 0.956541
+      }
+    ],
+    "downside15_strict": [
+      {
+        "kept_column": "downside15_partial90",
+        "era": "RAW",
+        "rho": 1.0
+      }
+    ],
+    "momentum15_strict": [
+      {
+        "kept_column": "momentum15_endpoint",
+        "era": "RAW",
+        "rho": 1.0
+      }
+    ],
+    "extreme_loss_15": [
+      {
+        "kept_column": "downside15_partial90",
+        "era": "RAW",
+        "rho": -0.964338
+      }
+    ],
+    "rv15_strict__sadj": [
+      {
+        "kept_column": "rv15_partial90__sadj",
+        "era": "RAW",
+        "rho": 0.999964
+      }
+    ],
+    "downside15_strict__sadj": [
+      {
+        "kept_column": "downside15_partial90__sadj",
+        "era": "RAW",
+        "rho": 0.999959
+      }
+    ],
+    "rv30_strict": [
+      {
+        "kept_column": "rv30_partial90",
+        "era": "RAW",
+        "rho": 1.0
+      }
+    ],
+    "momentum30_strict": [
+      {
+        "kept_column": "momentum30_endpoint",
+        "era": "RAW",
+        "rho": 1.0
+      }
+    ],
+    "bipower_30": [
+      {
+        "kept_column": "rv30_partial90",
+        "era": "RAW",
+        "rho": 0.985669
+      }
+    ],
+    "extreme_loss_30": [
+      {
+        "kept_column": "downside30_strict",
+        "era": "RAW",
+        "rho": -0.952558
+      }
+    ],
+    "rv30_strict__sadj": [
+      {
+        "kept_column": "rv30_partial90__sadj",
+        "era": "RAW",
+        "rho": 0.999459
+      }
+    ],
+    "bipower_30__sadj": [
+      {
+        "kept_column": "rv30_partial90__sadj",
+        "era": "RAW",
+        "rho": 0.966622
+      }
+    ],
+    "rv60_partial90": [
+      {
+        "kept_column": "rv30_partial90",
+        "era": "RAW",
+        "rho": 0.959964
+      }
+    ],
+    "rv60_strict": [
+      {
+        "kept_column": "rv30_partial90",
+        "era": "RAW",
+        "rho": 0.960204
+      }
+    ],
+    "momentum60_strict": [
+      {
+        "kept_column": "momentum60_endpoint",
+        "era": "RAW",
+        "rho": 1.0
+      }
+    ],
+    "bipower_60": [
+      {
+        "kept_column": "rv30_partial90",
+        "era": "RAW",
+        "rho": 0.95258
+      },
+      {
+        "kept_column": "downside60_strict",
+        "era": "RAW",
+        "rho": 0.958626
+      }
+    ],
+    "return_autocorr1_60": [
+      {
+        "kept_column": "variance_ratio2_60",
+        "era": "RAW",
+        "rho": 0.972632
+      }
+    ],
+    "rv60_strict__sadj": [
+      {
+        "kept_column": "rv60_partial90__sadj",
+        "era": "RAW",
+        "rho": 0.99906
+      }
+    ],
+    "bipower_60__sadj": [
+      {
+        "kept_column": "rv60_partial90__sadj",
+        "era": "RAW",
+        "rho": 0.978896
+      }
+    ],
+    "shock_prior60_mad": [
+      {
+        "kept_column": "return_1m",
+        "era": "RAW",
+        "rho": 0.951014
+      }
+    ],
+    "lee_mykland_approx60": [
+      {
+        "kept_column": "return_1m",
+        "era": "RAW",
+        "rho": 0.967024
+      }
+    ]
+  },
+  "spearman_matrix_file": "a5_jump_variation_spearman_RAW_pool_corrected.csv",
+  "spearman_matrix_sha256": "0b8beeb9f1f88575533246b30bbd1c484a1afb09cf3d5bb3973c3101fab8c3c8"
+}

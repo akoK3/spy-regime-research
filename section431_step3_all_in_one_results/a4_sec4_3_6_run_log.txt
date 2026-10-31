@@ -1,0 +1,67 @@
+﻿[   0.0 min] RAW: loading TRAIN rows
+[   0.0 min] RAW: features (spilled)
+[    0.2 min]   RAW 4.3.6: session 35/705, about 2.3 min left in this pass
+[    0.3 min]   RAW 4.3.6: session 70/705, about 2.2 min left in this pass
+[    0.4 min]   RAW 4.3.6: session 105/705, about 2.1 min left in this pass
+[    0.5 min]   RAW 4.3.6: session 140/705, about 2.0 min left in this pass
+[    0.7 min]   RAW 4.3.6: session 175/705, about 1.8 min left in this pass
+[    0.8 min]   RAW 4.3.6: session 210/705, about 1.7 min left in this pass
+[    0.9 min]   RAW 4.3.6: session 245/705, about 1.6 min left in this pass
+[    1.0 min]   RAW 4.3.6: session 280/705, about 1.5 min left in this pass
+[    1.1 min]   RAW 4.3.6: session 315/705, about 1.3 min left in this pass
+[    1.3 min]   RAW 4.3.6: session 350/705, about 1.2 min left in this pass
+[    1.4 min]   RAW 4.3.6: session 385/705, about 1.1 min left in this pass
+[    1.5 min]   RAW 4.3.6: session 420/705, about 1.0 min left in this pass
+[    1.6 min]   RAW 4.3.6: session 455/705, about 0.9 min left in this pass
+[    1.7 min]   RAW 4.3.6: session 490/705, about 0.7 min left in this pass
+[    1.8 min]   RAW 4.3.6: session 525/705, about 0.6 min left in this pass
+[    2.0 min]   RAW 4.3.6: session 560/705, about 0.5 min left in this pass
+[    2.1 min]   RAW 4.3.6: session 595/705, about 0.4 min left in this pass
+[    2.2 min]   RAW 4.3.6: session 630/705, about 0.3 min left in this pass
+[    2.3 min]   RAW 4.3.6: session 665/705, about 0.1 min left in this pass
+[    2.4 min]   RAW 4.3.6: session 700/705, about 0.0 min left in this pass
+[   2.5 min] RAW: 20/78 raw columns done
+[   2.5 min] RAW: 40/78 raw columns done
+[   2.6 min] RAW: 60/78 raw columns done
+[   2.6 min] LEGACY: loading TRAIN rows
+[   2.7 min] LEGACY: features (spilled)
+[    3.3 min]   LEGACY 4.3.6: session 201/4022, about 8.4 min left in this pass
+[    3.7 min]   LEGACY 4.3.6: session 402/4022, about 7.7 min left in this pass
+[    4.1 min]   LEGACY 4.3.6: session 603/4022, about 7.2 min left in this pass
+[    4.5 min]   LEGACY 4.3.6: session 804/4022, about 6.7 min left in this pass
+[    4.9 min]   LEGACY 4.3.6: session 1005/4022, about 6.3 min left in this pass
+[    5.4 min]   LEGACY 4.3.6: session 1206/4022, about 5.9 min left in this pass
+[    5.8 min]   LEGACY 4.3.6: session 1407/4022, about 5.6 min left in this pass
+[    6.3 min]   LEGACY 4.3.6: session 1608/4022, about 5.2 min left in this pass
+[    6.7 min]   LEGACY 4.3.6: session 1809/4022, about 4.7 min left in this pass
+[    7.2 min]   LEGACY 4.3.6: session 2010/4022, about 4.3 min left in this pass
+[    7.6 min]   LEGACY 4.3.6: session 2211/4022, about 3.9 min left in this pass
+[    8.1 min]   LEGACY 4.3.6: session 2412/4022, about 3.5 min left in this pass
+[    8.5 min]   LEGACY 4.3.6: session 2613/4022, about 3.1 min left in this pass
+[    8.9 min]   LEGACY 4.3.6: session 2814/4022, about 2.6 min left in this pass
+[    9.4 min]   LEGACY 4.3.6: session 3015/4022, about 2.2 min left in this pass
+[    9.9 min]   LEGACY 4.3.6: session 3216/4022, about 1.8 min left in this pass
+[   10.5 min]   LEGACY 4.3.6: session 3417/4022, about 1.3 min left in this pass
+[   10.9 min]   LEGACY 4.3.6: session 3618/4022, about 0.9 min left in this pass
+[   11.4 min]   LEGACY 4.3.6: session 3819/4022, about 0.5 min left in this pass
+[   11.8 min]   LEGACY 4.3.6: session 4020/4022, about 0.0 min left in this pass
+[  12.4 min] LEGACY: 20/78 raw columns done
+[  12.7 min] LEGACY: 40/78 raw columns done
+[  12.9 min] LEGACY: 60/78 raw columns done
+[  13.0 min] 4.3.6: 2147 rows written
+# 4.3.6 and 4.3.9 regenerated under A4 and A5
+
+Run 2026-10-31T03:57:58.316783+00:00 UTC. TRAIN only, RAW then LEGACY. Pool: 78 raw + 35 adjusted = 113 columns. Overall: **FAIL**.
+
+- 4.3.6 (descriptive): 2147 rows (19 era-years x 113 columns).
+- 4.3.9: 113-row matrix; primary view 27 rows (kept 19, dropped 8); sensitivity view 113 rows (kept 83, dropped 30).
+
+| Check | Result |
+|---|---|
+| matrix has 113 rows: 78 raw + 35 adjusted | PASS |
+| raw_volume, log_raw_volume, raw_volume__sadj, overnight_return_open are not in the matrix | PASS |
+| primary kept = 19 and sensitivity kept = 83 | PASS |
+| A5 sensitivity outcome equals the A4 outcome (jump_variation change moved no column) | PASS |
+| matrix outcomes equal the A4 pool matrix (primary and sensitivity) | PASS |
+| 4.3.6 has one row per era, year and pool column | PASS |
+| coverage recomputed during 4.3.6 equals the A4 coverage for all 113 columns in both eras | FAIL |

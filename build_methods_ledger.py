@@ -66,6 +66,7 @@ a4res, a5res = R / "a4_results_report.json", R / "a5_results_report.json"
 f1chk, cal, a4rep, a4red, a4pi = R / "a4_folds_check.json", R / "a4_lm_threshold_calibration.json", R / "a4_sec4_3_4_7_8_report.json", R / "a4_sec4_3_8_redundancy.json", R / "a4_prefix_isolation_report.json"
 cladd_audit, cladd_avail = g("section_4_3_closing_report_addendum_audit_2*.json"), g("section_4_3_closing_report_addendum_availability_2*.json")
 cut5, jv5, am5 = R / "a5_train_cutoffs.json", R / "a5_jump_variation_redundancy.json", R / "a5_amihud_adjustment_check.json"
+reg69, yearly, mat9, g3c = R / "a4_sec4_3_6_9_report.json", R / "a4_sec4_3_6_yearly_median_iqr.csv", R / "a4_sec4_3_9_frozen_matrix.csv", R / "a5_jump_variation_redundancy_corrected.json"
 r49, r5b, r78 = R / "sec4_3_4_to_4_3_9_report.json", R / "sec4_3_5b_legacy_stale_zero_volume.json", R / "sec4_3_7_8_pool116_report.json"
 
 # (file, section, decision, rationale, file that carries the date)
@@ -121,7 +122,13 @@ E = [
     (cladd_avail, "4.3", "Addendum: the availability check is circular; P1 R1's availability evidence rests on it", "Audit #11; no code or data change", None),
     (a4res, "4.3 A4", "A4 results report: all seven items PASS", "Checks run live; the first F7 evaluation failed on two checker defects, corrected and recorded", None),
     (a5res, "4.3 A5", "A5 results report: G1 PASS, G2 PASS, G3 PASS, G4 report only, G5 recorded", "See the report", None),
+    (n3, "4.3 N3", "(see the N3 row above)", "", None),
+    (g3c, "4.3.8 A5 G3 correction", "G3 redundancy repeated with the coverage of the current data: RAW sensitivity outcome unchanged (keep 83 / drop 30); jump_variation_15/30/60__sadj RAW coverage fell from 86.8 / 80.6 / 72.3% to 55.8 / 61.2 / 61.5%", "Step 13 ranked columns with the A4-run coverage; after the w/(w-1) scaling about half of the jump_variation values are exactly 0, so the adjusted versions are undefined where the baseline median is 0", None),
+    (yearly, "4.3.6 A4", "4.3.6 regenerated for the 113-column pool: 2,147 rows (19 era-years x 113 columns), descriptive", "A4 definitions (causal seasonal baseline) and A5 jump_variation; TRAIN only", reg69),
+    (mat9, "4.3.9 A4", "4.3.9 frozen matrix regenerated: 113 rows, primary view 27 rows (keep 19 / drop 8), sensitivity view 113 rows (keep 83 / drop 30)", "Outcomes from the A4 rerun (primary) and the corrected A5 G3 rerun (RAW sensitivity); coverage recomputed from the 4.3.6 data", reg69),
+    (reg69, "4.3.6 / 4.3.9 A4", "4.3.6 and 4.3.9 regeneration report: 4.3.9 PASS on all checks", "The first matrix failed the coverage cross-check (A5 G3 side effect); rebuilt from the kept 4.3.6 file", None),
 ]
+E = [e for e in E if e[2] != "(see the N3 row above)"]
 for e in E: assert rel(e[0]) in tracked, rel(e[0])
 rows = []
 for f, sec, dec, why, dfile in E:
@@ -144,6 +151,10 @@ add_lim(cladd_avail, "facts"); add_lim(a4res, "history"); add_lim(a4res, "not_ad
 _g4 = next(i for i in load(a5res)["items"] if i["item"].startswith("4 G4"))
 lim.append((rel(a5res), sha(a5res), "G4: " + _g4["detail"]))
 lim.append((rel(a5res), sha(a5res), "G3: " + next(i for i in load(a5res)["items"] if i["item"].startswith("3 G3"))["detail"]))
+_g3c = load(g3c)
+lim.append((rel(g3c), sha(g3c), "G3 correction: " + _g3c["reason"]))
+lim.append((rel(g3c), sha(g3c), f"Share of exactly-zero values among finite RAW values after the A5 scaling: {_g3c['share_of_exactly_zero_values_among_finite_RAW']}. RAW coverage changes: " + "; ".join(f"{k} {v['A4_run']} -> {v['now']}" for k, v in _g3c["coverage_changes_RAW"].items())))
+add_lim(reg69, "history")
 
 # open items
 audit_def = load(a3)["timing"]["prior_run_found_4_3_2_4_3_3"]["deferred_in_that_audit"]
@@ -178,7 +189,7 @@ added = [
     ("Normalize amihud_15, amihud_30, amihud_60 and their __sadj versions per fold in Section 5, fitting any statistic on the fold's training rows only (LEGACY closes appear dividend-adjusted)", [n3, a5res, am5]),
     ("Independent confirmation of the dividend-adjustment status of the LEGACY closes (A5 G4 was an inference)", [am5, a5res]),
     ("Recompute the 4.3.7 and 4.3.8 selection inside each fold (audit #3 disclosure; the A4 selection is still on all of TRAIN)", [cladd_audit, a4res]),
-    ("Regenerate the 4.3.6 rows for the adjusted columns and the 4.3.9 matrix under the A4 seasonal definition (not regenerated in A4)", [a4]),
+    ("Decide the treatment of jump_variation_w and jump_variation_w__sadj after the A5 scaling: about half of the raw values are exactly 0 and the adjusted versions lost coverage (RAW 55.8 to 61.5%)", [g3c, reg69]),
     ("Audit #9: the look-ahead probe in step4_extract_parameters.py (last session only, 6 bars ahead)", [a4res]),
     ("Below-floor members of the amended comparison tiers (downside15_strict, rv60_strict, rv60_partial90, rv60_sampled5_exact): no amended tier is fully primary-eligible", [a5, a5res]),
 ]
@@ -201,6 +212,8 @@ for _item, _status, _srcs in (
     ("jump_variation upward bias (audit #11)", "done", [jv5, a5]),
     ("Disclosures #3, #4, #6, #7 and the availability-check circularity (audit #11)", "done", [cladd_audit, cladd_avail]),
     ("Reproducibility and record-keeping gaps (audit #12)", "done", [a4res]),
+    ("4.3.6 adjusted rows and the 4.3.9 matrix under the A4 seasonal definition", "done (regenerated for the 113-column pool)", [yearly, mat9, reg69]),
+    ("A5 G3 redundancy ranked with stale coverage", "corrected (same outcome)", [g3c]),
 ):
     L.append(f"| {esc(_item)} | {_status} | {esc('; '.join(rel(s) for s in _srcs))} | {'; '.join('`' + sha(s) + '`' for s in _srcs)} |")
 out = ROOT / "METHODS_LEDGER.md"

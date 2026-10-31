@@ -60,7 +60,8 @@ cladd_audit, cladd_avail = g("section_4_3_closing_report_addendum_audit_2*.json"
 am5, jv5, cut5 = R / "a5_amihud_adjustment_check.json", R / "a5_jump_variation_redundancy.json", R / "a5_train_cutoffs.json"
 dic = {x["output"]: x for x in load(cl431)["feature_dictionary"]}
 a3m = pd.read_csv(R / "sec4_3_9_frozen_matrix.csv").set_index("output")
-pool = pd.read_csv(R / "a4_sec4_3_pool_matrix.csv").set_index("column")  # current pool: 78 raw + 35 adjusted (A4)
+pool = pd.read_csv(R / "a4_sec4_3_9_frozen_matrix.csv").set_index("column")  # current frozen matrix: 78 raw + 35 adjusted, coverage recomputed under A4 and A5
+reg69, g3c = R / "a4_sec4_3_6_9_report.json", R / "a5_jump_variation_redundancy_corrected.json"
 thr = load(cal)["threshold"]
 word = lambda s: str(s).split(":")[0]
 rows = []
@@ -72,7 +73,7 @@ for n in pool.index:
     if adj:
         formula = "raw value / median of the same slot over the previous 20 sessions of the same era (at least 10 finite values); NaN if the raw value or the baseline is missing, or the baseline is <= 0 (A4 F2)"
         look, minobs, warm = f"{d['lookback_bars']} / 20", f"{d['min_valid_obs']}; baseline needs 10 of the previous 20 sessions", d["warmup"].replace("session 0", "session 10")
-        note = "definition changed by A4 F2"
+        note = "definition changed by A4 F2" + ("; coverage reduced after A5 G3 (about half of the raw values are exactly 0, so the baseline is 0 on many slots)" if raw.startswith("jump_variation_") else "")
     else:
         formula, look, minobs, warm = d["definition"], f"{d['lookback_bars']} / {d['lookback_sessions']}", d["min_valid_obs"], d["warmup"]
         if raw.startswith("jump_variation_"):
@@ -142,6 +143,11 @@ for it in load(a4res)["items"]:
     tr(f"A4 result {it['item']}", "A4 results report", f"{it['status']}: {it['detail']}", a4res)
 for it in load(a5res)["items"]:
     tr(f"A5 result {it['item']}", "A5 results report", f"{it['status']}: {it['detail']}", a5res)
+g3cd = load(g3c)
+for k, ok in g3cd["checks"].items(): tr(f"A5 G3 corrected run: {k}", "RAW, TRAIN only", "PASS" if ok else "FAIL", g3c)
+r69 = load(reg69)
+tr("4.3.6 regenerated under A4/A5", "TRAIN only, 113 columns", f"DESCRIPTIVE: {r69['sections']['4.3.6']['rows']} rows", R / "a4_sec4_3_6_yearly_median_iqr.csv")
+for k, ok in r69["sections"]["4.3.9"]["checks"].items(): tr(f"4.3.9 regenerated: {k}", "TRAIN only, 113 columns", "PASS" if ok else "FAIL", reg69)
 
 # ---- deviations and post-hoc items: (item, detail, file)
 D = [
@@ -170,7 +176,9 @@ D = [
     ("Closing report scope", "Closing report covers Section 4.3 (4.3.0-4.3.9), marker SECTION_4_3_CLOSED; later results added as an addendum, closed report unchanged", cl43),
     ("List of 10 open items is derived", "No document defines a list of 10 postponed items; merged from the documents' deferred and not-decided lists", ROOT / "METHODS_LEDGER.md"),
     ("Cold audit applied after the closing reports", "The audit found 12 problems; A4 and A5 fix them; the closed reports are not edited and corrections are in addenda", cold),
-    ("Seasonal adjustment replaced", "The A3 definition (median over all TRAIN rows) is replaced by a causal 20-session baseline (A4 F2); the A3-run and 116-column-pool results for the adjusted columns are superseded; the 4.3.6 adjusted rows and the 4.3.9 matrix are not regenerated", a4),
+    ("Seasonal adjustment replaced", "The A3 definition (median over all TRAIN rows) is replaced by a causal 20-session baseline (A4 F2); the A3-run and 116-column-pool results for the adjusted columns are superseded; 4.3.6 and the 4.3.9 matrix were regenerated afterwards for the 113-column pool", reg69),
+    ("A5 G3 redundancy ranked with stale coverage", "Step 13 used the A4-run coverage; the A5 scaling makes about half of the jump_variation values exactly 0, so jump_variation_w__sadj lost coverage; the rerun with current coverage (step 16) gave the same RAW sensitivity outcome (keep 83, drop 30); the committed G3 files are not edited", g3c),
+    ("First 4.3.9 matrix failed its coverage cross-check", "The first regeneration wrote a matrix with the A4-run coverage; the check failed for the three jump_variation__sadj columns; the matrix was rebuilt from the kept 4.3.6 file; the failed report is kept as a4_first_attempt_sec4_3_6_9_report.json", reg69),
     ("Lee-Mykland threshold replaced", "5.4667 (A2) replaced by 4.6113 from simulation (A4 F3)", cal),
     ("jump_variation formula changed", "Bipower term scaled by w/(w-1) (A5 G3), superseding the A2 definition; bipower_w unchanged (reading stated by the assistant); F4 not rerun for it", jv5),
     ("Volume columns taken out of the detector set", "raw_volume, log_raw_volume and raw_volume__sadj are diagnostics-only (A4 F5, decision of the repository owner); the N1/N2 116-column pool is superseded by the 113-column pool", a4),

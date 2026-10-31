@@ -1,0 +1,290 @@
+{
+  "created_utc": "2026-10-31T03:57:58.316783+00:00",
+  "scope": "TRAIN only; RAW then LEGACY; 113-column pool under A4 and A5",
+  "sections": {
+    "4.3.6": {
+      "status": "DESCRIPTIVE",
+      "rows": 2147,
+      "columns": 113,
+      "era_years": {
+        "RAW": [
+          "2022",
+          "2023",
+          "2024"
+        ],
+        "LEGACY": [
+          "2003",
+          "2004",
+          "2005",
+          "2006",
+          "2007",
+          "2008",
+          "2009",
+          "2010",
+          "2011",
+          "2012",
+          "2013",
+          "2014",
+          "2015",
+          "2016",
+          "2017",
+          "2018"
+        ]
+      }
+    },
+    "4.3.9": {
+      "status": "FAIL",
+      "checks": {
+        "matrix has 113 rows: 78 raw + 35 adjusted": true,
+        "raw_volume, log_raw_volume, raw_volume__sadj, overnight_return_open are not in the matrix": true,
+        "primary kept = 19 and sensitivity kept = 83": true,
+        "A5 sensitivity outcome equals the A4 outcome (jump_variation change moved no column)": true,
+        "matrix outcomes equal the A4 pool matrix (primary and sensitivity)": true,
+        "4.3.6 has one row per era, year and pool column": true,
+        "coverage recomputed during 4.3.6 equals the A4 coverage for all 113 columns in both eras": false,
+        "sidecar hashes of the cited amendments, notes, policy, approval and closing reports verify": true,
+        "matrix has all A3 fields": true
+      },
+      "rows": 113,
+      "primary_view_rows": 27,
+      "sensitivity_view_rows": 113,
+      "primary_kept": 19,
+      "primary_dropped": 8,
+      "sensitivity_kept": 83,
+      "sensitivity_dropped": 30
+    }
+  },
+  "overall": "FAIL",
+  "primary_kept": [
+    "intrabar_range_log",
+    "relative_volume20",
+    "intrabar_range_log__sadj",
+    "close_location_proxy",
+    "return_1m",
+    "abs_return_1m",
+    "abs_return_1m__sadj",
+    "momentum5_endpoint",
+    "rv5_strict",
+    "downside5_strict",
+    "rv5_strict__sadj",
+    "downside5_strict__sadj",
+    "momentum10_endpoint",
+    "rv10_partial90",
+    "rv10_partial90__sadj",
+    "downside10_strict",
+    "downside10_strict__sadj",
+    "momentum15_endpoint",
+    "momentum30_endpoint"
+  ],
+  "sensitivity_kept": [
+    "intrabar_range_log",
+    "close_location_proxy",
+    "relative_volume20",
+    "intrabar_range_log__sadj",
+    "return_1m",
+    "abs_return_1m",
+    "abs_return_1m__sadj",
+    "momentum5_endpoint",
+    "rv5_strict",
+    "downside5_strict",
+    "rv5_strict__sadj",
+    "downside5_strict__sadj",
+    "momentum10_endpoint",
+    "rv10_partial90",
+    "downside10_strict",
+    "rv10_partial90__sadj",
+    "downside10_strict__sadj",
+    "momentum15_endpoint",
+    "downside15_partial90",
+    "bipower_15",
+    "jump_variation_15",
+    "drawdown_15",
+    "amihud_15",
+    "skew_15",
+    "kurtosis_excess_15",
+    "variance_ratio2_15",
+    "directional_efficiency_15",
+    "vol_of_vol_15",
+    "volume_variability_15",
+    "volume_adjusted_range_15",
+    "return_autocorr1_15",
+    "reversal_15",
+    "rv15_partial90__sadj",
+    "downside15_partial90__sadj",
+    "bipower_15__sadj",
+    "amihud_15__sadj",
+    "vol_of_vol_15__sadj",
+    "volume_adjusted_range_15__sadj",
+    "jump_variation_15__sadj",
+    "rv30_partial90",
+    "momentum30_endpoint",
+    "downside30_strict",
+    "jump_variation_30",
+    "drawdown_30",
+    "amihud_30",
+    "skew_30",
+    "kurtosis_excess_30",
+    "variance_ratio2_30",
+    "directional_efficiency_30",
+    "vol_of_vol_30",
+    "volume_variability_30",
+    "volume_adjusted_range_30",
+    "return_autocorr1_30",
+    "reversal_30",
+    "rv30_partial90__sadj",
+    "downside30_strict__sadj",
+    "amihud_30__sadj",
+    "vol_of_vol_30__sadj",
+    "volume_adjusted_range_30__sadj",
+    "jump_variation_30__sadj",
+    "momentum60_endpoint",
+    "rv60_sampled5_exact",
+    "rv60_partial90__sadj",
+    "downside60_strict",
+    "jump_variation_60",
+    "drawdown_60",
+    "amihud_60",
+    "skew_60",
+    "kurtosis_excess_60",
+    "variance_ratio2_60",
+    "directional_efficiency_60",
+    "vol_of_vol_60",
+    "extreme_loss_60",
+    "volume_variability_60",
+    "volume_adjusted_range_60",
+    "reversal_60",
+    "rv60_sampled5_exact__sadj",
+    "downside60_strict__sadj",
+    "amihud_60__sadj",
+    "vol_of_vol_60__sadj",
+    "volume_adjusted_range_60__sadj",
+    "jump_variation_60__sadj",
+    "lee_mykland_jump60"
+  ],
+  "output_hashes": [
+    {
+      "file": "a4_sec4_3_6_yearly_median_iqr.csv",
+      "sha256": "23be1e91de96635303eb80b86e3ff9f7307e74c6286a81d40480ad6fcaa1d642"
+    },
+    {
+      "file": "a4_sec4_3_9_frozen_matrix.csv",
+      "sha256": "b7f2678f6977cf3b41843a8953fa4093e06254bb82bb7887e8957cb780a94bc7"
+    },
+    {
+      "file": "a4_sec4_3_9_matrix_primary_view.csv",
+      "sha256": "74f2c14fe15b0b7957283e66624a6352bab26e731535053371b0f8fd51243f25"
+    },
+    {
+      "file": "a4_sec4_3_9_matrix_sensitivity_view.csv",
+      "sha256": "cd359e3e2d16711941072c422a832fa65b2594265c3005e1d602f8e2a3d93f75"
+    }
+  ],
+  "input_hashes": [
+    {
+      "name": "approval_of_A1",
+      "file": "approval_4_3_0_A1_20261031T003131Z.json",
+      "sha256": "312d9807c41b5f780126029c15bf64d25ad7b50d161287b94fae0cbbacae09ef"
+    },
+    {
+      "name": "A2",
+      "file": "amendment_4_3_1_A2_20261030T231344Z.json",
+      "sha256": "2e2beb61489203c62988fda83ec0b1b7696f2a4d3bb1aa7f68a85275cae93ad5"
+    },
+    {
+      "name": "A3",
+      "file": "amendment_4_3_A3_20261031T003719Z.json",
+      "sha256": "34ebab1c19e007e5318e8da3dcc4eab38ad03cd2547c0358b53c4c944983b94d"
+    },
+    {
+      "name": "A4",
+      "file": "amendment_4_3_A4_20261031T021111Z.json",
+      "sha256": "1960e83752b4dd5fa25dd022792e8a57f89ba79e9c79df02a50fceba96747304"
+    },
+    {
+      "name": "A5",
+      "file": "amendment_4_3_A5_20261031T023320Z.json",
+      "sha256": "2637654bac921c171935011a9bc7d22bd7c2168f786397c2b2376d0d0179c35b"
+    },
+    {
+      "name": "P1",
+      "file": "policy_4_3_1_P1_20261030T233123Z.json",
+      "sha256": "580b9c9c4f4df578ba3f4aeda61556d73d8aaed486ec7866a11f93eaf103f75c"
+    },
+    {
+      "name": "N1",
+      "file": "note_4_3_N1_20261031T011048Z.json",
+      "sha256": "0a5ab480a7c44b422af67e4912bd461c80d745e7bb527212dbb88d09a74357a1"
+    },
+    {
+      "name": "N2",
+      "file": "note_4_3_N2_20261031T011552Z.json",
+      "sha256": "3f5b7978e642298ad70a91dfafd8ebaa77504bb2bc1da5f2fb12990759d28e34"
+    },
+    {
+      "name": "N3",
+      "file": "note_4_3_N3_20261031T034021Z.json",
+      "sha256": "65e79a680c6eef72445f1186b3ff8b8603b1870a7d2121fba7dbc30dace0d024"
+    },
+    {
+      "name": "closing_report_4_3_1",
+      "file": "section_4_3_1_closing_report_20261031T002814Z.json",
+      "sha256": "f7cfb9f3ae39629319088f69b27156849a06c2c7349fae58453fd2969865515a"
+    },
+    {
+      "name": "closing_report_4_3",
+      "file": "section_4_3_closing_report_section4_20261031T011136Z.json",
+      "sha256": "4541880b1ac88d866cab7119e148143871ee0678a68b08c2b8e06730a27b2bff"
+    },
+    {
+      "name": "a4_4_3_4_checks",
+      "file": "a4_sec4_3_4_checks.json",
+      "sha256": "e05e6588bb074cefdd2a3333f3e5d1b0f552839b57cfb876219e5364ffb2bd36"
+    },
+    {
+      "name": "a4_4_3_7_eligibility",
+      "file": "a4_sec4_3_7_eligibility.json",
+      "sha256": "e89db674ac5c1c9121f96cfe09cd425a0ea2ec5686f529ae3a66766e2371ceb5"
+    },
+    {
+      "name": "a4_4_3_8_redundancy",
+      "file": "a4_sec4_3_8_redundancy.json",
+      "sha256": "9da732a157a8b566782a412990e55200e2d3cbfe76f7d6e5acfa19531309bc49"
+    },
+    {
+      "name": "a4_4_3_8_spearman_RAW_pool",
+      "file": "a4_sec4_3_8_spearman_RAW_pool.csv",
+      "sha256": "74de3e77644b459fadba946376c8a2b0f0b5118af8da48a423152a96decdca2d"
+    },
+    {
+      "name": "a4_4_3_8_spearman_primary_LEGACY",
+      "file": "a4_sec4_3_8_spearman_primary_LEGACY.csv",
+      "sha256": "89e85888aed9aaf4dbc37476f32c43825e864d3a376ed4713648b5948f80119c"
+    },
+    {
+      "name": "a4_4_3_8_overlap_RAW_pool",
+      "file": "a4_sec4_3_8_overlap_RAW_pool.csv",
+      "sha256": "dfc8358a2a5ab2414eac73b3b3469f7ce199f10a19adca57a809c633a6bccf44"
+    },
+    {
+      "name": "a4_4_3_8_overlap_primary_LEGACY",
+      "file": "a4_sec4_3_8_overlap_primary_LEGACY.csv",
+      "sha256": "a5cc321dfa71cfaa7586407a44848c70f929cdb4bff911fa72219f06eea71aaf"
+    },
+    {
+      "name": "a4_pool_matrix",
+      "file": "a4_sec4_3_pool_matrix.csv",
+      "sha256": "91eca14d2d65cdcac05428c454e5a48ff434ac7a8220d1ea45ea0e3f6b254b50"
+    },
+    {
+      "name": "a4_4_3_4_7_8_report",
+      "file": "a4_sec4_3_4_7_8_report.json",
+      "sha256": "00386b4feacebbceba4c63e8f19012d8a97b15be60c86b79e9051974d2cef0ef"
+    },
+    {
+      "name": "a5_jump_variation_redundancy",
+      "file": "a5_jump_variation_redundancy.json",
+      "sha256": "3cce89c71abdc1e8d6588e80e92482b599cc36126fecb914b836e7855be0f0e0"
+    }
+  ],
+  "freeze": "The matrix is written once and never edited; any change needs a new dated amendment."
+}
