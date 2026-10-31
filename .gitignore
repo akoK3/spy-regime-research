@@ -13,6 +13,9 @@
 !/write_approval_4_3_0_A1.py
 !/write_amendment_4_3_A3.py
 !/step8_sections_4_3_4_to_4_3_9.py
+!/step9_legacy_stale_zero_volume.py
+!/write_note_4_3_N1.py
+!/write_closing_report_section4_3.py
 !/frozen_documents/
 /frozen_documents/*
 !/frozen_documents/*.json
@@ -36,6 +39,8 @@
 !/section431_step3_all_in_one_results/approval_4_3_0_A1_*
 !/section431_step3_all_in_one_results/amendment_4_3_A3_*
 !/section431_step3_all_in_one_results/sec4_3_*
+!/section431_step3_all_in_one_results/note_4_3_N1_*
+!/section431_step3_all_in_one_results/section_4_3_closing_report_section4_*
 !/section431_step3_all_in_one_results/step4_run_log.txt
 !/section431_step3_all_in_one_results/run_log_RAW_final.txt
 !/section431_step3_all_in_one_results/run_log_LEGACY_final.txt

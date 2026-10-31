@@ -1,0 +1,21 @@
+{
+  "created_utc": "2026-10-31T01:10:27.100502+00:00",
+  "status": "POST_HOC_DESCRIPTIVE_FOLLOW_UP_TO_4_3_5 (not defined in amendment A3)",
+  "era": "LEGACY",
+  "train_rows": 1562460,
+  "definition": "stale run = 5+ consecutive bars with finite equal Close within a session (4.3.5); zero volume = Volume == 0; a run belongs to the year of its first bar",
+  "check": "flagged bars equal the 4.3.5 LEGACY result",
+  "total": {
+    "stale_bars": 23188,
+    "stale_bars_zero_volume": 0,
+    "stale_runs": 3977,
+    "runs_all_bars_zero_volume": 0,
+    "runs_any_zero_volume": 0,
+    "context_all_observed_bars_zero_volume_pct": 0.0,
+    "stale_bars_zero_volume_pct": 0.0,
+    "runs_all_zero_pct": 0.0,
+    "runs_any_zero_pct": 0.0
+  },
+  "by_year_file": "sec4_3_5b_legacy_stale_zero_volume_by_year.csv",
+  "by_year_sha256": "f1881d0e5652d4fac09816be945b13fbfeccbb23aad1069e74865ea16b6fbd0b"
+}

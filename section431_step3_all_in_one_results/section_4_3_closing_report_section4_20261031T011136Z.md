@@ -1,0 +1,192 @@
+# Section 4 closing report
+
+**SECTION_4_3_CLOSED**
+
+Closed 2026-10-31T01:11:36.874211+00:00 UTC (2026-10-30T21:11:36.874211-04:00 New York). Repository HEAD before this commit: `d8b9b3ea35bb686207c60ac74ad44295f0e076dd`.
+
+Scope: Section 4.3 (4.3.0-4.3.9) as recorded in this repository. Closed means the construction, audit and the A3 analyses are complete and recorded; the open decisions below are not settled.
+
+## Results by subsection
+
+| Section | Scope | Result |
+|---|---|---|
+| 4.3.0 | Splits, exposure audit, provider and clock rules | Frozen protocol v2 (hash below). Development: LEGACY 2003-01-02..2022-03-04 (4,827 sessions), RAW 2022-03-07..2024-12-31 (710). 2025-01-02..2026-10-12 is exposed retrospective evaluation, not an untouched test; no unexposed period exists. 40 nested folds (36 LEGACY, 4 RAW). Amendment 4.3.0-A1 is approved, after 4.3.1 had used it. Source: REPORT.md. |
+| 4.3.1 | 35 frozen candidates plus 45 specified outputs | Closed in the 4.3.1 closing report (hash below): 81 outputs audited in both eras (PASS), 80 detector outputs match the frozen protocol and A2, overnight_return_open excluded, policy P1 verified, coverage 20 PASS / 60 BELOW in LEGACY. |
+| 4.3.2/4.3.3 | Cited, no new work | A2, P1 and the 2026-10-29 synthetic audit (12 tests, PASS_SYNTHETIC) stand. |
+| 4.3.4 | Seasonality | PASS: 36 adjusted columns (feature / TRAIN median at that minute, per era); per-slot median of each adjusted column is 1; no slot had an undefined median. |
+| 4.3.5 | Stale closes (5+ identical closes) | Descriptive: RAW 5 bars; LEGACY 23188 bars (1.4841% of grid rows) in 3977 runs. Follow-up (post-hoc, not in A3): 0 of those bars have zero volume in every year, and LEGACY has no zero-volume bar at all (0.0% of observed bars), so the repeated closes carry volume. |
+| 4.3.6 | Yearly median/IQR | Descriptive: 2204 rows for 116 columns by era and year; nothing excluded. |
+| 4.3.7 | Eligibility | PASS: primary = 20 columns (80% in both eras, = Step 6 PASS); sensitivity = all 80 on RAW; overnight in neither. |
+| 4.3.8 | Redundancy (|Spearman| > 0.95) | PASS: primary keep 14 / drop 6; sensitivity (RAW) keep 58 / drop 22; no undefined correlations. |
+| 4.3.9 | Frozen matrix | PASS: 80 rows with primary and sensitivity views; every output hashed. |
+| Pool | Candidate pool and overnight (note 4.3-N1) | Adjusted columns join the pool alongside raw (116 columns); overnight_return_open is response-side only. Redundancy for the 116-column pool was not computed. |
+
+## Frozen matrices
+
+Primary set (20 columns) kept 14: intrabar_range_log, raw_volume, relative_volume20, close_location_proxy, return_1m, abs_return_1m, momentum5_endpoint, rv5_strict, downside5_strict, momentum10_endpoint, rv10_partial90, downside10_strict, momentum15_endpoint, momentum30_endpoint.
+
+Primary set dropped: log_raw_volume (redundant with raw_volume, rho 1.0, LEGACY); log_relative_volume20 (redundant with relative_volume20, rho 1.0, LEGACY); momentum5_strict (redundant with momentum5_endpoint, rho 0.999803, LEGACY); rv5_partial90 (redundant with rv5_strict, rho 1.0, LEGACY); rv10_strict (redundant with rv10_partial90, rho 1.0, LEGACY); momentum10_strict (redundant with momentum10_endpoint, rho 0.999935, LEGACY).
+
+Sensitivity set (all 80, RAW) kept 58, dropped 22; the full lists and the matrix are in `sec4_3_8_redundancy.json` and `sec4_3_9_frozen_matrix.csv`.
+
+## LEGACY stale runs by year: zero-volume share
+
+| Year | Stale bars | Zero-volume stale bars | Runs | Runs with any zero volume |
+|---|---|---|---|---|
+| 2003 | 1983 | 0 (0.0%) | 338 | 0 |
+| 2004 | 3311 | 0 (0.0%) | 564 | 0 |
+| 2005 | 3403 | 0 (0.0%) | 573 | 0 |
+| 2006 | 3314 | 0 (0.0%) | 559 | 0 |
+| 2007 | 1528 | 0 (0.0%) | 258 | 0 |
+| 2008 | 202 | 0 (0.0%) | 36 | 0 |
+| 2009 | 1175 | 0 (0.0%) | 197 | 0 |
+| 2010 | 1619 | 0 (0.0%) | 278 | 0 |
+| 2011 | 949 | 0 (0.0%) | 168 | 0 |
+| 2012 | 1510 | 0 (0.0%) | 266 | 0 |
+| 2013 | 1363 | 0 (0.0%) | 233 | 0 |
+| 2014 | 1062 | 0 (0.0%) | 189 | 0 |
+| 2015 | 301 | 0 (0.0%) | 54 | 0 |
+| 2016 | 355 | 0 (0.0%) | 63 | 0 |
+| 2017 | 996 | 0 (0.0%) | 180 | 0 |
+| 2018 | 117 | 0 (0.0%) | 21 | 0 |
+
+## Amendments, policies, notes and key results (SHA-256)
+
+| Document | File | SHA-256 |
+|---|---|---|
+| Frozen protocol v2 (4.3.0 splits, clocks; 35 features) | protocol_20261029T032641Z.json | `3d6f0c96fce1c05f8e94d1a8c6e6b14a5b5b1c9f013e6a95dd1e96498cbfff8b` |
+| Frozen protocol v1 (superseded) | protocol_20261029T032504Z.json | `6df8667a5c8e60f73a994ce4553adceca3000dbb4dd59ed60f41968689a43661` |
+| Amendment 4.3.0-A1 (approved after use) | protocol_amendment_4_3_0_A1_20261029T034121Z.json | `a57d55ccc760c2359d2d5d14c12d52a3fb1ba29a1bd3e222a71e6284886724ae` |
+| Approval of 4.3.0-A1 | approval_4_3_0_A1_20261031T003131Z.json | `312d9807c41b5f780126029c15bf64d25ad7b50d161287b94fae0cbbacae09ef` |
+| Coverage amendment 4.3.1-A2-post-screening | protocol_amendment_431_A2_FROZEN_coverage.json | `d20c1b2cf65a85f30a6b77a94a55ed89677ad8044ca6967dc1c62b4e951b5faf` |
+| Amendment 4.3.1-A2 (45 outputs, cap, overnight exclusion) | amendment_4_3_1_A2_20261030T231344Z.json | `2e2beb61489203c62988fda83ec0b1b7696f2a4d3bb1aa7f68a85275cae93ad5` |
+| Policy 4.3.1-P1 | policy_4_3_1_P1_20261030T233123Z.json | `580b9c9c4f4df578ba3f4aeda61556d73d8aaed486ec7866a11f93eaf103f75c` |
+| Policy addendum 4.3.1-P1-A | policy_4_3_1_P1_addendum_20261030T234021Z.json | `4e27eb3a3b8db6529788ad10804e185242a19e4426b5a6ea13a360430d53c719` |
+| Amendment 4.3.2-4.3.9-A3 | amendment_4_3_A3_20261031T003719Z.json | `34ebab1c19e007e5318e8da3dcc4eab38ad03cd2547c0358b53c4c944983b94d` |
+| Note 4.3-N1 (candidate pool; overnight response-side only) | note_4_3_N1_20261031T011048Z.json | `0a5ab480a7c44b422af67e4912bd461c80d745e7bb527212dbb88d09a74357a1` |
+| Section 4.3.1 closing report | section_4_3_1_closing_report_20261031T002814Z.json | `f7cfb9f3ae39629319088f69b27156849a06c2c7349fae58453fd2969865515a` |
+| Sections 4.3.4-4.3.9 report | sec4_3_4_to_4_3_9_report.json | `26f061302c406993991b0e3699203c16655860612fd2fab52d95ed32622905c3` |
+| 4.3.8 redundancy outcome | sec4_3_8_redundancy.json | `babb83734529aaf3fb0b30daaa12ad3b5fdd87236da0fcf091ba3096879831fa` |
+| 4.3.9 frozen matrix | sec4_3_9_frozen_matrix.csv | `77aa2d92ac802faec9c5d251266eec600aa7243e5e5aad3763a316e8a4a2d2f8` |
+| 4.3.5b LEGACY stale runs and zero volume | sec4_3_5b_legacy_stale_zero_volume.json | `f0cc548f68e2ffd9194b7f694685dd4174544b3bf3a8a82f0f163b5ab64e9cc0` |
+| REPORT.md (Section 4.3.0 exposure audit and original 4.3.1 construction) | REPORT.md | `124303ba4a814a6b8a50552624debd421de6b2401406172a23645e112e3b4bdb` |
+
+## Known limitations
+
+1. Scope: this report closes Section 4.3 (4.3.0-4.3.9) as recorded here. Results of the pre-rebuild pipeline (sections 4.4-4.9 and the older 4.3 runs) are not part of this record, and A3 and N1 were written with those results possibly known.
+2. 60 of the 80 detector outputs remain below the 80% coverage floor in LEGACY. The sensitivity analysis uses them on RAW only; LEGACY has no sensitivity analysis. Which to keep is undecided.
+3. LEGACY has 3,977 runs of 5 or more identical closes (1.48% of grid rows) and RAW has 5 bars. The cause is not established; no value was excluded or changed. The run definition is exact equality of finite closes within a session.
+4. 4.3.4 PASS verifies the adjustment mechanics (per-slot median 1), not that the adjustment is useful. The TRAIN medians are fixed per era, not point-in-time; any use inside nested folds must recompute them on each fold's training rows.
+5. 4.3.8 uses Spearman on pooled TRAIN rows with pairwise-complete overlap (re-ranked per pair). The priority rule picks by window then coverage, not by the value of a feature. Raw/adjusted redundancy was not computed (N1).
+6. Two readings were stated, not resolved by the amendment: 4.3.5 shares are given against both denominators, and the 4.3.9 'primary and sensitivity matrices' are views of A3's single matrix. N1 changes two A3 sentences and was written after the run.
+7. Everything is TRAIN-only (LEGACY to 2018-12-21, RAW to 2024-12-23). The frozen development days after those dates, the boundary days around 2022-03-04/07 and the evaluation period were never in an audited or analysed span.
+8. The 4.3.1 closing report's limitations remain in force: synthetic-panel formula checks, 40-session slice tests, post-hoc A2 specification, return-bar cap definition, unresolved A1 conflicts (60-minute lookback, 5-session embargo vs 20-session relative volume), declarative overnight exclusion, unresolved LEGACY clock semantics.
+9. The follow-up in 4.3.5b was run on request after the A3 run and is not defined by A3; it is descriptive only.
+
+## Decisions not taken
+
+- Which below-floor outputs to keep, drop or re-window
+- Redundancy and eligibility rules for the 116-column pool
+- The overnight analysis (response side) and its specification
+- Reconciling A1's 60-minute lookback and 5-session embargo with A2/A3
+- Any detector, scaler or HMM fit
+- Legacy timing sensitivity (-1/0/+1 minute)
+
+## SHA-256 inventory of tracked files (before the closing commit)
+
+| Path | SHA-256 |
+|---|---|
+| .gitignore | `a9b08b91d0c522c38c70ebb6a8bdd7c01cda1008152128005dc45871c05c151d` |
+| frozen_documents/protocol_20261029T032504Z.json | `6df8667a5c8e60f73a994ce4553adceca3000dbb4dd59ed60f41968689a43661` |
+| frozen_documents/protocol_20261029T032504Z.sha256 | `94b426982e8ebe38db3957f7f1288eb68c65fe75082d754e5663bfc8e396337f` |
+| frozen_documents/protocol_20261029T032641Z.json | `3d6f0c96fce1c05f8e94d1a8c6e6b14a5b5b1c9f013e6a95dd1e96498cbfff8b` |
+| frozen_documents/protocol_20261029T032641Z.sha256 | `fd0063afe115667742aab8196fdb0a878f3dce6f48bc533950ff3584fa5f4b1d` |
+| frozen_documents/protocol_amendment_431_A2_FROZEN_coverage.json | `d20c1b2cf65a85f30a6b77a94a55ed89677ad8044ca6967dc1c62b4e951b5faf` |
+| frozen_documents/protocol_amendment_4_3_0_A1_20261029T034121Z.json | `a57d55ccc760c2359d2d5d14c12d52a3fb1ba29a1bd3e222a71e6284886724ae` |
+| frozen_documents/protocol_amendment_4_3_0_A1_20261029T034121Z.sha256 | `84ab69f8d9c1ecbc6e29e1a3a7c5d88135ea11d02fed9313552bbf991424aebc` |
+| section431_step3_all_in_one_results/amendment_4_3_1_A2_20261030T231344Z.json | `2e2beb61489203c62988fda83ec0b1b7696f2a4d3bb1aa7f68a85275cae93ad5` |
+| section431_step3_all_in_one_results/amendment_4_3_1_A2_20261030T231344Z.sha256 | `c3e72a665423b3018b7c658704a376bf3590a40cf75d69cec01d2ccc82abe095` |
+| section431_step3_all_in_one_results/amendment_4_3_A3_20261031T003719Z.json | `34ebab1c19e007e5318e8da3dcc4eab38ad03cd2547c0358b53c4c944983b94d` |
+| section431_step3_all_in_one_results/amendment_4_3_A3_20261031T003719Z.sha256 | `ca1db0a8d5577cf2cb0e354dc24e157fc32722bd483aa6e8f984b75a255f1c90` |
+| section431_step3_all_in_one_results/approval_4_3_0_A1_20261031T003131Z.json | `312d9807c41b5f780126029c15bf64d25ad7b50d161287b94fae0cbbacae09ef` |
+| section431_step3_all_in_one_results/approval_4_3_0_A1_20261031T003131Z.sha256 | `5214429832cf117dd6cef9dd249739888e63de5e41e2209bba65a5b41729a696` |
+| section431_step3_all_in_one_results/note_4_3_N1_20261031T011048Z.json | `0a5ab480a7c44b422af67e4912bd461c80d745e7bb527212dbb88d09a74357a1` |
+| section431_step3_all_in_one_results/note_4_3_N1_20261031T011048Z.sha256 | `7ca72240a3510aa9ba60c5ce3f37e9173608e5d7cf570c54fe8473259c77252a` |
+| section431_step3_all_in_one_results/policy_4_3_1_P1_20261030T233123Z.json | `580b9c9c4f4df578ba3f4aeda61556d73d8aaed486ec7866a11f93eaf103f75c` |
+| section431_step3_all_in_one_results/policy_4_3_1_P1_20261030T233123Z.sha256 | `fb51a88ad4376ad5bc397276405a7b99b460ccdf010de0f405a99d12f0978133` |
+| section431_step3_all_in_one_results/policy_4_3_1_P1_addendum_20261030T234021Z.json | `4e27eb3a3b8db6529788ad10804e185242a19e4426b5a6ea13a360430d53c719` |
+| section431_step3_all_in_one_results/policy_4_3_1_P1_addendum_20261030T234021Z.sha256 | `ac26d7a63fb06f80dcc47b9994f86babf990f7c32c509539e670067ed36ba3cd` |
+| section431_step3_all_in_one_results/policy_4_3_1_P1_verification_20261030T233210Z.json | `ebef788e7fab08254a6bd4828bf0cf10f176dbf3757604da61be4d44f72d32a2` |
+| section431_step3_all_in_one_results/policy_4_3_1_P1_verification_20261030T233210Z.md | `6a3e33f77802cd0738bb565bed3435d73026eaf9997f2cb504db32896566223e` |
+| section431_step3_all_in_one_results/policy_4_3_1_P1_verification_20261030T233210Z.sha256 | `c02989d289b0b0f508566f14e4e3f43f172bc2347f971590d618341d80f9d737` |
+| section431_step3_all_in_one_results/policy_4_3_1_P1_verification_v2_20261030T234138Z.json | `6bad34c84d3bc71e1a9e234323a6b279223634188b217d2fff5bc51eafd3800e` |
+| section431_step3_all_in_one_results/policy_4_3_1_P1_verification_v2_20261030T234138Z.md | `69e63806838fbeeb6d2cb0030b7cd72177fd8229b5edbcbb4c223217f4d08378` |
+| section431_step3_all_in_one_results/policy_4_3_1_P1_verification_v2_20261030T234138Z.sha256 | `8cac838a01248ccdda48e838d6b08c4c7bed1adcaf89ffb80df409ea2a4a5614` |
+| section431_step3_all_in_one_results/run_log_LEGACY_final.txt | `dc723c905f8e3188a55000b0316b2340908517e2f6a25774bed282975ca9bde0` |
+| section431_step3_all_in_one_results/run_log_RAW_final.txt | `85f4c99d4916711f7421026e4351eaf378f3bdcd88cfb36fef6da7af92060be6` |
+| section431_step3_all_in_one_results/sec4_3_4_slot_medians_LEGACY.csv | `95b1f6518007bc978d551805fb01f648c2ece3ae1ed2aa337a80ca152d0e4237` |
+| section431_step3_all_in_one_results/sec4_3_4_slot_medians_RAW.csv | `f5e32212641e956191742a591e7c92de1e33325d0199273bd9c28c3335a01db3` |
+| section431_step3_all_in_one_results/sec4_3_4_to_4_3_9_final_sha256.txt | `e2c4533834e2fe32411baab3453c210d6176ff2d1c3ee16ad52837c2f261206c` |
+| section431_step3_all_in_one_results/sec4_3_4_to_4_3_9_report.json | `26f061302c406993991b0e3699203c16655860612fd2fab52d95ed32622905c3` |
+| section431_step3_all_in_one_results/sec4_3_4_to_4_3_9_report.md | `63171fc8e60dbdcb6189bcffdbc657597ceec4fde99aa1e91a872c6bb311b96f` |
+| section431_step3_all_in_one_results/sec4_3_4_to_4_3_9_report.sha256 | `7d2b6b96c843864e72281db8b279042c7cb83eb08350e51ab3db89f6aca2c9d9` |
+| section431_step3_all_in_one_results/sec4_3_4_to_4_3_9_run_log.txt | `c6fc5bb184a95476e0ade9ea941b75cd739fd2016d022d208b191bf0d71e2014` |
+| section431_step3_all_in_one_results/sec4_3_5_stale_closes_by_slot.csv | `2793aa8ccc5c5c752995239ab3993c7ab79c53e5754102c615ab59860ca57edc` |
+| section431_step3_all_in_one_results/sec4_3_5_stale_closes_by_year.csv | `562770c4124c720087e116bd717fee706f20f86081fd08d639a3f4b465ac7470` |
+| section431_step3_all_in_one_results/sec4_3_5b_legacy_stale_zero_volume.json | `f0cc548f68e2ffd9194b7f694685dd4174544b3bf3a8a82f0f163b5ab64e9cc0` |
+| section431_step3_all_in_one_results/sec4_3_5b_legacy_stale_zero_volume.sha256 | `b198059951c0425904544451204bd30c68c200f4d448a5eca701ebcc570222d3` |
+| section431_step3_all_in_one_results/sec4_3_5b_legacy_stale_zero_volume_by_year.csv | `f1881d0e5652d4fac09816be945b13fbfeccbb23aad1069e74865ea16b6fbd0b` |
+| section431_step3_all_in_one_results/sec4_3_5b_run_log.txt | `20727f946ac1b44e60e8b71648858aa6a7aec859a0c9afffa5cea32ca49de4cf` |
+| section431_step3_all_in_one_results/sec4_3_6_yearly_median_iqr.csv | `d07b591a159f0803f623d5e33152023d356d3784bfc986d4cab795f4e65caf0a` |
+| section431_step3_all_in_one_results/sec4_3_7_eligibility.json | `122e9544407d4bde5405921590ceb6fa8782409994357d839b850c12c1aacadd` |
+| section431_step3_all_in_one_results/sec4_3_8_overlap_RAW_all80.csv | `388cc7eccf85dee768d1646954adffea95d6b957f0a89186702b16ffa1d793da` |
+| section431_step3_all_in_one_results/sec4_3_8_overlap_primary_LEGACY.csv | `e7d13c0092a782a9ec3a9cae6f645688add5552da9e7d70c601d2ad0eac6c9c8` |
+| section431_step3_all_in_one_results/sec4_3_8_redundancy.json | `babb83734529aaf3fb0b30daaa12ad3b5fdd87236da0fcf091ba3096879831fa` |
+| section431_step3_all_in_one_results/sec4_3_8_spearman_RAW_all80.csv | `e8c4658a2ca76ca34b94ae3dfd9adeae82cf1af258ba88679f4a5ccee7a98e7a` |
+| section431_step3_all_in_one_results/sec4_3_8_spearman_primary_LEGACY.csv | `8aae1dff6782c3172174690fd5a6506a5d207ea92f8f41077dcf4d6c50457f84` |
+| section431_step3_all_in_one_results/sec4_3_9_frozen_matrix.csv | `77aa2d92ac802faec9c5d251266eec600aa7243e5e5aad3763a316e8a4a2d2f8` |
+| section431_step3_all_in_one_results/sec4_3_9_matrix_primary_view.csv | `39c72cfa6dfec66488c9addd65f9e2f8c1da8474fe4caeb3bac9b55eaf190d7d` |
+| section431_step3_all_in_one_results/sec4_3_9_matrix_sensitivity_view.csv | `7fbd544faf9200e7de10a0d22068e8c7eb16daceae4fbd4eb2d58664f6e7309d` |
+| section431_step3_all_in_one_results/section_4_3_1_closing_report_20261031T002814Z.json | `f7cfb9f3ae39629319088f69b27156849a06c2c7349fae58453fd2969865515a` |
+| section431_step3_all_in_one_results/section_4_3_1_closing_report_20261031T002814Z.md | `e8a4d5f7e2810c8f2ba9c2d2261157aa42e22aaf2d0b49165d716cf2f2c0ecb4` |
+| section431_step3_all_in_one_results/section_4_3_1_closing_report_20261031T002814Z.sha256 | `b7bde59a17b5606deea4e0960ac12c77e8e88690b5ea999e4d3a178fc14ac451` |
+| section431_step3_all_in_one_results/step3_LEGACY_report.json | `35461cda5821c1038d05add319afb8fc808c756df47b9919b32fea6988182f3c` |
+| section431_step3_all_in_one_results/step3_RAW_report.json | `b586ee682467f3ac978884dd1895e7b1078713a7b173f7a419246b459dafc61b` |
+| section431_step3_all_in_one_results/step3_final_sha256.txt | `fdb0e12571948e39a72f0dac06d70a6cadac40bc718f489d50aba84394da8406` |
+| section431_step3_all_in_one_results/step3_summary.json | `1383736104cdc65604c38b80bafa0e510f06bacfb0d0abc3109da7e76eb9804f` |
+| section431_step3_all_in_one_results/step4_final_sha256.txt | `7067313388a40df8538ef55c2ce37d8557af2d0633291f3cda71cc0fe89be030` |
+| section431_step3_all_in_one_results/step4_parameter_table.json | `f8ca6c42300b6118a0abe038221cf6fda9fbfa8864ed47001212ad35dcf73df9` |
+| section431_step3_all_in_one_results/step4_parameter_table.md | `64595890b91584c677824473a7c47c22ff778005b70cbaf85cfcc4d32c47f4e6` |
+| section431_step3_all_in_one_results/step4_run_log.txt | `c425eed87514f3262a37aa2693f295baedf7d1483c65e55f108f6453627c62d4` |
+| section431_step3_all_in_one_results/step5_delay_failure_diagnosis.json | `3677fc1766078aa0e4fcb0a15202cd83863211dba28f1aab5f2be0b8b3c04f95` |
+| section431_step3_all_in_one_results/step5_delay_failure_diagnosis.sha256 | `b1ebdbee34e80621f2fa538f16fef58677ad4ae11c0df0de6d12df0670dd6f4a` |
+| section431_step3_all_in_one_results/step5_diagnosis_log.txt | `3f3742d0c7d56186cc869e0cc98239b6b32f8cdee190d402ea2467a7a7f0aee7` |
+| section431_step3_all_in_one_results/step5_final_sha256.txt | `373c0e7fa2312b234b54d4041a67f0e5a2f636c75325c5074cd66efdeac3891a` |
+| section431_step3_all_in_one_results/step5_v2_final_sha256.txt | `eb67e9805bf3c7433fbf7d6f35e03335a206a82e34ef907e19ae4503442f43e1` |
+| section431_step3_all_in_one_results/step5_verify2_log.txt | `024364f135f2ca96922ec1e5401ad1d653af3a239c718d5d0d88b9630eef9be6` |
+| section431_step3_all_in_one_results/step5_verify_log.txt | `9efdedaf22686c67eec3c736933bb99ed3bf0b204578bcc801d7c0aeea571be9` |
+| section431_step3_all_in_one_results/step6_coverage_LEGACY_by_year.csv | `eeb9ea92c911b8462780d640c4048405fef0af3f5398280f3d879629c181745d` |
+| section431_step3_all_in_one_results/step6_coverage_TRAIN.csv | `990d8a9cc24cc140817d967d61bcbd4b3d5d63a30a1ec8a8d3879c79d55a97cc` |
+| section431_step3_all_in_one_results/step6_coverage_TRAIN.json | `a033c150005b8e4deed62398d984973e8b7242829827185f513855098db7d58d` |
+| section431_step3_all_in_one_results/step6_coverage_TRAIN.md | `040f89ca8239106a9c43f4737a6dff0be8ed1b4a5a4d7b4d854c63e55ecbac33` |
+| section431_step3_all_in_one_results/step6_coverage_TRAIN.sha256 | `a8535ffa88fe52d03ed9752e64b7bfb7ff2581f693f7bd44fd39ba67dce74300` |
+| section431_step3_all_in_one_results/step6_final_sha256.txt | `2cdf244da4b71e03f285a8bab4e84049902684f9acb01eb27e89cb2196c251db` |
+| section431_step3_all_in_one_results/step6_run_log.txt | `acb41002dd81a4fec6583f85d73e7021b61a07951a36e63c56817703e4f5f351` |
+| section431_step3_verification/prototype_sources/section431_additions.py | `c8a550f7777abcfdd3e46132f76c25748ed62be15b430d40a5c23556f6308448` |
+| section431_step3_verification/prototype_sources/section4_3_1_candidates.py | `4c8d2b528ff8b86a2885426d974e9be97fbc3d264d60b4e2bf38f16981204878` |
+| section431_step3_verification/prototype_sources/test_additions.py | `ca52b4ca95b42380d622b622155264de5c0650ca1bea6a6d3a73e5bcde50faf2` |
+| section431_step3_verification/prototype_sources/test_candidates.py | `cab8833a1b104fe1d4f9c01ebfde8f69a7d1fb4359744ea0bfe23e4a71e1db12` |
+| step3_431_verification.py | `d56f65caad0364d60a7f4dca32e9e97c10fc52c0371528f8104ea6796f8ad9ce` |
+| step3_all_in_one.py | `f42150ccc1a45fb44a184c58b31e93f57e00f1e6318756f871ba3fb15cf5f40d` |
+| step4_extract_parameters.py | `8a62f1dae57a6c26451860d0015300c7d22954afa53016268f48b28e807e18b1` |
+| step5_delay_diagnosis.py | `c419cc059709873c7d417182c6def28d2ac2d2bd18470b4369ac7a0d361ed546` |
+| step5_policy.py | `3a8efb3789b67a1aabb51bbb346f81b60d985a0a21369e9639e43c53ccec9cf6` |
+| step6_coverage.py | `4a19af8a7d6b3e45dec0896ac2ec13d54635c302acb01befb393b5b8236dc169` |
+| step8_sections_4_3_4_to_4_3_9.py | `9dba3b8fa50539ff21aab58c2e6f9137f8fe4fa56f4f8cdcdfaedd7e29f71861` |
+| step9_legacy_stale_zero_volume.py | `91d04c3b4953c45665669b4daaca7a268bc535b83d5fb76df360f04c029f1069` |
+| write_amendment_4_3_1_A2.py | `338ba691a2fd26798070f6d3538a69656bfccd97d8bd494b09b6ebf6a6d3dd80` |
+| write_amendment_4_3_A3.py | `8a66ad080d7b08ea096ff04c677500fef93d6309b470881ddbded65742654d17` |
+| write_approval_4_3_0_A1.py | `983efcd2f8bb39db3740ac5cacb74b3003c7031e2e0c8ddb34b4aa70be57ee20` |
+| write_closing_report_4_3_1.py | `b164559f22105efd3d1d0c848b9a5d92a0aaca6829f42d385fd81ff5bc0a4904` |
+| write_closing_report_section4_3.py | `a6cb846bed10514304b14dd22a0fc404c34ff41beb7ab267037b7e0216d6a912` |
+| write_note_4_3_N1.py | `0f3f59fe867c9f5bbcb5485820f788d91aa372ac1bd48dbfe53bb1980400e3e4` |

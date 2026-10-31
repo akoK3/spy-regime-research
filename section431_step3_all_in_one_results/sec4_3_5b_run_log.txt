@@ -1,0 +1,19 @@
+﻿year  stale_bars  stale_bars_zero_volume  stale_bars_zero_volume_pct  stale_runs  runs_all_bars_zero_volume  runs_any_zero_volume  runs_all_zero_pct  runs_any_zero_pct  context_all_observed_bars_zero_volume_pct
+2003        1983                       0                         0.0         338                          0                     0                0.0                0.0                                        0.0
+2004        3311                       0                         0.0         564                          0                     0                0.0                0.0                                        0.0
+2005        3403                       0                         0.0         573                          0                     0                0.0                0.0                                        0.0
+2006        3314                       0                         0.0         559                          0                     0                0.0                0.0                                        0.0
+2007        1528                       0                         0.0         258                          0                     0                0.0                0.0                                        0.0
+2008         202                       0                         0.0          36                          0                     0                0.0                0.0                                        0.0
+2009        1175                       0                         0.0         197                          0                     0                0.0                0.0                                        0.0
+2010        1619                       0                         0.0         278                          0                     0                0.0                0.0                                        0.0
+2011         949                       0                         0.0         168                          0                     0                0.0                0.0                                        0.0
+2012        1510                       0                         0.0         266                          0                     0                0.0                0.0                                        0.0
+2013        1363                       0                         0.0         233                          0                     0                0.0                0.0                                        0.0
+2014        1062                       0                         0.0         189                          0                     0                0.0                0.0                                        0.0
+2015         301                       0                         0.0          54                          0                     0                0.0                0.0                                        0.0
+2016         355                       0                         0.0          63                          0                     0                0.0                0.0                                        0.0
+2017         996                       0                         0.0         180                          0                     0                0.0                0.0                                        0.0
+2018         117                       0                         0.0          21                          0                     0                0.0                0.0                                        0.0
+
+TOTAL {"stale_bars": 23188, "stale_bars_zero_volume": 0, "stale_runs": 3977, "runs_all_bars_zero_volume": 0, "runs_any_zero_volume": 0, "context_all_observed_bars_zero_volume_pct": 0.0, "stale_bars_zero_volume_pct": 0.0, "runs_all_zero_pct": 0.0, "runs_any_zero_pct": 0.0}
