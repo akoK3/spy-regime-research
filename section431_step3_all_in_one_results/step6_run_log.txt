@@ -1,0 +1,130 @@
+﻿[    0.1 min]   LEGACY coverage: original features
+[    0.2 min]   LEGACY coverage: additional features
+[    0.7 min]   LEGACY coverage: session 201/4022, about 9.6 min left in this pass
+[    1.2 min]   LEGACY coverage: session 402/4022, about 8.7 min left in this pass
+[    1.6 min]   LEGACY coverage: session 603/4022, about 7.9 min left in this pass
+[    2.0 min]   LEGACY coverage: session 804/4022, about 7.2 min left in this pass
+[    2.4 min]   LEGACY coverage: session 1005/4022, about 6.6 min left in this pass
+[    2.9 min]   LEGACY coverage: session 1206/4022, about 6.1 min left in this pass
+[    3.3 min]   LEGACY coverage: session 1407/4022, about 5.7 min left in this pass
+[    3.9 min]   LEGACY coverage: session 1608/4022, about 5.5 min left in this pass
+[    4.3 min]   LEGACY coverage: session 1809/4022, about 5.0 min left in this pass
+[    4.8 min]   LEGACY coverage: session 2010/4022, about 4.6 min left in this pass
+[    5.3 min]   LEGACY coverage: session 2211/4022, about 4.1 min left in this pass
+[    5.8 min]   LEGACY coverage: session 2412/4022, about 3.7 min left in this pass
+[    6.3 min]   LEGACY coverage: session 2613/4022, about 3.2 min left in this pass
+[    6.7 min]   LEGACY coverage: session 2814/4022, about 2.8 min left in this pass
+[    7.2 min]   LEGACY coverage: session 3015/4022, about 2.3 min left in this pass
+[    7.7 min]   LEGACY coverage: session 3216/4022, about 1.9 min left in this pass
+[    8.2 min]   LEGACY coverage: session 3417/4022, about 1.4 min left in this pass
+[    8.7 min]   LEGACY coverage: session 3618/4022, about 0.9 min left in this pass
+[    9.2 min]   LEGACY coverage: session 3819/4022, about 0.5 min left in this pass
+[    9.7 min]   LEGACY coverage: session 4020/4022, about 0.0 min left in this pass
+[    9.7 min]   LEGACY coverage: done
+[    9.8 min]   RAW coverage: original features
+[    9.8 min]   RAW coverage: additional features
+[    9.9 min]   RAW coverage: session 35/705, about 2.4 min left in this pass
+[   10.0 min]   RAW coverage: session 70/705, about 2.3 min left in this pass
+[   10.2 min]   RAW coverage: session 105/705, about 2.2 min left in this pass
+[   10.3 min]   RAW coverage: session 140/705, about 2.1 min left in this pass
+[   10.4 min]   RAW coverage: session 175/705, about 1.9 min left in this pass
+[   10.6 min]   RAW coverage: session 210/705, about 1.8 min left in this pass
+[   10.7 min]   RAW coverage: session 245/705, about 1.7 min left in this pass
+[   10.8 min]   RAW coverage: session 280/705, about 1.6 min left in this pass
+[   10.9 min]   RAW coverage: session 315/705, about 1.4 min left in this pass
+[   11.1 min]   RAW coverage: session 350/705, about 1.3 min left in this pass
+[   11.2 min]   RAW coverage: session 385/705, about 1.2 min left in this pass
+[   11.3 min]   RAW coverage: session 420/705, about 1.0 min left in this pass
+[   11.5 min]   RAW coverage: session 455/705, about 0.9 min left in this pass
+[   11.6 min]   RAW coverage: session 490/705, about 0.8 min left in this pass
+[   11.7 min]   RAW coverage: session 525/705, about 0.7 min left in this pass
+[   11.8 min]   RAW coverage: session 560/705, about 0.5 min left in this pass
+[   12.0 min]   RAW coverage: session 595/705, about 0.4 min left in this pass
+[   12.1 min]   RAW coverage: session 630/705, about 0.3 min left in this pass
+[   12.2 min]   RAW coverage: session 665/705, about 0.1 min left in this pass
+[   12.3 min]   RAW coverage: session 700/705, about 0.0 min left in this pass
+[   12.3 min]   RAW coverage: done
+| Column | LEGACY % | RAW % | Status |
+|---|---|---|---|
+| return_1m | 95.238 | 99.562 | PASS |
+| abs_return_1m | 95.238 | 99.562 | PASS |
+| intrabar_range_log | 96.927 | 99.850 | PASS |
+| raw_volume | 96.927 | 99.850 | PASS |
+| log_raw_volume | 96.927 | 99.850 | PASS |
+| relative_volume20 | 96.678 | 98.427 | PASS |
+| log_relative_volume20 | 96.678 | 98.427 | PASS |
+| rv5_strict | 89.502 | 98.423 | PASS |
+| downside5_strict | 89.502 | 98.423 | PASS |
+| momentum5_strict | 89.502 | 98.423 | PASS |
+| rv5_partial90 | 89.502 | 98.423 | PASS |
+| momentum5_endpoint | 93.166 | 98.533 | PASS |
+| rv10_strict | 82.990 | 97.003 | PASS |
+| downside10_strict | 82.990 | 97.003 | PASS |
+| momentum10_strict | 82.990 | 97.003 | PASS |
+| rv10_partial90 | 85.072 | 97.057 | PASS |
+| momentum10_endpoint | 91.645 | 97.247 | PASS |
+| rv15_strict | 76.883 | 95.584 | BELOW (LEGACY) |
+| downside15_strict | 76.883 | 95.584 | BELOW (LEGACY) |
+| momentum15_strict | 76.883 | 95.584 | BELOW (LEGACY) |
+| rv15_partial90 | 78.828 | 95.638 | BELOW (LEGACY) |
+| momentum15_endpoint | 90.356 | 95.960 | PASS |
+| rv30_strict | 60.763 | 91.358 | BELOW (LEGACY) |
+| downside30_strict | 60.763 | 91.358 | BELOW (LEGACY) |
+| momentum30_strict | 60.763 | 91.358 | BELOW (LEGACY) |
+| rv30_partial90 | 77.653 | 92.110 | BELOW (LEGACY) |
+| momentum30_endpoint | 86.707 | 92.102 | PASS |
+| rv60_strict | 37.735 | 82.982 | BELOW (LEGACY) |
+| downside60_strict | 37.735 | 82.982 | BELOW (LEGACY) |
+| momentum60_strict | 37.735 | 82.982 | BELOW (LEGACY) |
+| rv60_partial90 | 72.527 | 84.416 | BELOW (LEGACY) |
+| momentum60_endpoint | 79.393 | 84.388 | BELOW (LEGACY) |
+| downside15_partial90 | 78.828 | 95.638 | BELOW (LEGACY) |
+| rv60_sampled5_exact | 58.624 | 84.092 | BELOW (LEGACY) |
+| shock_prior60_mad | 37.078 | 82.704 | BELOW (LEGACY) |
+| close_location_proxy | 96.325 | 99.672 | PASS |
+| bipower_15 | 76.883 | 95.584 | BELOW (LEGACY) |
+| jump_variation_15 | 76.883 | 95.584 | BELOW (LEGACY) |
+| drawdown_15 | 76.883 | 95.584 | BELOW (LEGACY) |
+| amihud_15 | 76.883 | 95.584 | BELOW (LEGACY) |
+| skew_15 | 76.882 | 95.584 | BELOW (LEGACY) |
+| kurtosis_excess_15 | 76.882 | 95.584 | BELOW (LEGACY) |
+| variance_ratio2_15 | 76.882 | 95.584 | BELOW (LEGACY) |
+| directional_efficiency_15 | 76.882 | 95.584 | BELOW (LEGACY) |
+| vol_of_vol_15 | 76.883 | 95.584 | BELOW (LEGACY) |
+| extreme_loss_15 | 76.883 | 95.584 | BELOW (LEGACY) |
+| volume_variability_15 | 76.883 | 95.584 | BELOW (LEGACY) |
+| volume_adjusted_range_15 | 76.883 | 95.584 | BELOW (LEGACY) |
+| reversal_15 | 76.157 | 95.569 | BELOW (LEGACY) |
+| return_autocorr1_15 | 76.882 | 95.584 | BELOW (LEGACY) |
+| bipower_30 | 60.763 | 91.358 | BELOW (LEGACY) |
+| jump_variation_30 | 60.763 | 91.358 | BELOW (LEGACY) |
+| drawdown_30 | 60.763 | 91.358 | BELOW (LEGACY) |
+| amihud_30 | 60.763 | 91.358 | BELOW (LEGACY) |
+| skew_30 | 60.763 | 91.358 | BELOW (LEGACY) |
+| kurtosis_excess_30 | 60.763 | 91.358 | BELOW (LEGACY) |
+| variance_ratio2_30 | 60.763 | 91.358 | BELOW (LEGACY) |
+| directional_efficiency_30 | 60.763 | 91.358 | BELOW (LEGACY) |
+| vol_of_vol_30 | 60.763 | 91.358 | BELOW (LEGACY) |
+| extreme_loss_30 | 60.763 | 91.358 | BELOW (LEGACY) |
+| volume_variability_30 | 60.763 | 91.358 | BELOW (LEGACY) |
+| volume_adjusted_range_30 | 60.763 | 91.358 | BELOW (LEGACY) |
+| reversal_30 | 60.666 | 91.357 | BELOW (LEGACY) |
+| return_autocorr1_30 | 60.763 | 91.358 | BELOW (LEGACY) |
+| bipower_60 | 37.735 | 82.982 | BELOW (LEGACY) |
+| jump_variation_60 | 37.735 | 82.982 | BELOW (LEGACY) |
+| drawdown_60 | 37.735 | 82.982 | BELOW (LEGACY) |
+| amihud_60 | 37.735 | 82.982 | BELOW (LEGACY) |
+| skew_60 | 37.735 | 82.982 | BELOW (LEGACY) |
+| kurtosis_excess_60 | 37.735 | 82.982 | BELOW (LEGACY) |
+| variance_ratio2_60 | 37.735 | 82.982 | BELOW (LEGACY) |
+| directional_efficiency_60 | 37.735 | 82.982 | BELOW (LEGACY) |
+| vol_of_vol_60 | 37.735 | 82.982 | BELOW (LEGACY) |
+| extreme_loss_60 | 37.735 | 82.982 | BELOW (LEGACY) |
+| volume_variability_60 | 37.735 | 82.982 | BELOW (LEGACY) |
+| volume_adjusted_range_60 | 37.735 | 82.982 | BELOW (LEGACY) |
+| reversal_60 | 37.726 | 82.982 | BELOW (LEGACY) |
+| return_autocorr1_60 | 37.735 | 82.982 | BELOW (LEGACY) |
+| lee_mykland_approx60 | 37.135 | 82.704 | BELOW (LEGACY) |
+| lee_mykland_jump60 | 37.135 | 82.704 | BELOW (LEGACY) |
+
+counts: {'PASS': 20, 'BELOW': 60} | SHA-256: a033c150005b8e4deed62398d984973e8b7242829827185f513855098db7d58d

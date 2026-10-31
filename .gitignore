@@ -8,6 +8,7 @@
 !/write_amendment_4_3_1_A2.py
 !/step5_policy.py
 !/step5_delay_diagnosis.py
+!/step6_coverage.py
 
 !/section431_step3_all_in_one_results/
 /section431_step3_all_in_one_results/*
@@ -22,6 +23,7 @@
 !/section431_step3_all_in_one_results/amendment_4_3_1_A2_*.sha256
 !/section431_step3_all_in_one_results/policy_4_3_1_P1_*
 !/section431_step3_all_in_one_results/step5_*
+!/section431_step3_all_in_one_results/step6_*
 !/section431_step3_all_in_one_results/step4_run_log.txt
 !/section431_step3_all_in_one_results/run_log_RAW_final.txt
 !/section431_step3_all_in_one_results/run_log_LEGACY_final.txt

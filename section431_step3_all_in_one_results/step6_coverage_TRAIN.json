@@ -1,0 +1,1045 @@
+{
+  "created_utc": "2026-10-31T00:10:56.119244+00:00",
+  "descriptive_only": true,
+  "definition": {
+    "frozen_amendment": "protocol_amendment_431_A2_FROZEN.json",
+    "frozen_amendment_sha256": "d20c1b2cf65a85f30a6b77a94a55ed89677ad8044ca6967dc1c62b4e951b5faf",
+    "amendment_id": "4.3.1-A2-post-screening",
+    "coverage_floor": 0.8,
+    "rounding": "percent rounded to 3 decimals, compared with >= 100*floor (as in the Step 2 script)",
+    "denominator": "all frozen TRAIN canonical minute-grid rows per era, including unavailable bars and session openings",
+    "numerator": "TRAIN rows where the column is finite (user decision; the amendment defines numerators only through family proxies)",
+    "status_rule": "PASS if BOTH eras are at least 80%, else BELOW",
+    "note": "post-screening amendment; preliminary aggregate and annual coverage already observed"
+  },
+  "train_rows": {
+    "LEGACY": 1562460,
+    "RAW": 274050
+  },
+  "legacy_rows_by_year": {
+    "2003": 97560,
+    "2004": 98100,
+    "2005": 98100,
+    "2006": 97530,
+    "2007": 97350,
+    "2008": 98130,
+    "2009": 97920,
+    "2010": 98100,
+    "2011": 98100,
+    "2012": 96960,
+    "2013": 97740,
+    "2014": 97740,
+    "2015": 97920,
+    "2016": 98100,
+    "2017": 97530,
+    "2018": 95580
+  },
+  "excluded_from_detector": "overnight_return_open",
+  "counts": {
+    "PASS": 20,
+    "BELOW": 60
+  },
+  "checked_against": "saved Step 3 full-run counts: identical for all columns",
+  "columns": [
+    {
+      "column": "return_1m",
+      "LEGACY_finite": 1488062,
+      "LEGACY_rows": 1562460,
+      "LEGACY_pct": 95.238,
+      "RAW_finite": 272851,
+      "RAW_rows": 274050,
+      "RAW_pct": 99.562,
+      "status": "PASS",
+      "below_in": []
+    },
+    {
+      "column": "abs_return_1m",
+      "LEGACY_finite": 1488062,
+      "LEGACY_rows": 1562460,
+      "LEGACY_pct": 95.238,
+      "RAW_finite": 272851,
+      "RAW_rows": 274050,
+      "RAW_pct": 99.562,
+      "status": "PASS",
+      "below_in": []
+    },
+    {
+      "column": "intrabar_range_log",
+      "LEGACY_finite": 1514451,
+      "LEGACY_rows": 1562460,
+      "LEGACY_pct": 96.927,
+      "RAW_finite": 273640,
+      "RAW_rows": 274050,
+      "RAW_pct": 99.85,
+      "status": "PASS",
+      "below_in": []
+    },
+    {
+      "column": "raw_volume",
+      "LEGACY_finite": 1514451,
+      "LEGACY_rows": 1562460,
+      "LEGACY_pct": 96.927,
+      "RAW_finite": 273640,
+      "RAW_rows": 274050,
+      "RAW_pct": 99.85,
+      "status": "PASS",
+      "below_in": []
+    },
+    {
+      "column": "log_raw_volume",
+      "LEGACY_finite": 1514451,
+      "LEGACY_rows": 1562460,
+      "LEGACY_pct": 96.927,
+      "RAW_finite": 273640,
+      "RAW_rows": 274050,
+      "RAW_pct": 99.85,
+      "status": "PASS",
+      "below_in": []
+    },
+    {
+      "column": "relative_volume20",
+      "LEGACY_finite": 1510551,
+      "LEGACY_rows": 1562460,
+      "LEGACY_pct": 96.678,
+      "RAW_finite": 269740,
+      "RAW_rows": 274050,
+      "RAW_pct": 98.427,
+      "status": "PASS",
+      "below_in": []
+    },
+    {
+      "column": "log_relative_volume20",
+      "LEGACY_finite": 1510551,
+      "LEGACY_rows": 1562460,
+      "LEGACY_pct": 96.678,
+      "RAW_finite": 269740,
+      "RAW_rows": 274050,
+      "RAW_pct": 98.427,
+      "status": "PASS",
+      "below_in": []
+    },
+    {
+      "column": "rv5_strict",
+      "LEGACY_finite": 1398432,
+      "LEGACY_rows": 1562460,
+      "LEGACY_pct": 89.502,
+      "RAW_finite": 269728,
+      "RAW_rows": 274050,
+      "RAW_pct": 98.423,
+      "status": "PASS",
+      "below_in": []
+    },
+    {
+      "column": "downside5_strict",
+      "LEGACY_finite": 1398432,
+      "LEGACY_rows": 1562460,
+      "LEGACY_pct": 89.502,
+      "RAW_finite": 269728,
+      "RAW_rows": 274050,
+      "RAW_pct": 98.423,
+      "status": "PASS",
+      "below_in": []
+    },
+    {
+      "column": "momentum5_strict",
+      "LEGACY_finite": 1398432,
+      "LEGACY_rows": 1562460,
+      "LEGACY_pct": 89.502,
+      "RAW_finite": 269728,
+      "RAW_rows": 274050,
+      "RAW_pct": 98.423,
+      "status": "PASS",
+      "below_in": []
+    },
+    {
+      "column": "rv5_partial90",
+      "LEGACY_finite": 1398432,
+      "LEGACY_rows": 1562460,
+      "LEGACY_pct": 89.502,
+      "RAW_finite": 269728,
+      "RAW_rows": 274050,
+      "RAW_pct": 98.423,
+      "status": "PASS",
+      "below_in": []
+    },
+    {
+      "column": "momentum5_endpoint",
+      "LEGACY_finite": 1455688,
+      "LEGACY_rows": 1562460,
+      "LEGACY_pct": 93.166,
+      "RAW_finite": 270029,
+      "RAW_rows": 274050,
+      "RAW_pct": 98.533,
+      "status": "PASS",
+      "below_in": []
+    },
+    {
+      "column": "rv10_strict",
+      "LEGACY_finite": 1296682,
+      "LEGACY_rows": 1562460,
+      "LEGACY_pct": 82.99,
+      "RAW_finite": 265838,
+      "RAW_rows": 274050,
+      "RAW_pct": 97.003,
+      "status": "PASS",
+      "below_in": []
+    },
+    {
+      "column": "downside10_strict",
+      "LEGACY_finite": 1296682,
+      "LEGACY_rows": 1562460,
+      "LEGACY_pct": 82.99,
+      "RAW_finite": 265838,
+      "RAW_rows": 274050,
+      "RAW_pct": 97.003,
+      "status": "PASS",
+      "below_in": []
+    },
+    {
+      "column": "momentum10_strict",
+      "LEGACY_finite": 1296682,
+      "LEGACY_rows": 1562460,
+      "LEGACY_pct": 82.99,
+      "RAW_finite": 265838,
+      "RAW_rows": 274050,
+      "RAW_pct": 97.003,
+      "status": "PASS",
+      "below_in": []
+    },
+    {
+      "column": "rv10_partial90",
+      "LEGACY_finite": 1329215,
+      "LEGACY_rows": 1562460,
+      "LEGACY_pct": 85.072,
+      "RAW_finite": 265985,
+      "RAW_rows": 274050,
+      "RAW_pct": 97.057,
+      "status": "PASS",
+      "below_in": []
+    },
+    {
+      "column": "momentum10_endpoint",
+      "LEGACY_finite": 1431924,
+      "LEGACY_rows": 1562460,
+      "LEGACY_pct": 91.645,
+      "RAW_finite": 266505,
+      "RAW_rows": 274050,
+      "RAW_pct": 97.247,
+      "status": "PASS",
+      "below_in": []
+    },
+    {
+      "column": "rv15_strict",
+      "LEGACY_finite": 1201273,
+      "LEGACY_rows": 1562460,
+      "LEGACY_pct": 76.883,
+      "RAW_finite": 261948,
+      "RAW_rows": 274050,
+      "RAW_pct": 95.584,
+      "status": "BELOW",
+      "below_in": [
+        "LEGACY"
+      ]
+    },
+    {
+      "column": "downside15_strict",
+      "LEGACY_finite": 1201273,
+      "LEGACY_rows": 1562460,
+      "LEGACY_pct": 76.883,
+      "RAW_finite": 261948,
+      "RAW_rows": 274050,
+      "RAW_pct": 95.584,
+      "status": "BELOW",
+      "below_in": [
+        "LEGACY"
+      ]
+    },
+    {
+      "column": "momentum15_strict",
+      "LEGACY_finite": 1201273,
+      "LEGACY_rows": 1562460,
+      "LEGACY_pct": 76.883,
+      "RAW_finite": 261948,
+      "RAW_rows": 274050,
+      "RAW_pct": 95.584,
+      "status": "BELOW",
+      "below_in": [
+        "LEGACY"
+      ]
+    },
+    {
+      "column": "rv15_partial90",
+      "LEGACY_finite": 1231652,
+      "LEGACY_rows": 1562460,
+      "LEGACY_pct": 78.828,
+      "RAW_finite": 262095,
+      "RAW_rows": 274050,
+      "RAW_pct": 95.638,
+      "status": "BELOW",
+      "below_in": [
+        "LEGACY"
+      ]
+    },
+    {
+      "column": "momentum15_endpoint",
+      "LEGACY_finite": 1411774,
+      "LEGACY_rows": 1562460,
+      "LEGACY_pct": 90.356,
+      "RAW_finite": 262979,
+      "RAW_rows": 274050,
+      "RAW_pct": 95.96,
+      "status": "PASS",
+      "below_in": []
+    },
+    {
+      "column": "rv30_strict",
+      "LEGACY_finite": 949397,
+      "LEGACY_rows": 1562460,
+      "LEGACY_pct": 60.763,
+      "RAW_finite": 250366,
+      "RAW_rows": 274050,
+      "RAW_pct": 91.358,
+      "status": "BELOW",
+      "below_in": [
+        "LEGACY"
+      ]
+    },
+    {
+      "column": "downside30_strict",
+      "LEGACY_finite": 949397,
+      "LEGACY_rows": 1562460,
+      "LEGACY_pct": 60.763,
+      "RAW_finite": 250366,
+      "RAW_rows": 274050,
+      "RAW_pct": 91.358,
+      "status": "BELOW",
+      "below_in": [
+        "LEGACY"
+      ]
+    },
+    {
+      "column": "momentum30_strict",
+      "LEGACY_finite": 949397,
+      "LEGACY_rows": 1562460,
+      "LEGACY_pct": 60.763,
+      "RAW_finite": 250366,
+      "RAW_rows": 274050,
+      "RAW_pct": 91.358,
+      "status": "BELOW",
+      "below_in": [
+        "LEGACY"
+      ]
+    },
+    {
+      "column": "rv30_partial90",
+      "LEGACY_finite": 1213296,
+      "LEGACY_rows": 1562460,
+      "LEGACY_pct": 77.653,
+      "RAW_finite": 252428,
+      "RAW_rows": 274050,
+      "RAW_pct": 92.11,
+      "status": "BELOW",
+      "below_in": [
+        "LEGACY"
+      ]
+    },
+    {
+      "column": "momentum30_endpoint",
+      "LEGACY_finite": 1354761,
+      "LEGACY_rows": 1562460,
+      "LEGACY_pct": 86.707,
+      "RAW_finite": 252405,
+      "RAW_rows": 274050,
+      "RAW_pct": 92.102,
+      "status": "PASS",
+      "below_in": []
+    },
+    {
+      "column": "rv60_strict",
+      "LEGACY_finite": 589594,
+      "LEGACY_rows": 1562460,
+      "LEGACY_pct": 37.735,
+      "RAW_finite": 227412,
+      "RAW_rows": 274050,
+      "RAW_pct": 82.982,
+      "status": "BELOW",
+      "below_in": [
+        "LEGACY"
+      ]
+    },
+    {
+      "column": "downside60_strict",
+      "LEGACY_finite": 589594,
+      "LEGACY_rows": 1562460,
+      "LEGACY_pct": 37.735,
+      "RAW_finite": 227412,
+      "RAW_rows": 274050,
+      "RAW_pct": 82.982,
+      "status": "BELOW",
+      "below_in": [
+        "LEGACY"
+      ]
+    },
+    {
+      "column": "momentum60_strict",
+      "LEGACY_finite": 589594,
+      "LEGACY_rows": 1562460,
+      "LEGACY_pct": 37.735,
+      "RAW_finite": 227412,
+      "RAW_rows": 274050,
+      "RAW_pct": 82.982,
+      "status": "BELOW",
+      "below_in": [
+        "LEGACY"
+      ]
+    },
+    {
+      "column": "rv60_partial90",
+      "LEGACY_finite": 1133212,
+      "LEGACY_rows": 1562460,
+      "LEGACY_pct": 72.527,
+      "RAW_finite": 231342,
+      "RAW_rows": 274050,
+      "RAW_pct": 84.416,
+      "status": "BELOW",
+      "below_in": [
+        "LEGACY"
+      ]
+    },
+    {
+      "column": "momentum60_endpoint",
+      "LEGACY_finite": 1240478,
+      "LEGACY_rows": 1562460,
+      "LEGACY_pct": 79.393,
+      "RAW_finite": 231264,
+      "RAW_rows": 274050,
+      "RAW_pct": 84.388,
+      "status": "BELOW",
+      "below_in": [
+        "LEGACY"
+      ]
+    },
+    {
+      "column": "downside15_partial90",
+      "LEGACY_finite": 1231652,
+      "LEGACY_rows": 1562460,
+      "LEGACY_pct": 78.828,
+      "RAW_finite": 262095,
+      "RAW_rows": 274050,
+      "RAW_pct": 95.638,
+      "status": "BELOW",
+      "below_in": [
+        "LEGACY"
+      ]
+    },
+    {
+      "column": "rv60_sampled5_exact",
+      "LEGACY_finite": 915971,
+      "LEGACY_rows": 1562460,
+      "LEGACY_pct": 58.624,
+      "RAW_finite": 230454,
+      "RAW_rows": 274050,
+      "RAW_pct": 84.092,
+      "status": "BELOW",
+      "below_in": [
+        "LEGACY"
+      ]
+    },
+    {
+      "column": "shock_prior60_mad",
+      "LEGACY_finite": 579333,
+      "LEGACY_rows": 1562460,
+      "LEGACY_pct": 37.078,
+      "RAW_finite": 226651,
+      "RAW_rows": 274050,
+      "RAW_pct": 82.704,
+      "status": "BELOW",
+      "below_in": [
+        "LEGACY"
+      ]
+    },
+    {
+      "column": "close_location_proxy",
+      "LEGACY_finite": 1505039,
+      "LEGACY_rows": 1562460,
+      "LEGACY_pct": 96.325,
+      "RAW_finite": 273151,
+      "RAW_rows": 274050,
+      "RAW_pct": 99.672,
+      "status": "PASS",
+      "below_in": []
+    },
+    {
+      "column": "bipower_15",
+      "LEGACY_finite": 1201273,
+      "LEGACY_rows": 1562460,
+      "LEGACY_pct": 76.883,
+      "RAW_finite": 261948,
+      "RAW_rows": 274050,
+      "RAW_pct": 95.584,
+      "status": "BELOW",
+      "below_in": [
+        "LEGACY"
+      ]
+    },
+    {
+      "column": "jump_variation_15",
+      "LEGACY_finite": 1201273,
+      "LEGACY_rows": 1562460,
+      "LEGACY_pct": 76.883,
+      "RAW_finite": 261948,
+      "RAW_rows": 274050,
+      "RAW_pct": 95.584,
+      "status": "BELOW",
+      "below_in": [
+        "LEGACY"
+      ]
+    },
+    {
+      "column": "drawdown_15",
+      "LEGACY_finite": 1201273,
+      "LEGACY_rows": 1562460,
+      "LEGACY_pct": 76.883,
+      "RAW_finite": 261948,
+      "RAW_rows": 274050,
+      "RAW_pct": 95.584,
+      "status": "BELOW",
+      "below_in": [
+        "LEGACY"
+      ]
+    },
+    {
+      "column": "amihud_15",
+      "LEGACY_finite": 1201273,
+      "LEGACY_rows": 1562460,
+      "LEGACY_pct": 76.883,
+      "RAW_finite": 261948,
+      "RAW_rows": 274050,
+      "RAW_pct": 95.584,
+      "status": "BELOW",
+      "below_in": [
+        "LEGACY"
+      ]
+    },
+    {
+      "column": "skew_15",
+      "LEGACY_finite": 1201258,
+      "LEGACY_rows": 1562460,
+      "LEGACY_pct": 76.882,
+      "RAW_finite": 261948,
+      "RAW_rows": 274050,
+      "RAW_pct": 95.584,
+      "status": "BELOW",
+      "below_in": [
+        "LEGACY"
+      ]
+    },
+    {
+      "column": "kurtosis_excess_15",
+      "LEGACY_finite": 1201258,
+      "LEGACY_rows": 1562460,
+      "LEGACY_pct": 76.882,
+      "RAW_finite": 261948,
+      "RAW_rows": 274050,
+      "RAW_pct": 95.584,
+      "status": "BELOW",
+      "below_in": [
+        "LEGACY"
+      ]
+    },
+    {
+      "column": "variance_ratio2_15",
+      "LEGACY_finite": 1201258,
+      "LEGACY_rows": 1562460,
+      "LEGACY_pct": 76.882,
+      "RAW_finite": 261948,
+      "RAW_rows": 274050,
+      "RAW_pct": 95.584,
+      "status": "BELOW",
+      "below_in": [
+        "LEGACY"
+      ]
+    },
+    {
+      "column": "directional_efficiency_15",
+      "LEGACY_finite": 1201258,
+      "LEGACY_rows": 1562460,
+      "LEGACY_pct": 76.882,
+      "RAW_finite": 261948,
+      "RAW_rows": 274050,
+      "RAW_pct": 95.584,
+      "status": "BELOW",
+      "below_in": [
+        "LEGACY"
+      ]
+    },
+    {
+      "column": "vol_of_vol_15",
+      "LEGACY_finite": 1201273,
+      "LEGACY_rows": 1562460,
+      "LEGACY_pct": 76.883,
+      "RAW_finite": 261948,
+      "RAW_rows": 274050,
+      "RAW_pct": 95.584,
+      "status": "BELOW",
+      "below_in": [
+        "LEGACY"
+      ]
+    },
+    {
+      "column": "extreme_loss_15",
+      "LEGACY_finite": 1201273,
+      "LEGACY_rows": 1562460,
+      "LEGACY_pct": 76.883,
+      "RAW_finite": 261948,
+      "RAW_rows": 274050,
+      "RAW_pct": 95.584,
+      "status": "BELOW",
+      "below_in": [
+        "LEGACY"
+      ]
+    },
+    {
+      "column": "volume_variability_15",
+      "LEGACY_finite": 1201273,
+      "LEGACY_rows": 1562460,
+      "LEGACY_pct": 76.883,
+      "RAW_finite": 261948,
+      "RAW_rows": 274050,
+      "RAW_pct": 95.584,
+      "status": "BELOW",
+      "below_in": [
+        "LEGACY"
+      ]
+    },
+    {
+      "column": "volume_adjusted_range_15",
+      "LEGACY_finite": 1201273,
+      "LEGACY_rows": 1562460,
+      "LEGACY_pct": 76.883,
+      "RAW_finite": 261948,
+      "RAW_rows": 274050,
+      "RAW_pct": 95.584,
+      "status": "BELOW",
+      "below_in": [
+        "LEGACY"
+      ]
+    },
+    {
+      "column": "reversal_15",
+      "LEGACY_finite": 1189921,
+      "LEGACY_rows": 1562460,
+      "LEGACY_pct": 76.157,
+      "RAW_finite": 261907,
+      "RAW_rows": 274050,
+      "RAW_pct": 95.569,
+      "status": "BELOW",
+      "below_in": [
+        "LEGACY"
+      ]
+    },
+    {
+      "column": "return_autocorr1_15",
+      "LEGACY_finite": 1201245,
+      "LEGACY_rows": 1562460,
+      "LEGACY_pct": 76.882,
+      "RAW_finite": 261948,
+      "RAW_rows": 274050,
+      "RAW_pct": 95.584,
+      "status": "BELOW",
+      "below_in": [
+        "LEGACY"
+      ]
+    },
+    {
+      "column": "bipower_30",
+      "LEGACY_finite": 949397,
+      "LEGACY_rows": 1562460,
+      "LEGACY_pct": 60.763,
+      "RAW_finite": 250366,
+      "RAW_rows": 274050,
+      "RAW_pct": 91.358,
+      "status": "BELOW",
+      "below_in": [
+        "LEGACY"
+      ]
+    },
+    {
+      "column": "jump_variation_30",
+      "LEGACY_finite": 949397,
+      "LEGACY_rows": 1562460,
+      "LEGACY_pct": 60.763,
+      "RAW_finite": 250366,
+      "RAW_rows": 274050,
+      "RAW_pct": 91.358,
+      "status": "BELOW",
+      "below_in": [
+        "LEGACY"
+      ]
+    },
+    {
+      "column": "drawdown_30",
+      "LEGACY_finite": 949397,
+      "LEGACY_rows": 1562460,
+      "LEGACY_pct": 60.763,
+      "RAW_finite": 250366,
+      "RAW_rows": 274050,
+      "RAW_pct": 91.358,
+      "status": "BELOW",
+      "below_in": [
+        "LEGACY"
+      ]
+    },
+    {
+      "column": "amihud_30",
+      "LEGACY_finite": 949397,
+      "LEGACY_rows": 1562460,
+      "LEGACY_pct": 60.763,
+      "RAW_finite": 250366,
+      "RAW_rows": 274050,
+      "RAW_pct": 91.358,
+      "status": "BELOW",
+      "below_in": [
+        "LEGACY"
+      ]
+    },
+    {
+      "column": "skew_30",
+      "LEGACY_finite": 949397,
+      "LEGACY_rows": 1562460,
+      "LEGACY_pct": 60.763,
+      "RAW_finite": 250366,
+      "RAW_rows": 274050,
+      "RAW_pct": 91.358,
+      "status": "BELOW",
+      "below_in": [
+        "LEGACY"
+      ]
+    },
+    {
+      "column": "kurtosis_excess_30",
+      "LEGACY_finite": 949397,
+      "LEGACY_rows": 1562460,
+      "LEGACY_pct": 60.763,
+      "RAW_finite": 250366,
+      "RAW_rows": 274050,
+      "RAW_pct": 91.358,
+      "status": "BELOW",
+      "below_in": [
+        "LEGACY"
+      ]
+    },
+    {
+      "column": "variance_ratio2_30",
+      "LEGACY_finite": 949397,
+      "LEGACY_rows": 1562460,
+      "LEGACY_pct": 60.763,
+      "RAW_finite": 250366,
+      "RAW_rows": 274050,
+      "RAW_pct": 91.358,
+      "status": "BELOW",
+      "below_in": [
+        "LEGACY"
+      ]
+    },
+    {
+      "column": "directional_efficiency_30",
+      "LEGACY_finite": 949397,
+      "LEGACY_rows": 1562460,
+      "LEGACY_pct": 60.763,
+      "RAW_finite": 250366,
+      "RAW_rows": 274050,
+      "RAW_pct": 91.358,
+      "status": "BELOW",
+      "below_in": [
+        "LEGACY"
+      ]
+    },
+    {
+      "column": "vol_of_vol_30",
+      "LEGACY_finite": 949397,
+      "LEGACY_rows": 1562460,
+      "LEGACY_pct": 60.763,
+      "RAW_finite": 250366,
+      "RAW_rows": 274050,
+      "RAW_pct": 91.358,
+      "status": "BELOW",
+      "below_in": [
+        "LEGACY"
+      ]
+    },
+    {
+      "column": "extreme_loss_30",
+      "LEGACY_finite": 949397,
+      "LEGACY_rows": 1562460,
+      "LEGACY_pct": 60.763,
+      "RAW_finite": 250366,
+      "RAW_rows": 274050,
+      "RAW_pct": 91.358,
+      "status": "BELOW",
+      "below_in": [
+        "LEGACY"
+      ]
+    },
+    {
+      "column": "volume_variability_30",
+      "LEGACY_finite": 949397,
+      "LEGACY_rows": 1562460,
+      "LEGACY_pct": 60.763,
+      "RAW_finite": 250366,
+      "RAW_rows": 274050,
+      "RAW_pct": 91.358,
+      "status": "BELOW",
+      "below_in": [
+        "LEGACY"
+      ]
+    },
+    {
+      "column": "volume_adjusted_range_30",
+      "LEGACY_finite": 949397,
+      "LEGACY_rows": 1562460,
+      "LEGACY_pct": 60.763,
+      "RAW_finite": 250366,
+      "RAW_rows": 274050,
+      "RAW_pct": 91.358,
+      "status": "BELOW",
+      "below_in": [
+        "LEGACY"
+      ]
+    },
+    {
+      "column": "reversal_30",
+      "LEGACY_finite": 947882,
+      "LEGACY_rows": 1562460,
+      "LEGACY_pct": 60.666,
+      "RAW_finite": 250364,
+      "RAW_rows": 274050,
+      "RAW_pct": 91.357,
+      "status": "BELOW",
+      "below_in": [
+        "LEGACY"
+      ]
+    },
+    {
+      "column": "return_autocorr1_30",
+      "LEGACY_finite": 949397,
+      "LEGACY_rows": 1562460,
+      "LEGACY_pct": 60.763,
+      "RAW_finite": 250366,
+      "RAW_rows": 274050,
+      "RAW_pct": 91.358,
+      "status": "BELOW",
+      "below_in": [
+        "LEGACY"
+      ]
+    },
+    {
+      "column": "bipower_60",
+      "LEGACY_finite": 589594,
+      "LEGACY_rows": 1562460,
+      "LEGACY_pct": 37.735,
+      "RAW_finite": 227412,
+      "RAW_rows": 274050,
+      "RAW_pct": 82.982,
+      "status": "BELOW",
+      "below_in": [
+        "LEGACY"
+      ]
+    },
+    {
+      "column": "jump_variation_60",
+      "LEGACY_finite": 589594,
+      "LEGACY_rows": 1562460,
+      "LEGACY_pct": 37.735,
+      "RAW_finite": 227412,
+      "RAW_rows": 274050,
+      "RAW_pct": 82.982,
+      "status": "BELOW",
+      "below_in": [
+        "LEGACY"
+      ]
+    },
+    {
+      "column": "drawdown_60",
+      "LEGACY_finite": 589594,
+      "LEGACY_rows": 1562460,
+      "LEGACY_pct": 37.735,
+      "RAW_finite": 227412,
+      "RAW_rows": 274050,
+      "RAW_pct": 82.982,
+      "status": "BELOW",
+      "below_in": [
+        "LEGACY"
+      ]
+    },
+    {
+      "column": "amihud_60",
+      "LEGACY_finite": 589594,
+      "LEGACY_rows": 1562460,
+      "LEGACY_pct": 37.735,
+      "RAW_finite": 227412,
+      "RAW_rows": 274050,
+      "RAW_pct": 82.982,
+      "status": "BELOW",
+      "below_in": [
+        "LEGACY"
+      ]
+    },
+    {
+      "column": "skew_60",
+      "LEGACY_finite": 589594,
+      "LEGACY_rows": 1562460,
+      "LEGACY_pct": 37.735,
+      "RAW_finite": 227412,
+      "RAW_rows": 274050,
+      "RAW_pct": 82.982,
+      "status": "BELOW",
+      "below_in": [
+        "LEGACY"
+      ]
+    },
+    {
+      "column": "kurtosis_excess_60",
+      "LEGACY_finite": 589594,
+      "LEGACY_rows": 1562460,
+      "LEGACY_pct": 37.735,
+      "RAW_finite": 227412,
+      "RAW_rows": 274050,
+      "RAW_pct": 82.982,
+      "status": "BELOW",
+      "below_in": [
+        "LEGACY"
+      ]
+    },
+    {
+      "column": "variance_ratio2_60",
+      "LEGACY_finite": 589594,
+      "LEGACY_rows": 1562460,
+      "LEGACY_pct": 37.735,
+      "RAW_finite": 227412,
+      "RAW_rows": 274050,
+      "RAW_pct": 82.982,
+      "status": "BELOW",
+      "below_in": [
+        "LEGACY"
+      ]
+    },
+    {
+      "column": "directional_efficiency_60",
+      "LEGACY_finite": 589594,
+      "LEGACY_rows": 1562460,
+      "LEGACY_pct": 37.735,
+      "RAW_finite": 227412,
+      "RAW_rows": 274050,
+      "RAW_pct": 82.982,
+      "status": "BELOW",
+      "below_in": [
+        "LEGACY"
+      ]
+    },
+    {
+      "column": "vol_of_vol_60",
+      "LEGACY_finite": 589594,
+      "LEGACY_rows": 1562460,
+      "LEGACY_pct": 37.735,
+      "RAW_finite": 227412,
+      "RAW_rows": 274050,
+      "RAW_pct": 82.982,
+      "status": "BELOW",
+      "below_in": [
+        "LEGACY"
+      ]
+    },
+    {
+      "column": "extreme_loss_60",
+      "LEGACY_finite": 589594,
+      "LEGACY_rows": 1562460,
+      "LEGACY_pct": 37.735,
+      "RAW_finite": 227412,
+      "RAW_rows": 274050,
+      "RAW_pct": 82.982,
+      "status": "BELOW",
+      "below_in": [
+        "LEGACY"
+      ]
+    },
+    {
+      "column": "volume_variability_60",
+      "LEGACY_finite": 589594,
+      "LEGACY_rows": 1562460,
+      "LEGACY_pct": 37.735,
+      "RAW_finite": 227412,
+      "RAW_rows": 274050,
+      "RAW_pct": 82.982,
+      "status": "BELOW",
+      "below_in": [
+        "LEGACY"
+      ]
+    },
+    {
+      "column": "volume_adjusted_range_60",
+      "LEGACY_finite": 589594,
+      "LEGACY_rows": 1562460,
+      "LEGACY_pct": 37.735,
+      "RAW_finite": 227412,
+      "RAW_rows": 274050,
+      "RAW_pct": 82.982,
+      "status": "BELOW",
+      "below_in": [
+        "LEGACY"
+      ]
+    },
+    {
+      "column": "reversal_60",
+      "LEGACY_finite": 589456,
+      "LEGACY_rows": 1562460,
+      "LEGACY_pct": 37.726,
+      "RAW_finite": 227412,
+      "RAW_rows": 274050,
+      "RAW_pct": 82.982,
+      "status": "BELOW",
+      "below_in": [
+        "LEGACY"
+      ]
+    },
+    {
+      "column": "return_autocorr1_60",
+      "LEGACY_finite": 589594,
+      "LEGACY_rows": 1562460,
+      "LEGACY_pct": 37.735,
+      "RAW_finite": 227412,
+      "RAW_rows": 274050,
+      "RAW_pct": 82.982,
+      "status": "BELOW",
+      "below_in": [
+        "LEGACY"
+      ]
+    },
+    {
+      "column": "lee_mykland_approx60",
+      "LEGACY_finite": 580214,
+      "LEGACY_rows": 1562460,
+      "LEGACY_pct": 37.135,
+      "RAW_finite": 226651,
+      "RAW_rows": 274050,
+      "RAW_pct": 82.704,
+      "status": "BELOW",
+      "below_in": [
+        "LEGACY"
+      ]
+    },
+    {
+      "column": "lee_mykland_jump60",
+      "LEGACY_finite": 580214,
+      "LEGACY_rows": 1562460,
+      "LEGACY_pct": 37.135,
+      "RAW_finite": 226651,
+      "RAW_rows": 274050,
+      "RAW_pct": 82.704,
+      "status": "BELOW",
+      "below_in": [
+        "LEGACY"
+      ]
+    }
+  ]
+}
