@@ -35,6 +35,9 @@ KEYS = ("created_utc", "generated_utc", "closed_utc", "frozen_utc", "date_utc")
 
 
 def date_of(p):
+    if Path(p).suffix != ".json":  # no own timestamp: the date of the commit that added the file
+        out = subprocess.run(["git", "log", "--diff-filter=A", "--format=%aI", "--", rel(p)], cwd=ROOT, capture_output=True, text=True).stdout.split()
+        return out[-1]
     d = load(p)
     for k in KEYS:
         if k in d: return d[k]
@@ -57,6 +60,12 @@ ver1, ver2 = g("policy_4_3_1_P1_verification_2*.json"), g("policy_4_3_1_P1_verif
 diag, t4, c6 = R / "step5_delay_failure_diagnosis.json", R / "step4_parameter_table.json", R / "step6_coverage_TRAIN.json"
 cl431, cl43, cladd = g("section_4_3_1_closing_report_2*.json"), g("section_4_3_closing_report_section4_2*.json"), g("section_4_3_closing_report_addendum_pool116_2*.json")
 appr, a3, n1, n2 = g("approval_4_3_0_A1_2*.json"), g("amendment_4_3_A3_2*.json"), g("note_4_3_N1_2*.json"), g("note_4_3_N2_2*.json")
+cold = ROOT / "cold_audit_20261030.md"
+a4, a5, n3 = g("amendment_4_3_A4_2*.json"), g("amendment_4_3_A5_2*.json"), g("note_4_3_N3_2*.json")
+a4res, a5res = R / "a4_results_report.json", R / "a5_results_report.json"
+f1chk, cal, a4rep, a4red, a4pi = R / "a4_folds_check.json", R / "a4_lm_threshold_calibration.json", R / "a4_sec4_3_4_7_8_report.json", R / "a4_sec4_3_8_redundancy.json", R / "a4_prefix_isolation_report.json"
+cladd_audit, cladd_avail = g("section_4_3_closing_report_addendum_audit_2*.json"), g("section_4_3_closing_report_addendum_availability_2*.json")
+cut5, jv5, am5 = R / "a5_train_cutoffs.json", R / "a5_jump_variation_redundancy.json", R / "a5_amihud_adjustment_check.json"
 r49, r5b, r78 = R / "sec4_3_4_to_4_3_9_report.json", R / "sec4_3_5b_legacy_stale_zero_volume.json", R / "sec4_3_7_8_pool116_report.json"
 
 # (file, section, decision, rationale, file that carries the date)
@@ -96,6 +105,22 @@ E = [
     (R / "sec4_3_7_8_pool116_matrix.csv", "4.3.9", "Pool matrix, 116 rows, eligibility and redundancy outcome per set", "N2", r78),
     (r78, "4.3.7 / 4.3.8", "Pool run: 4.3.7 PASS, 4.3.8 PASS", "TRAIN only, RAW then LEGACY", None),
     (cladd, "4.3", "Closing report addendum: pool results added; closing report unchanged", "Pool-rule item under 'decisions not taken' done under N2", None),
+    (cold, "audit", "Cold audit of the repository: 12 findings, 3 high (look-ahead in the __sadj columns, frozen folds overlapping evaluation, features selected outside the folds)", "Audit text as received; the fixes follow in A4 and A5", None),
+    (a4, "4.3 A4", "Amendment A4: F1 TRAIN-only folds; F2 causal 20-session seasonal baseline; F3 simulated Lee-Mykland threshold; F4 relative tolerance with mid-session cuts; F5 raw_volume, log_raw_volume and raw_volume__sadj diagnostics-only; F6 addendum; F7 cleanup", "Reasons are the audit findings #1, #2, #3, #4, #5, #6, #7, #8, #9, #10, #12; written before the fixes were run", None),
+    (f1chk, "4.3 A4 F1", "Folds regenerated from TRAIN sessions only: 30 LEGACY, 4 RAW; no fold touches an embargo, evaluation or excluded session", "The frozen v2 folds (36 LEGACY, 4 RAW) had 7 LEGACY folds and 1 RAW fold with a window after TRAIN", None),
+    (cal, "4.3 A4 F3", "Lee-Mykland threshold 4.6113 from 200,000 simulated no-jump sessions (95% CI 4.5998 to 4.6245), replacing 5.4667", "The old threshold flagged 0.07% of no-jump sessions against the design 1%; second-seed false-alarm rate 1.04%", None),
+    (a4rep, "4.3.4 / 4.3.7 / 4.3.8 A4", "Rerun with the causal seasonal baseline and the 113-column pool (78 raw + 35 adjusted): primary pool 27, keep 19 / drop 8; RAW sensitivity pool 113, keep 83 / drop 30", "A4 F2 and F5; the 4.3.4 checks pass on 105,000 brute-force cells per era", None),
+    (a4red, "4.3.8 A4", "Redundancy outcome under A4 (113-column pool)", "A3 and N2 rules unchanged; adjusted columns take positions 80 and up; raw wins ties", a4rep),
+    (a4pi, "4.3.1 A4 F4", "Prefix and isolation rerun with relative tolerance (rtol 1e-9, atol 0) and mid-session cuts: PASS in RAW and LEGACY; the power check detects all 81 features", "Audit #8 and #9; run per era with features spilled to float64 files", None),
+    (cladd_audit, "4.3", "Addendum: audit #3, #4, #6 disclosed and #7 corrected; closed reports unchanged", "Features selected on all of TRAIN; era-crossing decisions; two of three delay checks cannot fail; the builder built LEGACY 2019-2022 and the RAW embargo days", None),
+    (a5, "4.3 A5", "Amendment A5: G1 record the TRAIN cutoffs; G2 disclose the circular availability check; G3 scale the bipower term of jump_variation by w/(w-1); G4 Amihud adjustment check (report only); G5 rv10 replaces rv15 in the comparison tiers", "Audit item 11 and the repository owner's approval of rv10; written before the items were run", None),
+    (cut5, "4.3 A5 G1", "TRAIN cutoffs recorded from the manifest: LEGACY 2003-01-02 to 2018-12-21, RAW 2022-03-07 to 2024-12-23; equal to CONFIG in step 3", "The dates were hardcoded and in no frozen document; the manifest is a derived artifact, not approved", None),
+    (jv5, "4.3.8 A5 G3", "jump_variation_w: bipower term scaled by w/(w-1); bias check passes; RAW sensitivity redundancy unchanged (keep 83 / drop 30)", "The unscaled output was biased upward by about one bar-variance without jumps", None),
+    (am5, "4.3 A5 G4", "LEGACY dividend-adjustment check: rule-based reading inconclusive; price levels suggest back-adjustment (inference)", "Report only; ex-dividend gaps have opposite signs (LEGACY +0.31%, RAW -0.74%)", None),
+    (n3, "4.3 N3", "Note N3: LEGACY closes appear dividend-adjusted; Section 5 must normalize Amihud (amihud_15, amihud_30, amihud_60 and their __sadj versions) per fold, fitted on training rows only", "Follows from the A5 G4 inference; requirement set by the repository owner", None),
+    (cladd_avail, "4.3", "Addendum: the availability check is circular; P1 R1's availability evidence rests on it", "Audit #11; no code or data change", None),
+    (a4res, "4.3 A4", "A4 results report: all seven items PASS", "Checks run live; the first F7 evaluation failed on two checker defects, corrected and recorded", None),
+    (a5res, "4.3 A5", "A5 results report: G1 PASS, G2 PASS, G3 PASS, G4 report only, G5 recorded", "See the report", None),
 ]
 for e in E: assert rel(e[0]) in tracked, rel(e[0])
 rows = []
@@ -111,6 +136,14 @@ def add_lim(path, key, label=None):
         lim.append((rel(path), sha(path), t))
 add_lim(cl431, "known_limitations"); add_lim(cl43, "known_limitations"); add_lim(cladd, "known_limitations")
 add_lim(p1, "limits"); add_lim(appr, "not_resolved_by_this_approval"); add_lim(n1, "not_done")
+_aud = load(cladd_audit)
+for _x in _aud["disclosures"]:
+    lim.append((rel(cladd_audit), sha(cladd_audit), f"{_x['finding']} {_x['statement']} " + " ".join(_x["facts"])))
+lim.append((rel(cladd_audit), sha(cladd_audit), f"{_aud['correction']['finding']} {_aud['correction']['statement']} Corrected statement: {_aud['correction']['corrected_statement']}"))
+add_lim(cladd_avail, "facts"); add_lim(a4res, "history"); add_lim(a4res, "not_addressed"); add_lim(a5res, "notes"); add_lim(n3, "not_done")
+_g4 = next(i for i in load(a5res)["items"] if i["item"].startswith("4 G4"))
+lim.append((rel(a5res), sha(a5res), "G4: " + _g4["detail"]))
+lim.append((rel(a5res), sha(a5res), "G3: " + next(i for i in load(a5res)["items"] if i["item"].startswith("3 G3"))["detail"]))
 
 # open items
 audit_def = load(a3)["timing"]["prior_run_found_4_3_2_4_3_3"]["deferred_in_that_audit"]
@@ -141,11 +174,35 @@ for i, (item, srcs) in enumerate(ten, 1):
     else:
         files, hashes = "; ".join(rel(s) for s in srcs), "; ".join(f"`{sha(s)}`" for s in srcs)
     L.append(f"| {i} | {esc(item)} | open | {esc(files)} | {hashes} |")
+added = [
+    ("Normalize amihud_15, amihud_30, amihud_60 and their __sadj versions per fold in Section 5, fitting any statistic on the fold's training rows only (LEGACY closes appear dividend-adjusted)", [n3, a5res, am5]),
+    ("Independent confirmation of the dividend-adjustment status of the LEGACY closes (A5 G4 was an inference)", [am5, a5res]),
+    ("Recompute the 4.3.7 and 4.3.8 selection inside each fold (audit #3 disclosure; the A4 selection is still on all of TRAIN)", [cladd_audit, a4res]),
+    ("Regenerate the 4.3.6 rows for the adjusted columns and the 4.3.9 matrix under the A4 seasonal definition (not regenerated in A4)", [a4]),
+    ("Audit #9: the look-ahead probe in step4_extract_parameters.py (last session only, 6 bars ahead)", [a4res]),
+    ("Below-floor members of the amended comparison tiers (downside15_strict, rv60_strict, rv60_partial90, rv60_sampled5_exact): no amended tier is fully primary-eligible", [a5, a5res]),
+]
+L += ["", "### Open items added after the list of 10 was derived", "", "| # | Item | Status | Source file(s) | SHA-256 |", "|---|---|---|---|---|"]
+for j, (item, srcs) in enumerate(added, 1):
+    L.append(f"| N.{j} | {esc(item)} | open | {esc('; '.join(rel(s) for s in srcs))} | {'; '.join('`' + sha(s) + '`' for s in srcs)} |")
 L += ["", "### Other open items recorded in the documents", "", "| # | Item | Status | Source file | SHA-256 |", "|---|---|---|---|---|"]
 for j, t in enumerate(a1_req, 1):
     L.append(f"| A1.{j} | {esc(t)} (A1 required_before_finalizing) | not verified | {esc(rel(a1))}; {esc(rel(appr))} | `{sha(a1)}`; `{sha(appr)}` |")
 L += ["", "### Items open earlier and done since", "", "| Item | Status | Source file | SHA-256 |", "|---|---|---|---|",
-      f"| Redundancy and eligibility rules for the 116-column pool | done | {rel(n2)}; {rel(r78)}; {rel(cladd)} | `{sha(n2)}`; `{sha(r78)}`; `{sha(cladd)}` |"]
+      f"| Redundancy and eligibility rules for the 116-column pool | done (superseded by the A4 rerun on the 113-column pool) | {rel(n2)}; {rel(r78)}; {rel(cladd)} | `{sha(n2)}`; `{sha(r78)}`; `{sha(cladd)}` |"]
+for _item, _status, _srcs in (
+    ("Frozen folds overlapping the evaluation block (audit #2): regenerated from TRAIN only", "done", [f1chk, a4]),
+    ("Lee-Mykland threshold on the wrong scale (audit #5): calibrated by simulation", "done", [cal, a4]),
+    ("Seasonal adjustment using later years (audit #1): causal 20-session baseline", "done", [a4rep, a4]),
+    ("Prefix and isolation tolerance and cut positions (audit #8, #9 prefix/isolation part)", "done", [a4pi, a4]),
+    ("raw_volume diagnostics-only conflict (audit #10): raw_volume, log_raw_volume, raw_volume__sadj out of the detector set", "done", [a4rep, a4]),
+    ("rv10 in place of rv15 in the comparison tiers (audit #10)", "approved (tiers still contain below-floor members)", [a5]),
+    ("TRAIN cutoffs in no frozen document (audit #11)", "recorded (manifest is a derived artifact)", [cut5, a5]),
+    ("jump_variation upward bias (audit #11)", "done", [jv5, a5]),
+    ("Disclosures #3, #4, #6, #7 and the availability-check circularity (audit #11)", "done", [cladd_audit, cladd_avail]),
+    ("Reproducibility and record-keeping gaps (audit #12)", "done", [a4res]),
+):
+    L.append(f"| {esc(_item)} | {_status} | {esc('; '.join(rel(s) for s in _srcs))} | {'; '.join('`' + sha(s) + '`' for s in _srcs)} |")
 out = ROOT / "METHODS_LEDGER.md"
 out.write_text("\n".join(L) + "\n", encoding="utf-8")
 (ROOT / "METHODS_LEDGER.sha256").write_text(f"{sha(out)}  {out.name}\n", encoding="ascii")

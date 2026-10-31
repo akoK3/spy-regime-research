@@ -29,6 +29,7 @@
 !/step14_a5_amihud_adjustment_check.py
 !/write_a5_results_report.py
 !/write_a4_a5_records.py
+!/write_note_4_3_N3.py
 !/build_section4_complete.py
 !/SECTION4_COMPLETE.md
 !/SECTION4_COMPLETE.sha256
@@ -66,6 +67,7 @@
 !/section431_step3_all_in_one_results/sec4_3_*
 !/section431_step3_all_in_one_results/note_4_3_N1_*
 !/section431_step3_all_in_one_results/note_4_3_N2_*
+!/section431_step3_all_in_one_results/note_4_3_N3_*
 !/section431_step3_all_in_one_results/amendment_4_3_A4_*
 !/section431_step3_all_in_one_results/amendment_4_3_A5_*
 !/section431_step3_all_in_one_results/a5_*

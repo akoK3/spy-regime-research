@@ -1,0 +1,92 @@
+{
+  "note": "4.3-N3 Amihud: LEGACY prices appear dividend-adjusted; Section 5 normalizes Amihud per fold",
+  "created_utc": "2026-10-31T03:40:21.767508+00:00",
+  "created_america_new_york": "2026-10-30T23:40:21.767508-04:00",
+  "status": "WRITTEN_AFTER_THE_A5_G4_REPORT",
+  "cites": {
+    "A5": {
+      "file": "amendment_4_3_A5_20261031T023320Z.json",
+      "sha256": "2637654bac921c171935011a9bc7d22bd7c2168f786397c2b2376d0d0179c35b"
+    },
+    "A5_G4_report": {
+      "file": "a5_amihud_adjustment_check.json",
+      "sha256": "f30c789f22fd9d1f798c5e8861fcd55ad2767d0390f5846f58e2c0bde3af86f5"
+    },
+    "A5_results_report": {
+      "file": "a5_results_report.json",
+      "sha256": "0bf2a00290331640d4f49c964079b1407606b39b2d5a7294426215da45255723"
+    },
+    "frozen_protocol_v2": {
+      "file": "protocol_20261029T032641Z.json",
+      "sha256": "3d6f0c96fce1c05f8e94d1a8c6e6b14a5b5b1c9f013e6a95dd1e96498cbfff8b"
+    }
+  },
+  "finding": {
+    "statement": "LEGACY closes appear to be back-adjusted for dividends. This is an inference, not an established fact.",
+    "evidence_in_the_repository": "A5 G4: first LEGACY close 62.12 on 2003-01-02; junction ratio 0.99845; the fixed ex-dividend reading rule gave 'inconclusive' (LEGACY gap 0.3061%, RAW gap -0.7405%).",
+    "evidence_outside_the_repository": "General knowledge, unverified here: SPY traded near 90 in early January 2003; a series adjusted for all dividends up to 2026 would show a much lower level for that date.",
+    "consequence": "Inference only: if the closes are back-adjusted, the dollar volume (volume x close) in amihud_w is understated in early years and the level of amihud_w drifts with the adjustment factor.",
+    "g4_detail": "Rule-based reading: inconclusive. Ex-dividend gap in the mean overnight return: LEGACY 0.3061% (SE 0.1233%, 57 sessions, t 2.48); RAW -0.7405% (SE 0.12%, 12 sessions, t -6.17). The two gaps have opposite signs, and the ex-date approximation (third Friday of March, June, September, December) coincides with quarterly options expiration, so this test does not settle the question. Price levels: LEGACY first close 62.12 on 2003-01-02, last TRAIN close 229.57; junction ratio 0.99845 (first RAW Open 431.57 over last LEGACY Close 432.24), a normal one-day move. Inference, not established from the repository: a LEGACY close of about 62 on 2003-01-02, against a level near 90 recalled from general knowledge, and a junction ratio near 1 would both fit closes back-adjusted for dividends up to about March 2022; if so, amihud_w dollar volume is understated in early years. Nothing was changed."
+  },
+  "requirement": {
+    "text": "Section 5 must normalize Amihud (amihud_15, amihud_30, amihud_60 and their __sadj versions) per fold. Any normalizing statistic is fitted on the training rows of that fold only, as the frozen protocol requires for fold fit statistics.",
+    "fold_fit_rule_quoted": "Within each fold select using inner train/validation only; refit on preceding 252 sessions before outer development diagnostics. All features/scalers/models train chronologically; no selection on retrospective 2025-2026 or target reactions.",
+    "decided_by": "the repository owner, in the working session on this date",
+    "method": "Not specified here; to be specified in Section 5."
+  },
+  "columns": [
+    {
+      "column": "amihud_15",
+      "coverage_LEGACY_pct": 76.883,
+      "coverage_RAW_pct": 95.584,
+      "primary_eligible": false,
+      "primary_outcome": "not in set",
+      "sensitivity_outcome": "kept"
+    },
+    {
+      "column": "amihud_30",
+      "coverage_LEGACY_pct": 60.763,
+      "coverage_RAW_pct": 91.358,
+      "primary_eligible": false,
+      "primary_outcome": "not in set",
+      "sensitivity_outcome": "kept"
+    },
+    {
+      "column": "amihud_60",
+      "coverage_LEGACY_pct": 37.735,
+      "coverage_RAW_pct": 82.982,
+      "primary_eligible": false,
+      "primary_outcome": "not in set",
+      "sensitivity_outcome": "kept"
+    },
+    {
+      "column": "amihud_15__sadj",
+      "coverage_LEGACY_pct": 76.544,
+      "coverage_RAW_pct": 94.216,
+      "primary_eligible": false,
+      "primary_outcome": "not in set",
+      "sensitivity_outcome": "kept"
+    },
+    {
+      "column": "amihud_30__sadj",
+      "coverage_LEGACY_pct": 57.059,
+      "coverage_RAW_pct": 90.044,
+      "primary_eligible": false,
+      "primary_outcome": "not in set",
+      "sensitivity_outcome": "kept"
+    },
+    {
+      "column": "amihud_60__sadj",
+      "coverage_LEGACY_pct": 15.513,
+      "coverage_RAW_pct": 81.778,
+      "primary_eligible": false,
+      "primary_outcome": "not in set",
+      "sensitivity_outcome": "kept"
+    }
+  ],
+  "not_done": [
+    "No Amihud column, formula, threshold or classification was changed.",
+    "The adjustment status of the LEGACY closes is not independently confirmed.",
+    "RAW closes are described by the frozen protocol as having no further dividend scaling; this was not tested."
+  ]
+}

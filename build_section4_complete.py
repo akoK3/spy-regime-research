@@ -53,20 +53,37 @@ r49, r78, r5b = R / "sec4_3_4_to_4_3_9_report.json", R / "sec4_3_7_8_pool116_rep
 head = subprocess.run(["git", "rev-parse", "HEAD"], cwd=ROOT, capture_output=True, text=True).stdout.strip()
 
 # ---- dictionary
+a4, a5, n3, cold = g("amendment_4_3_A4_2*.json"), g("amendment_4_3_A5_2*.json"), g("note_4_3_N3_2*.json"), ROOT / "cold_audit_20261030.md"
+a4res, a5res, cal = R / "a4_results_report.json", R / "a5_results_report.json", R / "a4_lm_threshold_calibration.json"
+a4rep, a4pi, f1chk = R / "a4_sec4_3_4_7_8_report.json", R / "a4_prefix_isolation_report.json", R / "a4_folds_check.json"
+cladd_audit, cladd_avail = g("section_4_3_closing_report_addendum_audit_2*.json"), g("section_4_3_closing_report_addendum_availability_2*.json")
+am5, jv5, cut5 = R / "a5_amihud_adjustment_check.json", R / "a5_jump_variation_redundancy.json", R / "a5_train_cutoffs.json"
 dic = {x["output"]: x for x in load(cl431)["feature_dictionary"]}
 a3m = pd.read_csv(R / "sec4_3_9_frozen_matrix.csv").set_index("output")
-pool = pd.read_csv(R / "sec4_3_7_8_pool116_matrix.csv").set_index("column")
+pool = pd.read_csv(R / "a4_sec4_3_pool_matrix.csv").set_index("column")  # current pool: 78 raw + 35 adjusted (A4)
+thr = load(cal)["threshold"]
 word = lambda s: str(s).split(":")[0]
 rows = []
 for n in pool.index:
     raw = n.replace("__sadj", "")
     d = dic[raw]; pr = pool.loc[n]
     adj = n.endswith("__sadj")
-    formula = ("raw value / TRAIN median of the raw column at the same minute of the session, per era; NaN where that median is missing or <= 0 (A3 4.3.4)" if adj else d["definition"])
+    note = ""
+    if adj:
+        formula = "raw value / median of the same slot over the previous 20 sessions of the same era (at least 10 finite values); NaN if the raw value or the baseline is missing, or the baseline is <= 0 (A4 F2)"
+        look, minobs, warm = f"{d['lookback_bars']} / 20", f"{d['min_valid_obs']}; baseline needs 10 of the previous 20 sessions", d["warmup"].replace("session 0", "session 10")
+        note = "definition changed by A4 F2"
+    else:
+        formula, look, minobs, warm = d["definition"], f"{d['lookback_bars']} / {d['lookback_sessions']}", d["min_valid_obs"], d["warmup"]
+        if raw.startswith("jump_variation_"):
+            formula = "max(0, sum of r_i^2 over the w returns - (w/(w-1)) * (pi/2) * sum over the w-1 adjacent pairs of |r_i||r_(i-1)|) (A5 G3)"; note = "formula changed by A5 G3"
+        if raw == "lee_mykland_jump60":
+            formula = f"1.0 if |lee_mykland_approx60| > {thr} (99th percentile of the session maximum of |stat| over 200,000 simulated Gaussian 390-bar no-jump sessions, A4 F3), else 0.0; undefined where the statistic is undefined"; note = "threshold changed by A4 F3 (was 5.4667)"
+    if raw.startswith("amihud_"):
+        note = (note + "; " if note else "") + "LEGACY closes appear dividend-adjusted; normalize per fold in Section 5 (N3)"
     cls = "adjusted" if adj else a3m.loc[raw, "feature_class"]
-    a3p, a3s = ("-", "-") if adj else (word(a3m.loc[raw, "primary_redundancy"]), word(a3m.loc[raw, "sensitivity_redundancy"]))
-    rows.append((n, cls, formula, f"{d['lookback_bars']} / {d['lookback_sessions']}", d["min_valid_obs"], d["warmup"], f"{pr.coverage_LEGACY_pct:.3f}", f"{pr.coverage_RAW_pct:.3f}",
-                 "yes" if pr.primary_eligible else "no", a3p, a3s, word(pr.primary_outcome), word(pr.sensitivity_outcome)))
+    rows.append((n, cls, formula, look, minobs, warm, f"{pr.coverage_LEGACY_pct:.3f}", f"{pr.coverage_RAW_pct:.3f}",
+                 "yes" if pr.primary_eligible else "no", word(pr.primary_outcome), word(pr.sensitivity_outcome), note or "-"))
 
 # ---- tests
 T = []
@@ -105,6 +122,26 @@ rp = load(r78)
 for sec, v in rp["subsections"].items():
     for k, ok in v["checks"].items(): tr(f"Pool 116, {sec}: {k}", "TRAIN, RAW then LEGACY", "PASS" if ok else "FAIL", r78)
 tr("4.3.5b flagged bars equal the 4.3.5 LEGACY result", "LEGACY", "PASS (assertion held)", r5b)
+# ---- A4 and A5
+fold = load(f1chk)
+tr("A4 F1: " + fold["assertions"], "TRAIN sessions per era from the manifest", fold["status"], f1chk)
+calj = load(cal)
+tr("A4 F3: second-seed false-alarm rate between 0.9% and 1.1% at the threshold", "200,000 simulated sessions", f"{calj['check_second_seed_between_0_9_and_1_1_pct']} ({calj['false_alarm_rate_at_threshold']['seed_43106']:.4%}; threshold {calj['threshold']})", cal)
+a4repd = load(a4rep)
+for sec, v in a4repd["subsections"].items():
+    if sec.startswith("F2"):
+        for era, c in v["checks"].items():
+            tr(f"A4 {sec}: brute-force cells, prefix invariance, first 10 sessions NaN", era, f"{c['status']} ({c['brute_force_cells']} cells, {len(c['brute_force_mismatches'])} mismatches)", a4rep)
+    elif isinstance(v.get("checks"), dict):
+        for k, ok in v["checks"].items():
+            if isinstance(ok, bool): tr(f"A4 {sec}: {k}", "TRAIN, RAW then LEGACY, 113-column pool", "PASS" if ok else "FAIL", a4rep)
+    tr(f"A4 {sec}", "TRAIN, RAW then LEGACY, 113-column pool", v["status"], a4rep)
+for t in load(a4pi)["table"]:
+    tr(f"A4 F4: {t['item']}", "relative tolerance rtol 1e-9, atol 0", t["status"], a4pi)
+for it in load(a4res)["items"]:
+    tr(f"A4 result {it['item']}", "A4 results report", f"{it['status']}: {it['detail']}", a4res)
+for it in load(a5res)["items"]:
+    tr(f"A5 result {it['item']}", "A5 results report", f"{it['status']}: {it['detail']}", a5res)
 
 # ---- deviations and post-hoc items: (item, detail, file)
 D = [
@@ -132,19 +169,33 @@ D = [
     ("Note N2 tie-break for adjusted columns", "Positions 80-115, raw wins ties; chosen by the repository owner; note committed before the pool run", n2),
     ("Closing report scope", "Closing report covers Section 4.3 (4.3.0-4.3.9), marker SECTION_4_3_CLOSED; later results added as an addendum, closed report unchanged", cl43),
     ("List of 10 open items is derived", "No document defines a list of 10 postponed items; merged from the documents' deferred and not-decided lists", ROOT / "METHODS_LEDGER.md"),
+    ("Cold audit applied after the closing reports", "The audit found 12 problems; A4 and A5 fix them; the closed reports are not edited and corrections are in addenda", cold),
+    ("Seasonal adjustment replaced", "The A3 definition (median over all TRAIN rows) is replaced by a causal 20-session baseline (A4 F2); the A3-run and 116-column-pool results for the adjusted columns are superseded; the 4.3.6 adjusted rows and the 4.3.9 matrix are not regenerated", a4),
+    ("Lee-Mykland threshold replaced", "5.4667 (A2) replaced by 4.6113 from simulation (A4 F3)", cal),
+    ("jump_variation formula changed", "Bipower term scaled by w/(w-1) (A5 G3), superseding the A2 definition; bipower_w unchanged (reading stated by the assistant); F4 not rerun for it", jv5),
+    ("Volume columns taken out of the detector set", "raw_volume, log_raw_volume and raw_volume__sadj are diagnostics-only (A4 F5, decision of the repository owner); the N1/N2 116-column pool is superseded by the 113-column pool", a4),
+    ("rv10 approved in place of rv15 after the audit", "Approved by the repository owner in A5 G5; amended tiers still contain below-floor members; the frozen protocol file is not edited", a5),
+    ("F2/F5 rerun needed three attempts", "The first was killed during the LEGACY feature pass; the second failed on this repository's own overwrite guard before any analysis; the third completed", a4res),
+    ("F4 run per era with spilled features", "The first attempt was stopped for low system memory; float32 was not used because it would coarsen the rtol 1e-9 tolerance; each era has its own fixed seed", a4res),
+    ("F7 checker defects corrected", "The first evaluation failed on two defects in the checker (a text label matched; an untracked unrelated file compiled); corrected, criterion unchanged", a4res),
+    ("G4 reads one non-TRAIN price level", "The junction ratio uses one LEGACY close from 2022-03-04 (EVALUATION_EXPOSED in the manifest); no return statistic from that period is computed", am5),
+    ("Amihud finding is an inference", "LEGACY closes appear dividend-adjusted; the rule-based reading was inconclusive and the price-level evidence uses an external reference not in the repository; N3 records the requirement to normalize Amihud per fold", n3),
+    ("TRAIN cutoffs recorded from a derived manifest", "The manifest is not an approved frozen document (A1 manifest item unverified)", cut5),
 ]
 
 L = ["# SECTION4_COMPLETE", "", f"Generated {datetime.datetime.now(datetime.timezone.utc).strftime('%Y-%m-%d %H:%M:%SZ')} | repository HEAD before this commit `{head}`",
-     "Scope: Section 4 as recorded in this repository: 4.3.0-4.3.9. Sections 4.1 and 4.2: placeholder below. Pre-rebuild results of sections 4.4-4.9: not part of this record.", "",
+     "Scope: Section 4 as recorded in this repository: 4.3.0-4.3.9, including amendments A4 and A5, notes N1 to N3 and the cold audit. Sections 4.1 and 4.2: placeholder below. Pre-rebuild results of sections 4.4-4.9: not part of this record.", "",
      "## 4.1 and 4.2", "", "> **PLACEHOLDER: 4.1/4.2 TEXT NOT PROVIDED.**", ">", "> To be added by the repository owner. When added: source path and SHA-256 of the source file.", "",
      "## Chronological decision log", "", f"Source: METHODS_LEDGER.md (SHA-256 `{sha(ROOT / 'METHODS_LEDGER.md')}`).", ""] + section("## 1. Chronology", "## 2. Limitations")
-L += ["", f"## Dictionary of the 116-column pool ({len(rows)} columns)", "",
-      "Columns: lookback = bars / sessions; Primary eligible = at least 80% in both eras; A3 primary / A3 sens. = outcome of the A3 run on the 80 raw columns (kept or dropped); Pool primary / Pool sens. = outcome of the run on the 116-column pool under note N2 (sensitivity = RAW only). 'not in set' = not in that set.", "",
-      "| # | Column | Class | Formula | Lookback | Min valid obs | Warmup | LEGACY % | RAW % | Primary eligible | A3 primary | A3 sens. | Pool primary | Pool sens. |", "|---|---|---|---|---|---|---|---|---|---|---|---|---|---|"]
-L += [f"| {i} | {esc(r[0])} | {esc(r[1])} | {esc(r[2])} | {r[3]} | {esc(r[4])} | {esc(r[5])} | {r[6]} | {r[7]} | {r[8]} | {r[9]} | {r[10]} | {r[11]} | {r[12]} |" for i, r in enumerate(rows, 1)]
-ov = dic["overnight_return_open"]
-L += ["", "Excluded from the pool (response-side only, A2 and N1):", "", "| Column | Formula | Lookback | Min valid obs | Warmup |", "|---|---|---|---|---|",
-      f"| overnight_return_open | {esc(ov['definition'])} | {ov['lookback_bars']} / {ov['lookback_sessions']} | {esc(ov['min_valid_obs'])} | {esc(ov['warmup'])} |"]
+L += ["", f"## Dictionary of the current pool ({len(rows)} columns: {sum(not r[0].endswith('__sadj') for r in rows)} raw + {sum(r[0].endswith('__sadj') for r in rows)} adjusted, as of amendments A4 and A5)", "",
+      "Columns: lookback = bars / sessions; Primary eligible = at least 80% in both eras (own coverage); Primary (A4 run) and RAW sensitivity (A4 run) = outcome of the A4 rerun of 4.3.8 (kept or dropped; sensitivity is RAW only); 'not in set' = not in that set. Earlier results (A3 run on 80 raw columns; N2 run on 116 columns) are superseded for this pool and are listed in the decision log.", "",
+      "| # | Column | Class | Formula | Lookback | Min valid obs | Warmup | LEGACY % | RAW % | Primary eligible | Primary (A4 run) | RAW sensitivity (A4 run) | Note |", "|---|---|---|---|---|---|---|---|---|---|---|---|---|"]
+L += [f"| {i} | {esc(r[0])} | {esc(r[1])} | {esc(r[2])} | {r[3]} | {esc(r[4])} | {esc(r[5])} | {r[6]} | {r[7]} | {r[8]} | {r[9]} | {r[10]} | {esc(r[11])} |" for i, r in enumerate(rows, 1)]
+ov, rv, lrv = dic["overnight_return_open"], dic["raw_volume"], dic["log_raw_volume"]
+L += ["", "Not in the pool:", "", "| Column | Reason | Formula | Lookback | Min valid obs | Warmup |", "|---|---|---|---|---|---|",
+      f"| overnight_return_open | response-side only (A2, N1) | {esc(ov['definition'])} | {ov['lookback_bars']} / {ov['lookback_sessions']} | {esc(ov['min_valid_obs'])} | {esc(ov['warmup'])} |",
+      f"| raw_volume | diagnostics-only (A4 F5; frozen protocol: raw/log volume are diagnostic candidates only) | {esc(rv['definition'])} | {rv['lookback_bars']} / {rv['lookback_sessions']} | {esc(rv['min_valid_obs'])} | {esc(rv['warmup'])} |",
+      f"| log_raw_volume | diagnostics-only (A4 F5) | {esc(lrv['definition'])} | {lrv['lookback_bars']} / {lrv['lookback_sessions']} | {esc(lrv['min_valid_obs'])} | {esc(lrv['warmup'])} |"]
 L += ["", "## Tests and results", "", "| Test | Scope | Result | File | SHA-256 |", "|---|---|---|---|---|"] + [f"| {esc(a)} | {esc(b)} | {esc(c)} | {esc(d)} | `{h}` |" for a, b, c, d, h in T]
 L += ["", "## Deviations and post-hoc items", "", "| # | Item | Detail | File | SHA-256 |", "|---|---|---|---|---|"] + [f"| {i} | {esc(a)} | {esc(b)} | {esc(rel(f))} | `{sha(f)}` |" for i, (a, b, f) in enumerate(D, 1)]
 L += ["", "## Limitations"] + section("## 2. Limitations", "## 3. Open items")
