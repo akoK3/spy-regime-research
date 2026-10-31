@@ -1,0 +1,66 @@
+{
+  "created_utc": "2026-10-31T03:31:29.310155+00:00",
+  "amendment": "4.3-A5 G4",
+  "kind": "report only",
+  "ex_dividend_test": {
+    "RAW": {
+      "era": "RAW",
+      "ex_dividend_sessions": 12,
+      "other_sessions": 692,
+      "mean_overnight_ex_pct": -0.7029,
+      "mean_overnight_other_pct": 0.0375,
+      "gap_pct": -0.7405,
+      "se_pct": 0.12,
+      "t": -6.17
+    },
+    "LEGACY": {
+      "era": "LEGACY",
+      "ex_dividend_sessions": 57,
+      "other_sessions": 3407,
+      "mean_overnight_ex_pct": 0.3292,
+      "mean_overnight_other_pct": 0.0231,
+      "gap_pct": 0.3061,
+      "se_pct": 0.1233,
+      "t": 2.48,
+      "by_subperiod": {
+        "2003-2010": {
+          "ex_sessions": 26,
+          "gap_pct": 0.5222,
+          "se_pct": 0.2383
+        },
+        "2011-2018": {
+          "ex_sessions": 31,
+          "gap_pct": 0.1238,
+          "se_pct": 0.1011
+        }
+      }
+    }
+  },
+  "price_levels": {
+    "RAW": {
+      "first_session": "2022-03-07",
+      "first_close": 431.4,
+      "last_session": "2024-12-23",
+      "last_close": 593.36,
+      "first_open": 431.57
+    },
+    "LEGACY": {
+      "first_session": "2003-01-02",
+      "first_close": 62.12,
+      "last_session": "2018-12-21",
+      "last_close": 229.57,
+      "first_open": 62.01
+    }
+  },
+  "junction": {
+    "raw_first_open_2022_03_07": 431.57,
+    "legacy_last_close_2022_03_04": 432.24,
+    "ratio": 0.99845,
+    "note": "reads one LEGACY price level from an EVALUATION_EXPOSED session; no return statistic from that period is computed"
+  },
+  "reading_rule_result": "inconclusive",
+  "reading_rule": "see the script docstring (fixed before the run)",
+  "external_reference_not_from_the_repository": "General knowledge, unverified here: SPY traded near 90 in early January 2003; a series adjusted for all dividends up to 2026 would show a much lower level for that date.",
+  "consequence_for_amihud": "Inference only: if the closes are back-adjusted, the dollar volume (volume x close) in amihud_w is understated in early years and the level of amihud_w drifts with the adjustment factor.",
+  "script_sha256": "d033e7fc9c431ec52c8fc5e5214849133a9680d3c905282b6fb5f364beee8052"
+}

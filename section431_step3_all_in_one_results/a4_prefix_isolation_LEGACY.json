@@ -1,0 +1,155 @@
+{
+  "era": "LEGACY",
+  "train_rows": 1562460,
+  "tolerance": {
+    "rtol": 1e-09,
+    "atol": 0
+  },
+  "slice_sessions": 40,
+  "compared_sessions": 15,
+  "prefix": {
+    "cuts": [
+      {
+        "session_index": 227,
+        "kind": "session_end",
+        "cut_row": 88740,
+        "rows_compared": 5850,
+        "mismatching_features": []
+      },
+      {
+        "session_index": 306,
+        "kind": "mid_session",
+        "cut_row": 118725,
+        "rows_compared": 5565,
+        "mismatching_features": []
+      },
+      {
+        "session_index": 325,
+        "kind": "session_end",
+        "cut_row": 126420,
+        "rows_compared": 5850,
+        "mismatching_features": []
+      },
+      {
+        "session_index": 626,
+        "kind": "mid_session",
+        "cut_row": 243330,
+        "rows_compared": 5550,
+        "mismatching_features": []
+      },
+      {
+        "session_index": 787,
+        "kind": "session_end",
+        "cut_row": 306240,
+        "rows_compared": 5850,
+        "mismatching_features": []
+      },
+      {
+        "session_index": 1127,
+        "kind": "mid_session",
+        "cut_row": 438220,
+        "rows_compared": 5590,
+        "mismatching_features": []
+      },
+      {
+        "session_index": 2030,
+        "kind": "session_end",
+        "cut_row": 789030,
+        "rows_compared": 5850,
+        "mismatching_features": []
+      },
+      {
+        "session_index": 2583,
+        "kind": "mid_session",
+        "cut_row": 1003710,
+        "rows_compared": 5580,
+        "mismatching_features": []
+      },
+      {
+        "session_index": 3248,
+        "kind": "session_end",
+        "cut_row": 1262250,
+        "rows_compared": 5850,
+        "mismatching_features": []
+      },
+      {
+        "session_index": 3809,
+        "kind": "mid_session",
+        "cut_row": 1480001,
+        "rows_compared": 5711,
+        "mismatching_features": []
+      }
+    ],
+    "kinds": {
+      "session_end": 5,
+      "mid_session": 5
+    },
+    "status": "PASS"
+  },
+  "isolation": {
+    "blankings": [
+      {
+        "session_index": 337,
+        "kind": "full_session",
+        "blanked_from_row": 130710,
+        "rows_compared": 5850,
+        "mismatching_features": []
+      },
+      {
+        "session_index": 600,
+        "kind": "from_mid_session",
+        "blanked_from_row": 233189,
+        "rows_compared": 5939,
+        "mismatching_features": []
+      },
+      {
+        "session_index": 1079,
+        "kind": "full_session",
+        "blanked_from_row": 419370,
+        "rows_compared": 5850,
+        "mismatching_features": []
+      },
+      {
+        "session_index": 1551,
+        "kind": "from_mid_session",
+        "blanked_from_row": 602627,
+        "rows_compared": 6107,
+        "mismatching_features": []
+      },
+      {
+        "session_index": 1881,
+        "kind": "full_session",
+        "blanked_from_row": 730710,
+        "rows_compared": 5850,
+        "mismatching_features": []
+      },
+      {
+        "session_index": 1946,
+        "kind": "from_mid_session",
+        "blanked_from_row": 756340,
+        "rows_compared": 6130,
+        "mismatching_features": []
+      },
+      {
+        "session_index": 2068,
+        "kind": "full_session",
+        "blanked_from_row": 803460,
+        "rows_compared": 5850,
+        "mismatching_features": []
+      },
+      {
+        "session_index": 2715,
+        "kind": "from_mid_session",
+        "blanked_from_row": 1055145,
+        "rows_compared": 6105,
+        "mismatching_features": []
+      }
+    ],
+    "status": "PASS"
+  },
+  "power_check": {
+    "features": 81,
+    "not_detectable": [],
+    "status": "PASS"
+  }
+}

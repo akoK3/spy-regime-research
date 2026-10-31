@@ -196,7 +196,7 @@ def independent_checks(d,features):
                   f"downside{w}_strict":np.sqrt(np.sum(np.minimum(x,0)**2)),
                   f"momentum{w}_strict":np.sum(x),
                   f"bipower_{w}":np.pi/2*np.sum(np.abs(x[1:]*x[:-1])),
-                  f"jump_variation_{w}":max(0.,np.sum(x*x)-np.pi/2*np.sum(np.abs(x[1:]*x[:-1]))),
+                  f"jump_variation_{w}":max(0.,np.sum(x*x)-w/(w-1)*np.pi/2*np.sum(np.abs(x[1:]*x[:-1]))),
                   f"extreme_loss_{w}":np.min(x)
                 }
                 prices=d["close"][j-w:j+1]
@@ -360,7 +360,7 @@ def oracle_features(d):
                 i=a+j; x=r[i-w+1:i+1]
                 if not np.isfinite(x).all(): continue
                 bp=np.pi/2*np.sum(np.abs(x[1:])*np.abs(x[:-1]))
-                A["bipower_"][i]=bp; A["jump_variation_"][i]=max(0.,np.sum(x**2)-bp)
+                A["bipower_"][i]=bp; A["jump_variation_"][i]=max(0.,np.sum(x**2)-bp*w/(w-1))  # A5 G3
                 p=c[i-w:i+1]
                 if np.isfinite(p).all() and p.max()>0:
                     A["drawdown_"][i]=p[-1]/p.max()-1

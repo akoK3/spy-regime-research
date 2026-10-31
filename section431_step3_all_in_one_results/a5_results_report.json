@@ -1,0 +1,50 @@
+{
+  "created_utc": "2026-10-31T03:34:15.501601+00:00",
+  "created_america_new_york": "2026-10-30T23:34:15.501601-04:00",
+  "amendment_A5": {
+    "file": "amendment_4_3_A5_20261031T023320Z.json",
+    "sha256": "2637654bac921c171935011a9bc7d22bd7c2168f786397c2b2376d0d0179c35b"
+  },
+  "overall": "PASS",
+  "items": [
+    {
+      "item": "1 G1 TRAIN cutoffs",
+      "status": "PASS",
+      "detail": "LEGACY 2003-01-02 to 2018-12-21 (4022 sessions); RAW 2022-03-07 to 2024-12-23 (705 sessions); CONFIG equals the manifest in both eras. The manifest is a derived artifact, not an approved frozen document.",
+      "evidence": "a5_train_cutoffs.json",
+      "evidence_sha256": "f47d031d365aa1723fc8b61dba08503dcebce363685f676b15a9beb0715359bd"
+    },
+    {
+      "item": "2 G2 availability circularity",
+      "status": "PASS",
+      "detail": "Disclosed in section_4_3_closing_report_addendum_availability_20261031T033403Z.json with the quoted lines of load_development.",
+      "evidence": "section_4_3_closing_report_addendum_availability_20261031T033403Z.json",
+      "evidence_sha256": "3bcdc142a5a554c6a7ccdb5af502ab4dd22d36a156a55d6e5f3d9f66fd09b0a4"
+    },
+    {
+      "item": "3 G3 jump_variation scaling",
+      "status": "PASS",
+      "detail": "Formula check on the current code PASS (81/81); bias check (mean of RV minus BV, simulated Gaussian windows): w=15: unscaled 0.9934, scaled -0.007; w=30: unscaled 0.9985, scaled -0.0024; w=60: unscaled 1.0148, scaled 0.015. RAW sensitivity redundancy: keep 83 / drop 30 (before 83 / 30), newly kept none, newly dropped none. Primary set: unchanged (no jump_variation column is in the primary pool). F4 was not rerun for this change. Reading used: the scaling is applied to the bipower term inside jump_variation_w; the bipower_w column is unchanged.",
+      "evidence": "a5_jump_variation_redundancy.json",
+      "evidence_sha256": "3cce89c71abdc1e8d6588e80e92482b599cc36126fecb914b836e7855be0f0e0"
+    },
+    {
+      "item": "4 G4 LEGACY dividend adjustment (report only)",
+      "status": "DONE (report only)",
+      "detail": "Rule-based reading: inconclusive. Ex-dividend gap in the mean overnight return: LEGACY 0.3061% (SE 0.1233%, 57 sessions, t 2.48); RAW -0.7405% (SE 0.12%, 12 sessions, t -6.17). The two gaps have opposite signs, and the ex-date approximation (third Friday of March, June, September, December) coincides with quarterly options expiration, so this test does not settle the question. Price levels: LEGACY first close 62.12 on 2003-01-02, last TRAIN close 229.57; junction ratio 0.99845 (first RAW Open 431.57 over last LEGACY Close 432.24), a normal one-day move. Inference, not established from the repository: a LEGACY close of about 62 on 2003-01-02, against a level near 90 recalled from general knowledge, and a junction ratio near 1 would both fit closes back-adjusted for dividends up to about March 2022; if so, amihud_w dollar volume is understated in early years. Nothing was changed.",
+      "evidence": "a5_amihud_adjustment_check.json",
+      "evidence_sha256": "f30c789f22fd9d1f798c5e8861fcd55ad2767d0390f5846f58e2c0bde3af86f5"
+    },
+    {
+      "item": "5 G5 rv10 replaces rv15 in the tiers",
+      "status": "RECORDED (approved in A5)",
+      "detail": "Tiers after: {'core15': ['return_1m', 'rv10_strict', 'downside15_strict', 'relative_volume20', 'intrabar_range_log'], 'strict60': ['return_1m', 'rv10_strict', 'rv60_strict'], 'partial60': ['return_1m', 'rv10_partial90', 'rv60_partial90'], 'sampled60': ['return_1m', 'rv10_partial90', 'rv60_sampled5_exact']}. Members still BELOW the floor: downside15_strict, rv60_partial90, rv60_sampled5_exact, rv60_strict. The frozen protocol is not edited.",
+      "evidence": "amendment_4_3_A5_20261031T023320Z.json",
+      "evidence_sha256": "2637654bac921c171935011a9bc7d22bd7c2168f786397c2b2376d0d0179c35b"
+    }
+  ],
+  "notes": [
+    "G4 reads one LEGACY price level (2022-03-04, EVALUATION_EXPOSED in the manifest) for the junction ratio; no return statistic from that period is computed.",
+    "The external reference in G4 is general knowledge, not a repository file, and is unverified here."
+  ]
+}

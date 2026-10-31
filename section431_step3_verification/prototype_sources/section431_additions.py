@@ -27,7 +27,7 @@ def construct_additions(d):
                 if not np.isfinite(x).all(): continue
                 sq=np.sum(x*x); bp=(np.pi/2)*np.sum(np.abs(x[1:]*x[:-1]))
                 f[f'bipower_{w}'][idx]=bp
-                f[f'jump_variation_{w}'][idx]=max(0.,sq-bp)
+                f[f'jump_variation_{w}'][idx]=max(0.,sq-bp*w/(w-1))  # A5 G3: bipower uses w-1 pairs, scaled by w/(w-1) to match the w terms of sq
                 # Rolling drawdown is computed from w+1 exact observed closes.
                 prices=c[idx-w:idx+1]
                 if np.isfinite(prices).all() and np.max(prices)>0:

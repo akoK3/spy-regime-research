@@ -1,0 +1,45 @@
+{
+  "status": "SECTION_4_3_CLOSED (addendum; the closed reports are unchanged)",
+  "created_utc": "2026-10-31T03:34:03.174286+00:00",
+  "created_america_new_york": "2026-10-30T23:34:03.174286-04:00",
+  "amends": [
+    {
+      "file": "section_4_3_closing_report_section4_20261031T011136Z.json",
+      "sha256": "4541880b1ac88d866cab7119e148143871ee0678a68b08c2b8e06730a27b2bff"
+    },
+    {
+      "file": "policy_4_3_1_P1_20261030T233123Z.json",
+      "sha256": "580b9c9c4f4df578ba3f4aeda61556d73d8aaed486ec7866a11f93eaf103f75c"
+    }
+  ],
+  "basis": {
+    "amendment_A5": {
+      "file": "amendment_4_3_A5_20261031T023320Z.json",
+      "sha256": "2637654bac921c171935011a9bc7d22bd7c2168f786397c2b2376d0d0179c35b"
+    },
+    "audit": {
+      "file": "cold_audit_20261030.md",
+      "sha256": "d720d46e238a22e5b93da93db14c3a42001e91cb55f9f7813200f5e4665412ac"
+    },
+    "source": {
+      "file": "section431_step3_verification/prototype_sources/section4_3_1_candidates.py",
+      "sha256": "4c8d2b528ff8b86a2885426d974e9be97fbc3d264d60b4e2bf38f16981204878"
+    }
+  },
+  "finding": "#11, availability check",
+  "circular_check_confirmed_from_source": true,
+  "quoted_lines_of_load_development": [
+    "available = ns(p.available_utc_assuming_minute_start)",
+    "require((available == t + MINUTE).all(), \"Availability not bar close\")",
+    "return dict(era=era, t=t, available=available, day=day, slot=slot, r=r,"
+  ],
+  "panel_columns_line": "PANEL_COLUMNS = [\"utc_minute_start_assumed\", \"available_utc_assuming_minute_start\",",
+  "facts": [
+    "The loader reads the availability column available_utc_assuming_minute_start and asserts that it equals the bar's minute-start stamp plus 60 seconds. The column name states the assumption it was built from, so the assertion tests the panel's own construction and cannot fail.",
+    "Policy P1 R1 lists this assertion as its enforcement: 'load_development asserts available == t + 60 s for every bar; construction is trailing-only (Step 4 finds no output that reads bars after t).'. The R1 evidence about availability therefore rests on the same assumption.",
+    "The frozen protocol states the assumption as inherited: 'Minute-start assumption inherited from Section 3; full bar available at stamp + 60 seconds', and requires: 'Later cross-asset timing must report legacy -1/0/+1 minute scenarios; primary clock remains conditional'.",
+    "RAW has no clock-sensitivity test; the LEGACY -1/0/+1 minute sensitivity is an open Section 5 item (ledger item 5).",
+    "Nothing in this repository tests the bar-label assumption against an independent clock."
+  ],
+  "no_code_or_data_change": true
+}

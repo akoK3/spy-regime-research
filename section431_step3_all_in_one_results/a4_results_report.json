@@ -1,0 +1,82 @@
+{
+  "created_utc": "2026-10-31T03:34:15.476840+00:00",
+  "created_america_new_york": "2026-10-30T23:34:15.476840-04:00",
+  "amendment_A4": {
+    "file": "amendment_4_3_A4_20261031T021111Z.json",
+    "sha256": "1960e83752b4dd5fa25dd022792e8a57f89ba79e9c79df02a50fceba96747304"
+  },
+  "audit": {
+    "file": "cold_audit_20261030.md",
+    "sha256": "d720d46e238a22e5b93da93db14c3a42001e91cb55f9f7813200f5e4665412ac"
+  },
+  "overall": "PASS",
+  "items": [
+    {
+      "item": "1 F1 folds (#2)",
+      "status": "PASS",
+      "detail": "LEGACY 30 folds, RAW 4 folds from TRAIN only; sessions touching EMBARGO/EVALUATION_EXPOSED/EXCLUDED: 0 and 0. The frozen v2 file had 36 LEGACY folds (7 with a window after TRAIN) and 4 RAW folds (1 with a window after TRAIN).",
+      "evidence": "a4_folds_check.json",
+      "evidence_sha256": "0cf4b5901cddfc17ef83947e94f92c8696d12240d15f2883cc4b05579326612d"
+    },
+    {
+      "item": "2 F2 seasonal baseline (#1): 4.3.4, 4.3.7, 4.3.8",
+      "status": "PASS",
+      "detail": "4.3.4 PASS (brute-force cells per era 105000, mismatches 0); 4.3.7 PASS, primary pool 27; 4.3.8 PASS: primary keep 19 (raw 13, adjusted 6) / drop 8; RAW sensitivity pool 113 keep 83 (raw 57, adjusted 26) / drop 30.",
+      "evidence": "a4_sec4_3_4_7_8_report.json",
+      "evidence_sha256": "00386b4feacebbceba4c63e8f19012d8a97b15be60c86b79e9051974d2cef0ef"
+    },
+    {
+      "item": "3 F3 Lee-Mykland threshold (#5)",
+      "status": "PASS",
+      "detail": "threshold 4.6113 (95% CI 4.5998 to 4.6245); false-alarm rate at the threshold 1.0005% (seed 43105) and 1.0400% (seed 43106); the old 5.4667 flags 0.0655%. Step 3 formula check on the current code: PASS, 81/81, independent simulated false-alarm rate 0.9900%.",
+      "evidence": "a4_lm_threshold_calibration.json",
+      "evidence_sha256": "c6c5c775fd43a92131f4ce86481d216ec528a65a9a07d42354a19f64db9e0253"
+    },
+    {
+      "item": "4 F4 tolerances and mid-session cuts (#8, #9)",
+      "status": "PASS",
+      "detail": "RAW prefix (relative tolerance, session-end and mid-session cuts): PASS; RAW isolation (full-session and mid-session blanking): PASS; RAW tolerance power check (1e-6 relative error detected): PASS; LEGACY prefix (relative tolerance, session-end and mid-session cuts): PASS; LEGACY isolation (full-session and mid-session blanking): PASS; LEGACY tolerance power check (1e-6 relative error detected): PASS. Relative tolerance rtol 1e-9, atol 0. Run once per era in separate processes (each era with its own fixed seed) to limit memory; features were spilled to float64 files, float32 was not used because it would coarsen the tolerance.",
+      "evidence": "a4_prefix_isolation_report.json",
+      "evidence_sha256": "7b75d667fea6b28cbcbe32594eb3539cd5ccc24a8303293ab9f35d48179281eb"
+    },
+    {
+      "item": "5 F5 protocol conflicts (#10)",
+      "status": "PASS",
+      "detail": "raw_volume, log_raw_volume and raw_volume__sadj are out of the detector set; pool 78 raw + 35 adjusted = 113. The rv10 proposal is approved in amendment A5 (G5). In the A4 primary run rv10_strict is: dropped: redundant with rv10_partial90.",
+      "evidence": "a4_sec4_3_4_7_8_report.json",
+      "evidence_sha256": "00386b4feacebbceba4c63e8f19012d8a97b15be60c86b79e9051974d2cef0ef"
+    },
+    {
+      "item": "6 F6 addendum for #3, #4, #6, #7",
+      "status": "PASS",
+      "detail": "section_4_3_closing_report_addendum_audit_20261031T025306Z.json; the closed reports are unchanged; every number is read from a file.",
+      "evidence": "section_4_3_closing_report_addendum_audit_20261031T025306Z.json",
+      "evidence_sha256": "01a5028ad59541818ac9e8796484f6e5fb53a9dbb2ffbb09eec9b9edcace69dd"
+    },
+    {
+      "item": "7 F7 cleanup (#12)",
+      "status": "PASS",
+      "detail": "a_in_repository_inputs: PASS; b_own_temp_directory: PASS; c_overwrite_guards: PASS; d_computed_hash_check: PASS; scripts_compile: PASS; e_step5_v2_hash_file_matches_current_files: PASS. step5_final_sha256.txt (the v1 state) no longer matches: ['step5_policy.py', 'step5_delay_diagnosis.py']; step5_v2_final_sha256.txt matches all current files. The older file is left unedited.",
+      "evidence": "step5_v2_final_sha256.txt",
+      "evidence_sha256": "eb67e9805bf3c7433fbf7d6f35e03335a206a82e34ef907e19ae4503442f43e1"
+    }
+  ],
+  "history": [
+    "The first F2/F5 rerun was killed during the LEGACY feature pass (no outputs); a restart failed on this repository's own overwrite guard (a kept log matched its pattern, no analysis ran); the third attempt completed.",
+    "The first F4 attempt was stopped for low system memory; F4 was rerun per era with features spilled to disk.",
+    "A4 F7(e): step5_final_sha256.txt was left as the record of the v1 state.",
+    "The first evaluation of the F7 checks gave FAIL because of two defects in the checker, not in the code: it matched the old folder name in a text label instead of in path-building code, and it compiled an untracked unrelated file (test_431_additional_feasibility.py, with a byte-order mark). The checker was corrected (path-building code only; tracked scripts only) and the records regenerated. The A4 criterion 'each item is in place, the scripts compile, the hashes match' was not changed."
+  ],
+  "not_addressed": [
+    "audit #9: the look-ahead probe in step4_extract_parameters.py",
+    "audit #11: TRAIN cutoffs not in a frozen document, circular availability check, jump_variation_w bias, amihud back-adjustment",
+    "the audit's 'disclosed and still open' items"
+  ],
+  "step3_formula_check_current_code": {
+    "status": "PASS",
+    "outputs": 81,
+    "verified": 81,
+    "lm_threshold": 4.6113,
+    "lm_false_alarm_rate": 0.0099
+  }
+}

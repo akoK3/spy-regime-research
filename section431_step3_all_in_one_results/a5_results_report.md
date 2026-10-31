@@ -1,0 +1,16 @@
+# A5 results report
+
+Written 2026-10-31T03:34:15.501601+00:00 UTC (2026-10-30T23:34:15.501601-04:00 New York). A5 `amendment_4_3_A5_20261031T023320Z.json` SHA-256 `2637654bac921c171935011a9bc7d22bd7c2168f786397c2b2376d0d0179c35b`. Overall: **PASS**.
+
+| Item | Status | Detail | Evidence |
+|---|---|---|---|
+| 1 G1 TRAIN cutoffs | PASS | LEGACY 2003-01-02 to 2018-12-21 (4022 sessions); RAW 2022-03-07 to 2024-12-23 (705 sessions); CONFIG equals the manifest in both eras. The manifest is a derived artifact, not an approved frozen document. | a5_train_cutoffs.json |
+| 2 G2 availability circularity | PASS | Disclosed in section_4_3_closing_report_addendum_availability_20261031T033403Z.json with the quoted lines of load_development. | section_4_3_closing_report_addendum_availability_20261031T033403Z.json |
+| 3 G3 jump_variation scaling | PASS | Formula check on the current code PASS (81/81); bias check (mean of RV minus BV, simulated Gaussian windows): w=15: unscaled 0.9934, scaled -0.007; w=30: unscaled 0.9985, scaled -0.0024; w=60: unscaled 1.0148, scaled 0.015. RAW sensitivity redundancy: keep 83 / drop 30 (before 83 / 30), newly kept none, newly dropped none. Primary set: unchanged (no jump_variation column is in the primary pool). F4 was not rerun for this change. Reading used: the scaling is applied to the bipower term inside jump_variation_w; the bipower_w column is unchanged. | a5_jump_variation_redundancy.json |
+| 4 G4 LEGACY dividend adjustment (report only) | DONE (report only) | Rule-based reading: inconclusive. Ex-dividend gap in the mean overnight return: LEGACY 0.3061% (SE 0.1233%, 57 sessions, t 2.48); RAW -0.7405% (SE 0.12%, 12 sessions, t -6.17). The two gaps have opposite signs, and the ex-date approximation (third Friday of March, June, September, December) coincides with quarterly options expiration, so this test does not settle the question. Price levels: LEGACY first close 62.12 on 2003-01-02, last TRAIN close 229.57; junction ratio 0.99845 (first RAW Open 431.57 over last LEGACY Close 432.24), a normal one-day move. Inference, not established from the repository: a LEGACY close of about 62 on 2003-01-02, against a level near 90 recalled from general knowledge, and a junction ratio near 1 would both fit closes back-adjusted for dividends up to about March 2022; if so, amihud_w dollar volume is understated in early years. Nothing was changed. | a5_amihud_adjustment_check.json |
+| 5 G5 rv10 replaces rv15 in the tiers | RECORDED (approved in A5) | Tiers after: {'core15': ['return_1m', 'rv10_strict', 'downside15_strict', 'relative_volume20', 'intrabar_range_log'], 'strict60': ['return_1m', 'rv10_strict', 'rv60_strict'], 'partial60': ['return_1m', 'rv10_partial90', 'rv60_partial90'], 'sampled60': ['return_1m', 'rv10_partial90', 'rv60_sampled5_exact']}. Members still BELOW the floor: downside15_strict, rv60_partial90, rv60_sampled5_exact, rv60_strict. The frozen protocol is not edited. | amendment_4_3_A5_20261031T023320Z.json |
+
+## Notes
+
+- G4 reads one LEGACY price level (2022-03-04, EVALUATION_EXPOSED in the manifest) for the junction ratio; no return statistic from that period is computed.
+- The external reference in G4 is general knowledge, not a repository file, and is unverified here.

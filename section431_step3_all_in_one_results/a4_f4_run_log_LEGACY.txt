@@ -1,0 +1,430 @@
+﻿[    0.1 min] LEGACY: full run
+[    0.6 min]   LEGACY full run: session 201/4022, about 8.1 min left in this pass
+[    1.0 min]   LEGACY full run: session 402/4022, about 7.4 min left in this pass
+[    1.4 min]   LEGACY full run: session 603/4022, about 6.9 min left in this pass
+[    1.9 min]   LEGACY full run: session 804/4022, about 6.5 min left in this pass
+[    2.3 min]   LEGACY full run: session 1005/4022, about 6.1 min left in this pass
+[    2.7 min]   LEGACY full run: session 1206/4022, about 5.7 min left in this pass
+[    3.1 min]   LEGACY full run: session 1407/4022, about 5.4 min left in this pass
+[    3.6 min]   LEGACY full run: session 1608/4022, about 5.0 min left in this pass
+[    4.0 min]   LEGACY full run: session 1809/4022, about 4.6 min left in this pass
+[    4.4 min]   LEGACY full run: session 2010/4022, about 4.2 min left in this pass
+[    4.8 min]   LEGACY full run: session 2211/4022, about 3.8 min left in this pass
+[    5.3 min]   LEGACY full run: session 2412/4022, about 3.4 min left in this pass
+[    5.7 min]   LEGACY full run: session 2613/4022, about 3.0 min left in this pass
+[    6.1 min]   LEGACY full run: session 2814/4022, about 2.5 min left in this pass
+[    6.6 min]   LEGACY full run: session 3015/4022, about 2.1 min left in this pass
+[    7.0 min]   LEGACY full run: session 3216/4022, about 1.7 min left in this pass
+[    7.5 min]   LEGACY full run: session 3417/4022, about 1.3 min left in this pass
+[    7.9 min]   LEGACY full run: session 3618/4022, about 0.9 min left in this pass
+[    8.3 min]   LEGACY full run: session 3819/4022, about 0.4 min left in this pass
+[    8.8 min]   LEGACY full run: session 4020/4022, about 0.0 min left in this pass
+[    8.8 min]   LEGACY prefix 1/10 (session_end): original features
+[    8.8 min]   LEGACY prefix 1/10 (session_end): additional features
+[    8.8 min]   LEGACY prefix 1/10 (session_end): session 2/40, about 0.1 min left in this pass
+[    8.8 min]   LEGACY prefix 1/10 (session_end): session 4/40, about 0.1 min left in this pass
+[    8.8 min]   LEGACY prefix 1/10 (session_end): session 6/40, about 0.1 min left in this pass
+[    8.8 min]   LEGACY prefix 1/10 (session_end): session 8/40, about 0.1 min left in this pass
+[    8.8 min]   LEGACY prefix 1/10 (session_end): session 10/40, about 0.1 min left in this pass
+[    8.8 min]   LEGACY prefix 1/10 (session_end): session 12/40, about 0.1 min left in this pass
+[    8.8 min]   LEGACY prefix 1/10 (session_end): session 14/40, about 0.1 min left in this pass
+[    8.8 min]   LEGACY prefix 1/10 (session_end): session 16/40, about 0.0 min left in this pass
+[    8.8 min]   LEGACY prefix 1/10 (session_end): session 18/40, about 0.0 min left in this pass
+[    8.8 min]   LEGACY prefix 1/10 (session_end): session 20/40, about 0.0 min left in this pass
+[    8.8 min]   LEGACY prefix 1/10 (session_end): session 22/40, about 0.0 min left in this pass
+[    8.8 min]   LEGACY prefix 1/10 (session_end): session 24/40, about 0.0 min left in this pass
+[    8.8 min]   LEGACY prefix 1/10 (session_end): session 26/40, about 0.0 min left in this pass
+[    8.9 min]   LEGACY prefix 1/10 (session_end): session 28/40, about 0.0 min left in this pass
+[    8.9 min]   LEGACY prefix 1/10 (session_end): session 30/40, about 0.0 min left in this pass
+[    8.9 min]   LEGACY prefix 1/10 (session_end): session 32/40, about 0.0 min left in this pass
+[    8.9 min]   LEGACY prefix 1/10 (session_end): session 34/40, about 0.0 min left in this pass
+[    8.9 min]   LEGACY prefix 1/10 (session_end): session 36/40, about 0.0 min left in this pass
+[    8.9 min]   LEGACY prefix 1/10 (session_end): session 38/40, about 0.0 min left in this pass
+[    8.9 min]   LEGACY prefix 1/10 (session_end): done
+[    8.9 min]   LEGACY prefix 2/10 (mid_session): original features
+[    8.9 min]   LEGACY prefix 2/10 (mid_session): additional features
+[    8.9 min]   LEGACY prefix 2/10 (mid_session): session 2/40, about 0.1 min left in this pass
+[    8.9 min]   LEGACY prefix 2/10 (mid_session): session 4/40, about 0.1 min left in this pass
+[    8.9 min]   LEGACY prefix 2/10 (mid_session): session 6/40, about 0.1 min left in this pass
+[    8.9 min]   LEGACY prefix 2/10 (mid_session): session 8/40, about 0.1 min left in this pass
+[    8.9 min]   LEGACY prefix 2/10 (mid_session): session 10/40, about 0.1 min left in this pass
+[    8.9 min]   LEGACY prefix 2/10 (mid_session): session 12/40, about 0.1 min left in this pass
+[    8.9 min]   LEGACY prefix 2/10 (mid_session): session 14/40, about 0.1 min left in this pass
+[    8.9 min]   LEGACY prefix 2/10 (mid_session): session 16/40, about 0.1 min left in this pass
+[    8.9 min]   LEGACY prefix 2/10 (mid_session): session 18/40, about 0.0 min left in this pass
+[    8.9 min]   LEGACY prefix 2/10 (mid_session): session 20/40, about 0.0 min left in this pass
+[    8.9 min]   LEGACY prefix 2/10 (mid_session): session 22/40, about 0.0 min left in this pass
+[    8.9 min]   LEGACY prefix 2/10 (mid_session): session 24/40, about 0.0 min left in this pass
+[    8.9 min]   LEGACY prefix 2/10 (mid_session): session 26/40, about 0.0 min left in this pass
+[    8.9 min]   LEGACY prefix 2/10 (mid_session): session 28/40, about 0.0 min left in this pass
+[    8.9 min]   LEGACY prefix 2/10 (mid_session): session 30/40, about 0.0 min left in this pass
+[    8.9 min]   LEGACY prefix 2/10 (mid_session): session 32/40, about 0.0 min left in this pass
+[    9.0 min]   LEGACY prefix 2/10 (mid_session): session 34/40, about 0.0 min left in this pass
+[    9.0 min]   LEGACY prefix 2/10 (mid_session): session 36/40, about 0.0 min left in this pass
+[    9.0 min]   LEGACY prefix 2/10 (mid_session): session 38/40, about 0.0 min left in this pass
+[    9.0 min]   LEGACY prefix 2/10 (mid_session): done
+[    9.0 min]   LEGACY prefix 3/10 (session_end): original features
+[    9.0 min]   LEGACY prefix 3/10 (session_end): additional features
+[    9.0 min]   LEGACY prefix 3/10 (session_end): session 2/40, about 0.1 min left in this pass
+[    9.0 min]   LEGACY prefix 3/10 (session_end): session 4/40, about 0.1 min left in this pass
+[    9.0 min]   LEGACY prefix 3/10 (session_end): session 6/40, about 0.1 min left in this pass
+[    9.0 min]   LEGACY prefix 3/10 (session_end): session 8/40, about 0.1 min left in this pass
+[    9.0 min]   LEGACY prefix 3/10 (session_end): session 10/40, about 0.1 min left in this pass
+[    9.0 min]   LEGACY prefix 3/10 (session_end): session 12/40, about 0.1 min left in this pass
+[    9.0 min]   LEGACY prefix 3/10 (session_end): session 14/40, about 0.1 min left in this pass
+[    9.0 min]   LEGACY prefix 3/10 (session_end): session 16/40, about 0.0 min left in this pass
+[    9.0 min]   LEGACY prefix 3/10 (session_end): session 18/40, about 0.0 min left in this pass
+[    9.0 min]   LEGACY prefix 3/10 (session_end): session 20/40, about 0.0 min left in this pass
+[    9.0 min]   LEGACY prefix 3/10 (session_end): session 22/40, about 0.0 min left in this pass
+[    9.0 min]   LEGACY prefix 3/10 (session_end): session 24/40, about 0.0 min left in this pass
+[    9.0 min]   LEGACY prefix 3/10 (session_end): session 26/40, about 0.0 min left in this pass
+[    9.0 min]   LEGACY prefix 3/10 (session_end): session 28/40, about 0.0 min left in this pass
+[    9.0 min]   LEGACY prefix 3/10 (session_end): session 30/40, about 0.0 min left in this pass
+[    9.0 min]   LEGACY prefix 3/10 (session_end): session 32/40, about 0.0 min left in this pass
+[    9.0 min]   LEGACY prefix 3/10 (session_end): session 34/40, about 0.0 min left in this pass
+[    9.0 min]   LEGACY prefix 3/10 (session_end): session 36/40, about 0.0 min left in this pass
+[    9.0 min]   LEGACY prefix 3/10 (session_end): session 38/40, about 0.0 min left in this pass
+[    9.0 min]   LEGACY prefix 3/10 (session_end): done
+[    9.0 min]   LEGACY prefix 4/10 (mid_session): original features
+[    9.0 min]   LEGACY prefix 4/10 (mid_session): additional features
+[    9.1 min]   LEGACY prefix 4/10 (mid_session): session 2/40, about 0.1 min left in this pass
+[    9.1 min]   LEGACY prefix 4/10 (mid_session): session 4/40, about 0.1 min left in this pass
+[    9.1 min]   LEGACY prefix 4/10 (mid_session): session 6/40, about 0.1 min left in this pass
+[    9.1 min]   LEGACY prefix 4/10 (mid_session): session 8/40, about 0.1 min left in this pass
+[    9.1 min]   LEGACY prefix 4/10 (mid_session): session 10/40, about 0.1 min left in this pass
+[    9.1 min]   LEGACY prefix 4/10 (mid_session): session 12/40, about 0.1 min left in this pass
+[    9.1 min]   LEGACY prefix 4/10 (mid_session): session 14/40, about 0.0 min left in this pass
+[    9.1 min]   LEGACY prefix 4/10 (mid_session): session 16/40, about 0.0 min left in this pass
+[    9.1 min]   LEGACY prefix 4/10 (mid_session): session 18/40, about 0.0 min left in this pass
+[    9.1 min]   LEGACY prefix 4/10 (mid_session): session 20/40, about 0.0 min left in this pass
+[    9.1 min]   LEGACY prefix 4/10 (mid_session): session 22/40, about 0.0 min left in this pass
+[    9.1 min]   LEGACY prefix 4/10 (mid_session): session 24/40, about 0.0 min left in this pass
+[    9.1 min]   LEGACY prefix 4/10 (mid_session): session 26/40, about 0.0 min left in this pass
+[    9.1 min]   LEGACY prefix 4/10 (mid_session): session 28/40, about 0.0 min left in this pass
+[    9.1 min]   LEGACY prefix 4/10 (mid_session): session 30/40, about 0.0 min left in this pass
+[    9.1 min]   LEGACY prefix 4/10 (mid_session): session 32/40, about 0.0 min left in this pass
+[    9.1 min]   LEGACY prefix 4/10 (mid_session): session 34/40, about 0.0 min left in this pass
+[    9.1 min]   LEGACY prefix 4/10 (mid_session): session 36/40, about 0.0 min left in this pass
+[    9.1 min]   LEGACY prefix 4/10 (mid_session): session 38/40, about 0.0 min left in this pass
+[    9.1 min]   LEGACY prefix 4/10 (mid_session): done
+[    9.1 min]   LEGACY prefix 5/10 (session_end): original features
+[    9.1 min]   LEGACY prefix 5/10 (session_end): additional features
+[    9.1 min]   LEGACY prefix 5/10 (session_end): session 2/40, about 0.1 min left in this pass
+[    9.1 min]   LEGACY prefix 5/10 (session_end): session 4/40, about 0.1 min left in this pass
+[    9.1 min]   LEGACY prefix 5/10 (session_end): session 6/40, about 0.1 min left in this pass
+[    9.1 min]   LEGACY prefix 5/10 (session_end): session 8/40, about 0.1 min left in this pass
+[    9.1 min]   LEGACY prefix 5/10 (session_end): session 10/40, about 0.1 min left in this pass
+[    9.2 min]   LEGACY prefix 5/10 (session_end): session 12/40, about 0.1 min left in this pass
+[    9.2 min]   LEGACY prefix 5/10 (session_end): session 14/40, about 0.1 min left in this pass
+[    9.2 min]   LEGACY prefix 5/10 (session_end): session 16/40, about 0.0 min left in this pass
+[    9.2 min]   LEGACY prefix 5/10 (session_end): session 18/40, about 0.0 min left in this pass
+[    9.2 min]   LEGACY prefix 5/10 (session_end): session 20/40, about 0.0 min left in this pass
+[    9.2 min]   LEGACY prefix 5/10 (session_end): session 22/40, about 0.0 min left in this pass
+[    9.2 min]   LEGACY prefix 5/10 (session_end): session 24/40, about 0.0 min left in this pass
+[    9.2 min]   LEGACY prefix 5/10 (session_end): session 26/40, about 0.0 min left in this pass
+[    9.2 min]   LEGACY prefix 5/10 (session_end): session 28/40, about 0.0 min left in this pass
+[    9.2 min]   LEGACY prefix 5/10 (session_end): session 30/40, about 0.0 min left in this pass
+[    9.2 min]   LEGACY prefix 5/10 (session_end): session 32/40, about 0.0 min left in this pass
+[    9.2 min]   LEGACY prefix 5/10 (session_end): session 34/40, about 0.0 min left in this pass
+[    9.2 min]   LEGACY prefix 5/10 (session_end): session 36/40, about 0.0 min left in this pass
+[    9.2 min]   LEGACY prefix 5/10 (session_end): session 38/40, about 0.0 min left in this pass
+[    9.2 min]   LEGACY prefix 5/10 (session_end): done
+[    9.2 min]   LEGACY prefix 6/10 (mid_session): original features
+[    9.2 min]   LEGACY prefix 6/10 (mid_session): additional features
+[    9.2 min]   LEGACY prefix 6/10 (mid_session): session 2/40, about 0.1 min left in this pass
+[    9.2 min]   LEGACY prefix 6/10 (mid_session): session 4/40, about 0.1 min left in this pass
+[    9.2 min]   LEGACY prefix 6/10 (mid_session): session 6/40, about 0.1 min left in this pass
+[    9.2 min]   LEGACY prefix 6/10 (mid_session): session 8/40, about 0.1 min left in this pass
+[    9.2 min]   LEGACY prefix 6/10 (mid_session): session 10/40, about 0.1 min left in this pass
+[    9.2 min]   LEGACY prefix 6/10 (mid_session): session 12/40, about 0.1 min left in this pass
+[    9.2 min]   LEGACY prefix 6/10 (mid_session): session 14/40, about 0.1 min left in this pass
+[    9.2 min]   LEGACY prefix 6/10 (mid_session): session 16/40, about 0.0 min left in this pass
+[    9.3 min]   LEGACY prefix 6/10 (mid_session): session 18/40, about 0.0 min left in this pass
+[    9.3 min]   LEGACY prefix 6/10 (mid_session): session 20/40, about 0.0 min left in this pass
+[    9.3 min]   LEGACY prefix 6/10 (mid_session): session 22/40, about 0.0 min left in this pass
+[    9.3 min]   LEGACY prefix 6/10 (mid_session): session 24/40, about 0.0 min left in this pass
+[    9.3 min]   LEGACY prefix 6/10 (mid_session): session 26/40, about 0.0 min left in this pass
+[    9.3 min]   LEGACY prefix 6/10 (mid_session): session 28/40, about 0.0 min left in this pass
+[    9.3 min]   LEGACY prefix 6/10 (mid_session): session 30/40, about 0.0 min left in this pass
+[    9.3 min]   LEGACY prefix 6/10 (mid_session): session 32/40, about 0.0 min left in this pass
+[    9.3 min]   LEGACY prefix 6/10 (mid_session): session 34/40, about 0.0 min left in this pass
+[    9.3 min]   LEGACY prefix 6/10 (mid_session): session 36/40, about 0.0 min left in this pass
+[    9.3 min]   LEGACY prefix 6/10 (mid_session): session 38/40, about 0.0 min left in this pass
+[    9.3 min]   LEGACY prefix 6/10 (mid_session): done
+[    9.3 min]   LEGACY prefix 7/10 (session_end): original features
+[    9.3 min]   LEGACY prefix 7/10 (session_end): additional features
+[    9.3 min]   LEGACY prefix 7/10 (session_end): session 2/40, about 0.1 min left in this pass
+[    9.3 min]   LEGACY prefix 7/10 (session_end): session 4/40, about 0.1 min left in this pass
+[    9.3 min]   LEGACY prefix 7/10 (session_end): session 6/40, about 0.1 min left in this pass
+[    9.3 min]   LEGACY prefix 7/10 (session_end): session 8/40, about 0.1 min left in this pass
+[    9.3 min]   LEGACY prefix 7/10 (session_end): session 10/40, about 0.1 min left in this pass
+[    9.3 min]   LEGACY prefix 7/10 (session_end): session 12/40, about 0.1 min left in this pass
+[    9.3 min]   LEGACY prefix 7/10 (session_end): session 14/40, about 0.1 min left in this pass
+[    9.3 min]   LEGACY prefix 7/10 (session_end): session 16/40, about 0.0 min left in this pass
+[    9.3 min]   LEGACY prefix 7/10 (session_end): session 18/40, about 0.0 min left in this pass
+[    9.3 min]   LEGACY prefix 7/10 (session_end): session 20/40, about 0.0 min left in this pass
+[    9.3 min]   LEGACY prefix 7/10 (session_end): session 22/40, about 0.0 min left in this pass
+[    9.3 min]   LEGACY prefix 7/10 (session_end): session 24/40, about 0.0 min left in this pass
+[    9.3 min]   LEGACY prefix 7/10 (session_end): session 26/40, about 0.0 min left in this pass
+[    9.4 min]   LEGACY prefix 7/10 (session_end): session 28/40, about 0.0 min left in this pass
+[    9.4 min]   LEGACY prefix 7/10 (session_end): session 30/40, about 0.0 min left in this pass
+[    9.4 min]   LEGACY prefix 7/10 (session_end): session 32/40, about 0.0 min left in this pass
+[    9.4 min]   LEGACY prefix 7/10 (session_end): session 34/40, about 0.0 min left in this pass
+[    9.4 min]   LEGACY prefix 7/10 (session_end): session 36/40, about 0.0 min left in this pass
+[    9.4 min]   LEGACY prefix 7/10 (session_end): session 38/40, about 0.0 min left in this pass
+[    9.4 min]   LEGACY prefix 7/10 (session_end): done
+[    9.4 min]   LEGACY prefix 8/10 (mid_session): original features
+[    9.4 min]   LEGACY prefix 8/10 (mid_session): additional features
+[    9.4 min]   LEGACY prefix 8/10 (mid_session): session 2/40, about 0.1 min left in this pass
+[    9.4 min]   LEGACY prefix 8/10 (mid_session): session 4/40, about 0.1 min left in this pass
+[    9.4 min]   LEGACY prefix 8/10 (mid_session): session 6/40, about 0.1 min left in this pass
+[    9.4 min]   LEGACY prefix 8/10 (mid_session): session 8/40, about 0.1 min left in this pass
+[    9.4 min]   LEGACY prefix 8/10 (mid_session): session 10/40, about 0.1 min left in this pass
+[    9.4 min]   LEGACY prefix 8/10 (mid_session): session 12/40, about 0.1 min left in this pass
+[    9.4 min]   LEGACY prefix 8/10 (mid_session): session 14/40, about 0.1 min left in this pass
+[    9.4 min]   LEGACY prefix 8/10 (mid_session): session 16/40, about 0.1 min left in this pass
+[    9.4 min]   LEGACY prefix 8/10 (mid_session): session 18/40, about 0.0 min left in this pass
+[    9.4 min]   LEGACY prefix 8/10 (mid_session): session 20/40, about 0.0 min left in this pass
+[    9.4 min]   LEGACY prefix 8/10 (mid_session): session 22/40, about 0.0 min left in this pass
+[    9.4 min]   LEGACY prefix 8/10 (mid_session): session 24/40, about 0.0 min left in this pass
+[    9.4 min]   LEGACY prefix 8/10 (mid_session): session 26/40, about 0.0 min left in this pass
+[    9.4 min]   LEGACY prefix 8/10 (mid_session): session 28/40, about 0.0 min left in this pass
+[    9.4 min]   LEGACY prefix 8/10 (mid_session): session 30/40, about 0.0 min left in this pass
+[    9.4 min]   LEGACY prefix 8/10 (mid_session): session 32/40, about 0.0 min left in this pass
+[    9.4 min]   LEGACY prefix 8/10 (mid_session): session 34/40, about 0.0 min left in this pass
+[    9.5 min]   LEGACY prefix 8/10 (mid_session): session 36/40, about 0.0 min left in this pass
+[    9.5 min]   LEGACY prefix 8/10 (mid_session): session 38/40, about 0.0 min left in this pass
+[    9.5 min]   LEGACY prefix 8/10 (mid_session): done
+[    9.5 min]   LEGACY prefix 9/10 (session_end): original features
+[    9.5 min]   LEGACY prefix 9/10 (session_end): additional features
+[    9.5 min]   LEGACY prefix 9/10 (session_end): session 2/40, about 0.1 min left in this pass
+[    9.5 min]   LEGACY prefix 9/10 (session_end): session 4/40, about 0.1 min left in this pass
+[    9.5 min]   LEGACY prefix 9/10 (session_end): session 6/40, about 0.1 min left in this pass
+[    9.5 min]   LEGACY prefix 9/10 (session_end): session 8/40, about 0.1 min left in this pass
+[    9.5 min]   LEGACY prefix 9/10 (session_end): session 10/40, about 0.1 min left in this pass
+[    9.5 min]   LEGACY prefix 9/10 (session_end): session 12/40, about 0.1 min left in this pass
+[    9.5 min]   LEGACY prefix 9/10 (session_end): session 14/40, about 0.1 min left in this pass
+[    9.5 min]   LEGACY prefix 9/10 (session_end): session 16/40, about 0.1 min left in this pass
+[    9.5 min]   LEGACY prefix 9/10 (session_end): session 18/40, about 0.0 min left in this pass
+[    9.5 min]   LEGACY prefix 9/10 (session_end): session 20/40, about 0.0 min left in this pass
+[    9.5 min]   LEGACY prefix 9/10 (session_end): session 22/40, about 0.0 min left in this pass
+[    9.5 min]   LEGACY prefix 9/10 (session_end): session 24/40, about 0.0 min left in this pass
+[    9.5 min]   LEGACY prefix 9/10 (session_end): session 26/40, about 0.0 min left in this pass
+[    9.5 min]   LEGACY prefix 9/10 (session_end): session 28/40, about 0.0 min left in this pass
+[    9.5 min]   LEGACY prefix 9/10 (session_end): session 30/40, about 0.0 min left in this pass
+[    9.5 min]   LEGACY prefix 9/10 (session_end): session 32/40, about 0.0 min left in this pass
+[    9.5 min]   LEGACY prefix 9/10 (session_end): session 34/40, about 0.0 min left in this pass
+[    9.5 min]   LEGACY prefix 9/10 (session_end): session 36/40, about 0.0 min left in this pass
+[    9.5 min]   LEGACY prefix 9/10 (session_end): session 38/40, about 0.0 min left in this pass
+[    9.5 min]   LEGACY prefix 9/10 (session_end): done
+[    9.5 min]   LEGACY prefix 10/10 (mid_session): original features
+[    9.5 min]   LEGACY prefix 10/10 (mid_session): additional features
+[    9.6 min]   LEGACY prefix 10/10 (mid_session): session 2/40, about 0.1 min left in this pass
+[    9.6 min]   LEGACY prefix 10/10 (mid_session): session 4/40, about 0.1 min left in this pass
+[    9.6 min]   LEGACY prefix 10/10 (mid_session): session 6/40, about 0.1 min left in this pass
+[    9.6 min]   LEGACY prefix 10/10 (mid_session): session 8/40, about 0.1 min left in this pass
+[    9.6 min]   LEGACY prefix 10/10 (mid_session): session 10/40, about 0.1 min left in this pass
+[    9.6 min]   LEGACY prefix 10/10 (mid_session): session 12/40, about 0.1 min left in this pass
+[    9.6 min]   LEGACY prefix 10/10 (mid_session): session 14/40, about 0.1 min left in this pass
+[    9.6 min]   LEGACY prefix 10/10 (mid_session): session 16/40, about 0.1 min left in this pass
+[    9.6 min]   LEGACY prefix 10/10 (mid_session): session 18/40, about 0.0 min left in this pass
+[    9.6 min]   LEGACY prefix 10/10 (mid_session): session 20/40, about 0.0 min left in this pass
+[    9.6 min]   LEGACY prefix 10/10 (mid_session): session 22/40, about 0.0 min left in this pass
+[    9.6 min]   LEGACY prefix 10/10 (mid_session): session 24/40, about 0.0 min left in this pass
+[    9.6 min]   LEGACY prefix 10/10 (mid_session): session 26/40, about 0.0 min left in this pass
+[    9.6 min]   LEGACY prefix 10/10 (mid_session): session 28/40, about 0.0 min left in this pass
+[    9.6 min]   LEGACY prefix 10/10 (mid_session): session 30/40, about 0.0 min left in this pass
+[    9.6 min]   LEGACY prefix 10/10 (mid_session): session 32/40, about 0.0 min left in this pass
+[    9.6 min]   LEGACY prefix 10/10 (mid_session): session 34/40, about 0.0 min left in this pass
+[    9.6 min]   LEGACY prefix 10/10 (mid_session): session 36/40, about 0.0 min left in this pass
+[    9.6 min]   LEGACY prefix 10/10 (mid_session): session 38/40, about 0.0 min left in this pass
+[    9.6 min]   LEGACY prefix 10/10 (mid_session): done
+[    9.6 min]   LEGACY isolation 1/8 (full_session): original features
+[    9.6 min]   LEGACY isolation 1/8 (full_session): additional features
+[    9.6 min]   LEGACY isolation 1/8 (full_session): session 2/40, about 0.1 min left in this pass
+[    9.6 min]   LEGACY isolation 1/8 (full_session): session 4/40, about 0.1 min left in this pass
+[    9.6 min]   LEGACY isolation 1/8 (full_session): session 6/40, about 0.1 min left in this pass
+[    9.7 min]   LEGACY isolation 1/8 (full_session): session 8/40, about 0.1 min left in this pass
+[    9.7 min]   LEGACY isolation 1/8 (full_session): session 10/40, about 0.1 min left in this pass
+[    9.7 min]   LEGACY isolation 1/8 (full_session): session 12/40, about 0.1 min left in this pass
+[    9.7 min]   LEGACY isolation 1/8 (full_session): session 14/40, about 0.1 min left in this pass
+[    9.7 min]   LEGACY isolation 1/8 (full_session): session 16/40, about 0.1 min left in this pass
+[    9.7 min]   LEGACY isolation 1/8 (full_session): session 18/40, about 0.0 min left in this pass
+[    9.7 min]   LEGACY isolation 1/8 (full_session): session 20/40, about 0.0 min left in this pass
+[    9.7 min]   LEGACY isolation 1/8 (full_session): session 22/40, about 0.0 min left in this pass
+[    9.7 min]   LEGACY isolation 1/8 (full_session): session 24/40, about 0.0 min left in this pass
+[    9.7 min]   LEGACY isolation 1/8 (full_session): session 26/40, about 0.0 min left in this pass
+[    9.7 min]   LEGACY isolation 1/8 (full_session): session 28/40, about 0.0 min left in this pass
+[    9.7 min]   LEGACY isolation 1/8 (full_session): session 30/40, about 0.0 min left in this pass
+[    9.7 min]   LEGACY isolation 1/8 (full_session): session 32/40, about 0.0 min left in this pass
+[    9.7 min]   LEGACY isolation 1/8 (full_session): session 34/40, about 0.0 min left in this pass
+[    9.7 min]   LEGACY isolation 1/8 (full_session): session 36/40, about 0.0 min left in this pass
+[    9.7 min]   LEGACY isolation 1/8 (full_session): session 38/40, about 0.0 min left in this pass
+[    9.7 min]   LEGACY isolation 1/8 (full_session): done
+[    9.7 min]   LEGACY isolation 2/8 (from_mid_session): original features
+[    9.7 min]   LEGACY isolation 2/8 (from_mid_session): additional features
+[    9.7 min]   LEGACY isolation 2/8 (from_mid_session): session 2/40, about 0.1 min left in this pass
+[    9.7 min]   LEGACY isolation 2/8 (from_mid_session): session 4/40, about 0.1 min left in this pass
+[    9.7 min]   LEGACY isolation 2/8 (from_mid_session): session 6/40, about 0.1 min left in this pass
+[    9.7 min]   LEGACY isolation 2/8 (from_mid_session): session 8/40, about 0.1 min left in this pass
+[    9.7 min]   LEGACY isolation 2/8 (from_mid_session): session 10/40, about 0.1 min left in this pass
+[    9.7 min]   LEGACY isolation 2/8 (from_mid_session): session 12/40, about 0.1 min left in this pass
+[    9.7 min]   LEGACY isolation 2/8 (from_mid_session): session 14/40, about 0.0 min left in this pass
+[    9.7 min]   LEGACY isolation 2/8 (from_mid_session): session 16/40, about 0.0 min left in this pass
+[    9.8 min]   LEGACY isolation 2/8 (from_mid_session): session 18/40, about 0.0 min left in this pass
+[    9.8 min]   LEGACY isolation 2/8 (from_mid_session): session 20/40, about 0.0 min left in this pass
+[    9.8 min]   LEGACY isolation 2/8 (from_mid_session): session 22/40, about 0.0 min left in this pass
+[    9.8 min]   LEGACY isolation 2/8 (from_mid_session): session 24/40, about 0.0 min left in this pass
+[    9.8 min]   LEGACY isolation 2/8 (from_mid_session): session 26/40, about 0.0 min left in this pass
+[    9.8 min]   LEGACY isolation 2/8 (from_mid_session): session 28/40, about 0.0 min left in this pass
+[    9.8 min]   LEGACY isolation 2/8 (from_mid_session): session 30/40, about 0.0 min left in this pass
+[    9.8 min]   LEGACY isolation 2/8 (from_mid_session): session 32/40, about 0.0 min left in this pass
+[    9.8 min]   LEGACY isolation 2/8 (from_mid_session): session 34/40, about 0.0 min left in this pass
+[    9.8 min]   LEGACY isolation 2/8 (from_mid_session): session 36/40, about 0.0 min left in this pass
+[    9.8 min]   LEGACY isolation 2/8 (from_mid_session): session 38/40, about 0.0 min left in this pass
+[    9.8 min]   LEGACY isolation 2/8 (from_mid_session): done
+[    9.8 min]   LEGACY isolation 3/8 (full_session): original features
+[    9.8 min]   LEGACY isolation 3/8 (full_session): additional features
+[    9.8 min]   LEGACY isolation 3/8 (full_session): session 2/40, about 0.1 min left in this pass
+[    9.8 min]   LEGACY isolation 3/8 (full_session): session 4/40, about 0.1 min left in this pass
+[    9.8 min]   LEGACY isolation 3/8 (full_session): session 6/40, about 0.1 min left in this pass
+[    9.8 min]   LEGACY isolation 3/8 (full_session): session 8/40, about 0.1 min left in this pass
+[    9.8 min]   LEGACY isolation 3/8 (full_session): session 10/40, about 0.1 min left in this pass
+[    9.8 min]   LEGACY isolation 3/8 (full_session): session 12/40, about 0.1 min left in this pass
+[    9.8 min]   LEGACY isolation 3/8 (full_session): session 14/40, about 0.1 min left in this pass
+[    9.8 min]   LEGACY isolation 3/8 (full_session): session 16/40, about 0.1 min left in this pass
+[    9.8 min]   LEGACY isolation 3/8 (full_session): session 18/40, about 0.0 min left in this pass
+[    9.8 min]   LEGACY isolation 3/8 (full_session): session 20/40, about 0.0 min left in this pass
+[    9.8 min]   LEGACY isolation 3/8 (full_session): session 22/40, about 0.0 min left in this pass
+[    9.8 min]   LEGACY isolation 3/8 (full_session): session 24/40, about 0.0 min left in this pass
+[    9.9 min]   LEGACY isolation 3/8 (full_session): session 26/40, about 0.0 min left in this pass
+[    9.9 min]   LEGACY isolation 3/8 (full_session): session 28/40, about 0.0 min left in this pass
+[    9.9 min]   LEGACY isolation 3/8 (full_session): session 30/40, about 0.0 min left in this pass
+[    9.9 min]   LEGACY isolation 3/8 (full_session): session 32/40, about 0.0 min left in this pass
+[    9.9 min]   LEGACY isolation 3/8 (full_session): session 34/40, about 0.0 min left in this pass
+[    9.9 min]   LEGACY isolation 3/8 (full_session): session 36/40, about 0.0 min left in this pass
+[    9.9 min]   LEGACY isolation 3/8 (full_session): session 38/40, about 0.0 min left in this pass
+[    9.9 min]   LEGACY isolation 3/8 (full_session): done
+[    9.9 min]   LEGACY isolation 4/8 (from_mid_session): original features
+[    9.9 min]   LEGACY isolation 4/8 (from_mid_session): additional features
+[    9.9 min]   LEGACY isolation 4/8 (from_mid_session): session 2/40, about 0.1 min left in this pass
+[    9.9 min]   LEGACY isolation 4/8 (from_mid_session): session 4/40, about 0.1 min left in this pass
+[    9.9 min]   LEGACY isolation 4/8 (from_mid_session): session 6/40, about 0.1 min left in this pass
+[    9.9 min]   LEGACY isolation 4/8 (from_mid_session): session 8/40, about 0.1 min left in this pass
+[    9.9 min]   LEGACY isolation 4/8 (from_mid_session): session 10/40, about 0.1 min left in this pass
+[    9.9 min]   LEGACY isolation 4/8 (from_mid_session): session 12/40, about 0.1 min left in this pass
+[    9.9 min]   LEGACY isolation 4/8 (from_mid_session): session 14/40, about 0.1 min left in this pass
+[    9.9 min]   LEGACY isolation 4/8 (from_mid_session): session 16/40, about 0.1 min left in this pass
+[    9.9 min]   LEGACY isolation 4/8 (from_mid_session): session 18/40, about 0.1 min left in this pass
+[    9.9 min]   LEGACY isolation 4/8 (from_mid_session): session 20/40, about 0.0 min left in this pass
+[    9.9 min]   LEGACY isolation 4/8 (from_mid_session): session 22/40, about 0.0 min left in this pass
+[    9.9 min]   LEGACY isolation 4/8 (from_mid_session): session 24/40, about 0.0 min left in this pass
+[    9.9 min]   LEGACY isolation 4/8 (from_mid_session): session 26/40, about 0.0 min left in this pass
+[    9.9 min]   LEGACY isolation 4/8 (from_mid_session): session 28/40, about 0.0 min left in this pass
+[    9.9 min]   LEGACY isolation 4/8 (from_mid_session): session 30/40, about 0.0 min left in this pass
+[   10.0 min]   LEGACY isolation 4/8 (from_mid_session): session 32/40, about 0.0 min left in this pass
+[   10.0 min]   LEGACY isolation 4/8 (from_mid_session): session 34/40, about 0.0 min left in this pass
+[   10.0 min]   LEGACY isolation 4/8 (from_mid_session): session 36/40, about 0.0 min left in this pass
+[   10.0 min]   LEGACY isolation 4/8 (from_mid_session): session 38/40, about 0.0 min left in this pass
+[   10.0 min]   LEGACY isolation 4/8 (from_mid_session): done
+[   10.0 min]   LEGACY isolation 5/8 (full_session): original features
+[   10.0 min]   LEGACY isolation 5/8 (full_session): additional features
+[   10.0 min]   LEGACY isolation 5/8 (full_session): session 2/40, about 0.1 min left in this pass
+[   10.0 min]   LEGACY isolation 5/8 (full_session): session 4/40, about 0.1 min left in this pass
+[   10.0 min]   LEGACY isolation 5/8 (full_session): session 6/40, about 0.1 min left in this pass
+[   10.0 min]   LEGACY isolation 5/8 (full_session): session 8/40, about 0.1 min left in this pass
+[   10.0 min]   LEGACY isolation 5/8 (full_session): session 10/40, about 0.1 min left in this pass
+[   10.0 min]   LEGACY isolation 5/8 (full_session): session 12/40, about 0.1 min left in this pass
+[   10.0 min]   LEGACY isolation 5/8 (full_session): session 14/40, about 0.1 min left in this pass
+[   10.0 min]   LEGACY isolation 5/8 (full_session): session 16/40, about 0.0 min left in this pass
+[   10.0 min]   LEGACY isolation 5/8 (full_session): session 18/40, about 0.0 min left in this pass
+[   10.0 min]   LEGACY isolation 5/8 (full_session): session 20/40, about 0.0 min left in this pass
+[   10.0 min]   LEGACY isolation 5/8 (full_session): session 22/40, about 0.0 min left in this pass
+[   10.0 min]   LEGACY isolation 5/8 (full_session): session 24/40, about 0.0 min left in this pass
+[   10.0 min]   LEGACY isolation 5/8 (full_session): session 26/40, about 0.0 min left in this pass
+[   10.0 min]   LEGACY isolation 5/8 (full_session): session 28/40, about 0.0 min left in this pass
+[   10.0 min]   LEGACY isolation 5/8 (full_session): session 30/40, about 0.0 min left in this pass
+[   10.0 min]   LEGACY isolation 5/8 (full_session): session 32/40, about 0.0 min left in this pass
+[   10.0 min]   LEGACY isolation 5/8 (full_session): session 34/40, about 0.0 min left in this pass
+[   10.1 min]   LEGACY isolation 5/8 (full_session): session 36/40, about 0.0 min left in this pass
+[   10.1 min]   LEGACY isolation 5/8 (full_session): session 38/40, about 0.0 min left in this pass
+[   10.1 min]   LEGACY isolation 5/8 (full_session): done
+[   10.1 min]   LEGACY isolation 6/8 (from_mid_session): original features
+[   10.1 min]   LEGACY isolation 6/8 (from_mid_session): additional features
+[   10.1 min]   LEGACY isolation 6/8 (from_mid_session): session 2/40, about 0.1 min left in this pass
+[   10.1 min]   LEGACY isolation 6/8 (from_mid_session): session 4/40, about 0.1 min left in this pass
+[   10.1 min]   LEGACY isolation 6/8 (from_mid_session): session 6/40, about 0.1 min left in this pass
+[   10.1 min]   LEGACY isolation 6/8 (from_mid_session): session 8/40, about 0.1 min left in this pass
+[   10.1 min]   LEGACY isolation 6/8 (from_mid_session): session 10/40, about 0.1 min left in this pass
+[   10.1 min]   LEGACY isolation 6/8 (from_mid_session): session 12/40, about 0.1 min left in this pass
+[   10.1 min]   LEGACY isolation 6/8 (from_mid_session): session 14/40, about 0.1 min left in this pass
+[   10.1 min]   LEGACY isolation 6/8 (from_mid_session): session 16/40, about 0.1 min left in this pass
+[   10.1 min]   LEGACY isolation 6/8 (from_mid_session): session 18/40, about 0.0 min left in this pass
+[   10.1 min]   LEGACY isolation 6/8 (from_mid_session): session 20/40, about 0.0 min left in this pass
+[   10.1 min]   LEGACY isolation 6/8 (from_mid_session): session 22/40, about 0.0 min left in this pass
+[   10.1 min]   LEGACY isolation 6/8 (from_mid_session): session 24/40, about 0.0 min left in this pass
+[   10.1 min]   LEGACY isolation 6/8 (from_mid_session): session 26/40, about 0.0 min left in this pass
+[   10.1 min]   LEGACY isolation 6/8 (from_mid_session): session 28/40, about 0.0 min left in this pass
+[   10.1 min]   LEGACY isolation 6/8 (from_mid_session): session 30/40, about 0.0 min left in this pass
+[   10.1 min]   LEGACY isolation 6/8 (from_mid_session): session 32/40, about 0.0 min left in this pass
+[   10.1 min]   LEGACY isolation 6/8 (from_mid_session): session 34/40, about 0.0 min left in this pass
+[   10.1 min]   LEGACY isolation 6/8 (from_mid_session): session 36/40, about 0.0 min left in this pass
+[   10.1 min]   LEGACY isolation 6/8 (from_mid_session): session 38/40, about 0.0 min left in this pass
+[   10.1 min]   LEGACY isolation 6/8 (from_mid_session): done
+[   10.1 min]   LEGACY isolation 7/8 (full_session): original features
+[   10.1 min]   LEGACY isolation 7/8 (full_session): additional features
+[   10.2 min]   LEGACY isolation 7/8 (full_session): session 2/40, about 0.1 min left in this pass
+[   10.2 min]   LEGACY isolation 7/8 (full_session): session 4/40, about 0.1 min left in this pass
+[   10.2 min]   LEGACY isolation 7/8 (full_session): session 6/40, about 0.1 min left in this pass
+[   10.2 min]   LEGACY isolation 7/8 (full_session): session 8/40, about 0.1 min left in this pass
+[   10.2 min]   LEGACY isolation 7/8 (full_session): session 10/40, about 0.1 min left in this pass
+[   10.2 min]   LEGACY isolation 7/8 (full_session): session 12/40, about 0.1 min left in this pass
+[   10.2 min]   LEGACY isolation 7/8 (full_session): session 14/40, about 0.1 min left in this pass
+[   10.2 min]   LEGACY isolation 7/8 (full_session): session 16/40, about 0.0 min left in this pass
+[   10.2 min]   LEGACY isolation 7/8 (full_session): session 18/40, about 0.0 min left in this pass
+[   10.2 min]   LEGACY isolation 7/8 (full_session): session 20/40, about 0.0 min left in this pass
+[   10.2 min]   LEGACY isolation 7/8 (full_session): session 22/40, about 0.0 min left in this pass
+[   10.2 min]   LEGACY isolation 7/8 (full_session): session 24/40, about 0.0 min left in this pass
+[   10.2 min]   LEGACY isolation 7/8 (full_session): session 26/40, about 0.0 min left in this pass
+[   10.2 min]   LEGACY isolation 7/8 (full_session): session 28/40, about 0.0 min left in this pass
+[   10.2 min]   LEGACY isolation 7/8 (full_session): session 30/40, about 0.0 min left in this pass
+[   10.2 min]   LEGACY isolation 7/8 (full_session): session 32/40, about 0.0 min left in this pass
+[   10.2 min]   LEGACY isolation 7/8 (full_session): session 34/40, about 0.0 min left in this pass
+[   10.2 min]   LEGACY isolation 7/8 (full_session): session 36/40, about 0.0 min left in this pass
+[   10.2 min]   LEGACY isolation 7/8 (full_session): session 38/40, about 0.0 min left in this pass
+[   10.2 min]   LEGACY isolation 7/8 (full_session): done
+[   10.2 min]   LEGACY isolation 8/8 (from_mid_session): original features
+[   10.2 min]   LEGACY isolation 8/8 (from_mid_session): additional features
+[   10.2 min]   LEGACY isolation 8/8 (from_mid_session): session 2/40, about 0.1 min left in this pass
+[   10.2 min]   LEGACY isolation 8/8 (from_mid_session): session 4/40, about 0.1 min left in this pass
+[   10.2 min]   LEGACY isolation 8/8 (from_mid_session): session 6/40, about 0.1 min left in this pass
+[   10.2 min]   LEGACY isolation 8/8 (from_mid_session): session 8/40, about 0.1 min left in this pass
+[   10.3 min]   LEGACY isolation 8/8 (from_mid_session): session 10/40, about 0.1 min left in this pass
+[   10.3 min]   LEGACY isolation 8/8 (from_mid_session): session 12/40, about 0.1 min left in this pass
+[   10.3 min]   LEGACY isolation 8/8 (from_mid_session): session 14/40, about 0.1 min left in this pass
+[   10.3 min]   LEGACY isolation 8/8 (from_mid_session): session 16/40, about 0.1 min left in this pass
+[   10.3 min]   LEGACY isolation 8/8 (from_mid_session): session 18/40, about 0.0 min left in this pass
+[   10.3 min]   LEGACY isolation 8/8 (from_mid_session): session 20/40, about 0.0 min left in this pass
+[   10.3 min]   LEGACY isolation 8/8 (from_mid_session): session 22/40, about 0.0 min left in this pass
+[   10.3 min]   LEGACY isolation 8/8 (from_mid_session): session 24/40, about 0.0 min left in this pass
+[   10.3 min]   LEGACY isolation 8/8 (from_mid_session): session 26/40, about 0.0 min left in this pass
+[   10.3 min]   LEGACY isolation 8/8 (from_mid_session): session 28/40, about 0.0 min left in this pass
+[   10.3 min]   LEGACY isolation 8/8 (from_mid_session): session 30/40, about 0.0 min left in this pass
+[   10.3 min]   LEGACY isolation 8/8 (from_mid_session): session 32/40, about 0.0 min left in this pass
+[   10.3 min]   LEGACY isolation 8/8 (from_mid_session): session 34/40, about 0.0 min left in this pass
+[   10.3 min]   LEGACY isolation 8/8 (from_mid_session): session 36/40, about 0.0 min left in this pass
+[   10.3 min]   LEGACY isolation 8/8 (from_mid_session): session 38/40, about 0.0 min left in this pass
+[   10.3 min]   LEGACY isolation 8/8 (from_mid_session): done
+[   10.4 min] LEGACY: prefix PASS, isolation PASS, power check PASS
+# Prefix and isolation rerun (A4 F4)
+
+Run 2026-10-31T03:27:07.630373+00:00 UTC. Relative tolerance rtol 1e-9, atol 0. Overall: **PASS**.
+
+| Test | Status |
+|---|---|
+| RAW prefix (relative tolerance, session-end and mid-session cuts) | PASS |
+| RAW isolation (full-session and mid-session blanking) | PASS |
+| RAW tolerance power check (1e-6 relative error detected) | PASS |
+| LEGACY prefix (relative tolerance, session-end and mid-session cuts) | PASS |
+| LEGACY isolation (full-session and mid-session blanking) | PASS |
+| LEGACY tolerance power check (1e-6 relative error detected) | PASS |

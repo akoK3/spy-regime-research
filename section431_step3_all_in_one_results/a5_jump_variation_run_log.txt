@@ -1,0 +1,41 @@
+﻿[   0.0 min] RAW: features with the scaled jump_variation
+[   0.0 min] RAW: loading TRAIN rows
+[   0.0 min] RAW: 274050 TRAIN rows, 705 sessions; computing features
+[    0.0 min]   RAW 4.3.4-4.3.9: original features
+[    0.0 min]   RAW 4.3.4-4.3.9: additional features
+[    0.2 min]   RAW 4.3.4-4.3.9: session 35/705, about 2.2 min left in this pass
+[    0.3 min]   RAW 4.3.4-4.3.9: session 70/705, about 2.1 min left in this pass
+[    0.4 min]   RAW 4.3.4-4.3.9: session 105/705, about 2.0 min left in this pass
+[    0.5 min]   RAW 4.3.4-4.3.9: session 140/705, about 1.9 min left in this pass
+[    0.6 min]   RAW 4.3.4-4.3.9: session 175/705, about 1.8 min left in this pass
+[    0.7 min]   RAW 4.3.4-4.3.9: session 210/705, about 1.6 min left in this pass
+[    0.9 min]   RAW 4.3.4-4.3.9: session 245/705, about 1.5 min left in this pass
+[    1.0 min]   RAW 4.3.4-4.3.9: session 280/705, about 1.4 min left in this pass
+[    1.1 min]   RAW 4.3.4-4.3.9: session 315/705, about 1.3 min left in this pass
+[    1.2 min]   RAW 4.3.4-4.3.9: session 350/705, about 1.2 min left in this pass
+[    1.3 min]   RAW 4.3.4-4.3.9: session 385/705, about 1.1 min left in this pass
+[    1.4 min]   RAW 4.3.4-4.3.9: session 420/705, about 0.9 min left in this pass
+[    1.5 min]   RAW 4.3.4-4.3.9: session 455/705, about 0.8 min left in this pass
+[    1.7 min]   RAW 4.3.4-4.3.9: session 490/705, about 0.7 min left in this pass
+[    1.8 min]   RAW 4.3.4-4.3.9: session 525/705, about 0.6 min left in this pass
+[    1.9 min]   RAW 4.3.4-4.3.9: session 560/705, about 0.5 min left in this pass
+[    2.0 min]   RAW 4.3.4-4.3.9: session 595/705, about 0.4 min left in this pass
+[    2.1 min]   RAW 4.3.4-4.3.9: session 630/705, about 0.2 min left in this pass
+[    2.2 min]   RAW 4.3.4-4.3.9: session 665/705, about 0.1 min left in this pass
+[    2.3 min]   RAW 4.3.4-4.3.9: session 700/705, about 0.0 min left in this pass
+[    2.4 min]   RAW 4.3.4-4.3.9: done
+[   2.4 min] RAW: feature columns saved; finite counts equal Step 6 for all 80
+[   2.4 min] recomputing the pairs that involve a changed column
+[   3.0 min] sample re-check of 150 unchanged pairs: 0 mismatches
+# jump_variation scaling: redundancy rerun (A5 G3)
+
+Status: **PASS**. Changed columns: jump_variation_15, jump_variation_30, jump_variation_60, jump_variation_15__sadj, jump_variation_30__sadj, jump_variation_60__sadj.
+
+RAW sensitivity pool: kept 83 / dropped 30 (before: kept 83 / dropped 30). Newly kept: none. Newly dropped: none.
+Primary pool contains a changed column: no -> unchanged (no jump_variation column is in the primary pool).
+
+Bias check (simulated Gaussian windows, mean of RV - BV):
+
+- w=15: unscaled 0.9934, scaled -0.007 (PASS)
+- w=30: unscaled 0.9985, scaled -0.0024 (PASS)
+- w=60: unscaled 1.0148, scaled 0.015 (PASS)
