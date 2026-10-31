@@ -1,0 +1,225 @@
+{
+  "protocol_id": "section4_3_0_v2_20261029T032641Z",
+  "status": "FROZEN_RETROSPECTIVE_EXPLORATORY",
+  "frozen_utc": "2026-10-29T03:26:41.858198+00:00",
+  "frozen_america_new_york": "2026-10-28T23:26:41.858198-04:00",
+  "scope": "Final Section 4.3.0 historical split/provider rules and Section 4.3.1 candidate construction; not a final fitted-model or event-study preregistration",
+  "supersedes_draft_snapshot": "evidence/section4_3_0_split_protocol_DRAFT.json",
+  "development": {
+    "LEGACY": {
+      "first_session": "2003-01-02",
+      "last_session": "2022-03-04",
+      "calendar_start_inclusive": "2003-01-01",
+      "calendar_end_inclusive": "2022-03-04",
+      "sessions": 4827,
+      "calendar_minutes": 1875150,
+      "panel_file": "C:\\Users\\kakij\\Downloads\\section3_10_alignment_results\\canonical_panel_LEGACY_1m.csv.gz",
+      "etf_file": "C:\\Users\\kakij\\Downloads\\section3_4_etf_results\\etf_observed_SPY_LEGACY.csv.gz",
+      "panel_sha256": "b5967d9691c547a3b8a277f97fe2a95e1b1c4a49e4d6476c008a08076ce098df",
+      "etf_sha256": "7cd10dfb3e5896b9574a53f35914ce43053705cff9c5ef7029ccb2b88a6c83f7"
+    },
+    "RAW": {
+      "first_session": "2022-03-07",
+      "last_session": "2024-12-31",
+      "calendar_start_inclusive": "2022-03-07",
+      "calendar_end_inclusive": "2024-12-31",
+      "sessions": 710,
+      "calendar_minutes": 275820,
+      "panel_file": "C:\\Users\\kakij\\Downloads\\section3_10_alignment_results\\canonical_panel_RAW_1m.csv.gz",
+      "etf_file": "C:\\Users\\kakij\\Downloads\\section3_4_etf_results\\etf_observed_SPY_RAW.csv.gz",
+      "panel_sha256": "f1b1c498dc76c7ef11e53a31fec655abacaf6458d8f3b9dd1827f9dd8ec91184",
+      "etf_sha256": "6c37b2798d3cc5740d71de94c34343d315fa274b95e50a5a7df081c1b7a5928d"
+    }
+  },
+  "retrospective_evaluation": {
+    "source_epoch": "RAW",
+    "calendar_start_inclusive": "2025-01-01",
+    "first_session": "2025-01-02",
+    "last_session": "2026-10-12",
+    "sessions": 445,
+    "calendar_minutes": 173010,
+    "exposure": "PRIOR_FEATURE_AND_MODEL_SELECTION_EXPOSURE",
+    "defensible_use": "Descriptive temporal replication and prespecified sensitivity with explicit adaptive/exploratory label",
+    "disallowed_claim": "Untouched, independent final test or selection-adjusted confirmatory significance",
+    "constructed_in_section4_3_1": false,
+    "per_target_last_eligible_session": {
+      "TLT": "2026-10-12",
+      "HYG": "2026-10-12",
+      "GOLD": "2026-10-01",
+      "DOLLAR": "2026-10-01"
+    }
+  },
+  "exclusions": [
+    {
+      "first_session": "2002-12-30",
+      "last_session": "2002-12-31",
+      "reason": "Two-session legacy stub; excluded without inspecting outcomes"
+    },
+    {
+      "first_calendar_date": "2026-10-13",
+      "last_calendar_date": "2026-10-28",
+      "reason": "Outside frozen SPY panel; not certified unexposed and not silently promoted to a replacement holdout"
+    }
+  ],
+  "confirmatory_test": {
+    "status": "NO_UNEXPOSED_PERIOD_IDENTIFIED",
+    "first_session": null,
+    "last_session": null,
+    "rule": "A separate timestamped full-model/analysis lock and independent exposure audit must precede any new confirmatory period. Do not claim the current construction freeze locks an unbuilt detector.",
+    "new_data_collection_started": false
+  },
+  "provider_eras": {
+    "LEGACY": "PiTrading through 2022-03-04; inherited adjustment/cleaning; historical clock and possible centered cleaning remain unresolved",
+    "RAW": "IEX-labelled audited RAW starts 2022-03-07; no further dividend scaling",
+    "boundary": "No bridging return, rolling feature, volume history, scaler, HMM fit, or state recursion across provider eras; report eras separately",
+    "volume": "Raw/log volume diagnostic candidates only; use same-provider same-slot relative volume for scale-comparable candidates; never pool raw volume across providers",
+    "causal_claim": "Past-only implementation does not repair or certify upstream vendor noncausality"
+  },
+  "clocks": {
+    "calendar": "Inherited frozen XNYS RTH grid, New York DST and early closes",
+    "bar_label": "Minute-start assumption inherited from Section 3; full bar available at stamp + 60 seconds",
+    "legacy_sensitivity": "Later cross-asset timing must report legacy -1/0/+1 minute scenarios; primary clock remains conditional",
+    "overnight": "No overnight returns; first-minute return absent every session",
+    "missing": "No interpolation/fill; NaN is never zero; exact adjacent endpoints for 1m return",
+    "target_rule": "No TLT/HYG/GOLD/DOLLAR return columns in Section 4.3.1; same-minute target reaction is descriptive"
+  },
+  "nested_development": {
+    "train_sessions": 252,
+    "inner_train_sessions": 189,
+    "inner_validation_sessions": 63,
+    "outer_development_sessions_max": 126,
+    "outer_stride_sessions": 126,
+    "terminal_outer_minimum": 63,
+    "train_day_stride": 1,
+    "validation_day_stride": 1,
+    "source_file": "development_nested_folds.csv",
+    "rule": "Within each fold select using inner train/validation only; refit on preceding 252 sessions before outer development diagnostics. All features/scalers/models train chronologically; no selection on retrospective 2025-2026 or target reactions.",
+    "feature_history": "Causal same-era volume history may carry from previous observed sessions; fold fit statistics use training rows only; no numeric history from the excluded 2002 stub",
+    "label": "Development folds are not a newly restored clean final test"
+  },
+  "windows_minutes": [
+    5,
+    10,
+    15,
+    30,
+    60
+  ],
+  "candidate_features": [
+    "abs_return_1m",
+    "downside10_strict",
+    "downside15_partial90",
+    "downside15_strict",
+    "downside30_strict",
+    "downside5_strict",
+    "downside60_strict",
+    "intrabar_range_log",
+    "log_raw_volume",
+    "log_relative_volume20",
+    "momentum10_endpoint",
+    "momentum10_strict",
+    "momentum15_endpoint",
+    "momentum15_strict",
+    "momentum30_endpoint",
+    "momentum30_strict",
+    "momentum5_endpoint",
+    "momentum5_strict",
+    "momentum60_endpoint",
+    "momentum60_strict",
+    "raw_volume",
+    "relative_volume20",
+    "return_1m",
+    "rv10_partial90",
+    "rv10_strict",
+    "rv15_partial90",
+    "rv15_strict",
+    "rv30_partial90",
+    "rv30_strict",
+    "rv5_partial90",
+    "rv5_strict",
+    "rv60_partial90",
+    "rv60_sampled5_exact",
+    "rv60_strict",
+    "shock_prior60_mad"
+  ],
+  "definitions": {
+    "return_1m": "ln(C_t/C_(t-1)); exact consecutive within-session closes, decimals",
+    "strict": "For W in 5,10,15,30,60: require W eligible returns ending at t, slot>=W. RV=sqrt(sum(r^2)); downside=sqrt(sum(min(r,0)^2)); strict momentum=sum(r)",
+    "endpoint_momentum": "ln(C_t/C_(t-W)) for W in 5,10,15,30,60; exact two closes and same session. Interior gaps allowed; not an RV estimator",
+    "partial90": "sqrt(W/n * sum(observed r^2)) with full W-minute clock window and n>=ceil(.90 W). All five W; downside variant at W=15. Proxy, no assertion of random gaps or unbiasedness",
+    "sampled5": "rv60_sampled5_exact: sqrt(sum of twelve exact five-minute log returns squared), closes at t,t-5,...,t-60. Sliding phase; a different sampling-scale estimator",
+    "range": "ln(High/Low) of current completed bar",
+    "volume": "Raw and natural-log volume; log undefined for zero. relative_volume20=current volume/median positive same-slot volume from previous 20 scheduled sessions, at least 10 positives. Current zero ratio=0; log ratio unavailable",
+    "shock": "(r_t-median(previous 60 exact returns))/(1.4826*MAD(previous 60)); require 61 consecutive eligible returns including current and positive MAD. No epsilon/fill for zero scale"
+  },
+  "comparison_tiers": {
+    "core15": [
+      "return_1m",
+      "rv15_strict",
+      "downside15_strict",
+      "relative_volume20",
+      "intrabar_range_log"
+    ],
+    "strict60": [
+      "return_1m",
+      "rv15_strict",
+      "rv60_strict"
+    ],
+    "partial60": [
+      "return_1m",
+      "rv15_partial90",
+      "rv60_partial90"
+    ],
+    "sampled60": [
+      "return_1m",
+      "rv15_partial90",
+      "rv60_sampled5_exact"
+    ]
+  },
+  "selection_guardrails": [
+    "No feature winner or model frequency selected by construction/coverage",
+    "For later HMM candidate comparisons, common training support, train-only scalers, identical target timestamps, forward-filtered states, and paired F0 baseline within each tier",
+    "Do not compare scores across tiers with different supports as if paired",
+    "No full-era quantile thresholds, fitted normalizers or HMM in 4.3.1",
+    "No nominal confirmatory p-values from exposed retrospective evaluation"
+  ],
+  "verification": [
+    "Independent formulas; missing-price and partial counts; session/halfday reset; prior-only volume; future edits/deletion; zero scales",
+    "Actual development masks, adjacent-close recomputation, no infinities, prefix deletion, source before/after SHA-256"
+  ],
+  "exposure_audit_file": "exposure_audit.json",
+  "exposure_audit_sha256": "5fd2373881557bbd425af6807ca4697bf7f8dc8451339df6b848c47eebc3dbe0",
+  "evidence_inventory_sha256": "fb761d7dddddf3ef4b8dc68574aab0291d00e82537f192d06e0813b9aac359f7",
+  "development_folds_sha256": "e32b13feea79f9510fe987031cb5541bd7b80a21f075813781203c93248ea74a",
+  "implementation_files": [
+    {
+      "name": "section4_3_1_candidates.py",
+      "sha256": "4c8d2b528ff8b86a2885426d974e9be97fbc3d264d60b4e2bf38f16981204878"
+    },
+    {
+      "name": "test_candidates.py",
+      "sha256": "cab8833a1b104fe1d4f9c01ebfde8f69a7d1fb4359744ea0bfe23e4a71e1db12"
+    },
+    {
+      "name": "audit_and_freeze.py",
+      "sha256": "66312d06c9b0466a09b0061c00ac200b32d4ec38683f5ca86dafa1381cd4c92a"
+    },
+    {
+      "name": "amend_protocol.py",
+      "sha256": "ca82a0f3004eabe789dad33a72df020d0e2cdea6b75bf683f51b96ad07fa7c4f"
+    }
+  ],
+  "amendments": "Never edit this frozen file. A new timestamp/hash plus a change log is required; prior exposure remains documented.",
+  "supersedes_frozen_protocol": {
+    "file": "protocol_20261029T032504Z.json",
+    "sha256": "6df8667a5c8e60f73a994ce4553adceca3000dbb4dd59ed60f41968689a43661"
+  },
+  "amendment_log": [
+    {
+      "reason": "First full-data run failed at a date-endpoint assertion: NumPy 2.5 does not reduce Unicode arrays with min/max. No feature file or score was produced.",
+      "code_change": "Check first/last session labels on already time-sorted data; add loader/availability regression test.",
+      "scientific_decisions_changed": false,
+      "partial_run_directory": "results",
+      "previous_implementation": "implementation_v1"
+    }
+  ]
+}

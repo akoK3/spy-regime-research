@@ -1,0 +1,72 @@
+{
+  "amendment_id": "4.3.1-A2-post-screening",
+  "coverage_floor": 0.8,
+  "coverage_floor_reason": "A feature should be observable in at least four of five eligible time positions per training era to avoid making the primary HMM heavily dependent on feature-specific missingness; this is an explicit pragmatic robustness policy, NOT an estimator theorem. It is applied equally to all families and eras, not fitted to observed coverage.",
+  "date_utc": "2026-10-30",
+  "early_close": "calendar-verified scheduled early closes are valid endpoints if the last scheduled bar is observed",
+  "feature_requirements": {
+    "amihud_illiquidity": {
+      "eligibility_proxy": "valid_close_volume",
+      "minimum_observations": 1,
+      "reason": "Requires current valid price and positive volume; return eligibility verified separately."
+    },
+    "bipower_variation": {
+      "eligibility_proxy": "strict5",
+      "minimum_observations": 5,
+      "reason": "Requires five consecutive eligible returns; bipower products require adjacent returns."
+    },
+    "close_location": {
+      "eligibility_proxy": "valid_ohlc",
+      "minimum_observations": 1,
+      "reason": "Requires a valid current OHLC bar and nonzero range."
+    },
+    "directional_efficiency": {
+      "eligibility_proxy": "strict5",
+      "minimum_observations": 5,
+      "reason": "Path efficiency denominator requires consecutive observed returns."
+    },
+    "drawdown": {
+      "eligibility_proxy": "valid_close",
+      "minimum_observations": 1,
+      "reason": "Point-in-time drawdown requires valid current close and past observed peak; historical continuity checked at verification."
+    },
+    "jump_variation": {
+      "eligibility_proxy": "strict5",
+      "minimum_observations": 5,
+      "reason": "Difference between realized and bipower variation requires five consecutive returns."
+    },
+    "lee_mykland_jumps": {
+      "eligibility_proxy": "strict60",
+      "minimum_observations": 60,
+      "reason": "Local volatility normalization requires 60 consecutive eligible returns; missing pairs cannot be bridged."
+    },
+    "overnight_return": {
+      "eligibility_proxy": "overnight",
+      "minimum_observations": 2,
+      "reason": "Requires prior scheduled close and current scheduled open; session-based denominator."
+    },
+    "skewness_and_kurtosis": {
+      "eligibility_proxy": "strict60",
+      "minimum_observations": 60,
+      "reason": "Higher moments are unstable at small sample sizes; use a full 60-return window."
+    },
+    "variance_ratio": {
+      "eligibility_proxy": "strict60",
+      "minimum_observations": 60,
+      "reason": "Overlapping multi-period returns require consecutive one-minute returns."
+    },
+    "volatility_of_volatility": {
+      "eligibility_proxy": "strict60",
+      "minimum_observations": 60,
+      "reason": "Nested volatility windows require a complete contiguous history."
+    }
+  },
+  "freeze_rule": "Written once before reading source data. Results do not modify this file. Any modification requires new dated amendment.",
+  "minute_denominator": "all frozen TRAIN canonical minute-grid rows per era, including unavailable bars and session openings",
+  "overnight_denominator": "TRAIN session transitions, excluding only the first TRAIN session with no prior TRAIN session",
+  "p90_60": "54 of 60 eligible within-session returns; diagnostic only, not interchangeable with strict estimators",
+  "source_policy": "LEGACY and RAW separate; never cross provider, TRAIN/evaluation, or session boundaries for intraday returns",
+  "status": "post-screening amendment; preliminary aggregate and annual coverage already observed",
+  "strict5": "5 of 5 contiguous eligible within-session returns",
+  "strict60": "60 of 60 contiguous eligible within-session returns"
+}
