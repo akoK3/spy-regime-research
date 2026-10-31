@@ -67,6 +67,8 @@ f1chk, cal, a4rep, a4red, a4pi = R / "a4_folds_check.json", R / "a4_lm_threshold
 cladd_audit, cladd_avail = g("section_4_3_closing_report_addendum_audit_2*.json"), g("section_4_3_closing_report_addendum_availability_2*.json")
 cut5, jv5, am5 = R / "a5_train_cutoffs.json", R / "a5_jump_variation_redundancy.json", R / "a5_amihud_adjustment_check.json"
 reg69, yearly, mat9, g3c = R / "a4_sec4_3_6_9_report.json", R / "a4_sec4_3_6_yearly_median_iqr.csv", R / "a4_sec4_3_9_frozen_matrix.csv", R / "a5_jump_variation_redundancy_corrected.json"
+reaudit, n4, addr = ROOT / "reaudit_20261031.md", g("note_4_3_N4_2*.json"), g("section_4_3_closing_report_addendum_reaudit_2*.json")
+mat9v2, n4chk, final_close = R / "a4_sec4_3_9_frozen_matrix_v2.csv", R / "n4_checks.json", g("section_4_final_closing_2*.json")
 r49, r5b, r78 = R / "sec4_3_4_to_4_3_9_report.json", R / "sec4_3_5b_legacy_stale_zero_volume.json", R / "sec4_3_7_8_pool116_report.json"
 
 # (file, section, decision, rationale, file that carries the date)
@@ -127,6 +129,12 @@ E = [
     (yearly, "4.3.6 A4", "4.3.6 regenerated for the 113-column pool: 2,147 rows (19 era-years x 113 columns), descriptive", "A4 definitions (causal seasonal baseline) and A5 jump_variation; TRAIN only", reg69),
     (mat9, "4.3.9 A4", "4.3.9 frozen matrix regenerated: 113 rows, primary view 27 rows (keep 19 / drop 8), sensitivity view 113 rows (keep 83 / drop 30)", "Outcomes from the A4 rerun (primary) and the corrected A5 G3 rerun (RAW sensitivity); coverage recomputed from the 4.3.6 data", reg69),
     (reg69, "4.3.6 / 4.3.9 A4", "4.3.6 and 4.3.9 regeneration report: 4.3.9 PASS on all checks", "The first matrix failed the coverage cross-check (A5 G3 side effect); rebuilt from the kept 4.3.6 file", None),
+    (reaudit, "audit", "Re-audit at HEAD 9025958: of the 12 earlier findings 6 resolved, 3 disclosed, 3 mixed; 11 new problems, none High", "Audit text as received; the final Section 4 pass follows in N4", None),
+    (n4, "4.3 N4", "Note N4: D1 P1 R2 amended (causal past-session baselines allowed; same rolling past-only rule after the embargo); D2 rv10 tier redefinition deferred to Section 5; D3 A1 'through 2024-12-31' read as the development span, the manifest TRAIN end governs training; D4 matrix regeneration recorded; fix rules for the lows", "Written before the fixes; reasons are the re-audit's new #1, #3, #4, #5, #6, #7, #10, #11", None),
+    (mat9v2, "4.3.9 N4 L5", "4.3.9 frozen matrix v2: relative_volume20__sadj warmup corrected to session 20, reach 40 sessions; only that row differs from the base matrix", "Data check: first defined session is 10 for relative_volume20 and 20 for relative_volume20__sadj in both eras", n4chk),
+    (addr, "4.3", "Addendum: re-audit disclosures (jump_variation still biased, matrix regenerated without an amendment, Lee-Mykland fat tails, visibility_ok by construction, stale sentences) and the lows fixed (warmup, hash lists, paths, housekeeping)", "Facts computed or read from files; the closed reports are unchanged", None),
+    (n4chk, "4.3 N4", "N4 checks: L5, L6, L7, L11 PASS; 8 hash-list mismatches and 10 reports older than a producing script listed", "Old hash lists are not edited", None),
+    (final_close, "4", "Section 4 final closing record: SECTION_4_CLOSED", "Scope 4.3.0-4.3.9 with A1 to A5 and N1 to N4; 4.1/4.2 text not provided; Section 5 open items not resolved", None),
 ]
 E = [e for e in E if e[2] != "(see the N3 row above)"]
 for e in E: assert rel(e[0]) in tracked, rel(e[0])
@@ -155,6 +163,12 @@ _g3c = load(g3c)
 lim.append((rel(g3c), sha(g3c), "G3 correction: " + _g3c["reason"]))
 lim.append((rel(g3c), sha(g3c), f"Share of exactly-zero values among finite RAW values after the A5 scaling: {_g3c['share_of_exactly_zero_values_among_finite_RAW']}. RAW coverage changes: " + "; ".join(f"{k} {v['A4_run']} -> {v['now']}" for k, v in _g3c["coverage_changes_RAW"].items())))
 add_lim(reg69, "history")
+_ra = load(addr)
+for _x in _ra["disclosures"]:
+    lim.append((rel(addr), sha(addr), f"{_x['finding']} {_x['statement']} " + " ".join(f.strip() for f in _x["facts"])))
+add_lim(n4, "not_addressed_in_this_pass")
+# the false sentence of the closed report is kept verbatim but is marked as superseded
+lim = [(f, h, (t + f" [SUPERSEDED: false as worded; corrected in Correction #7 of {cladd_audit.name}]") if "never in an audited or analysed span" in t else t) for f, h, t in lim]
 
 # open items
 audit_def = load(a3)["timing"]["prior_run_found_4_3_2_4_3_3"]["deferred_in_that_audit"]
@@ -162,14 +176,14 @@ audit_sha = load(a3)["timing"]["prior_run_found_4_3_2_4_3_3"]["sha256"]
 ten = [
     ("Which below-floor outputs to keep, drop or re-window", [cl431, cl43, a3]),
     ("The overnight analysis (response side) and its specification", [cl431, cl43, a3, n1]),
-    ("Reconciling A1's 60-minute lookback and 5-session embargo with A2/A3", [cl43, appr]),
+    ("Reconciling A1's 60-minute lookback and 5-session embargo with A2/A3 (N4 D1 settles the rule for cross-session baselines; the within-session lookback part remains)", [cl43, appr, n4]),
     ("Any detector, scaler or HMM fit", [cl431, cl43, a3]),
     ("Legacy timing sensitivity (-1/0/+1 minute)", [cl431, cl43, v2]),
     (audit_def[0], [a3]), (audit_def[1], [a3]), (audit_def[2], [a3]), (audit_def[3], [a3]), (audit_def[4], [a3]),
 ]
 a1_req = load(a1)["required_before_finalizing"]
 
-L = ["# METHODS_LEDGER", "", f"Generated {datetime.datetime.now(datetime.timezone.utc).strftime('%Y-%m-%d %H:%M:%SZ')} | repository HEAD before this commit `{head}` | scope: Section 4.3 (4.3.0-4.3.9)", "",
+L = ["# METHODS_LEDGER", "", f"Generated {datetime.datetime.now(datetime.timezone.utc).strftime('%Y-%m-%d %H:%M:%SZ')} | repository HEAD before this commit `{head}` | scope: Section 4.3 (4.3.0-4.3.9) | status: SECTION_4_CLOSED (record `{final_close.name}`, SHA-256 `{sha(final_close)}`)", "",
      "## 1. Chronology", "", "| Date (UTC) | Section | Decision | Rationale | File | SHA-256 |", "|---|---|---|---|---|---|"]
 L += [f"| {fmt(d)} | {esc(s)} | {esc(dec)} | {esc(w)} | {esc(f)} | `{h}` |" for d, s, dec, w, f, h in rows]
 L += ["", "## 2. Limitations (verbatim from the documents)", "", "| # | Limitation | Source | SHA-256 |", "|---|---|---|---|"]
@@ -191,7 +205,11 @@ added = [
     ("Recompute the 4.3.7 and 4.3.8 selection inside each fold (audit #3 disclosure; the A4 selection is still on all of TRAIN)", [cladd_audit, a4res]),
     ("Decide the treatment of jump_variation_w and jump_variation_w__sadj after the A5 scaling: about half of the raw values are exactly 0 and the adjusted versions lost coverage (RAW 55.8 to 61.5%)", [g3c, reg69]),
     ("Audit #9: the look-ahead probe in step4_extract_parameters.py (last session only, 6 bars ahead)", [a4res]),
-    ("Below-floor members of the amended comparison tiers (downside15_strict, rv60_strict, rv60_partial90, rv60_sampled5_exact): no amended tier is fully primary-eligible", [a5, a5res]),
+    ("Redefine the comparison tiers in Section 5 (N4 D2 defers the A5 G5 rv10 swap): the rv15 members are below the floor, rv10_strict is dropped in both selection sets, no amended tier is complete in the primary set, and in the RAW sensitivity set only sampled60 keeps every member", [n4, a5, a5res]),
+    ("Re-audit new #8: F4 ran on an earlier step 3 hash and the G3 change also touched section431_additions.py; the F4 report hashes only step 3", [reaudit, n4]),
+    ("Re-audit new #9: the bipower_w reading of A5 G3 (scale only the term inside jump_variation_w) was never confirmed", [reaudit, n4, a5]),
+    ("Audit #4: no Section 5 item existed for the era-crossing decisions (coverage and redundancy combine the two eras in one decision)", [cladd_audit, reaudit]),
+    ("Audit #8 residual: ATOL=1e-10 remains in step3_all_in_one.py, so Step 3 itself keeps the absolute-tolerance blind spot", [reaudit, n4]),
 ]
 L += ["", "### Open items added after the list of 10 was derived", "", "| # | Item | Status | Source file(s) | SHA-256 |", "|---|---|---|---|---|"]
 for j, (item, srcs) in enumerate(added, 1):
@@ -214,6 +232,11 @@ for _item, _status, _srcs in (
     ("Reproducibility and record-keeping gaps (audit #12)", "done", [a4res]),
     ("4.3.6 adjusted rows and the 4.3.9 matrix under the A4 seasonal definition", "done (regenerated for the 113-column pool)", [yearly, mat9, reg69]),
     ("A5 G3 redundancy ranked with stale coverage", "corrected (same outcome)", [g3c]),
+    ("P1 R2 contradicted by the causal baselines (re-audit new #1)", "done (R2 amended by N4 D1; the P1 file is not edited)", [n4]),
+    ("A1 'through 2024-12-31' versus the RAW TRAIN end (re-audit new #10)", "reconciled (N4 D3: the manifest TRAIN end governs training)", [n4, cut5]),
+    ("Warmup of relative_volume20__sadj (re-audit new #5)", "done (matrix v2)", [mat9v2, n4chk]),
+    ("Hash lists, absolute paths, housekeeping (re-audit new #6, #7, #11)", "done (checks in N4 checks; old lists not edited)", [n4chk, addr]),
+    ("Disclosures: jump_variation bias, matrix regeneration, Lee-Mykland fat tails, visibility_ok, stale sentences", "done", [addr]),
 ):
     L.append(f"| {esc(_item)} | {_status} | {esc('; '.join(rel(s) for s in _srcs))} | {'; '.join('`' + sha(s) + '`' for s in _srcs)} |")
 out = ROOT / "METHODS_LEDGER.md"

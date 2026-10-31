@@ -1,0 +1,125 @@
+﻿[    0.0 min]   RAW first 45 sessions: original features
+[    0.0 min]   RAW first 45 sessions: additional features
+[    0.0 min]   RAW first 45 sessions: session 2/45, about 0.1 min left in this pass
+[    0.0 min]   RAW first 45 sessions: session 4/45, about 0.1 min left in this pass
+[    0.1 min]   RAW first 45 sessions: session 6/45, about 0.1 min left in this pass
+[    0.1 min]   RAW first 45 sessions: session 8/45, about 0.1 min left in this pass
+[    0.1 min]   RAW first 45 sessions: session 10/45, about 0.1 min left in this pass
+[    0.1 min]   RAW first 45 sessions: session 12/45, about 0.1 min left in this pass
+[    0.1 min]   RAW first 45 sessions: session 14/45, about 0.1 min left in this pass
+[    0.1 min]   RAW first 45 sessions: session 16/45, about 0.1 min left in this pass
+[    0.1 min]   RAW first 45 sessions: session 18/45, about 0.1 min left in this pass
+[    0.1 min]   RAW first 45 sessions: session 20/45, about 0.1 min left in this pass
+[    0.1 min]   RAW first 45 sessions: session 22/45, about 0.1 min left in this pass
+[    0.1 min]   RAW first 45 sessions: session 24/45, about 0.1 min left in this pass
+[    0.1 min]   RAW first 45 sessions: session 26/45, about 0.1 min left in this pass
+[    0.1 min]   RAW first 45 sessions: session 28/45, about 0.1 min left in this pass
+[    0.1 min]   RAW first 45 sessions: session 30/45, about 0.1 min left in this pass
+[    0.1 min]   RAW first 45 sessions: session 32/45, about 0.0 min left in this pass
+[    0.1 min]   RAW first 45 sessions: session 34/45, about 0.0 min left in this pass
+[    0.2 min]   RAW first 45 sessions: session 36/45, about 0.0 min left in this pass
+[    0.2 min]   RAW first 45 sessions: session 38/45, about 0.0 min left in this pass
+[    0.2 min]   RAW first 45 sessions: session 40/45, about 0.0 min left in this pass
+[    0.2 min]   RAW first 45 sessions: session 42/45, about 0.0 min left in this pass
+[    0.2 min]   RAW first 45 sessions: session 44/45, about 0.0 min left in this pass
+[    0.2 min]   RAW first 45 sessions: done
+[    0.3 min]   LEGACY first 45 sessions: original features
+[    0.3 min]   LEGACY first 45 sessions: additional features
+[    0.3 min]   LEGACY first 45 sessions: session 2/45, about 0.1 min left in this pass
+[    0.3 min]   LEGACY first 45 sessions: session 4/45, about 0.1 min left in this pass
+[    0.3 min]   LEGACY first 45 sessions: session 6/45, about 0.1 min left in this pass
+[    0.3 min]   LEGACY first 45 sessions: session 8/45, about 0.1 min left in this pass
+[    0.3 min]   LEGACY first 45 sessions: session 10/45, about 0.1 min left in this pass
+[    0.3 min]   LEGACY first 45 sessions: session 12/45, about 0.1 min left in this pass
+[    0.4 min]   LEGACY first 45 sessions: session 14/45, about 0.1 min left in this pass
+[    0.4 min]   LEGACY first 45 sessions: session 16/45, about 0.1 min left in this pass
+[    0.4 min]   LEGACY first 45 sessions: session 18/45, about 0.1 min left in this pass
+[    0.4 min]   LEGACY first 45 sessions: session 20/45, about 0.1 min left in this pass
+[    0.4 min]   LEGACY first 45 sessions: session 22/45, about 0.1 min left in this pass
+[    0.4 min]   LEGACY first 45 sessions: session 24/45, about 0.0 min left in this pass
+[    0.4 min]   LEGACY first 45 sessions: session 26/45, about 0.0 min left in this pass
+[    0.4 min]   LEGACY first 45 sessions: session 28/45, about 0.0 min left in this pass
+[    0.4 min]   LEGACY first 45 sessions: session 30/45, about 0.0 min left in this pass
+[    0.4 min]   LEGACY first 45 sessions: session 32/45, about 0.0 min left in this pass
+[    0.4 min]   LEGACY first 45 sessions: session 34/45, about 0.0 min left in this pass
+[    0.4 min]   LEGACY first 45 sessions: session 36/45, about 0.0 min left in this pass
+[    0.4 min]   LEGACY first 45 sessions: session 38/45, about 0.0 min left in this pass
+[    0.4 min]   LEGACY first 45 sessions: session 40/45, about 0.0 min left in this pass
+[    0.4 min]   LEGACY first 45 sessions: session 42/45, about 0.0 min left in this pass
+[    0.4 min]   LEGACY first 45 sessions: session 44/45, about 0.0 min left in this pass
+[    0.4 min]   LEGACY first 45 sessions: done
+{
+ "table": [
+  [
+   "L5 warmup of relative_volume20__sadj (new #5)",
+   "PASS"
+  ],
+  [
+   "L6 hash lists (new #6)",
+   "PASS"
+  ],
+  [
+   "L7 paths (new #7)",
+   "PASS"
+  ],
+  [
+   "L11 housekeeping (new #11)",
+   "PASS"
+  ]
+ ],
+ "L5_data": {
+  "RAW": {
+   "relative_volume20": 10,
+   "relative_volume20__sadj": 20
+  },
+  "LEGACY": {
+   "relative_volume20": 10,
+   "relative_volume20__sadj": 20
+  }
+ },
+ "L6_mismatches": 8,
+ "L6_stale_reports": 10,
+ "L7_hits": [],
+ "L11": {
+  "status": "PASS",
+  "frozen_implementation_files_match_protocol": {
+   "audit_and_freeze.py": true,
+   "amend_protocol.py": true
+  },
+  "gitignore_script_entries_without_a_file": [],
+  "order_fact": {
+   "F6_addendum_created": "2026-10-31T02:53:06.969094+00:00",
+   "F4_report_created": "2026-10-31T03:27:07.630373+00:00",
+   "F6_before_F4": true,
+   "a4_stated_order": "F7, F3, F1, F2+F5, F4, F6"
+  }
+ },
+ "jv": {
+  "15": {
+   "unclipped_old": 1.0,
+   "unclipped_new": 0.0012,
+   "clipped_old": 1.6912,
+   "clipped_new": 1.2334,
+   "share_exactly_zero_new": 0.5272
+  },
+  "30": {
+   "unclipped_old": 0.9934,
+   "unclipped_new": -0.0073,
+   "clipped_old": 2.1878,
+   "clipped_new": 1.7181,
+   "share_exactly_zero_new": 0.5199
+  },
+  "60": {
+   "unclipped_old": 1.0172,
+   "unclipped_new": 0.0173,
+   "clipped_old": 2.9167,
+   "clipped_new": 2.4387,
+   "share_exactly_zero_new": 0.5149
+  }
+ },
+ "lm": {
+  "gaussian": 0.009825,
+  "student_t_df5": 0.6909,
+  "student_t_df3": 0.966975
+ }
+}

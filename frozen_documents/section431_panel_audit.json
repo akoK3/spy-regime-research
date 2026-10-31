@@ -1,0 +1,33 @@
+
+{
+  "LEGACY": {
+    "all_panel_rows": 1875930,
+    "train_rows": 1562460,
+    "train_sessions": 4022,
+    "train_start": "2003-01-02",
+    "train_end": "2018-12-21",
+    "eligible_returns": 1488062,
+    "eligible_return_pct": 95.2384,
+    "evaluation_excluded": true,
+    "source_era_pass": true,
+    "bar_available_at_t_plus_one_pass": true,
+    "return_mask_pass": true,
+    "session_open_return_missing_pass": true,
+    "session_boundary_return_missing_pass": true
+  },
+  "RAW": {
+    "all_panel_rows": 448830,
+    "train_rows": 274050,
+    "train_sessions": 705,
+    "train_start": "2022-03-07",
+    "train_end": "2024-12-23",
+    "eligible_returns": 272851,
+    "eligible_return_pct": 99.5625,
+    "evaluation_excluded": true,
+    "source_era_pass": true,
+    "bar_available_at_t_plus_one_pass": true,
+    "return_mask_pass": true,
+    "session_open_return_missing_pass": true,
+    "session_boundary_return_missing_pass": true
+  }
+}

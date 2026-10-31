@@ -22,15 +22,15 @@
 !/step11_a4_rerun_4_3_4_7_8.py
 !/step12_a4_prefix_isolation_rerun.py
 !/write_closing_addendum_audit.py
-!/write_a4_results_report.py
 !/write_amendment_4_3_A5.py
 !/a5_train_cutoffs.py
 !/step13_a5_jump_variation_redundancy.py
 !/step14_a5_amihud_adjustment_check.py
-!/write_a5_results_report.py
 !/write_a4_a5_records.py
 !/write_note_4_3_N3.py
 !/write_note_4_3_N4.py
+!/step17_n4_final_pass.py
+!/write_section4_final_closing.py
 !/step15_a4_regen_4_3_6_and_4_3_9.py
 !/step16_a5_g3_corrected.py
 !/build_section4_complete.py
@@ -74,6 +74,7 @@
 !/section431_step3_all_in_one_results/note_4_3_N3_*
 !/section431_step3_all_in_one_results/note_4_3_N4_*
 !/section431_step3_all_in_one_results/n4_*
+!/section431_step3_all_in_one_results/section_4_final_closing_*
 !/section431_step3_all_in_one_results/amendment_4_3_A4_*
 !/section431_step3_all_in_one_results/amendment_4_3_A5_*
 !/section431_step3_all_in_one_results/a5_*

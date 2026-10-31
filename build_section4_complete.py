@@ -7,7 +7,6 @@ import pandas as pd
 ROOT = Path(__file__).resolve().parent
 R = ROOT / "section431_step3_all_in_one_results"
 FZ = ROOT / "frozen_documents"
-DATA = Path(r"C:\Users\kakij\OneDrive\Desktop\data\section4_3_rebuild_20261028")
 
 
 def sha(p):
@@ -60,7 +59,9 @@ cladd_audit, cladd_avail = g("section_4_3_closing_report_addendum_audit_2*.json"
 am5, jv5, cut5 = R / "a5_amihud_adjustment_check.json", R / "a5_jump_variation_redundancy.json", R / "a5_train_cutoffs.json"
 dic = {x["output"]: x for x in load(cl431)["feature_dictionary"]}
 a3m = pd.read_csv(R / "sec4_3_9_frozen_matrix.csv").set_index("output")
-pool = pd.read_csv(R / "a4_sec4_3_9_frozen_matrix.csv").set_index("column")  # current frozen matrix: 78 raw + 35 adjusted, coverage recomputed under A4 and A5
+pool = pd.read_csv(R / "a4_sec4_3_9_frozen_matrix_v2.csv").set_index("column")  # current frozen matrix v2 (N4 L5): 78 raw + 35 adjusted, coverage recomputed under A4 and A5
+n4, addr, n4chk = g("note_4_3_N4_2*.json"), g("section_4_3_closing_report_addendum_reaudit_2*.json"), R / "n4_checks.json"
+final_close, reaudit = g("section_4_final_closing_2*.json"), ROOT / "reaudit_20261031.md"
 reg69, g3c = R / "a4_sec4_3_6_9_report.json", R / "a5_jump_variation_redundancy_corrected.json"
 thr = load(cal)["threshold"]
 word = lambda s: str(s).split(":")[0]
@@ -83,6 +84,7 @@ for n in pool.index:
     if raw.startswith("amihud_"):
         note = (note + "; " if note else "") + "LEGACY closes appear dividend-adjusted; normalize per fold in Section 5 (N3)"
     cls = "adjusted" if adj else a3m.loc[raw, "feature_class"]
+    look, minobs, warm = f"{pr.lookback_bars} / {pr.lookback_sessions}", pr.min_valid_obs, pr.warmup  # from matrix v2 (relative_volume20__sadj: session 20, reach 40 sessions)
     rows.append((n, cls, formula, look, minobs, warm, f"{pr.coverage_LEGACY_pct:.3f}", f"{pr.coverage_RAW_pct:.3f}",
                  "yes" if pr.primary_eligible else "no", word(pr.primary_outcome), word(pr.sensitivity_outcome), note or "-"))
 
@@ -148,6 +150,11 @@ for k, ok in g3cd["checks"].items(): tr(f"A5 G3 corrected run: {k}", "RAW, TRAIN
 r69 = load(reg69)
 tr("4.3.6 regenerated under A4/A5", "TRAIN only, 113 columns", f"DESCRIPTIVE: {r69['sections']['4.3.6']['rows']} rows", R / "a4_sec4_3_6_yearly_median_iqr.csv")
 for k, ok in r69["sections"]["4.3.9"]["checks"].items(): tr(f"4.3.9 regenerated: {k}", "TRAIN only, 113 columns", "PASS" if ok else "FAIL", reg69)
+n4c = load(n4chk)
+for name, st_ in n4c["table"]: tr(f"N4 {name}", "N4 checks", st_, n4chk)
+tr("N4 L5 data check: first defined session of relative_volume20 and relative_volume20__sadj", "RAW and LEGACY, first 45 sessions", str(n4c["L5"]["data_check_first_defined_session"]), n4chk)
+tr("N4 L6 hash lists: mismatches found and listed", "results folder", f"{len(n4c['L6']['mismatches'])} mismatches; {len(n4c['L6']['reports_older_than_the_latest_change_to_a_producing_script'])} reports older than a producing script", n4chk)
+tr("N4 L7 absolute user paths in tracked scripts", "tracked .py files", "none" if not n4c["L7"]["absolute_user_path_hits_in_tracked_scripts"] else str(n4c["L7"]["absolute_user_path_hits_in_tracked_scripts"]), n4chk)
 
 # ---- deviations and post-hoc items: (item, detail, file)
 D = [
@@ -189,9 +196,18 @@ D = [
     ("G4 reads one non-TRAIN price level", "The junction ratio uses one LEGACY close from 2022-03-04 (EVALUATION_EXPOSED in the manifest); no return statistic from that period is computed", am5),
     ("Amihud finding is an inference", "LEGACY closes appear dividend-adjusted; the rule-based reading was inconclusive and the price-level evidence uses an external reference not in the repository; N3 records the requirement to normalize Amihud per fold", n3),
     ("TRAIN cutoffs recorded from a derived manifest", "The manifest is not an approved frozen document (A1 manifest item unverified)", cut5),
+    ("P1 R2 amended after the causal baselines were in use", "The A4 seasonal baselines cross sessions, contradicting R2; N4 D1 amends R2 (causal past-session baselines allowed; same rolling past-only rule after the embargo; partition labels do not change the window); the P1 file is not edited", n4),
+    ("rv10 tier swap deferred", "A5 G5 approved rv10 in place of rv15; N4 D2 defers the tier redefinition to Section 5; the approval stays on record as history", n4),
+    ("A1 and the RAW TRAIN end reconciled by rule", "A1 says the IEX detector trains through 2024-12-31; RAW TRAIN ends 2024-12-23 and the five embargo sessions follow; N4 D3: A1's date is the development span and the manifest's TRAIN end governs training", n4),
+    ("Matrix regenerated without a pre-run amendment, then corrected", "Steps 15 and 16 had no pre-run document; N4 D4 is the dated amendment after the fact; the relative_volume20__sadj warmup was corrected in matrix v2 (session 20, reach 40 sessions); the base matrix is not edited", n4),
+    ("F6 ran before F4", "A4 stated the order F7, F3, F1, F2+F5, F4, F6; the audit addendum was written before F4 had run because F4 was stopped for low memory", addr),
+    ("Old hash lists no longer match the edited scripts", "8 mismatches in the lists of steps 3, 4, 5, 6 and 8; 10 reports are older than the latest change to a producing script; the lists record the state at their time and are not edited", n4chk),
+    ("Re-audit items not addressed", "New #8 (F4 hashed step 3 only) and new #9 (bipower reading never confirmed) were not part of the final pass; they are Section 5 open items", n4),
+    ("4.1/4.2 text still missing at closing", "SECTION_4_CLOSED was marked at the repository owner's instruction with the 4.1/4.2 text not provided; the placeholder stays", final_close),
 ]
 
 L = ["# SECTION4_COMPLETE", "", f"Generated {datetime.datetime.now(datetime.timezone.utc).strftime('%Y-%m-%d %H:%M:%SZ')} | repository HEAD before this commit `{head}`",
+     f"Status: **SECTION_4_CLOSED** (record `{final_close.name}`, SHA-256 `{sha(final_close)}`). Rules changed by the final pass: P1 R2 amended (N4 D1); tier redefinition deferred to Section 5 (N4 D2); A1 versus TRAIN end reconciled (N4 D3).",
      "Scope: Section 4 as recorded in this repository: 4.3.0-4.3.9, including amendments A4 and A5, notes N1 to N3 and the cold audit. Sections 4.1 and 4.2: placeholder below. Pre-rebuild results of sections 4.4-4.9: not part of this record.", "",
      "## 4.1 and 4.2", "", "> **PLACEHOLDER: 4.1/4.2 TEXT NOT PROVIDED.**", ">", "> To be added by the repository owner. When added: source path and SHA-256 of the source file.", "",
      "## Chronological decision log", "", f"Source: METHODS_LEDGER.md (SHA-256 `{sha(ROOT / 'METHODS_LEDGER.md')}`).", ""] + section("## 1. Chronology", "## 2. Limitations")

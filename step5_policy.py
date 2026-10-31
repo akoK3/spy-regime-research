@@ -15,7 +15,7 @@ sys.path.insert(0, str(ROOT))
 import step3_all_in_one as s  # noqa: E402
 
 OUT = s.OUT
-DATA = Path(r"C:\Users\kakij\OneDrive\Desktop\data\section4_3_rebuild_20261028")
+DATA = ROOT / "frozen_documents"  # in-repository copies (N4 L7)
 FROZEN = DATA / "protocol_20261029T032641Z.json"
 PANEL_AUDIT = DATA / "section431_panel_audit.json"
 SRC = ROOT / "section431_step3_verification" / "prototype_sources"

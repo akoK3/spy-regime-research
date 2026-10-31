@@ -10,10 +10,10 @@ import pandas as pd
 
 ROOT = Path(__file__).resolve().parent
 OUT = ROOT / "section431_step3_all_in_one_results"
-PROTO_DIR = Path(r"C:\Users\kakij\OneDrive\Desktop\data\section4_3_rebuild_20261028")
+PROTO_DIR = ROOT / "frozen_documents"  # in-repository copies (N4 L7)
 SOURCE_TABLE_SHA = "505f202d7d91a2b67cfa63f41f34cc2d1c146d10f7d15ac7a2971e3d72e33e97"
 FROZEN = PROTO_DIR / "protocol_20261029T032641Z.json"
-A1 = PROTO_DIR / "results" / "protocol_amendment_4_3_0_A1_20261029T034121Z.json"
+A1 = PROTO_DIR / "protocol_amendment_4_3_0_A1_20261029T034121Z.json"
 
 
 def sha(path):

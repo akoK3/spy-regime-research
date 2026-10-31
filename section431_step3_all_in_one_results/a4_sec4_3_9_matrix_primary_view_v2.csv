@@ -1,0 +1,28 @@
+column,kind,feature_class,lookback_bars,coverage_LEGACY_pct,coverage_RAW_pct,primary_outcome
+return_1m,raw,raw only,1,95.238,99.562,kept
+abs_return_1m,raw,scale (adjusted version added),1,95.238,99.562,kept
+intrabar_range_log,raw,scale (adjusted version added),0,96.927,99.85,kept
+relative_volume20,raw,scale (adjusted version added),0,96.678,98.427,kept
+log_relative_volume20,raw,raw only,0,96.678,98.427,"dropped: redundant with relative_volume20 (rho 1.0, LEGACY)"
+rv5_strict,raw,scale (adjusted version added),5,89.502,98.423,kept
+downside5_strict,raw,scale (adjusted version added),5,89.502,98.423,kept
+momentum5_strict,raw,raw only,5,89.502,98.423,"dropped: redundant with momentum5_endpoint (rho 0.999803, LEGACY)"
+rv5_partial90,raw,scale (adjusted version added),5,89.502,98.423,"dropped: redundant with rv5_strict (rho 1.0, LEGACY)"
+momentum5_endpoint,raw,raw only,5,93.166,98.533,kept
+rv10_strict,raw,scale (adjusted version added),10,82.99,97.003,"dropped: redundant with rv10_partial90 (rho 1.0, LEGACY)"
+downside10_strict,raw,scale (adjusted version added),10,82.99,97.003,kept
+momentum10_strict,raw,raw only,10,82.99,97.003,"dropped: redundant with momentum10_endpoint (rho 0.999935, LEGACY)"
+rv10_partial90,raw,scale (adjusted version added),10,85.072,97.057,kept
+momentum10_endpoint,raw,raw only,10,91.645,97.247,kept
+momentum15_endpoint,raw,raw only,15,90.356,95.96,kept
+momentum30_endpoint,raw,raw only,30,86.707,92.102,kept
+close_location_proxy,raw,raw only,0,96.325,99.672,kept
+abs_return_1m__sadj,adjusted,adjusted,1,94.698,98.143,kept
+intrabar_range_log__sadj,adjusted,adjusted,0,96.678,98.427,kept
+relative_volume20__sadj,adjusted,adjusted,0,96.428,97.004,"dropped: redundant with relative_volume20 (rho 0.951956, LEGACY)"
+rv5_strict__sadj,adjusted,adjusted,5,89.255,97.018,kept
+downside5_strict__sadj,adjusted,adjusted,5,89.255,97.018,kept
+rv5_partial90__sadj,adjusted,adjusted,5,89.255,97.018,"dropped: redundant with rv5_strict__sadj (rho 1.0, LEGACY)"
+rv10_strict__sadj,adjusted,adjusted,10,82.735,95.617,"dropped: redundant with rv10_partial90__sadj (rho 0.998166, LEGACY)"
+downside10_strict__sadj,adjusted,adjusted,10,82.735,95.617,kept
+rv10_partial90__sadj,adjusted,adjusted,10,84.826,95.67,kept

@@ -22,7 +22,7 @@ import step3_all_in_one as s  # noqa: E402
 
 warnings.simplefilter("ignore")
 OUT = s.OUT
-PROTOCOL = Path(r"C:\Users\kakij\OneDrive\Desktop\data\section4_3_rebuild_20261028\protocol_20261029T032641Z.json")
+PROTOCOL = ROOT / "frozen_documents" / "protocol_20261029T032641Z.json"  # in-repository copy (N4 L7)
 PROTOCOL_SHA = "3d6f0c96fce1c05f8e94d1a8c6e6b14a5b5b1c9f013e6a95dd1e96498cbfff8b"
 SESS, LEN, T_SESS, T_SLOT = 24, 72, 23, 65
 P = T_SESS * LEN + T_SLOT

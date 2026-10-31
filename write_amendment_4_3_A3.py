@@ -8,7 +8,7 @@ import pandas as pd
 ROOT = Path(__file__).resolve().parent
 R = ROOT / "section431_step3_all_in_one_results"
 FZ = ROOT / "frozen_documents"
-PRIOR_AUDIT = Path(r"C:\Users\kakij\OneDrive\Desktop\data\section4_3_rebuild_20261028\audit_4_3_2_4_3_3_report.json")
+PRIOR_AUDIT = FZ / "audit_4_3_2_4_3_3_report.json"  # in-repository copy (N4 L7)
 
 
 def sha(p):

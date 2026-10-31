@@ -1,0 +1,355 @@
+{
+  "created_utc": "2026-10-31T04:22:19.434655+00:00",
+  "note": {
+    "file": "note_4_3_N4_20261031T041938Z.json",
+    "sha256": "27e81cc9d1a703a20d31174d291362457ba1b072f85c7cdb77770c3807238b1d"
+  },
+  "L5": {
+    "status": "PASS",
+    "data_check_first_defined_session": {
+      "RAW": {
+        "relative_volume20": 10,
+        "relative_volume20__sadj": 20
+      },
+      "LEGACY": {
+        "relative_volume20": 10,
+        "relative_volume20__sadj": 20
+      }
+    },
+    "rows_changed": [
+      "relative_volume20__sadj"
+    ],
+    "base_matrix_sha256": "63fd07251f68f45df75ada3addea643c2c1b4a284b85306d551ffe9c592daf35",
+    "v2_sha256": "9378f93f79e358f98d9dcad3992c269cb9a823a15bf28e8a21dbe319763ebe86",
+    "old_fields": {
+      "warmup": "slot 0 / session 10",
+      "lookback_sessions": 20,
+      "min_valid_obs": "10 sessions; baseline needs 10 of the previous 20 sessions"
+    },
+    "new_fields": {
+      "warmup": "slot 0 / session 20",
+      "lookback_sessions": "40",
+      "min_valid_obs": "10 sessions; baseline needs 10 of the previous 20 sessions' relative_volume20 values, each of which needs 10 of its own previous 20 sessions"
+    }
+  },
+  "L6": {
+    "status": "PASS",
+    "lists_checked": {
+      "sec4_3_4_to_4_3_9_final_sha256.txt": {
+        "entries_found": 4,
+        "entries_missing": 0
+      },
+      "step3_final_sha256.txt": {
+        "entries_found": 4,
+        "entries_missing": 0
+      },
+      "step4_final_sha256.txt": {
+        "entries_found": 6,
+        "entries_missing": 0
+      },
+      "step5_final_sha256.txt": {
+        "entries_found": 8,
+        "entries_missing": 0
+      },
+      "step5_v2_final_sha256.txt": {
+        "entries_found": 6,
+        "entries_missing": 0
+      },
+      "step6_final_sha256.txt": {
+        "entries_found": 6,
+        "entries_missing": 0
+      },
+      "a4_folds_check.sha256": {
+        "entries_found": 1,
+        "entries_missing": 0
+      },
+      "a4_lm_threshold_calibration.sha256": {
+        "entries_found": 1,
+        "entries_missing": 0
+      },
+      "a4_prefix_isolation_report.sha256": {
+        "entries_found": 2,
+        "entries_missing": 0
+      },
+      "a4_results_report.sha256": {
+        "entries_found": 2,
+        "entries_missing": 0
+      },
+      "a4_sec4_3_4_7_8_report.sha256": {
+        "entries_found": 2,
+        "entries_missing": 0
+      },
+      "a4_sec4_3_6_9_report.sha256": {
+        "entries_found": 2,
+        "entries_missing": 0
+      },
+      "a5_amihud_adjustment_check.sha256": {
+        "entries_found": 2,
+        "entries_missing": 0
+      },
+      "a5_jump_variation_redundancy.sha256": {
+        "entries_found": 2,
+        "entries_missing": 0
+      },
+      "a5_jump_variation_redundancy_corrected.sha256": {
+        "entries_found": 3,
+        "entries_missing": 0
+      },
+      "a5_results_report.sha256": {
+        "entries_found": 2,
+        "entries_missing": 0
+      },
+      "a5_train_cutoffs.sha256": {
+        "entries_found": 1,
+        "entries_missing": 0
+      },
+      "amendment_4_3_1_A2_20261030T231344Z.sha256": {
+        "entries_found": 1,
+        "entries_missing": 0
+      },
+      "amendment_4_3_A3_20261031T003719Z.sha256": {
+        "entries_found": 1,
+        "entries_missing": 0
+      },
+      "amendment_4_3_A4_20261031T021111Z.sha256": {
+        "entries_found": 1,
+        "entries_missing": 0
+      },
+      "amendment_4_3_A5_20261031T023320Z.sha256": {
+        "entries_found": 1,
+        "entries_missing": 0
+      },
+      "approval_4_3_0_A1_20261031T003131Z.sha256": {
+        "entries_found": 1,
+        "entries_missing": 0
+      },
+      "note_4_3_N1_20261031T011048Z.sha256": {
+        "entries_found": 1,
+        "entries_missing": 0
+      },
+      "note_4_3_N2_20261031T011552Z.sha256": {
+        "entries_found": 1,
+        "entries_missing": 0
+      },
+      "note_4_3_N3_20261031T034021Z.sha256": {
+        "entries_found": 1,
+        "entries_missing": 0
+      },
+      "note_4_3_N4_20261031T041938Z.sha256": {
+        "entries_found": 1,
+        "entries_missing": 0
+      },
+      "policy_4_3_1_P1_20261030T233123Z.sha256": {
+        "entries_found": 1,
+        "entries_missing": 0
+      },
+      "policy_4_3_1_P1_addendum_20261030T234021Z.sha256": {
+        "entries_found": 1,
+        "entries_missing": 0
+      },
+      "policy_4_3_1_P1_verification_20261030T233210Z.sha256": {
+        "entries_found": 1,
+        "entries_missing": 0
+      },
+      "policy_4_3_1_P1_verification_v2_20261030T234138Z.sha256": {
+        "entries_found": 1,
+        "entries_missing": 0
+      },
+      "sec4_3_4_to_4_3_9_report.sha256": {
+        "entries_found": 2,
+        "entries_missing": 0
+      },
+      "sec4_3_5b_legacy_stale_zero_volume.sha256": {
+        "entries_found": 2,
+        "entries_missing": 0
+      },
+      "sec4_3_7_8_pool116_report.sha256": {
+        "entries_found": 2,
+        "entries_missing": 0
+      },
+      "section_4_3_1_closing_report_20261031T002814Z.sha256": {
+        "entries_found": 2,
+        "entries_missing": 0
+      },
+      "section_4_3_closing_report_addendum_audit_20261031T025306Z.sha256": {
+        "entries_found": 2,
+        "entries_missing": 0
+      },
+      "section_4_3_closing_report_addendum_availability_20261031T033403Z.sha256": {
+        "entries_found": 2,
+        "entries_missing": 0
+      },
+      "section_4_3_closing_report_addendum_pool116_20261031T013402Z.sha256": {
+        "entries_found": 2,
+        "entries_missing": 0
+      },
+      "section_4_3_closing_report_section4_20261031T011136Z.sha256": {
+        "entries_found": 2,
+        "entries_missing": 0
+      },
+      "step5_delay_failure_diagnosis.sha256": {
+        "entries_found": 1,
+        "entries_missing": 0
+      },
+      "step6_coverage_TRAIN.sha256": {
+        "entries_found": 1,
+        "entries_missing": 0
+      }
+    },
+    "mismatches": [
+      {
+        "list": "sec4_3_4_to_4_3_9_final_sha256.txt",
+        "file": "step8_sections_4_3_4_to_4_3_9.py",
+        "reason": "file changed after the list",
+        "last_commit_touching_the_file": "dcf8051 2026-10-30T22:15:21-04:00"
+      },
+      {
+        "list": "step3_final_sha256.txt",
+        "file": "step3_all_in_one.py",
+        "reason": "file changed after the list",
+        "last_commit_touching_the_file": "cab52d4 2026-10-30T23:34:27-04:00"
+      },
+      {
+        "list": "step4_final_sha256.txt",
+        "file": "step4_extract_parameters.py",
+        "reason": "file changed after the list",
+        "last_commit_touching_the_file": "dcf8051 2026-10-30T22:15:21-04:00"
+      },
+      {
+        "list": "step4_final_sha256.txt",
+        "file": "write_amendment_4_3_1_A2.py",
+        "reason": "file changed after the list",
+        "last_commit_touching_the_file": "e608a2d 2026-10-30T19:17:58-04:00"
+      },
+      {
+        "list": "step5_final_sha256.txt",
+        "file": "step5_policy.py",
+        "reason": "file changed after the list",
+        "last_commit_touching_the_file": "91d788e 2026-10-30T19:41:51-04:00"
+      },
+      {
+        "list": "step5_final_sha256.txt",
+        "file": "step5_delay_diagnosis.py",
+        "reason": "file changed after the list",
+        "last_commit_touching_the_file": "91d788e 2026-10-30T19:41:51-04:00"
+      },
+      {
+        "list": "step5_v2_final_sha256.txt",
+        "file": "step5_policy.py",
+        "reason": "file changed after the list",
+        "last_commit_touching_the_file": "91d788e 2026-10-30T19:41:51-04:00"
+      },
+      {
+        "list": "step6_final_sha256.txt",
+        "file": "step6_coverage.py",
+        "reason": "file changed after the list",
+        "last_commit_touching_the_file": "dcf8051 2026-10-30T22:15:21-04:00"
+      }
+    ],
+    "reports_older_than_the_latest_change_to_a_producing_script": [
+      {
+        "report": "step3_RAW_report.json",
+        "report_made": "2026-10-30T22:34:15.384189+00:00",
+        "script": "step3_all_in_one.py",
+        "script_last_changed": "2026-10-30T23:34:27-04:00"
+      },
+      {
+        "report": "step3_RAW_report.json",
+        "report_made": "2026-10-30T22:34:15.384189+00:00",
+        "script": "section431_step3_verification/prototype_sources/section431_additions.py",
+        "script_last_changed": "2026-10-30T23:34:27-04:00"
+      },
+      {
+        "report": "step3_LEGACY_report.json",
+        "report_made": "2026-10-30T22:38:14.481689+00:00",
+        "script": "step3_all_in_one.py",
+        "script_last_changed": "2026-10-30T23:34:27-04:00"
+      },
+      {
+        "report": "step3_LEGACY_report.json",
+        "report_made": "2026-10-30T22:38:14.481689+00:00",
+        "script": "section431_step3_verification/prototype_sources/section431_additions.py",
+        "script_last_changed": "2026-10-30T23:34:27-04:00"
+      },
+      {
+        "report": "step4_parameter_table.json",
+        "report_made": "2026-10-30T23:17:45.532712+00:00",
+        "script": "step4_extract_parameters.py",
+        "script_last_changed": "2026-10-30T22:15:21-04:00"
+      },
+      {
+        "report": "step4_parameter_table.json",
+        "report_made": "2026-10-30T23:17:45.532712+00:00",
+        "script": "step3_all_in_one.py",
+        "script_last_changed": "2026-10-30T23:34:27-04:00"
+      },
+      {
+        "report": "step6_coverage_TRAIN.json",
+        "report_made": "2026-10-31T00:10:56.119244+00:00",
+        "script": "step6_coverage.py",
+        "script_last_changed": "2026-10-30T22:15:21-04:00"
+      },
+      {
+        "report": "step6_coverage_TRAIN.json",
+        "report_made": "2026-10-31T00:10:56.119244+00:00",
+        "script": "step3_all_in_one.py",
+        "script_last_changed": "2026-10-30T23:34:27-04:00"
+      },
+      {
+        "report": "sec4_3_4_to_4_3_9_report.json",
+        "report_made": "2026-10-31T00:59:32.295378+00:00",
+        "script": "step8_sections_4_3_4_to_4_3_9.py",
+        "script_last_changed": "2026-10-30T22:15:21-04:00"
+      },
+      {
+        "report": "sec4_3_4_to_4_3_9_report.json",
+        "report_made": "2026-10-31T00:59:32.295378+00:00",
+        "script": "step3_all_in_one.py",
+        "script_last_changed": "2026-10-30T23:34:27-04:00"
+      }
+    ],
+    "note": "The old lists record the state at their time and are not edited. Each mismatch is a script or file changed afterwards (A4 F3/F7, A5 G3, the N4 path fixes)."
+  },
+  "L7": {
+    "status": "PASS",
+    "absolute_user_path_hits_in_tracked_scripts": [],
+    "new_in_repository_copies": {
+      "REPORT.md": "124303ba4a814a6b8a50552624debd421de6b2401406172a23645e112e3b4bdb",
+      "section431_panel_audit.json": "fb39c8f210a50835b54557e880c8371e44cbf6d9e498f1d5d8273bde44d2c342",
+      "audit_and_freeze.py": "66312d06c9b0466a09b0061c00ac200b32d4ec38683f5ca86dafa1381cd4c92a",
+      "amend_protocol.py": "ca82a0f3004eabe789dad33a72df020d0e2cdea6b75bf683f51b96ad07fa7c4f"
+    }
+  },
+  "L11": {
+    "status": "PASS",
+    "frozen_implementation_files_match_protocol": {
+      "audit_and_freeze.py": true,
+      "amend_protocol.py": true
+    },
+    "gitignore_script_entries_without_a_file": [],
+    "order_fact": {
+      "F6_addendum_created": "2026-10-31T02:53:06.969094+00:00",
+      "F4_report_created": "2026-10-31T03:27:07.630373+00:00",
+      "F6_before_F4": true,
+      "a4_stated_order": "F7, F3, F1, F2+F5, F4, F6"
+    }
+  },
+  "table": [
+    [
+      "L5 warmup of relative_volume20__sadj (new #5)",
+      "PASS"
+    ],
+    [
+      "L6 hash lists (new #6)",
+      "PASS"
+    ],
+    [
+      "L7 paths (new #7)",
+      "PASS"
+    ],
+    [
+      "L11 housekeeping (new #11)",
+      "PASS"
+    ]
+  ]
+}
