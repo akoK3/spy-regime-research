@@ -50,6 +50,9 @@
 !/frozen_documents/*.sha256
 !/frozen_documents/*.csv
 !/frozen_documents/*.txt
+!/frozen_documents/*.md
+!/frozen_documents/audit_and_freeze.py
+!/frozen_documents/amend_protocol.py
 
 !/section431_step3_all_in_one_results/
 /section431_step3_all_in_one_results/*
