@@ -1,0 +1,200 @@
+{
+  "created_utc": "2026-10-31T00:59:32.295378+00:00",
+  "amendment_A3": {
+    "file": "amendment_4_3_A3_20261031T003719Z.json",
+    "sha256": "34ebab1c19e007e5318e8da3dcc4eab38ad03cd2547c0358b53c4c944983b94d"
+  },
+  "scope": "TRAIN only; RAW then LEGACY; 80 detector outputs; overnight_return_open excluded",
+  "readings_stated": [
+    "4.3.5 shares are given against both all TRAIN grid rows and observed bars (A3 does not name the denominator).",
+    "4.3.9: A3 specifies one matrix holding both sets; the primary and sensitivity matrices are views of it."
+  ],
+  "subsections": {
+    "4.3.2/4.3.3": {
+      "status": "CITED, NO WORK",
+      "cites": {
+        "A2": "2e2beb61489203c62988fda83ec0b1b7696f2a4d3bb1aa7f68a85275cae93ad5",
+        "P1": "580b9c9c4f4df578ba3f4aeda61556d73d8aaed486ec7866a11f93eaf103f75c",
+        "prior 4.3.2/4.3.3 synthetic audit": "c3701d0e4b6bbf27131021fec6b597e70bf68435ca65a19f56edce12439dd14b"
+      }
+    },
+    "4.3.4": {
+      "status": "PASS",
+      "checks": {
+        "adjusted_columns": 36,
+        "problems": [],
+        "slots_with_undefined_median_per_feature": {
+          "RAW": {},
+          "LEGACY": {}
+        }
+      }
+    },
+    "4.3.5": {
+      "status": "DESCRIPTIVE",
+      "result": {
+        "RAW": {
+          "era": "RAW",
+          "flagged_bars": 5,
+          "observed_bars": 273640,
+          "grid_rows": 274050,
+          "runs_of_5_or_more": 1,
+          "longest_run": 5,
+          "share_of_grid_rows_pct": 0.0018,
+          "share_of_observed_bars_pct": 0.0018
+        },
+        "LEGACY": {
+          "era": "LEGACY",
+          "flagged_bars": 23188,
+          "observed_bars": 1514451,
+          "grid_rows": 1562460,
+          "runs_of_5_or_more": 3977,
+          "longest_run": 20,
+          "share_of_grid_rows_pct": 1.4841,
+          "share_of_observed_bars_pct": 1.5311
+        }
+      }
+    },
+    "4.3.6": {
+      "status": "DESCRIPTIVE",
+      "rows": 2204,
+      "columns": 116,
+      "eras_years": {
+        "RAW": [
+          "2022",
+          "2023",
+          "2024"
+        ],
+        "LEGACY": [
+          "2003",
+          "2004",
+          "2005",
+          "2006",
+          "2007",
+          "2008",
+          "2009",
+          "2010",
+          "2011",
+          "2012",
+          "2013",
+          "2014",
+          "2015",
+          "2016",
+          "2017",
+          "2018"
+        ]
+      }
+    },
+    "4.3.7": {
+      "status": "PASS",
+      "checks": {
+        "primary set equals the 20 PASS columns of Step 6": true,
+        "primary set recomputed from this run's coverage (both eras >= 80%, rounded to 3 decimals as in Step 6)": true,
+        "sensitivity set is all 80 detector outputs": true,
+        "overnight_return_open is in neither set": true
+      },
+      "primary_count": 20,
+      "sensitivity_count": 80
+    },
+    "4.3.8": {
+      "status": "PASS",
+      "checks": {
+        "primary: no two kept columns redundant, every dropped column has a kept partner": true,
+        "sensitivity: no two kept columns redundant, every dropped column has a kept partner": true
+      },
+      "primary": {
+        "kept": 14,
+        "dropped": 6
+      },
+      "sensitivity_RAW": {
+        "kept": 58,
+        "dropped": 22
+      },
+      "undefined_correlations": {
+        "RAW": 0,
+        "LEGACY_primary": 0
+      }
+    },
+    "4.3.9": {
+      "status": "PASS",
+      "checks": {
+        "80 rows": true,
+        "all A3 matrix fields present": true,
+        "36 adjusted columns named": true,
+        "A3 hash verified": true
+      }
+    }
+  },
+  "overall": "PASS",
+  "output_hashes": [
+    {
+      "label": "4.3.4 TRAIN median per slot, RAW",
+      "file": "sec4_3_4_slot_medians_RAW.csv",
+      "sha256": "f5e32212641e956191742a591e7c92de1e33325d0199273bd9c28c3335a01db3"
+    },
+    {
+      "label": "4.3.4 TRAIN median per slot, LEGACY",
+      "file": "sec4_3_4_slot_medians_LEGACY.csv",
+      "sha256": "95b1f6518007bc978d551805fb01f648c2ece3ae1ed2aa337a80ca152d0e4237"
+    },
+    {
+      "label": "4.3.5 flagged bars by era and year",
+      "file": "sec4_3_5_stale_closes_by_year.csv",
+      "sha256": "562770c4124c720087e116bd717fee706f20f86081fd08d639a3f4b465ac7470"
+    },
+    {
+      "label": "4.3.5 flagged bars by era and slot",
+      "file": "sec4_3_5_stale_closes_by_slot.csv",
+      "sha256": "2793aa8ccc5c5c752995239ab3993c7ab79c53e5754102c615ab59860ca57edc"
+    },
+    {
+      "label": "4.3.6 yearly median and IQR (80 raw + 36 adjusted columns)",
+      "file": "sec4_3_6_yearly_median_iqr.csv",
+      "sha256": "d07b591a159f0803f623d5e33152023d356d3784bfc986d4cab795f4e65caf0a"
+    },
+    {
+      "label": "4.3.7 eligibility sets",
+      "file": "sec4_3_7_eligibility.json",
+      "sha256": "122e9544407d4bde5405921590ceb6fa8782409994357d839b850c12c1aacadd"
+    },
+    {
+      "label": "4.3.8 Spearman, primary set, LEGACY",
+      "file": "sec4_3_8_spearman_primary_LEGACY.csv",
+      "sha256": "8aae1dff6782c3172174690fd5a6506a5d207ea92f8f41077dcf4d6c50457f84"
+    },
+    {
+      "label": "4.3.8 Spearman, all 80, RAW (primary RAW is a sub-block)",
+      "file": "sec4_3_8_spearman_RAW_all80.csv",
+      "sha256": "e8c4658a2ca76ca34b94ae3dfd9adeae82cf1af258ba88679f4a5ccee7a98e7a"
+    },
+    {
+      "label": "4.3.8 pairwise overlap counts, RAW",
+      "file": "sec4_3_8_overlap_RAW_all80.csv",
+      "sha256": "388cc7eccf85dee768d1646954adffea95d6b957f0a89186702b16ffa1d793da"
+    },
+    {
+      "label": "4.3.8 pairwise overlap counts, LEGACY primary",
+      "file": "sec4_3_8_overlap_primary_LEGACY.csv",
+      "sha256": "e7d13c0092a782a9ec3a9cae6f645688add5552da9e7d70c601d2ad0eac6c9c8"
+    },
+    {
+      "label": "4.3.8 redundancy outcome",
+      "file": "sec4_3_8_redundancy.json",
+      "sha256": "babb83734529aaf3fb0b30daaa12ad3b5fdd87236da0fcf091ba3096879831fa"
+    },
+    {
+      "label": "4.3.9 frozen matrix (A3: one matrix, both sets)",
+      "file": "sec4_3_9_frozen_matrix.csv",
+      "sha256": "77aa2d92ac802faec9c5d251266eec600aa7243e5e5aad3763a316e8a4a2d2f8"
+    },
+    {
+      "label": "4.3.9 primary view (20 eligible rows)",
+      "file": "sec4_3_9_matrix_primary_view.csv",
+      "sha256": "39c72cfa6dfec66488c9addd65f9e2f8c1da8474fe4caeb3bac9b55eaf190d7d"
+    },
+    {
+      "label": "4.3.9 sensitivity view (80 rows, RAW)",
+      "file": "sec4_3_9_matrix_sensitivity_view.csv",
+      "sha256": "7fbd544faf9200e7de10a0d22068e8c7eb16daceae4fbd4eb2d58664f6e7309d"
+    }
+  ]
+}

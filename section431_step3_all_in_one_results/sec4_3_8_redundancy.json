@@ -1,0 +1,431 @@
+{
+  "rule": "Process the columns in priority order and keep a column unless it is redundant with a column already kept. Priority: (1) shorter window, meaning the smaller Step 4 lookback in bars; (2) higher coverage, meaning the lower of the two eras' Step 6 coverage in the primary set and the RAW coverage in the sensitivity set; (3) earlier position in the closing-report feature dictionary. Rule (3) is a deterministic tie-break added here and is not part of the instruction as first given.",
+  "threshold": 0.95,
+  "primary": {
+    "priority_order": [
+      "intrabar_range_log",
+      "raw_volume",
+      "log_raw_volume",
+      "relative_volume20",
+      "log_relative_volume20",
+      "close_location_proxy",
+      "return_1m",
+      "abs_return_1m",
+      "momentum5_endpoint",
+      "rv5_strict",
+      "downside5_strict",
+      "momentum5_strict",
+      "rv5_partial90",
+      "momentum10_endpoint",
+      "rv10_partial90",
+      "rv10_strict",
+      "downside10_strict",
+      "momentum10_strict",
+      "momentum15_endpoint",
+      "momentum30_endpoint"
+    ],
+    "kept": [
+      "intrabar_range_log",
+      "raw_volume",
+      "relative_volume20",
+      "close_location_proxy",
+      "return_1m",
+      "abs_return_1m",
+      "momentum5_endpoint",
+      "rv5_strict",
+      "downside5_strict",
+      "momentum10_endpoint",
+      "rv10_partial90",
+      "downside10_strict",
+      "momentum15_endpoint",
+      "momentum30_endpoint"
+    ],
+    "dropped": {
+      "log_raw_volume": [
+        {
+          "kept_column": "raw_volume",
+          "era": "LEGACY",
+          "rho": 1.0
+        },
+        {
+          "kept_column": "raw_volume",
+          "era": "RAW",
+          "rho": 1.0
+        }
+      ],
+      "log_relative_volume20": [
+        {
+          "kept_column": "relative_volume20",
+          "era": "LEGACY",
+          "rho": 1.0
+        },
+        {
+          "kept_column": "relative_volume20",
+          "era": "RAW",
+          "rho": 1.0
+        }
+      ],
+      "momentum5_strict": [
+        {
+          "kept_column": "momentum5_endpoint",
+          "era": "LEGACY",
+          "rho": 0.999803
+        },
+        {
+          "kept_column": "momentum5_endpoint",
+          "era": "RAW",
+          "rho": 0.999999
+        }
+      ],
+      "rv5_partial90": [
+        {
+          "kept_column": "rv5_strict",
+          "era": "LEGACY",
+          "rho": 1.0
+        },
+        {
+          "kept_column": "rv5_strict",
+          "era": "RAW",
+          "rho": 1.0
+        }
+      ],
+      "rv10_strict": [
+        {
+          "kept_column": "rv10_partial90",
+          "era": "LEGACY",
+          "rho": 1.0
+        },
+        {
+          "kept_column": "rv10_partial90",
+          "era": "RAW",
+          "rho": 1.0
+        }
+      ],
+      "momentum10_strict": [
+        {
+          "kept_column": "momentum10_endpoint",
+          "era": "LEGACY",
+          "rho": 0.999935
+        },
+        {
+          "kept_column": "momentum10_endpoint",
+          "era": "RAW",
+          "rho": 1.0
+        }
+      ]
+    }
+  },
+  "sensitivity_RAW": {
+    "priority_order": [
+      "intrabar_range_log",
+      "raw_volume",
+      "log_raw_volume",
+      "close_location_proxy",
+      "relative_volume20",
+      "log_relative_volume20",
+      "return_1m",
+      "abs_return_1m",
+      "momentum5_endpoint",
+      "rv5_strict",
+      "downside5_strict",
+      "momentum5_strict",
+      "rv5_partial90",
+      "momentum10_endpoint",
+      "rv10_partial90",
+      "rv10_strict",
+      "downside10_strict",
+      "momentum10_strict",
+      "momentum15_endpoint",
+      "rv15_partial90",
+      "downside15_partial90",
+      "rv15_strict",
+      "downside15_strict",
+      "momentum15_strict",
+      "bipower_15",
+      "jump_variation_15",
+      "drawdown_15",
+      "amihud_15",
+      "skew_15",
+      "kurtosis_excess_15",
+      "variance_ratio2_15",
+      "directional_efficiency_15",
+      "vol_of_vol_15",
+      "extreme_loss_15",
+      "volume_variability_15",
+      "volume_adjusted_range_15",
+      "return_autocorr1_15",
+      "reversal_15",
+      "rv30_partial90",
+      "momentum30_endpoint",
+      "rv30_strict",
+      "downside30_strict",
+      "momentum30_strict",
+      "bipower_30",
+      "jump_variation_30",
+      "drawdown_30",
+      "amihud_30",
+      "skew_30",
+      "kurtosis_excess_30",
+      "variance_ratio2_30",
+      "directional_efficiency_30",
+      "vol_of_vol_30",
+      "extreme_loss_30",
+      "volume_variability_30",
+      "volume_adjusted_range_30",
+      "return_autocorr1_30",
+      "reversal_30",
+      "rv60_partial90",
+      "momentum60_endpoint",
+      "rv60_sampled5_exact",
+      "rv60_strict",
+      "downside60_strict",
+      "momentum60_strict",
+      "bipower_60",
+      "jump_variation_60",
+      "drawdown_60",
+      "amihud_60",
+      "skew_60",
+      "kurtosis_excess_60",
+      "variance_ratio2_60",
+      "directional_efficiency_60",
+      "vol_of_vol_60",
+      "extreme_loss_60",
+      "volume_variability_60",
+      "volume_adjusted_range_60",
+      "reversal_60",
+      "return_autocorr1_60",
+      "shock_prior60_mad",
+      "lee_mykland_approx60",
+      "lee_mykland_jump60"
+    ],
+    "kept": [
+      "intrabar_range_log",
+      "raw_volume",
+      "close_location_proxy",
+      "relative_volume20",
+      "return_1m",
+      "abs_return_1m",
+      "momentum5_endpoint",
+      "rv5_strict",
+      "downside5_strict",
+      "momentum10_endpoint",
+      "rv10_partial90",
+      "downside10_strict",
+      "momentum15_endpoint",
+      "downside15_partial90",
+      "bipower_15",
+      "jump_variation_15",
+      "drawdown_15",
+      "amihud_15",
+      "skew_15",
+      "kurtosis_excess_15",
+      "variance_ratio2_15",
+      "directional_efficiency_15",
+      "vol_of_vol_15",
+      "volume_variability_15",
+      "volume_adjusted_range_15",
+      "return_autocorr1_15",
+      "reversal_15",
+      "rv30_partial90",
+      "momentum30_endpoint",
+      "downside30_strict",
+      "jump_variation_30",
+      "drawdown_30",
+      "amihud_30",
+      "skew_30",
+      "kurtosis_excess_30",
+      "variance_ratio2_30",
+      "directional_efficiency_30",
+      "vol_of_vol_30",
+      "volume_variability_30",
+      "volume_adjusted_range_30",
+      "return_autocorr1_30",
+      "reversal_30",
+      "momentum60_endpoint",
+      "rv60_sampled5_exact",
+      "downside60_strict",
+      "jump_variation_60",
+      "drawdown_60",
+      "amihud_60",
+      "skew_60",
+      "kurtosis_excess_60",
+      "variance_ratio2_60",
+      "directional_efficiency_60",
+      "vol_of_vol_60",
+      "extreme_loss_60",
+      "volume_variability_60",
+      "volume_adjusted_range_60",
+      "reversal_60",
+      "lee_mykland_jump60"
+    ],
+    "dropped": {
+      "log_raw_volume": [
+        {
+          "kept_column": "raw_volume",
+          "era": "RAW",
+          "rho": 1.0
+        }
+      ],
+      "log_relative_volume20": [
+        {
+          "kept_column": "relative_volume20",
+          "era": "RAW",
+          "rho": 1.0
+        }
+      ],
+      "momentum5_strict": [
+        {
+          "kept_column": "momentum5_endpoint",
+          "era": "RAW",
+          "rho": 0.999999
+        }
+      ],
+      "rv5_partial90": [
+        {
+          "kept_column": "rv5_strict",
+          "era": "RAW",
+          "rho": 1.0
+        }
+      ],
+      "rv10_strict": [
+        {
+          "kept_column": "rv10_partial90",
+          "era": "RAW",
+          "rho": 1.0
+        }
+      ],
+      "momentum10_strict": [
+        {
+          "kept_column": "momentum10_endpoint",
+          "era": "RAW",
+          "rho": 1.0
+        }
+      ],
+      "rv15_partial90": [
+        {
+          "kept_column": "rv10_partial90",
+          "era": "RAW",
+          "rho": 0.956536
+        }
+      ],
+      "rv15_strict": [
+        {
+          "kept_column": "rv10_partial90",
+          "era": "RAW",
+          "rho": 0.956541
+        }
+      ],
+      "downside15_strict": [
+        {
+          "kept_column": "downside15_partial90",
+          "era": "RAW",
+          "rho": 1.0
+        }
+      ],
+      "momentum15_strict": [
+        {
+          "kept_column": "momentum15_endpoint",
+          "era": "RAW",
+          "rho": 1.0
+        }
+      ],
+      "extreme_loss_15": [
+        {
+          "kept_column": "downside15_partial90",
+          "era": "RAW",
+          "rho": -0.964338
+        }
+      ],
+      "rv30_strict": [
+        {
+          "kept_column": "rv30_partial90",
+          "era": "RAW",
+          "rho": 1.0
+        }
+      ],
+      "momentum30_strict": [
+        {
+          "kept_column": "momentum30_endpoint",
+          "era": "RAW",
+          "rho": 1.0
+        }
+      ],
+      "bipower_30": [
+        {
+          "kept_column": "rv30_partial90",
+          "era": "RAW",
+          "rho": 0.985669
+        }
+      ],
+      "extreme_loss_30": [
+        {
+          "kept_column": "downside30_strict",
+          "era": "RAW",
+          "rho": -0.952558
+        }
+      ],
+      "rv60_partial90": [
+        {
+          "kept_column": "rv30_partial90",
+          "era": "RAW",
+          "rho": 0.959964
+        }
+      ],
+      "rv60_strict": [
+        {
+          "kept_column": "rv30_partial90",
+          "era": "RAW",
+          "rho": 0.960204
+        }
+      ],
+      "momentum60_strict": [
+        {
+          "kept_column": "momentum60_endpoint",
+          "era": "RAW",
+          "rho": 1.0
+        }
+      ],
+      "bipower_60": [
+        {
+          "kept_column": "rv30_partial90",
+          "era": "RAW",
+          "rho": 0.95258
+        },
+        {
+          "kept_column": "downside60_strict",
+          "era": "RAW",
+          "rho": 0.958626
+        }
+      ],
+      "return_autocorr1_60": [
+        {
+          "kept_column": "variance_ratio2_60",
+          "era": "RAW",
+          "rho": 0.972632
+        }
+      ],
+      "shock_prior60_mad": [
+        {
+          "kept_column": "return_1m",
+          "era": "RAW",
+          "rho": 0.951014
+        }
+      ],
+      "lee_mykland_approx60": [
+        {
+          "kept_column": "return_1m",
+          "era": "RAW",
+          "rho": 0.967024
+        }
+      ]
+    }
+  },
+  "undefined_correlations": {
+    "RAW": 0,
+    "LEGACY_primary": 0
+  },
+  "checks": {
+    "primary: no two kept columns redundant, every dropped column has a kept partner": true,
+    "sensitivity: no two kept columns redundant, every dropped column has a kept partner": true
+  }
+}

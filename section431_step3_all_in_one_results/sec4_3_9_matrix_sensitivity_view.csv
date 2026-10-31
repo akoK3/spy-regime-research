@@ -1,0 +1,81 @@
+output,feature_class,adjusted_column,lookback_bars,coverage_RAW_pct,sensitivity_eligible,sensitivity_redundancy
+return_1m,raw only,,1,99.562,True,kept
+abs_return_1m,scale (adjusted version added),abs_return_1m__sadj,1,99.562,True,kept
+intrabar_range_log,scale (adjusted version added),intrabar_range_log__sadj,0,99.85,True,kept
+raw_volume,scale (adjusted version added),raw_volume__sadj,0,99.85,True,kept
+log_raw_volume,raw only,,0,99.85,True,"dropped: redundant with raw_volume (rho 1.0, RAW)"
+relative_volume20,scale (adjusted version added),relative_volume20__sadj,0,98.427,True,kept
+log_relative_volume20,raw only,,0,98.427,True,"dropped: redundant with relative_volume20 (rho 1.0, RAW)"
+rv5_strict,scale (adjusted version added),rv5_strict__sadj,5,98.423,True,kept
+downside5_strict,scale (adjusted version added),downside5_strict__sadj,5,98.423,True,kept
+momentum5_strict,raw only,,5,98.423,True,"dropped: redundant with momentum5_endpoint (rho 0.999999, RAW)"
+rv5_partial90,scale (adjusted version added),rv5_partial90__sadj,5,98.423,True,"dropped: redundant with rv5_strict (rho 1.0, RAW)"
+momentum5_endpoint,raw only,,5,98.533,True,kept
+rv10_strict,scale (adjusted version added),rv10_strict__sadj,10,97.003,True,"dropped: redundant with rv10_partial90 (rho 1.0, RAW)"
+downside10_strict,scale (adjusted version added),downside10_strict__sadj,10,97.003,True,kept
+momentum10_strict,raw only,,10,97.003,True,"dropped: redundant with momentum10_endpoint (rho 1.0, RAW)"
+rv10_partial90,scale (adjusted version added),rv10_partial90__sadj,10,97.057,True,kept
+momentum10_endpoint,raw only,,10,97.247,True,kept
+rv15_strict,scale (adjusted version added),rv15_strict__sadj,15,95.584,True,"dropped: redundant with rv10_partial90 (rho 0.956541, RAW)"
+downside15_strict,scale (adjusted version added),downside15_strict__sadj,15,95.584,True,"dropped: redundant with downside15_partial90 (rho 1.0, RAW)"
+momentum15_strict,raw only,,15,95.584,True,"dropped: redundant with momentum15_endpoint (rho 1.0, RAW)"
+rv15_partial90,scale (adjusted version added),rv15_partial90__sadj,15,95.638,True,"dropped: redundant with rv10_partial90 (rho 0.956536, RAW)"
+momentum15_endpoint,raw only,,15,95.96,True,kept
+rv30_strict,scale (adjusted version added),rv30_strict__sadj,30,91.358,True,"dropped: redundant with rv30_partial90 (rho 1.0, RAW)"
+downside30_strict,scale (adjusted version added),downside30_strict__sadj,30,91.358,True,kept
+momentum30_strict,raw only,,30,91.358,True,"dropped: redundant with momentum30_endpoint (rho 1.0, RAW)"
+rv30_partial90,scale (adjusted version added),rv30_partial90__sadj,30,92.11,True,kept
+momentum30_endpoint,raw only,,30,92.102,True,kept
+rv60_strict,scale (adjusted version added),rv60_strict__sadj,60,82.982,True,"dropped: redundant with rv30_partial90 (rho 0.960204, RAW)"
+downside60_strict,scale (adjusted version added),downside60_strict__sadj,60,82.982,True,kept
+momentum60_strict,raw only,,60,82.982,True,"dropped: redundant with momentum60_endpoint (rho 1.0, RAW)"
+rv60_partial90,scale (adjusted version added),rv60_partial90__sadj,60,84.416,True,"dropped: redundant with rv30_partial90 (rho 0.959964, RAW)"
+momentum60_endpoint,raw only,,60,84.388,True,kept
+downside15_partial90,scale (adjusted version added),downside15_partial90__sadj,15,95.638,True,kept
+rv60_sampled5_exact,scale (adjusted version added),rv60_sampled5_exact__sadj,60,84.092,True,kept
+shock_prior60_mad,raw only,,61,82.704,True,"dropped: redundant with return_1m (rho 0.951014, RAW)"
+close_location_proxy,raw only,,0,99.672,True,kept
+bipower_15,scale (adjusted version added),bipower_15__sadj,15,95.584,True,kept
+jump_variation_15,scale (adjusted version added),jump_variation_15__sadj,15,95.584,True,kept
+drawdown_15,raw only,,15,95.584,True,kept
+amihud_15,scale (adjusted version added),amihud_15__sadj,15,95.584,True,kept
+skew_15,raw only,,15,95.584,True,kept
+kurtosis_excess_15,raw only,,15,95.584,True,kept
+variance_ratio2_15,raw only,,15,95.584,True,kept
+directional_efficiency_15,raw only,,15,95.584,True,kept
+vol_of_vol_15,scale (adjusted version added),vol_of_vol_15__sadj,15,95.584,True,kept
+extreme_loss_15,raw only,,15,95.584,True,"dropped: redundant with downside15_partial90 (rho -0.964338, RAW)"
+volume_variability_15,raw only,,15,95.584,True,kept
+volume_adjusted_range_15,scale (adjusted version added),volume_adjusted_range_15__sadj,15,95.584,True,kept
+reversal_15,raw only,,15,95.569,True,kept
+return_autocorr1_15,raw only,,15,95.584,True,kept
+bipower_30,scale (adjusted version added),bipower_30__sadj,30,91.358,True,"dropped: redundant with rv30_partial90 (rho 0.985669, RAW)"
+jump_variation_30,scale (adjusted version added),jump_variation_30__sadj,30,91.358,True,kept
+drawdown_30,raw only,,30,91.358,True,kept
+amihud_30,scale (adjusted version added),amihud_30__sadj,30,91.358,True,kept
+skew_30,raw only,,30,91.358,True,kept
+kurtosis_excess_30,raw only,,30,91.358,True,kept
+variance_ratio2_30,raw only,,30,91.358,True,kept
+directional_efficiency_30,raw only,,30,91.358,True,kept
+vol_of_vol_30,scale (adjusted version added),vol_of_vol_30__sadj,30,91.358,True,kept
+extreme_loss_30,raw only,,30,91.358,True,"dropped: redundant with downside30_strict (rho -0.952558, RAW)"
+volume_variability_30,raw only,,30,91.358,True,kept
+volume_adjusted_range_30,scale (adjusted version added),volume_adjusted_range_30__sadj,30,91.358,True,kept
+reversal_30,raw only,,30,91.357,True,kept
+return_autocorr1_30,raw only,,30,91.358,True,kept
+bipower_60,scale (adjusted version added),bipower_60__sadj,60,82.982,True,"dropped: redundant with rv30_partial90 (rho 0.95258, RAW)"
+jump_variation_60,scale (adjusted version added),jump_variation_60__sadj,60,82.982,True,kept
+drawdown_60,raw only,,60,82.982,True,kept
+amihud_60,scale (adjusted version added),amihud_60__sadj,60,82.982,True,kept
+skew_60,raw only,,60,82.982,True,kept
+kurtosis_excess_60,raw only,,60,82.982,True,kept
+variance_ratio2_60,raw only,,60,82.982,True,kept
+directional_efficiency_60,raw only,,60,82.982,True,kept
+vol_of_vol_60,scale (adjusted version added),vol_of_vol_60__sadj,60,82.982,True,kept
+extreme_loss_60,raw only,,60,82.982,True,kept
+volume_variability_60,raw only,,60,82.982,True,kept
+volume_adjusted_range_60,scale (adjusted version added),volume_adjusted_range_60__sadj,60,82.982,True,kept
+reversal_60,raw only,,60,82.982,True,kept
+return_autocorr1_60,raw only,,60,82.982,True,"dropped: redundant with variance_ratio2_60 (rho 0.972632, RAW)"
+lee_mykland_approx60,raw only,,61,82.704,True,"dropped: redundant with return_1m (rho 0.967024, RAW)"
+lee_mykland_jump60,raw only,,61,82.704,True,kept
