@@ -1,6 +1,6 @@
 # SECTION4_COMPLETE
 
-Generated 2026-10-31 01:45:08Z | repository HEAD before this commit `8fd4ab4c245c0bae67cb94c14fad0fff4a7c6b3a`
+Generated 2026-10-31 01:46:43Z | repository HEAD before this commit `ca912af3d134fb4df69ce2e54ebac3660b0c10e1`
 Scope: Section 4 as recorded in this repository: 4.3.0-4.3.9. Sections 4.1 and 4.2: placeholder below. Pre-rebuild results of sections 4.4-4.9: not part of this record.
 
 ## 4.1 and 4.2
@@ -11,7 +11,7 @@ Scope: Section 4 as recorded in this repository: 4.3.0-4.3.9. Sections 4.1 and 4
 
 ## Chronological decision log
 
-Source: METHODS_LEDGER.md (SHA-256 `1cb15bc5c2b28b746e11c730ab84e0c700677a30cba9f485e3777ccb18fa1e71`).
+Source: METHODS_LEDGER.md (SHA-256 `0f12f87023ad8a5f9a062a439aa721acfeca47171fa2e0fa0f12e990ee6eed93`).
 
 
 | Date (UTC) | Section | Decision | Rationale | File | SHA-256 |
@@ -185,11 +185,11 @@ Excluded from the pool (response-side only, A2 and N1):
 
 | Test | Scope | Result | File | SHA-256 |
 |---|---|---|---|---|
-| Existing test file test_candidates.py | phase A baseline (Step 3) | PASS_EXISTING_TESTS | section431_step3_verification/step3_phaseA_report.json (not in repository) | `f81403d4c612989f48a470c488e485c39b018265680446e9c65a0095cb5a6823` |
-| Existing test file test_additions.py | phase A baseline (Step 3) | FAIL_EXISTING_TESTS (pytest: no tests ran) | section431_step3_verification/step3_phaseA_report.json (not in repository) | `f81403d4c612989f48a470c488e485c39b018265680446e9c65a0095cb5a6823` |
-| test_candidates.py, 6 tests | frozen implementation, rebuild folder | OK 6/6 | C:\Users\kakij\OneDrive\Desktop\data\section4_3_rebuild_20261028\validation_tests.txt (not in repository) | `04bf875d6125e765dbaba996a00d158ed422ef37abc0fcc2c7206f4a2f74249a` |
-| 4.3.2/4.3.3 source-level synthetic tests, 12 tests | 2026-10-29 audit | PASS_SYNTHETIC | C:\Users\kakij\OneDrive\Desktop\data\section4_3_rebuild_20261028\audit_4_3_2_4_3_3_report.json (not in repository) | `c3701d0e4b6bbf27131021fec6b597e70bf68435ca65a19f56edce12439dd14b` |
-| Step 2 family coverage screen (11 families, 80% floor) | TRAIN, both eras | 7 meet, 4 below | section431_step2_final_audit/feature_family_eligibility_matrix.csv (not in repository) | `758cd843bb42f9478e2f5aecdfed22bdc5a1c19b6d4a0303e21d749b9ec05bf3` |
+| Existing test file test_candidates.py | phase A baseline (Step 3) | PASS_EXISTING_TESTS | frozen_documents/step3_phaseA_report.json | `f81403d4c612989f48a470c488e485c39b018265680446e9c65a0095cb5a6823` |
+| Existing test file test_additions.py | phase A baseline (Step 3) | FAIL_EXISTING_TESTS (pytest: no tests ran) | frozen_documents/step3_phaseA_report.json | `f81403d4c612989f48a470c488e485c39b018265680446e9c65a0095cb5a6823` |
+| test_candidates.py, 6 tests | frozen implementation, rebuild folder | OK 6/6 | frozen_documents/validation_tests.txt | `04bf875d6125e765dbaba996a00d158ed422ef37abc0fcc2c7206f4a2f74249a` |
+| 4.3.2/4.3.3 source-level synthetic tests, 12 tests | 2026-10-29 audit | PASS_SYNTHETIC | frozen_documents/audit_4_3_2_4_3_3_report.json | `c3701d0e4b6bbf27131021fec6b597e70bf68435ca65a19f56edce12439dd14b` |
+| Step 2 family coverage screen (11 families, 80% floor) | TRAIN, both eras | 7 meet, 4 below | frozen_documents/feature_family_eligibility_matrix.csv | `758cd843bb42f9478e2f5aecdfed22bdc5a1c19b6d4a0303e21d749b9ec05bf3` |
 | Step 3 inventory | RAW | PASS | section431_step3_all_in_one_results/step3_RAW_report.json | `b586ee682467f3ac978884dd1895e7b1078713a7b173f7a419246b459dafc61b` |
 | Step 3 formula_all_outputs | RAW | PASS | section431_step3_all_in_one_results/step3_RAW_report.json | `b586ee682467f3ac978884dd1895e7b1078713a7b173f7a419246b459dafc61b` |
 | Step 3 formula_spot_checks | RAW | PASS | section431_step3_all_in_one_results/step3_RAW_report.json | `b586ee682467f3ac978884dd1895e7b1078713a7b173f7a419246b459dafc61b` |
@@ -287,7 +287,7 @@ Excluded from the pool (response-side only, A2 and N1):
 | 21 | Note N1 changes two A3 sentences | Written after the 4.3.4-4.3.9 run; adjusted columns become separate candidates and redundancy covers them | section431_step3_all_in_one_results/note_4_3_N1_20261031T011048Z.json | `0a5ab480a7c44b422af67e4912bd461c80d745e7bb527212dbb88d09a74357a1` |
 | 22 | Note N2 tie-break for adjusted columns | Positions 80-115, raw wins ties; chosen by the repository owner; note committed before the pool run | section431_step3_all_in_one_results/note_4_3_N2_20261031T011552Z.json | `3f5b7978e642298ad70a91dfafd8ebaa77504bb2bc1da5f2fb12990759d28e34` |
 | 23 | Closing report scope | Closing report covers Section 4.3 (4.3.0-4.3.9), marker SECTION_4_3_CLOSED; later results added as an addendum, closed report unchanged | section431_step3_all_in_one_results/section_4_3_closing_report_section4_20261031T011136Z.json | `4541880b1ac88d866cab7119e148143871ee0678a68b08c2b8e06730a27b2bff` |
-| 24 | List of 10 open items is derived | No document defines a list of 10 postponed items; merged from the documents' deferred and not-decided lists | METHODS_LEDGER.md | `1cb15bc5c2b28b746e11c730ab84e0c700677a30cba9f485e3777ccb18fa1e71` |
+| 24 | List of 10 open items is derived | No document defines a list of 10 postponed items; merged from the documents' deferred and not-decided lists | METHODS_LEDGER.md | `0f12f87023ad8a5f9a062a439aa721acfeca47171fa2e0fa0f12e990ee6eed93` |
 
 ## Limitations
 
@@ -338,11 +338,11 @@ List of 10 derived from the repository: no document defines a list of 10 postpon
 | 3 | Reconciling A1's 60-minute lookback and 5-session embargo with A2/A3 | open | section431_step3_all_in_one_results/section_4_3_closing_report_section4_20261031T011136Z.json; section431_step3_all_in_one_results/approval_4_3_0_A1_20261031T003131Z.json | `4541880b1ac88d866cab7119e148143871ee0678a68b08c2b8e06730a27b2bff`; `312d9807c41b5f780126029c15bf64d25ad7b50d161287b94fae0cbbacae09ef` |
 | 4 | Any detector, scaler or HMM fit | open | section431_step3_all_in_one_results/section_4_3_1_closing_report_20261031T002814Z.json; section431_step3_all_in_one_results/section_4_3_closing_report_section4_20261031T011136Z.json; section431_step3_all_in_one_results/amendment_4_3_A3_20261031T003719Z.json | `f7cfb9f3ae39629319088f69b27156849a06c2c7349fae58453fd2969865515a`; `4541880b1ac88d866cab7119e148143871ee0678a68b08c2b8e06730a27b2bff`; `34ebab1c19e007e5318e8da3dcc4eab38ad03cd2547c0358b53c4c944983b94d` |
 | 5 | Legacy timing sensitivity (-1/0/+1 minute) | open | section431_step3_all_in_one_results/section_4_3_1_closing_report_20261031T002814Z.json; section431_step3_all_in_one_results/section_4_3_closing_report_section4_20261031T011136Z.json; frozen_documents/protocol_20261029T032641Z.json | `f7cfb9f3ae39629319088f69b27156849a06c2c7349fae58453fd2969865515a`; `4541880b1ac88d866cab7119e148143871ee0678a68b08c2b8e06730a27b2bff`; `3d6f0c96fce1c05f8e94d1a8c6e6b14a5b5b1c9f013e6a95dd1e96498cbfff8b` |
-| 6 | Historical source timestamp labeling and vendor causality | open | section431_step3_all_in_one_results/amendment_4_3_A3_20261031T003719Z.json (quotes the deferred list of audit_4_3_2_4_3_3_report.json, outside the repository) | `34ebab1c19e007e5318e8da3dcc4eab38ad03cd2547c0358b53c4c944983b94d`; audit report `c3701d0e4b6bbf27131021fec6b597e70bf68435ca65a19f56edce12439dd14b` |
-| 7 | Full-data construction/output validation on user machine | open | section431_step3_all_in_one_results/amendment_4_3_A3_20261031T003719Z.json (quotes the deferred list of audit_4_3_2_4_3_3_report.json, outside the repository) | `34ebab1c19e007e5318e8da3dcc4eab38ad03cd2547c0358b53c4c944983b94d`; audit report `c3701d0e4b6bbf27131021fec6b597e70bf68435ca65a19f56edce12439dd14b` |
-| 8 | Decision-time joins of completed-bar features | open | section431_step3_all_in_one_results/amendment_4_3_A3_20261031T003719Z.json (quotes the deferred list of audit_4_3_2_4_3_3_report.json, outside the repository) | `34ebab1c19e007e5318e8da3dcc4eab38ad03cd2547c0358b53c4c944983b94d`; audit report `c3701d0e4b6bbf27131021fec6b597e70bf68435ca65a19f56edce12439dd14b` |
-| 9 | Section 5 event-label horizons and purging | open | section431_step3_all_in_one_results/amendment_4_3_A3_20261031T003719Z.json (quotes the deferred list of audit_4_3_2_4_3_3_report.json, outside the repository) | `34ebab1c19e007e5318e8da3dcc4eab38ad03cd2547c0358b53c4c944983b94d`; audit report `c3701d0e4b6bbf27131021fec6b597e70bf68435ca65a19f56edce12439dd14b` |
-| 10 | Training-only normalization and fitted model enforcement | open | section431_step3_all_in_one_results/amendment_4_3_A3_20261031T003719Z.json (quotes the deferred list of audit_4_3_2_4_3_3_report.json, outside the repository) | `34ebab1c19e007e5318e8da3dcc4eab38ad03cd2547c0358b53c4c944983b94d`; audit report `c3701d0e4b6bbf27131021fec6b597e70bf68435ca65a19f56edce12439dd14b` |
+| 6 | Historical source timestamp labeling and vendor causality | open | section431_step3_all_in_one_results/amendment_4_3_A3_20261031T003719Z.json; frozen_documents/audit_4_3_2_4_3_3_report.json (deferred list) | `34ebab1c19e007e5318e8da3dcc4eab38ad03cd2547c0358b53c4c944983b94d`; `c3701d0e4b6bbf27131021fec6b597e70bf68435ca65a19f56edce12439dd14b` |
+| 7 | Full-data construction/output validation on user machine | open | section431_step3_all_in_one_results/amendment_4_3_A3_20261031T003719Z.json; frozen_documents/audit_4_3_2_4_3_3_report.json (deferred list) | `34ebab1c19e007e5318e8da3dcc4eab38ad03cd2547c0358b53c4c944983b94d`; `c3701d0e4b6bbf27131021fec6b597e70bf68435ca65a19f56edce12439dd14b` |
+| 8 | Decision-time joins of completed-bar features | open | section431_step3_all_in_one_results/amendment_4_3_A3_20261031T003719Z.json; frozen_documents/audit_4_3_2_4_3_3_report.json (deferred list) | `34ebab1c19e007e5318e8da3dcc4eab38ad03cd2547c0358b53c4c944983b94d`; `c3701d0e4b6bbf27131021fec6b597e70bf68435ca65a19f56edce12439dd14b` |
+| 9 | Section 5 event-label horizons and purging | open | section431_step3_all_in_one_results/amendment_4_3_A3_20261031T003719Z.json; frozen_documents/audit_4_3_2_4_3_3_report.json (deferred list) | `34ebab1c19e007e5318e8da3dcc4eab38ad03cd2547c0358b53c4c944983b94d`; `c3701d0e4b6bbf27131021fec6b597e70bf68435ca65a19f56edce12439dd14b` |
+| 10 | Training-only normalization and fitted model enforcement | open | section431_step3_all_in_one_results/amendment_4_3_A3_20261031T003719Z.json; frozen_documents/audit_4_3_2_4_3_3_report.json (deferred list) | `34ebab1c19e007e5318e8da3dcc4eab38ad03cd2547c0358b53c4c944983b94d`; `c3701d0e4b6bbf27131021fec6b597e70bf68435ca65a19f56edce12439dd14b` |
 
 ### Other open items recorded in the documents
 

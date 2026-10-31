@@ -1,0 +1,12 @@
+feature_family,eligibility_proxy,minimum_observations,reason,LEGACY_numerator,LEGACY_denominator,LEGACY_coverage_pct,RAW_numerator,RAW_denominator,RAW_coverage_pct,coverage_screen,verification_status
+bipower_variation,strict5,5,Requires five consecutive eligible returns; bipower products require adjacent returns.,1398432,1562460,89.502,269728,274050,98.423,MEETS_FROZEN_FLOOR,PENDING_FORMULA_CAUSALITY_PREFIX_TESTS
+lee_mykland_jumps,strict60,60,Local volatility normalization requires 60 consecutive eligible returns; missing pairs cannot be bridged.,589594,1562460,37.735,227412,274050,82.982,BELOW_FROZEN_FLOOR,PENDING_FORMULA_CAUSALITY_PREFIX_TESTS
+jump_variation,strict5,5,Difference between realized and bipower variation requires five consecutive returns.,1398432,1562460,89.502,269728,274050,98.423,MEETS_FROZEN_FLOOR,PENDING_FORMULA_CAUSALITY_PREFIX_TESTS
+drawdown,valid_close,1,Point-in-time drawdown requires valid current close and past observed peak; historical continuity checked at verification.,1514451,1562460,96.927,273640,274050,99.85,MEETS_FROZEN_FLOOR,PENDING_FORMULA_CAUSALITY_PREFIX_TESTS
+amihud_illiquidity,valid_close_volume,1,Requires current valid price and positive volume; return eligibility verified separately.,1488062,1562460,95.238,272851,274050,99.562,MEETS_FROZEN_FLOOR,PENDING_FORMULA_CAUSALITY_PREFIX_TESTS
+skewness_and_kurtosis,strict60,60,Higher moments are unstable at small sample sizes; use a full 60-return window.,589594,1562460,37.735,227412,274050,82.982,BELOW_FROZEN_FLOOR,PENDING_FORMULA_CAUSALITY_PREFIX_TESTS
+variance_ratio,strict60,60,Overlapping multi-period returns require consecutive one-minute returns.,589594,1562460,37.735,227412,274050,82.982,BELOW_FROZEN_FLOOR,PENDING_FORMULA_CAUSALITY_PREFIX_TESTS
+close_location,valid_ohlc,1,Requires a valid current OHLC bar and nonzero range.,1505039,1562460,96.325,273151,274050,99.672,MEETS_FROZEN_FLOOR,PENDING_FORMULA_CAUSALITY_PREFIX_TESTS
+directional_efficiency,strict5,5,Path efficiency denominator requires consecutive observed returns.,1398432,1562460,89.502,269728,274050,98.423,MEETS_FROZEN_FLOOR,PENDING_FORMULA_CAUSALITY_PREFIX_TESTS
+volatility_of_volatility,strict60,60,Nested volatility windows require a complete contiguous history.,589594,1562460,37.735,227412,274050,82.982,BELOW_FROZEN_FLOOR,PENDING_FORMULA_CAUSALITY_PREFIX_TESTS
+overnight_return,overnight,2,Requires prior scheduled close and current scheduled open; session-based denominator.,3464,4021,86.148,704,704,100.0,MEETS_FROZEN_FLOOR,PENDING_FORMULA_CAUSALITY_PREFIX_TESTS

@@ -1,0 +1,19 @@
+{
+  "scope": "4.3.2\u20134.3.3 source-level synthetic tests",
+  "status": "PASS_SYNTHETIC",
+  "tests_run": 12,
+  "failures": [],
+  "errors": [],
+  "source_sha256": {
+    "section4_3_1_candidates.py": "4c8d2b528ff8b86a2885426d974e9be97fbc3d264d60b4e2bf38f16981204878",
+    "test_candidates.py": "cab8833a1b104fe1d4f9c01ebfde8f69a7d1fb4359744ea0bfe23e4a71e1db12"
+  },
+  "deferred": [
+    "Historical source timestamp labeling and vendor causality",
+    "Full-data construction/output validation on user machine",
+    "Decision-time joins of completed-bar features",
+    "Section 5 event-label horizons and purging",
+    "Training-only normalization and fitted model enforcement"
+  ],
+  "test_log": "test_independent_formulas_every_window (test_candidates.CandidateTests.test_independent_formulas_every_window) ... ok\ntest_loader_date_endpoints_and_availability (test_candidates.CandidateTests.test_loader_date_endpoints_and_availability) ... ok\ntest_missing_price_endpoints_and_partial_proxy (test_candidates.CandidateTests.test_missing_price_endpoints_and_partial_proxy) ... ok\ntest_session_and_halfday_reset (test_candidates.CandidateTests.test_session_and_halfday_reset) ... ok\ntest_volume_prior_sessions_and_future_changes (test_candidates.CandidateTests.test_volume_prior_sessions_and_future_changes) ... ok\ntest_zero_scale_and_volume_zero (test_candidates.CandidateTests.test_zero_scale_and_volume_zero) ... ok\ntest_all_features_prefix_invariance_at_multiple_cuts (__main__.ExtraChecks.test_all_features_prefix_invariance_at_multiple_cuts) ... ok\ntest_current_bar_features_are_not_available_at_bar_start (__main__.ExtraChecks.test_current_bar_features_are_not_available_at_bar_start) ... ok\ntest_exact_eligibility_all_windows (__main__.ExtraChecks.test_exact_eligibility_all_windows) ... ok\ntest_intraday_features_do_not_use_later_session (__main__.ExtraChecks.test_intraday_features_do_not_use_later_session) ... ok\ntest_missing_endpoint_not_imputed (__main__.ExtraChecks.test_missing_endpoint_not_imputed) ... ok\ntest_registry_and_warmups (__main__.ExtraChecks.test_registry_and_warmups) ... ok\n\n----------------------------------------------------------------------\nRan 12 tests in 0.378s\n\nOK\n"
+}

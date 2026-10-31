@@ -72,14 +72,14 @@ for n in pool.index:
 T = []
 def tr(test, scope, result, f):
     T.append((test, scope, result, rel(f), sha(f)))
-ph = ROOT / "section431_step3_verification" / "step3_phaseA_report.json"
+ph = FZ / "step3_phaseA_report.json"
 if ph.exists():
     for t in load(ph)["existing_tests"]:
         tr(f"Existing test file {t['test']}", "phase A baseline (Step 3)", t["status"] + (" (pytest: no tests ran)" if t["status"] == "FAIL_EXISTING_TESTS" else ""), ph)
-tr("test_candidates.py, 6 tests", "frozen implementation, rebuild folder", "OK 6/6", DATA / "validation_tests.txt")
-tr("4.3.2/4.3.3 source-level synthetic tests, 12 tests", "2026-10-29 audit", load(DATA / "audit_4_3_2_4_3_3_report.json")["status"], DATA / "audit_4_3_2_4_3_3_report.json")
-m2 = pd.read_csv(ROOT / "section431_step2_final_audit" / "feature_family_eligibility_matrix.csv") if (ROOT / "section431_step2_final_audit" / "feature_family_eligibility_matrix.csv").exists() else pd.read_csv(Path(r"C:\Users\kakij\Downloads\section431_step2_final_audit\feature_family_eligibility_matrix.csv"))
-m2f = Path(r"C:\Users\kakij\Downloads\section431_step2_final_audit\feature_family_eligibility_matrix.csv")
+tr("test_candidates.py, 6 tests", "frozen implementation, rebuild folder", "OK 6/6", FZ / "validation_tests.txt")
+tr("4.3.2/4.3.3 source-level synthetic tests, 12 tests", "2026-10-29 audit", load(FZ / "audit_4_3_2_4_3_3_report.json")["status"], FZ / "audit_4_3_2_4_3_3_report.json")
+m2f = FZ / "feature_family_eligibility_matrix.csv"
+m2 = pd.read_csv(m2f)
 tr("Step 2 family coverage screen (11 families, 80% floor)", "TRAIN, both eras", f"{(m2.coverage_screen == 'MEETS_FROZEN_FLOOR').sum()} meet, {(m2.coverage_screen == 'BELOW_FROZEN_FLOOR').sum()} below", m2f)
 for era in ("RAW", "LEGACY"):
     f = R / f"step3_{era}_report.json"; r = load(f)

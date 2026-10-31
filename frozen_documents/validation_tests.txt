@@ -1,0 +1,11 @@
+test_independent_formulas_every_window (test_candidates.CandidateTests.test_independent_formulas_every_window) ... ok
+test_loader_date_endpoints_and_availability (test_candidates.CandidateTests.test_loader_date_endpoints_and_availability) ... ok
+test_missing_price_endpoints_and_partial_proxy (test_candidates.CandidateTests.test_missing_price_endpoints_and_partial_proxy) ... ok
+test_session_and_halfday_reset (test_candidates.CandidateTests.test_session_and_halfday_reset) ... ok
+test_volume_prior_sessions_and_future_changes (test_candidates.CandidateTests.test_volume_prior_sessions_and_future_changes) ... ok
+test_zero_scale_and_volume_zero (test_candidates.CandidateTests.test_zero_scale_and_volume_zero) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.200s
+
+OK

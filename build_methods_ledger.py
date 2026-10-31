@@ -135,7 +135,9 @@ L += ["", "## 3. Open items for Section 5", "",
       "| # | Item | Status | Source file(s) | SHA-256 |", "|---|---|---|---|---|"]
 for i, (item, srcs) in enumerate(ten, 1):
     if i >= 6:
-        files, hashes = f"{rel(a3)} (quotes the deferred list of audit_4_3_2_4_3_3_report.json, outside the repository)", f"`{sha(a3)}`; audit report `{audit_sha}`"
+        audit_f = FZ / "audit_4_3_2_4_3_3_report.json"
+        assert sha(audit_f) == audit_sha, "audit report copy differs from the hash quoted in A3"
+        files, hashes = f"{rel(a3)}; {rel(audit_f)} (deferred list)", f"`{sha(a3)}`; `{sha(audit_f)}`"
     else:
         files, hashes = "; ".join(rel(s) for s in srcs), "; ".join(f"`{sha(s)}`" for s in srcs)
     L.append(f"| {i} | {esc(item)} | open | {esc(files)} | {hashes} |")

@@ -1,0 +1,84 @@
+{
+  "generated_utc": "2026-10-30T20:35:36.911242+00:00",
+  "scope": "Step 3 phase A: implementation inventory and existing test baseline",
+  "inventory": [
+    {
+      "file": "C:\\Users\\kakij\\Downloads\\section431_step3_verification\\prototype_sources\\section4_3_1_candidates.py",
+      "sha256": "4c8d2b528ff8b86a2885426d974e9be97fbc3d264d60b4e2bf38f16981204878",
+      "functions": [
+        {
+          "function": "sha256",
+          "line": 27
+        },
+        {
+          "function": "require",
+          "line": 35
+        },
+        {
+          "function": "ns",
+          "line": 40
+        },
+        {
+          "function": "selected_csv",
+          "line": 44
+        },
+        {
+          "function": "load_development",
+          "line": 56
+        },
+        {
+          "function": "relative_volume",
+          "line": 101
+        },
+        {
+          "function": "construct",
+          "line": 122
+        },
+        {
+          "function": "feature_warmup",
+          "line": 179
+        },
+        {
+          "function": "verify_prefix",
+          "line": 188
+        },
+        {
+          "function": "build",
+          "line": 198
+        }
+      ]
+    },
+    {
+      "file": "C:\\Users\\kakij\\Downloads\\section431_step3_verification\\prototype_sources\\section431_additions.py",
+      "sha256": "c8a550f7777abcfdd3e46132f76c25748ed62be15b430d40a5c23556f6308448",
+      "functions": [
+        {
+          "function": "construct_additions",
+          "line": 11
+        }
+      ]
+    }
+  ],
+  "existing_tests": [
+    {
+      "test": "test_candidates.py",
+      "status": "PASS_EXISTING_TESTS",
+      "source_sha256": "cab8833a1b104fe1d4f9c01ebfde8f69a7d1fb4359744ea0bfe23e4a71e1db12",
+      "log": "C:\\Users\\kakij\\Downloads\\section431_step3_verification\\test_candidates.py.log"
+    },
+    {
+      "test": "test_additions.py",
+      "status": "FAIL_EXISTING_TESTS",
+      "source_sha256": "ca52b4ca95b42380d622b622155264de5c0650ca1bea6a6d3a73e5bcde50faf2",
+      "log": "C:\\Users\\kakij\\Downloads\\section431_step3_verification\\test_additions.py.log"
+    }
+  ],
+  "verification_status": {
+    "35_original_formulas": "NOT_INDEPENDENTLY_VERIFIED",
+    "11_additional_family_formulas": "NOT_INDEPENDENTLY_VERIFIED",
+    "real_TRAIN_random_prefix_invariance": "NOT_RUN",
+    "session_and_provider_isolation": "NOT_RUN",
+    "numerical_sanity_all_outputs": "NOT_RUN"
+  },
+  "next_requirement": "Identify the actual production feature-generator entry point, inputs, and output columns. Then construct independent numerical oracles and run real-data perturbation tests. No feature is approved by this baseline alone."
+}

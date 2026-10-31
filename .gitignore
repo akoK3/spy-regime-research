@@ -29,6 +29,8 @@
 /frozen_documents/*
 !/frozen_documents/*.json
 !/frozen_documents/*.sha256
+!/frozen_documents/*.csv
+!/frozen_documents/*.txt
 
 !/section431_step3_all_in_one_results/
 /section431_step3_all_in_one_results/*
