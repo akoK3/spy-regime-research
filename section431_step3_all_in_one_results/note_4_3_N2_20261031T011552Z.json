@@ -1,0 +1,67 @@
+{
+  "note": "4.3-N2 A3 rules 4.3.7 and 4.3.8 applied unchanged to the 116-column pool",
+  "created_utc": "2026-10-31T01:15:52.709598+00:00",
+  "created_america_new_york": "2026-10-30T21:15:52.709598-04:00",
+  "status": "WRITTEN_BEFORE_THE_116_COLUMN_POOL_RUN",
+  "statement": "Note N1 said a redundancy rule for the 116-column pool needed a dated rule before it was run. This is that rule, fixed before the run. Nothing about the pool has been computed when this is written.",
+  "cites": {
+    "A3": {
+      "file": "amendment_4_3_A3_20261031T003719Z.json",
+      "sha256": "34ebab1c19e007e5318e8da3dcc4eab38ad03cd2547c0358b53c4c944983b94d"
+    },
+    "N1": {
+      "file": "note_4_3_N1_20261031T011048Z.json",
+      "sha256": "0a5ab480a7c44b422af67e4912bd461c80d745e7bb527212dbb88d09a74357a1"
+    },
+    "4.3.4-4.3.9 report": {
+      "file": "sec4_3_4_to_4_3_9_report.json",
+      "sha256": "26f061302c406993991b0e3699203c16655860612fd2fab52d95ed32622905c3"
+    }
+  },
+  "rule": {
+    "pool": "the 80 raw columns plus the 36 adjusted columns (<name>__sadj), 116 in all; overnight_return_open in neither set.",
+    "4.3.7": "A3 unchanged, applied to each of the 116 columns by its own coverage (finite TRAIN rows over all TRAIN grid rows, percent rounded to 3 decimals, as in Step 6). Primary = at least 80% in both eras. Sensitivity = all 116 on RAW. The result is compared with N1's statement that an adjusted column inherits its raw column's eligibility, and any difference is reported.",
+    "4.3.8": "A3 unchanged: Spearman on TRAIN rows, pairwise-complete and re-ranked per pair, per era; redundant if |rho| > 0.95 in either era (primary set) or in RAW (sensitivity set); columns are processed in priority order and kept unless redundant with a column already kept.",
+    "priority": "(1) shorter window = the raw column's Step 4 lookback in bars (an adjusted column has its raw column's window); (2) higher coverage = the lower of the two eras' coverage in the primary set and the RAW coverage in the sensitivity set, each column by its own coverage; (3) position.",
+    "position_of_adjusted_columns": "Decided by the repository owner in the working session on this date: raw wins ties. Raw columns keep their A3 dictionary positions 0-79; the adjusted columns take positions 80-115 in the order of A3's scale-feature list. This is the only element not already in A3.",
+    "adjusted_scale_feature_order": [
+      "abs_return_1m",
+      "intrabar_range_log",
+      "raw_volume",
+      "relative_volume20",
+      "rv5_strict",
+      "downside5_strict",
+      "rv5_partial90",
+      "rv10_strict",
+      "downside10_strict",
+      "rv10_partial90",
+      "rv15_strict",
+      "downside15_strict",
+      "rv15_partial90",
+      "rv30_strict",
+      "downside30_strict",
+      "rv30_partial90",
+      "rv60_strict",
+      "downside60_strict",
+      "rv60_partial90",
+      "downside15_partial90",
+      "rv60_sampled5_exact",
+      "bipower_15",
+      "jump_variation_15",
+      "amihud_15",
+      "vol_of_vol_15",
+      "volume_adjusted_range_15",
+      "bipower_30",
+      "jump_variation_30",
+      "amihud_30",
+      "vol_of_vol_30",
+      "volume_adjusted_range_30",
+      "bipower_60",
+      "jump_variation_60",
+      "amihud_60",
+      "vol_of_vol_60",
+      "volume_adjusted_range_60"
+    ]
+  },
+  "outputs_promised": "primary and RAW-sensitivity counts (pool size, kept, dropped, split raw/adjusted), hashed, added to the closing report as an addendum without editing the closed report."
+}
