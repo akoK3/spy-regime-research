@@ -1,0 +1,88 @@
+﻿[   0.0 min] RAW: loading TRAIN rows
+[   0.0 min] RAW: 274050 TRAIN rows, 705 sessions; computing features
+[    0.0 min]   RAW 4.3.4-4.3.9: original features
+[    0.1 min]   RAW 4.3.4-4.3.9: additional features
+[    0.2 min]   RAW 4.3.4-4.3.9: session 35/705, about 2.3 min left in this pass
+[    0.3 min]   RAW 4.3.4-4.3.9: session 70/705, about 2.3 min left in this pass
+[    0.4 min]   RAW 4.3.4-4.3.9: session 105/705, about 2.2 min left in this pass
+[    0.6 min]   RAW 4.3.4-4.3.9: session 140/705, about 2.0 min left in this pass
+[    0.7 min]   RAW 4.3.4-4.3.9: session 175/705, about 1.9 min left in this pass
+[    0.8 min]   RAW 4.3.4-4.3.9: session 210/705, about 1.7 min left in this pass
+[    0.9 min]   RAW 4.3.4-4.3.9: session 245/705, about 1.6 min left in this pass
+[    1.0 min]   RAW 4.3.4-4.3.9: session 280/705, about 1.5 min left in this pass
+[    1.1 min]   RAW 4.3.4-4.3.9: session 315/705, about 1.4 min left in this pass
+[    1.3 min]   RAW 4.3.4-4.3.9: session 350/705, about 1.2 min left in this pass
+[    1.4 min]   RAW 4.3.4-4.3.9: session 385/705, about 1.1 min left in this pass
+[    1.5 min]   RAW 4.3.4-4.3.9: session 420/705, about 1.0 min left in this pass
+[    1.6 min]   RAW 4.3.4-4.3.9: session 455/705, about 0.9 min left in this pass
+[    1.7 min]   RAW 4.3.4-4.3.9: session 490/705, about 0.7 min left in this pass
+[    1.9 min]   RAW 4.3.4-4.3.9: session 525/705, about 0.6 min left in this pass
+[    2.0 min]   RAW 4.3.4-4.3.9: session 560/705, about 0.5 min left in this pass
+[    2.1 min]   RAW 4.3.4-4.3.9: session 595/705, about 0.4 min left in this pass
+[    2.2 min]   RAW 4.3.4-4.3.9: session 630/705, about 0.3 min left in this pass
+[    2.3 min]   RAW 4.3.4-4.3.9: session 665/705, about 0.1 min left in this pass
+[    2.4 min]   RAW 4.3.4-4.3.9: session 700/705, about 0.0 min left in this pass
+[    2.4 min]   RAW 4.3.4-4.3.9: done
+[   2.4 min] RAW: feature columns saved; finite counts equal Step 6 for all 80
+[   2.5 min] RAW: building the 36 adjusted columns
+[   2.5 min] RAW: 4.3.8 Spearman, all 116 columns
+[   2.7 min] RAW pool 116x116: Spearman 400/6670 pairs
+[   3.0 min] RAW pool 116x116: Spearman 800/6670 pairs
+[   3.2 min] RAW pool 116x116: Spearman 1200/6670 pairs
+[   3.5 min] RAW pool 116x116: Spearman 1600/6670 pairs
+[   3.7 min] RAW pool 116x116: Spearman 2000/6670 pairs
+[   3.8 min] RAW pool 116x116: Spearman 2400/6670 pairs
+[   4.0 min] RAW pool 116x116: Spearman 2800/6670 pairs
+[   4.2 min] RAW pool 116x116: Spearman 3200/6670 pairs
+[   4.4 min] RAW pool 116x116: Spearman 3600/6670 pairs
+[   4.6 min] RAW pool 116x116: Spearman 4000/6670 pairs
+[   4.8 min] RAW pool 116x116: Spearman 4400/6670 pairs
+[   4.9 min] RAW pool 116x116: Spearman 4800/6670 pairs
+[   5.1 min] RAW pool 116x116: Spearman 5200/6670 pairs
+[   5.2 min] RAW pool 116x116: Spearman 5600/6670 pairs
+[   5.3 min] RAW pool 116x116: Spearman 6000/6670 pairs
+[   5.5 min] RAW pool 116x116: Spearman 6400/6670 pairs
+[   5.7 min] RAW pool 116x116: Spearman 6670/6670 pairs done
+[   5.7 min] LEGACY: loading TRAIN rows
+[   5.8 min] LEGACY: 1562460 TRAIN rows, 4022 sessions; computing features
+[    5.8 min]   LEGACY 4.3.4-4.3.9: original features
+[    5.9 min]   LEGACY 4.3.4-4.3.9: additional features
+[    6.3 min]   LEGACY 4.3.4-4.3.9: session 201/4022, about 8.3 min left in this pass
+[    6.7 min]   LEGACY 4.3.4-4.3.9: session 402/4022, about 7.6 min left in this pass
+[    7.1 min]   LEGACY 4.3.4-4.3.9: session 603/4022, about 7.0 min left in this pass
+[    7.5 min]   LEGACY 4.3.4-4.3.9: session 804/4022, about 6.6 min left in this pass
+[    7.9 min]   LEGACY 4.3.4-4.3.9: session 1005/4022, about 6.2 min left in this pass
+[    8.4 min]   LEGACY 4.3.4-4.3.9: session 1206/4022, about 5.8 min left in this pass
+[    8.8 min]   LEGACY 4.3.4-4.3.9: session 1407/4022, about 5.5 min left in this pass
+[    9.3 min]   LEGACY 4.3.4-4.3.9: session 1608/4022, about 5.1 min left in this pass
+[    9.7 min]   LEGACY 4.3.4-4.3.9: session 1809/4022, about 4.7 min left in this pass
+[   10.1 min]   LEGACY 4.3.4-4.3.9: session 2010/4022, about 4.3 min left in this pass
+[   10.6 min]   LEGACY 4.3.4-4.3.9: session 2211/4022, about 3.9 min left in this pass
+[   11.1 min]   LEGACY 4.3.4-4.3.9: session 2412/4022, about 3.5 min left in this pass
+[   11.6 min]   LEGACY 4.3.4-4.3.9: session 2613/4022, about 3.1 min left in this pass
+[   12.0 min]   LEGACY 4.3.4-4.3.9: session 2814/4022, about 2.6 min left in this pass
+[   12.4 min]   LEGACY 4.3.4-4.3.9: session 3015/4022, about 2.2 min left in this pass
+[   12.9 min]   LEGACY 4.3.4-4.3.9: session 3216/4022, about 1.8 min left in this pass
+[   13.3 min]   LEGACY 4.3.4-4.3.9: session 3417/4022, about 1.3 min left in this pass
+[   13.8 min]   LEGACY 4.3.4-4.3.9: session 3618/4022, about 0.9 min left in this pass
+[   14.2 min]   LEGACY 4.3.4-4.3.9: session 3819/4022, about 0.4 min left in this pass
+[   14.8 min]   LEGACY 4.3.4-4.3.9: session 4020/4022, about 0.0 min left in this pass
+[   14.8 min]   LEGACY 4.3.4-4.3.9: done
+[  14.9 min] LEGACY: feature columns saved; finite counts equal Step 6 for all 80
+[  14.9 min] LEGACY: building the 36 adjusted columns
+[  14.9 min] LEGACY: primary pool has 30 columns; 4.3.8 Spearman
+[  16.8 min] LEGACY primary pool: Spearman 400/435 pairs
+[  16.9 min] LEGACY primary pool: Spearman 435/435 pairs done
+[  16.9 min] done
+# 4.3.7 and 4.3.8 on the 116-column pool (A3 unchanged, note N2)
+
+Run 2026-10-31T01:33:29.652176+00:00 UTC. TRAIN only, RAW then LEGACY. N2 `note_4_3_N2_20261031T011552Z.json` SHA-256 `3f5b7978e642298ad70a91dfafd8ebaa77504bb2bc1da5f2fb12990759d28e34`.
+
+| Set | Pool | Kept | Dropped | Kept (raw / adjusted) | Dropped (raw / adjusted) |
+|---|---|---|---|---|---|
+| Primary | 30 | 15 | 15 | 14 / 1 | 6 / 9 |
+| RAW sensitivity | 116 | 68 | 48 | 58 / 10 | 22 / 26 |
+
+4.3.7: PASS. 4.3.8: PASS. Overall: **PASS**.
+
+## Primary set kept

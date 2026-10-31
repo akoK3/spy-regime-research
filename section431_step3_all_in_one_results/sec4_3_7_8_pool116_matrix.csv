@@ -1,0 +1,117 @@
+column,kind,raw_column,lookback_bars,coverage_LEGACY_pct,coverage_RAW_pct,primary_eligible,sensitivity_eligible,primary_outcome,sensitivity_outcome
+return_1m,raw,return_1m,1,95.238,99.562,True,True,kept,kept
+abs_return_1m,raw,abs_return_1m,1,95.238,99.562,True,True,kept,kept
+intrabar_range_log,raw,intrabar_range_log,0,96.927,99.85,True,True,kept,kept
+raw_volume,raw,raw_volume,0,96.927,99.85,True,True,kept,kept
+log_raw_volume,raw,log_raw_volume,0,96.927,99.85,True,True,"dropped: redundant with raw_volume (rho 1.0, LEGACY)","dropped: redundant with raw_volume (rho 1.0, RAW)"
+relative_volume20,raw,relative_volume20,0,96.678,98.427,True,True,kept,kept
+log_relative_volume20,raw,log_relative_volume20,0,96.678,98.427,True,True,"dropped: redundant with relative_volume20 (rho 1.0, LEGACY)","dropped: redundant with relative_volume20 (rho 1.0, RAW)"
+rv5_strict,raw,rv5_strict,5,89.502,98.423,True,True,kept,kept
+downside5_strict,raw,downside5_strict,5,89.502,98.423,True,True,kept,kept
+momentum5_strict,raw,momentum5_strict,5,89.502,98.423,True,True,"dropped: redundant with momentum5_endpoint (rho 0.999803, LEGACY)","dropped: redundant with momentum5_endpoint (rho 0.999999, RAW)"
+rv5_partial90,raw,rv5_partial90,5,89.502,98.423,True,True,"dropped: redundant with rv5_strict (rho 1.0, LEGACY)","dropped: redundant with rv5_strict (rho 1.0, RAW)"
+momentum5_endpoint,raw,momentum5_endpoint,5,93.166,98.533,True,True,kept,kept
+rv10_strict,raw,rv10_strict,10,82.99,97.003,True,True,"dropped: redundant with rv10_partial90 (rho 1.0, LEGACY)","dropped: redundant with rv10_partial90 (rho 1.0, RAW)"
+downside10_strict,raw,downside10_strict,10,82.99,97.003,True,True,kept,kept
+momentum10_strict,raw,momentum10_strict,10,82.99,97.003,True,True,"dropped: redundant with momentum10_endpoint (rho 0.999935, LEGACY)","dropped: redundant with momentum10_endpoint (rho 1.0, RAW)"
+rv10_partial90,raw,rv10_partial90,10,85.072,97.057,True,True,kept,kept
+momentum10_endpoint,raw,momentum10_endpoint,10,91.645,97.247,True,True,kept,kept
+rv15_strict,raw,rv15_strict,15,76.883,95.584,False,True,not in set,"dropped: redundant with rv10_partial90 (rho 0.956541, RAW)"
+downside15_strict,raw,downside15_strict,15,76.883,95.584,False,True,not in set,"dropped: redundant with downside15_partial90 (rho 1.0, RAW)"
+momentum15_strict,raw,momentum15_strict,15,76.883,95.584,False,True,not in set,"dropped: redundant with momentum15_endpoint (rho 1.0, RAW)"
+rv15_partial90,raw,rv15_partial90,15,78.828,95.638,False,True,not in set,"dropped: redundant with rv10_partial90 (rho 0.956536, RAW)"
+momentum15_endpoint,raw,momentum15_endpoint,15,90.356,95.96,True,True,kept,kept
+rv30_strict,raw,rv30_strict,30,60.763,91.358,False,True,not in set,"dropped: redundant with rv30_partial90 (rho 1.0, RAW)"
+downside30_strict,raw,downside30_strict,30,60.763,91.358,False,True,not in set,kept
+momentum30_strict,raw,momentum30_strict,30,60.763,91.358,False,True,not in set,"dropped: redundant with momentum30_endpoint (rho 1.0, RAW)"
+rv30_partial90,raw,rv30_partial90,30,77.653,92.11,False,True,not in set,kept
+momentum30_endpoint,raw,momentum30_endpoint,30,86.707,92.102,True,True,kept,kept
+rv60_strict,raw,rv60_strict,60,37.735,82.982,False,True,not in set,"dropped: redundant with rv30_partial90 (rho 0.960204, RAW)"
+downside60_strict,raw,downside60_strict,60,37.735,82.982,False,True,not in set,kept
+momentum60_strict,raw,momentum60_strict,60,37.735,82.982,False,True,not in set,"dropped: redundant with momentum60_endpoint (rho 1.0, RAW)"
+rv60_partial90,raw,rv60_partial90,60,72.527,84.416,False,True,not in set,"dropped: redundant with rv30_partial90 (rho 0.959964, RAW)"
+momentum60_endpoint,raw,momentum60_endpoint,60,79.393,84.388,False,True,not in set,kept
+downside15_partial90,raw,downside15_partial90,15,78.828,95.638,False,True,not in set,kept
+rv60_sampled5_exact,raw,rv60_sampled5_exact,60,58.624,84.092,False,True,not in set,kept
+shock_prior60_mad,raw,shock_prior60_mad,61,37.078,82.704,False,True,not in set,"dropped: redundant with return_1m (rho 0.951014, RAW)"
+close_location_proxy,raw,close_location_proxy,0,96.325,99.672,True,True,kept,kept
+bipower_15,raw,bipower_15,15,76.883,95.584,False,True,not in set,kept
+jump_variation_15,raw,jump_variation_15,15,76.883,95.584,False,True,not in set,kept
+drawdown_15,raw,drawdown_15,15,76.883,95.584,False,True,not in set,kept
+amihud_15,raw,amihud_15,15,76.883,95.584,False,True,not in set,kept
+skew_15,raw,skew_15,15,76.882,95.584,False,True,not in set,kept
+kurtosis_excess_15,raw,kurtosis_excess_15,15,76.882,95.584,False,True,not in set,kept
+variance_ratio2_15,raw,variance_ratio2_15,15,76.882,95.584,False,True,not in set,kept
+directional_efficiency_15,raw,directional_efficiency_15,15,76.882,95.584,False,True,not in set,kept
+vol_of_vol_15,raw,vol_of_vol_15,15,76.883,95.584,False,True,not in set,kept
+extreme_loss_15,raw,extreme_loss_15,15,76.883,95.584,False,True,not in set,"dropped: redundant with downside15_partial90 (rho -0.964338, RAW)"
+volume_variability_15,raw,volume_variability_15,15,76.883,95.584,False,True,not in set,kept
+volume_adjusted_range_15,raw,volume_adjusted_range_15,15,76.883,95.584,False,True,not in set,kept
+reversal_15,raw,reversal_15,15,76.157,95.569,False,True,not in set,kept
+return_autocorr1_15,raw,return_autocorr1_15,15,76.882,95.584,False,True,not in set,kept
+bipower_30,raw,bipower_30,30,60.763,91.358,False,True,not in set,"dropped: redundant with rv30_partial90 (rho 0.985669, RAW)"
+jump_variation_30,raw,jump_variation_30,30,60.763,91.358,False,True,not in set,kept
+drawdown_30,raw,drawdown_30,30,60.763,91.358,False,True,not in set,kept
+amihud_30,raw,amihud_30,30,60.763,91.358,False,True,not in set,kept
+skew_30,raw,skew_30,30,60.763,91.358,False,True,not in set,kept
+kurtosis_excess_30,raw,kurtosis_excess_30,30,60.763,91.358,False,True,not in set,kept
+variance_ratio2_30,raw,variance_ratio2_30,30,60.763,91.358,False,True,not in set,kept
+directional_efficiency_30,raw,directional_efficiency_30,30,60.763,91.358,False,True,not in set,kept
+vol_of_vol_30,raw,vol_of_vol_30,30,60.763,91.358,False,True,not in set,kept
+extreme_loss_30,raw,extreme_loss_30,30,60.763,91.358,False,True,not in set,"dropped: redundant with downside30_strict (rho -0.952558, RAW)"
+volume_variability_30,raw,volume_variability_30,30,60.763,91.358,False,True,not in set,kept
+volume_adjusted_range_30,raw,volume_adjusted_range_30,30,60.763,91.358,False,True,not in set,kept
+reversal_30,raw,reversal_30,30,60.666,91.357,False,True,not in set,kept
+return_autocorr1_30,raw,return_autocorr1_30,30,60.763,91.358,False,True,not in set,kept
+bipower_60,raw,bipower_60,60,37.735,82.982,False,True,not in set,"dropped: redundant with rv30_partial90 (rho 0.95258, RAW)"
+jump_variation_60,raw,jump_variation_60,60,37.735,82.982,False,True,not in set,kept
+drawdown_60,raw,drawdown_60,60,37.735,82.982,False,True,not in set,kept
+amihud_60,raw,amihud_60,60,37.735,82.982,False,True,not in set,kept
+skew_60,raw,skew_60,60,37.735,82.982,False,True,not in set,kept
+kurtosis_excess_60,raw,kurtosis_excess_60,60,37.735,82.982,False,True,not in set,kept
+variance_ratio2_60,raw,variance_ratio2_60,60,37.735,82.982,False,True,not in set,kept
+directional_efficiency_60,raw,directional_efficiency_60,60,37.735,82.982,False,True,not in set,kept
+vol_of_vol_60,raw,vol_of_vol_60,60,37.735,82.982,False,True,not in set,kept
+extreme_loss_60,raw,extreme_loss_60,60,37.735,82.982,False,True,not in set,kept
+volume_variability_60,raw,volume_variability_60,60,37.735,82.982,False,True,not in set,kept
+volume_adjusted_range_60,raw,volume_adjusted_range_60,60,37.735,82.982,False,True,not in set,kept
+reversal_60,raw,reversal_60,60,37.726,82.982,False,True,not in set,kept
+return_autocorr1_60,raw,return_autocorr1_60,60,37.735,82.982,False,True,not in set,"dropped: redundant with variance_ratio2_60 (rho 0.972632, RAW)"
+lee_mykland_approx60,raw,lee_mykland_approx60,61,37.135,82.704,False,True,not in set,"dropped: redundant with return_1m (rho 0.967024, RAW)"
+lee_mykland_jump60,raw,lee_mykland_jump60,61,37.135,82.704,False,True,not in set,kept
+abs_return_1m__sadj,adjusted,abs_return_1m,1,95.238,99.562,True,True,"dropped: redundant with abs_return_1m (rho 0.977563, LEGACY)","dropped: redundant with abs_return_1m (rho 0.981067, RAW)"
+intrabar_range_log__sadj,adjusted,intrabar_range_log,0,96.927,99.85,True,True,"dropped: redundant with intrabar_range_log (rho 0.959782, LEGACY)",kept
+raw_volume__sadj,adjusted,raw_volume,0,96.927,99.85,True,True,kept,kept
+relative_volume20__sadj,adjusted,relative_volume20,0,96.678,98.427,True,True,"dropped: redundant with relative_volume20 (rho 0.999955, LEGACY)","dropped: redundant with relative_volume20 (rho 0.999745, RAW)"
+rv5_strict__sadj,adjusted,rv5_strict,5,89.502,98.423,True,True,"dropped: redundant with rv5_strict (rho 0.961812, LEGACY)","dropped: redundant with rv5_strict (rho 0.957708, RAW)"
+downside5_strict__sadj,adjusted,downside5_strict,5,89.502,98.423,True,True,"dropped: redundant with downside5_strict (rho 0.975438, LEGACY)","dropped: redundant with downside5_strict (rho 0.976868, RAW)"
+rv5_partial90__sadj,adjusted,rv5_partial90,5,89.502,98.423,True,True,"dropped: redundant with rv5_strict (rho 0.961812, LEGACY)","dropped: redundant with rv5_strict (rho 0.957708, RAW)"
+rv10_strict__sadj,adjusted,rv10_strict,10,82.99,97.003,True,True,"dropped: redundant with rv10_partial90 (rho 0.958128, LEGACY)","dropped: redundant with rv10_partial90 (rho 0.95332, RAW)"
+downside10_strict__sadj,adjusted,downside10_strict,10,82.99,97.003,True,True,"dropped: redundant with downside10_strict (rho 0.967047, LEGACY)","dropped: redundant with downside10_strict (rho 0.966872, RAW)"
+rv10_partial90__sadj,adjusted,rv10_partial90,10,85.072,97.057,True,True,"dropped: redundant with rv10_partial90 (rho 0.957999, LEGACY)","dropped: redundant with rv10_partial90 (rho 0.953297, RAW)"
+rv15_strict__sadj,adjusted,rv15_strict,15,76.883,95.584,False,True,not in set,"dropped: redundant with rv15_partial90__sadj (rho 0.999999, RAW)"
+downside15_strict__sadj,adjusted,downside15_strict,15,76.883,95.584,False,True,not in set,"dropped: redundant with downside15_partial90 (rho 0.963385, RAW)"
+rv15_partial90__sadj,adjusted,rv15_partial90,15,78.828,95.638,False,True,not in set,kept
+rv30_strict__sadj,adjusted,rv30_strict,30,60.763,91.358,False,True,not in set,"dropped: redundant with rv30_partial90 (rho 0.954184, RAW)"
+downside30_strict__sadj,adjusted,downside30_strict,30,60.763,91.358,False,True,not in set,"dropped: redundant with downside30_strict (rho 0.962503, RAW)"
+rv30_partial90__sadj,adjusted,rv30_partial90,30,77.653,92.11,False,True,not in set,"dropped: redundant with rv30_partial90 (rho 0.953894, RAW)"
+rv60_strict__sadj,adjusted,rv60_strict,60,37.735,82.982,False,True,not in set,"dropped: redundant with rv60_partial90__sadj (rho 0.999968, RAW)"
+downside60_strict__sadj,adjusted,downside60_strict,60,37.735,82.982,False,True,not in set,"dropped: redundant with rv60_partial90__sadj (rho 0.964135, RAW)"
+rv60_partial90__sadj,adjusted,rv60_partial90,60,72.527,84.416,False,True,not in set,kept
+downside15_partial90__sadj,adjusted,downside15_partial90,15,78.828,95.638,False,True,not in set,"dropped: redundant with downside15_partial90 (rho 0.963382, RAW)"
+rv60_sampled5_exact__sadj,adjusted,rv60_sampled5_exact,60,58.624,84.092,False,True,not in set,"dropped: redundant with rv60_sampled5_exact (rho 0.966147, RAW)"
+bipower_15__sadj,adjusted,bipower_15,15,76.883,95.584,False,True,not in set,"dropped: redundant with rv15_partial90__sadj (rho 0.971631, RAW)"
+jump_variation_15__sadj,adjusted,jump_variation_15,15,76.883,95.584,False,True,not in set,"dropped: redundant with jump_variation_15 (rho 0.988539, RAW)"
+amihud_15__sadj,adjusted,amihud_15,15,76.883,95.584,False,True,not in set,kept
+vol_of_vol_15__sadj,adjusted,vol_of_vol_15,15,76.883,95.584,False,True,not in set,"dropped: redundant with vol_of_vol_15 (rho 0.975713, RAW)"
+volume_adjusted_range_15__sadj,adjusted,volume_adjusted_range_15,15,76.883,95.584,False,True,not in set,kept
+bipower_30__sadj,adjusted,bipower_30,30,60.763,91.358,False,True,not in set,kept
+jump_variation_30__sadj,adjusted,jump_variation_30,30,60.763,91.358,False,True,not in set,"dropped: redundant with jump_variation_30 (rho 0.98886, RAW)"
+amihud_30__sadj,adjusted,amihud_30,30,60.763,91.358,False,True,not in set,kept
+vol_of_vol_30__sadj,adjusted,vol_of_vol_30,30,60.763,91.358,False,True,not in set,"dropped: redundant with vol_of_vol_30 (rho 0.9679, RAW)"
+volume_adjusted_range_30__sadj,adjusted,volume_adjusted_range_30,30,60.763,91.358,False,True,not in set,kept
+bipower_60__sadj,adjusted,bipower_60,60,37.735,82.982,False,True,not in set,"dropped: redundant with bipower_30__sadj (rho 0.956789, RAW)"
+jump_variation_60__sadj,adjusted,jump_variation_60,60,37.735,82.982,False,True,not in set,"dropped: redundant with jump_variation_60 (rho 0.993186, RAW)"
+amihud_60__sadj,adjusted,amihud_60,60,37.735,82.982,False,True,not in set,kept
+vol_of_vol_60__sadj,adjusted,vol_of_vol_60,60,37.735,82.982,False,True,not in set,"dropped: redundant with vol_of_vol_60 (rho 0.970315, RAW)"
+volume_adjusted_range_60__sadj,adjusted,volume_adjusted_range_60,60,37.735,82.982,False,True,not in set,"dropped: redundant with volume_adjusted_range_60 (rho 0.95673, RAW)"

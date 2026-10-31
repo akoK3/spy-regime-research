@@ -1,0 +1,92 @@
+{
+  "created_utc": "2026-10-31T01:33:29.652176+00:00",
+  "note_N2": {
+    "file": "note_4_3_N2_20261031T011552Z.json",
+    "sha256": "3f5b7978e642298ad70a91dfafd8ebaa77504bb2bc1da5f2fb12990759d28e34"
+  },
+  "scope": "TRAIN only; RAW then LEGACY; 116-column pool; overnight_return_open excluded",
+  "subsections": {
+    "4.3.7": {
+      "status": "PASS",
+      "checks": {
+        "primary raw columns equal A3's 20 (Step 6 PASS)": true,
+        "adjusted coverage equals raw coverage in both eras (N1 inheritance holds)": true,
+        "primary adjusted columns are exactly the adjusted versions of the primary scale columns": true,
+        "overnight_return_open is not in the pool": true
+      },
+      "primary_pool": 30,
+      "sensitivity_pool": 116
+    },
+    "4.3.8": {
+      "status": "PASS",
+      "checks": {
+        "primary: no two kept columns redundant, every dropped column has a kept partner": true,
+        "sensitivity: no two kept columns redundant, every dropped column has a kept partner": true
+      },
+      "primary": {
+        "pool": 30,
+        "kept": 15,
+        "dropped": 15,
+        "kept_split": {
+          "raw": 14,
+          "adjusted": 1
+        },
+        "dropped_split": {
+          "raw": 6,
+          "adjusted": 9
+        }
+      },
+      "sensitivity_RAW": {
+        "pool": 116,
+        "kept": 68,
+        "dropped": 48,
+        "kept_split": {
+          "raw": 58,
+          "adjusted": 10
+        },
+        "dropped_split": {
+          "raw": 22,
+          "adjusted": 26
+        }
+      }
+    }
+  },
+  "overall": "PASS",
+  "output_hashes": [
+    {
+      "label": "4.3.7 pool eligibility",
+      "file": "sec4_3_7_8_pool116_eligibility.json",
+      "sha256": "7dd15ee7dd3b56367826a6c079dfeab203956a80ebf72902f571a0825bf1c587"
+    },
+    {
+      "label": "4.3.8 pool redundancy outcome",
+      "file": "sec4_3_7_8_pool116_redundancy.json",
+      "sha256": "dae50c4a24373910799fcc98ecb777a1906a0370922afee31e033d3b07b5b6e5"
+    },
+    {
+      "label": "Spearman, 116 columns, RAW",
+      "file": "sec4_3_7_8_pool116_spearman_RAW.csv",
+      "sha256": "43b442b49dcbfd28d6e358e04629fcb40ea43cddf0f3a2460502b68f3cec240d"
+    },
+    {
+      "label": "Spearman, primary pool, LEGACY",
+      "file": "sec4_3_7_8_pool116_spearman_primary_LEGACY.csv",
+      "sha256": "d94080a7ad1023c2f913ba066828f5b08231180d103c7c68e0add5d79c66c2a2"
+    },
+    {
+      "label": "pairwise overlap, RAW",
+      "file": "sec4_3_7_8_pool116_overlap_RAW.csv",
+      "sha256": "0df52213409026c53926c4bcd4957a875df0df8ea1e223d90b1371b51e5fbd3e"
+    },
+    {
+      "label": "pairwise overlap, LEGACY primary pool",
+      "file": "sec4_3_7_8_pool116_overlap_primary_LEGACY.csv",
+      "sha256": "a928593b2a2590b833b23600b30f7c872740712e5def5f9026a73ffab945557c"
+    },
+    {
+      "label": "pool matrix (116 rows)",
+      "file": "sec4_3_7_8_pool116_matrix.csv",
+      "sha256": "818904b452f03b51b150d48b827a48d134ed8206ca3217f8d989b39c5f3be7c5"
+    }
+  ]
+}

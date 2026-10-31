@@ -1,0 +1,296 @@
+{
+  "status": "SECTION_4_3_CLOSED (addendum; the closing report is unchanged)",
+  "created_utc": "2026-10-31T01:34:02.519551+00:00",
+  "created_america_new_york": "2026-10-30T21:34:02.519551-04:00",
+  "amends": {
+    "closing_report": "section_4_3_closing_report_section4_20261031T011136Z.json",
+    "closing_report_sha256": "4541880b1ac88d866cab7119e148143871ee0678a68b08c2b8e06730a27b2bff",
+    "item": "'Decisions not taken': 'Redundancy and eligibility rules for the 116-column pool' is now done under note N2"
+  },
+  "rule": {
+    "N1": {
+      "file": "note_4_3_N1_20261031T011048Z.json",
+      "sha256": "0a5ab480a7c44b422af67e4912bd461c80d745e7bb527212dbb88d09a74357a1"
+    },
+    "N2": {
+      "file": "note_4_3_N2_20261031T011552Z.json",
+      "sha256": "3f5b7978e642298ad70a91dfafd8ebaa77504bb2bc1da5f2fb12990759d28e34"
+    },
+    "statement": "A3's 4.3.7 and 4.3.8 rules unchanged, applied to the 116-column pool (80 raw + 36 adjusted); tie-break position of adjusted columns per N2."
+  },
+  "results": {
+    "status_4_3_7": "PASS",
+    "status_4_3_8": "PASS",
+    "primary": {
+      "pool": 30,
+      "kept": 15,
+      "dropped": 15,
+      "kept_split": {
+        "raw": 14,
+        "adjusted": 1
+      },
+      "dropped_split": {
+        "raw": 6,
+        "adjusted": 9
+      },
+      "adjusted_kept": [
+        "raw_volume__sadj"
+      ]
+    },
+    "sensitivity_RAW": {
+      "pool": 116,
+      "kept": 68,
+      "dropped": 48,
+      "kept_split": {
+        "raw": 58,
+        "adjusted": 10
+      },
+      "dropped_split": {
+        "raw": 22,
+        "adjusted": 26
+      },
+      "adjusted_kept": [
+        "intrabar_range_log__sadj",
+        "raw_volume__sadj",
+        "rv15_partial90__sadj",
+        "amihud_15__sadj",
+        "volume_adjusted_range_15__sadj",
+        "bipower_30__sadj",
+        "amihud_30__sadj",
+        "volume_adjusted_range_30__sadj",
+        "rv60_partial90__sadj",
+        "amihud_60__sadj"
+      ]
+    }
+  },
+  "raw_vs_adjusted_rho": [
+    {
+      "column": "abs_return_1m",
+      "RAW_rho": 0.981067,
+      "LEGACY_rho": 0.977563
+    },
+    {
+      "column": "intrabar_range_log",
+      "RAW_rho": 0.938401,
+      "LEGACY_rho": 0.959782
+    },
+    {
+      "column": "raw_volume",
+      "RAW_rho": 0.899889,
+      "LEGACY_rho": 0.915841
+    },
+    {
+      "column": "relative_volume20",
+      "RAW_rho": 0.999745,
+      "LEGACY_rho": 0.999955
+    },
+    {
+      "column": "rv5_strict",
+      "RAW_rho": 0.957708,
+      "LEGACY_rho": 0.961812
+    },
+    {
+      "column": "downside5_strict",
+      "RAW_rho": 0.976868,
+      "LEGACY_rho": 0.975438
+    },
+    {
+      "column": "rv5_partial90",
+      "RAW_rho": 0.957708,
+      "LEGACY_rho": 0.961812
+    },
+    {
+      "column": "rv10_strict",
+      "RAW_rho": 0.95332,
+      "LEGACY_rho": 0.958128
+    },
+    {
+      "column": "downside10_strict",
+      "RAW_rho": 0.966872,
+      "LEGACY_rho": 0.967047
+    },
+    {
+      "column": "rv10_partial90",
+      "RAW_rho": 0.953297,
+      "LEGACY_rho": 0.957999
+    },
+    {
+      "column": "rv15_strict",
+      "RAW_rho": 0.953091,
+      "LEGACY_rho": null
+    },
+    {
+      "column": "downside15_strict",
+      "RAW_rho": 0.963385,
+      "LEGACY_rho": null
+    },
+    {
+      "column": "rv15_partial90",
+      "RAW_rho": 0.953088,
+      "LEGACY_rho": null
+    },
+    {
+      "column": "rv30_strict",
+      "RAW_rho": 0.954184,
+      "LEGACY_rho": null
+    },
+    {
+      "column": "downside30_strict",
+      "RAW_rho": 0.962503,
+      "LEGACY_rho": null
+    },
+    {
+      "column": "rv30_partial90",
+      "RAW_rho": 0.953894,
+      "LEGACY_rho": null
+    },
+    {
+      "column": "rv60_strict",
+      "RAW_rho": 0.962943,
+      "LEGACY_rho": null
+    },
+    {
+      "column": "downside60_strict",
+      "RAW_rho": 0.967422,
+      "LEGACY_rho": null
+    },
+    {
+      "column": "rv60_partial90",
+      "RAW_rho": 0.962552,
+      "LEGACY_rho": null
+    },
+    {
+      "column": "downside15_partial90",
+      "RAW_rho": 0.963382,
+      "LEGACY_rho": null
+    },
+    {
+      "column": "rv60_sampled5_exact",
+      "RAW_rho": 0.966147,
+      "LEGACY_rho": null
+    },
+    {
+      "column": "bipower_15",
+      "RAW_rho": 0.954763,
+      "LEGACY_rho": null
+    },
+    {
+      "column": "jump_variation_15",
+      "RAW_rho": 0.988539,
+      "LEGACY_rho": null
+    },
+    {
+      "column": "amihud_15",
+      "RAW_rho": 0.912963,
+      "LEGACY_rho": null
+    },
+    {
+      "column": "vol_of_vol_15",
+      "RAW_rho": 0.975713,
+      "LEGACY_rho": null
+    },
+    {
+      "column": "volume_adjusted_range_15",
+      "RAW_rho": 0.921573,
+      "LEGACY_rho": null
+    },
+    {
+      "column": "bipower_30",
+      "RAW_rho": 0.956542,
+      "LEGACY_rho": null
+    },
+    {
+      "column": "jump_variation_30",
+      "RAW_rho": 0.98886,
+      "LEGACY_rho": null
+    },
+    {
+      "column": "amihud_30",
+      "RAW_rho": 0.923054,
+      "LEGACY_rho": null
+    },
+    {
+      "column": "vol_of_vol_30",
+      "RAW_rho": 0.9679,
+      "LEGACY_rho": null
+    },
+    {
+      "column": "volume_adjusted_range_30",
+      "RAW_rho": 0.935798,
+      "LEGACY_rho": null
+    },
+    {
+      "column": "bipower_60",
+      "RAW_rho": 0.96404,
+      "LEGACY_rho": null
+    },
+    {
+      "column": "jump_variation_60",
+      "RAW_rho": 0.993186,
+      "LEGACY_rho": null
+    },
+    {
+      "column": "amihud_60",
+      "RAW_rho": 0.945376,
+      "LEGACY_rho": null
+    },
+    {
+      "column": "vol_of_vol_60",
+      "RAW_rho": 0.970315,
+      "LEGACY_rho": null
+    },
+    {
+      "column": "volume_adjusted_range_60",
+      "RAW_rho": 0.95673,
+      "LEGACY_rho": null
+    }
+  ],
+  "known_limitations": [
+    "Eligibility: every adjusted column has its raw column's coverage in both eras (check PASS), so the primary pool is 30 columns: the 20 raw plus 10 adjusted counterparts of the primary scale features.",
+    "The tie-break position of the adjusted columns (80-115, raw wins ties) is the only element not in A3. It was decided by the repository owner, and it decides which member of a redundant raw/adjusted pair is kept.",
+    "Raw/adjusted correlations in RAW sit close to the 0.95 threshold for many pairs (12 of 36 lie between 0.94 and 0.96), so which adjusted columns survive depends on the threshold. Adjusted columns survive mainly for seasonally strong volume-type features.",
+    "Same TRAIN-only scope, medians and Spearman definition as the A3 run; the A3 limitations in the closing report remain in force."
+  ],
+  "output_hashes": [
+    {
+      "label": "4.3.7 pool eligibility",
+      "file": "sec4_3_7_8_pool116_eligibility.json",
+      "sha256": "7dd15ee7dd3b56367826a6c079dfeab203956a80ebf72902f571a0825bf1c587"
+    },
+    {
+      "label": "4.3.8 pool redundancy outcome",
+      "file": "sec4_3_7_8_pool116_redundancy.json",
+      "sha256": "dae50c4a24373910799fcc98ecb777a1906a0370922afee31e033d3b07b5b6e5"
+    },
+    {
+      "label": "Spearman, 116 columns, RAW",
+      "file": "sec4_3_7_8_pool116_spearman_RAW.csv",
+      "sha256": "43b442b49dcbfd28d6e358e04629fcb40ea43cddf0f3a2460502b68f3cec240d"
+    },
+    {
+      "label": "Spearman, primary pool, LEGACY",
+      "file": "sec4_3_7_8_pool116_spearman_primary_LEGACY.csv",
+      "sha256": "d94080a7ad1023c2f913ba066828f5b08231180d103c7c68e0add5d79c66c2a2"
+    },
+    {
+      "label": "pairwise overlap, RAW",
+      "file": "sec4_3_7_8_pool116_overlap_RAW.csv",
+      "sha256": "0df52213409026c53926c4bcd4957a875df0df8ea1e223d90b1371b51e5fbd3e"
+    },
+    {
+      "label": "pairwise overlap, LEGACY primary pool",
+      "file": "sec4_3_7_8_pool116_overlap_primary_LEGACY.csv",
+      "sha256": "a928593b2a2590b833b23600b30f7c872740712e5def5f9026a73ffab945557c"
+    },
+    {
+      "label": "pool matrix (116 rows)",
+      "file": "sec4_3_7_8_pool116_matrix.csv",
+      "sha256": "818904b452f03b51b150d48b827a48d134ed8206ca3217f8d989b39c5f3be7c5"
+    },
+    {
+      "label": "report",
+      "file": "sec4_3_7_8_pool116_report.json",
+      "sha256": "ee0d431475dfb839e075448774c82e7ff1ae8c309c66e8d722ef06bd8fdcbe48"
+    }
+  ]
+}
