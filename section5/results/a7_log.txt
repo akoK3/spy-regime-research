@@ -1,0 +1,14 @@
+[  0.8 min] exclusions and timing checks done
+[  0.9 min] section 6 bisection done
+[  2.9 min] 1704 splices built
+[  4.7 min] swept gaussian_hmm|base
+[  6.3 min] swept gaussian_hmm|f3
+[  8.0 min] swept student_t_hmm|base
+[  9.6 min] swept student_t_hmm|f3
+[ 11.3 min] swept hsmm|base
+[ 12.9 min] swept hsmm|f3
+[ 13.0 min] swept bocpd|base
+[ 13.2 min] swept bocpd|f3
+[ 13.2 min] done
+exit 0
+exit 0

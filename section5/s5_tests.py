@@ -193,6 +193,31 @@ class TestA6(unittest.TestCase):
         self.assertEqual(A.choose_rate_threshold({1: 0.2, 2: 0.2, 3: 0.1, 4: 0.0}, g), (2, False), "ties to the stricter threshold")
 
 
+class TestA7(unittest.TestCase):
+    def test_logodds_rule_equals_a6_rule_and_keeps_precision(self):
+        rng = np.random.default_rng(3); n = 60; av = np.arange(n) * 5 * MIN
+        for K in (2, 3):
+            for trial in range(30):
+                P = rng.dirichlet(np.ones(K) * 0.2, size=n); real = rng.random(n) > 0.1
+                for thr in (0.5, 0.8, 0.9, 0.99):
+                    th = float(np.log(thr / (1 - thr)))
+                    a = E.detect_old_state(P, real, av, thr)[0]; b = E.detect_old_state_logodds(P, real, av, th - 1e-9)[0]
+                    self.assertEqual([(e["i_d"], e["i_c"]) for e in a], [(e["i_d"], e["i_c"]) for e in b])
+        P = np.tile([1 - 1e-14, 1e-14], (20, 1)); P[8:] = [1e-14, 1 - 1e-14]; real = np.ones(20, bool)
+        self.assertEqual(len(E.detect_old_state_logodds(P, real, av[:20], 25.0)[0]), 1, "log-odds 32 > 25 is resolved")
+        self.assertEqual(E.detect_old_state_logodds(P, real, av[:20], 33.0)[0], [], "log-odds 32 < 33 does not alarm")
+
+    def test_bisection(self):
+        import s5_a7 as B
+        rate = lambda th: 3.0 * np.exp(-th / 4.0)              # strictly decreasing
+        th, info = B.bisect_threshold(rate, 0.0, 30.0, 0.2, 1e-3)
+        self.assertLessEqual(rate(th), 0.2); self.assertGreater(rate(th - 2e-3), 0.2); self.assertEqual(info, "ok")
+        self.assertEqual(B.bisect_threshold(lambda t: 5.0, 0.0, 30.0, 0.2, 1e-3), (30.0, "FLAG: strictest bound still above target"))
+        self.assertEqual(B.bisect_threshold(lambda t: 0.1, 0.0, 30.0, 0.2, 1e-3), (0.0, "FLAG: loosest bound already at or below target"))
+        step = lambda m: [9.0, 0.6, 0.4, 0.15, 0.0][min(4, int(np.ceil(m)) - 1)] if m >= 1 else 9.0
+        m, info = B.bisect_threshold(step, 1.0, 80.0, 0.2, 0.5); self.assertLessEqual(step(m), 0.2)
+
+
 class TestFast(unittest.TestCase):
     def test_deseason_is_causal(self):
         import s5_fast as F

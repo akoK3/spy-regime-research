@@ -92,7 +92,7 @@ def detect_states_mass(P, real, avail, thr, hold=HOLD, warm=WARM, refractory_min
         if not real[i]:
             if cand is not None: cand["count"] = 0
             continue
-        if i < warm or avail[i] < ref_until:
+        if i < warm or avail[i] < ref_until or cur is None:
             cur = int(np.argmax(P[i])); cand = None; continue
         away = 1.0 - P[i, cur]
         if cand is not None:
@@ -114,7 +114,7 @@ def detect_old_state(P, real, avail, thr, run=3, warm=WARM, refractory_min=REFRA
     for i in range(len(real)):
         if not real[i]:
             cnt = 0; continue
-        if i < warm or avail[i] < ref_until:
+        if i < warm or avail[i] < ref_until or cur is None:   # cur is None only if the first updates were skips: the first real update sets the old state
             cur = int(np.argmax(P[i])); cnt = 0; continue
         if P[i, cur] < 1.0 - thr:
             if cnt == 0: first = i
@@ -145,4 +145,25 @@ def detect_bocpd_map(rstar, real, avail, drop, hold=HOLD, warm=WARM, refractory_
             else: cand = None
             continue
         if dropped: cand = dict(i_d=i, low=r, count=0)
+    return events, 0
+
+
+def detect_old_state_logodds(P, real, avail, theta, run=3, warm=WARM, refractory_min=REFRACTORY_MIN):
+    """Amendment A7 form of detect_old_state: alarm when log(s) - log(P[old]) > theta for `run` consecutive real updates, s = sum of P over the other states
+    (summed directly, not 1 - P[old], so values near 1 keep their precision). thr = 1 / (1 + exp(-theta)) gives exactly the A6 rule P[old] < 1 - thr."""
+    events = []; cur = None; cnt = 0; first = None; ref_until = -1; K = P.shape[1]
+    for i in range(len(real)):
+        if not real[i]:
+            cnt = 0; continue
+        if i < warm or avail[i] < ref_until or cur is None:
+            cur = int(np.argmax(P[i])); cnt = 0; continue
+        po = P[i, cur]; so = float(np.sum(np.delete(P[i], cur)))
+        with np.errstate(divide="ignore"):
+            lo = np.inf if po <= 0 else (-np.inf if so <= 0 else np.log(so) - np.log(po))
+        if lo > theta:
+            if cnt == 0: first = i
+            cnt += 1
+            if cnt >= run:
+                events.append(dict(i_d=first, i_c=i, state=-5)); cur = int(np.argmax(P[i])); ref_until = avail[i] + refractory_min * MIN; cnt = 0
+        else: cnt = 0
     return events, 0
