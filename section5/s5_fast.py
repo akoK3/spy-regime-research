@@ -24,9 +24,14 @@ def load_bases(d, era, cols):
 
 
 def splice_rows_fast(d, bases, iA, iB, g, cols, hist=20):
+    p, k, tau = V.make_splice(d, iA, iB, g, hist=0)       # the spliced session alone
+    return rows_from_panel(d, bases, p, iA, iB, g, tau, cols, hist)
+
+
+def rows_from_panel(d, bases, p, iA, iB, g, tau, cols, hist=20):
+    """Decision-grid row of a one-session panel p (spliced or otherwise constructed) whose baselines come from session iA's previous `hist` sessions."""
     import step11_a4_rerun_4_3_4_7_8 as pstep
     import section4_3_1_candidates as c431
-    p, k, tau = V.make_splice(d, iA, iB, g, hist=0)       # the spliced session alone
     want = sorted({c for c in cols if not c.endswith("__sadj") and c != "relative_volume20"} | set(bases))
     flat = L.compute_features(p, want)
     lo = max(0, iA - hist); hs = list(range(lo, iA))

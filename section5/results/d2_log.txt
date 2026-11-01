@@ -1,0 +1,7 @@
+[  2.2 min] 1560 rows built in 127s
+[  2.2 min] construction checks: True
+[  2.3 min] gaussian_hmm scored
+[  2.3 min] student_t_hmm scored
+[  2.5 min] hsmm scored
+[  2.9 min] bocpd scored
+[  2.9 min] done
