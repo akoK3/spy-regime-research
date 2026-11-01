@@ -218,6 +218,42 @@ class TestA7(unittest.TestCase):
         m, info = B.bisect_threshold(step, 1.0, 80.0, 0.2, 0.5); self.assertLessEqual(step(m), 0.2)
 
 
+class TestSweep(unittest.TestCase):
+    def test_vectorised_equals_loops(self):
+        import s5_sweep as W
+        rng = np.random.default_rng(11); S, T = 60, 78
+        for K in (2, 3):
+            P = rng.dirichlet(np.ones(K) * 0.15, size=(S, T)); real = rng.random((S, T)) > 0.08; real[::7, :3] = False
+            av = np.tile((np.arange(T) + 1) * 5 * MIN, (S, 1)).astype(np.int64); taus = (rng.integers(20, 60, S) * 5 * MIN).astype(np.int64)
+            th = [0.0, 0.7, 2.2, 4.6, 9.2, 15.0, 30.0]
+            cnt, hit = W.sweep_old_state(P, real, av, th, taus)
+            for s_ in range(S):
+                for g, t_ in enumerate(th):
+                    ev = E.detect_old_state_logodds(P[s_], real[s_], av[s_], t_)[0]
+                    self.assertEqual(cnt[s_, g], len(ev)); self.assertEqual(bool(hit[s_, g]), any(taus[s_] <= av[s_, e["i_c"]] <= taus[s_] + 60 * MIN for e in ev))
+        r = np.zeros((S, T)); 
+        for s_ in range(S):
+            x = 0
+            for t in range(T): x = 0 if rng.random() < 0.06 else x + 1; r[s_, t] = x
+        real = rng.random((S, T)) > 0.08; ms = [1.0, 2.5, 5.0, 10.0, 20.0]; cnt, hit = W.sweep_map(r, real, av, ms, taus)
+        for s_ in range(S):
+            for g, m_ in enumerate(ms):
+                ev = E.detect_bocpd_map(r[s_], real[s_], av[s_], m_)[0]
+                self.assertEqual(cnt[s_, g], len(ev)); self.assertEqual(bool(hit[s_, g]), any(taus[s_] <= av[s_, e["i_c"]] <= taus[s_] + 60 * MIN for e in ev))
+
+    def test_hit_rate_is_nondecreasing_in_alarm_rate(self):
+        import s5_a6 as A
+        rng = np.random.default_rng(5)
+        for _ in range(300):
+            pts = [(float(x), float(y)) for x, y in zip(rng.random(12) * 0.6, rng.random(12))]
+            self.assertGreaterEqual(A.y_at(pts, 0.2), A.y_at(pts, 0.1)); self.assertGreaterEqual(A.y_at(pts, 0.5), A.y_at(pts, 0.2))
+        for fn in ("a6_pilot_results.json", "a7_pilot_results.json"):
+            r = json.loads((L.HERE / "results" / fn).read_text())
+            for k, v in r["scoring"].items():
+                for R, b in v["by_ratio"].items():
+                    if "hit_at_alarm_rate_0p2" in b: self.assertGreaterEqual(b["hit_at_alarm_rate_0p2"], b["hit_at_alarm_rate_0p1"], f"{fn} {k} {R}")
+
+
 class TestFast(unittest.TestCase):
     def test_deseason_is_causal(self):
         import s5_fast as F

@@ -1,0 +1,11 @@
+[  2.0 min] 1704 splices built
+[  2.0 min] gaussian_hmm|base 1.66s
+[  2.0 min] gaussian_hmm|f3 1.65s
+[  2.1 min] student_t_hmm|base 1.65s
+[  2.1 min] student_t_hmm|f3 1.67s
+[  2.1 min] hsmm|base 1.84s
+[  2.2 min] hsmm|f3 1.85s
+[  2.2 min] bocpd|base 2.75s
+[  2.4 min] bocpd|f3 9.52s
+[  2.4 min] maxdiff 0.0, violations []
+exit 0
