@@ -1,0 +1,242 @@
+{
+ "5min|gaussian_hmm|K=2|gaussian|R3": {
+  "threshold": 0.95,
+  "real_fa": 0.64,
+  "per20": 16.2
+ },
+ "5min|gaussian_hmm|K=2|gaussian|R10": {
+  "threshold": 0.5,
+  "real_fa": 0.9675,
+  "per20": 51.3
+ },
+ "5min|gaussian_hmm|K=2|student_t5|R3": {
+  "threshold": 0.99,
+  "real_fa": 0.0,
+  "per20": 0.0
+ },
+ "5min|gaussian_hmm|K=2|student_t5|R10": {
+  "threshold": 0.8,
+  "real_fa": 0.79,
+  "per20": 27.05
+ },
+ "5min|gaussian_hmm|K=3|gaussian|R3": {
+  "threshold": 0.9,
+  "real_fa": 0.705,
+  "per20": 24.8
+ },
+ "5min|gaussian_hmm|K=3|gaussian|R10": {
+  "threshold": 0.5,
+  "real_fa": 0.96,
+  "per20": 53.95
+ },
+ "5min|gaussian_hmm|K=3|student_t5|R3": {
+  "threshold": 0.95,
+  "real_fa": 0.59,
+  "per20": 13.8
+ },
+ "5min|gaussian_hmm|K=3|student_t5|R10": {
+  "threshold": 0.8,
+  "real_fa": 0.8275,
+  "per20": 33.4
+ },
+ "5min|student_t_hmm|K=2|gaussian|R3": {
+  "threshold": 0.8,
+  "real_fa": 0.6775,
+  "per20": 20.2
+ },
+ "5min|student_t_hmm|K=2|gaussian|R10": {
+  "threshold": 0.5,
+  "real_fa": 0.7925,
+  "per20": 34.45
+ },
+ "5min|student_t_hmm|K=2|student_t5|R3": {
+  "threshold": 0.99,
+  "real_fa": 0.0,
+  "per20": 0.0
+ },
+ "5min|student_t_hmm|K=2|student_t5|R10": {
+  "threshold": 0.5,
+  "real_fa": 0.7925,
+  "per20": 34.45
+ },
+ "5min|student_t_hmm|K=3|gaussian|R3": {
+  "threshold": 0.9,
+  "real_fa": 0.69,
+  "per20": 18.7
+ },
+ "5min|student_t_hmm|K=3|gaussian|R10": {
+  "threshold": 0.6,
+  "real_fa": 1.0,
+  "per20": 67.15
+ },
+ "5min|student_t_hmm|K=3|student_t5|R3": {
+  "threshold": 0.9,
+  "real_fa": 0.69,
+  "per20": 18.7
+ },
+ "5min|student_t_hmm|K=3|student_t5|R10": {
+  "threshold": 0.6,
+  "real_fa": 1.0,
+  "per20": 67.15
+ },
+ "5min|hsmm|K=2|gaussian|R3": {
+  "threshold": 0.9,
+  "real_fa": 0.5225,
+  "per20": 15.0
+ },
+ "5min|hsmm|K=2|gaussian|R10": {
+  "threshold": 0.5,
+  "real_fa": 0.8275,
+  "per20": 45.0
+ },
+ "5min|hsmm|K=2|student_t5|R3": {
+  "threshold": 0.95,
+  "real_fa": 0.4325,
+  "per20": 9.65
+ },
+ "5min|hsmm|K=2|student_t5|R10": {
+  "threshold": 0.7,
+  "real_fa": 0.725,
+  "per20": 25.55
+ },
+ "5min|hsmm|K=3|gaussian|R3": {
+  "threshold": 0.8,
+  "real_fa": 0.76,
+  "per20": 30.55
+ },
+ "5min|hsmm|K=3|gaussian|R10": {
+  "threshold": 0.6,
+  "real_fa": 0.8525,
+  "per20": 70.2
+ },
+ "5min|hsmm|K=3|student_t5|R3": {
+  "threshold": 0.8,
+  "real_fa": 0.76,
+  "per20": 30.55
+ },
+ "5min|hsmm|K=3|student_t5|R10": {
+  "threshold": 0.7,
+  "real_fa": 0.8475,
+  "per20": 51.1
+ },
+ "1min|gaussian_hmm|K=2|gaussian|R3": {
+  "threshold": 0.8,
+  "real_fa": 0.9275,
+  "per20": 75.15
+ },
+ "1min|gaussian_hmm|K=2|gaussian|R10": {
+  "threshold": 0.6,
+  "real_fa": 0.9975,
+  "per20": 107.15
+ },
+ "1min|gaussian_hmm|K=2|student_t5|R3": {
+  "threshold": 0.8,
+  "real_fa": 0.9275,
+  "per20": 75.15
+ },
+ "1min|gaussian_hmm|K=2|student_t5|R10": {
+  "threshold": 0.99,
+  "real_fa": 0.12,
+  "per20": 2.4
+ },
+ "1min|gaussian_hmm|K=3|gaussian|R3": {
+  "threshold": 0.999,
+  "real_fa": 0.1525,
+  "per20": 4.5
+ },
+ "1min|gaussian_hmm|K=3|gaussian|R10": {
+  "threshold": 0.995,
+  "real_fa": 0.2825,
+  "per20": 6.4
+ },
+ "1min|gaussian_hmm|K=3|student_t5|R3": {
+  "threshold": 0.995,
+  "real_fa": 0.2825,
+  "per20": 6.4
+ },
+ "1min|gaussian_hmm|K=3|student_t5|R10": {
+  "threshold": 0.99,
+  "real_fa": 0.2825,
+  "per20": 6.55
+ },
+ "1min|student_t_hmm|K=2|gaussian|R3": {
+  "threshold": 0.8,
+  "real_fa": 0.81,
+  "per20": 58.2
+ },
+ "1min|student_t_hmm|K=2|gaussian|R10": {
+  "threshold": 0.5,
+  "real_fa": 0.925,
+  "per20": 76.5
+ },
+ "1min|student_t_hmm|K=2|student_t5|R3": {
+  "threshold": 0.999,
+  "real_fa": 0.0,
+  "per20": 0.0
+ },
+ "1min|student_t_hmm|K=2|student_t5|R10": {
+  "threshold": 0.9,
+  "real_fa": 0.775,
+  "per20": 41.6
+ },
+ "1min|student_t_hmm|K=3|gaussian|R3": {
+  "threshold": 0.999,
+  "real_fa": 0.0,
+  "per20": 0.0
+ },
+ "1min|student_t_hmm|K=3|gaussian|R10": {
+  "threshold": 0.99,
+  "real_fa": 0.6725,
+  "per20": 21.05
+ },
+ "1min|student_t_hmm|K=3|student_t5|R3": {
+  "threshold": 0.99,
+  "real_fa": 0.6725,
+  "per20": 21.05
+ },
+ "1min|student_t_hmm|K=3|student_t5|R10": {
+  "threshold": 0.99,
+  "real_fa": 0.6725,
+  "per20": 21.05
+ },
+ "1min|hsmm|K=2|gaussian|R3": {
+  "threshold": 0.8,
+  "real_fa": 0.9175,
+  "per20": 44.7
+ },
+ "1min|hsmm|K=2|gaussian|R10": {
+  "threshold": 0.8,
+  "real_fa": 0.9175,
+  "per20": 44.7
+ },
+ "1min|hsmm|K=2|student_t5|R3": {
+  "threshold": 0.6,
+  "real_fa": 0.9975,
+  "per20": 74.25
+ },
+ "1min|hsmm|K=2|student_t5|R10": {
+  "threshold": 0.95,
+  "real_fa": 0.7775,
+  "per20": 21.8
+ },
+ "1min|hsmm|K=3|gaussian|R3": {
+  "threshold": 0.9,
+  "real_fa": 0.975,
+  "per20": 54.85
+ },
+ "1min|hsmm|K=3|gaussian|R10": {
+  "threshold": 0.99,
+  "real_fa": 0.2925,
+  "per20": 6.25
+ },
+ "1min|hsmm|K=3|student_t5|R3": {
+  "threshold": 0.9,
+  "real_fa": 0.975,
+  "per20": 54.85
+ },
+ "1min|hsmm|K=3|student_t5|R10": {
+  "threshold": 0.95,
+  "real_fa": 0.87,
+  "per20": 31.45
+ }
+}

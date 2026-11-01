@@ -1,0 +1,396 @@
+{
+ "train_pooled_variance_in_z_units": 1.0,
+ "train_calm_var_z": 0.22380094498204645,
+ "train_stressed_var_z": 2.2859012512236534,
+ "max_abs_posterior_difference": {
+  "default (0,1,1,1)|lam=12": 4.163336342344337e-15,
+  "default (0,1,1,1)|lam=39": 6.106226635438361e-15,
+  "default (0,1,1,1)|lam=78": 6.439293542825908e-15,
+  "beta0 = calm train variance (0.22)|lam=12": 1.6986412276764895e-14,
+  "beta0 = calm train variance (0.22)|lam=39": 1.1463052729254741e-14,
+  "beta0 = calm train variance (0.22)|lam=78": 1.0880185641326534e-14,
+  "beta0 = stressed train variance (2.29)|lam=12": 4.718447854656915e-15,
+  "beta0 = stressed train variance (2.29)|lam=39": 7.771561172376096e-15,
+  "beta0 = stressed train variance (2.29)|lam=78": 1.0602629885170245e-14,
+  "tighter (0,1,3,2): mean variance 1, alpha0=3|lam=12": 3.941291737419306e-15,
+  "tighter (0,1,3,2): mean variance 1, alpha0=3|lam=39": 6.5503158452884236e-15,
+  "tighter (0,1,3,2): mean variance 1, alpha0=3|lam=78": 7.438494264988549e-15
+ },
+ "reference_updates_after_change_until_P(r<=2)>=0.5": {
+  "up": [
+   null,
+   1,
+   0,
+   10,
+   null,
+   1
+  ],
+  "down": [
+   null,
+   null,
+   null,
+   null,
+   null,
+   null
+  ]
+ },
+ "analytic_KL_nats_per_update": {
+  "up_10x": 3.348707453502977,
+  "down_10x": 0.701292546497023
+ },
+ "detection_gaussian_R10": {
+  "default (0,1,1,1)|lam=12|a_pcp3": {
+   "feasible": true,
+   "threshold": 0.7,
+   "test_fa": 0.014,
+   "per20": 0.28,
+   "hit_up": 0.474,
+   "hit_down": 0.0,
+   "delay_up": 25.0,
+   "delay_down": null
+  },
+  "default (0,1,1,1)|lam=12|b_map": {
+   "feasible": true,
+   "threshold": 1,
+   "test_fa": 0.056,
+   "per20": 1.28,
+   "hit_up": 0.766,
+   "hit_down": 0.758,
+   "delay_up": 25.0,
+   "delay_down": 25.0
+  },
+  "default (0,1,1,1)|lam=12|c_r_lt_6": {
+   "feasible": true,
+   "threshold": 0.9,
+   "test_fa": 0.004,
+   "per20": 0.08,
+   "hit_up": 0.57,
+   "hit_down": 0.004,
+   "delay_up": 30.0,
+   "delay_down": 17.5
+  },
+  "default (0,1,1,1)|lam=39|a_pcp3": {
+   "feasible": true,
+   "threshold": 0.5,
+   "test_fa": 0.018,
+   "per20": 0.36,
+   "hit_up": 0.582,
+   "hit_down": 0.0,
+   "delay_up": 25.0,
+   "delay_down": null
+  },
+  "default (0,1,1,1)|lam=39|b_map": {
+   "feasible": true,
+   "threshold": 5,
+   "test_fa": 0.002,
+   "per20": 0.04,
+   "hit_up": 0.818,
+   "hit_down": 0.652,
+   "delay_up": 30.0,
+   "delay_down": 50.0
+  },
+  "default (0,1,1,1)|lam=39|c_r_lt_6": {
+   "feasible": true,
+   "threshold": 0.5,
+   "test_fa": 0.068,
+   "per20": 1.36,
+   "hit_up": 0.908,
+   "hit_down": 0.022,
+   "delay_up": 30.0,
+   "delay_down": 15.0
+  },
+  "default (0,1,1,1)|lam=78|a_pcp3": {
+   "feasible": true,
+   "threshold": 0.3,
+   "test_fa": 0.034,
+   "per20": 0.68,
+   "hit_up": 0.69,
+   "hit_down": 0.002,
+   "delay_up": 25.0,
+   "delay_down": 5.0
+  },
+  "default (0,1,1,1)|lam=78|b_map": {
+   "feasible": true,
+   "threshold": 5,
+   "test_fa": 0.0,
+   "per20": 0.0,
+   "hit_up": 0.79,
+   "hit_down": 0.382,
+   "delay_up": 30.0,
+   "delay_down": 55.0
+  },
+  "default (0,1,1,1)|lam=78|c_r_lt_6": {
+   "feasible": true,
+   "threshold": 0.5,
+   "test_fa": 0.018,
+   "per20": 0.36,
+   "hit_up": 0.842,
+   "hit_down": 0.004,
+   "delay_up": 30.0,
+   "delay_down": 7.5
+  },
+  "beta0 = calm train variance (0.22)|lam=12|a_pcp3": {
+   "feasible": true,
+   "threshold": 0.7,
+   "test_fa": 0.05,
+   "per20": 1.0,
+   "hit_up": 0.474,
+   "hit_down": 0.002,
+   "delay_up": 25.0,
+   "delay_down": 60.0
+  },
+  "beta0 = calm train variance (0.22)|lam=12|b_map": {
+   "feasible": false
+  },
+  "beta0 = calm train variance (0.22)|lam=12|c_r_lt_6": {
+   "feasible": true,
+   "threshold": 0.9,
+   "test_fa": 0.024,
+   "per20": 0.48,
+   "hit_up": 0.572,
+   "hit_down": 0.152,
+   "delay_up": 25.0,
+   "delay_down": 35.0
+  },
+  "beta0 = calm train variance (0.22)|lam=39|a_pcp3": {
+   "feasible": true,
+   "threshold": 0.5,
+   "test_fa": 0.048,
+   "per20": 0.96,
+   "hit_up": 0.532,
+   "hit_down": 0.0,
+   "delay_up": 25.0,
+   "delay_down": null
+  },
+  "beta0 = calm train variance (0.22)|lam=39|b_map": {
+   "feasible": true,
+   "threshold": 20,
+   "test_fa": 0.084,
+   "per20": 2.28,
+   "hit_up": 0.794,
+   "hit_down": 0.734,
+   "delay_up": 30.0,
+   "delay_down": 40.0
+  },
+  "beta0 = calm train variance (0.22)|lam=39|c_r_lt_6": {
+   "feasible": true,
+   "threshold": 0.7,
+   "test_fa": 0.048,
+   "per20": 0.96,
+   "hit_up": 0.738,
+   "hit_down": 0.146,
+   "delay_up": 30.0,
+   "delay_down": 35.0
+  },
+  "beta0 = calm train variance (0.22)|lam=78|a_pcp3": {
+   "feasible": true,
+   "threshold": 0.3,
+   "test_fa": 0.078,
+   "per20": 1.56,
+   "hit_up": 0.662,
+   "hit_down": 0.0,
+   "delay_up": 25.0,
+   "delay_down": null
+  },
+  "beta0 = calm train variance (0.22)|lam=78|b_map": {
+   "feasible": true,
+   "threshold": 8,
+   "test_fa": 0.042,
+   "per20": 1.0,
+   "hit_up": 0.798,
+   "hit_down": 0.65,
+   "delay_up": 30.0,
+   "delay_down": 45.0
+  },
+  "beta0 = calm train variance (0.22)|lam=78|c_r_lt_6": {
+   "feasible": true,
+   "threshold": 0.7,
+   "test_fa": 0.012,
+   "per20": 0.24,
+   "hit_up": 0.664,
+   "hit_down": 0.044,
+   "delay_up": 30.0,
+   "delay_down": 40.0
+  },
+  "beta0 = stressed train variance (2.29)|lam=12|a_pcp3": {
+   "feasible": true,
+   "threshold": 0.5,
+   "test_fa": 0.048,
+   "per20": 0.96,
+   "hit_up": 0.754,
+   "hit_down": 0.028,
+   "delay_up": 25.0,
+   "delay_down": 7.5
+  },
+  "beta0 = stressed train variance (2.29)|lam=12|b_map": {
+   "feasible": true,
+   "threshold": 3,
+   "test_fa": 0.0,
+   "per20": 0.0,
+   "hit_up": 0.756,
+   "hit_down": 0.64,
+   "delay_up": 30.0,
+   "delay_down": 40.0
+  },
+  "beta0 = stressed train variance (2.29)|lam=12|c_r_lt_6": {
+   "feasible": true,
+   "threshold": 0.7,
+   "test_fa": 0.03,
+   "per20": 0.6,
+   "hit_up": 0.884,
+   "hit_down": 0.028,
+   "delay_up": 30.0,
+   "delay_down": 7.5
+  },
+  "beta0 = stressed train variance (2.29)|lam=39|a_pcp3": {
+   "feasible": true,
+   "threshold": 0.3,
+   "test_fa": 0.03,
+   "per20": 0.6,
+   "hit_up": 0.774,
+   "hit_down": 0.008,
+   "delay_up": 25.0,
+   "delay_down": 2.5
+  },
+  "beta0 = stressed train variance (2.29)|lam=39|b_map": {
+   "feasible": true,
+   "threshold": 1,
+   "test_fa": 0.002,
+   "per20": 0.04,
+   "hit_up": 0.688,
+   "hit_down": 0.202,
+   "delay_up": 30.0,
+   "delay_down": 55.0
+  },
+  "beta0 = stressed train variance (2.29)|lam=39|c_r_lt_6": {
+   "feasible": true,
+   "threshold": 0.3,
+   "test_fa": 0.06,
+   "per20": 1.2,
+   "hit_up": 0.958,
+   "hit_down": 0.054,
+   "delay_up": 30.0,
+   "delay_down": 10.0
+  },
+  "beta0 = stressed train variance (2.29)|lam=78|a_pcp3": {
+   "feasible": true,
+   "threshold": 0.2,
+   "test_fa": 0.026,
+   "per20": 0.52,
+   "hit_up": 0.794,
+   "hit_down": 0.004,
+   "delay_up": 30.0,
+   "delay_down": 5.0
+  },
+  "beta0 = stressed train variance (2.29)|lam=78|b_map": {
+   "feasible": true,
+   "threshold": 8,
+   "test_fa": 0.0,
+   "per20": 0.0,
+   "hit_up": 0.672,
+   "hit_down": 0.066,
+   "delay_up": 35.0,
+   "delay_down": 55.0
+  },
+  "beta0 = stressed train variance (2.29)|lam=78|c_r_lt_6": {
+   "feasible": true,
+   "threshold": 0.2,
+   "test_fa": 0.04,
+   "per20": 0.8,
+   "hit_up": 0.95,
+   "hit_down": 0.04,
+   "delay_up": 30.0,
+   "delay_down": 10.0
+  },
+  "tighter (0,1,3,2): mean variance 1, alpha0=3|lam=12|a_pcp3": {
+   "feasible": true,
+   "threshold": 0.7,
+   "test_fa": 0.004,
+   "per20": 0.08,
+   "hit_up": 0.41,
+   "hit_down": 0.002,
+   "delay_up": 25.0,
+   "delay_down": 20.0
+  },
+  "tighter (0,1,3,2): mean variance 1, alpha0=3|lam=12|b_map": {
+   "feasible": true,
+   "threshold": 3,
+   "test_fa": 0.09,
+   "per20": 1.96,
+   "hit_up": 0.866,
+   "hit_down": 0.714,
+   "delay_up": 25.0,
+   "delay_down": 25.0
+  },
+  "tighter (0,1,3,2): mean variance 1, alpha0=3|lam=12|c_r_lt_6": {
+   "feasible": true,
+   "threshold": 0.9,
+   "test_fa": 0.002,
+   "per20": 0.04,
+   "hit_up": 0.512,
+   "hit_down": 0.012,
+   "delay_up": 30.0,
+   "delay_down": 22.5
+  },
+  "tighter (0,1,3,2): mean variance 1, alpha0=3|lam=39|a_pcp3": {
+   "feasible": true,
+   "threshold": 0.5,
+   "test_fa": 0.01,
+   "per20": 0.2,
+   "hit_up": 0.516,
+   "hit_down": 0.0,
+   "delay_up": 25.0,
+   "delay_down": null
+  },
+  "tighter (0,1,3,2): mean variance 1, alpha0=3|lam=39|b_map": {
+   "feasible": true,
+   "threshold": 8,
+   "test_fa": 0.0,
+   "per20": 0.0,
+   "hit_up": 0.774,
+   "hit_down": 0.694,
+   "delay_up": 30.0,
+   "delay_down": 50.0
+  },
+  "tighter (0,1,3,2): mean variance 1, alpha0=3|lam=39|c_r_lt_6": {
+   "feasible": true,
+   "threshold": 0.5,
+   "test_fa": 0.05,
+   "per20": 1.0,
+   "hit_up": 0.904,
+   "hit_down": 0.032,
+   "delay_up": 30.0,
+   "delay_down": 27.5
+  },
+  "tighter (0,1,3,2): mean variance 1, alpha0=3|lam=78|a_pcp3": {
+   "feasible": true,
+   "threshold": 0.2,
+   "test_fa": 0.058,
+   "per20": 1.16,
+   "hit_up": 0.816,
+   "hit_down": 0.002,
+   "delay_up": 25.0,
+   "delay_down": 5.0
+  },
+  "tighter (0,1,3,2): mean variance 1, alpha0=3|lam=78|b_map": {
+   "feasible": true,
+   "threshold": 8,
+   "test_fa": 0.0,
+   "per20": 0.0,
+   "hit_up": 0.73,
+   "hit_down": 0.43,
+   "delay_up": 30.0,
+   "delay_down": 55.0
+  },
+  "tighter (0,1,3,2): mean variance 1, alpha0=3|lam=78|c_r_lt_6": {
+   "feasible": true,
+   "threshold": 0.5,
+   "test_fa": 0.016,
+   "per20": 0.32,
+   "hit_up": 0.81,
+   "hit_down": 0.01,
+   "delay_up": 30.0,
+   "delay_down": 10.0
+  }
+ }
+}

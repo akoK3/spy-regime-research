@@ -1,0 +1,17 @@
+[  1.5 min] 6 cells
+[  1.5 min] 12 cells
+[  1.5 min] 18 cells
+[  1.6 min] 24 cells
+[  2.9 min] 30 cells
+[  3.0 min] 36 cells
+[  3.0 min] 42 cells
+[  3.0 min] 48 cells
+[  3.1 min] 54 cells
+[  3.2 min] 60 cells
+[  3.2 min] 66 cells
+[  3.2 min] 72 cells
+[  3.3 min] 78 cells
+[  3.3 min] 84 cells
+[  3.3 min] 90 cells
+[  3.3 min] 96 cells
+exit 0

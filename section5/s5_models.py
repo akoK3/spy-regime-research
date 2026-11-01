@@ -288,9 +288,18 @@ class HSMM:
         return self
 
     def filter(self, batch):
+        """Filtered state probabilities (S,T,K). Forward pass only; keeps one (S,K,Dmax) array at a time (same recursion as _fb)."""
         logB = self._logB(batch["X"])[0]
-        al = self._fb(logB, batch["L"])[0]
-        return al.sum(-1)
+        S, T, K = logB.shape; Dm = self.Dmax; h, A = self.h, self.A
+        act = np.arange(T)[None, :] < batch["L"][:, None]
+        B = np.exp(logB - logB.max(-1, keepdims=True)); P = np.zeros((S, T, K))
+        prev = np.zeros((S, K, Dm)); prev[:, :, 0] = self.pi[None] * B[:, 0]; prev /= prev.sum((1, 2), keepdims=True); P[:, 0] = prev.sum(-1)
+        for t in range(1, T):
+            leave = (prev * h[None]).sum(-1)
+            new = np.zeros_like(prev); new[:, :, 0] = leave @ A; new[:, :, 1:] = prev[:, :, :-1] * (1 - h[None, :, :-1])
+            new = new * B[:, t][:, :, None]; ct = np.where(act[:, t], new.sum((1, 2)), 1.0)
+            prev = np.where(act[:, t, None, None], new / ct[:, None, None], prev); P[:, t] = prev.sum(-1)
+        return P
 
 
 class BOCPD:
@@ -298,8 +307,8 @@ class BOCPD:
     Prior (standardised data): mu0=0, kappa0=1, alpha0=1, beta0=1. Output per update: P(changepoint within the last 3 updates) = P(run length <= 2)."""
     name = "bocpd"
 
-    def __init__(self, lam=39, rmax=200, prior=(0.0, 1.0, 1.0, 1.0)):
-        self.lam, self.rmax, self.prior = lam, rmax, prior
+    def __init__(self, lam=39, rmax=200, prior=(0.0, 1.0, 1.0, 1.0), keep_posterior=False):
+        self.lam, self.rmax, self.prior, self.keep_posterior = lam, rmax, prior, keep_posterior
 
     def fit(self, batch):
         self.fit_info = dict(iterations=[], restarts=0)
@@ -312,7 +321,7 @@ class BOCPD:
         mu = np.full((S, R, D), m0); ka = np.full((S, R, D), k0); al = np.full((S, R, D), a0); be = np.full((S, R, D), b0)
         P = np.zeros((S, R)); P[:, 0] = 1.0
         out = np.zeros((S, T, 5))
-        pm = np.zeros((S, T))
+        pm = np.zeros((S, T)); self.posterior = np.zeros((S, T, R)) if self.keep_posterior else None
         for t in range(T):
             act = t < L
             x = np.where(real[:, t, None], X[:, t], 0.0)[:, None, :]
@@ -335,6 +344,7 @@ class BOCPD:
             keep = act[:, None, None]
             mu, ka, al, be = (np.where(keep, mu2, mu), np.where(keep, ka2, ka), np.where(keep, al2, al), np.where(keep, be2, be))
             P = np.where(act[:, None], newP, P)
+            if self.keep_posterior: self.posterior[:, t] = P
             out[:, t, 0] = P[:, :3].sum(-1)
             out[:, t, 1] = (P * np.arange(R)[None]).sum(-1)
             out[:, t, 3] = P[:, :6].sum(-1)   # persistence statistic: P(run length <= HOLD + 2)
