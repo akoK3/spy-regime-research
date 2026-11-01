@@ -1,0 +1,5 @@
+[  1.9 min] 1360 rows built
+[  2.7 min] mode raw done
+[  3.6 min] mode des done
+[  3.6 min] done
+exit 0

@@ -80,3 +80,28 @@ def direction(r1, slots, i_d, i_c, min_pre=30):
     if len(inn) == 0 or len(pre) < min_pre or (pre ** 2).mean() == 0: return None, None
     ratio = float((inn ** 2).mean() / (pre ** 2).mean())
     return ("calm_to_stressed" if ratio > 1 else "stressed_to_calm"), ratio
+
+
+def detect_states_mass(P, real, avail, thr, hold=HOLD, warm=WARM, refractory_min=REFRACTORY_MIN):
+    """Alternative T_d/T_c rule (D3 diagnostic, NOT the protocol rule): a regime change is probability mass leaving the baseline state,
+    1 - P[baseline] >= thr, whichever state(s) receive it. Baseline = argmax at the last update before a candidate (updates 1-2 and after each T_c / inside the
+    refractory period). T_c = the `hold`-th real update after T_d with the mass still away; a skip resets the count. Needed when one regime is split over several
+    states (K above the number of regimes), where the single-new-state rule of detect_states cannot confirm."""
+    events = []; dropped = 0; cur = None; cand = None; ref_until = -1
+    for i in range(len(real)):
+        if not real[i]:
+            if cand is not None: cand["count"] = 0
+            continue
+        if i < warm or avail[i] < ref_until:
+            cur = int(np.argmax(P[i])); cand = None; continue
+        away = 1.0 - P[i, cur]
+        if cand is not None:
+            if away >= thr:
+                cand["count"] += 1
+                if cand["count"] >= hold:
+                    events.append(dict(i_d=cand["i_d"], i_c=i, state=-2)); cur = int(np.argmax(P[i])); ref_until = avail[i] + refractory_min * MIN; cand = None
+            else: cand = None
+            continue
+        if away >= thr: cand = dict(i_d=i, count=0)
+    if cand is not None: dropped += 1
+    return events, dropped
