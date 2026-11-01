@@ -1,0 +1,15 @@
+[  0.3 min] 200 splices built with 4 workers in 18s
+[  0.3 min] variants prepared; deseason scale NaN share in train rows: 0.0053
+[  0.4 min] diag gaussian_hmm
+[  0.4 min] diag student_t_hmm
+[  0.4 min] diag hsmm
+[  0.5 min] diag bocpd
+[  0.6 min] per-feature gaussian_hmm
+[  0.7 min] per-feature student_t_hmm
+[  1.3 min] per-feature hsmm
+[  1.5 min] per-feature bocpd
+[  1.6 min] fixes gaussian_hmm
+[  1.7 min] fixes student_t_hmm
+[  1.9 min] fixes hsmm
+[  2.0 min] fixes bocpd
+[  2.0 min] done

@@ -1,0 +1,6 @@
+{'splices': 6, 'all_equal': True, 'slow_s': 4.160306800001611, 'fast_s': 0.22879719999036752}
+splice workers 1 16.58892199996626
+splice workers 4 8.760279999987688
+fit workers 1 25.739418099983595
+fit workers 4 12.866644800000358
+exit 0

@@ -1,0 +1,27 @@
+test_bocpd_alarm_hold_reset_on_skip (__main__.TestEvents.test_bocpd_alarm_hold_reset_on_skip) ... ok
+test_direction_rule (__main__.TestEvents.test_direction_rule) ... ok
+test_states_alarm_hold_and_confirmation (__main__.TestEvents.test_states_alarm_hold_and_confirmation) ... ok
+test_states_failed_hold_cancels_and_refractory (__main__.TestEvents.test_states_failed_hold_cancels_and_refractory) ... ok
+test_states_no_alarm_on_first_two_updates (__main__.TestEvents.test_states_no_alarm_on_first_two_updates) ... ok
+test_states_skip_resets_count (__main__.TestEvents.test_states_skip_resets_count) ... ok
+test_checkpoint_resume (__main__.TestLibrary.test_checkpoint_resume) ... ok
+test_lm_student_t_threshold (__main__.TestLibrary.test_lm_student_t_threshold) ... ok
+test_pool_assertions (__main__.TestLibrary.test_pool_assertions) ... ok
+test_prep_uses_inner_train_only (__main__.TestLibrary.test_prep_uses_inner_train_only) ... ok
+test_sequence_start_abstention_and_skips (__main__.TestLibrary.test_sequence_start_abstention_and_skips) ... ok
+test_train_only_and_single_era (__main__.TestLibrary.test_train_only_and_single_era) ... ok
+test_bocpd_alarm_on_mean_shift_and_quiet_otherwise (__main__.TestModels.test_bocpd_alarm_on_mean_shift_and_quiet_otherwise) ... ok
+test_bocpd_skip_is_hazard_only (__main__.TestModels.test_bocpd_skip_is_hazard_only) ... ok
+test_gaussian_hmm_loglik_monotone (__main__.TestModels.test_gaussian_hmm_loglik_monotone) ... ok
+test_gaussian_hmm_recovers_parameters (__main__.TestModels.test_gaussian_hmm_recovers_parameters) ... ok
+test_hsmm_recovers_durations_and_states (__main__.TestModels.test_hsmm_recovers_durations_and_states) ... ok
+test_skipped_update_is_transition_only (__main__.TestModels.test_skipped_update_is_transition_only) ... ok
+test_student_t_hmm (__main__.TestModels.test_student_t_hmm) ... ok
+test_qlike_dm_threshold (__main__.TestScoring.test_qlike_dm_threshold) ... ok
+test_pairs_terciles (__main__.TestSplice.test_pairs_terciles) ... ok
+test_splice_continuity_tau_and_isolation (__main__.TestSplice.test_splice_continuity_tau_and_isolation) ... ok
+
+----------------------------------------------------------------------
+Ran 22 tests in 2.044s
+
+OK

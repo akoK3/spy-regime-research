@@ -109,3 +109,8 @@
 !/section5/results/*.md
 !/section5/results/*.sha256
 !/section5/results/*.txt
+
+!/PILOT_REPORT_2.md
+!/PILOT_REPORT_2.sha256
+!/AMENDMENT_A6_DRAFT.md
+!/AMENDMENT_A6_DRAFT.sha256

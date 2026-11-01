@@ -1,0 +1,17 @@
+{
+ "equivalence_fast_vs_slow": {
+  "splices": 6,
+  "all_equal": true,
+  "slow_s": 4.160306800001611,
+  "fast_s": 0.22879719999036752
+ },
+ "splice_pool_seconds_for_64": {
+  "1": 16.58892199996626,
+  "4": 8.760279999987688
+ },
+ "fit_pool_seconds_for_16_hsmm_incl_init": {
+  "1": 25.739418099983595,
+  "4": 12.866644800000358
+ },
+ "logical_cores": 16
+}

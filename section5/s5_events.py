@@ -41,10 +41,12 @@ def detect_states(P, real, avail, thr, hold=HOLD, warm=WARM, refractory_min=REFR
     return events, dropped
 
 
-def detect_bocpd(pcp, real, avail, thr, hold=HOLD, warm=WARM, refractory_min=REFRACTORY_MIN):
+def detect_bocpd(pcp, real, avail, thr, hold=HOLD, warm=WARM, refractory_min=REFRACTORY_MIN, pers=None, pers_thr=None):
     """BOCPD. pcp (n,) = P(changepoint within 3 updates). Alarm = rising edge of pcp >= thr at a real update with index >= warm (the previous real
     update must be below thr; updates before `warm` count as below). T_d = alarm. T_c = the `hold`-th consecutive real update after T_d with no new
-    alarm; a skip resets the count to 0; a new alarm restarts the candidate."""
+    alarm; a skip resets the count to 0; a new alarm restarts the candidate.
+    Optional persistence rule (proposed fix, off by default): at the would-be T_c the run-length posterior must still be short,
+    pers[i] = P(run length <= hold + 2) >= pers_thr (default thr); otherwise the candidate is cancelled."""
     n = len(real); events = []; dropped = 0; cand = None; ref_until = -1; prev_below = True
     for i in range(n):
         if not real[i]:
@@ -61,7 +63,8 @@ def detect_bocpd(pcp, real, avail, thr, hold=HOLD, warm=WARM, refractory_min=REF
             else:
                 cand["count"] += 1
                 if cand["count"] >= hold:
-                    events.append(dict(i_d=cand["i_d"], i_c=i, state=-1)); ref_until = avail[i] + refractory_min * MIN; cand = None
+                    if pers is not None and not pers[i] >= (thr if pers_thr is None else pers_thr): cand = None
+                    else: events.append(dict(i_d=cand["i_d"], i_c=i, state=-1)); ref_until = avail[i] + refractory_min * MIN; cand = None
             continue
         if alarm: cand = dict(i_d=i, count=0)
     if cand is not None: dropped += 1

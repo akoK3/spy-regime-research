@@ -12,10 +12,12 @@ TAU_SLOTS = np.arange(94, 300, 5)          # grid bars stamped 11:04 ... 14:29 (
 HIT_WINDOW_MIN = 60
 STATE_THR = [round(x, 2) for x in list(np.arange(0.50, 0.96, 0.05))] + [0.99]
 BOCPD_THR = [round(x, 2) for x in list(np.arange(0.05, 0.96, 0.05))] + [0.99]
+EXTRA_THR = [0.995, 0.999, 0.9995, 0.9999]      # proposed extension (A6 draft)
 
 
-def thr_grid(family):
-    return BOCPD_THR if family == "bocpd" else STATE_THR
+def thr_grid(family, extended=False):
+    g = BOCPD_THR if family == "bocpd" else STATE_THR
+    return g + EXTRA_THR if extended else g
 
 
 def make_model(family, K=3, lam=39, starts=1, seed=0, Dmax=78):
@@ -119,23 +121,23 @@ def run_filter(family, model, seqs, D):
     res = []
     for k, q in enumerate(seqs):
         n = q["n"]
-        res.append(dict(pcp=out[k, :n, 0], var=out[k, :n, 2]) if family == "bocpd" else dict(P=out[k, :n]))
+        res.append(dict(pcp=out[k, :n, 0], var=out[k, :n, 2], pers=out[k, :n, 3]) if family == "bocpd" else dict(P=out[k, :n]))
     return res
 
 
-def events_for(family, res, seq, thr):
+def events_for(family, res, seq, thr, persistence=False):
     if seq["n"] == 0: return [], 0
-    if family == "bocpd": return E.detect_bocpd(res["pcp"], seq["real"], seq["avail"], thr)
+    if family == "bocpd": return E.detect_bocpd(res["pcp"], seq["real"], seq["avail"], thr, pers=res["pers"] if persistence else None)
     return E.detect_states(res["P"], seq["real"], seq["avail"], thr)
 
 
-def score_splices(family, res_list, seqs, taus, is_break, grid):
+def score_splices(family, res_list, seqs, taus, is_break, grid, persistence=False):
     """For each threshold: false-alarm rate (null) or hit rate / delays in minutes (break)."""
     out = {}
     for thr in grid:
         fa, hits, delays, dropped = 0, 0, [], 0
         for res, q, tau in zip(res_list, seqs, taus if taus is not None else [None] * len(seqs)):
-            ev, dr = events_for(family, res, q, thr); dropped += dr
+            ev, dr = events_for(family, res, q, thr, persistence); dropped += dr
             if is_break:
                 good = [e for e in ev if tau <= q["avail"][e["i_c"]] <= tau + HIT_WINDOW_MIN * E.MIN]
                 if good: hits += 1; delays.append((q["avail"][good[0]["i_c"]] - tau) / E.MIN)

@@ -146,6 +146,15 @@ class TestEvents(unittest.TestCase):
         self.assertEqual(E.detect_bocpd(pcp4, real, self.av[:n], 0.9)[0], [], "no alarm in the first two updates; the third is not a rising edge")
         ev5, dr5 = E.detect_bocpd(pcp, np.r_[np.ones(11, bool), np.zeros(29, bool)], self.av[:n], 0.9); self.assertEqual((ev5, dr5), ([], 1))
 
+    def test_bocpd_persistence_rule_and_outputs(self):
+        n = 40; pcp = np.full(n, 0.1); pcp[10:13] = 0.95; real = np.ones(n, bool); pers = np.full(n, 0.95)
+        ev, _ = E.detect_bocpd(pcp, real, self.av[:n], 0.9, pers=pers); self.assertEqual((ev[0]["i_d"], ev[0]["i_c"]), (10, 13))
+        pers2 = pers.copy(); pers2[13] = 0.2
+        self.assertEqual(E.detect_bocpd(pcp, real, self.av[:n], 0.9, pers=pers2)[0], [], "run length reverted to long: not confirmed")
+        self.assertEqual(len(E.detect_bocpd(pcp, real, self.av[:n], 0.9)[0]), 1, "default behaviour unchanged")
+        X = np.random.default_rng(1).standard_normal((2, 30, 1)); o = M.BOCPD(39).filter(L.pad(seqs_from(X), 1)); self.assertEqual(o.shape, (2, 30, 4))
+        self.assertTrue(np.all(o[:, :, 3] >= o[:, :, 0] - 1e-12), "P(r<=5) >= P(r<=2)")
+
     def test_direction_rule(self):
         rng = np.random.default_rng(3); r = rng.standard_normal(390) * 1e-3; r[200:] *= 4
         slots = np.arange(4, 390, 5); i_d = int(np.where(slots == 199)[0][0]); i_c = i_d + 3
@@ -153,6 +162,16 @@ class TestEvents(unittest.TestCase):
         r2 = rng.standard_normal(390) * 1e-3; r2[:200] *= 4
         self.assertEqual(E.direction(r2, slots, i_d, i_c)[0], "stressed_to_calm")
         self.assertEqual(E.direction(r, slots, 2, 5)[0], None, "fewer than 30 reference bars")
+
+
+class TestFast(unittest.TestCase):
+    def test_deseason_is_causal(self):
+        import s5_fast as F
+        rng = np.random.default_rng(0); Mx = np.abs(rng.standard_normal((40, 78))) * 1e-3
+        sc = F.ret5_scale(Mx, 25); M2 = Mx.copy(); M2[25:] *= 100; M2[24] = Mx[24]
+        self.assertTrue(np.array_equal(sc, F.ret5_scale(M2, 25)), "scale uses sessions before i only")
+        self.assertTrue(np.isnan(F.ret5_scale(Mx, 5)).all(), "fewer than 10 prior sessions -> missing")
+        self.assertTrue(np.allclose(sc, np.median(Mx[5:25], axis=0)))
 
 
 class TestLibrary(unittest.TestCase):
