@@ -176,6 +176,23 @@ class TestEvents(unittest.TestCase):
         self.assertEqual(E.direction(r, slots, 2, 5)[0], None, "fewer than 30 reference bars")
 
 
+class TestA6(unittest.TestCase):
+    def test_partial_area(self):
+        import s5_a6 as A
+        self.assertAlmostEqual(A.pauc([(0.0, 0.0), (0.5, 1.0)]), 0.0 + 0.0, places=12, msg="y(x) is a step: stays at the previous level until x=0.5 is reached")
+        self.assertAlmostEqual(A.pauc([(0.1, 0.4), (0.3, 0.8)]), (0.0 * 0.1 + 0.4 * 0.2 + 0.8 * 0.2) / 0.5)
+        self.assertAlmostEqual(A.pauc([(0.0, 0.6), (0.2, 0.5)]), 0.6, msg="y is the running maximum")
+        self.assertAlmostEqual(A.pauc([(0.7, 1.0)]), 0.0, msg="points beyond the range do not count")
+        self.assertAlmostEqual(A.pauc([(0.0, 1.0)]), 1.0)
+        self.assertEqual(A.y_at([(0.05, 0.3), (0.2, 0.9)], 0.1), 0.3)
+
+    def test_rate_threshold_rule(self):
+        import s5_a6 as A
+        g = [1, 2, 3, 4]; self.assertEqual(A.choose_rate_threshold({1: 0.9, 2: 0.19, 3: 0.12, 4: 0.0}, g), (2, False), "highest rate not above 0.2")
+        self.assertEqual(A.choose_rate_threshold({1: 0.9, 2: 0.5, 3: 0.4, 4: 0.3}, g), (4, True), "none qualifies: strictest value, flagged")
+        self.assertEqual(A.choose_rate_threshold({1: 0.2, 2: 0.2, 3: 0.1, 4: 0.0}, g), (2, False), "ties to the stricter threshold")
+
+
 class TestFast(unittest.TestCase):
     def test_deseason_is_causal(self):
         import s5_fast as F

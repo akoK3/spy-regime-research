@@ -1,0 +1,13 @@
+[  0.8 min] exclusions and timing checks done
+[  0.8 min] section 6 calibration done
+[  2.7 min] 1704 splices built
+[  2.7 min] scored gaussian_hmm|base
+[  2.7 min] scored gaussian_hmm|f3
+[  2.7 min] scored student_t_hmm|base
+[  2.8 min] scored student_t_hmm|f3
+[  2.8 min] scored hsmm|base
+[  2.8 min] scored hsmm|f3
+[  2.9 min] scored bocpd|base
+[  3.0 min] scored bocpd|f3
+[  3.0 min] done
+exit 0
