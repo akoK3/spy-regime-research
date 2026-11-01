@@ -121,7 +121,7 @@ def run_filter(family, model, seqs, D):
     res = []
     for k, q in enumerate(seqs):
         n = q["n"]
-        res.append(dict(pcp=out[k, :n, 0], var=out[k, :n, 2], pers=out[k, :n, 3]) if family == "bocpd" else dict(P=out[k, :n]))
+        res.append(dict(pcp=out[k, :n, 0], var=out[k, :n, 2], pers=out[k, :n, 3], rstar=out[k, :n, 4]) if family == "bocpd" else dict(P=out[k, :n]))
     return res
 
 

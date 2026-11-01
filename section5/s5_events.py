@@ -105,3 +105,44 @@ def detect_states_mass(P, real, avail, thr, hold=HOLD, warm=WARM, refractory_min
         if away >= thr: cand = dict(i_d=i, count=0)
     if cand is not None: dropped += 1
     return events, dropped
+
+
+def detect_old_state(P, real, avail, thr, run=3, warm=WARM, refractory_min=REFRACTORY_MIN):
+    """D4 rule for HMM/HSMM: alarm when P(old state) < 1 - thr for `run` consecutive real updates (T_d = first of them, T_c = the run-th). Old state = argmax at
+    updates 1-2, then argmax at each alarm (and inside the refractory period). A skip resets the count. Updates before `warm` are silent."""
+    events = []; cur = None; cnt = 0; first = None; ref_until = -1
+    for i in range(len(real)):
+        if not real[i]:
+            cnt = 0; continue
+        if i < warm or avail[i] < ref_until:
+            cur = int(np.argmax(P[i])); cnt = 0; continue
+        if P[i, cur] < 1.0 - thr:
+            if cnt == 0: first = i
+            cnt += 1
+            if cnt >= run:
+                events.append(dict(i_d=first, i_c=i, state=-3)); cur = int(np.argmax(P[i])); ref_until = avail[i] + refractory_min * MIN; cnt = 0
+        else: cnt = 0
+    return events, 0
+
+
+def detect_bocpd_map(rstar, real, avail, drop, hold=HOLD, warm=WARM, refractory_min=REFRACTORY_MIN):
+    """D4 BOCPD alarm (b): the most likely run length drops by at least `drop` between consecutive real updates (T_d), and holds for `hold` real updates:
+    at the k-th real update after T_d it is at most (value at T_d) + k, i.e. it keeps growing from the new low instead of returning to the old long run.
+    A skip resets the count; a new drop restarts the candidate."""
+    events = []; cand = None; ref_until = -1; prev = None
+    for i in range(len(real)):
+        if not real[i]: 
+            if cand is not None: cand["count"] = 0
+            continue
+        r = rstar[i]; dropped = prev is not None and i >= warm and (prev - r) >= drop; prev = r
+        if avail[i] < ref_until: cand = None; continue
+        if cand is not None:
+            if dropped: cand = dict(i_d=i, low=r, count=0); continue
+            if r <= cand["low"] + cand["count"] + 1:
+                cand["count"] += 1
+                if cand["count"] >= hold:
+                    events.append(dict(i_d=cand["i_d"], i_c=i, state=-4)); ref_until = avail[i] + refractory_min * MIN; cand = None
+            else: cand = None
+            continue
+        if dropped: cand = dict(i_d=i, low=r, count=0)
+    return events, 0

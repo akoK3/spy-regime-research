@@ -152,8 +152,20 @@ class TestEvents(unittest.TestCase):
         pers2 = pers.copy(); pers2[13] = 0.2
         self.assertEqual(E.detect_bocpd(pcp, real, self.av[:n], 0.9, pers=pers2)[0], [], "run length reverted to long: not confirmed")
         self.assertEqual(len(E.detect_bocpd(pcp, real, self.av[:n], 0.9)[0]), 1, "default behaviour unchanged")
-        X = np.random.default_rng(1).standard_normal((2, 30, 1)); o = M.BOCPD(39).filter(L.pad(seqs_from(X), 1)); self.assertEqual(o.shape, (2, 30, 4))
+        X = np.random.default_rng(1).standard_normal((2, 30, 1)); o = M.BOCPD(39).filter(L.pad(seqs_from(X), 1)); self.assertEqual(o.shape, (2, 30, 5))
         self.assertTrue(np.all(o[:, :, 3] >= o[:, :, 0] - 1e-12), "P(r<=5) >= P(r<=2)")
+
+    def test_d4_rules(self):
+        n = 30; av = self.av[:n]; real = np.ones(n, bool)
+        P = np.tile([0.97, 0.03], (n, 1)); P[10:] = [0.03, 0.97]
+        ev, _ = E.detect_old_state(P, real, av, 0.9); self.assertEqual((ev[0]["i_d"], ev[0]["i_c"]), (10, 12), "P(old) < 1 - thr for 3 consecutive updates: T_c is the third")
+        r2 = real.copy(); r2[11] = False; ev, _ = E.detect_old_state(P, r2, av, 0.9); self.assertEqual((ev[0]["i_d"], ev[0]["i_c"]), (12, 14), "skip resets the count")
+        P2 = P.copy(); P2[11] = [0.95, 0.05]; self.assertEqual(E.detect_old_state(P2, real, av, 0.9)[0][0]["i_d"], 12, "a recovery inside the run restarts it")
+        self.assertEqual(E.detect_old_state(np.tile([0.5, 0.5], (n, 1)), real, av, 0.9)[0], [])
+        rs = np.arange(n, dtype=float); rs[15:] = np.arange(n - 15) + 1      # drop from 14 to 1 at update 15, then grows
+        ev, _ = E.detect_bocpd_map(rs, real, av, 5); self.assertEqual((ev[0]["i_d"], ev[0]["i_c"]), (15, 18))
+        rs2 = rs.copy(); rs2[17:] = np.arange(n - 17) + 30.0; self.assertEqual(E.detect_bocpd_map(rs2, real, av, 5)[0], [], "returning to a long run cancels")
+        self.assertEqual(E.detect_bocpd_map(np.arange(n, dtype=float), real, av, 1)[0], [], "no drop, no alarm")
 
     def test_direction_rule(self):
         rng = np.random.default_rng(3); r = rng.standard_normal(390) * 1e-3; r[200:] *= 4

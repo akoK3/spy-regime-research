@@ -311,7 +311,7 @@ class BOCPD:
         m0, k0, a0, b0 = self.prior
         mu = np.full((S, R, D), m0); ka = np.full((S, R, D), k0); al = np.full((S, R, D), a0); be = np.full((S, R, D), b0)
         P = np.zeros((S, R)); P[:, 0] = 1.0
-        out = np.zeros((S, T, 4))
+        out = np.zeros((S, T, 5))
         pm = np.zeros((S, T))
         for t in range(T):
             act = t < L
@@ -338,6 +338,7 @@ class BOCPD:
             out[:, t, 0] = P[:, :3].sum(-1)
             out[:, t, 1] = (P * np.arange(R)[None]).sum(-1)
             out[:, t, 3] = P[:, :6].sum(-1)   # persistence statistic: P(run length <= HOLD + 2)
+            out[:, t, 4] = P.argmax(-1)       # most likely run length
             # posterior-mean variance of the return dimension (column 0) mixed over run lengths
             out[:, t, 2] = (P * (be[:, :, 0] / np.maximum(al[:, :, 0] - 1, 0.5))).sum(-1)
-        return out   # (S,T,4): P(cp within 3), E[run length], mixed variance of column 0, P(run length <= 5)
+        return out   # (S,T,5): P(cp within 3), E[run length], mixed variance of column 0, P(run length <= 5), most likely run length
