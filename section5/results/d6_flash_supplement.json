@@ -1,0 +1,18 @@
+[
+ {
+  "time": "14:32",
+  "ratio": 7.534272725479376,
+  "percentile_among_random": 99.79959919839679,
+  "random_median": 0.9560104128723885,
+  "random_q95": 2.4065579768071563,
+  "n_random": 998
+ },
+ {
+  "time": "14:45",
+  "ratio": 4.422755452090179,
+  "percentile_among_random": 98.998998998999,
+  "random_median": 0.9460938426258679,
+  "random_q95": 2.3939004356520783,
+  "n_random": 999
+ }
+]
