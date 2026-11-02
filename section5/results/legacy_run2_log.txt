@@ -1,0 +1,26 @@
+[  0.2 min] fits done
+[  0.7 min] exclusion/isolation/timing checks done
+[  0.7 min] bisection done
+[  0.7 min] 1704 splices in 18 chunks; 6 already checkpointed
+[  1.4 min] chunk 6 stored
+[  1.4 min] chunk 7 stored
+[  1.8 min] chunk 8 stored
+[  1.8 min] chunk 9 stored
+[  2.3 min] chunk 10 stored
+[  2.3 min] chunk 11 stored
+[  2.7 min] chunk 12 stored
+[  2.7 min] chunk 13 stored
+[  3.1 min] chunk 14 stored
+[  3.2 min] chunk 15 stored
+[  3.2 min] chunk 17 stored
+[  3.5 min] chunk 16 stored
+[  3.5 min] swept gaussian_hmm|base
+[  3.6 min] swept gaussian_hmm|f3
+[  3.6 min] swept student_t_hmm|base
+[  3.6 min] swept student_t_hmm|f3
+[  3.6 min] swept hsmm|base
+[  3.7 min] swept hsmm|f3
+[  3.7 min] swept bocpd|base
+[  3.9 min] swept bocpd|f3
+[  3.9 min] done; hits 34 misses 20
+exit 0

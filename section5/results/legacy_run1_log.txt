@@ -1,0 +1,11 @@
+[  0.3 min] fits done
+[  0.8 min] exclusion/isolation/timing checks done
+[  0.8 min] bisection done
+[  0.8 min] 1704 splices in 18 chunks; 0 already checkpointed
+[  1.4 min] chunk 0 stored
+[  1.4 min] chunk 1 stored
+[  1.7 min] chunk 2 stored
+[  1.7 min] chunk 3 stored
+[  2.2 min] chunk 4 stored
+[  2.2 min] chunk 5 stored
+exit 1

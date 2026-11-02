@@ -1,0 +1,26 @@
+{
+ "build": {
+  "parent_peak_mb": 1667.5,
+  "worker_peak_mb": [],
+  "min_system_free_mb": 1768,
+  "updated": "19:51:55"
+ },
+ "run_1793580728": {
+  "parent_peak_mb": 1504.6,
+  "worker_peak_mb": [
+   805.6,
+   806.6
+  ],
+  "min_system_free_mb": 626,
+  "updated": "19:54:30"
+ },
+ "run_1793580880": {
+  "parent_peak_mb": 1516.3,
+  "worker_peak_mb": [
+   805.6,
+   806.0
+  ],
+  "min_system_free_mb": 560,
+  "updated": "19:58:34"
+ }
+}
