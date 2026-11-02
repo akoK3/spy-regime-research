@@ -1,0 +1,12 @@
+[  0.3 min] fits done
+[  2.2 min] 600 splices built; stable validation days 7
+[  2.2 min] gaussian_hmm|base null 0.036 [0.019,0.056] placebo 0.052 inside=True
+[  2.2 min] gaussian_hmm|f3 null 0.047 [0.026,0.071] placebo 0.035 inside=True
+[  2.2 min] student_t_hmm|base null 0.023 [0.010,0.039] placebo 0.010 inside=True
+[  2.3 min] student_t_hmm|f3 null 0.010 [0.001,0.023] placebo 0.089 inside=False
+[  2.3 min] hsmm|base null 0.036 [0.017,0.060] placebo 0.020 inside=True
+[  2.3 min] hsmm|f3 null 0.037 [0.019,0.058] placebo 0.016 inside=False
+[  2.3 min] bocpd|base null 0.005 [0.000,0.015] placebo 0.030 inside=False
+[  2.4 min] bocpd|f3 null 0.055 [0.030,0.084] placebo 0.013 inside=False
+[  2.4 min] GATE all_inside=False
+exit 0

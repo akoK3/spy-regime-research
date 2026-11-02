@@ -56,6 +56,18 @@ def rows_from_panel(d, bases, p, iA, iB, g, tau, cols, hist=20):
     return row
 
 
+def in_units_of_A(d, iA, x390, hist=20):
+    """A8 item 1: the 390 values x390 (e.g. B's squared 1-min returns, slot k = row k) divided by the slot baseline session iA's detector uses (median of the same slot over
+    iA's previous `hist` sessions, >= 10 finite; the construction of every __sadj feature), i.e. B's values in A's units."""
+    import step11_a4_rerun_4_3_4_7_8 as pstep
+    hs = list(range(max(0, iA - hist), iA)); fa = int(d["first"][iA]); r2 = np.where(d["valid"], d["r"], np.nan) ** 2
+    idx = np.concatenate([np.arange(d["first"][i], d["end"][i]) for i in hs]) if hs else np.zeros(0, int)
+    lens = [int(d["end"][i] - d["first"][i]) for i in hs] + [390]
+    first = np.r_[0, np.cumsum(lens)[:-1]].astype(np.int64); end = first + np.array(lens)
+    slot = np.concatenate([d["slot"][idx], d["slot"][fa:fa + 390]]); x = np.concatenate([r2[idx], np.asarray(x390, float)])
+    return pstep.adjust(x, slot, first, end)[int(first[-1]):int(end[-1])]
+
+
 # ---------- causal deseasonalisation of the 5-minute return ----------
 def ret5_matrix(d, cols):
     """sessions x 78 grid slots of the raw 5-min return."""

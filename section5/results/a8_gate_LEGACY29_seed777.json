@@ -1,0 +1,197 @@
+{
+ "era": "LEGACY",
+ "fold": 29,
+ "seed": 777,
+ "stable_validation_days": 7,
+ "n": {
+  "N1": 200,
+  "N2": 200,
+  "placebo": 200
+ },
+ "detectors": {
+  "gaussian_hmm|base": {
+   "pauc_null": 0.03585,
+   "pauc_placebo": 0.05165,
+   "null_ci": [
+    0.018699999999999998,
+    0.05570249999999999
+   ],
+   "inside": true,
+   "hit0p2_null": 0.025,
+   "hit0p2_placebo": 0.055,
+   "smallest_x": 0.0
+  },
+  "gaussian_hmm|f3": {
+   "pauc_null": 0.0468,
+   "pauc_placebo": 0.03465,
+   "null_ci": [
+    0.025500000000000002,
+    0.07065374999999999
+   ],
+   "inside": true,
+   "hit0p2_null": 0.045,
+   "hit0p2_placebo": 0.05,
+   "smallest_x": 0.0
+  },
+  "student_t_hmm|base": {
+   "pauc_null": 0.0228,
+   "pauc_placebo": 0.00975,
+   "null_ci": [
+    0.00969875,
+    0.0388
+   ],
+   "inside": true,
+   "hit0p2_null": 0.015,
+   "hit0p2_placebo": 0.0,
+   "smallest_x": 0.0
+  },
+  "student_t_hmm|f3": {
+   "pauc_null": 0.010250000000000002,
+   "pauc_placebo": 0.08925,
+   "null_ci": [
+    0.0014000000000000002,
+    0.023309999999999945
+   ],
+   "inside": false,
+   "hit0p2_null": 0.005,
+   "hit0p2_placebo": 0.085,
+   "smallest_x": 0.0
+  },
+  "hsmm|base": {
+   "pauc_null": 0.03595,
+   "pauc_placebo": 0.020050000000000005,
+   "null_ci": [
+    0.01684875,
+    0.059550000000000006
+   ],
+   "inside": true,
+   "hit0p2_null": 0.035,
+   "hit0p2_placebo": 0.02,
+   "smallest_x": 0.0
+  },
+  "hsmm|f3": {
+   "pauc_null": 0.0371,
+   "pauc_placebo": 0.01575,
+   "null_ci": [
+    0.01918875,
+    0.05765249999999999
+   ],
+   "inside": false,
+   "hit0p2_null": 0.045,
+   "hit0p2_placebo": 0.005,
+   "smallest_x": 0.0
+  },
+  "bocpd|base": {
+   "pauc_null": 0.005,
+   "pauc_placebo": 0.03,
+   "null_ci": [
+    0.0,
+    0.015
+   ],
+   "inside": false,
+   "hit0p2_null": 0.005,
+   "hit0p2_placebo": 0.03,
+   "smallest_x": 0.0
+  },
+  "bocpd|f3": {
+   "pauc_null": 0.05485,
+   "pauc_placebo": 0.013049999999999999,
+   "null_ci": [
+    0.0304,
+    0.08416374999999993
+   ],
+   "inside": false,
+   "hit0p2_null": 0.07,
+   "hit0p2_placebo": 0.015,
+   "smallest_x": 0.0
+  }
+ },
+ "all_inside": false,
+ "pauc_f3_minus_base": {
+  "gaussian_hmm": {
+   "null": 0.010950000000000001,
+   "placebo": -0.017
+  },
+  "student_t_hmm": {
+   "null": -0.012549999999999999,
+   "placebo": 0.0795
+  },
+  "hsmm": {
+   "null": 0.0011499999999999982,
+   "placebo": -0.004300000000000005
+  },
+  "bocpd": {
+   "null": 0.049850000000000005,
+   "placebo": -0.01695
+  }
+ },
+ "feature_shift_median_log_ratio_after_over_before": {
+  "names": [
+   "ret5",
+   "return_1m",
+   "abs_return_1m",
+   "intrabar_range_log",
+   "relative_volume20",
+   "rv5_strict",
+   "downside5_strict",
+   "momentum5_endpoint",
+   "downside10_strict",
+   "rv10_partial90",
+   "momentum10_endpoint",
+   "momentum15_endpoint",
+   "momentum30_endpoint",
+   "close_location_proxy",
+   "abs_return_1m__sadj",
+   "intrabar_range_log__sadj",
+   "rv5_strict__sadj",
+   "downside5_strict__sadj",
+   "downside10_strict__sadj",
+   "rv10_partial90__sadj"
+  ],
+  "null": [
+   -0.17633075258017775,
+   -0.15015016408947054,
+   -0.15015016408947054,
+   -0.13467149691684824,
+   -0.10347143711487716,
+   -0.12245950374205022,
+   -0.16059182482716527,
+   -0.17737834071889186,
+   -0.12552288791409674,
+   -0.10931074905560731,
+   -0.22004054166029463,
+   -0.26425322104864,
+   -0.34035449884925195,
+   0.05967242252050859,
+   -0.0068086961551257095,
+   0.05343689924910248,
+   0.013491920535331929,
+   -0.01733068819547536,
+   -0.043415347285426995,
+   -0.007959776036375788
+  ],
+  "placebo": [
+   -0.1904690304990762,
+   -0.1314268918958472,
+   -0.1314268918958472,
+   -0.1399852676399613,
+   -0.1129058161707017,
+   -0.1262253088957236,
+   -0.1390619587494393,
+   -0.17912758228448195,
+   -0.12436644613360609,
+   -0.11401333438070776,
+   -0.238563570519508,
+   -0.27213173699873344,
+   -0.37043507272324483,
+   0.06975765106005727,
+   8.664516633196594e-05,
+   0.003405913355465754,
+   0.01295656481218175,
+   0.0008931263979348272,
+   -0.04995688279376795,
+   -0.012490820280539286
+  ]
+ },
+ "minutes": 2.4
+}

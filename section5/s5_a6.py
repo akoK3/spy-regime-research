@@ -60,9 +60,22 @@ def build_specs(d, dv, stable, rng, n_null, cells, n_cell):
                 if D2.finite_ok(d, A, B, g, e): break
             else: raise RuntimeError("break pair")
             fa, fb = int(d["first"][A]), int(d["first"][B]); last = 389 if du is None else g + du
-            pre = np.nanmean(dv[fa + 1:fa + g + 1]); post = np.nanmean(dv[fb + g + 1:fb + last + 1]); tgt = R if dr == "up" else 1.0 / R
+            # A8 item 1: B's post-tau variance in A's units (A's baseline), the units the detector sees; pre is A's own (already A's units)
+            rB2 = np.where(d["valid"][fb:fb + 390], d["r"][fb:fb + 390], np.nan) ** 2
+            pre = np.nanmean(dv[fa + 1:fa + g + 1]); post = np.nanmean(F.in_units_of_A(d, A, rB2)[g + 1:last + 1]); tgt = R if dr == "up" else 1.0 / R
             specs.append(dict(kind="regime", cell=(R, dr, du), iA=A, iB=B, g=g, f=float(np.sqrt(tgt * pre / post)), dur=du))
     return specs
+
+
+class InsufficientStableDays(Exception): pass
+
+
+def build_specs_safe(d, dv, stable, rng, n_null, cells, n_cell, min_days=0):
+    """A8 item 3: (specs, None) or ([], reason); never raises for too few stable days. min_days = 8 for test segments (H1(a) not evaluable below 8);
+    a volatility tercile with two stable days is needed for the null pairs."""
+    if len(stable) < max(2, min_days): return [], f"skipped: {len(stable)} stable days (< {max(2, min_days)})"
+    try: return build_specs(d, dv, stable, rng, n_null, cells, n_cell), None
+    except RuntimeError as e: return [], f"skipped: {e} ({len(stable)} stable days, no volatility tercile with two)"
 
 
 def stage(name):

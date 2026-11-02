@@ -372,6 +372,39 @@ class TestScoring(unittest.TestCase):
         self.assertEqual(V.choose_threshold(ns, grid), 0.6, "smallest threshold with at most 1 false alarm per 20 null sessions"); self.assertIsNone(V.choose_threshold({k: dict(fa_rate=0.5) for k in grid}, grid))
 
 
+class TestA8(unittest.TestCase):
+    def test_units_of_A_equal_native_deseasonalisation_and_scale(self):
+        import s5_fast as F, s5_d2_stable as S
+        d = synth_panel(ns=40, seed=11); dv = S.des_variance(d); r2 = np.where(d["valid"], d["r"], np.nan) ** 2
+        iA = 30; fa = int(d["first"][iA]); x = F.in_units_of_A(d, iA, r2[fa:fa + 390])
+        self.assertTrue(np.allclose(x, dv[fa:fa + 390], rtol=1e-12, equal_nan=True), "A's own values in A's units equal the native deseasonalised variance")
+        y = F.in_units_of_A(d, iA, 3.0 * r2[fa:fa + 390]); self.assertTrue(np.allclose(y, 3.0 * x, rtol=1e-12, equal_nan=True))
+        iB = 12; fb = int(d["first"][iB]); xb = F.in_units_of_A(d, iA, r2[fb:fb + 390])      # B in A's units: A's baseline, not B's
+        self.assertFalse(np.allclose(xb, dv[fb:fb + 390], equal_nan=True))
+
+    def test_R1_break_has_ratio_one_in_the_detectors_units(self):
+        import s5_a6 as A, s5_fast as F, s5_d2 as D2, s5_d2_stable as S
+        d = synth_panel(ns=60, seed=12); dv = S.des_variance(d); stable = list(range(25, 60)); rng = np.random.default_rng(3)
+        for R, dr in ((1.0, "up"), (3.0, "up"), (3.0, "down")):
+            specs = A.build_specs(d, dv, stable, rng, 0, [(R, dr, None), (R, dr, 60)], 6)
+            for sp in specs:
+                p, tau = D2.regime_panel(d, sp["iA"], sp["iB"], sp["g"], sp["f"], sp["dur"]); g = sp["g"]; fa = int(d["first"][sp["iA"]]); last = 389 if sp["dur"] is None else g + sp["dur"]
+                rp2 = np.where(p["valid"][:390], p["r"][:390], np.nan) ** 2; post = np.nanmean(F.in_units_of_A(d, sp["iA"], rp2)[g + 1:last + 1]); pre = np.nanmean(dv[fa + 1:fa + g + 1])
+                self.assertAlmostEqual(post / pre / (R if dr == "up" else 1.0 / R), 1.0, places=6)
+
+    def test_build_specs_safe_does_not_crash(self):
+        import s5_a6 as A
+        d = synth_panel(ns=60, seed=13); rng = np.random.default_rng(0); dv = np.zeros(len(d["t"]))
+        specs, why = A.build_specs_safe(d, dv, [30, 31, 32], rng, 5, [], 1, min_days=8); self.assertEqual(specs, []); self.assertIn("< 8", why)       # test segment with 3 stable days
+        specs, why = A.build_specs_safe(d, dv, [30], rng, 5, [], 1); self.assertEqual(specs, []); self.assertIsNotNone(why)
+        orig = A.build_specs
+        try:
+            def boom(*a, **k): raise RuntimeError("null pair")
+            A.build_specs = boom; specs, why = A.build_specs_safe(d, dv, [30, 31, 32], rng, 5, [], 1); self.assertEqual(specs, []); self.assertIn("null pair", why)   # the crash of LEGACY folds 5, 8, 9, ...
+        finally: A.build_specs = orig
+        specs, why = A.build_specs_safe(d, dv, list(range(25, 60)), rng, 5, [], 1, min_days=8); self.assertIsNone(why); self.assertEqual(len(specs), 5)
+
+
 if __name__ == "__main__":
     t0 = time.time(); res = unittest.TextTestRunner(verbosity=2).run(unittest.defaultTestLoader.loadTestsFromModule(sys.modules[__name__]))
     rep = dict(run=res.testsRun, failures=[str(f[0]) + "\n" + f[1] for f in res.failures], errors=[str(f[0]) + "\n" + f[1] for f in res.errors], seconds=round(time.time() - t0, 1), numpy=np.__version__)
