@@ -1,0 +1,67 @@
+# Amendment A8 to SECTION5_PROTOCOL.md (extends AMENDMENT_A6.md and AMENDMENT_A7.md)
+
+Dated 2026-11-02T14:48:33.055004+00:00 UTC (2026-11-02T09:48:33.055004-05:00 New York). Status: ADOPTED when committed with its hash sidecar; written before any code change it governs. Facts only.
+
+## Evidence cited (hashes recomputed before this file was written)
+
+| Document | SHA-256 |
+|---|---|
+| `section5_cold_audit.md` | `fc3b4a3fa8facb6a901b2916ecad4b9d45b407c9a23a736bfd86943d7c1fb062` |
+| `D6_REPORT.md` | `f404fe0f846d53efa599db3f89a452df81d603944234136b5d7d583387f070e0` |
+| `SECTION5_PROTOCOL.md` | `8abd20f3557dac0991e30ea8c2807aee35be9d7de1c79b199d7f371397c97479` |
+| `AMENDMENT_A6.md` | `db787ec0071b5b6c0ff4048cd281bf54e95e0c60b5f25e89fb6f02d55d5744a5` |
+| `AMENDMENT_A7.md` | `e64c8647fd3fac01ff2a64de71f25c53e6b9c8814271df9e66b3ab01835d8267` |
+| `PILOT_REPORT_A7.md` | `c0d0c6aaf9043b86d9b6b278a4b02816bff878b3859a059af8eb67d03e455016` |
+| `PILOT_REPORT_LEGACY.md` | `8b4f675258ad85035a7e5286a8e5d237a9b24128b122a1bb0975426ca00f4901` |
+| `METHODS_LEDGER.md` | `a343770c714ffcf51145c5772b0d545facff12216e75cfbb24efe4d38e4ee290` |
+| `section5/results/d6_fomc_dates.json` | `e8dcb32e9c710414c34c8ab1d142238d6613972b69d6b630ec055b0b75839768` |
+| `section5/results/d6_results.json` | `4aeeb4db12e12b4fe1c1a93c8ebe1f980dd5747870cd08424a5615373668a248` |
+| `section431_step3_all_in_one_results/a4_sec4_3_4_7_8_report.json` | `00386b4feacebbceba4c63e8f19012d8a97b15be60c86b79e9051974d2cef0ef` |
+| `section431_step3_all_in_one_results/a4_results_report.json` | `f9adb236819f83ea4359061909a32c71897c6e8f7502ed35277b417430c36afd` |
+
+The cold audit (`section5_cold_audit.md`, 22 findings, 2 critical) was written at commit `889d6cc`; `D6_REPORT.md` is the descriptive FOMC/shock check at commit `301b9f0`.
+
+## 1. Splice fix: the break scale is computed in the units the detector sees (audit finding 1)
+
+- Before: the factor f that scales B's returns and ranges after tau was computed from A's pre-tau deseasonalised variance (A's own baseline) and B's post-tau deseasonalised variance (B's own baseline), while the detector sees both sides through session A's baseline (5.6, A6 item 5). The labelled ratio R was therefore not the ratio the detector receives.
+- Now: the post-tau variance of B is expressed in A's units, i.e. B's squared 1-minute returns divided by the slot baseline of session A (median of the same slot over A's previous 20 sessions, at least 10 finite; the construction used for every `__sadj` feature), averaged over the same bars. f = sqrt(R_target x pre / post_in_A_units), with pre = A's own pre-tau mean (already in A's units). One f per splice, applied to every price field of B after tau (open, high, low, close, range, return); volume is unchanged. R = 1 gives f such that the labelled ratio is 1 in the detector's units. Plain (null) splices are unchanged.
+- Every feature: the per-splice f cannot be set separately per feature, because all features derive from the same price path; instead the realised shift of each of the 19 primary features (mean of the feature's value after tau divided by its mean before tau, in the detector's units) is recorded for the R = 1 placebo splices and for null splices and reported next to the gate.
+- Splice checkpoints are keyed with a version tag (`splice_v2`) so that splices built with the old f are never reused (audit finding 11 for this item).
+
+**Gate (run before anything else in A8 is used; if it fails, stop and report).** On the validation sessions of RAW fold 3 and of LEGACY fold 29 (both folds must pass), with the A7 machinery (K = 3, lambda = 39, fixed base and f3 sets, deseasonalised inputs, 8 detectors: Gaussian HMM, Student-t HMM, HSMM, BOCPD x base, f3), seed 777:
+- N1: 200 null splices (two stable days of the same volatility tercile) give the null alarm rate x(threshold) as in A6 item 2. N2: 200 further null splices give the null hit rate y_null(threshold) = share with a confirmed alarm in [tau, tau + 60 min] of the seam. P: 200 placebo breaks, R = 1 (50 each: permanent and 30, 60, 120-minute sandwiches), through the break code path, give y_placebo(threshold). The tau slots of N2 and P are drawn from the same range (slots of the 11:05-13:55 grid, at most 264), so that the two sets are comparable. Thresholds sweep the A7 range (theta 0-30 step 0.25; m 1-80 step 1).
+- Measure: partial area of the curve y against x for x in 0-0.5, divided by 0.5 (A6 item 2), computed for y_null and for y_placebo. Pass for a detector: pAUC(P) lies inside the 95% percentile interval of pAUC(N2) from 2,000 bootstrap resamples of the N2 splices. The gate passes only if all 8 detectors pass on both folds.
+- No re-draw to obtain a pass. A replicate with seed 778 may be reported for information; the gate decision is the seed-777 result. Also reported (not gating): the pAUC difference f3 minus base for placebo and for N2; the realised per-feature shifts above.
+
+## 2. Contamination list and fold exclusion (audit findings 2, 3)
+
+- Definition. A session is touched by an analysis if the analysis fitted a model on it, scored a detector on it (or on a splice built from it as A or B), inspected detector output on it, or used it to compute a statistic that informed a protocol decision. Fold-table bookkeeping (session counts, stable-day counts, dates) does not count.
+- The list is generated mechanically by `section5/s5_contamination.py` from a registry that declares, for every script in `section5/` that loads data (checked by a unit test that fails if a script that calls `fold_segments` or `load_era` is missing from the registry), the era, fold and segments (train, validation, test) it used; the registry also lists the audit and D6 exposure as stated in `section5_cold_audit.md` and `D6_REPORT.md` (D6: the dates of every FOMC statement and of the three listed shocks; its pool-wide random draws are aggregate SPY statistics and are not counted as individual touching). Embargo sessions of a touched fold are included.
+- Rule. A fold whose TEST segment (after its 5-session embargo) intersects the touched list is excluded from the confirmatory H1 analyses. Results for all folds are reported as an all-folds sensitivity analysis next to the confirmatory ones. The excluded folds and the intersecting sessions are listed in `section5/results/contamination_list.json`.
+- Validation segments of one fold lie inside the test segments of earlier folds (audit finding 3); this is covered by the rule, because the intersection is computed on sessions.
+- A7 stays in force. It is disclosed that A7 was decided after the test-segment curves of RAW fold 3 had been scored (the A6 pilot scored them; A7 was committed 3 minutes 11 seconds after the A6 pilot commit; the partial-area difference f3 minus base moved from -.025 / +.016 / +.027 (A6) to +.063 / +.058 / +.115 (A7) on the same splices). RAW fold 3 is on the contamination list for this reason.
+
+## 3. Folds with too few stable days (audit finding 4)
+
+- A fold with fewer than 8 stable test days skips H1(a) (A6 item 2 already says it is not evaluable); the skip is recorded with its reason and does not raise an error.
+- Validation splices (used only for the secondary BOCPD run-2 calibration) require at least one volatility tercile with two stable validation days; if none, those validation splices are skipped, the BOCPD run-2 threshold of that fold is recorded as not available, and the primary H1(a) scoring proceeds.
+- Implemented in `section5/s5_a6.py` (`build_specs_safe`), with a unit test.
+
+## 4. Justification for open item N.3 (selection computed on all of TRAIN)
+
+Ledger item N.3 asked that the 4.3.7 and 4.3.8 selection be recomputed inside each fold. It is not recomputed; the primary pool of 19 columns (`a4_sec4_3_9_frozen_matrix_v2.csv`) is used for every fold. Reason, from the recorded rules (`a4_sec4_3_4_7_8_report.json`, `METHODS_LEDGER.md`):
+- The screening used only (a) feature availability (coverage of at least 80% in each era), (b) the construction checks of 4.3.4 (brute-force equality of the seasonal-baseline construction), and (c) pairwise absolute Spearman correlations between features (redundancy threshold 0.95, ties broken by shorter window, then higher coverage, then dictionary order). It used no regime label, no break time, no detector output, no model fit, no forward return or variance, and no performance measure of any kind.
+- Coverage and feature-feature correlation do not depend on any outcome that H1 evaluates: the H1 outcomes are alarm times after a labelled variance change (H1(a)), forecast loss (H1(b)) and alarms after FOMC announcements (H1(c)).
+- Limits stated, not resolved: the screening saw the feature values of every TRAIN session, including each fold's test sessions, so the choice of columns is not independent of the test sessions' feature distributions; a correlation near the 0.95 threshold could change a keep/drop decision if computed in-fold. That sensitivity was not measured. N.3 therefore remains a disclosure, and the all-folds and RAW-sensitivity analyses are the check; no in-fold recomputation is planned.
+
+## 5. H1(c), secondary: detection around FOMC announcements
+
+- Events: the scheduled FOMC meetings with a statement, from `section5/results/d6_fomc_dates.json` (federalreserve.gov, hashed above), taken at 14:00 ET (the release minute is not given by the source; some earlier releases were at 14:15), restricted to TRAIN sessions that lie in the TEST segment of an uncontaminated fold (item 2) and have 390 bars. Each date counts once, in the earliest qualifying fold.
+- Detection: the frozen detector of each family and feature set (Section 6 threshold calibrated on the fold's real validation sessions to 0.2 alarms per session, A7), run on the native FOMC session; a hit is a confirmed alarm with availability in [14:00, 15:00]. The same window on the fold's non-FOMC test sessions gives the reference alarm rate in that window.
+- Comparison: per family, features (f3) against baseline: the paired difference of hit indicators over events, exact sign test on the discordant events, and the per-family hit rates with Wilson 95% intervals, with the reference alarm rate beside them. H1(c) is secondary: outside the Holm families of A6 item 4 (no multiplicity adjustment, reported as secondary); BOCPD is reported as in A6 item 4.
+- Descriptive context (D6): the SPY variance ratio 60 minutes after versus before 14:00 was a median 8.6 at FOMC statements against 0.91 at random 14:00 moments (129 statements; `D6_REPORT.md`).
+- Implemented as scoring functions with unit tests (`section5/s5_h1c.py`); not run on real data under A8.
+
+## Governs
+
+The R = 1 gate (run now), the unit tests, and the code listed above. No selection, no test-segment scoring, no evaluation-period data, no change to targets, thresholds, models, pools, splits or the A6/A7 event rules.
