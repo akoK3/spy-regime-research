@@ -1,0 +1,251 @@
+{
+ "rule": "A8.1: P1 inside 95% bootstrap interval of P2",
+ "era": "RAW",
+ "fold": 3,
+ "seed": 777,
+ "stable_validation_days": 16,
+ "n": {
+  "N1": 200,
+  "N2": 200,
+  "placebo": 200,
+  "placebo2": 200
+ },
+ "detectors": {
+  "gaussian_hmm|base": {
+   "pauc_null": 0.01705,
+   "pauc_placebo": 0.04475,
+   "pauc_placebo2": 0.05905,
+   "placebo2_ci": [
+    0.03264875,
+    0.0896
+   ],
+   "inside": true,
+   "null_ci": [
+    0.00515,
+    0.03215124999999999
+   ],
+   "inside_vs_null_info_only": false,
+   "hit0p2_null": 0.01,
+   "hit0p2_placebo": 0.025,
+   "smallest_x": 0.0
+  },
+  "gaussian_hmm|f3": {
+   "pauc_null": 0.0651,
+   "pauc_placebo": 0.0184,
+   "pauc_placebo2": 0.0334,
+   "placebo2_ci": [
+    0.015450000000000002,
+    0.05450125
+   ],
+   "inside": true,
+   "null_ci": [
+    0.039650000000000005,
+    0.09400125
+   ],
+   "inside_vs_null_info_only": false,
+   "hit0p2_null": 0.045,
+   "hit0p2_placebo": 0.01,
+   "smallest_x": 0.02
+  },
+  "student_t_hmm|base": {
+   "pauc_null": 0.024249999999999997,
+   "pauc_placebo": 0.029600000000000005,
+   "pauc_placebo2": 0.030499999999999992,
+   "placebo2_ci": [
+    0.020050000000000002,
+    0.0496
+   ],
+   "inside": true,
+   "null_ci": [
+    0.014648749999999999,
+    0.038599999999999995
+   ],
+   "inside_vs_null_info_only": true,
+   "hit0p2_null": 0.015,
+   "hit0p2_placebo": 0.005,
+   "smallest_x": 0.0
+  },
+  "student_t_hmm|f3": {
+   "pauc_null": 0.051699999999999996,
+   "pauc_placebo": 0.02065,
+   "pauc_placebo2": 0.022350000000000002,
+   "placebo2_ci": [
+    0.00969875,
+    0.04070374999999998
+   ],
+   "inside": true,
+   "null_ci": [
+    0.03029875,
+    0.08225124999999998
+   ],
+   "inside_vs_null_info_only": false,
+   "hit0p2_null": 0.06,
+   "hit0p2_placebo": 0.02,
+   "smallest_x": 0.0
+  },
+  "hsmm|base": {
+   "pauc_null": 0.013349999999999997,
+   "pauc_placebo": 0.026949999999999998,
+   "pauc_placebo2": 0.029900000000000003,
+   "placebo2_ci": [
+    0.01559875,
+    0.05345249999999999
+   ],
+   "inside": true,
+   "null_ci": [
+    0.0051,
+    0.027451249999999996
+   ],
+   "inside_vs_null_info_only": true,
+   "hit0p2_null": 0.01,
+   "hit0p2_placebo": 0.01,
+   "smallest_x": 0.0
+  },
+  "hsmm|f3": {
+   "pauc_null": 0.0529,
+   "pauc_placebo": 0.01475,
+   "pauc_placebo2": 0.02555,
+   "placebo2_ci": [
+    0.0127,
+    0.04525624999999997
+   ],
+   "inside": true,
+   "null_ci": [
+    0.03125,
+    0.07975
+   ],
+   "inside_vs_null_info_only": false,
+   "hit0p2_null": 0.04,
+   "hit0p2_placebo": 0.01,
+   "smallest_x": 0.015
+  },
+  "bocpd|base": {
+   "pauc_null": 0.030899999999999997,
+   "pauc_placebo": 0.0281,
+   "pauc_placebo2": 0.027449999999999995,
+   "placebo2_ci": [
+    0.012798750000000001,
+    0.04420749999999997
+   ],
+   "inside": true,
+   "null_ci": [
+    0.01539875,
+    0.04770249999999999
+   ],
+   "inside_vs_null_info_only": true,
+   "hit0p2_null": 0.02,
+   "hit0p2_placebo": 0.015,
+   "smallest_x": 0.0
+  },
+  "bocpd|f3": {
+   "pauc_null": 0.0592,
+   "pauc_placebo": 0.01985,
+   "pauc_placebo2": 0.02625,
+   "placebo2_ci": [
+    0.0118,
+    0.04440124999999999
+   ],
+   "inside": true,
+   "null_ci": [
+    0.03549875,
+    0.08530125
+   ],
+   "inside_vs_null_info_only": false,
+   "hit0p2_null": 0.03,
+   "hit0p2_placebo": 0.01,
+   "smallest_x": 0.0
+  }
+ },
+ "all_inside": true,
+ "pauc_f3_minus_base": {
+  "gaussian_hmm": {
+   "placebo2": -0.02565,
+   "null": 0.04805000000000001,
+   "placebo": -0.02635
+  },
+  "student_t_hmm": {
+   "placebo2": -0.00814999999999999,
+   "null": 0.02745,
+   "placebo": -0.008950000000000003
+  },
+  "hsmm": {
+   "placebo2": -0.004350000000000003,
+   "null": 0.03955,
+   "placebo": -0.012199999999999999
+  },
+  "bocpd": {
+   "placebo2": -0.0011999999999999962,
+   "null": 0.028300000000000006,
+   "placebo": -0.00825
+  }
+ },
+ "feature_shift_median_log_ratio_after_over_before": {
+  "names": [
+   "ret5",
+   "return_1m",
+   "abs_return_1m",
+   "intrabar_range_log",
+   "relative_volume20",
+   "rv5_strict",
+   "downside5_strict",
+   "momentum5_endpoint",
+   "downside10_strict",
+   "rv10_partial90",
+   "momentum10_endpoint",
+   "momentum15_endpoint",
+   "momentum30_endpoint",
+   "close_location_proxy",
+   "abs_return_1m__sadj",
+   "intrabar_range_log__sadj",
+   "rv5_strict__sadj",
+   "downside5_strict__sadj",
+   "downside10_strict__sadj",
+   "rv10_partial90__sadj"
+  ],
+  "null": [
+   -0.22253049557426405,
+   -0.14197225414069015,
+   -0.14197225414069015,
+   -0.08377077519494018,
+   -0.13626336445584664,
+   -0.14854983192058197,
+   -0.2050073529355757,
+   -0.20451601883729775,
+   -0.19766455180933135,
+   -0.15216035238656556,
+   -0.2756246272055316,
+   -0.24946716924632856,
+   -0.3133557962036936,
+   -0.017671376318803868,
+   -0.05763313135458477,
+   0.021297078635266,
+   -0.027486644721991107,
+   -0.08124539876990883,
+   -0.06191420749042978,
+   -0.033888707183713944
+  ],
+  "placebo": [
+   -0.15437721217476466,
+   -0.1520021940577973,
+   -0.1520021940577973,
+   -0.10553617085306505,
+   -0.0580172969794336,
+   -0.13363797614373485,
+   -0.17135432616200413,
+   -0.16221692212919214,
+   -0.16921959394150982,
+   -0.15363004565487454,
+   -0.2428797967223384,
+   -0.298364237037303,
+   -0.3213537315113867,
+   -0.014660374989707108,
+   -0.04134570277395644,
+   -0.010586343204216721,
+   0.014182152906457454,
+   -0.02710946912341656,
+   -0.0229531068179303,
+   0.009325950464099217
+  ]
+ },
+ "minutes": 3.4
+}

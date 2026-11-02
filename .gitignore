@@ -148,3 +148,10 @@
 !section5_cold_audit.md
 !A8_GATE_REPORT.md
 !A8_GATE_REPORT.sha256
+!AMENDMENT_A8_1.md
+!AMENDMENT_A8_1.sha256
+!section5/write_amendment_a8_1.py
+!section5/s5_contamination.py
+!section5/s5_h1c.py
+!A8_1_GATE_REPORT.md
+!A8_1_GATE_REPORT.sha256

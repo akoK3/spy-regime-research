@@ -405,6 +405,39 @@ class TestA8(unittest.TestCase):
         specs, why = A.build_specs_safe(d, dv, list(range(25, 60)), rng, 5, [], 1, min_days=8); self.assertIsNone(why); self.assertEqual(len(specs), 5)
 
 
+class TestA8Items25(unittest.TestCase):
+    def test_every_data_loading_script_is_registered(self):
+        import re, s5_contamination as C
+        for f in sorted(L.HERE.glob("*.py")):
+            t = f.read_text(encoding="utf-8")
+            if re.search(r"fold_segments\(|load_era\(", t) and not f.name.startswith("write_"):
+                self.assertIn(f.name, C.REGISTRY, f"{f.name} loads data but is not in the contamination registry")
+
+    def test_contamination_and_exclusion(self):
+        import pandas as pd, s5_contamination as C
+        days = [f"2020-01-{i:02d}" for i in range(1, 31)]
+        ft = pd.DataFrame([dict(era="X", fold=0, inner_train_first="2020-01-01", inner_train_last="2020-01-10", inner_validation_first="2020-01-11", inner_validation_last="2020-01-15", outer_development_first="2020-01-16", outer_development_last="2020-01-25"),
+                           dict(era="X", fold=1, inner_train_first="2020-01-02", inner_train_last="2020-01-11", inner_validation_first="2020-01-12", inner_validation_last="2020-01-16", outer_development_first="2020-01-17", outer_development_last="2020-01-30")])
+        reg = {"a.py": [("X", 0, ("train", "val"))], "lib.py": "LIBRARY"}; t = C.touched({"X": days}, [], reg, ft)
+        self.assertEqual(sorted(t["X"]), days[:15])
+        ex = {(e["era"], e["fold"]): e for e in C.exclusions({"X": days}, t, ft)}
+        self.assertFalse(ex[("X", 0)]["excluded"]); self.assertFalse(ex[("X", 1)]["excluded"])       # fold 1 test starts 01-17, after the touched 01-15
+        t2 = C.touched({"X": days}, [], {"a.py": [("X", 0, ("test",))]}, ft)                          # fold 0 test 01-16..01-25 touched
+        ex2 = {e["fold"]: e for e in C.exclusions({"X": days}, t2, ft)}
+        self.assertTrue(ex2[0]["excluded"]); self.assertTrue(ex2[1]["excluded"])                       # fold 1 test overlaps 01-17..01-25
+        t3 = C.touched({"X": days}, ["2020-01-28"], {"d6.py": "DATES"}, ft); self.assertEqual(sorted(t3["X"]), ["2020-01-28"])
+        self.assertEqual(C.test_days_after_embargo(days, ft.iloc[0])[0], "2020-01-21")                  # first 5 test sessions dropped
+
+    def test_h1c_scoring(self):
+        import s5_h1c as H
+        self.assertTrue(H.hit([200, 300])); self.assertTrue(H.hit([330])); self.assertFalse(H.hit([269, 331])); self.assertFalse(H.hit([]))
+        self.assertEqual(H.assign_events(["d1", "d2", "d3"], {0: {"d1", "d9"}, 1: {"d1", "d2"}}), {0: ["d1"], 1: ["d2"]})            # each date once, earliest fold
+        w = H.wilson(5, 10); self.assertTrue(w[0] < .5 < w[1]); self.assertEqual(H.wilson(0, 0)[0] != H.wilson(0, 0)[0], True)
+        s = H.paired_sign([1, 1, 1, 1, 0, 1], [0, 0, 0, 0, 0, 1]); self.assertEqual((s["f3_only"], s["base_only"]), (4, 0)); self.assertAlmostEqual(s["p_two_sided"], 2 * 0.5 ** 4)
+        self.assertEqual(H.paired_sign([1, 0], [1, 0])["p_two_sided"], 1.0)
+        self.assertAlmostEqual(H.reference_alarm_rate([[280], [], [100], [329]]), 0.5) if hasattr(H, "reference_alarm_rate") else self.assertAlmostEqual(H.reference_rate([[280], [], [100], [329]]), 0.5)
+
+
 if __name__ == "__main__":
     t0 = time.time(); res = unittest.TextTestRunner(verbosity=2).run(unittest.defaultTestLoader.loadTestsFromModule(sys.modules[__name__]))
     rep = dict(run=res.testsRun, failures=[str(f[0]) + "\n" + f[1] for f in res.failures], errors=[str(f[0]) + "\n" + f[1] for f in res.errors], seconds=round(time.time() - t0, 1), numpy=np.__version__)
