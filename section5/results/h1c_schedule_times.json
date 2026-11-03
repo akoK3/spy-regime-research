@@ -1,0 +1,1119 @@
+{
+ "source": "A12 item 2",
+ "rule_2013_plus_consistent": true,
+ "n_fed_pages_stating_time_2013_plus": 59,
+ "fed_press_conference_pages_with_time": 19,
+ "exceptions_to_schedule_rule": [],
+ "counts": {
+  "time": 146,
+  "excluded": 6,
+  "by_basis": {
+   "schedule": 79,
+   "Fed press-conference page states the statement release time": 19,
+   "excluded": 6,
+   "statement page states the time": 48
+  }
+ },
+ "meetings": {
+  "2003-01-29": {
+   "status": "time",
+   "time_et": "14:15",
+   "minute_after_0930": 285,
+   "basis": "schedule, Lucca and Moench (2015), 'The Pre-FOMC Announcement Drift', J. Finance; NY Fed Staff Report 512, section 2 (before April 2011: 2:15 pm or a few minutes after); no Fed page states this time",
+   "uncertainty": "window start may be a few minutes late"
+  },
+  "2003-03-18": {
+   "status": "time",
+   "time_et": "14:15",
+   "minute_after_0930": 285,
+   "basis": "schedule, Lucca and Moench (2015), 'The Pre-FOMC Announcement Drift', J. Finance; NY Fed Staff Report 512, section 2 (before April 2011: 2:15 pm or a few minutes after); no Fed page states this time",
+   "uncertainty": "window start may be a few minutes late"
+  },
+  "2003-05-06": {
+   "status": "time",
+   "time_et": "14:15",
+   "minute_after_0930": 285,
+   "basis": "schedule, Lucca and Moench (2015), 'The Pre-FOMC Announcement Drift', J. Finance; NY Fed Staff Report 512, section 2 (before April 2011: 2:15 pm or a few minutes after); no Fed page states this time",
+   "uncertainty": "window start may be a few minutes late"
+  },
+  "2003-06-25": {
+   "status": "time",
+   "time_et": "14:15",
+   "minute_after_0930": 285,
+   "basis": "schedule, Lucca and Moench (2015), 'The Pre-FOMC Announcement Drift', J. Finance; NY Fed Staff Report 512, section 2 (before April 2011: 2:15 pm or a few minutes after); no Fed page states this time",
+   "uncertainty": "window start may be a few minutes late"
+  },
+  "2003-08-12": {
+   "status": "time",
+   "time_et": "14:15",
+   "minute_after_0930": 285,
+   "basis": "schedule, Lucca and Moench (2015), 'The Pre-FOMC Announcement Drift', J. Finance; NY Fed Staff Report 512, section 2 (before April 2011: 2:15 pm or a few minutes after); no Fed page states this time",
+   "uncertainty": "window start may be a few minutes late"
+  },
+  "2003-09-16": {
+   "status": "time",
+   "time_et": "14:15",
+   "minute_after_0930": 285,
+   "basis": "schedule, Lucca and Moench (2015), 'The Pre-FOMC Announcement Drift', J. Finance; NY Fed Staff Report 512, section 2 (before April 2011: 2:15 pm or a few minutes after); no Fed page states this time",
+   "uncertainty": "window start may be a few minutes late"
+  },
+  "2003-10-28": {
+   "status": "time",
+   "time_et": "14:15",
+   "minute_after_0930": 285,
+   "basis": "schedule, Lucca and Moench (2015), 'The Pre-FOMC Announcement Drift', J. Finance; NY Fed Staff Report 512, section 2 (before April 2011: 2:15 pm or a few minutes after); no Fed page states this time",
+   "uncertainty": "window start may be a few minutes late"
+  },
+  "2003-12-09": {
+   "status": "time",
+   "time_et": "14:15",
+   "minute_after_0930": 285,
+   "basis": "schedule, Lucca and Moench (2015), 'The Pre-FOMC Announcement Drift', J. Finance; NY Fed Staff Report 512, section 2 (before April 2011: 2:15 pm or a few minutes after); no Fed page states this time",
+   "uncertainty": "window start may be a few minutes late"
+  },
+  "2004-01-28": {
+   "status": "time",
+   "time_et": "14:15",
+   "minute_after_0930": 285,
+   "basis": "schedule, Lucca and Moench (2015), 'The Pre-FOMC Announcement Drift', J. Finance; NY Fed Staff Report 512, section 2 (before April 2011: 2:15 pm or a few minutes after); no Fed page states this time",
+   "uncertainty": "window start may be a few minutes late"
+  },
+  "2004-03-16": {
+   "status": "time",
+   "time_et": "14:15",
+   "minute_after_0930": 285,
+   "basis": "schedule, Lucca and Moench (2015), 'The Pre-FOMC Announcement Drift', J. Finance; NY Fed Staff Report 512, section 2 (before April 2011: 2:15 pm or a few minutes after); no Fed page states this time",
+   "uncertainty": "window start may be a few minutes late"
+  },
+  "2004-05-04": {
+   "status": "time",
+   "time_et": "14:15",
+   "minute_after_0930": 285,
+   "basis": "schedule, Lucca and Moench (2015), 'The Pre-FOMC Announcement Drift', J. Finance; NY Fed Staff Report 512, section 2 (before April 2011: 2:15 pm or a few minutes after); no Fed page states this time",
+   "uncertainty": "window start may be a few minutes late"
+  },
+  "2004-06-30": {
+   "status": "time",
+   "time_et": "14:15",
+   "minute_after_0930": 285,
+   "basis": "schedule, Lucca and Moench (2015), 'The Pre-FOMC Announcement Drift', J. Finance; NY Fed Staff Report 512, section 2 (before April 2011: 2:15 pm or a few minutes after); no Fed page states this time",
+   "uncertainty": "window start may be a few minutes late"
+  },
+  "2004-08-10": {
+   "status": "time",
+   "time_et": "14:15",
+   "minute_after_0930": 285,
+   "basis": "schedule, Lucca and Moench (2015), 'The Pre-FOMC Announcement Drift', J. Finance; NY Fed Staff Report 512, section 2 (before April 2011: 2:15 pm or a few minutes after); no Fed page states this time",
+   "uncertainty": "window start may be a few minutes late"
+  },
+  "2004-09-21": {
+   "status": "time",
+   "time_et": "14:15",
+   "minute_after_0930": 285,
+   "basis": "schedule, Lucca and Moench (2015), 'The Pre-FOMC Announcement Drift', J. Finance; NY Fed Staff Report 512, section 2 (before April 2011: 2:15 pm or a few minutes after); no Fed page states this time",
+   "uncertainty": "window start may be a few minutes late"
+  },
+  "2004-11-10": {
+   "status": "time",
+   "time_et": "14:15",
+   "minute_after_0930": 285,
+   "basis": "schedule, Lucca and Moench (2015), 'The Pre-FOMC Announcement Drift', J. Finance; NY Fed Staff Report 512, section 2 (before April 2011: 2:15 pm or a few minutes after); no Fed page states this time",
+   "uncertainty": "window start may be a few minutes late"
+  },
+  "2004-12-14": {
+   "status": "time",
+   "time_et": "14:15",
+   "minute_after_0930": 285,
+   "basis": "schedule, Lucca and Moench (2015), 'The Pre-FOMC Announcement Drift', J. Finance; NY Fed Staff Report 512, section 2 (before April 2011: 2:15 pm or a few minutes after); no Fed page states this time",
+   "uncertainty": "window start may be a few minutes late"
+  },
+  "2005-02-02": {
+   "status": "time",
+   "time_et": "14:15",
+   "minute_after_0930": 285,
+   "basis": "schedule, Lucca and Moench (2015), 'The Pre-FOMC Announcement Drift', J. Finance; NY Fed Staff Report 512, section 2 (before April 2011: 2:15 pm or a few minutes after); no Fed page states this time",
+   "uncertainty": "window start may be a few minutes late"
+  },
+  "2005-03-22": {
+   "status": "time",
+   "time_et": "14:15",
+   "minute_after_0930": 285,
+   "basis": "schedule, Lucca and Moench (2015), 'The Pre-FOMC Announcement Drift', J. Finance; NY Fed Staff Report 512, section 2 (before April 2011: 2:15 pm or a few minutes after); no Fed page states this time",
+   "uncertainty": "window start may be a few minutes late"
+  },
+  "2005-05-03": {
+   "status": "time",
+   "time_et": "14:15",
+   "minute_after_0930": 285,
+   "basis": "schedule, Lucca and Moench (2015), 'The Pre-FOMC Announcement Drift', J. Finance; NY Fed Staff Report 512, section 2 (before April 2011: 2:15 pm or a few minutes after); no Fed page states this time",
+   "uncertainty": "window start may be a few minutes late"
+  },
+  "2005-06-30": {
+   "status": "time",
+   "time_et": "14:15",
+   "minute_after_0930": 285,
+   "basis": "schedule, Lucca and Moench (2015), 'The Pre-FOMC Announcement Drift', J. Finance; NY Fed Staff Report 512, section 2 (before April 2011: 2:15 pm or a few minutes after); no Fed page states this time",
+   "uncertainty": "window start may be a few minutes late"
+  },
+  "2005-08-09": {
+   "status": "time",
+   "time_et": "14:15",
+   "minute_after_0930": 285,
+   "basis": "schedule, Lucca and Moench (2015), 'The Pre-FOMC Announcement Drift', J. Finance; NY Fed Staff Report 512, section 2 (before April 2011: 2:15 pm or a few minutes after); no Fed page states this time",
+   "uncertainty": "window start may be a few minutes late"
+  },
+  "2005-09-20": {
+   "status": "time",
+   "time_et": "14:15",
+   "minute_after_0930": 285,
+   "basis": "schedule, Lucca and Moench (2015), 'The Pre-FOMC Announcement Drift', J. Finance; NY Fed Staff Report 512, section 2 (before April 2011: 2:15 pm or a few minutes after); no Fed page states this time",
+   "uncertainty": "window start may be a few minutes late"
+  },
+  "2005-11-01": {
+   "status": "time",
+   "time_et": "14:15",
+   "minute_after_0930": 285,
+   "basis": "schedule, Lucca and Moench (2015), 'The Pre-FOMC Announcement Drift', J. Finance; NY Fed Staff Report 512, section 2 (before April 2011: 2:15 pm or a few minutes after); no Fed page states this time",
+   "uncertainty": "window start may be a few minutes late"
+  },
+  "2005-12-13": {
+   "status": "time",
+   "time_et": "14:15",
+   "minute_after_0930": 285,
+   "basis": "schedule, Lucca and Moench (2015), 'The Pre-FOMC Announcement Drift', J. Finance; NY Fed Staff Report 512, section 2 (before April 2011: 2:15 pm or a few minutes after); no Fed page states this time",
+   "uncertainty": "window start may be a few minutes late"
+  },
+  "2006-01-31": {
+   "status": "time",
+   "time_et": "14:15",
+   "minute_after_0930": 285,
+   "basis": "schedule, Lucca and Moench (2015), 'The Pre-FOMC Announcement Drift', J. Finance; NY Fed Staff Report 512, section 2 (before April 2011: 2:15 pm or a few minutes after); no Fed page states this time",
+   "uncertainty": "window start may be a few minutes late"
+  },
+  "2006-03-28": {
+   "status": "time",
+   "time_et": "14:15",
+   "minute_after_0930": 285,
+   "basis": "schedule, Lucca and Moench (2015), 'The Pre-FOMC Announcement Drift', J. Finance; NY Fed Staff Report 512, section 2 (before April 2011: 2:15 pm or a few minutes after); no Fed page states this time",
+   "uncertainty": "window start may be a few minutes late"
+  },
+  "2006-05-10": {
+   "status": "time",
+   "time_et": "14:15",
+   "minute_after_0930": 285,
+   "basis": "schedule, Lucca and Moench (2015), 'The Pre-FOMC Announcement Drift', J. Finance; NY Fed Staff Report 512, section 2 (before April 2011: 2:15 pm or a few minutes after); no Fed page states this time",
+   "uncertainty": "window start may be a few minutes late"
+  },
+  "2006-06-29": {
+   "status": "time",
+   "time_et": "14:15",
+   "minute_after_0930": 285,
+   "basis": "schedule, Lucca and Moench (2015), 'The Pre-FOMC Announcement Drift', J. Finance; NY Fed Staff Report 512, section 2 (before April 2011: 2:15 pm or a few minutes after); no Fed page states this time",
+   "uncertainty": "window start may be a few minutes late"
+  },
+  "2006-08-08": {
+   "status": "time",
+   "time_et": "14:15",
+   "minute_after_0930": 285,
+   "basis": "schedule, Lucca and Moench (2015), 'The Pre-FOMC Announcement Drift', J. Finance; NY Fed Staff Report 512, section 2 (before April 2011: 2:15 pm or a few minutes after); no Fed page states this time",
+   "uncertainty": "window start may be a few minutes late"
+  },
+  "2006-09-20": {
+   "status": "time",
+   "time_et": "14:15",
+   "minute_after_0930": 285,
+   "basis": "schedule, Lucca and Moench (2015), 'The Pre-FOMC Announcement Drift', J. Finance; NY Fed Staff Report 512, section 2 (before April 2011: 2:15 pm or a few minutes after); no Fed page states this time",
+   "uncertainty": "window start may be a few minutes late"
+  },
+  "2006-10-25": {
+   "status": "time",
+   "time_et": "14:15",
+   "minute_after_0930": 285,
+   "basis": "schedule, Lucca and Moench (2015), 'The Pre-FOMC Announcement Drift', J. Finance; NY Fed Staff Report 512, section 2 (before April 2011: 2:15 pm or a few minutes after); no Fed page states this time",
+   "uncertainty": "window start may be a few minutes late"
+  },
+  "2006-12-12": {
+   "status": "time",
+   "time_et": "14:15",
+   "minute_after_0930": 285,
+   "basis": "schedule, Lucca and Moench (2015), 'The Pre-FOMC Announcement Drift', J. Finance; NY Fed Staff Report 512, section 2 (before April 2011: 2:15 pm or a few minutes after); no Fed page states this time",
+   "uncertainty": "window start may be a few minutes late"
+  },
+  "2007-01-31": {
+   "status": "time",
+   "time_et": "14:15",
+   "minute_after_0930": 285,
+   "basis": "schedule, Lucca and Moench (2015), 'The Pre-FOMC Announcement Drift', J. Finance; NY Fed Staff Report 512, section 2 (before April 2011: 2:15 pm or a few minutes after); no Fed page states this time",
+   "uncertainty": "window start may be a few minutes late"
+  },
+  "2007-03-21": {
+   "status": "time",
+   "time_et": "14:15",
+   "minute_after_0930": 285,
+   "basis": "schedule, Lucca and Moench (2015), 'The Pre-FOMC Announcement Drift', J. Finance; NY Fed Staff Report 512, section 2 (before April 2011: 2:15 pm or a few minutes after); no Fed page states this time",
+   "uncertainty": "window start may be a few minutes late"
+  },
+  "2007-05-09": {
+   "status": "time",
+   "time_et": "14:15",
+   "minute_after_0930": 285,
+   "basis": "schedule, Lucca and Moench (2015), 'The Pre-FOMC Announcement Drift', J. Finance; NY Fed Staff Report 512, section 2 (before April 2011: 2:15 pm or a few minutes after); no Fed page states this time",
+   "uncertainty": "window start may be a few minutes late"
+  },
+  "2007-06-28": {
+   "status": "time",
+   "time_et": "14:15",
+   "minute_after_0930": 285,
+   "basis": "schedule, Lucca and Moench (2015), 'The Pre-FOMC Announcement Drift', J. Finance; NY Fed Staff Report 512, section 2 (before April 2011: 2:15 pm or a few minutes after); no Fed page states this time",
+   "uncertainty": "window start may be a few minutes late"
+  },
+  "2007-08-07": {
+   "status": "time",
+   "time_et": "14:15",
+   "minute_after_0930": 285,
+   "basis": "schedule, Lucca and Moench (2015), 'The Pre-FOMC Announcement Drift', J. Finance; NY Fed Staff Report 512, section 2 (before April 2011: 2:15 pm or a few minutes after); no Fed page states this time",
+   "uncertainty": "window start may be a few minutes late"
+  },
+  "2007-09-18": {
+   "status": "time",
+   "time_et": "14:15",
+   "minute_after_0930": 285,
+   "basis": "schedule, Lucca and Moench (2015), 'The Pre-FOMC Announcement Drift', J. Finance; NY Fed Staff Report 512, section 2 (before April 2011: 2:15 pm or a few minutes after); no Fed page states this time",
+   "uncertainty": "window start may be a few minutes late"
+  },
+  "2007-10-31": {
+   "status": "time",
+   "time_et": "14:15",
+   "minute_after_0930": 285,
+   "basis": "schedule, Lucca and Moench (2015), 'The Pre-FOMC Announcement Drift', J. Finance; NY Fed Staff Report 512, section 2 (before April 2011: 2:15 pm or a few minutes after); no Fed page states this time",
+   "uncertainty": "window start may be a few minutes late"
+  },
+  "2007-12-11": {
+   "status": "time",
+   "time_et": "14:15",
+   "minute_after_0930": 285,
+   "basis": "schedule, Lucca and Moench (2015), 'The Pre-FOMC Announcement Drift', J. Finance; NY Fed Staff Report 512, section 2 (before April 2011: 2:15 pm or a few minutes after); no Fed page states this time",
+   "uncertainty": "window start may be a few minutes late"
+  },
+  "2008-01-30": {
+   "status": "time",
+   "time_et": "14:15",
+   "minute_after_0930": 285,
+   "basis": "schedule, Lucca and Moench (2015), 'The Pre-FOMC Announcement Drift', J. Finance; NY Fed Staff Report 512, section 2 (before April 2011: 2:15 pm or a few minutes after); no Fed page states this time",
+   "uncertainty": "window start may be a few minutes late"
+  },
+  "2008-03-18": {
+   "status": "time",
+   "time_et": "14:15",
+   "minute_after_0930": 285,
+   "basis": "schedule, Lucca and Moench (2015), 'The Pre-FOMC Announcement Drift', J. Finance; NY Fed Staff Report 512, section 2 (before April 2011: 2:15 pm or a few minutes after); no Fed page states this time",
+   "uncertainty": "window start may be a few minutes late"
+  },
+  "2008-04-30": {
+   "status": "time",
+   "time_et": "14:15",
+   "minute_after_0930": 285,
+   "basis": "schedule, Lucca and Moench (2015), 'The Pre-FOMC Announcement Drift', J. Finance; NY Fed Staff Report 512, section 2 (before April 2011: 2:15 pm or a few minutes after); no Fed page states this time",
+   "uncertainty": "window start may be a few minutes late"
+  },
+  "2008-06-25": {
+   "status": "time",
+   "time_et": "14:15",
+   "minute_after_0930": 285,
+   "basis": "schedule, Lucca and Moench (2015), 'The Pre-FOMC Announcement Drift', J. Finance; NY Fed Staff Report 512, section 2 (before April 2011: 2:15 pm or a few minutes after); no Fed page states this time",
+   "uncertainty": "window start may be a few minutes late"
+  },
+  "2008-08-05": {
+   "status": "time",
+   "time_et": "14:15",
+   "minute_after_0930": 285,
+   "basis": "schedule, Lucca and Moench (2015), 'The Pre-FOMC Announcement Drift', J. Finance; NY Fed Staff Report 512, section 2 (before April 2011: 2:15 pm or a few minutes after); no Fed page states this time",
+   "uncertainty": "window start may be a few minutes late"
+  },
+  "2008-09-16": {
+   "status": "time",
+   "time_et": "14:15",
+   "minute_after_0930": 285,
+   "basis": "schedule, Lucca and Moench (2015), 'The Pre-FOMC Announcement Drift', J. Finance; NY Fed Staff Report 512, section 2 (before April 2011: 2:15 pm or a few minutes after); no Fed page states this time",
+   "uncertainty": "window start may be a few minutes late"
+  },
+  "2008-10-29": {
+   "status": "time",
+   "time_et": "14:15",
+   "minute_after_0930": 285,
+   "basis": "schedule, Lucca and Moench (2015), 'The Pre-FOMC Announcement Drift', J. Finance; NY Fed Staff Report 512, section 2 (before April 2011: 2:15 pm or a few minutes after); no Fed page states this time",
+   "uncertainty": "window start may be a few minutes late"
+  },
+  "2008-12-16": {
+   "status": "time",
+   "time_et": "14:15",
+   "minute_after_0930": 285,
+   "basis": "schedule, Lucca and Moench (2015), 'The Pre-FOMC Announcement Drift', J. Finance; NY Fed Staff Report 512, section 2 (before April 2011: 2:15 pm or a few minutes after); no Fed page states this time",
+   "uncertainty": "window start may be a few minutes late"
+  },
+  "2009-01-28": {
+   "status": "time",
+   "time_et": "14:15",
+   "minute_after_0930": 285,
+   "basis": "schedule, Lucca and Moench (2015), 'The Pre-FOMC Announcement Drift', J. Finance; NY Fed Staff Report 512, section 2 (before April 2011: 2:15 pm or a few minutes after); no Fed page states this time",
+   "uncertainty": "window start may be a few minutes late"
+  },
+  "2009-03-18": {
+   "status": "time",
+   "time_et": "14:15",
+   "minute_after_0930": 285,
+   "basis": "schedule, Lucca and Moench (2015), 'The Pre-FOMC Announcement Drift', J. Finance; NY Fed Staff Report 512, section 2 (before April 2011: 2:15 pm or a few minutes after); no Fed page states this time",
+   "uncertainty": "window start may be a few minutes late"
+  },
+  "2009-04-29": {
+   "status": "time",
+   "time_et": "14:15",
+   "minute_after_0930": 285,
+   "basis": "schedule, Lucca and Moench (2015), 'The Pre-FOMC Announcement Drift', J. Finance; NY Fed Staff Report 512, section 2 (before April 2011: 2:15 pm or a few minutes after); no Fed page states this time",
+   "uncertainty": "window start may be a few minutes late"
+  },
+  "2009-06-24": {
+   "status": "time",
+   "time_et": "14:15",
+   "minute_after_0930": 285,
+   "basis": "schedule, Lucca and Moench (2015), 'The Pre-FOMC Announcement Drift', J. Finance; NY Fed Staff Report 512, section 2 (before April 2011: 2:15 pm or a few minutes after); no Fed page states this time",
+   "uncertainty": "window start may be a few minutes late"
+  },
+  "2009-08-12": {
+   "status": "time",
+   "time_et": "14:15",
+   "minute_after_0930": 285,
+   "basis": "schedule, Lucca and Moench (2015), 'The Pre-FOMC Announcement Drift', J. Finance; NY Fed Staff Report 512, section 2 (before April 2011: 2:15 pm or a few minutes after); no Fed page states this time",
+   "uncertainty": "window start may be a few minutes late"
+  },
+  "2009-09-23": {
+   "status": "time",
+   "time_et": "14:15",
+   "minute_after_0930": 285,
+   "basis": "schedule, Lucca and Moench (2015), 'The Pre-FOMC Announcement Drift', J. Finance; NY Fed Staff Report 512, section 2 (before April 2011: 2:15 pm or a few minutes after); no Fed page states this time",
+   "uncertainty": "window start may be a few minutes late"
+  },
+  "2009-11-04": {
+   "status": "time",
+   "time_et": "14:15",
+   "minute_after_0930": 285,
+   "basis": "schedule, Lucca and Moench (2015), 'The Pre-FOMC Announcement Drift', J. Finance; NY Fed Staff Report 512, section 2 (before April 2011: 2:15 pm or a few minutes after); no Fed page states this time",
+   "uncertainty": "window start may be a few minutes late"
+  },
+  "2009-12-16": {
+   "status": "time",
+   "time_et": "14:15",
+   "minute_after_0930": 285,
+   "basis": "schedule, Lucca and Moench (2015), 'The Pre-FOMC Announcement Drift', J. Finance; NY Fed Staff Report 512, section 2 (before April 2011: 2:15 pm or a few minutes after); no Fed page states this time",
+   "uncertainty": "window start may be a few minutes late"
+  },
+  "2010-01-27": {
+   "status": "time",
+   "time_et": "14:15",
+   "minute_after_0930": 285,
+   "basis": "schedule, Lucca and Moench (2015), 'The Pre-FOMC Announcement Drift', J. Finance; NY Fed Staff Report 512, section 2 (before April 2011: 2:15 pm or a few minutes after); no Fed page states this time",
+   "uncertainty": "window start may be a few minutes late"
+  },
+  "2010-03-16": {
+   "status": "time",
+   "time_et": "14:15",
+   "minute_after_0930": 285,
+   "basis": "schedule, Lucca and Moench (2015), 'The Pre-FOMC Announcement Drift', J. Finance; NY Fed Staff Report 512, section 2 (before April 2011: 2:15 pm or a few minutes after); no Fed page states this time",
+   "uncertainty": "window start may be a few minutes late"
+  },
+  "2010-04-28": {
+   "status": "time",
+   "time_et": "14:15",
+   "minute_after_0930": 285,
+   "basis": "schedule, Lucca and Moench (2015), 'The Pre-FOMC Announcement Drift', J. Finance; NY Fed Staff Report 512, section 2 (before April 2011: 2:15 pm or a few minutes after); no Fed page states this time",
+   "uncertainty": "window start may be a few minutes late"
+  },
+  "2010-06-23": {
+   "status": "time",
+   "time_et": "14:15",
+   "minute_after_0930": 285,
+   "basis": "schedule, Lucca and Moench (2015), 'The Pre-FOMC Announcement Drift', J. Finance; NY Fed Staff Report 512, section 2 (before April 2011: 2:15 pm or a few minutes after); no Fed page states this time",
+   "uncertainty": "window start may be a few minutes late"
+  },
+  "2010-08-10": {
+   "status": "time",
+   "time_et": "14:15",
+   "minute_after_0930": 285,
+   "basis": "schedule, Lucca and Moench (2015), 'The Pre-FOMC Announcement Drift', J. Finance; NY Fed Staff Report 512, section 2 (before April 2011: 2:15 pm or a few minutes after); no Fed page states this time",
+   "uncertainty": "window start may be a few minutes late"
+  },
+  "2010-09-21": {
+   "status": "time",
+   "time_et": "14:15",
+   "minute_after_0930": 285,
+   "basis": "schedule, Lucca and Moench (2015), 'The Pre-FOMC Announcement Drift', J. Finance; NY Fed Staff Report 512, section 2 (before April 2011: 2:15 pm or a few minutes after); no Fed page states this time",
+   "uncertainty": "window start may be a few minutes late"
+  },
+  "2010-11-03": {
+   "status": "time",
+   "time_et": "14:15",
+   "minute_after_0930": 285,
+   "basis": "schedule, Lucca and Moench (2015), 'The Pre-FOMC Announcement Drift', J. Finance; NY Fed Staff Report 512, section 2 (before April 2011: 2:15 pm or a few minutes after); no Fed page states this time",
+   "uncertainty": "window start may be a few minutes late"
+  },
+  "2010-12-14": {
+   "status": "time",
+   "time_et": "14:15",
+   "minute_after_0930": 285,
+   "basis": "schedule, Lucca and Moench (2015), 'The Pre-FOMC Announcement Drift', J. Finance; NY Fed Staff Report 512, section 2 (before April 2011: 2:15 pm or a few minutes after); no Fed page states this time",
+   "uncertainty": "window start may be a few minutes late"
+  },
+  "2011-01-26": {
+   "status": "time",
+   "time_et": "14:15",
+   "minute_after_0930": 285,
+   "basis": "schedule, Lucca and Moench (2015), 'The Pre-FOMC Announcement Drift', J. Finance; NY Fed Staff Report 512, section 2 (before April 2011: 2:15 pm or a few minutes after); no Fed page states this time",
+   "uncertainty": "window start may be a few minutes late"
+  },
+  "2011-03-15": {
+   "status": "time",
+   "time_et": "14:15",
+   "minute_after_0930": 285,
+   "basis": "schedule, Lucca and Moench (2015), 'The Pre-FOMC Announcement Drift', J. Finance; NY Fed Staff Report 512, section 2 (before April 2011: 2:15 pm or a few minutes after); no Fed page states this time",
+   "uncertainty": "window start may be a few minutes late"
+  },
+  "2011-04-27": {
+   "status": "time",
+   "time_et": "12:30",
+   "minute_after_0930": 180,
+   "basis": "Fed press-conference page states the statement release time",
+   "url": "https://www.federalreserve.gov/monetarypolicy/fomcpresconf20110427.htm",
+   "page_sha256": "8ed490a1c8ff716aae9ba5f520b92757cb3dad6b24f16997c3cf783d791d69fb"
+  },
+  "2011-06-22": {
+   "status": "time",
+   "time_et": "12:30",
+   "minute_after_0930": 180,
+   "basis": "Fed press-conference page states the statement release time",
+   "url": "https://www.federalreserve.gov/monetarypolicy/fomcpresconf20110622.htm",
+   "page_sha256": "3b12fc13e411232affd6f6fe00617745550f881920db9f4e71b23cc6650581c3"
+  },
+  "2011-08-09": {
+   "status": "excluded",
+   "reason": "April 2011 - December 2012, not a press-conference day: no Fed source states the time and Lucca and Moench do not document it (ambiguous)"
+  },
+  "2011-09-21": {
+   "status": "excluded",
+   "reason": "April 2011 - December 2012, not a press-conference day: no Fed source states the time and Lucca and Moench do not document it (ambiguous)"
+  },
+  "2011-11-02": {
+   "status": "time",
+   "time_et": "12:30",
+   "minute_after_0930": 180,
+   "basis": "Fed press-conference page states the statement release time",
+   "url": "https://www.federalreserve.gov/monetarypolicy/fomcpresconf20111102.htm",
+   "page_sha256": "22f7a6cbff101c50374db485a7b5a80905add18b2b2cd5bc34420cfdc5ac9072"
+  },
+  "2011-12-13": {
+   "status": "excluded",
+   "reason": "April 2011 - December 2012, not a press-conference day: no Fed source states the time and Lucca and Moench do not document it (ambiguous)"
+  },
+  "2012-01-25": {
+   "status": "time",
+   "time_et": "12:20",
+   "minute_after_0930": 170,
+   "basis": "Fed press-conference page states the statement release time",
+   "url": "https://www.federalreserve.gov/monetarypolicy/fomcpresconf20120125.htm",
+   "page_sha256": "e4fedf49fb8771b2b10490bc6689d89e22d49fddeec69121bfafbc12f7eb64a4"
+  },
+  "2012-03-13": {
+   "status": "excluded",
+   "reason": "April 2011 - December 2012, not a press-conference day: no Fed source states the time and Lucca and Moench do not document it (ambiguous)"
+  },
+  "2012-04-25": {
+   "status": "time",
+   "time_et": "12:35",
+   "minute_after_0930": 185,
+   "basis": "Fed press-conference page states the statement release time",
+   "url": "https://www.federalreserve.gov/monetarypolicy/fomcpresconf20120425.htm",
+   "page_sha256": "81c43f5d2a232332dfe012f66c938276567b4bcce9d03ff4b538946e4b11fdae"
+  },
+  "2012-06-20": {
+   "status": "time",
+   "time_et": "12:35",
+   "minute_after_0930": 185,
+   "basis": "Fed press-conference page states the statement release time",
+   "url": "https://www.federalreserve.gov/monetarypolicy/fomcpresconf20120620.htm",
+   "page_sha256": "cf65374f292c00fca02974f56857fd2e2ef80bb773b68d1452e364c63da8d773"
+  },
+  "2012-08-01": {
+   "status": "excluded",
+   "reason": "April 2011 - December 2012, not a press-conference day: no Fed source states the time and Lucca and Moench do not document it (ambiguous)"
+  },
+  "2012-09-13": {
+   "status": "time",
+   "time_et": "12:35",
+   "minute_after_0930": 185,
+   "basis": "Fed press-conference page states the statement release time",
+   "url": "https://www.federalreserve.gov/monetarypolicy/fomcpresconf20120913.htm",
+   "page_sha256": "07e82a373f354b92860373043b9a4fa411cc8170ac328d3633620fe0312a1f5a"
+  },
+  "2012-10-24": {
+   "status": "excluded",
+   "reason": "April 2011 - December 2012, not a press-conference day: no Fed source states the time and Lucca and Moench do not document it (ambiguous)"
+  },
+  "2012-12-12": {
+   "status": "time",
+   "time_et": "12:30",
+   "minute_after_0930": 180,
+   "basis": "Fed press-conference page states the statement release time",
+   "url": "https://www.federalreserve.gov/monetarypolicy/fomcpresconf20121212.htm",
+   "page_sha256": "2c12c9e9476953aed24845fcdd86101a5d2d792674f019d52bded36e023ac2a8"
+  },
+  "2013-01-30": {
+   "status": "time",
+   "time_et": "14:00",
+   "minute_after_0930": 270,
+   "basis": "schedule (from 2013 on 14:00), consistent with all 59 Fed pages that state a time from 2013 on"
+  },
+  "2013-03-20": {
+   "status": "time",
+   "time_et": "14:00",
+   "minute_after_0930": 270,
+   "basis": "Fed press-conference page states the statement release time",
+   "url": "https://www.federalreserve.gov/monetarypolicy/fomcpresconf20130320.htm",
+   "page_sha256": "577f63d4202feefff3a12fbcc06fa29630124bcf59eeb3dc5bd1114e199f3fbb"
+  },
+  "2013-05-01": {
+   "status": "time",
+   "time_et": "14:00",
+   "minute_after_0930": 270,
+   "basis": "schedule (from 2013 on 14:00), consistent with all 59 Fed pages that state a time from 2013 on"
+  },
+  "2013-06-19": {
+   "status": "time",
+   "time_et": "14:00",
+   "minute_after_0930": 270,
+   "basis": "Fed press-conference page states the statement release time",
+   "url": "https://www.federalreserve.gov/monetarypolicy/fomcpresconf20130619.htm",
+   "page_sha256": "ea0ba5d858384de7c621dd4408dd7f3321e68a2f2d069433177c52d504413274"
+  },
+  "2013-07-31": {
+   "status": "time",
+   "time_et": "14:00",
+   "minute_after_0930": 270,
+   "basis": "schedule (from 2013 on 14:00), consistent with all 59 Fed pages that state a time from 2013 on"
+  },
+  "2013-09-18": {
+   "status": "time",
+   "time_et": "14:00",
+   "minute_after_0930": 270,
+   "basis": "Fed press-conference page states the statement release time",
+   "url": "https://www.federalreserve.gov/monetarypolicy/fomcpresconf20130918.htm",
+   "page_sha256": "3ae76b27a7eb42695c508ba8b525de6257852346e38f6ff87299cc942cb4d8eb"
+  },
+  "2013-10-30": {
+   "status": "time",
+   "time_et": "14:00",
+   "minute_after_0930": 270,
+   "basis": "schedule (from 2013 on 14:00), consistent with all 59 Fed pages that state a time from 2013 on"
+  },
+  "2013-12-18": {
+   "status": "time",
+   "time_et": "14:00",
+   "minute_after_0930": 270,
+   "basis": "Fed press-conference page states the statement release time",
+   "url": "https://www.federalreserve.gov/monetarypolicy/fomcpresconf20131218.htm",
+   "page_sha256": "ae0b06e432358c57d036cdb1102f7b799fcd5b6792d2c45baa4413b620c3743c"
+  },
+  "2014-01-29": {
+   "status": "time",
+   "time_et": "14:00",
+   "minute_after_0930": 270,
+   "basis": "schedule (from 2013 on 14:00), consistent with all 59 Fed pages that state a time from 2013 on"
+  },
+  "2014-03-19": {
+   "status": "time",
+   "time_et": "14:00",
+   "minute_after_0930": 270,
+   "basis": "Fed press-conference page states the statement release time",
+   "url": "https://www.federalreserve.gov/monetarypolicy/fomcpresconf20140319.htm",
+   "page_sha256": "da4a2f4a462fe86cf7dacab882e8a5208b6abb7bbd2f2b1ae30d3b743d4b50a1"
+  },
+  "2014-04-30": {
+   "status": "time",
+   "time_et": "14:00",
+   "minute_after_0930": 270,
+   "basis": "schedule (from 2013 on 14:00), consistent with all 59 Fed pages that state a time from 2013 on"
+  },
+  "2014-06-18": {
+   "status": "time",
+   "time_et": "14:00",
+   "minute_after_0930": 270,
+   "basis": "Fed press-conference page states the statement release time",
+   "url": "https://www.federalreserve.gov/monetarypolicy/fomcpresconf20140618.htm",
+   "page_sha256": "56306aae24d045116a698147f06b6ab2d3ee1cbd23593216531250be4c0854a8"
+  },
+  "2014-07-30": {
+   "status": "time",
+   "time_et": "14:00",
+   "minute_after_0930": 270,
+   "basis": "schedule (from 2013 on 14:00), consistent with all 59 Fed pages that state a time from 2013 on"
+  },
+  "2014-09-17": {
+   "status": "time",
+   "time_et": "14:00",
+   "minute_after_0930": 270,
+   "basis": "Fed press-conference page states the statement release time",
+   "url": "https://www.federalreserve.gov/monetarypolicy/fomcpresconf20140917.htm",
+   "page_sha256": "43d4a446ff65d93b94f09606d43c419b4ad4799d81c678726f4e538c7a882496"
+  },
+  "2014-10-29": {
+   "status": "time",
+   "time_et": "14:00",
+   "minute_after_0930": 270,
+   "basis": "schedule (from 2013 on 14:00), consistent with all 59 Fed pages that state a time from 2013 on"
+  },
+  "2014-12-17": {
+   "status": "time",
+   "time_et": "14:00",
+   "minute_after_0930": 270,
+   "basis": "Fed press-conference page states the statement release time",
+   "url": "https://www.federalreserve.gov/monetarypolicy/fomcpresconf20141217.htm",
+   "page_sha256": "dd9d65bb20df1599fc820acac6ddfcf7ad3353946c38e03861270a62b4b671f5"
+  },
+  "2015-01-28": {
+   "status": "time",
+   "time_et": "14:00",
+   "minute_after_0930": 270,
+   "basis": "schedule (from 2013 on 14:00), consistent with all 59 Fed pages that state a time from 2013 on"
+  },
+  "2015-03-18": {
+   "status": "time",
+   "time_et": "14:00",
+   "minute_after_0930": 270,
+   "basis": "Fed press-conference page states the statement release time",
+   "url": "https://www.federalreserve.gov/monetarypolicy/fomcpresconf20150318.htm",
+   "page_sha256": "81452c4a17950662910cc37b8394b5adbe1683a5b8e1e3cca4ff842f9933fbc8"
+  },
+  "2015-04-29": {
+   "status": "time",
+   "time_et": "14:00",
+   "minute_after_0930": 270,
+   "basis": "schedule (from 2013 on 14:00), consistent with all 59 Fed pages that state a time from 2013 on"
+  },
+  "2015-06-17": {
+   "status": "time",
+   "time_et": "14:00",
+   "minute_after_0930": 270,
+   "basis": "Fed press-conference page states the statement release time",
+   "url": "https://www.federalreserve.gov/monetarypolicy/fomcpresconf20150617.htm",
+   "page_sha256": "4f4a758de34ff54a5ad7e46e4b61fdbc03c3110a839019f9fc895d7d04604488"
+  },
+  "2015-07-29": {
+   "status": "time",
+   "time_et": "14:00",
+   "minute_after_0930": 270,
+   "basis": "schedule (from 2013 on 14:00), consistent with all 59 Fed pages that state a time from 2013 on"
+  },
+  "2015-09-17": {
+   "status": "time",
+   "time_et": "14:00",
+   "minute_after_0930": 270,
+   "basis": "Fed press-conference page states the statement release time",
+   "url": "https://www.federalreserve.gov/monetarypolicy/fomcpresconf20150917.htm",
+   "page_sha256": "1bee6cee16c517f759fdbd351056121a77f7e04352e01977786289be4ba01a07"
+  },
+  "2015-10-28": {
+   "status": "time",
+   "time_et": "14:00",
+   "minute_after_0930": 270,
+   "basis": "schedule (from 2013 on 14:00), consistent with all 59 Fed pages that state a time from 2013 on"
+  },
+  "2015-12-16": {
+   "status": "time",
+   "time_et": "14:00",
+   "minute_after_0930": 270,
+   "basis": "schedule (from 2013 on 14:00), consistent with all 59 Fed pages that state a time from 2013 on"
+  },
+  "2016-01-27": {
+   "status": "time",
+   "time_et": "14:00",
+   "minute_after_0930": 270,
+   "basis": "statement page states the time",
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20160127a.htm",
+   "page_sha256": "930d435e82435cea6f038b938b8bdd1f61f0a1f39739256291eb652b4b9a799e"
+  },
+  "2016-03-16": {
+   "status": "time",
+   "time_et": "14:00",
+   "minute_after_0930": 270,
+   "basis": "statement page states the time",
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20160316a.htm",
+   "page_sha256": "f4a629fa2064ae1683bdc2f5db6e2bcee90a006843c9512fb7739df801b53f3c"
+  },
+  "2016-04-27": {
+   "status": "time",
+   "time_et": "14:00",
+   "minute_after_0930": 270,
+   "basis": "statement page states the time",
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20160427a.htm",
+   "page_sha256": "896f3dadc4c559d2066f95097d071c04d990c6fa3423cf7d24804aece52f5c8e"
+  },
+  "2016-06-15": {
+   "status": "time",
+   "time_et": "14:00",
+   "minute_after_0930": 270,
+   "basis": "statement page states the time",
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20160615a.htm",
+   "page_sha256": "4ec300e0399c0e2df2fa16447e92cac2b978736b8b50ba654d8b7daf9dfb6069"
+  },
+  "2016-07-27": {
+   "status": "time",
+   "time_et": "14:00",
+   "minute_after_0930": 270,
+   "basis": "statement page states the time",
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20160727a.htm",
+   "page_sha256": "ab85b1e21260fcf69fcec928c5dc4ce7aa229d7e91cdb4ab5879e5f6c422a847"
+  },
+  "2016-09-21": {
+   "status": "time",
+   "time_et": "14:00",
+   "minute_after_0930": 270,
+   "basis": "statement page states the time",
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20160921a.htm",
+   "page_sha256": "efb1a7c5bcf0d25cbc64bd4eb096850a5de1f9b2337369876a126afd6a772a60"
+  },
+  "2016-11-02": {
+   "status": "time",
+   "time_et": "14:00",
+   "minute_after_0930": 270,
+   "basis": "statement page states the time",
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20161102a.htm",
+   "page_sha256": "aedd40dba324609c53cbdc74aec01f30ce821dd01fd178316a6065aebac59b72"
+  },
+  "2016-12-14": {
+   "status": "time",
+   "time_et": "14:00",
+   "minute_after_0930": 270,
+   "basis": "statement page states the time",
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20161214a.htm",
+   "page_sha256": "360ace6a7ee944ec5351d91495eae596b5208c2237fe3d928d56ac569280ca25"
+  },
+  "2017-02-01": {
+   "status": "time",
+   "time_et": "14:00",
+   "minute_after_0930": 270,
+   "basis": "statement page states the time",
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20170201a.htm",
+   "page_sha256": "5e320b972eac277966568ae3b6dddaa03e9f66f3683bdb01315e129d39e9d9b3"
+  },
+  "2017-03-15": {
+   "status": "time",
+   "time_et": "14:00",
+   "minute_after_0930": 270,
+   "basis": "statement page states the time",
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20170315a.htm",
+   "page_sha256": "ef87cd3dd48be8e2322407d93a7390b7c55e2179103ac58f31de7ee057149ec3"
+  },
+  "2017-05-03": {
+   "status": "time",
+   "time_et": "14:00",
+   "minute_after_0930": 270,
+   "basis": "statement page states the time",
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20170503a.htm",
+   "page_sha256": "26393d74df4e5e2ee5e817fbea2dcf065010ef88fc67811feb907f6beab00074"
+  },
+  "2017-06-14": {
+   "status": "time",
+   "time_et": "14:00",
+   "minute_after_0930": 270,
+   "basis": "statement page states the time",
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20170614a.htm",
+   "page_sha256": "2b4125407b9b4606c4613ac48c23ad4db75907130a73709e9180082bd6b79be0"
+  },
+  "2017-07-26": {
+   "status": "time",
+   "time_et": "14:00",
+   "minute_after_0930": 270,
+   "basis": "statement page states the time",
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20170726a.htm",
+   "page_sha256": "7e37e9b531a673de8cd66c15b09f0f0c3057bc3b5d2914f6f9bf115f6ae22c78"
+  },
+  "2017-09-20": {
+   "status": "time",
+   "time_et": "14:00",
+   "minute_after_0930": 270,
+   "basis": "statement page states the time",
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20170920a.htm",
+   "page_sha256": "721a562d6072934f6c6fbc480e96b76fd0f2420feef03fb53a0e784bbb869b0a"
+  },
+  "2017-11-01": {
+   "status": "time",
+   "time_et": "14:00",
+   "minute_after_0930": 270,
+   "basis": "statement page states the time",
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20171101a.htm",
+   "page_sha256": "ecfa34058f6ad04ade5a4023ad85c73ab721d25ee8dd6b6006542e3431e2ee23"
+  },
+  "2017-12-13": {
+   "status": "time",
+   "time_et": "14:00",
+   "minute_after_0930": 270,
+   "basis": "statement page states the time",
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20171213a.htm",
+   "page_sha256": "4cbff8c8a4b77c95b7ff70511917ba351b2f68d2d52c7744756321d764cf3e28"
+  },
+  "2018-01-31": {
+   "status": "time",
+   "time_et": "14:00",
+   "minute_after_0930": 270,
+   "basis": "statement page states the time",
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20180131a.htm",
+   "page_sha256": "410783a697cc9b74b2d22d19835f985618c44535813b58146fc9d3414c99a5b9"
+  },
+  "2018-03-21": {
+   "status": "time",
+   "time_et": "14:00",
+   "minute_after_0930": 270,
+   "basis": "statement page states the time",
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20180321a.htm",
+   "page_sha256": "d63c0a916f5f9652989652a9dc3086fb1d056ff055a82af371beb85a5e9f42b7"
+  },
+  "2018-05-02": {
+   "status": "time",
+   "time_et": "14:00",
+   "minute_after_0930": 270,
+   "basis": "statement page states the time",
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20180502a.htm",
+   "page_sha256": "df58451fefcf7914230a46d35753687df4dd3fd4397c3ac0c16d8270ffc56295"
+  },
+  "2018-06-13": {
+   "status": "time",
+   "time_et": "14:00",
+   "minute_after_0930": 270,
+   "basis": "statement page states the time",
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20180613a.htm",
+   "page_sha256": "10e6114b791f94508b0cf46ab1038a97f5cbc05cb9c9a230a76b87114243aa4f"
+  },
+  "2018-08-01": {
+   "status": "time",
+   "time_et": "14:00",
+   "minute_after_0930": 270,
+   "basis": "statement page states the time",
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20180801a.htm",
+   "page_sha256": "340bd999a5b3d7258f2b6ec1d2afeb4ffc5cc31ac09f69857b6468a28ef750df"
+  },
+  "2018-09-26": {
+   "status": "time",
+   "time_et": "14:00",
+   "minute_after_0930": 270,
+   "basis": "statement page states the time",
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20180926a.htm",
+   "page_sha256": "a6464d8c9037135c140ac1735f76466a9ca57250b3bbdbe27aa30cbeee742c84"
+  },
+  "2018-11-08": {
+   "status": "time",
+   "time_et": "14:00",
+   "minute_after_0930": 270,
+   "basis": "statement page states the time",
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20181108a.htm",
+   "page_sha256": "ebcb3606b3ac024af60a88fb82ae1456feeb4526f718a123869a2a4874efb940"
+  },
+  "2018-12-19": {
+   "status": "time",
+   "time_et": "14:00",
+   "minute_after_0930": 270,
+   "basis": "statement page states the time",
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20181219a.htm",
+   "page_sha256": "d07dac227eca0a7acc78b79ad6b6e4cf544a44f712147cfd661b75c6025c9fc1"
+  },
+  "2022-01-26": {
+   "status": "time",
+   "time_et": "14:00",
+   "minute_after_0930": 270,
+   "basis": "statement page states the time",
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20220126a.htm",
+   "page_sha256": "2256aa41b54be0d4a3fbdbbd346b8a3dfa234da9dbee61297dfba8f29827f05b"
+  },
+  "2022-03-16": {
+   "status": "time",
+   "time_et": "14:00",
+   "minute_after_0930": 270,
+   "basis": "statement page states the time",
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20220316a.htm",
+   "page_sha256": "4fc43412e37e009ffaa6e8dd725ba96e2798f8691925b2aa75554403aed372b1"
+  },
+  "2022-05-04": {
+   "status": "time",
+   "time_et": "14:00",
+   "minute_after_0930": 270,
+   "basis": "statement page states the time",
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20220504a.htm",
+   "page_sha256": "423716cf0f689e2e82b36544e21d7cab2e535685641b38783f9566fb41453aae"
+  },
+  "2022-06-15": {
+   "status": "time",
+   "time_et": "14:00",
+   "minute_after_0930": 270,
+   "basis": "statement page states the time",
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20220615a.htm",
+   "page_sha256": "61531bae9e19113a92c21c00e8e8a6621956b6426eabd7187776d66c9ab00180"
+  },
+  "2022-07-27": {
+   "status": "time",
+   "time_et": "14:00",
+   "minute_after_0930": 270,
+   "basis": "statement page states the time",
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20220727a.htm",
+   "page_sha256": "2bd0c0beb622c3ce4c4163314f26ef00097cc81b67bf6fbaff97df315428b05c"
+  },
+  "2022-09-21": {
+   "status": "time",
+   "time_et": "14:00",
+   "minute_after_0930": 270,
+   "basis": "statement page states the time",
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20220921a.htm",
+   "page_sha256": "eee0f9e6ed62b88711d9fff6e4ab025c12bf3a2d13a76e0507ae637b6bac2efa"
+  },
+  "2022-11-02": {
+   "status": "time",
+   "time_et": "14:00",
+   "minute_after_0930": 270,
+   "basis": "statement page states the time",
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20221102a.htm",
+   "page_sha256": "5354505f1564874583e163e80e1b8054c677adb6ce9ef5d450060d43622d82d1"
+  },
+  "2022-12-14": {
+   "status": "time",
+   "time_et": "14:00",
+   "minute_after_0930": 270,
+   "basis": "statement page states the time",
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20221214a.htm",
+   "page_sha256": "ad287aeb04ea563a97f0fc5c70f9ef35ffbb6f1b8e36afe58e178b56359cc838"
+  },
+  "2023-02-01": {
+   "status": "time",
+   "time_et": "14:00",
+   "minute_after_0930": 270,
+   "basis": "statement page states the time",
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20230201a.htm",
+   "page_sha256": "d3dc2dd09595215558b55ee337d0486d1eeffa7a83ecb72b95754cd87703d832"
+  },
+  "2023-03-22": {
+   "status": "time",
+   "time_et": "14:00",
+   "minute_after_0930": 270,
+   "basis": "statement page states the time",
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20230322a.htm",
+   "page_sha256": "1f5b0c22954078ace536d2acca6c56be8e0952cb3a5ac14747cf969836d31a51"
+  },
+  "2023-05-03": {
+   "status": "time",
+   "time_et": "14:00",
+   "minute_after_0930": 270,
+   "basis": "statement page states the time",
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20230503a.htm",
+   "page_sha256": "026d7d53cdc6fbc99b5c2b88b2a1b7e5c4880ec195b217431ff399ecee066670"
+  },
+  "2023-06-14": {
+   "status": "time",
+   "time_et": "14:00",
+   "minute_after_0930": 270,
+   "basis": "statement page states the time",
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20230614a.htm",
+   "page_sha256": "b913ce16efed24f6e959a34171a062d057d9fd621071e79ae852891bd611c9fd"
+  },
+  "2023-07-26": {
+   "status": "time",
+   "time_et": "14:00",
+   "minute_after_0930": 270,
+   "basis": "statement page states the time",
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20230726a.htm",
+   "page_sha256": "0f0d4ae84997579ccaa97f501945d7de2188a42f0f958065d8e0d68777023bd0"
+  },
+  "2023-09-20": {
+   "status": "time",
+   "time_et": "14:00",
+   "minute_after_0930": 270,
+   "basis": "statement page states the time",
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20230920a.htm",
+   "page_sha256": "6445a815b4cbd1118da053b3322b233a6a8eba1bed788e2ebf1f03bb43cf28fb"
+  },
+  "2023-11-01": {
+   "status": "time",
+   "time_et": "14:00",
+   "minute_after_0930": 270,
+   "basis": "statement page states the time",
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20231101a.htm",
+   "page_sha256": "8f868cb13d213ff87f792867c8bffb4587fd23b56da95e03713240cbee49fbe2"
+  },
+  "2023-12-13": {
+   "status": "time",
+   "time_et": "14:00",
+   "minute_after_0930": 270,
+   "basis": "statement page states the time",
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20231213a.htm",
+   "page_sha256": "04e3f04b782bfbc1cc986704ae312a3e5891f50074d72665623c77a1af22c4bd"
+  },
+  "2024-01-31": {
+   "status": "time",
+   "time_et": "14:00",
+   "minute_after_0930": 270,
+   "basis": "statement page states the time",
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20240131a.htm",
+   "page_sha256": "b63ced1422c9b19ac86cfd4bef14827c83f7c29149b9438e55ef7fd8f5ee4ff5"
+  },
+  "2024-03-20": {
+   "status": "time",
+   "time_et": "14:00",
+   "minute_after_0930": 270,
+   "basis": "statement page states the time",
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20240320a.htm",
+   "page_sha256": "7cf04504b67aa10b35555e691de48886cf21def1c964b81374de24ee1c5de8f3"
+  },
+  "2024-05-01": {
+   "status": "time",
+   "time_et": "14:00",
+   "minute_after_0930": 270,
+   "basis": "statement page states the time",
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20240501a.htm",
+   "page_sha256": "e1c6745db1c4359dda36e8b6bfd55f921ee8c0a2185a79a9a7ccd02396cc4873"
+  },
+  "2024-06-12": {
+   "status": "time",
+   "time_et": "14:00",
+   "minute_after_0930": 270,
+   "basis": "statement page states the time",
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20240612a.htm",
+   "page_sha256": "3e191e4bb654c1e1b6e09155c08b48be80d1b8e33e58f56839412a79a6e9e779"
+  },
+  "2024-07-31": {
+   "status": "time",
+   "time_et": "14:00",
+   "minute_after_0930": 270,
+   "basis": "statement page states the time",
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20240731a.htm",
+   "page_sha256": "6e33d9e241526f3d24bfbc81b14da6816bcff44b0b34279e5fa39e3eb32993a5"
+  },
+  "2024-09-18": {
+   "status": "time",
+   "time_et": "14:00",
+   "minute_after_0930": 270,
+   "basis": "statement page states the time",
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20240918a.htm",
+   "page_sha256": "07ac76d7982001d180f5607ef7e3c5cf1968a6dfe003ae732969103e949180d8"
+  },
+  "2024-11-07": {
+   "status": "time",
+   "time_et": "14:00",
+   "minute_after_0930": 270,
+   "basis": "statement page states the time",
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20241107a.htm",
+   "page_sha256": "933c73a157388c04c0b7464d883ecb3ee621db1dde16eea1a5953dfa2295176f"
+  },
+  "2024-12-18": {
+   "status": "time",
+   "time_et": "14:00",
+   "minute_after_0930": 270,
+   "basis": "statement page states the time",
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20241218a.htm",
+   "page_sha256": "2a1a404c7c4aa182d7186840b91596730f4c43923a03bb91b418d0cf2b2171a2"
+  }
+ }
+}

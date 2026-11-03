@@ -114,15 +114,16 @@ def detect_old_state(P, real, avail, thr, run=3, warm=WARM, refractory_min=REFRA
     for i in range(len(real)):
         if not real[i]:
             cnt = 0; continue
-        if i < warm or avail[i] < ref_until or cur is None:   # cur is None only if the first updates were skips: the first real update sets the old state
+        if i < warm or cur is None:   # cur is None only if the first updates were skips: the first real update sets the old state
             cur = int(np.argmax(P[i])); cnt = 0; continue
+        if avail[i] < ref_until: cnt = 0; continue      # A12 item 1 (finding 7): the old state is NOT re-based inside the refractory period
         if P[i, cur] < 1.0 - thr:
             if cnt == 0: first = i
             cnt += 1
             if cnt >= run:
                 events.append(dict(i_d=first, i_c=i, state=-3)); cur = int(np.argmax(P[i])); ref_until = avail[i] + refractory_min * MIN; cnt = 0
         else: cnt = 0
-    return events, 0
+    return events, int(cnt > 0)      # A12 item 1 (finding 15): a run still open at the close is dropped and counted
 
 
 def detect_bocpd_map(rstar, real, avail, drop, hold=HOLD, warm=WARM, refractory_min=REFRACTORY_MIN):
@@ -145,7 +146,7 @@ def detect_bocpd_map(rstar, real, avail, drop, hold=HOLD, warm=WARM, refractory_
             else: cand = None
             continue
         if dropped: cand = dict(i_d=i, low=r, count=0)
-    return events, 0
+    return events, int(cand is not None)      # A12 item 1 (finding 15)
 
 
 def detect_old_state_logodds(P, real, avail, theta, run=3, warm=WARM, refractory_min=REFRACTORY_MIN):
@@ -155,8 +156,9 @@ def detect_old_state_logodds(P, real, avail, theta, run=3, warm=WARM, refractory
     for i in range(len(real)):
         if not real[i]:
             cnt = 0; continue
-        if i < warm or avail[i] < ref_until or cur is None:
+        if i < warm or cur is None:
             cur = int(np.argmax(P[i])); cnt = 0; continue
+        if avail[i] < ref_until: cnt = 0; continue      # A12 item 1 (finding 7)
         po = P[i, cur]; so = float(np.sum(np.delete(P[i], cur)))
         with np.errstate(divide="ignore"):
             lo = np.inf if po <= 0 else (-np.inf if so <= 0 else np.log(so) - np.log(po))
@@ -166,4 +168,9 @@ def detect_old_state_logodds(P, real, avail, theta, run=3, warm=WARM, refractory
             if cnt >= run:
                 events.append(dict(i_d=first, i_c=i, state=-5)); cur = int(np.argmax(P[i])); ref_until = avail[i] + refractory_min * MIN; cnt = 0
         else: cnt = 0
-    return events, 0
+    return events, int(cnt > 0)      # A12 item 1 (finding 15): a run still open at the close is dropped and counted
+
+
+def hit_in_window(events, avail, tau, window=60 * MIN):
+    """A12 item 1 (finding 14): a hit needs the first update of the alarm run (T_d) available strictly after tau and T_c available at most `window` after tau."""
+    return any(avail[e["i_d"]] > tau and avail[e["i_c"]] <= tau + window for e in events)

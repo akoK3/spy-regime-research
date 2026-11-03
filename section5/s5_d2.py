@@ -14,7 +14,13 @@ SIZES = [1.5, 2, 3, 5, 10]; DURS = [None, 30, 60, 120]; DIRS = ["up", "down"]
 N_CELL = 24; N_NULL = 400; N_OLD = 100
 THS = [0.5, 0.7, 0.9, 0.95, 0.99, 0.999, 0.9999]
 FAMS = ["gaussian_hmm", "student_t_hmm", "hsmm", "bocpd"]; SETS = dict(base=[], f3=P.FIXED3, f6=P.FIXED6)
-G_MAX = 264                                              # so that g + 120 + 1 <= 389 for every duration
+G_MAX = 264                                              # historical cap (A8 gate scripts); new splice builds use tau_cap
+
+
+def tau_cap(du):
+    """A12 item 1 (finding 9): permanent breaks reach the end of the tau grid (slot 299, availability 14:30); sandwiches need availability <= 14:00 (slot <= 269) and the first bar after the
+    sandwich inside the session (slot <= 388 - duration)."""
+    return int(V.TAU_SLOTS[-1]) if du is None else int(min(269, 388 - du))
 _W = {}
 
 

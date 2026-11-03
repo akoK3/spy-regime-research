@@ -6,7 +6,7 @@ import sys, json, hashlib
 from pathlib import Path
 import numpy as np
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-import s5_lib as L, s5_eval as V, s5_fast as F, s5_d2 as D2, s5_d2_stable as S, s5_a6 as A, s5_a7 as B, s5_sweep as W
+import s5_events as E, s5_lib as L, s5_eval as V, s5_fast as F, s5_d2 as D2, s5_d2_stable as S, s5_a6 as A, s5_a7 as B, s5_sweep as W
 
 HERE = Path(__file__).resolve().parent; ROOT = HERE.parent
 ALLOWED_MACHINERY = {"RAW|3", "LEGACY|29"}
@@ -107,7 +107,9 @@ class DataBackend:
         feats = tuple(setup["features"]); m = self.fit(family, feats, dict(setup["params"]), 3); D = 1 + len(feats); qs = self.sequences("val", feats); rs = V.run_filter(family, m, qs, D)
         kind = "bocpd" if family == "bocpd" else "hmm"; lo, hi, tol = BOUNDS[kind]; rate = lambda thr: sum(len(B.events(family, r, q, thr)) for q, r in zip(qs, rs)) / len(qs)
         thr, info = B.bisect_threshold(rate, lo, hi, TARGET, tol)
-        return dict(rule="A7: bisection to 0.2 alarms per session on real validation sessions", fold=self.id, threshold=thr, validation_rate=rate(thr), numeric_era_threshold="open (not defined by A6-A10)")
+        det = (lambda r, q: E.detect_bocpd_map(r["rstar"], q["real"], q["avail"], thr)) if family == "bocpd" else (lambda r, q: E.detect_old_state_logodds(r["P"], q["real"], q["avail"], thr))
+        open_share = float(np.mean([det(r, q)[1] for q, r in zip(qs, rs)]))          # A12 finding 15: sessions that end with an unconfirmed candidate
+        return dict(rule="A7: bisection to 0.2 alarms per session on real validation sessions", fold=self.id, threshold=thr, validation_rate=rate(thr), open_candidate_share_at_close=open_share, numeric_era_threshold="see A11 for the era-level rule")
 
     def input_hashes(self):
         sha = lambda p: hashlib.sha256(Path(p).read_bytes()).hexdigest(); out = {}

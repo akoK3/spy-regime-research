@@ -46,11 +46,12 @@ class TestReleaseTimes(unittest.TestCase):
         self.assertEqual(H.release_minute(dict(status="time", minute_after_0930=285)), 285); self.assertIsNone(H.release_minute(dict(status="unavailable"))); self.assertIsNone(H.release_minute(None))
 
     def test_stored_release_times_are_complete_and_hashed(self):
-        j = json.loads((HERE / "results" / "h1c_release_times.json").read_text()); m = j["meetings"]; self.assertEqual(j["n_meetings"], len(m)); self.assertEqual(j["counts"]["time"] + j["counts"]["unavailable"], len(m))
+        j = json.loads((HERE / "results" / "h1c_release_times.json").read_text()); m0 = j["meetings"]; self.assertEqual(j["n_meetings"], len(m0)); self.assertEqual(j["counts"]["time"] + j["counts"]["unavailable"], len(m0)); m = m0
         for d, v in m.items():
             if v["status"] == "time": self.assertTrue(v["url"].startswith("https://www.federalreserve.gov/")); self.assertEqual(len(v["page_sha256"]), 64); self.assertIsInstance(v["minute_after_0930"], int)
             else: self.assertTrue(v["reason"])
         cl = json.loads((HERE / "results" / "contamination_list.json").read_text()); ev = {x for v in cl["h1c_eligible_events_per_fold"].values() for x in v}
+        sch = json.loads((HERE / "results" / "h1c_schedule_times.json").read_text())["meetings"]; m = sch      # A12: events come from the schedule file
         self.assertTrue(all(m[x]["status"] == "time" for x in ev)); self.assertEqual(set(cl["h1c_event_release_minute_after_0930"]), ev)
         self.assertEqual(len(ev), cl["n_h1c_events"]); self.assertTrue(all(m[x]["status"] != "time" for x in cl["h1c_excluded_release_time_unavailable"]))
 

@@ -230,7 +230,7 @@ class TestSweep(unittest.TestCase):
             for s_ in range(S):
                 for g, t_ in enumerate(th):
                     ev = E.detect_old_state_logodds(P[s_], real[s_], av[s_], t_)[0]
-                    self.assertEqual(cnt[s_, g], len(ev)); self.assertEqual(bool(hit[s_, g]), any(taus[s_] <= av[s_, e["i_c"]] <= taus[s_] + 60 * MIN for e in ev))
+                    self.assertEqual(cnt[s_, g], len(ev)); self.assertEqual(bool(hit[s_, g]), E.hit_in_window(ev, av[s_], taus[s_]))      # A12 finding 14
         r = np.zeros((S, T)); 
         for s_ in range(S):
             x = 0
@@ -239,7 +239,7 @@ class TestSweep(unittest.TestCase):
         for s_ in range(S):
             for g, m_ in enumerate(ms):
                 ev = E.detect_bocpd_map(r[s_], real[s_], av[s_], m_)[0]
-                self.assertEqual(cnt[s_, g], len(ev)); self.assertEqual(bool(hit[s_, g]), any(taus[s_] <= av[s_, e["i_c"]] <= taus[s_] + 60 * MIN for e in ev))
+                self.assertEqual(cnt[s_, g], len(ev)); self.assertEqual(bool(hit[s_, g]), E.hit_in_window(ev, av[s_], taus[s_]))      # A12 finding 14
 
     def test_hit_rate_is_nondecreasing_in_alarm_rate(self):
         import s5_a6 as A

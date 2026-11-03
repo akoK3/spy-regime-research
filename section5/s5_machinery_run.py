@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""A10 machinery check: the full glue (s5_run.run_all + freeze step) on ONE contaminated fold (RAW 3 or LEGACY 29), with runtime and memory. Usage: s5_machinery_run.py ERA FOLD
+"""A10/A12 machinery check: the full glue (s5_run.run_all + freeze step) on ONE contaminated fold (RAW 3 or LEGACY 29), with runtime and memory. Usage: s5_machinery_run.py ERA FOLD
 No selection result or test statistic from this run enters any protocol decision. The freeze is written in a temporary directory and discarded; run_confirmatory is never called."""
 import sys, json, time, tempfile, threading, math
 from pathlib import Path
@@ -7,7 +7,7 @@ import numpy as np
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import s5_run as RUN, s5_backend as BK, s5_legacy_pilot as LP
 
-HERE = Path(__file__).resolve().parent
+HERE = Path(__file__).resolve().parent; TAG = "a12"      # A12 item 3: rerun under the A12 code (A10 results stay as the record of the earlier run)
 
 
 class Timed:
@@ -46,7 +46,7 @@ def main(era, fold):
             except Exception: pass
             time.sleep(2)
     threading.Thread(target=samp, daemon=True).start()
-    b = Timed(BK.DataBackend(era, fold)); out_dir = HERE / "results" / f"a10_machinery_{era}{fold}"; res = dict(era=era, fold=fold, failures=[])
+    b = Timed(BK.DataBackend(era, fold)); out_dir = HERE / "results" / f"{TAG}_machinery_{era}{fold}"; res = dict(era=era, fold=fold, failures=[])
     t0 = time.time(); b._b.c; res["load_and_features_s"] = round(time.time() - t0, 1); log(f"context built ({res['load_and_features_s']} s)")
     try:
         s1 = RUN.run_all(b, out_dir, excluded=set(), nboot=1000); res["run_s"] = round(time.time() - T0, 1); log("run_all done")
@@ -55,6 +55,9 @@ def main(era, fold):
         pf = s1["_per_fold"]; fid = f"{era}|{fold}"
         res["setups"] = {fam: dict(features=pf[fam][fid]["setup"]["features"], params=pf[fam][fid]["setup"]["params"], val_qlike=pf[fam][fid]["setup"]["val_qlike"], base_qlike=pf[fam][fid]["setup"]["base_qlike"],
                                    budget_exhausted=pf[fam][fid]["setup"]["budget_exhausted"], n_steps=len(pf[fam][fid]["setup"]["trace"])) for fam in pf}
+        fits = [(k[0], getattr(m, "fit_info", None)) for k, m in b._b._fits.items()]; em = [(f, i) for f, i in fits if i and i.get("converged")]
+        res["em_fits"] = dict(n_models=len(em), n_starts=sum(len(i["converged"]) for _, i in em), n_starts_reaching_cap=sum(1 for _, i in em for c in i["converged"] if not c), iterations_median=float(np.median([x for _, i in em for x in i["iterations"]])) if em else None,
+                              by_family={f: dict(starts=sum(len(i["converged"]) for g, i in em if g == f), at_cap=sum(1 for g, i in em if g == f for c in i["converged"] if not c)) for f in sorted({f for f, _ in em})})
         res["scores"] = {fam: pf[fam][fid]["score"] for fam in pf}; res["skipped_h1a"] = s1["skipped_h1a"]; res["tests_note"] = "one fold per call: fold-level tests not evaluable (n<2); no H1 verdict is read"
         res["holm_confirmatory_is_not_evaluable"] = all(not np.isfinite(v["p"]) for v in s1["holm"]["confirmatory"].values())
         res["non_finite_outputs"] = finite_tree({k: v for k, v in res.items() if k != "scores"}) + finite_tree(res["scores"])
@@ -62,7 +65,7 @@ def main(era, fold):
     except Exception as e:
         import traceback; res["failures"].append(traceback.format_exc()); log("FAILED: " + str(e))
     stop.set(); res["backend_seconds"] = {k: round(v, 1) for k, v in b.t.items()}; res["backend_calls"] = b.n; res["peak_memory_mb"] = round(peak[0], 0); res["min_free_system_mb"] = round(minfree[0], 0); res["total_minutes"] = round((time.time() - T0) / 60, 2)
-    (HERE / "results" / f"a10_machinery_{era}{fold}.json").write_text(json.dumps(res, indent=1, default=float), encoding="utf-8"); log(f"done; failures {len(res['failures'])}; peak {res['peak_memory_mb']} MB")
+    (HERE / "results" / f"{TAG}_machinery_{era}{fold}.json").write_text(json.dumps(res, indent=1, default=float), encoding="utf-8"); log(f"done; failures {len(res['failures'])}; peak {res['peak_memory_mb']} MB")
 
 
 if __name__ == "__main__":

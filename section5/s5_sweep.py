@@ -17,30 +17,34 @@ def stack(res_list, seqs, key):
     return V, real, avail
 
 
-def sweep_old_state(P, real, avail, thetas, taus=None, window=60 * MIN, run=3, warm=2, refractory=30 * MIN):
+def sweep_old_state(P, real, avail, thetas, taus=None, window=60 * MIN, run=3, warm=2, refractory=30 * MIN, return_dropped=False):
+    """A12: the old state is not re-based inside the refractory period (finding 7); a hit needs the first update of the run available strictly after tau (finding 14); with
+    return_dropped=True a third array (S, G) counts runs still open at the close (finding 15)."""
     S, T, K = P.shape; G = len(thetas); th = np.asarray(thetas, float)[None, :]
-    cur = np.full((S, G), -1); cnt = np.zeros((S, G), int); ref = np.full((S, G), -1, np.int64)
+    cur = np.full((S, G), -1); cnt = np.zeros((S, G), int); ref = np.full((S, G), -1, np.int64); fa = np.zeros((S, G), np.int64)
     counts = np.zeros((S, G), int); hit = np.zeros((S, G), bool); argm = P.argmax(2); sidx = np.arange(S)[:, None]; kk = np.arange(K)[None, None, :]
     tau = None if taus is None else np.asarray(taus, np.int64)[:, None]
     for i in range(T):
-        r = real[:, i][:, None]; a = avail[:, i][:, None]
-        setcur = r & ((i < warm) | (a < ref) | (cur < 0)); cur = np.where(setcur, argm[:, i][:, None], cur)
-        cnt = np.where(setcur | ~r, 0, cnt); active = r & ~setcur
+        r = real[:, i][:, None]; a = avail[:, i][:, None]; pad = a == 0
+        setcur = r & ((i < warm) | (cur < 0)); cur = np.where(setcur, argm[:, i][:, None], cur)
+        inref = r & ~setcur & (a < ref)
+        cnt = np.where(setcur | inref | (~r & ~pad), 0, cnt); active = r & ~setcur & ~inref          # padding does not reset an open run (the session simply ended)
         if not active.any(): continue
         curc = np.maximum(cur, 0); Pi = P[:, i, :]; po = Pi[sidx, curc]
         so = (Pi[:, None, :] * (kk != curc[:, :, None])).sum(2)
         with np.errstate(divide="ignore"):
             lo = np.where(po <= 0, np.inf, np.where(so <= 0, -np.inf, np.log(np.where(so > 0, so, 1.0)) - np.log(np.where(po > 0, po, 1.0))))
-        cond = active & (lo > th); cnt = np.where(active, np.where(cond, cnt + 1, 0), cnt); fire = active & (cnt >= run)
+        cond = active & (lo > th); fa = np.where(cond & (cnt == 0), a, fa); cnt = np.where(active, np.where(cond, cnt + 1, 0), cnt); fire = active & (cnt >= run)
         counts += fire
-        if tau is not None: hit |= fire & (a >= tau) & (a <= tau + window)
+        if tau is not None: hit |= fire & (fa > tau) & (a <= tau + window)
         cur = np.where(fire, argm[:, i][:, None], cur); ref = np.where(fire, a + refractory, ref); cnt = np.where(fire, 0, cnt)
-    return counts, hit
+    return (counts, hit, (cnt > 0).astype(int)) if return_dropped else (counts, hit)
 
 
-def sweep_map(rstar, real, avail, ms, taus=None, window=60 * MIN, hold=3, warm=2, refractory=30 * MIN):
+def sweep_map(rstar, real, avail, ms, taus=None, window=60 * MIN, hold=3, warm=2, refractory=30 * MIN, return_dropped=False):
+    """A12: a hit needs the drop update (T_d) available strictly after tau (finding 14); return_dropped=True adds the count of candidates open at the close (finding 15)."""
     S, T = rstar.shape; G = len(ms); m = np.asarray(ms, float)[None, :]
-    cand = np.zeros((S, G), bool); low = np.zeros((S, G)); cnt = np.zeros((S, G), int); ref = np.full((S, G), -1, np.int64)
+    cand = np.zeros((S, G), bool); low = np.zeros((S, G)); cnt = np.zeros((S, G), int); ref = np.full((S, G), -1, np.int64); dav = np.zeros((S, G), np.int64)
     counts = np.zeros((S, G), int); hit = np.zeros((S, G), bool); prev = np.zeros(S); has = np.zeros(S, bool)
     tau = None if taus is None else np.asarray(taus, np.int64)[:, None]
     for i in range(T):
@@ -51,10 +55,10 @@ def sweep_map(rstar, real, avail, ms, taus=None, window=60 * MIN, hold=3, warm=2
         inref = a < ref; cand = np.where(r & inref, False, cand); proc = r & ~inref
         # candidate present
         has_c = proc & cand; restart = has_c & dropped; grow = has_c & ~dropped & (rs <= low + cnt + 1); fail = has_c & ~dropped & ~grow
-        cnt = np.where(restart, 0, np.where(grow, cnt + 1, cnt)); low = np.where(restart, rs, low); cand = np.where(fail, False, cand)
+        cnt = np.where(restart, 0, np.where(grow, cnt + 1, cnt)); low = np.where(restart, rs, low); dav = np.where(restart, a, dav); cand = np.where(fail, False, cand)
         fire = grow & (cnt >= hold); counts += fire
-        if tau is not None: hit |= fire & (a >= tau) & (a <= tau + window)
+        if tau is not None: hit |= fire & (dav > tau) & (a <= tau + window)
         ref = np.where(fire, a + refractory, ref); cand = np.where(fire, False, cand)
         # no candidate: a drop starts one
-        start = proc & ~has_c & dropped; cand = np.where(start, True, cand); low = np.where(start, rs, low); cnt = np.where(start, 0, cnt)
-    return counts, hit
+        start = proc & ~has_c & dropped; cand = np.where(start, True, cand); low = np.where(start, rs, low); cnt = np.where(start, 0, cnt); dav = np.where(start, a, dav)
+    return (counts, hit, cand.astype(int)) if return_dropped else (counts, hit)

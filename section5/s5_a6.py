@@ -56,7 +56,7 @@ def build_specs(d, dv, stable, rng, n_null, cells, n_cell):
     for (R, dr, du) in cells:
         for _ in range(n_cell):
             for _t in range(500):
-                A, B = (int(x) for x in rng.choice(stable, 2, replace=False)); g = int(rng.choice([t for t in V.TAU_SLOTS if t <= D2.G_MAX])); e = None if du is None else g + du
+                A, B = (int(x) for x in rng.choice(stable, 2, replace=False)); g = int(rng.choice([t for t in V.TAU_SLOTS if t <= D2.tau_cap(du)])); e = None if du is None else g + du      # A12 finding 9
                 if D2.finite_ok(d, A, B, g, e): break
             else: raise RuntimeError("break pair")
             fa, fb = int(d["first"][A]), int(d["first"][B]); last = 389 if du is None else g + du

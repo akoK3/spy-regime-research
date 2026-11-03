@@ -76,7 +76,7 @@ def main():
     # same, without the D6 date exposures (registry segments only), for information
     reg_only = {k: v for k, v in REGISTRY.items() if v != "DATES"}; tch_reg = touched(days, [], reg_only, ft); ex_reg = exclusions(days, tch_reg, ft)
     fo = fomc_days(); bars = json.loads((RES / "session_bars.json").read_text()); ok_days = {e: {x for x, b in zip(days[e], bars[e]) if b == 390} for e in days}; ev = {}; seen = set(); unavailable = []
-    rtp = RES / "h1c_release_times.json"; rt = json.loads(rtp.read_text())["meetings"] if rtp.exists() else None          # A11 item 3: actual release times; no time assumed
+    rtp = RES / "h1c_schedule_times.json"; rtp = rtp if rtp.exists() else RES / "h1c_release_times.json"; rt = json.loads(rtp.read_text())["meetings"] if rtp.exists() else None          # A11 item 3 / A12 item 2: stated or documented release times; ambiguous meetings excluded
     for r in sorted(ex, key=lambda r: (r["era"], r["fold"])):
         if r["excluded"]: continue
         row = ft[(ft.era == r["era"]) & (ft.fold == r["fold"])].iloc[0]; cand = [x for x in test_days_after_embargo(days[r["era"]], row) if x in set(fo) and x in ok_days[r["era"]] and x not in seen]

@@ -119,12 +119,12 @@ class GaussianHMM(_HMMBase):
         best = None; self.fit_info = dict(iterations=[], restarts=0)
         for s in range(self.starts):
             rng = np.random.default_rng(self.seed * 1000 + s)
-            self._init(batch, rng); prev = -np.inf; it = 0
+            self._init(batch, rng); prev = -np.inf; it = 0; conv = False
             for it in range(1, self.iters + 1):
                 ll = self._em_step(batch)
-                if np.isfinite(prev) and abs(ll - prev) < self.tol * max(1.0, abs(prev)): break
+                if np.isfinite(prev) and abs(ll - prev) < self.tol: conv = True; break
                 prev = ll
-            self.fit_info["iterations"].append(it)
+            self.fit_info["iterations"].append(it); self.fit_info.setdefault("converged", []).append(conv)
             if best is None or ll > best[0]: best = (ll, self._state())
         self._load(best[1]); self.loglik = best[0]; self._reorder()
         return self
@@ -184,14 +184,14 @@ class StudentTHMM(GaussianHMM):
         for s in range(self.starts):
             for attempt in range(10):  # restart (new initialisation) if a state is under 1% occupancy
                 rng = np.random.default_rng(self.seed * 1000 + s * 17 + attempt)
-                self._init(batch, rng); prev = -np.inf
+                self._init(batch, rng); prev = -np.inf; conv = False
                 for it in range(1, self.iters + 1):
                     ll = self._em_step(batch)
-                    if np.isfinite(prev) and abs(ll - prev) < self.tol * max(1.0, abs(prev)): break
+                    if np.isfinite(prev) and abs(ll - prev) < self.tol: conv = True; break
                     prev = ll
                 if (self._occ >= 0.01).all(): break
                 self.fit_info["restarts"] += 1
-            self.fit_info["iterations"].append(it)
+            self.fit_info["iterations"].append(it); self.fit_info.setdefault("converged", []).append(conv)
             if best is None or ll > best[0]: best = (ll, self._state())
         self._load(best[1]); self.loglik = best[0]; self._reorder()
         return self
@@ -274,12 +274,12 @@ class HSMM:
     def fit(self, batch):
         best = None; self.fit_info = dict(iterations=[], restarts=0)
         for s in range(self.starts):
-            self._init(batch, np.random.default_rng(self.seed * 1000 + s)); prev = -np.inf
+            self._init(batch, np.random.default_rng(self.seed * 1000 + s)); prev = -np.inf; conv = False
             for it in range(1, self.iters + 1):
                 ll = self._em_step(batch)
-                if np.isfinite(prev) and abs(ll - prev) < self.tol * max(1.0, abs(prev)): break
+                if np.isfinite(prev) and abs(ll - prev) < self.tol: conv = True; break
                 prev = ll
-            self.fit_info["iterations"].append(it)
+            self.fit_info["iterations"].append(it); self.fit_info.setdefault("converged", []).append(conv)
             if best is None or ll > best[0]: best = (ll, {k: getattr(self, k).copy() for k in ("pi", "A", "mu", "var", "h")})
         for k, v in best[1].items(): setattr(self, k, v)
         self.loglik = best[0]

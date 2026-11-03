@@ -1,0 +1,164 @@
+{
+ "era": "LEGACY",
+ "fold": 29,
+ "failures": [],
+ "load_and_features_s": 14.3,
+ "run_s": 1355.7,
+ "resume": {
+  "first": {
+   "hits": 0,
+   "misses": 8
+  },
+  "second": {
+   "hits": 8,
+   "misses": 0
+  }
+ },
+ "freeze_step": {
+  "written_in_tempdir": true,
+  "h2_primary": null,
+  "passing": []
+ },
+ "setups": {
+  "gaussian_hmm": {
+   "features": [
+    "rv5_strict",
+    "downside10_strict__sadj"
+   ],
+   "params": {
+    "K": 3
+   },
+   "val_qlike": 0.2056574948805518,
+   "base_qlike": 0.27897564100411676,
+   "budget_exhausted": false,
+   "n_steps": 4
+  },
+  "student_t_hmm": {
+   "features": [
+    "downside5_strict"
+   ],
+   "params": {
+    "K": 3
+   },
+   "val_qlike": 0.21190528351351465,
+   "base_qlike": 0.2786067655939866,
+   "budget_exhausted": false,
+   "n_steps": 3
+  },
+  "hsmm": {
+   "features": [
+    "rv10_partial90",
+    "intrabar_range_log__sadj"
+   ],
+   "params": {
+    "K": 3
+   },
+   "val_qlike": 0.19185315519036092,
+   "base_qlike": 0.27517701656855,
+   "budget_exhausted": false,
+   "n_steps": 4
+  },
+  "bocpd": {
+   "features": [
+    "momentum15_endpoint",
+    "momentum10_endpoint"
+   ],
+   "params": {
+    "lam": 12
+   },
+   "val_qlike": 0.32408438123378996,
+   "base_qlike": 0.3360556987866635,
+   "budget_exhausted": false,
+   "n_steps": 4
+  }
+ },
+ "em_fits": {
+  "n_models": 161,
+  "n_starts": 187,
+  "n_starts_reaching_cap": 30,
+  "iterations_median": 109.0,
+  "by_family": {
+   "gaussian_hmm": {
+    "starts": 70,
+    "at_cap": 0
+   },
+   "hsmm": {
+    "starts": 67,
+    "at_cap": 12
+   },
+   "student_t_hmm": {
+    "starts": 50,
+    "at_cap": 18
+   }
+  }
+ },
+ "scores": {
+  "gaussian_hmm": {
+   "a": 0.059921875,
+   "a_skipped": null,
+   "b": 0.4826519864853991,
+   "b_skipped": null,
+   "b_n": 6927,
+   "b_dm_stat": 10.977752006156805,
+   "val_qlike": 0.2056574948805518
+  },
+  "student_t_hmm": {
+   "a": -0.021796874999999993,
+   "a_skipped": null,
+   "b": 0.5858228005133568,
+   "b_skipped": null,
+   "b_n": 7042,
+   "b_dm_stat": 7.093510546039294,
+   "val_qlike": 0.21190528351351465
+  },
+  "hsmm": {
+   "a": 0.01673958333333335,
+   "a_skipped": null,
+   "b": 0.5603951850840868,
+   "b_skipped": null,
+   "b_n": 6929,
+   "b_dm_stat": 11.020353460182605,
+   "val_qlike": 0.19185315519036092
+  },
+  "bocpd": {
+   "a": -0.009458333333333332,
+   "a_skipped": null,
+   "b": 0.04783499927425705,
+   "b_skipped": null,
+   "b_n": 6823,
+   "b_dm_stat": 7.861362057031511,
+   "val_qlike": 0.32408438123378996
+  }
+ },
+ "skipped_h1a": {
+  "gaussian_hmm": [],
+  "student_t_hmm": [],
+  "hsmm": [],
+  "bocpd": []
+ },
+ "tests_note": "one fold per call: fold-level tests not evaluable (n<2); no H1 verdict is read",
+ "holm_confirmatory_is_not_evaluable": true,
+ "non_finite_outputs": [],
+ "n_stable_test": true,
+ "backend_seconds": {
+  "folds": 0.0,
+  "candidates": 0.0,
+  "objective_calls": 959.7,
+  "param_grid": 0.0,
+  "score": 381.7,
+  "final_thresholds": 57.4,
+  "input_hashes": 0.0
+ },
+ "backend_calls": {
+  "folds": 2,
+  "candidates": 4,
+  "objective_calls": 214,
+  "param_grid": 4,
+  "score": 4,
+  "final_thresholds": 4,
+  "input_hashes": 1
+ },
+ "peak_memory_mb": 965.0,
+ "min_free_system_mb": 1654.0,
+ "total_minutes": 23.55
+}
