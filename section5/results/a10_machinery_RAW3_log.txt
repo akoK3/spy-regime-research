@@ -1,0 +1,5 @@
+[  0.1 min] context built (3.6 s)
+[  9.8 min] run_all done
+[  9.8 min] resume check done
+[  9.9 min] done; failures 0; peak 408.0 MB
+exit

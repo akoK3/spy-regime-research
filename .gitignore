@@ -191,3 +191,14 @@
 !section5/results/unit_tests_run.json
 !A9_DRY_RUN.md
 !A9_DRY_RUN.sha256
+!AMENDMENT_A10.md
+!AMENDMENT_A10.sha256
+!section5/write_amendment_a10.py
+!section5/s5_backend.py
+!section5/s5_machinery_run.py
+!section5/s5_tests_backend.py
+!A10_MACHINERY_REPORT.md
+!A10_MACHINERY_REPORT.sha256
+!section5/results/a10_*.json
+!section5/results/a10_*.txt
+!section5/results/unit_tests_backend.json
