@@ -1,0 +1,134 @@
+{
+ "SYNTHETIC": true,
+ "minutes": 0.026,
+ "code_version": "5abd464a9b7c3e2f",
+ "n_folds": 20,
+ "excluded": [
+  "LEGACY|14",
+  "LEGACY|15",
+  "RAW|2",
+  "RAW|3"
+ ],
+ "checkpoint_first_run": {
+  "hits": 0,
+  "misses": 160
+ },
+ "checkpoint_second_run": {
+  "hits": 160,
+  "misses": 0
+ },
+ "holm_confirmatory": {
+  "gaussian_hmm": {
+   "p": 0.0004997501249375312,
+   "p_adj": 0.0014992503748125937,
+   "reject": true,
+   "secondary": false
+  },
+  "student_t_hmm": {
+   "p": 0.0004997501249375312,
+   "p_adj": 0.0014992503748125937,
+   "reject": true,
+   "secondary": false
+  },
+  "hsmm": {
+   "p": 0.5727136431784108,
+   "p_adj": 0.5727136431784108,
+   "reject": false,
+   "secondary": false
+  },
+  "bocpd": {
+   "p": 0.0004997501249375312,
+   "p_adj": NaN,
+   "reject": false,
+   "secondary": true
+  }
+ },
+ "h1a_skipped_folds": {
+  "gaussian_hmm": [
+   "LEGACY|3",
+   "RAW|1"
+  ],
+  "student_t_hmm": [
+   "LEGACY|3",
+   "RAW|1"
+  ],
+  "hsmm": [
+   "LEGACY|3",
+   "RAW|1"
+  ],
+  "bocpd": [
+   "LEGACY|3",
+   "RAW|1"
+  ]
+ },
+ "final_setups_LEGACY": {
+  "gaussian_hmm": {
+   "features": [
+    "f1",
+    "f2"
+   ],
+   "params": {
+    "K": 3
+   }
+  },
+  "student_t_hmm": {
+   "features": [
+    "f1",
+    "f3"
+   ],
+   "params": {
+    "K": 3
+   }
+  },
+  "hsmm": {
+   "features": [],
+   "params": {
+    "K": 3
+   }
+  },
+  "bocpd": {
+   "features": [
+    "f2"
+   ],
+   "params": {
+    "lam": 39
+   }
+  }
+ },
+ "h1_passing": [
+  "gaussian_hmm",
+  "student_t_hmm"
+ ],
+ "h2_primary_detector": "gaussian_hmm",
+ "runner_calls": [
+  [
+   "fit",
+   "LEGACY"
+  ],
+  [
+   "run",
+   "LEGACY"
+  ],
+  [
+   "fit",
+   "RAW"
+  ],
+  [
+   "run",
+   "RAW"
+  ]
+ ],
+ "second_run": "blocked",
+ "n_confirmatory_folds_used": {
+  "gaussian_hmm": 14,
+  "student_t_hmm": 14,
+  "hsmm": 14,
+  "bocpd": 14
+ },
+ "n_all_folds_used": {
+  "gaussian_hmm": 18,
+  "student_t_hmm": 18,
+  "hsmm": 18,
+  "bocpd": 18
+ }
+}

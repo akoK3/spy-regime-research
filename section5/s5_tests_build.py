@@ -102,18 +102,22 @@ class TestH1(unittest.TestCase):
         self.assertEqual(r["confirmatory"]["H1a"]["n_folds"], 8); self.assertEqual(r["confirmatory"]["H1b"]["n_folds"], 8); self.assertEqual(r["all_folds_sensitivity"]["H1a"]["n_folds"], 10); self.assertEqual(r["all_folds_sensitivity"]["H1b"]["n_folds"], 9)
         self.assertGreater(r["confirmatory"]["H1a"]["mean"], 0); self.assertLess(r["all_folds_sensitivity"]["H1a"]["mean"], 0)
 
-    def test_h1_decision_holm_over_families(self):
-        fr = {f: {"confirmatory": {"p_iu": p}} for f, p in zip(H.FAMILIES, [0.001, 0.2, 0.012, float("nan")])}; d = H.h1_decision(fr)
-        self.assertTrue(d["gaussian_hmm"]["reject"]); self.assertFalse(d["student_t_hmm"]["reject"]); self.assertTrue(d["hsmm"]["reject"]); self.assertFalse(d["bocpd"]["reject"])    # m = 3 evaluable families
+    def test_h1_decision_holm_over_three_families_bocpd_secondary(self):
+        fr = {f: {"confirmatory": {"p_iu": p}} for f, p in zip(H.FAMILIES, [0.001, 0.2, 0.012, 0.0001])}; d = H.h1_decision(fr)
+        self.assertEqual(H.H1_FAMILIES, ("gaussian_hmm", "student_t_hmm", "hsmm")); self.assertAlmostEqual(d["gaussian_hmm"]["p_adj"], 0.003)           # m = 3, smallest p x 3
+        self.assertTrue(d["gaussian_hmm"]["reject"]); self.assertFalse(d["student_t_hmm"]["reject"]); self.assertTrue(d["hsmm"]["reject"]); self.assertAlmostEqual(d["hsmm"]["p_adj"], 0.024)
+        self.assertTrue(d["bocpd"]["secondary"]); self.assertFalse(d["bocpd"]["reject"]); self.assertEqual(d["bocpd"]["p"], 0.0001)                 # outside Holm even with the smallest p
+        fr2 = {f: {"confirmatory": {"p_iu": p}} for f, p in zip(H.FAMILIES, [0.02, 0.02, 0.02, 0.5])}; self.assertFalse(any(H.h1_decision(fr2)[f]["reject"] for f in H.H1_FAMILIES))   # 0.02 x 3 = 0.06
 
 
 class TestFreeze(unittest.TestCase):
     def doc(self, passing=("hsmm", "gaussian_hmm")):
-        return FZ.build_freeze(dict(LEGACY=dict(f=1), RAW=dict(f=2)), dict(LEGACY=dict(t=1), RAW=dict(t=2)), dict(x="abc"), {f: dict(reject=f in passing) for f in H.FAMILIES},
+        return FZ.build_freeze(dict(LEGACY=dict(f=1), RAW=dict(f=2)), dict(LEGACY=dict(t=1), RAW=dict(t=2)), dict(x="abc"), {f: dict(reject=f in passing, secondary=f in H.SECONDARY_FAMILIES) for f in H.FAMILIES},
                                dict(gaussian_hmm=1.0, student_t_hmm=0.9, hsmm=1.0, bocpd=1.2), "ph", ["A6", "A7", "A8"])
 
     def test_h2_primary_lowest_validation_qlike_then_simpler(self):
         self.assertEqual(FZ.h2_primary(["hsmm", "gaussian_hmm"], dict(hsmm=1.0, gaussian_hmm=1.0)), "gaussian_hmm")           # tie -> simpler
+        self.assertEqual(FZ.h2_primary(["hsmm", "student_t_hmm"], dict(hsmm=1.0, student_t_hmm=1.0)), "student_t_hmm"); self.assertIsNone(FZ.h2_primary(["bocpd"], dict(bocpd=0.1)))   # A9: Gaussian < Student-t < HSMM; BOCPD never H2
         self.assertEqual(FZ.h2_primary(["hsmm", "gaussian_hmm"], dict(hsmm=0.9, gaussian_hmm=1.0)), "hsmm"); self.assertIsNone(FZ.h2_primary([], {}))
         self.assertEqual(self.doc()["h2_primary_detector"], "gaussian_hmm"); self.assertEqual(self.doc(())["h2_primary_detector"], None)
 

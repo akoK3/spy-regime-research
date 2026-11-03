@@ -9,7 +9,9 @@ import s5_eval as V
 import s5_stats as ST
 
 MIN_STABLE_TEST_DAYS = 8
-FAMILIES = ("gaussian_hmm", "student_t_hmm", "hsmm", "bocpd")
+H1_FAMILIES = ("gaussian_hmm", "student_t_hmm", "hsmm")      # A9 item 1 (A6 item 4): Holm runs across these three
+SECONDARY_FAMILIES = ("bocpd",)                                # scored and reported, outside H1 and its Holm family
+FAMILIES = H1_FAMILIES + SECONDARY_FAMILIES
 
 
 def h1a_fold_effect(points_feat, points_base, n_stable_test):
@@ -38,5 +40,8 @@ def family_result(effects_a, effects_b, fold_ids, excluded=(), nboot=10000, seed
 
 
 def h1_decision(family_results, alpha=0.05, which="confirmatory"):
-    """Holm across the four families on the IU p-values (5.11)."""
-    return ST.holm({f: family_results[f][which]["p_iu"] for f in family_results}, alpha)
+    """Holm across the three H1 families on the IU p-values (5.11, A6 item 4, A9 item 1). BOCPD (secondary) is returned unadjusted, never rejected by this function."""
+    out = ST.holm({f: family_results[f][which]["p_iu"] for f in family_results if f in H1_FAMILIES}, alpha)
+    for f in family_results:
+        if f not in H1_FAMILIES: out[f] = dict(p=family_results[f][which]["p_iu"], p_adj=float("nan"), reject=False, secondary=True)
+    return out

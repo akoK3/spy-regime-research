@@ -9,20 +9,20 @@ import json, hashlib, datetime
 from pathlib import Path
 import numpy as np
 
-SIMPLICITY = ["gaussian_hmm", "bocpd", "student_t_hmm", "hsmm"]       # implementation choice for 'simpler model' (fewest parameters first); to be confirmed by amendment before use
+SIMPLICITY = ["gaussian_hmm", "student_t_hmm", "hsmm"]                 # A9 item 2: simplest first; BOCPD is not an H1 family and cannot be the H2 primary detector
 EVAL_PREFIX = "evaluation_"                                            # evaluation outputs are files named evaluation_*.json in the results directory
 sha = lambda p: hashlib.sha256(Path(p).read_bytes()).hexdigest()
 
 
 def h2_primary(passing, median_val_qlike):
     """passing: iterable of families that pass H1; median_val_qlike: family -> median validation QLIKE across folds. None if no family passes."""
-    ps = [f for f in passing if f in median_val_qlike and np.isfinite(median_val_qlike[f])]
+    ps = [f for f in passing if f in SIMPLICITY and f in median_val_qlike and np.isfinite(median_val_qlike[f])]
     if not ps: return None
     return sorted(ps, key=lambda f: (median_val_qlike[f], SIMPLICITY.index(f) if f in SIMPLICITY else len(SIMPLICITY)))[0]
 
 
 def build_freeze(setups, thresholds, input_hashes, h1_verdicts, median_val_qlike, protocol_hash, amendments):
-    passing = [f for f, v in h1_verdicts.items() if v.get("reject")]
+    passing = [f for f, v in h1_verdicts.items() if v.get("reject") and not v.get("secondary")]
     return dict(kind="section5_freeze", created_utc=datetime.datetime.now(datetime.timezone.utc).isoformat(), protocol_sha256=protocol_hash, amendments=amendments,
                 setups=setups, thresholds=thresholds, input_hashes=input_hashes, h1_verdicts=h1_verdicts, median_validation_qlike=median_val_qlike, h1_passing_families=passing,
                 h2_primary_detector=h2_primary(passing, median_val_qlike))

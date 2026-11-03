@@ -181,3 +181,13 @@
 !section5/s5_tests_build.py
 !section5/results/unit_tests_build.json
 !section5/s5_ledger.py
+!AMENDMENT_A9.md
+!AMENDMENT_A9.sha256
+!section5/write_amendment_a9.py
+!section5/s5_run.py
+!section5/s5_dry_run.py
+!section5/s5_tests_run.py
+!section5/results/a9_dry_run_synthetic.json
+!section5/results/unit_tests_run.json
+!A9_DRY_RUN.md
+!A9_DRY_RUN.sha256
