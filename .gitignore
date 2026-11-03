@@ -202,3 +202,6 @@
 !section5/results/a10_*.json
 !section5/results/a10_*.txt
 !section5/results/unit_tests_backend.json
+!SECTION5_PROTOCOL_v0_DRAFT.md
+!SECTION5_PROTOCOL_v0_DRAFT.sha256
+!section5/write_protocol_frozen.py
