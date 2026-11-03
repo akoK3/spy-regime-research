@@ -174,3 +174,10 @@
 !section5/write_a8_4_report.py
 !A8_4_INVESTIGATION.md
 !A8_4_INVESTIGATION.sha256
+!section5/s5_select.py
+!section5/s5_stats.py
+!section5/s5_h1.py
+!section5/s5_freeze.py
+!section5/s5_tests_build.py
+!section5/results/unit_tests_build.json
+!section5/s5_ledger.py
