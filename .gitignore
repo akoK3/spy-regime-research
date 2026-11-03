@@ -160,3 +160,10 @@
 !section5/write_amendment_a8_2.py
 !A8_2_GATE_REPORT.md
 !A8_2_GATE_REPORT.sha256
+!AMENDMENT_A8_3.md
+!AMENDMENT_A8_3.sha256
+!section5/write_amendment_a8_3.py
+!section5/s5_a8_gate_seeds.py
+!A8_3_GATE_CHARACTERIZATION.md
+!A8_3_GATE_CHARACTERIZATION.sha256
+!section5/write_a8_3_report.py
