@@ -155,3 +155,8 @@
 !section5/s5_h1c.py
 !A8_1_GATE_REPORT.md
 !A8_1_GATE_REPORT.sha256
+!AMENDMENT_A8_2.md
+!AMENDMENT_A8_2.sha256
+!section5/write_amendment_a8_2.py
+!A8_2_GATE_REPORT.md
+!A8_2_GATE_REPORT.sha256

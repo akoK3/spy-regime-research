@@ -56,9 +56,13 @@ def main(era, fold, seed):
         R_, re_, av_, t_ = run_(rowsp2); _, hp2 = sw(R_, re_, av_, t_)
         pa = lambda y: A.pauc(list(zip(xs.tolist(), np.asarray(y).tolist())))
         p_null, p_pl, p_pl2 = pa(h2.mean(0)), pa(hp.mean(0)), pa(hp2.mean(0))
-        boot = np.array([pa(hp2[brng.integers(0, len(hp2), len(hp2))].mean(0)) for _ in range(NBOOT)]); lo, hi = np.quantile(boot, [0.025, 0.975])   # A8.1: reference = P2
+        bootS = np.array([pa(hp2[brng.integers(0, len(hp2), len(hp2))].mean(0)) for _ in range(NBOOT)]); loS, hiS = np.quantile(bootS, [0.025, 0.975])   # A8.1 splice-level, information only
+        dayidx = {int(x): k for k, x in enumerate(stable)}; cl = np.array([dayidx[int(r["iA"])] for r in rowsp2]); nd = len(stable)       # A8.2: resample stable days, weight splices by their A-day count
+        def dboot():
+            w = np.bincount(brng.integers(0, nd, nd), minlength=nd)[cl].astype(float); return pa((w @ hp2) / w.sum()) if w.sum() else np.nan
+        boot = np.array([dboot() for _ in range(NBOOT)]); boot = boot[np.isfinite(boot)]; lo, hi = np.quantile(boot, [0.025, 0.975])
         bootn = np.array([pa(h2[brng.integers(0, len(h2), len(h2))].mean(0)) for _ in range(NBOOT)]); lon, hin = np.quantile(bootn, [0.025, 0.975])  # old rule, information only
-        out[f"{fam}|{sname}"] = dict(pauc_null=p_null, pauc_placebo=p_pl, pauc_placebo2=p_pl2, placebo2_ci=[float(lo), float(hi)], inside=bool(lo <= p_pl <= hi), null_ci=[float(lon), float(hin)], inside_vs_null_info_only=bool(lon <= p_pl <= hin), hit0p2_null=A.y_at(list(zip(xs.tolist(), h2.mean(0).tolist())), 0.2),
+        out[f"{fam}|{sname}"] = dict(pauc_null=p_null, pauc_placebo=p_pl, pauc_placebo2=p_pl2, placebo2_ci=[float(lo), float(hi)], placebo2_ci_splice_level=[float(loS), float(hiS)], inside=bool(lo <= p_pl <= hi), null_ci=[float(lon), float(hin)], inside_vs_null_info_only=bool(lon <= p_pl <= hin), hit0p2_null=A.y_at(list(zip(xs.tolist(), h2.mean(0).tolist())), 0.2),
                                      hit0p2_placebo=A.y_at(list(zip(xs.tolist(), hp.mean(0).tolist())), 0.2), smallest_x=float(xs.min()))
         log(f"{fam}|{sname} P2 {p_pl2:.3f} [{lo:.3f},{hi:.3f}] P1 {p_pl:.3f} null {p_null:.3f} inside={out[f'{fam}|{sname}']['inside']}")
     diff = {f"{fam}": dict(placebo2=out[f"{fam}|f3"]["pauc_placebo2"] - out[f"{fam}|base"]["pauc_placebo2"], null=out[f"{fam}|f3"]["pauc_null"] - out[f"{fam}|base"]["pauc_null"], placebo=out[f"{fam}|f3"]["pauc_placebo"] - out[f"{fam}|base"]["pauc_placebo"]) for fam in B.FAMS}
@@ -69,9 +73,9 @@ def main(era, fold, seed):
             with np.errstate(all="ignore"): res.append(np.log(np.nanmean(X[post], 0) / np.nanmean(X[pre], 0)))
         a = np.array(res); a[~np.isfinite(a)] = np.nan; return np.nanmedian(a, 0)
     sn, sp_ = shifts(rows2), shifts(rowsp)
-    res = dict(rule="A8.1: P1 inside 95% bootstrap interval of P2", era=era, fold=fold, seed=seed, stable_validation_days=len(stable), n=dict(N1=len(n1), N2=len(n2), placebo=len(pl), placebo2=len(pl2)), detectors=out, all_inside=all(v["inside"] for v in out.values()),
+    res = dict(rule="A8.2: P1 inside 95% day-level bootstrap interval of P2", era=era, fold=fold, seed=seed, stable_validation_days=len(stable), n=dict(N1=len(n1), N2=len(n2), placebo=len(pl), placebo2=len(pl2)), detectors=out, all_inside=all(v["inside"] for v in out.values()),
                pauc_f3_minus_base=diff, feature_shift_median_log_ratio_after_over_before=dict(names=names, null=sn.tolist(), placebo=sp_.tolist()), minutes=round((time.time() - T0) / 60, 1))
-    (L.HERE / "results" / f"a8_1_gate_{era}{fold}_seed{seed}.json").write_text(json.dumps(res, indent=1, default=float)); log(f"GATE all_inside={res['all_inside']}")
+    (L.HERE / "results" / f"a8_2_gate_{era}{fold}_seed{seed}.json").write_text(json.dumps(res, indent=1, default=float)); log(f"GATE all_inside={res['all_inside']}")
 
 
 if __name__ == "__main__":

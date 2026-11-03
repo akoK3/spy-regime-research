@@ -1,0 +1,283 @@
+{
+ "rule": "A8.2: P1 inside 95% day-level bootstrap interval of P2",
+ "era": "LEGACY",
+ "fold": 29,
+ "seed": 777,
+ "stable_validation_days": 7,
+ "n": {
+  "N1": 200,
+  "N2": 200,
+  "placebo": 200,
+  "placebo2": 200
+ },
+ "detectors": {
+  "gaussian_hmm|base": {
+   "pauc_null": 0.03585,
+   "pauc_placebo": 0.05165,
+   "pauc_placebo2": 0.020399999999999998,
+   "placebo2_ci": [
+    0.006125439340685977,
+    0.03966666666666666
+   ],
+   "placebo2_ci_splice_level": [
+    0.008499999999999999,
+    0.035699999999999996
+   ],
+   "inside": false,
+   "null_ci": [
+    0.018695,
+    0.0564
+   ],
+   "inside_vs_null_info_only": true,
+   "hit0p2_null": 0.025,
+   "hit0p2_placebo": 0.055,
+   "smallest_x": 0.0
+  },
+  "gaussian_hmm|f3": {
+   "pauc_null": 0.0468,
+   "pauc_placebo": 0.03465,
+   "pauc_placebo2": 0.014700000000000001,
+   "placebo2_ci": [
+    0.005932203389830509,
+    0.02747465484321068
+   ],
+   "placebo2_ci_splice_level": [
+    0.00485,
+    0.02705249999999999
+   ],
+   "inside": false,
+   "null_ci": [
+    0.0256425,
+    0.07035000000000001
+   ],
+   "inside_vs_null_info_only": true,
+   "hit0p2_null": 0.045,
+   "hit0p2_placebo": 0.05,
+   "smallest_x": 0.0
+  },
+  "student_t_hmm|base": {
+   "pauc_null": 0.0228,
+   "pauc_placebo": 0.00975,
+   "pauc_placebo2": 0.028900000000000002,
+   "placebo2_ci": [
+    0.007796610169491526,
+    0.057654263429509724
+   ],
+   "placebo2_ci_splice_level": [
+    0.0138,
+    0.05061499999999992
+   ],
+   "inside": true,
+   "null_ci": [
+    0.01019625,
+    0.039
+   ],
+   "inside_vs_null_info_only": false,
+   "hit0p2_null": 0.015,
+   "hit0p2_placebo": 0.0,
+   "smallest_x": 0.0
+  },
+  "student_t_hmm|f3": {
+   "pauc_null": 0.010250000000000002,
+   "pauc_placebo": 0.08925,
+   "pauc_placebo2": 0.056999999999999995,
+   "placebo2_ci": [
+    0.010084745762711865,
+    0.15925
+   ],
+   "placebo2_ci_splice_level": [
+    0.029947500000000002,
+    0.08790125
+   ],
+   "inside": true,
+   "null_ci": [
+    0.0014000000000000002,
+    0.022650000000000003
+   ],
+   "inside_vs_null_info_only": false,
+   "hit0p2_null": 0.005,
+   "hit0p2_placebo": 0.085,
+   "smallest_x": 0.0
+  },
+  "hsmm|base": {
+   "pauc_null": 0.03595,
+   "pauc_placebo": 0.020050000000000005,
+   "pauc_placebo2": 0.018500000000000003,
+   "placebo2_ci": [
+    0.0,
+    0.06052325581395349
+   ],
+   "placebo2_ci_splice_level": [
+    0.0064475,
+    0.03555
+   ],
+   "inside": true,
+   "null_ci": [
+    0.017145000000000004,
+    0.05930125
+   ],
+   "inside_vs_null_info_only": true,
+   "hit0p2_null": 0.035,
+   "hit0p2_placebo": 0.02,
+   "smallest_x": 0.0
+  },
+  "hsmm|f3": {
+   "pauc_null": 0.0371,
+   "pauc_placebo": 0.01575,
+   "pauc_placebo2": 0.0031500000000000013,
+   "placebo2_ci": [
+    0.0004830337235228544,
+    0.006649872529271052
+   ],
+   "placebo2_ci_splice_level": [
+    0.0005000000000000004,
+    0.007050000000000002
+   ],
+   "inside": false,
+   "null_ci": [
+    0.0183,
+    0.05860374999999998
+   ],
+   "inside_vs_null_info_only": false,
+   "hit0p2_null": 0.045,
+   "hit0p2_placebo": 0.005,
+   "smallest_x": 0.0
+  },
+  "bocpd|base": {
+   "pauc_null": 0.005,
+   "pauc_placebo": 0.03,
+   "pauc_placebo2": 0.02,
+   "placebo2_ci": [
+    0.0,
+    0.05263157894736842
+   ],
+   "placebo2_ci_splice_level": [
+    0.005,
+    0.04
+   ],
+   "inside": true,
+   "null_ci": [
+    0.0,
+    0.015
+   ],
+   "inside_vs_null_info_only": false,
+   "hit0p2_null": 0.005,
+   "hit0p2_placebo": 0.03,
+   "smallest_x": 0.0
+  },
+  "bocpd|f3": {
+   "pauc_null": 0.05485,
+   "pauc_placebo": 0.013049999999999999,
+   "pauc_placebo2": 0.0174,
+   "placebo2_ci": [
+    0.0,
+    0.04278864168618266
+   ],
+   "placebo2_ci_splice_level": [
+    0.00435,
+    0.0348
+   ],
+   "inside": true,
+   "null_ci": [
+    0.0304,
+    0.08524999999999999
+   ],
+   "inside_vs_null_info_only": false,
+   "hit0p2_null": 0.07,
+   "hit0p2_placebo": 0.015,
+   "smallest_x": 0.0
+  }
+ },
+ "all_inside": false,
+ "pauc_f3_minus_base": {
+  "gaussian_hmm": {
+   "placebo2": -0.005699999999999997,
+   "null": 0.010950000000000001,
+   "placebo": -0.017
+  },
+  "student_t_hmm": {
+   "placebo2": 0.028099999999999993,
+   "null": -0.012549999999999999,
+   "placebo": 0.0795
+  },
+  "hsmm": {
+   "placebo2": -0.01535,
+   "null": 0.0011499999999999982,
+   "placebo": -0.004300000000000005
+  },
+  "bocpd": {
+   "placebo2": -0.0026000000000000016,
+   "null": 0.049850000000000005,
+   "placebo": -0.01695
+  }
+ },
+ "feature_shift_median_log_ratio_after_over_before": {
+  "names": [
+   "ret5",
+   "return_1m",
+   "abs_return_1m",
+   "intrabar_range_log",
+   "relative_volume20",
+   "rv5_strict",
+   "downside5_strict",
+   "momentum5_endpoint",
+   "downside10_strict",
+   "rv10_partial90",
+   "momentum10_endpoint",
+   "momentum15_endpoint",
+   "momentum30_endpoint",
+   "close_location_proxy",
+   "abs_return_1m__sadj",
+   "intrabar_range_log__sadj",
+   "rv5_strict__sadj",
+   "downside5_strict__sadj",
+   "downside10_strict__sadj",
+   "rv10_partial90__sadj"
+  ],
+  "null": [
+   -0.17633075258017775,
+   -0.15015016408947054,
+   -0.15015016408947054,
+   -0.13467149691684824,
+   -0.10347143711487716,
+   -0.12245950374205022,
+   -0.16059182482716527,
+   -0.17737834071889186,
+   -0.12552288791409674,
+   -0.10931074905560731,
+   -0.22004054166029463,
+   -0.26425322104864,
+   -0.34035449884925195,
+   0.05967242252050859,
+   -0.0068086961551257095,
+   0.05343689924910248,
+   0.013491920535331929,
+   -0.01733068819547536,
+   -0.043415347285426995,
+   -0.007959776036375788
+  ],
+  "placebo": [
+   -0.1904690304990762,
+   -0.1314268918958472,
+   -0.1314268918958472,
+   -0.1399852676399613,
+   -0.1129058161707017,
+   -0.1262253088957236,
+   -0.1390619587494393,
+   -0.17912758228448195,
+   -0.12436644613360609,
+   -0.11401333438070776,
+   -0.238563570519508,
+   -0.27213173699873344,
+   -0.37043507272324483,
+   0.06975765106005727,
+   8.664516633196594e-05,
+   0.003405913355465754,
+   0.01295656481218175,
+   0.0008931263979348272,
+   -0.04995688279376795,
+   -0.012490820280539286
+  ]
+ },
+ "minutes": 3.2
+}
