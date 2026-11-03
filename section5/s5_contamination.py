@@ -75,12 +75,16 @@ def main():
     days = json.loads((RES / "session_days.json").read_text()); ft = folds_table(); tch = touched(days, fomc_days(), ft=ft); ex = exclusions(days, tch, ft)
     # same, without the D6 date exposures (registry segments only), for information
     reg_only = {k: v for k, v in REGISTRY.items() if v != "DATES"}; tch_reg = touched(days, [], reg_only, ft); ex_reg = exclusions(days, tch_reg, ft)
-    fo = fomc_days(); bars = json.loads((RES / "session_bars.json").read_text()); ok_days = {e: {x for x, b in zip(days[e], bars[e]) if b == 390} for e in days}; ev = {}; seen = set()
+    fo = fomc_days(); bars = json.loads((RES / "session_bars.json").read_text()); ok_days = {e: {x for x, b in zip(days[e], bars[e]) if b == 390} for e in days}; ev = {}; seen = set(); unavailable = []
+    rtp = RES / "h1c_release_times.json"; rt = json.loads(rtp.read_text())["meetings"] if rtp.exists() else None          # A11 item 3: actual release times; no time assumed
     for r in sorted(ex, key=lambda r: (r["era"], r["fold"])):
         if r["excluded"]: continue
         row = ft[(ft.era == r["era"]) & (ft.fold == r["fold"])].iloc[0]; cand = [x for x in test_days_after_embargo(days[r["era"]], row) if x in set(fo) and x in ok_days[r["era"]] and x not in seen]
+        if rt is not None:
+            unavailable += [x for x in cand if rt.get(x, {}).get("status") != "time"]; cand = [x for x in cand if rt.get(x, {}).get("status") == "time"]
         seen.update(cand); ev[f"{r['era']}{r['fold']}"] = cand
-    res = dict(h1c_eligible_events_per_fold=ev, n_h1c_events=sum(len(v) for v in ev.values()), rule="fold excluded from confirmatory H1 if its post-embargo test segment intersects a touched session (A8 item 2)", folds=ex, n_folds=len(ex), n_excluded=sum(e["excluded"] for e in ex),
+    minutes = {x: rt[x]["minute_after_0930"] for v in ev.values() for x in v} if rt is not None else None
+    res = dict(h1c_eligible_events_per_fold=ev, n_h1c_events=sum(len(v) for v in ev.values()), h1c_event_release_minute_after_0930=minutes, h1c_excluded_release_time_unavailable=sorted(unavailable), n_h1c_excluded_release_time_unavailable=len(unavailable), rule="fold excluded from confirmatory H1 if its post-embargo test segment intersects a touched session (A8 item 2)", folds=ex, n_folds=len(ex), n_excluded=sum(e["excluded"] for e in ex),
                uncontaminated=[(e["era"], e["fold"]) for e in ex if not e["excluded"]],
                information_registry_segments_only_excluded=[(e["era"], e["fold"]) for e in ex_reg if e["excluded"]],
                touched_sessions={e: len(v) for e, v in tch.items()}, touched_detail={e: {k: sorted(set(r)) for k, r in v.items()} for e, v in tch.items()})

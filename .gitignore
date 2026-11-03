@@ -205,3 +205,17 @@
 !SECTION5_PROTOCOL_v0_DRAFT.md
 !SECTION5_PROTOCOL_v0_DRAFT.sha256
 !section5/write_protocol_frozen.py
+!AMENDMENT_A11.md
+!AMENDMENT_A11.sha256
+!section5/write_amendment_a11.py
+!section5/s5_era_threshold.py
+!section5/s5_h1c_times.py
+!section5/s5_tests_a11.py
+!section5/write_protocol_a11.py
+!SECTION5_PROTOCOL_v1_FROZEN_A10.md
+!SECTION5_PROTOCOL_v1_FROZEN_A10.sha256
+!COLD_AUDIT_STATUS.md
+!COLD_AUDIT_STATUS.sha256
+!section5/results/h1c_release_times.json
+!section5/results/unit_tests_a11.json
+!section5/write_cold_audit_status.py

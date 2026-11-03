@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
-"""A8 item 5: H1(c), secondary. Scoring functions only (not run on real data under A8).
-Times are minutes after 09:30 ET of the availability of a confirmed alarm; FOMC statement at 14:00 = minute 270; window [270, 330] (14:00-15:00 inclusive)."""
+"""A8 item 5, A11 item 3: H1(c), secondary. Scoring functions only (not run on real data).
+The event minute is the meeting's actual release time from its federalreserve.gov statement page (results/h1c_release_times.json); minutes after 09:30 ET (14:00 = 270); hit window [t, t + 60 min]."""
 import json
 import numpy as np
 from scipy import stats
@@ -45,3 +45,8 @@ def summarize(family, hits_f3, hits_base, ref_f3, ref_base):
     return dict(family=family, f3=dict(hit_rate=float(np.mean(hits_f3)) if len(hits_f3) else float("nan"), wilson95=wilson(int(np.sum(hits_f3)), len(hits_f3)), reference_alarm_rate=ref_f3),
                 base=dict(hit_rate=float(np.mean(hits_base)) if len(hits_base) else float("nan"), wilson95=wilson(int(np.sum(hits_base)), len(hits_base)), reference_alarm_rate=ref_base),
                 paired=paired_sign(hits_f3, hits_base), multiplicity="none (secondary, outside the Holm families of A6 item 4)")
+
+
+def release_minute(entry):
+    """Minutes after 09:30 ET of a release-time record (s5_h1c_times); None if the time is unavailable (the meeting is then excluded from H1(c))."""
+    return int(entry["minute_after_0930"]) if entry and entry.get("status") == "time" else None

@@ -1,0 +1,1173 @@
+{
+ "source": "federalreserve.gov statement pages (see url per meeting)",
+ "n_meetings": 152,
+ "counts": {
+  "time": 48,
+  "unavailable": 104
+ },
+ "release_time_counts": {
+  "14:00": 48
+ },
+ "meetings": {
+  "2003-01-29": {
+   "status": "unavailable",
+   "reason": "statement page says 'For immediate release' (no release time)",
+   "url": "https://www.federalreserve.gov/boarddocs/press/monetary/2003/20030129/default.htm",
+   "url_source": "historical page link",
+   "page_sha256": "6cac587c3d292ab8490ea4a740e07d0ddd455c6065430b8cf6308956aa1c7153"
+  },
+  "2003-03-18": {
+   "status": "unavailable",
+   "reason": "statement page says 'For immediate release' (no release time)",
+   "url": "https://www.federalreserve.gov/boarddocs/press/monetary/2003/20030318/default.htm",
+   "url_source": "historical page link",
+   "page_sha256": "495bf8adffb86ca7af2ec9f2c8fedcc5f8c309072007216900c3c711dddd4003"
+  },
+  "2003-05-06": {
+   "status": "unavailable",
+   "reason": "statement page says 'For immediate release' (no release time)",
+   "url": "https://www.federalreserve.gov/boarddocs/press/monetary/2003/20030506/default.htm",
+   "url_source": "historical page link",
+   "page_sha256": "4ecd79c48f13433eb5f3649590d339759e47e536690135a6d5b5bebaebbfa11a"
+  },
+  "2003-06-25": {
+   "status": "unavailable",
+   "reason": "statement page says 'For immediate release' (no release time)",
+   "url": "https://www.federalreserve.gov/boarddocs/press/monetary/2003/20030625/default.htm",
+   "url_source": "historical page link",
+   "page_sha256": "b1d84391085a6dddb9ddce5be34639e20e51e0250e28644f2e7811e994a71ca7"
+  },
+  "2003-08-12": {
+   "status": "unavailable",
+   "reason": "statement page says 'For immediate release' (no release time)",
+   "url": "https://www.federalreserve.gov/boarddocs/press/monetary/2003/20030812/default.htm",
+   "url_source": "historical page link",
+   "page_sha256": "dc061d433b13f4c65f19508a8bac20cfa4b7bebb93153271327e9ce0f3e603ce"
+  },
+  "2003-09-16": {
+   "status": "unavailable",
+   "reason": "statement page says 'For immediate release' (no release time)",
+   "url": "https://www.federalreserve.gov/boarddocs/press/monetary/2003/20030916/default.htm",
+   "url_source": "historical page link",
+   "page_sha256": "d18f69eca9b23c5070ee66c23742df01192fe1e5f98db7d9c7ce0ec940e1074c"
+  },
+  "2003-10-28": {
+   "status": "unavailable",
+   "reason": "statement page says 'For immediate release' (no release time)",
+   "url": "https://www.federalreserve.gov/boarddocs/press/monetary/2003/20031028/default.htm",
+   "url_source": "historical page link",
+   "page_sha256": "80fa8390cc67e03429a48d928515ea7759512ffbc0ddd00c63cfe099dcff5d3a"
+  },
+  "2003-12-09": {
+   "status": "unavailable",
+   "reason": "statement page says 'For immediate release' (no release time)",
+   "url": "https://www.federalreserve.gov/boarddocs/press/monetary/2003/20031209/default.htm",
+   "url_source": "historical page link",
+   "page_sha256": "25b8552298074fc1ff6ac416f71d1ba500f02b72cee15f1e7a22ffcac7cfc2cd"
+  },
+  "2004-01-28": {
+   "status": "unavailable",
+   "reason": "statement page says 'For immediate release' (no release time)",
+   "url": "https://www.federalreserve.gov/boarddocs/press/monetary/2004/20040128/default.htm",
+   "url_source": "historical page link",
+   "page_sha256": "04e40456f3b509225d22ea6bef135551463570ed4c85bd0e81f510b75de372c6"
+  },
+  "2004-03-16": {
+   "status": "unavailable",
+   "reason": "statement page says 'For immediate release' (no release time)",
+   "url": "https://www.federalreserve.gov/boarddocs/press/monetary/2004/20040316/default.htm",
+   "url_source": "historical page link",
+   "page_sha256": "d032c439dc3be7978309e5ba965f03b4dfa07bbc88a7b9c518ed9602a2f5b638"
+  },
+  "2004-05-04": {
+   "status": "unavailable",
+   "reason": "statement page says 'For immediate release' (no release time)",
+   "url": "https://www.federalreserve.gov/boarddocs/press/monetary/2004/20040504/default.htm",
+   "url_source": "historical page link",
+   "page_sha256": "9a15b776705011ec0be45b47c71b22141782010d8fc519d793a7514722520a37"
+  },
+  "2004-06-30": {
+   "status": "unavailable",
+   "reason": "statement page says 'For immediate release' (no release time)",
+   "url": "https://www.federalreserve.gov/boarddocs/press/monetary/2004/20040630/default.htm",
+   "url_source": "historical page link",
+   "page_sha256": "651d9b5aeb86bda5ec2ab885c361952bd45b9f3bd5dc1504330301c5babe3f6b"
+  },
+  "2004-08-10": {
+   "status": "unavailable",
+   "reason": "statement page says 'For immediate release' (no release time)",
+   "url": "https://www.federalreserve.gov/boarddocs/press/monetary/2004/20040810/default.htm",
+   "url_source": "historical page link",
+   "page_sha256": "7381321288eb7a37a3a526cc59f69406479970aa874dafddcee1724955415cae"
+  },
+  "2004-09-21": {
+   "status": "unavailable",
+   "reason": "statement page says 'For immediate release' (no release time)",
+   "url": "https://www.federalreserve.gov/boarddocs/press/monetary/2004/20040921/default.htm",
+   "url_source": "historical page link",
+   "page_sha256": "4bb5faadc9f3db1494932453929752214d75bdc93967fac4c22d6737667b6563"
+  },
+  "2004-11-10": {
+   "status": "unavailable",
+   "reason": "statement page says 'For immediate release' (no release time)",
+   "url": "https://www.federalreserve.gov/boarddocs/press/monetary/2004/20041110/default.htm",
+   "url_source": "historical page link",
+   "page_sha256": "598fdd9813d40e2c40fb24e24c2147c0bdebd465cfcd18843f0bafc576182156"
+  },
+  "2004-12-14": {
+   "status": "unavailable",
+   "reason": "statement page says 'For immediate release' (no release time)",
+   "url": "https://www.federalreserve.gov/boarddocs/press/monetary/2004/20041214/default.htm",
+   "url_source": "historical page link",
+   "page_sha256": "a72ce3e105bca09d17df6a01169e105cf853492fd3ae493fec61a76eb2622b00"
+  },
+  "2005-02-02": {
+   "status": "unavailable",
+   "reason": "statement page says 'For immediate release' (no release time)",
+   "url": "https://www.federalreserve.gov/boarddocs/press/monetary/2005/20050202/default.htm",
+   "url_source": "historical page link",
+   "page_sha256": "31600f866b17294d1d729a8942b4e15bb27ff94487ff6ef3775b2be1dd488606"
+  },
+  "2005-03-22": {
+   "status": "unavailable",
+   "reason": "statement page says 'For immediate release' (no release time)",
+   "url": "https://www.federalreserve.gov/boarddocs/press/monetary/2005/20050322/default.htm",
+   "url_source": "historical page link",
+   "page_sha256": "a2f180799d59659b0bfb873c3097047125e67d2ab1e028514a3089320ef46e97"
+  },
+  "2005-05-03": {
+   "status": "unavailable",
+   "reason": "statement page says 'For immediate release' (no release time)",
+   "url": "https://www.federalreserve.gov/boarddocs/press/monetary/2005/20050503/default.htm",
+   "url_source": "historical page link",
+   "page_sha256": "aae5d94721687060840ea2fb7126938788396f94306ba0af1f9cc61f776d8cc6"
+  },
+  "2005-06-30": {
+   "status": "unavailable",
+   "reason": "statement page says 'For immediate release' (no release time)",
+   "url": "https://www.federalreserve.gov/boarddocs/press/monetary/2005/20050630/default.htm",
+   "url_source": "historical page link",
+   "page_sha256": "21611d495c689279a33fb5ffe0b7fc01557bdd6014a5dae264c77814f911f38c"
+  },
+  "2005-08-09": {
+   "status": "unavailable",
+   "reason": "statement page says 'For immediate release' (no release time)",
+   "url": "https://www.federalreserve.gov/boarddocs/press/monetary/2005/20050809/default.htm",
+   "url_source": "historical page link",
+   "page_sha256": "4717f8dcb60b949a5b5ea94b5a04ddbf8e93d36ce0e6e80d0512f432bace8574"
+  },
+  "2005-09-20": {
+   "status": "unavailable",
+   "reason": "statement page says 'For immediate release' (no release time)",
+   "url": "https://www.federalreserve.gov/boarddocs/press/monetary/2005/20050920/",
+   "url_source": "historical page link",
+   "page_sha256": "783f53eccc3ecc53387fd3448f8bdb6dc5a503ccce8d2d2812fb5afcf5f86d84"
+  },
+  "2005-11-01": {
+   "status": "unavailable",
+   "reason": "statement page says 'For immediate release' (no release time)",
+   "url": "https://www.federalreserve.gov/boarddocs/press/monetary/2005/20051101/",
+   "url_source": "historical page link",
+   "page_sha256": "ce1cd85d63c1b043c0fedd48f574389a69ac855ce258d98157fa616d8ca7ca8a"
+  },
+  "2005-12-13": {
+   "status": "unavailable",
+   "reason": "statement page says 'For immediate release' (no release time)",
+   "url": "https://www.federalreserve.gov/boarddocs/press/monetary/2005/20051213/",
+   "url_source": "historical page link",
+   "page_sha256": "ecebdd199f6e78dff7955eddcaa03edc969daf7ab49c40e9fd3dd9300f2bdf4c"
+  },
+  "2006-01-31": {
+   "status": "unavailable",
+   "reason": "statement page says 'For immediate release' (no release time)",
+   "url": "https://www.federalreserve.gov/newsevents/press/monetary/20060131a.htm",
+   "url_source": "historical page link",
+   "page_sha256": "e704d76a9b740ce5194fd2d27c99d140e2eed46932241466c8c107c9812af4cd"
+  },
+  "2006-03-28": {
+   "status": "unavailable",
+   "reason": "statement page says 'For immediate release' (no release time)",
+   "url": "https://www.federalreserve.gov/newsevents/press/monetary/20060328a.htm",
+   "url_source": "historical page link",
+   "page_sha256": "2a3c9b77ade95d4699e3875c6998dd18327047015fed79d5c3ad4c0424bd3458"
+  },
+  "2006-05-10": {
+   "status": "unavailable",
+   "reason": "statement page says 'For immediate release' (no release time)",
+   "url": "https://www.federalreserve.gov/newsevents/press/monetary/20060510a.htm",
+   "url_source": "historical page link",
+   "page_sha256": "54e1d270be97442c36e81d6f4225f36dc37e7a591e943aec235bfc84484b415e"
+  },
+  "2006-06-29": {
+   "status": "unavailable",
+   "reason": "statement page says 'For immediate release' (no release time)",
+   "url": "https://www.federalreserve.gov/newsevents/press/monetary/20060629a.htm",
+   "url_source": "historical page link",
+   "page_sha256": "4ea0b9d869c04e13eee593f22ea85321eb53705a4491543adb0059df21a5d927"
+  },
+  "2006-08-08": {
+   "status": "unavailable",
+   "reason": "statement page says 'For immediate release' (no release time)",
+   "url": "https://www.federalreserve.gov/newsevents/press/monetary/20060808a.htm",
+   "url_source": "historical page link",
+   "page_sha256": "239672b19c7477b9e2d7d21fcadcae187acc712e9c1dc77115c63737ff38c653"
+  },
+  "2006-09-20": {
+   "status": "unavailable",
+   "reason": "statement page says 'For immediate release' (no release time)",
+   "url": "https://www.federalreserve.gov/newsevents/press/monetary/20060920a.htm",
+   "url_source": "historical page link",
+   "page_sha256": "a8fb6f1923cb36b1c4fd645ecf6563e5e9170de67c1045d61b289584dbd098f2"
+  },
+  "2006-10-25": {
+   "status": "unavailable",
+   "reason": "statement page says 'For immediate release' (no release time)",
+   "url": "https://www.federalreserve.gov/newsevents/press/monetary/20061025a.htm",
+   "url_source": "historical page link",
+   "page_sha256": "bfdb72ecb012e11db916336db17599a412d0f6f4d1bbcf9fa1b37bfafeddda25"
+  },
+  "2006-12-12": {
+   "status": "unavailable",
+   "reason": "statement page says 'For immediate release' (no release time)",
+   "url": "https://www.federalreserve.gov/newsevents/press/monetary/20061212a.htm",
+   "url_source": "historical page link",
+   "page_sha256": "771cd9ae6191fbcbe4bca6135c4d6523a226b125f58baaa4e3a01f19045ea8f3"
+  },
+  "2007-01-31": {
+   "status": "unavailable",
+   "reason": "statement page says 'For immediate release' (no release time)",
+   "url": "https://www.federalreserve.gov/newsevents/press/monetary/20070131a.htm",
+   "url_source": "historical page link",
+   "page_sha256": "d375bb16dd370f77a83dfad4402ff1e9b0a9ef709fd09c51e95f3b2635b1f87f"
+  },
+  "2007-03-21": {
+   "status": "unavailable",
+   "reason": "statement page says 'For immediate release' (no release time)",
+   "url": "https://www.federalreserve.gov/newsevents/press/monetary/20070321a.htm",
+   "url_source": "historical page link",
+   "page_sha256": "4024e92f415d5e52b02272fcda1380e62c186745b9dfb3077b3f9512b8b17ec1"
+  },
+  "2007-05-09": {
+   "status": "unavailable",
+   "reason": "statement page says 'For immediate release' (no release time)",
+   "url": "https://www.federalreserve.gov/newsevents/press/monetary/20070509a.htm",
+   "url_source": "historical page link",
+   "page_sha256": "ffbf023d745a2d6349e4dca29c1b759a6e44e3766f0e707630446129dbb1fe78"
+  },
+  "2007-06-28": {
+   "status": "unavailable",
+   "reason": "no candidate page was the FOMC statement (fetch failed or other release): https://www.federalreserve.gov/newsevents/pressreleases/monetary20070628a.htm; https://www.federalreserve.gov/newsevents/pressreleases/monetary20070628b.htm",
+   "url": null,
+   "url_source": null,
+   "page_sha256": null
+  },
+  "2007-08-07": {
+   "status": "unavailable",
+   "reason": "statement page says 'For immediate release' (no release time)",
+   "url": "https://www.federalreserve.gov/newsevents/press/monetary/20070807a.htm",
+   "url_source": "historical page link",
+   "page_sha256": "724fe4bb7b13829dbe093cfff7f863f93c4ab28f2df63151b664a2c0dc966823"
+  },
+  "2007-09-18": {
+   "status": "unavailable",
+   "reason": "statement page says 'For immediate release' (no release time)",
+   "url": "https://www.federalreserve.gov/newsevents/press/monetary/20070918a.htm",
+   "url_source": "historical page link",
+   "page_sha256": "a3046302a48a9b0f7fc969f986eb880432661277929976d906027c245034a777"
+  },
+  "2007-10-31": {
+   "status": "unavailable",
+   "reason": "statement page says 'For immediate release' (no release time)",
+   "url": "https://www.federalreserve.gov/newsevents/press/monetary/20071031a.htm",
+   "url_source": "historical page link",
+   "page_sha256": "b1aab3e6d2bc6cbc7a05cb41a409d467e81b459053842a35de0af1c3309146ad"
+  },
+  "2007-12-11": {
+   "status": "unavailable",
+   "reason": "statement page says 'For immediate release' (no release time)",
+   "url": "https://www.federalreserve.gov/newsevents/press/monetary/20071211a.htm",
+   "url_source": "historical page link",
+   "page_sha256": "b52e9a266b4b2d5b070b9366cc146e0bfc000f38e78a52eaaac904b295cf0bfa"
+  },
+  "2008-01-30": {
+   "status": "unavailable",
+   "reason": "statement page says 'For immediate release' (no release time)",
+   "url": "https://www.federalreserve.gov/newsevents/press/monetary/20080130a.htm",
+   "url_source": "historical page link",
+   "page_sha256": "134fdcc4db06ff3fa274cbbbe46b0845e7ab49b8686a694151d7a74018bcc9b5"
+  },
+  "2008-03-18": {
+   "status": "unavailable",
+   "reason": "statement page says 'For immediate release' (no release time)",
+   "url": "https://www.federalreserve.gov/newsevents/press/monetary/20080318a.htm",
+   "url_source": "historical page link",
+   "page_sha256": "08f528e536ee25137b077b4468dba4fe4d494b5080a5d1da53bf2d7e66c8610d"
+  },
+  "2008-04-30": {
+   "status": "unavailable",
+   "reason": "statement page says 'For immediate release' (no release time)",
+   "url": "https://www.federalreserve.gov/newsevents/press/monetary/20080430a.htm",
+   "url_source": "historical page link",
+   "page_sha256": "2d63ebf1ea2ac0a7450c2076376c86baeeaec22b1e50d3da01721bfaa9cf65f5"
+  },
+  "2008-06-25": {
+   "status": "unavailable",
+   "reason": "statement page says 'For immediate release' (no release time)",
+   "url": "https://www.federalreserve.gov/newsevents/press/monetary/20080625a.htm",
+   "url_source": "historical page link",
+   "page_sha256": "544e8758642edf495506c2c0970898592080ff652706a5793a844dd2f8a95e96"
+  },
+  "2008-08-05": {
+   "status": "unavailable",
+   "reason": "statement page says 'For immediate release' (no release time)",
+   "url": "https://www.federalreserve.gov/newsevents/press/monetary/20080805a.htm",
+   "url_source": "historical page link",
+   "page_sha256": "8d96f1913110abba556116514d33a34e0ba71733baacc7153035c6c27b885cc5"
+  },
+  "2008-09-16": {
+   "status": "unavailable",
+   "reason": "statement page says 'For immediate release' (no release time)",
+   "url": "https://www.federalreserve.gov/newsevents/press/monetary/20080916a.htm",
+   "url_source": "historical page link",
+   "page_sha256": "8352fad58d48acb49debc8d206c07dae48c0419368369843376d18be5d4e8158"
+  },
+  "2008-10-29": {
+   "status": "unavailable",
+   "reason": "statement page says 'For immediate release' (no release time)",
+   "url": "https://www.federalreserve.gov/newsevents/press/monetary/20081029a.htm",
+   "url_source": "historical page link",
+   "page_sha256": "6f84813eddeefd3659c8bf60068aca89b40dfe261f920f3e8b2b0e7bd79b0c14"
+  },
+  "2008-12-16": {
+   "status": "unavailable",
+   "reason": "statement page says 'For immediate release' (no release time)",
+   "url": "https://www.federalreserve.gov/newsevents/press/monetary/20081216b.htm",
+   "url_source": "historical page link",
+   "page_sha256": "35233ee85bdb85be0c0a01f6bf2e12c25f8921098cb6ff2cdc08324d6aa375b4"
+  },
+  "2009-01-28": {
+   "status": "unavailable",
+   "reason": "statement page says 'For immediate release' (no release time)",
+   "url": "https://www.federalreserve.gov/newsevents/press/monetary/20090128a.htm",
+   "url_source": "historical page link",
+   "page_sha256": "46b6cc7123fa967cb79cf18d16da605d055e8e6105c0f99cc464b0cef16721ea"
+  },
+  "2009-03-18": {
+   "status": "unavailable",
+   "reason": "statement page says 'For immediate release' (no release time)",
+   "url": "https://www.federalreserve.gov/newsevents/press/monetary/20090318a.htm",
+   "url_source": "historical page link",
+   "page_sha256": "094ad429247655be0cb9a0fa40512b8c87d3276845c444dedf8a4b2bda440539"
+  },
+  "2009-04-29": {
+   "status": "unavailable",
+   "reason": "statement page says 'For immediate release' (no release time)",
+   "url": "https://www.federalreserve.gov/newsevents/press/monetary/20090429a.htm",
+   "url_source": "historical page link",
+   "page_sha256": "5f0351b3c8c4917177f0053a30c171dc3c993757e58f8f651f17f1d20d1b5292"
+  },
+  "2009-06-24": {
+   "status": "unavailable",
+   "reason": "statement page says 'For immediate release' (no release time)",
+   "url": "https://www.federalreserve.gov/newsevents/press/monetary/20090624a.htm",
+   "url_source": "historical page link",
+   "page_sha256": "325ee7a69e44bed9fa11ec2eb8abb03300bd0b2e25cdfb39889a4d799f193bdf"
+  },
+  "2009-08-12": {
+   "status": "unavailable",
+   "reason": "statement page says 'For immediate release' (no release time)",
+   "url": "https://www.federalreserve.gov/newsevents/press/monetary/20090812a.htm",
+   "url_source": "historical page link",
+   "page_sha256": "8d4fe44c339a77d248bdd374b256435c7cd4f4a307219ed3dbb12e2e506d367a"
+  },
+  "2009-09-23": {
+   "status": "unavailable",
+   "reason": "statement page says 'For immediate release' (no release time)",
+   "url": "https://www.federalreserve.gov/newsevents/press/monetary/20090923a.htm",
+   "url_source": "historical page link",
+   "page_sha256": "5ffd286ff484f22cd19dacea2dcfced0dab1eb96a6942c422409eac72a39c23d"
+  },
+  "2009-11-04": {
+   "status": "unavailable",
+   "reason": "statement page says 'For immediate release' (no release time)",
+   "url": "https://www.federalreserve.gov/newsevents/press/monetary/20091104a.htm",
+   "url_source": "historical page link",
+   "page_sha256": "84403ee0b5195c084642081c10e5fbe2541d663d9d0c66e775af788e3791cdd8"
+  },
+  "2009-12-16": {
+   "status": "unavailable",
+   "reason": "statement page says 'For immediate release' (no release time)",
+   "url": "https://www.federalreserve.gov/newsevents/press/monetary/20091216a.htm",
+   "url_source": "historical page link",
+   "page_sha256": "fe28951779011d7c53474ed2b5d4ac867d150b892d6a80c67d836a8f01d601d4"
+  },
+  "2010-01-27": {
+   "status": "unavailable",
+   "reason": "statement page says 'For immediate release' (no release time)",
+   "url": "https://www.federalreserve.gov/newsevents/press/monetary/20100127a.htm",
+   "url_source": "historical page link",
+   "page_sha256": "7d5e87f27cef4012c6dfef931d7b3559989ff28f0f06db736157277480694297"
+  },
+  "2010-03-16": {
+   "status": "unavailable",
+   "reason": "statement page says 'For immediate release' (no release time)",
+   "url": "https://www.federalreserve.gov/newsevents/press/monetary/20100316a.htm",
+   "url_source": "historical page link",
+   "page_sha256": "a5f281e6bda7399bc7ab5a26a8cfff2e2daf69ee5525ec42ace2acea610b76d3"
+  },
+  "2010-04-28": {
+   "status": "unavailable",
+   "reason": "statement page says 'For immediate release' (no release time)",
+   "url": "https://www.federalreserve.gov/newsevents/press/monetary/20100428a.htm",
+   "url_source": "historical page link",
+   "page_sha256": "329045a40ddca90e0fddbb81f8c134ecda07732d6c95691243f8a5a16edb1545"
+  },
+  "2010-06-23": {
+   "status": "unavailable",
+   "reason": "statement page says 'For immediate release' (no release time)",
+   "url": "https://www.federalreserve.gov/newsevents/press/monetary/20100623a.htm",
+   "url_source": "historical page link",
+   "page_sha256": "76d455728cdadb5eac7d815abffffc13a32ec8d21f4021e5967a6ac669aa0fbe"
+  },
+  "2010-08-10": {
+   "status": "unavailable",
+   "reason": "statement page says 'For immediate release' (no release time)",
+   "url": "https://www.federalreserve.gov/newsevents/press/monetary/20100810a.htm",
+   "url_source": "historical page link",
+   "page_sha256": "64fced05341d2ac81b6dcfdb6260e24f28c5bf41c6589910fea7414a8a638106"
+  },
+  "2010-09-21": {
+   "status": "unavailable",
+   "reason": "statement page says 'For immediate release' (no release time)",
+   "url": "https://www.federalreserve.gov/newsevents/press/monetary/20100921a.htm",
+   "url_source": "historical page link",
+   "page_sha256": "2cc0817d4583037dc4c6552168384a0043ea42dae3a135d28d2fd7fe0e308c55"
+  },
+  "2010-11-03": {
+   "status": "unavailable",
+   "reason": "statement page says 'For immediate release' (no release time)",
+   "url": "https://www.federalreserve.gov/newsevents/press/monetary/20101103a.htm",
+   "url_source": "historical page link",
+   "page_sha256": "c14164247048d20088d43109a8e53ab3b8c65ab1430ecbbadf698d1941072e24"
+  },
+  "2010-12-14": {
+   "status": "unavailable",
+   "reason": "statement page says 'For immediate release' (no release time)",
+   "url": "https://www.federalreserve.gov/newsevents/press/monetary/20101214a.htm",
+   "url_source": "historical page link",
+   "page_sha256": "6e772bc1f388edbdfbcbf844b564dba519f2039b36750c3cc35d38ca4dad587e"
+  },
+  "2011-01-26": {
+   "status": "unavailable",
+   "reason": "statement page says 'For immediate release' (no release time)",
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20110126a.htm",
+   "url_source": "press-release pattern",
+   "page_sha256": "5576a2f7057190ead0cfa19710268675ba5ff81eca43ab7b2f165f95acc8d935"
+  },
+  "2011-03-15": {
+   "status": "unavailable",
+   "reason": "statement page says 'For immediate release' (no release time)",
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20110315a.htm",
+   "url_source": "press-release pattern",
+   "page_sha256": "5ab30c773c04940f937fa0306f70971da767dc40e2553375caf27bb8b1c255a6"
+  },
+  "2011-04-27": {
+   "status": "unavailable",
+   "reason": "statement page says 'For immediate release' (no release time)",
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20110427a.htm",
+   "url_source": "press-release pattern",
+   "page_sha256": "2325e8afaba466aaa74199cf139ec5a2fa8d2df0f61489332f03d92834ae0bdb"
+  },
+  "2011-06-22": {
+   "status": "unavailable",
+   "reason": "statement page says 'For immediate release' (no release time)",
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20110622a.htm",
+   "url_source": "press-release pattern",
+   "page_sha256": "eb00f7c715b0ee47f9fac72acd984ccce1a970d61c922e23a7924848880bb641"
+  },
+  "2011-08-09": {
+   "status": "unavailable",
+   "reason": "statement page says 'For immediate release' (no release time)",
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20110809a.htm",
+   "url_source": "press-release pattern",
+   "page_sha256": "d83e137b8deda91ae4be028ad41ef3973ebdc0c05e801b55915acc5fd2fc8860"
+  },
+  "2011-09-21": {
+   "status": "unavailable",
+   "reason": "statement page says 'For immediate release' (no release time)",
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20110921a.htm",
+   "url_source": "press-release pattern",
+   "page_sha256": "52c1d131e5fc20d95d538daf80766f993e225e681a294d4d3eb40aa6145b6b47"
+  },
+  "2011-11-02": {
+   "status": "unavailable",
+   "reason": "statement page says 'For immediate release' (no release time)",
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20111102a.htm",
+   "url_source": "press-release pattern",
+   "page_sha256": "0ce35bfbe0debddcce01dc6d9d3dee98d6684f192a509053f730e1edc36c83ee"
+  },
+  "2011-12-13": {
+   "status": "unavailable",
+   "reason": "statement page says 'For immediate release' (no release time)",
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20111213a.htm",
+   "url_source": "press-release pattern",
+   "page_sha256": "64e35c30259266d13f137e190226e6311ad585a36113ba76c71f9bd3720cc8ce"
+  },
+  "2012-01-25": {
+   "status": "unavailable",
+   "reason": "statement page says 'For immediate release' (no release time)",
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20120125a.htm",
+   "url_source": "press-release pattern",
+   "page_sha256": "badd1a1a6d01d26d826ffdf69afc08a8d9ae5243acb379ba420750dae100cc39"
+  },
+  "2012-03-13": {
+   "status": "unavailable",
+   "reason": "statement page says 'For immediate release' (no release time)",
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20120313a.htm",
+   "url_source": "press-release pattern",
+   "page_sha256": "c32971e5364906d86e05a417c33758dd511f0201ca499795048c1d4bac549f09"
+  },
+  "2012-04-25": {
+   "status": "unavailable",
+   "reason": "statement page says 'For immediate release' (no release time)",
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20120425a.htm",
+   "url_source": "press-release pattern",
+   "page_sha256": "2a6bdfe5432ea3d49f055e6d8e56f42d9b16567bfe2a0f88945b300dccb36e70"
+  },
+  "2012-06-20": {
+   "status": "unavailable",
+   "reason": "statement page says 'For immediate release' (no release time)",
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20120620a.htm",
+   "url_source": "press-release pattern",
+   "page_sha256": "7c2036e532f126e9ab13817f8ec379f00df3955fd6211b2d09f4eb035319778b"
+  },
+  "2012-08-01": {
+   "status": "unavailable",
+   "reason": "statement page says 'For immediate release' (no release time)",
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20120801a.htm",
+   "url_source": "press-release pattern",
+   "page_sha256": "c7d5ce8f326d314b0e273943e591e007ef29b8957dc5f90e0610d43db92e2e24"
+  },
+  "2012-09-13": {
+   "status": "unavailable",
+   "reason": "statement page says 'For immediate release' (no release time)",
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20120913a.htm",
+   "url_source": "press-release pattern",
+   "page_sha256": "8ca74964e8921052e42a3e282c584e3c79fa5d05267668f732fad4b5468df2c4"
+  },
+  "2012-10-24": {
+   "status": "unavailable",
+   "reason": "statement page says 'For immediate release' (no release time)",
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20121024a.htm",
+   "url_source": "press-release pattern",
+   "page_sha256": "5f7701109fd3e709cd743fa8f3929a6473d2875dad2d3c4aaeb332ab06dd618c"
+  },
+  "2012-12-12": {
+   "status": "unavailable",
+   "reason": "statement page says 'For immediate release' (no release time)",
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20121212a.htm",
+   "url_source": "press-release pattern",
+   "page_sha256": "8a1c589a8760ea47c2baa2780c69cb0ac3b2928654aa58be782cb2d3df113be4"
+  },
+  "2013-01-30": {
+   "status": "unavailable",
+   "reason": "statement page says 'For immediate release' (no release time)",
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20130130a.htm",
+   "url_source": "press-release pattern",
+   "page_sha256": "d285486ebafcd6636c96ba00dc9a407718dbbdf1f84d8028af2cc4dd5b75acd2"
+  },
+  "2013-03-20": {
+   "status": "unavailable",
+   "reason": "statement page says 'For immediate release' (no release time)",
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20130320a.htm",
+   "url_source": "press-release pattern",
+   "page_sha256": "84ae5d84bb5448ae92505db466069917f0c75be28d9eee62129f075fee1a9740"
+  },
+  "2013-05-01": {
+   "status": "unavailable",
+   "reason": "statement page says 'For immediate release' (no release time)",
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20130501a.htm",
+   "url_source": "press-release pattern",
+   "page_sha256": "bba5af15e49f9f93655cb6fb46176504601097428772f2a4bdf6ba52302f1ed8"
+  },
+  "2013-06-19": {
+   "status": "unavailable",
+   "reason": "statement page says 'For immediate release' (no release time)",
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20130619a.htm",
+   "url_source": "press-release pattern",
+   "page_sha256": "abec8cdd3628fe646e7d45ccbe2cff5efcec0d435988c7a14b92cff6bd10e42d"
+  },
+  "2013-07-31": {
+   "status": "unavailable",
+   "reason": "statement page says 'For immediate release' (no release time)",
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20130731a.htm",
+   "url_source": "press-release pattern",
+   "page_sha256": "439826516a83af854916cb5f01e0d7c8608def3ac09447a4db6f8f1666e9ea99"
+  },
+  "2013-09-18": {
+   "status": "unavailable",
+   "reason": "statement page says 'For immediate release' (no release time)",
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20130918a.htm",
+   "url_source": "press-release pattern",
+   "page_sha256": "9f5a65497f3c6f83841d42fc0dc550f32c06763a7d1965067da34050f8fe4b16"
+  },
+  "2013-10-30": {
+   "status": "unavailable",
+   "reason": "statement page says 'For immediate release' (no release time)",
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20131030a.htm",
+   "url_source": "press-release pattern",
+   "page_sha256": "51828a1002c1c2757c5d15c429546646c07ec291826ea69d39148312189ab817"
+  },
+  "2013-12-18": {
+   "status": "unavailable",
+   "reason": "statement page says 'For immediate release' (no release time)",
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20131218a.htm",
+   "url_source": "press-release pattern",
+   "page_sha256": "ef6994223d2b9abd1da0971ba260b2bf067e3f5285f824105442f9ff1d59405e"
+  },
+  "2014-01-29": {
+   "status": "unavailable",
+   "reason": "statement page says 'For immediate release' (no release time)",
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20140129a.htm",
+   "url_source": "press-release pattern",
+   "page_sha256": "c7fdb2105ce2258c9583afc543a142e7a81cd9f94b8234d578fef0a60daed59d"
+  },
+  "2014-03-19": {
+   "status": "unavailable",
+   "reason": "statement page says 'For immediate release' (no release time)",
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20140319a.htm",
+   "url_source": "press-release pattern",
+   "page_sha256": "46c18ea9d3bafa881782649e5cbef9ae9a77c53e65da59df63a2dcc87bc5f474"
+  },
+  "2014-04-30": {
+   "status": "unavailable",
+   "reason": "statement page says 'For immediate release' (no release time)",
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20140430a.htm",
+   "url_source": "press-release pattern",
+   "page_sha256": "d1ff6c38b14cc72ad1d697ce0f9ac8eade5471cb19985c52b8843fd8a398d72c"
+  },
+  "2014-06-18": {
+   "status": "unavailable",
+   "reason": "statement page says 'For immediate release' (no release time)",
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20140618a.htm",
+   "url_source": "press-release pattern",
+   "page_sha256": "3035232eca8a50558d4842b4303a7eca28d18bed1f840b2598ade8a58e83e7c0"
+  },
+  "2014-07-30": {
+   "status": "unavailable",
+   "reason": "statement page says 'For immediate release' (no release time)",
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20140730a.htm",
+   "url_source": "press-release pattern",
+   "page_sha256": "8b4eafe32c0a0570ce3a3fd12dc05437779091f66612db6272091585944a06fa"
+  },
+  "2014-09-17": {
+   "status": "unavailable",
+   "reason": "statement page says 'For immediate release' (no release time)",
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20140917a.htm",
+   "url_source": "press-release pattern",
+   "page_sha256": "1e225a2341b10aa7dd9f2da9cfbfabdb5ede332d29d17d5aaf5b1dc98c3c3dd1"
+  },
+  "2014-10-29": {
+   "status": "unavailable",
+   "reason": "statement page says 'For immediate release' (no release time)",
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20141029a.htm",
+   "url_source": "press-release pattern",
+   "page_sha256": "724203da610466039e59d28f72d8b75c1159f185c636ed548369563ea1c0389f"
+  },
+  "2014-12-17": {
+   "status": "unavailable",
+   "reason": "statement page says 'For immediate release' (no release time)",
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20141217a.htm",
+   "url_source": "press-release pattern",
+   "page_sha256": "a1d4b48523b29408692b3d71bea9438645b538487b2cb4c1c769c2962df2beea"
+  },
+  "2015-01-28": {
+   "status": "unavailable",
+   "reason": "statement page says 'For immediate release' (no release time)",
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20150128a.htm",
+   "url_source": "press-release pattern",
+   "page_sha256": "ac885e5fb9a75f64518c1873f7cfcdc7da08d00783ef50dabf05fbb315d14249"
+  },
+  "2015-03-18": {
+   "status": "unavailable",
+   "reason": "statement page says 'For immediate release' (no release time)",
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20150318a.htm",
+   "url_source": "press-release pattern",
+   "page_sha256": "996cca78f9adcbd411149f4eca937c3b9faeb4b674caf99ec4ea8c2a31f33c39"
+  },
+  "2015-04-29": {
+   "status": "unavailable",
+   "reason": "statement page says 'For immediate release' (no release time)",
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20150429a.htm",
+   "url_source": "press-release pattern",
+   "page_sha256": "a59824613569122f4df2eabb14b18cdb964852a0e6ef14de7af82dfff329af61"
+  },
+  "2015-06-17": {
+   "status": "unavailable",
+   "reason": "statement page says 'For immediate release' (no release time)",
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20150617a.htm",
+   "url_source": "press-release pattern",
+   "page_sha256": "7a78209735ed66881fdc36218943e59343750cdc90b68e73216e1507cad35209"
+  },
+  "2015-07-29": {
+   "status": "unavailable",
+   "reason": "statement page says 'For immediate release' (no release time)",
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20150729a.htm",
+   "url_source": "press-release pattern",
+   "page_sha256": "f86323d7e9430b53e728722f4c2bc3a532c5ba0a58ff16ccb52759030edc60ea"
+  },
+  "2015-09-17": {
+   "status": "unavailable",
+   "reason": "statement page says 'For immediate release' (no release time)",
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20150917a.htm",
+   "url_source": "press-release pattern",
+   "page_sha256": "fd569c2d97d5fe3428d7d3e83e1fa5b35e450feed708b0bf3876b22d7c9d73e3"
+  },
+  "2015-10-28": {
+   "status": "unavailable",
+   "reason": "statement page says 'For immediate release' (no release time)",
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20151028a.htm",
+   "url_source": "press-release pattern",
+   "page_sha256": "85c5c71285d6f21b4b4bc2da57ee0abec90967d4ef4b72e69157703e86eeec9f"
+  },
+  "2015-12-16": {
+   "status": "unavailable",
+   "reason": "statement page says 'For immediate release' (no release time)",
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20151216a.htm",
+   "url_source": "press-release pattern",
+   "page_sha256": "533cb0d2ce45ea3ae5d89774109da495d488ec098b07dc62921c8b7ed57664e6"
+  },
+  "2016-01-27": {
+   "status": "time",
+   "time_et": "14:00",
+   "tz": "EST",
+   "minute_after_0930": 270,
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20160127a.htm",
+   "url_source": "press-release pattern",
+   "page_sha256": "930d435e82435cea6f038b938b8bdd1f61f0a1f39739256291eb652b4b9a799e"
+  },
+  "2016-03-16": {
+   "status": "time",
+   "time_et": "14:00",
+   "tz": "EDT",
+   "minute_after_0930": 270,
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20160316a.htm",
+   "url_source": "press-release pattern",
+   "page_sha256": "f4a629fa2064ae1683bdc2f5db6e2bcee90a006843c9512fb7739df801b53f3c"
+  },
+  "2016-04-27": {
+   "status": "time",
+   "time_et": "14:00",
+   "tz": "EDT",
+   "minute_after_0930": 270,
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20160427a.htm",
+   "url_source": "press-release pattern",
+   "page_sha256": "896f3dadc4c559d2066f95097d071c04d990c6fa3423cf7d24804aece52f5c8e"
+  },
+  "2016-06-15": {
+   "status": "time",
+   "time_et": "14:00",
+   "tz": "EDT",
+   "minute_after_0930": 270,
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20160615a.htm",
+   "url_source": "press-release pattern",
+   "page_sha256": "4ec300e0399c0e2df2fa16447e92cac2b978736b8b50ba654d8b7daf9dfb6069"
+  },
+  "2016-07-27": {
+   "status": "time",
+   "time_et": "14:00",
+   "tz": "EDT",
+   "minute_after_0930": 270,
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20160727a.htm",
+   "url_source": "press-release pattern",
+   "page_sha256": "ab85b1e21260fcf69fcec928c5dc4ce7aa229d7e91cdb4ab5879e5f6c422a847"
+  },
+  "2016-09-21": {
+   "status": "time",
+   "time_et": "14:00",
+   "tz": "EDT",
+   "minute_after_0930": 270,
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20160921a.htm",
+   "url_source": "press-release pattern",
+   "page_sha256": "efb1a7c5bcf0d25cbc64bd4eb096850a5de1f9b2337369876a126afd6a772a60"
+  },
+  "2016-11-02": {
+   "status": "time",
+   "time_et": "14:00",
+   "tz": "EDT",
+   "minute_after_0930": 270,
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20161102a.htm",
+   "url_source": "press-release pattern",
+   "page_sha256": "aedd40dba324609c53cbdc74aec01f30ce821dd01fd178316a6065aebac59b72"
+  },
+  "2016-12-14": {
+   "status": "time",
+   "time_et": "14:00",
+   "tz": "EST",
+   "minute_after_0930": 270,
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20161214a.htm",
+   "url_source": "press-release pattern",
+   "page_sha256": "360ace6a7ee944ec5351d91495eae596b5208c2237fe3d928d56ac569280ca25"
+  },
+  "2017-02-01": {
+   "status": "time",
+   "time_et": "14:00",
+   "tz": "EST",
+   "minute_after_0930": 270,
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20170201a.htm",
+   "url_source": "press-release pattern",
+   "page_sha256": "5e320b972eac277966568ae3b6dddaa03e9f66f3683bdb01315e129d39e9d9b3"
+  },
+  "2017-03-15": {
+   "status": "time",
+   "time_et": "14:00",
+   "tz": "EDT",
+   "minute_after_0930": 270,
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20170315a.htm",
+   "url_source": "press-release pattern",
+   "page_sha256": "ef87cd3dd48be8e2322407d93a7390b7c55e2179103ac58f31de7ee057149ec3"
+  },
+  "2017-05-03": {
+   "status": "time",
+   "time_et": "14:00",
+   "tz": "EDT",
+   "minute_after_0930": 270,
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20170503a.htm",
+   "url_source": "press-release pattern",
+   "page_sha256": "26393d74df4e5e2ee5e817fbea2dcf065010ef88fc67811feb907f6beab00074"
+  },
+  "2017-06-14": {
+   "status": "time",
+   "time_et": "14:00",
+   "tz": "EDT",
+   "minute_after_0930": 270,
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20170614a.htm",
+   "url_source": "press-release pattern",
+   "page_sha256": "2b4125407b9b4606c4613ac48c23ad4db75907130a73709e9180082bd6b79be0"
+  },
+  "2017-07-26": {
+   "status": "time",
+   "time_et": "14:00",
+   "tz": "EDT",
+   "minute_after_0930": 270,
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20170726a.htm",
+   "url_source": "press-release pattern",
+   "page_sha256": "7e37e9b531a673de8cd66c15b09f0f0c3057bc3b5d2914f6f9bf115f6ae22c78"
+  },
+  "2017-09-20": {
+   "status": "time",
+   "time_et": "14:00",
+   "tz": "EDT",
+   "minute_after_0930": 270,
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20170920a.htm",
+   "url_source": "press-release pattern",
+   "page_sha256": "721a562d6072934f6c6fbc480e96b76fd0f2420feef03fb53a0e784bbb869b0a"
+  },
+  "2017-11-01": {
+   "status": "time",
+   "time_et": "14:00",
+   "tz": "EDT",
+   "minute_after_0930": 270,
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20171101a.htm",
+   "url_source": "press-release pattern",
+   "page_sha256": "ecfa34058f6ad04ade5a4023ad85c73ab721d25ee8dd6b6006542e3431e2ee23"
+  },
+  "2017-12-13": {
+   "status": "time",
+   "time_et": "14:00",
+   "tz": "EST",
+   "minute_after_0930": 270,
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20171213a.htm",
+   "url_source": "press-release pattern",
+   "page_sha256": "4cbff8c8a4b77c95b7ff70511917ba351b2f68d2d52c7744756321d764cf3e28"
+  },
+  "2018-01-31": {
+   "status": "time",
+   "time_et": "14:00",
+   "tz": "EST",
+   "minute_after_0930": 270,
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20180131a.htm",
+   "url_source": "press-release pattern",
+   "page_sha256": "410783a697cc9b74b2d22d19835f985618c44535813b58146fc9d3414c99a5b9"
+  },
+  "2018-03-21": {
+   "status": "time",
+   "time_et": "14:00",
+   "tz": "EDT",
+   "minute_after_0930": 270,
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20180321a.htm",
+   "url_source": "press-release pattern",
+   "page_sha256": "d63c0a916f5f9652989652a9dc3086fb1d056ff055a82af371beb85a5e9f42b7"
+  },
+  "2018-05-02": {
+   "status": "time",
+   "time_et": "14:00",
+   "tz": "EDT",
+   "minute_after_0930": 270,
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20180502a.htm",
+   "url_source": "press-release pattern",
+   "page_sha256": "df58451fefcf7914230a46d35753687df4dd3fd4397c3ac0c16d8270ffc56295"
+  },
+  "2018-06-13": {
+   "status": "time",
+   "time_et": "14:00",
+   "tz": "EDT",
+   "minute_after_0930": 270,
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20180613a.htm",
+   "url_source": "press-release pattern",
+   "page_sha256": "10e6114b791f94508b0cf46ab1038a97f5cbc05cb9c9a230a76b87114243aa4f"
+  },
+  "2018-08-01": {
+   "status": "time",
+   "time_et": "14:00",
+   "tz": "EDT",
+   "minute_after_0930": 270,
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20180801a.htm",
+   "url_source": "press-release pattern",
+   "page_sha256": "340bd999a5b3d7258f2b6ec1d2afeb4ffc5cc31ac09f69857b6468a28ef750df"
+  },
+  "2018-09-26": {
+   "status": "time",
+   "time_et": "14:00",
+   "tz": "EDT",
+   "minute_after_0930": 270,
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20180926a.htm",
+   "url_source": "press-release pattern",
+   "page_sha256": "a6464d8c9037135c140ac1735f76466a9ca57250b3bbdbe27aa30cbeee742c84"
+  },
+  "2018-11-08": {
+   "status": "time",
+   "time_et": "14:00",
+   "tz": "EST",
+   "minute_after_0930": 270,
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20181108a.htm",
+   "url_source": "press-release pattern",
+   "page_sha256": "ebcb3606b3ac024af60a88fb82ae1456feeb4526f718a123869a2a4874efb940"
+  },
+  "2018-12-19": {
+   "status": "time",
+   "time_et": "14:00",
+   "tz": "EST",
+   "minute_after_0930": 270,
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20181219a.htm",
+   "url_source": "press-release pattern",
+   "page_sha256": "d07dac227eca0a7acc78b79ad6b6e4cf544a44f712147cfd661b75c6025c9fc1"
+  },
+  "2022-01-26": {
+   "status": "time",
+   "time_et": "14:00",
+   "tz": "EST",
+   "minute_after_0930": 270,
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20220126a.htm",
+   "url_source": "press-release pattern",
+   "page_sha256": "2256aa41b54be0d4a3fbdbbd346b8a3dfa234da9dbee61297dfba8f29827f05b"
+  },
+  "2022-03-16": {
+   "status": "time",
+   "time_et": "14:00",
+   "tz": "EDT",
+   "minute_after_0930": 270,
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20220316a.htm",
+   "url_source": "press-release pattern",
+   "page_sha256": "4fc43412e37e009ffaa6e8dd725ba96e2798f8691925b2aa75554403aed372b1"
+  },
+  "2022-05-04": {
+   "status": "time",
+   "time_et": "14:00",
+   "tz": "EDT",
+   "minute_after_0930": 270,
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20220504a.htm",
+   "url_source": "press-release pattern",
+   "page_sha256": "423716cf0f689e2e82b36544e21d7cab2e535685641b38783f9566fb41453aae"
+  },
+  "2022-06-15": {
+   "status": "time",
+   "time_et": "14:00",
+   "tz": "EDT",
+   "minute_after_0930": 270,
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20220615a.htm",
+   "url_source": "press-release pattern",
+   "page_sha256": "61531bae9e19113a92c21c00e8e8a6621956b6426eabd7187776d66c9ab00180"
+  },
+  "2022-07-27": {
+   "status": "time",
+   "time_et": "14:00",
+   "tz": "EDT",
+   "minute_after_0930": 270,
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20220727a.htm",
+   "url_source": "press-release pattern",
+   "page_sha256": "2bd0c0beb622c3ce4c4163314f26ef00097cc81b67bf6fbaff97df315428b05c"
+  },
+  "2022-09-21": {
+   "status": "time",
+   "time_et": "14:00",
+   "tz": "EDT",
+   "minute_after_0930": 270,
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20220921a.htm",
+   "url_source": "press-release pattern",
+   "page_sha256": "eee0f9e6ed62b88711d9fff6e4ab025c12bf3a2d13a76e0507ae637b6bac2efa"
+  },
+  "2022-11-02": {
+   "status": "time",
+   "time_et": "14:00",
+   "tz": "EDT",
+   "minute_after_0930": 270,
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20221102a.htm",
+   "url_source": "press-release pattern",
+   "page_sha256": "5354505f1564874583e163e80e1b8054c677adb6ce9ef5d450060d43622d82d1"
+  },
+  "2022-12-14": {
+   "status": "time",
+   "time_et": "14:00",
+   "tz": "EST",
+   "minute_after_0930": 270,
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20221214a.htm",
+   "url_source": "press-release pattern",
+   "page_sha256": "ad287aeb04ea563a97f0fc5c70f9ef35ffbb6f1b8e36afe58e178b56359cc838"
+  },
+  "2023-02-01": {
+   "status": "time",
+   "time_et": "14:00",
+   "tz": "EST",
+   "minute_after_0930": 270,
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20230201a.htm",
+   "url_source": "press-release pattern",
+   "page_sha256": "d3dc2dd09595215558b55ee337d0486d1eeffa7a83ecb72b95754cd87703d832"
+  },
+  "2023-03-22": {
+   "status": "time",
+   "time_et": "14:00",
+   "tz": "EDT",
+   "minute_after_0930": 270,
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20230322a.htm",
+   "url_source": "press-release pattern",
+   "page_sha256": "1f5b0c22954078ace536d2acca6c56be8e0952cb3a5ac14747cf969836d31a51"
+  },
+  "2023-05-03": {
+   "status": "time",
+   "time_et": "14:00",
+   "tz": "EDT",
+   "minute_after_0930": 270,
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20230503a.htm",
+   "url_source": "press-release pattern",
+   "page_sha256": "026d7d53cdc6fbc99b5c2b88b2a1b7e5c4880ec195b217431ff399ecee066670"
+  },
+  "2023-06-14": {
+   "status": "time",
+   "time_et": "14:00",
+   "tz": "EDT",
+   "minute_after_0930": 270,
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20230614a.htm",
+   "url_source": "press-release pattern",
+   "page_sha256": "b913ce16efed24f6e959a34171a062d057d9fd621071e79ae852891bd611c9fd"
+  },
+  "2023-07-26": {
+   "status": "time",
+   "time_et": "14:00",
+   "tz": "EDT",
+   "minute_after_0930": 270,
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20230726a.htm",
+   "url_source": "press-release pattern",
+   "page_sha256": "0f0d4ae84997579ccaa97f501945d7de2188a42f0f958065d8e0d68777023bd0"
+  },
+  "2023-09-20": {
+   "status": "time",
+   "time_et": "14:00",
+   "tz": "EDT",
+   "minute_after_0930": 270,
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20230920a.htm",
+   "url_source": "press-release pattern",
+   "page_sha256": "6445a815b4cbd1118da053b3322b233a6a8eba1bed788e2ebf1f03bb43cf28fb"
+  },
+  "2023-11-01": {
+   "status": "time",
+   "time_et": "14:00",
+   "tz": "EDT",
+   "minute_after_0930": 270,
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20231101a.htm",
+   "url_source": "press-release pattern",
+   "page_sha256": "8f868cb13d213ff87f792867c8bffb4587fd23b56da95e03713240cbee49fbe2"
+  },
+  "2023-12-13": {
+   "status": "time",
+   "time_et": "14:00",
+   "tz": "EST",
+   "minute_after_0930": 270,
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20231213a.htm",
+   "url_source": "press-release pattern",
+   "page_sha256": "04e3f04b782bfbc1cc986704ae312a3e5891f50074d72665623c77a1af22c4bd"
+  },
+  "2024-01-31": {
+   "status": "time",
+   "time_et": "14:00",
+   "tz": "EST",
+   "minute_after_0930": 270,
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20240131a.htm",
+   "url_source": "press-release pattern",
+   "page_sha256": "b63ced1422c9b19ac86cfd4bef14827c83f7c29149b9438e55ef7fd8f5ee4ff5"
+  },
+  "2024-03-20": {
+   "status": "time",
+   "time_et": "14:00",
+   "tz": "EDT",
+   "minute_after_0930": 270,
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20240320a.htm",
+   "url_source": "press-release pattern",
+   "page_sha256": "7cf04504b67aa10b35555e691de48886cf21def1c964b81374de24ee1c5de8f3"
+  },
+  "2024-05-01": {
+   "status": "time",
+   "time_et": "14:00",
+   "tz": "EDT",
+   "minute_after_0930": 270,
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20240501a.htm",
+   "url_source": "press-release pattern",
+   "page_sha256": "e1c6745db1c4359dda36e8b6bfd55f921ee8c0a2185a79a9a7ccd02396cc4873"
+  },
+  "2024-06-12": {
+   "status": "time",
+   "time_et": "14:00",
+   "tz": "EDT",
+   "minute_after_0930": 270,
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20240612a.htm",
+   "url_source": "press-release pattern",
+   "page_sha256": "3e191e4bb654c1e1b6e09155c08b48be80d1b8e33e58f56839412a79a6e9e779"
+  },
+  "2024-07-31": {
+   "status": "time",
+   "time_et": "14:00",
+   "tz": "EDT",
+   "minute_after_0930": 270,
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20240731a.htm",
+   "url_source": "press-release pattern",
+   "page_sha256": "6e33d9e241526f3d24bfbc81b14da6816bcff44b0b34279e5fa39e3eb32993a5"
+  },
+  "2024-09-18": {
+   "status": "time",
+   "time_et": "14:00",
+   "tz": "EDT",
+   "minute_after_0930": 270,
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20240918a.htm",
+   "url_source": "press-release pattern",
+   "page_sha256": "07ac76d7982001d180f5607ef7e3c5cf1968a6dfe003ae732969103e949180d8"
+  },
+  "2024-11-07": {
+   "status": "time",
+   "time_et": "14:00",
+   "tz": "EST",
+   "minute_after_0930": 270,
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20241107a.htm",
+   "url_source": "press-release pattern",
+   "page_sha256": "933c73a157388c04c0b7464d883ecb3ee621db1dde16eea1a5953dfa2295176f"
+  },
+  "2024-12-18": {
+   "status": "time",
+   "time_et": "14:00",
+   "tz": "EST",
+   "minute_after_0930": 270,
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20241218a.htm",
+   "url_source": "press-release pattern",
+   "page_sha256": "2a1a404c7c4aa182d7186840b91596730f4c43923a03bb91b418d0cf2b2171a2"
+  }
+ }
+}

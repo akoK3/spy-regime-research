@@ -10,7 +10,8 @@ import s5_lib as L, s5_eval as V, s5_fast as F, s5_d2 as D2, s5_d2_stable as S, 
 
 HERE = Path(__file__).resolve().parent; ROOT = HERE.parent
 ALLOWED_MACHINERY = {"RAW|3", "LEGACY|29"}
-HMM_GRID = [dict(K=2), dict(K=3), dict(K=4)]; BOCPD_GRID = [dict(lam=12), dict(lam=39), dict(lam=78)]
+HMM_GRID = [dict(K=2), dict(K=3), dict(K=4)]; HSMM_GRID = [dict(K=2), dict(K=3)]      # A11 item 2: 5.4 gives HSMM K 2-3; HMM families K 2-4
+BOCPD_GRID = [dict(lam=12), dict(lam=39), dict(lam=78)]
 TARGET = B.TARGET; BOUNDS = B.BOUNDS
 
 
@@ -30,7 +31,7 @@ class DataBackend:
 
     def _build(self):
         primary, _, _ = L.pools(); cols = primary; names = [L.RET_NAME] + cols
-        d = L.load_era(self.era, cols + ["lee_mykland_approx60"]); seg = L.fold_segments(d, self.era, self.fold); dv = S.des_variance(d)
+        d = L.load_era(self.era, cols + ["lee_mykland_approx60"]); seg = self._segments(d); dv = S.des_variance(d)
         native = [L.session_grid(d, i, cols) for i in range(len(d["first"]))]; Mx = np.full((len(native), 78), np.nan)
         for i, r in enumerate(native): Mx[i, :len(r["X"])] = r["X"][:, 0]
         to_des = lambda r, sess: dict(r, X=F.deseason(r["X"], F.ret5_scale(Mx, sess)))
@@ -39,6 +40,8 @@ class DataBackend:
         mk = lambda r, sub: L.build_sequence(dict(r, X=prep.transform(r["X"])[:, [prep.keep.index(L.RET_NAME)] + [prep.keep.index(x) for x in sub]]))
         used = set(map(int, np.r_[seg["train"], seg["val"], seg["test"]])); L.assert_train_only(self.era, [d["day"][d["first"][i]] for i in sorted(used)])
         return dict(d=d, seg=seg, dv=dv, cols=cols, names=names, rows=rows, prep=prep, mk=mk, to_des=to_des, used=used, kept=set(prep.keep))
+
+    def _segments(self, d): return L.fold_segments(d, self.era, self.fold)
 
     def sequences(self, split, subset):
         key = (split, tuple(subset))
@@ -59,7 +62,7 @@ class DataBackend:
     # ---- backend interface
     def folds(self): return [self.id]
     def candidates(self, fold): self._chk(fold); return sorted(x for x in self.c["cols"] if x in self.c["kept"])
-    def param_grid(self, family): return BOCPD_GRID if family == "bocpd" else HMM_GRID
+    def param_grid(self, family): return BOCPD_GRID if family == "bocpd" else HSMM_GRID if family == "hsmm" else HMM_GRID
 
     def _chk(self, fold):
         if fold != self.id: raise PermissionError(f"backend for {self.id} asked for {fold}")

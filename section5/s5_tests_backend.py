@@ -28,7 +28,7 @@ class TestGuards(unittest.TestCase):
         with self.assertRaises(PermissionError): b.candidates("RAW|0")
         with self.assertRaises(PermissionError): b.objective("LEGACY|29", "hsmm")
         with self.assertRaises(PermissionError): b.score("RAW|2", "hsmm", {})
-        self.assertEqual(b.param_grid("bocpd"), [dict(lam=12), dict(lam=39), dict(lam=78)]); self.assertEqual(b.param_grid("hsmm"), [dict(K=2), dict(K=3), dict(K=4)])
+        self.assertEqual(b.param_grid("bocpd"), [dict(lam=12), dict(lam=39), dict(lam=78)]); self.assertEqual(b.param_grid("hsmm"), [dict(K=2), dict(K=3)]); self.assertEqual(b.param_grid("gaussian_hmm"), [dict(K=2), dict(K=3), dict(K=4)]); self.assertEqual(b.param_grid("student_t_hmm"), [dict(K=2), dict(K=3), dict(K=4)])   # A11 item 2
         self.assertIsNone(b._ctx)                                                         # nothing loaded until used
 
     def test_input_hashes_cover_protocol_and_amendments(self):
