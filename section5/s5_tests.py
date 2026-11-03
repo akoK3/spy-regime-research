@@ -425,7 +425,7 @@ class TestA8Items25(unittest.TestCase):
         t2 = C.touched({"X": days}, [], {"a.py": [("X", 0, ("test",))]}, ft)                          # fold 0 test 01-16..01-25 touched
         ex2 = {e["fold"]: e for e in C.exclusions({"X": days}, t2, ft)}
         self.assertTrue(ex2[0]["excluded"]); self.assertTrue(ex2[1]["excluded"])                       # fold 1 test overlaps 01-17..01-25
-        t3 = C.touched({"X": days}, ["2020-01-28"], {"d6.py": "DATES"}, ft); self.assertEqual(sorted(t3["X"]), ["2020-01-28"])
+        t3 = C.touched({"X": days}, ["2020-01-28"], {"d6.py": "DESCRIPTIVE"}, ft); self.assertEqual(t3["X"], {})   # A8.2: D6 dates are not contamination
         self.assertEqual(C.test_days_after_embargo(days, ft.iloc[0])[0], "2020-01-21")                  # first 5 test sessions dropped
 
     def test_h1c_scoring(self):

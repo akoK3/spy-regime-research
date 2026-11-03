@@ -18,7 +18,7 @@ REGISTRY = {
     "s5_d3.py": RAW3, "s5_d5c.py": RAW3, "s5_extreme.py": RAW3, "s5_fixes.py": RAW3, "s5_pilot.py": RAW3,
     "s5_legacy_pilot.py": L29, "s5_legacy_resume_check.py": L29,
     "s5_a8_gate.py": [("RAW", 3, ("train", "val")), ("LEGACY", 29, ("train", "val"))],      # validation days only; no test segment
-    "s5_d6.py": "DATES", "s5_d6_flash.py": "DATES",
+    "s5_d6.py": "DESCRIPTIVE", "s5_d6_flash.py": "DESCRIPTIVE",   # A8.2: D6 ran no detector/model; its dates are not contamination
     "s5_lib.py": "LIBRARY", "s5_fast.py": "LIBRARY", "s5_contamination.py": "LIBRARY", "s5_tests.py": "LIBRARY",
 }
 SHOCK_DAYS = ["2010-05-06", "2015-08-24", "2018-02-05"]
@@ -41,12 +41,7 @@ def touched(days_by_era, fomc_days, registry=REGISTRY, ft=None):
     """-> {era: {day: [reasons]}}"""
     ft = folds_table() if ft is None else ft; out = {e: {} for e in days_by_era}
     for script, spec in registry.items():
-        if spec == "LIBRARY": continue
-        if spec == "DATES":
-            for x in list(fomc_days) + SHOCK_DAYS:
-                for e, ds in days_by_era.items():
-                    if x in set(ds): out[e].setdefault(x, []).append(script)
-            continue
+        if spec in ("LIBRARY", "DESCRIPTIVE"): continue
         for era, fold, segs in spec:
             row = ft[(ft.era == era) & (ft.fold == fold)].iloc[0]
             for s in segs:
@@ -70,17 +65,22 @@ def fomc_days():
 
 def build_days():
     import s5_lib as L
-    out = {}
+    out = {}; bars = {}
     for era in ("LEGACY", "RAW"):
-        d = L.load_era(era, ["return_1m"]); out[era] = [str(d["day"][i]) for i in d["first"]]; del d
-    (RES / "session_days.json").write_text(json.dumps(out)); print({k: len(v) for k, v in out.items()})
+        d = L.load_era(era, ["return_1m"]); out[era] = [str(d["day"][i]) for i in d["first"]]; bars[era] = [int(d["end"][i] - d["first"][i]) for i in range(len(d["first"]))]; del d
+    (RES / "session_days.json").write_text(json.dumps(out)); (RES / "session_bars.json").write_text(json.dumps(bars)); print({k: len(v) for k, v in out.items()})
 
 
 def main():
     days = json.loads((RES / "session_days.json").read_text()); ft = folds_table(); tch = touched(days, fomc_days(), ft=ft); ex = exclusions(days, tch, ft)
     # same, without the D6 date exposures (registry segments only), for information
     reg_only = {k: v for k, v in REGISTRY.items() if v != "DATES"}; tch_reg = touched(days, [], reg_only, ft); ex_reg = exclusions(days, tch_reg, ft)
-    res = dict(rule="fold excluded from confirmatory H1 if its post-embargo test segment intersects a touched session (A8 item 2)", folds=ex, n_folds=len(ex), n_excluded=sum(e["excluded"] for e in ex),
+    fo = fomc_days(); bars = json.loads((RES / "session_bars.json").read_text()); ok_days = {e: {x for x, b in zip(days[e], bars[e]) if b == 390} for e in days}; ev = {}; seen = set()
+    for r in sorted(ex, key=lambda r: (r["era"], r["fold"])):
+        if r["excluded"]: continue
+        row = ft[(ft.era == r["era"]) & (ft.fold == r["fold"])].iloc[0]; cand = [x for x in test_days_after_embargo(days[r["era"]], row) if x in set(fo) and x in ok_days[r["era"]] and x not in seen]
+        seen.update(cand); ev[f"{r['era']}{r['fold']}"] = cand
+    res = dict(h1c_eligible_events_per_fold=ev, n_h1c_events=sum(len(v) for v in ev.values()), rule="fold excluded from confirmatory H1 if its post-embargo test segment intersects a touched session (A8 item 2)", folds=ex, n_folds=len(ex), n_excluded=sum(e["excluded"] for e in ex),
                uncontaminated=[(e["era"], e["fold"]) for e in ex if not e["excluded"]],
                information_registry_segments_only_excluded=[(e["era"], e["fold"]) for e in ex_reg if e["excluded"]],
                touched_sessions={e: len(v) for e, v in tch.items()}, touched_detail={e: {k: sorted(set(r)) for k, r in v.items()} for e, v in tch.items()})

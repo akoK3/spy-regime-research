@@ -1,0 +1,7481 @@
+{
+ "h1c_eligible_events_per_fold": {
+  "LEGACY0": [
+   "2004-01-28",
+   "2004-03-16",
+   "2004-05-04",
+   "2004-06-30"
+  ],
+  "LEGACY1": [
+   "2004-08-10",
+   "2004-09-21",
+   "2004-11-10",
+   "2004-12-14"
+  ],
+  "LEGACY2": [
+   "2005-02-02",
+   "2005-03-22",
+   "2005-05-03",
+   "2005-06-30"
+  ],
+  "LEGACY3": [
+   "2005-08-09",
+   "2005-09-20",
+   "2005-11-01",
+   "2005-12-13"
+  ],
+  "LEGACY4": [
+   "2006-01-31",
+   "2006-03-28",
+   "2006-05-10",
+   "2006-06-29"
+  ],
+  "LEGACY5": [
+   "2006-08-08",
+   "2006-09-20",
+   "2006-10-25",
+   "2006-12-12"
+  ],
+  "LEGACY6": [
+   "2007-01-31",
+   "2007-03-21",
+   "2007-05-09",
+   "2007-06-28"
+  ],
+  "LEGACY7": [
+   "2007-08-07",
+   "2007-09-18",
+   "2007-10-31",
+   "2007-12-11"
+  ],
+  "LEGACY8": [
+   "2008-01-30",
+   "2008-03-18",
+   "2008-04-30",
+   "2008-06-25"
+  ],
+  "LEGACY9": [
+   "2008-08-05",
+   "2008-09-16",
+   "2008-10-29",
+   "2008-12-16"
+  ],
+  "LEGACY10": [
+   "2009-01-28",
+   "2009-03-18",
+   "2009-04-29",
+   "2009-06-24"
+  ],
+  "LEGACY11": [
+   "2009-08-12",
+   "2009-09-23",
+   "2009-11-04",
+   "2009-12-16"
+  ],
+  "LEGACY12": [
+   "2010-01-27",
+   "2010-03-16",
+   "2010-04-28",
+   "2010-06-23"
+  ],
+  "LEGACY13": [
+   "2010-08-10",
+   "2010-09-21",
+   "2010-11-03",
+   "2010-12-14"
+  ],
+  "LEGACY14": [
+   "2011-01-26",
+   "2011-03-15",
+   "2011-04-27",
+   "2011-06-22"
+  ],
+  "LEGACY15": [
+   "2011-08-09",
+   "2011-09-21",
+   "2011-11-02",
+   "2011-12-13"
+  ],
+  "LEGACY16": [
+   "2012-01-25",
+   "2012-03-13",
+   "2012-04-25",
+   "2012-06-20"
+  ],
+  "LEGACY17": [
+   "2012-08-01",
+   "2012-09-13",
+   "2012-10-24",
+   "2012-12-12"
+  ],
+  "LEGACY18": [
+   "2013-01-30",
+   "2013-03-20",
+   "2013-05-01",
+   "2013-06-19"
+  ],
+  "LEGACY19": [
+   "2013-07-31",
+   "2013-09-18",
+   "2013-10-30",
+   "2013-12-18"
+  ],
+  "LEGACY20": [
+   "2014-01-29",
+   "2014-03-19",
+   "2014-04-30",
+   "2014-06-18"
+  ],
+  "LEGACY21": [
+   "2014-07-30",
+   "2014-09-17",
+   "2014-10-29",
+   "2014-12-17"
+  ],
+  "LEGACY22": [
+   "2015-01-28",
+   "2015-03-18",
+   "2015-04-29",
+   "2015-06-17"
+  ],
+  "LEGACY23": [
+   "2015-07-29",
+   "2015-09-17",
+   "2015-10-28",
+   "2015-12-16"
+  ],
+  "LEGACY24": [
+   "2016-01-27",
+   "2016-03-16",
+   "2016-04-27",
+   "2016-06-15"
+  ],
+  "LEGACY25": [
+   "2016-07-27",
+   "2016-09-21",
+   "2016-11-02",
+   "2016-12-14"
+  ],
+  "LEGACY26": [
+   "2017-02-01",
+   "2017-03-15",
+   "2017-05-03",
+   "2017-06-14"
+  ],
+  "RAW0": [
+   "2023-03-22",
+   "2023-05-03",
+   "2023-06-14",
+   "2023-07-26"
+  ]
+ },
+ "n_h1c_events": 112,
+ "rule": "fold excluded from confirmatory H1 if its post-embargo test segment intersects a touched session (A8 item 2)",
+ "folds": [
+  {
+   "era": "LEGACY",
+   "fold": 0,
+   "test_sessions": 121,
+   "touched_in_test": 0,
+   "excluded": false,
+   "by_registry_segments": 0
+  },
+  {
+   "era": "LEGACY",
+   "fold": 1,
+   "test_sessions": 121,
+   "touched_in_test": 0,
+   "excluded": false,
+   "by_registry_segments": 0
+  },
+  {
+   "era": "LEGACY",
+   "fold": 2,
+   "test_sessions": 121,
+   "touched_in_test": 0,
+   "excluded": false,
+   "by_registry_segments": 0
+  },
+  {
+   "era": "LEGACY",
+   "fold": 3,
+   "test_sessions": 121,
+   "touched_in_test": 0,
+   "excluded": false,
+   "by_registry_segments": 0
+  },
+  {
+   "era": "LEGACY",
+   "fold": 4,
+   "test_sessions": 121,
+   "touched_in_test": 0,
+   "excluded": false,
+   "by_registry_segments": 0
+  },
+  {
+   "era": "LEGACY",
+   "fold": 5,
+   "test_sessions": 121,
+   "touched_in_test": 0,
+   "excluded": false,
+   "by_registry_segments": 0
+  },
+  {
+   "era": "LEGACY",
+   "fold": 6,
+   "test_sessions": 121,
+   "touched_in_test": 0,
+   "excluded": false,
+   "by_registry_segments": 0
+  },
+  {
+   "era": "LEGACY",
+   "fold": 7,
+   "test_sessions": 121,
+   "touched_in_test": 0,
+   "excluded": false,
+   "by_registry_segments": 0
+  },
+  {
+   "era": "LEGACY",
+   "fold": 8,
+   "test_sessions": 121,
+   "touched_in_test": 0,
+   "excluded": false,
+   "by_registry_segments": 0
+  },
+  {
+   "era": "LEGACY",
+   "fold": 9,
+   "test_sessions": 121,
+   "touched_in_test": 0,
+   "excluded": false,
+   "by_registry_segments": 0
+  },
+  {
+   "era": "LEGACY",
+   "fold": 10,
+   "test_sessions": 121,
+   "touched_in_test": 0,
+   "excluded": false,
+   "by_registry_segments": 0
+  },
+  {
+   "era": "LEGACY",
+   "fold": 11,
+   "test_sessions": 121,
+   "touched_in_test": 0,
+   "excluded": false,
+   "by_registry_segments": 0
+  },
+  {
+   "era": "LEGACY",
+   "fold": 12,
+   "test_sessions": 121,
+   "touched_in_test": 0,
+   "excluded": false,
+   "by_registry_segments": 0
+  },
+  {
+   "era": "LEGACY",
+   "fold": 13,
+   "test_sessions": 121,
+   "touched_in_test": 0,
+   "excluded": false,
+   "by_registry_segments": 0
+  },
+  {
+   "era": "LEGACY",
+   "fold": 14,
+   "test_sessions": 121,
+   "touched_in_test": 0,
+   "excluded": false,
+   "by_registry_segments": 0
+  },
+  {
+   "era": "LEGACY",
+   "fold": 15,
+   "test_sessions": 121,
+   "touched_in_test": 0,
+   "excluded": false,
+   "by_registry_segments": 0
+  },
+  {
+   "era": "LEGACY",
+   "fold": 16,
+   "test_sessions": 121,
+   "touched_in_test": 0,
+   "excluded": false,
+   "by_registry_segments": 0
+  },
+  {
+   "era": "LEGACY",
+   "fold": 17,
+   "test_sessions": 121,
+   "touched_in_test": 0,
+   "excluded": false,
+   "by_registry_segments": 0
+  },
+  {
+   "era": "LEGACY",
+   "fold": 18,
+   "test_sessions": 121,
+   "touched_in_test": 0,
+   "excluded": false,
+   "by_registry_segments": 0
+  },
+  {
+   "era": "LEGACY",
+   "fold": 19,
+   "test_sessions": 121,
+   "touched_in_test": 0,
+   "excluded": false,
+   "by_registry_segments": 0
+  },
+  {
+   "era": "LEGACY",
+   "fold": 20,
+   "test_sessions": 121,
+   "touched_in_test": 0,
+   "excluded": false,
+   "by_registry_segments": 0
+  },
+  {
+   "era": "LEGACY",
+   "fold": 21,
+   "test_sessions": 121,
+   "touched_in_test": 0,
+   "excluded": false,
+   "by_registry_segments": 0
+  },
+  {
+   "era": "LEGACY",
+   "fold": 22,
+   "test_sessions": 121,
+   "touched_in_test": 0,
+   "excluded": false,
+   "by_registry_segments": 0
+  },
+  {
+   "era": "LEGACY",
+   "fold": 23,
+   "test_sessions": 121,
+   "touched_in_test": 0,
+   "excluded": false,
+   "by_registry_segments": 0
+  },
+  {
+   "era": "LEGACY",
+   "fold": 24,
+   "test_sessions": 121,
+   "touched_in_test": 0,
+   "excluded": false,
+   "by_registry_segments": 0
+  },
+  {
+   "era": "LEGACY",
+   "fold": 25,
+   "test_sessions": 121,
+   "touched_in_test": 0,
+   "excluded": false,
+   "by_registry_segments": 0
+  },
+  {
+   "era": "LEGACY",
+   "fold": 26,
+   "test_sessions": 121,
+   "touched_in_test": 0,
+   "excluded": false,
+   "by_registry_segments": 0
+  },
+  {
+   "era": "LEGACY",
+   "fold": 27,
+   "test_sessions": 121,
+   "touched_in_test": 121,
+   "excluded": true,
+   "by_registry_segments": 121
+  },
+  {
+   "era": "LEGACY",
+   "fold": 28,
+   "test_sessions": 121,
+   "touched_in_test": 121,
+   "excluded": true,
+   "by_registry_segments": 121
+  },
+  {
+   "era": "LEGACY",
+   "fold": 29,
+   "test_sessions": 111,
+   "touched_in_test": 111,
+   "excluded": true,
+   "by_registry_segments": 111
+  },
+  {
+   "era": "RAW",
+   "fold": 0,
+   "test_sessions": 121,
+   "touched_in_test": 0,
+   "excluded": false,
+   "by_registry_segments": 0
+  },
+  {
+   "era": "RAW",
+   "fold": 1,
+   "test_sessions": 121,
+   "touched_in_test": 121,
+   "excluded": true,
+   "by_registry_segments": 121
+  },
+  {
+   "era": "RAW",
+   "fold": 2,
+   "test_sessions": 121,
+   "touched_in_test": 121,
+   "excluded": true,
+   "by_registry_segments": 121
+  },
+  {
+   "era": "RAW",
+   "fold": 3,
+   "test_sessions": 70,
+   "touched_in_test": 70,
+   "excluded": true,
+   "by_registry_segments": 70
+  }
+ ],
+ "n_folds": 34,
+ "n_excluded": 6,
+ "uncontaminated": [
+  [
+   "LEGACY",
+   0
+  ],
+  [
+   "LEGACY",
+   1
+  ],
+  [
+   "LEGACY",
+   2
+  ],
+  [
+   "LEGACY",
+   3
+  ],
+  [
+   "LEGACY",
+   4
+  ],
+  [
+   "LEGACY",
+   5
+  ],
+  [
+   "LEGACY",
+   6
+  ],
+  [
+   "LEGACY",
+   7
+  ],
+  [
+   "LEGACY",
+   8
+  ],
+  [
+   "LEGACY",
+   9
+  ],
+  [
+   "LEGACY",
+   10
+  ],
+  [
+   "LEGACY",
+   11
+  ],
+  [
+   "LEGACY",
+   12
+  ],
+  [
+   "LEGACY",
+   13
+  ],
+  [
+   "LEGACY",
+   14
+  ],
+  [
+   "LEGACY",
+   15
+  ],
+  [
+   "LEGACY",
+   16
+  ],
+  [
+   "LEGACY",
+   17
+  ],
+  [
+   "LEGACY",
+   18
+  ],
+  [
+   "LEGACY",
+   19
+  ],
+  [
+   "LEGACY",
+   20
+  ],
+  [
+   "LEGACY",
+   21
+  ],
+  [
+   "LEGACY",
+   22
+  ],
+  [
+   "LEGACY",
+   23
+  ],
+  [
+   "LEGACY",
+   24
+  ],
+  [
+   "LEGACY",
+   25
+  ],
+  [
+   "LEGACY",
+   26
+  ],
+  [
+   "RAW",
+   0
+  ]
+ ],
+ "information_registry_segments_only_excluded": [
+  [
+   "LEGACY",
+   27
+  ],
+  [
+   "LEGACY",
+   28
+  ],
+  [
+   "LEGACY",
+   29
+  ],
+  [
+   "RAW",
+   1
+  ],
+  [
+   "RAW",
+   2
+  ],
+  [
+   "RAW",
+   3
+  ]
+ ],
+ "touched_sessions": {
+  "LEGACY": 368,
+  "RAW": 327
+ },
+ "touched_detail": {
+  "LEGACY": {
+   "2017-07-10": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2017-07-11": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2017-07-12": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2017-07-13": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2017-07-14": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2017-07-17": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2017-07-18": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2017-07-19": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2017-07-20": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2017-07-21": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2017-07-24": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2017-07-25": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2017-07-26": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2017-07-27": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2017-07-28": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2017-07-31": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2017-08-01": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2017-08-02": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2017-08-03": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2017-08-04": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2017-08-07": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2017-08-08": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2017-08-09": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2017-08-10": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2017-08-11": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2017-08-14": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2017-08-15": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2017-08-16": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2017-08-17": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2017-08-18": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2017-08-21": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2017-08-22": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2017-08-23": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2017-08-24": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2017-08-25": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2017-08-28": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2017-08-29": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2017-08-30": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2017-08-31": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2017-09-01": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2017-09-05": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2017-09-06": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2017-09-07": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2017-09-08": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2017-09-11": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2017-09-12": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2017-09-13": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2017-09-14": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2017-09-15": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2017-09-18": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2017-09-19": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2017-09-20": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2017-09-21": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2017-09-22": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2017-09-25": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2017-09-26": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2017-09-27": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2017-09-28": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2017-09-29": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2017-10-02": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2017-10-03": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2017-10-04": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2017-10-05": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2017-10-06": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2017-10-09": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2017-10-10": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2017-10-11": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2017-10-12": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2017-10-13": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2017-10-16": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2017-10-17": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2017-10-18": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2017-10-19": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2017-10-20": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2017-10-23": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2017-10-24": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2017-10-25": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2017-10-26": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2017-10-27": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2017-10-30": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2017-10-31": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2017-11-01": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2017-11-02": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2017-11-03": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2017-11-06": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2017-11-07": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2017-11-08": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2017-11-09": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2017-11-10": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2017-11-13": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2017-11-14": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2017-11-15": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2017-11-16": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2017-11-17": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2017-11-20": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2017-11-21": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2017-11-22": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2017-11-24": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2017-11-27": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2017-11-28": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2017-11-29": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2017-11-30": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2017-12-01": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2017-12-04": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2017-12-05": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2017-12-06": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2017-12-07": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2017-12-08": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2017-12-11": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2017-12-12": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2017-12-13": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2017-12-14": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2017-12-15": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2017-12-18": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2017-12-19": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2017-12-20": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2017-12-21": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2017-12-22": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2017-12-26": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2017-12-27": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2017-12-28": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2017-12-29": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2018-01-02": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2018-01-03": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2018-01-04": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2018-01-05": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2018-01-08": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2018-01-09": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2018-01-10": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2018-01-11": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2018-01-12": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2018-01-16": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2018-01-17": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2018-01-18": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2018-01-19": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2018-01-22": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2018-01-23": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2018-01-24": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2018-01-25": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2018-01-26": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2018-01-29": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2018-01-30": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2018-01-31": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2018-02-01": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2018-02-02": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2018-02-05": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2018-02-06": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2018-02-07": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2018-02-08": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2018-02-09": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2018-02-12": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2018-02-13": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2018-02-14": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2018-02-15": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2018-02-16": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2018-02-20": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2018-02-21": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2018-02-22": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2018-02-23": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2018-02-26": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2018-02-27": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2018-02-28": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2018-03-01": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2018-03-02": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2018-03-05": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2018-03-06": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2018-03-07": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2018-03-08": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2018-03-09": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2018-03-12": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2018-03-13": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2018-03-14": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2018-03-15": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2018-03-16": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2018-03-19": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2018-03-20": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2018-03-21": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2018-03-22": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2018-03-23": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2018-03-26": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2018-03-27": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2018-03-28": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2018-03-29": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2018-04-02": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2018-04-03": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2018-04-04": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2018-04-05": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2018-04-06": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2018-04-09": [
+    "s5_a8_gate.py:train",
+    "s5_legacy_pilot.py:train",
+    "s5_legacy_resume_check.py:train"
+   ],
+   "2018-04-10": [
+    "s5_a8_gate.py:val",
+    "s5_legacy_pilot.py:val",
+    "s5_legacy_resume_check.py:val"
+   ],
+   "2018-04-11": [
+    "s5_a8_gate.py:val",
+    "s5_legacy_pilot.py:val",
+    "s5_legacy_resume_check.py:val"
+   ],
+   "2018-04-12": [
+    "s5_a8_gate.py:val",
+    "s5_legacy_pilot.py:val",
+    "s5_legacy_resume_check.py:val"
+   ],
+   "2018-04-13": [
+    "s5_a8_gate.py:val",
+    "s5_legacy_pilot.py:val",
+    "s5_legacy_resume_check.py:val"
+   ],
+   "2018-04-16": [
+    "s5_a8_gate.py:val",
+    "s5_legacy_pilot.py:val",
+    "s5_legacy_resume_check.py:val"
+   ],
+   "2018-04-17": [
+    "s5_a8_gate.py:val",
+    "s5_legacy_pilot.py:val",
+    "s5_legacy_resume_check.py:val"
+   ],
+   "2018-04-18": [
+    "s5_a8_gate.py:val",
+    "s5_legacy_pilot.py:val",
+    "s5_legacy_resume_check.py:val"
+   ],
+   "2018-04-19": [
+    "s5_a8_gate.py:val",
+    "s5_legacy_pilot.py:val",
+    "s5_legacy_resume_check.py:val"
+   ],
+   "2018-04-20": [
+    "s5_a8_gate.py:val",
+    "s5_legacy_pilot.py:val",
+    "s5_legacy_resume_check.py:val"
+   ],
+   "2018-04-23": [
+    "s5_a8_gate.py:val",
+    "s5_legacy_pilot.py:val",
+    "s5_legacy_resume_check.py:val"
+   ],
+   "2018-04-24": [
+    "s5_a8_gate.py:val",
+    "s5_legacy_pilot.py:val",
+    "s5_legacy_resume_check.py:val"
+   ],
+   "2018-04-25": [
+    "s5_a8_gate.py:val",
+    "s5_legacy_pilot.py:val",
+    "s5_legacy_resume_check.py:val"
+   ],
+   "2018-04-26": [
+    "s5_a8_gate.py:val",
+    "s5_legacy_pilot.py:val",
+    "s5_legacy_resume_check.py:val"
+   ],
+   "2018-04-27": [
+    "s5_a8_gate.py:val",
+    "s5_legacy_pilot.py:val",
+    "s5_legacy_resume_check.py:val"
+   ],
+   "2018-04-30": [
+    "s5_a8_gate.py:val",
+    "s5_legacy_pilot.py:val",
+    "s5_legacy_resume_check.py:val"
+   ],
+   "2018-05-01": [
+    "s5_a8_gate.py:val",
+    "s5_legacy_pilot.py:val",
+    "s5_legacy_resume_check.py:val"
+   ],
+   "2018-05-02": [
+    "s5_a8_gate.py:val",
+    "s5_legacy_pilot.py:val",
+    "s5_legacy_resume_check.py:val"
+   ],
+   "2018-05-03": [
+    "s5_a8_gate.py:val",
+    "s5_legacy_pilot.py:val",
+    "s5_legacy_resume_check.py:val"
+   ],
+   "2018-05-04": [
+    "s5_a8_gate.py:val",
+    "s5_legacy_pilot.py:val",
+    "s5_legacy_resume_check.py:val"
+   ],
+   "2018-05-07": [
+    "s5_a8_gate.py:val",
+    "s5_legacy_pilot.py:val",
+    "s5_legacy_resume_check.py:val"
+   ],
+   "2018-05-08": [
+    "s5_a8_gate.py:val",
+    "s5_legacy_pilot.py:val",
+    "s5_legacy_resume_check.py:val"
+   ],
+   "2018-05-09": [
+    "s5_a8_gate.py:val",
+    "s5_legacy_pilot.py:val",
+    "s5_legacy_resume_check.py:val"
+   ],
+   "2018-05-10": [
+    "s5_a8_gate.py:val",
+    "s5_legacy_pilot.py:val",
+    "s5_legacy_resume_check.py:val"
+   ],
+   "2018-05-11": [
+    "s5_a8_gate.py:val",
+    "s5_legacy_pilot.py:val",
+    "s5_legacy_resume_check.py:val"
+   ],
+   "2018-05-14": [
+    "s5_a8_gate.py:val",
+    "s5_legacy_pilot.py:val",
+    "s5_legacy_resume_check.py:val"
+   ],
+   "2018-05-15": [
+    "s5_a8_gate.py:val",
+    "s5_legacy_pilot.py:val",
+    "s5_legacy_resume_check.py:val"
+   ],
+   "2018-05-16": [
+    "s5_a8_gate.py:val",
+    "s5_legacy_pilot.py:val",
+    "s5_legacy_resume_check.py:val"
+   ],
+   "2018-05-17": [
+    "s5_a8_gate.py:val",
+    "s5_legacy_pilot.py:val",
+    "s5_legacy_resume_check.py:val"
+   ],
+   "2018-05-18": [
+    "s5_a8_gate.py:val",
+    "s5_legacy_pilot.py:val",
+    "s5_legacy_resume_check.py:val"
+   ],
+   "2018-05-21": [
+    "s5_a8_gate.py:val",
+    "s5_legacy_pilot.py:val",
+    "s5_legacy_resume_check.py:val"
+   ],
+   "2018-05-22": [
+    "s5_a8_gate.py:val",
+    "s5_legacy_pilot.py:val",
+    "s5_legacy_resume_check.py:val"
+   ],
+   "2018-05-23": [
+    "s5_a8_gate.py:val",
+    "s5_legacy_pilot.py:val",
+    "s5_legacy_resume_check.py:val"
+   ],
+   "2018-05-24": [
+    "s5_a8_gate.py:val",
+    "s5_legacy_pilot.py:val",
+    "s5_legacy_resume_check.py:val"
+   ],
+   "2018-05-25": [
+    "s5_a8_gate.py:val",
+    "s5_legacy_pilot.py:val",
+    "s5_legacy_resume_check.py:val"
+   ],
+   "2018-05-29": [
+    "s5_a8_gate.py:val",
+    "s5_legacy_pilot.py:val",
+    "s5_legacy_resume_check.py:val"
+   ],
+   "2018-05-30": [
+    "s5_a8_gate.py:val",
+    "s5_legacy_pilot.py:val",
+    "s5_legacy_resume_check.py:val"
+   ],
+   "2018-05-31": [
+    "s5_a8_gate.py:val",
+    "s5_legacy_pilot.py:val",
+    "s5_legacy_resume_check.py:val"
+   ],
+   "2018-06-01": [
+    "s5_a8_gate.py:val",
+    "s5_legacy_pilot.py:val",
+    "s5_legacy_resume_check.py:val"
+   ],
+   "2018-06-04": [
+    "s5_a8_gate.py:val",
+    "s5_legacy_pilot.py:val",
+    "s5_legacy_resume_check.py:val"
+   ],
+   "2018-06-05": [
+    "s5_a8_gate.py:val",
+    "s5_legacy_pilot.py:val",
+    "s5_legacy_resume_check.py:val"
+   ],
+   "2018-06-06": [
+    "s5_a8_gate.py:val",
+    "s5_legacy_pilot.py:val",
+    "s5_legacy_resume_check.py:val"
+   ],
+   "2018-06-07": [
+    "s5_a8_gate.py:val",
+    "s5_legacy_pilot.py:val",
+    "s5_legacy_resume_check.py:val"
+   ],
+   "2018-06-08": [
+    "s5_a8_gate.py:val",
+    "s5_legacy_pilot.py:val",
+    "s5_legacy_resume_check.py:val"
+   ],
+   "2018-06-11": [
+    "s5_a8_gate.py:val",
+    "s5_legacy_pilot.py:val",
+    "s5_legacy_resume_check.py:val"
+   ],
+   "2018-06-12": [
+    "s5_a8_gate.py:val",
+    "s5_legacy_pilot.py:val",
+    "s5_legacy_resume_check.py:val"
+   ],
+   "2018-06-13": [
+    "s5_a8_gate.py:val",
+    "s5_legacy_pilot.py:val",
+    "s5_legacy_resume_check.py:val"
+   ],
+   "2018-06-14": [
+    "s5_a8_gate.py:val",
+    "s5_legacy_pilot.py:val",
+    "s5_legacy_resume_check.py:val"
+   ],
+   "2018-06-15": [
+    "s5_a8_gate.py:val",
+    "s5_legacy_pilot.py:val",
+    "s5_legacy_resume_check.py:val"
+   ],
+   "2018-06-18": [
+    "s5_a8_gate.py:val",
+    "s5_legacy_pilot.py:val",
+    "s5_legacy_resume_check.py:val"
+   ],
+   "2018-06-19": [
+    "s5_a8_gate.py:val",
+    "s5_legacy_pilot.py:val",
+    "s5_legacy_resume_check.py:val"
+   ],
+   "2018-06-20": [
+    "s5_a8_gate.py:val",
+    "s5_legacy_pilot.py:val",
+    "s5_legacy_resume_check.py:val"
+   ],
+   "2018-06-21": [
+    "s5_a8_gate.py:val",
+    "s5_legacy_pilot.py:val",
+    "s5_legacy_resume_check.py:val"
+   ],
+   "2018-06-22": [
+    "s5_a8_gate.py:val",
+    "s5_legacy_pilot.py:val",
+    "s5_legacy_resume_check.py:val"
+   ],
+   "2018-06-25": [
+    "s5_a8_gate.py:val",
+    "s5_legacy_pilot.py:val",
+    "s5_legacy_resume_check.py:val"
+   ],
+   "2018-06-26": [
+    "s5_a8_gate.py:val",
+    "s5_legacy_pilot.py:val",
+    "s5_legacy_resume_check.py:val"
+   ],
+   "2018-06-27": [
+    "s5_a8_gate.py:val",
+    "s5_legacy_pilot.py:val",
+    "s5_legacy_resume_check.py:val"
+   ],
+   "2018-06-28": [
+    "s5_a8_gate.py:val",
+    "s5_legacy_pilot.py:val",
+    "s5_legacy_resume_check.py:val"
+   ],
+   "2018-06-29": [
+    "s5_a8_gate.py:val",
+    "s5_legacy_pilot.py:val",
+    "s5_legacy_resume_check.py:val"
+   ],
+   "2018-07-02": [
+    "s5_a8_gate.py:val",
+    "s5_legacy_pilot.py:val",
+    "s5_legacy_resume_check.py:val"
+   ],
+   "2018-07-03": [
+    "s5_a8_gate.py:val",
+    "s5_legacy_pilot.py:val",
+    "s5_legacy_resume_check.py:val"
+   ],
+   "2018-07-05": [
+    "s5_a8_gate.py:val",
+    "s5_legacy_pilot.py:val",
+    "s5_legacy_resume_check.py:val"
+   ],
+   "2018-07-06": [
+    "s5_a8_gate.py:val",
+    "s5_legacy_pilot.py:val",
+    "s5_legacy_resume_check.py:val"
+   ],
+   "2018-07-09": [
+    "s5_a8_gate.py:val",
+    "s5_legacy_pilot.py:val",
+    "s5_legacy_resume_check.py:val"
+   ],
+   "2018-07-10": [
+    "s5_legacy_pilot.py:test",
+    "s5_legacy_resume_check.py:test"
+   ],
+   "2018-07-11": [
+    "s5_legacy_pilot.py:test",
+    "s5_legacy_resume_check.py:test"
+   ],
+   "2018-07-12": [
+    "s5_legacy_pilot.py:test",
+    "s5_legacy_resume_check.py:test"
+   ],
+   "2018-07-13": [
+    "s5_legacy_pilot.py:test",
+    "s5_legacy_resume_check.py:test"
+   ],
+   "2018-07-16": [
+    "s5_legacy_pilot.py:test",
+    "s5_legacy_resume_check.py:test"
+   ],
+   "2018-07-17": [
+    "s5_legacy_pilot.py:test",
+    "s5_legacy_resume_check.py:test"
+   ],
+   "2018-07-18": [
+    "s5_legacy_pilot.py:test",
+    "s5_legacy_resume_check.py:test"
+   ],
+   "2018-07-19": [
+    "s5_legacy_pilot.py:test",
+    "s5_legacy_resume_check.py:test"
+   ],
+   "2018-07-20": [
+    "s5_legacy_pilot.py:test",
+    "s5_legacy_resume_check.py:test"
+   ],
+   "2018-07-23": [
+    "s5_legacy_pilot.py:test",
+    "s5_legacy_resume_check.py:test"
+   ],
+   "2018-07-24": [
+    "s5_legacy_pilot.py:test",
+    "s5_legacy_resume_check.py:test"
+   ],
+   "2018-07-25": [
+    "s5_legacy_pilot.py:test",
+    "s5_legacy_resume_check.py:test"
+   ],
+   "2018-07-26": [
+    "s5_legacy_pilot.py:test",
+    "s5_legacy_resume_check.py:test"
+   ],
+   "2018-07-27": [
+    "s5_legacy_pilot.py:test",
+    "s5_legacy_resume_check.py:test"
+   ],
+   "2018-07-30": [
+    "s5_legacy_pilot.py:test",
+    "s5_legacy_resume_check.py:test"
+   ],
+   "2018-07-31": [
+    "s5_legacy_pilot.py:test",
+    "s5_legacy_resume_check.py:test"
+   ],
+   "2018-08-01": [
+    "s5_legacy_pilot.py:test",
+    "s5_legacy_resume_check.py:test"
+   ],
+   "2018-08-02": [
+    "s5_legacy_pilot.py:test",
+    "s5_legacy_resume_check.py:test"
+   ],
+   "2018-08-03": [
+    "s5_legacy_pilot.py:test",
+    "s5_legacy_resume_check.py:test"
+   ],
+   "2018-08-06": [
+    "s5_legacy_pilot.py:test",
+    "s5_legacy_resume_check.py:test"
+   ],
+   "2018-08-07": [
+    "s5_legacy_pilot.py:test",
+    "s5_legacy_resume_check.py:test"
+   ],
+   "2018-08-08": [
+    "s5_legacy_pilot.py:test",
+    "s5_legacy_resume_check.py:test"
+   ],
+   "2018-08-09": [
+    "s5_legacy_pilot.py:test",
+    "s5_legacy_resume_check.py:test"
+   ],
+   "2018-08-10": [
+    "s5_legacy_pilot.py:test",
+    "s5_legacy_resume_check.py:test"
+   ],
+   "2018-08-13": [
+    "s5_legacy_pilot.py:test",
+    "s5_legacy_resume_check.py:test"
+   ],
+   "2018-08-14": [
+    "s5_legacy_pilot.py:test",
+    "s5_legacy_resume_check.py:test"
+   ],
+   "2018-08-15": [
+    "s5_legacy_pilot.py:test",
+    "s5_legacy_resume_check.py:test"
+   ],
+   "2018-08-16": [
+    "s5_legacy_pilot.py:test",
+    "s5_legacy_resume_check.py:test"
+   ],
+   "2018-08-17": [
+    "s5_legacy_pilot.py:test",
+    "s5_legacy_resume_check.py:test"
+   ],
+   "2018-08-20": [
+    "s5_legacy_pilot.py:test",
+    "s5_legacy_resume_check.py:test"
+   ],
+   "2018-08-21": [
+    "s5_legacy_pilot.py:test",
+    "s5_legacy_resume_check.py:test"
+   ],
+   "2018-08-22": [
+    "s5_legacy_pilot.py:test",
+    "s5_legacy_resume_check.py:test"
+   ],
+   "2018-08-23": [
+    "s5_legacy_pilot.py:test",
+    "s5_legacy_resume_check.py:test"
+   ],
+   "2018-08-24": [
+    "s5_legacy_pilot.py:test",
+    "s5_legacy_resume_check.py:test"
+   ],
+   "2018-08-27": [
+    "s5_legacy_pilot.py:test",
+    "s5_legacy_resume_check.py:test"
+   ],
+   "2018-08-28": [
+    "s5_legacy_pilot.py:test",
+    "s5_legacy_resume_check.py:test"
+   ],
+   "2018-08-29": [
+    "s5_legacy_pilot.py:test",
+    "s5_legacy_resume_check.py:test"
+   ],
+   "2018-08-30": [
+    "s5_legacy_pilot.py:test",
+    "s5_legacy_resume_check.py:test"
+   ],
+   "2018-08-31": [
+    "s5_legacy_pilot.py:test",
+    "s5_legacy_resume_check.py:test"
+   ],
+   "2018-09-04": [
+    "s5_legacy_pilot.py:test",
+    "s5_legacy_resume_check.py:test"
+   ],
+   "2018-09-05": [
+    "s5_legacy_pilot.py:test",
+    "s5_legacy_resume_check.py:test"
+   ],
+   "2018-09-06": [
+    "s5_legacy_pilot.py:test",
+    "s5_legacy_resume_check.py:test"
+   ],
+   "2018-09-07": [
+    "s5_legacy_pilot.py:test",
+    "s5_legacy_resume_check.py:test"
+   ],
+   "2018-09-10": [
+    "s5_legacy_pilot.py:test",
+    "s5_legacy_resume_check.py:test"
+   ],
+   "2018-09-11": [
+    "s5_legacy_pilot.py:test",
+    "s5_legacy_resume_check.py:test"
+   ],
+   "2018-09-12": [
+    "s5_legacy_pilot.py:test",
+    "s5_legacy_resume_check.py:test"
+   ],
+   "2018-09-13": [
+    "s5_legacy_pilot.py:test",
+    "s5_legacy_resume_check.py:test"
+   ],
+   "2018-09-14": [
+    "s5_legacy_pilot.py:test",
+    "s5_legacy_resume_check.py:test"
+   ],
+   "2018-09-17": [
+    "s5_legacy_pilot.py:test",
+    "s5_legacy_resume_check.py:test"
+   ],
+   "2018-09-18": [
+    "s5_legacy_pilot.py:test",
+    "s5_legacy_resume_check.py:test"
+   ],
+   "2018-09-19": [
+    "s5_legacy_pilot.py:test",
+    "s5_legacy_resume_check.py:test"
+   ],
+   "2018-09-20": [
+    "s5_legacy_pilot.py:test",
+    "s5_legacy_resume_check.py:test"
+   ],
+   "2018-09-21": [
+    "s5_legacy_pilot.py:test",
+    "s5_legacy_resume_check.py:test"
+   ],
+   "2018-09-24": [
+    "s5_legacy_pilot.py:test",
+    "s5_legacy_resume_check.py:test"
+   ],
+   "2018-09-25": [
+    "s5_legacy_pilot.py:test",
+    "s5_legacy_resume_check.py:test"
+   ],
+   "2018-09-26": [
+    "s5_legacy_pilot.py:test",
+    "s5_legacy_resume_check.py:test"
+   ],
+   "2018-09-27": [
+    "s5_legacy_pilot.py:test",
+    "s5_legacy_resume_check.py:test"
+   ],
+   "2018-09-28": [
+    "s5_legacy_pilot.py:test",
+    "s5_legacy_resume_check.py:test"
+   ],
+   "2018-10-01": [
+    "s5_legacy_pilot.py:test",
+    "s5_legacy_resume_check.py:test"
+   ],
+   "2018-10-02": [
+    "s5_legacy_pilot.py:test",
+    "s5_legacy_resume_check.py:test"
+   ],
+   "2018-10-03": [
+    "s5_legacy_pilot.py:test",
+    "s5_legacy_resume_check.py:test"
+   ],
+   "2018-10-04": [
+    "s5_legacy_pilot.py:test",
+    "s5_legacy_resume_check.py:test"
+   ],
+   "2018-10-05": [
+    "s5_legacy_pilot.py:test",
+    "s5_legacy_resume_check.py:test"
+   ],
+   "2018-10-08": [
+    "s5_legacy_pilot.py:test",
+    "s5_legacy_resume_check.py:test"
+   ],
+   "2018-10-09": [
+    "s5_legacy_pilot.py:test",
+    "s5_legacy_resume_check.py:test"
+   ],
+   "2018-10-10": [
+    "s5_legacy_pilot.py:test",
+    "s5_legacy_resume_check.py:test"
+   ],
+   "2018-10-11": [
+    "s5_legacy_pilot.py:test",
+    "s5_legacy_resume_check.py:test"
+   ],
+   "2018-10-12": [
+    "s5_legacy_pilot.py:test",
+    "s5_legacy_resume_check.py:test"
+   ],
+   "2018-10-15": [
+    "s5_legacy_pilot.py:test",
+    "s5_legacy_resume_check.py:test"
+   ],
+   "2018-10-16": [
+    "s5_legacy_pilot.py:test",
+    "s5_legacy_resume_check.py:test"
+   ],
+   "2018-10-17": [
+    "s5_legacy_pilot.py:test",
+    "s5_legacy_resume_check.py:test"
+   ],
+   "2018-10-18": [
+    "s5_legacy_pilot.py:test",
+    "s5_legacy_resume_check.py:test"
+   ],
+   "2018-10-19": [
+    "s5_legacy_pilot.py:test",
+    "s5_legacy_resume_check.py:test"
+   ],
+   "2018-10-22": [
+    "s5_legacy_pilot.py:test",
+    "s5_legacy_resume_check.py:test"
+   ],
+   "2018-10-23": [
+    "s5_legacy_pilot.py:test",
+    "s5_legacy_resume_check.py:test"
+   ],
+   "2018-10-24": [
+    "s5_legacy_pilot.py:test",
+    "s5_legacy_resume_check.py:test"
+   ],
+   "2018-10-25": [
+    "s5_legacy_pilot.py:test",
+    "s5_legacy_resume_check.py:test"
+   ],
+   "2018-10-26": [
+    "s5_legacy_pilot.py:test",
+    "s5_legacy_resume_check.py:test"
+   ],
+   "2018-10-29": [
+    "s5_legacy_pilot.py:test",
+    "s5_legacy_resume_check.py:test"
+   ],
+   "2018-10-30": [
+    "s5_legacy_pilot.py:test",
+    "s5_legacy_resume_check.py:test"
+   ],
+   "2018-10-31": [
+    "s5_legacy_pilot.py:test",
+    "s5_legacy_resume_check.py:test"
+   ],
+   "2018-11-01": [
+    "s5_legacy_pilot.py:test",
+    "s5_legacy_resume_check.py:test"
+   ],
+   "2018-11-02": [
+    "s5_legacy_pilot.py:test",
+    "s5_legacy_resume_check.py:test"
+   ],
+   "2018-11-05": [
+    "s5_legacy_pilot.py:test",
+    "s5_legacy_resume_check.py:test"
+   ],
+   "2018-11-06": [
+    "s5_legacy_pilot.py:test",
+    "s5_legacy_resume_check.py:test"
+   ],
+   "2018-11-07": [
+    "s5_legacy_pilot.py:test",
+    "s5_legacy_resume_check.py:test"
+   ],
+   "2018-11-08": [
+    "s5_legacy_pilot.py:test",
+    "s5_legacy_resume_check.py:test"
+   ],
+   "2018-11-09": [
+    "s5_legacy_pilot.py:test",
+    "s5_legacy_resume_check.py:test"
+   ],
+   "2018-11-12": [
+    "s5_legacy_pilot.py:test",
+    "s5_legacy_resume_check.py:test"
+   ],
+   "2018-11-13": [
+    "s5_legacy_pilot.py:test",
+    "s5_legacy_resume_check.py:test"
+   ],
+   "2018-11-14": [
+    "s5_legacy_pilot.py:test",
+    "s5_legacy_resume_check.py:test"
+   ],
+   "2018-11-15": [
+    "s5_legacy_pilot.py:test",
+    "s5_legacy_resume_check.py:test"
+   ],
+   "2018-11-16": [
+    "s5_legacy_pilot.py:test",
+    "s5_legacy_resume_check.py:test"
+   ],
+   "2018-11-19": [
+    "s5_legacy_pilot.py:test",
+    "s5_legacy_resume_check.py:test"
+   ],
+   "2018-11-20": [
+    "s5_legacy_pilot.py:test",
+    "s5_legacy_resume_check.py:test"
+   ],
+   "2018-11-21": [
+    "s5_legacy_pilot.py:test",
+    "s5_legacy_resume_check.py:test"
+   ],
+   "2018-11-23": [
+    "s5_legacy_pilot.py:test",
+    "s5_legacy_resume_check.py:test"
+   ],
+   "2018-11-26": [
+    "s5_legacy_pilot.py:test",
+    "s5_legacy_resume_check.py:test"
+   ],
+   "2018-11-27": [
+    "s5_legacy_pilot.py:test",
+    "s5_legacy_resume_check.py:test"
+   ],
+   "2018-11-28": [
+    "s5_legacy_pilot.py:test",
+    "s5_legacy_resume_check.py:test"
+   ],
+   "2018-11-29": [
+    "s5_legacy_pilot.py:test",
+    "s5_legacy_resume_check.py:test"
+   ],
+   "2018-11-30": [
+    "s5_legacy_pilot.py:test",
+    "s5_legacy_resume_check.py:test"
+   ],
+   "2018-12-03": [
+    "s5_legacy_pilot.py:test",
+    "s5_legacy_resume_check.py:test"
+   ],
+   "2018-12-04": [
+    "s5_legacy_pilot.py:test",
+    "s5_legacy_resume_check.py:test"
+   ],
+   "2018-12-06": [
+    "s5_legacy_pilot.py:test",
+    "s5_legacy_resume_check.py:test"
+   ],
+   "2018-12-07": [
+    "s5_legacy_pilot.py:test",
+    "s5_legacy_resume_check.py:test"
+   ],
+   "2018-12-10": [
+    "s5_legacy_pilot.py:test",
+    "s5_legacy_resume_check.py:test"
+   ],
+   "2018-12-11": [
+    "s5_legacy_pilot.py:test",
+    "s5_legacy_resume_check.py:test"
+   ],
+   "2018-12-12": [
+    "s5_legacy_pilot.py:test",
+    "s5_legacy_resume_check.py:test"
+   ],
+   "2018-12-13": [
+    "s5_legacy_pilot.py:test",
+    "s5_legacy_resume_check.py:test"
+   ],
+   "2018-12-14": [
+    "s5_legacy_pilot.py:test",
+    "s5_legacy_resume_check.py:test"
+   ],
+   "2018-12-17": [
+    "s5_legacy_pilot.py:test",
+    "s5_legacy_resume_check.py:test"
+   ],
+   "2018-12-18": [
+    "s5_legacy_pilot.py:test",
+    "s5_legacy_resume_check.py:test"
+   ],
+   "2018-12-19": [
+    "s5_legacy_pilot.py:test",
+    "s5_legacy_resume_check.py:test"
+   ],
+   "2018-12-20": [
+    "s5_legacy_pilot.py:test",
+    "s5_legacy_resume_check.py:test"
+   ],
+   "2018-12-21": [
+    "s5_legacy_pilot.py:test",
+    "s5_legacy_resume_check.py:test"
+   ]
+  },
+  "RAW": {
+   "2023-09-07": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2023-09-08": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2023-09-11": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2023-09-12": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2023-09-13": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2023-09-14": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2023-09-15": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2023-09-18": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2023-09-19": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2023-09-20": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2023-09-21": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2023-09-22": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2023-09-25": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2023-09-26": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2023-09-27": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2023-09-28": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2023-09-29": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2023-10-02": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2023-10-03": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2023-10-04": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2023-10-05": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2023-10-06": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2023-10-09": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2023-10-10": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2023-10-11": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2023-10-12": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2023-10-13": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2023-10-16": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2023-10-17": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2023-10-18": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2023-10-19": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2023-10-20": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2023-10-23": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2023-10-24": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2023-10-25": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2023-10-26": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2023-10-27": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2023-10-30": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2023-10-31": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2023-11-01": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2023-11-02": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2023-11-03": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2023-11-06": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2023-11-07": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2023-11-08": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2023-11-09": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2023-11-10": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2023-11-13": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2023-11-14": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2023-11-15": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2023-11-16": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2023-11-17": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2023-11-20": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2023-11-21": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2023-11-22": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2023-11-24": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2023-11-27": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2023-11-28": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2023-11-29": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2023-11-30": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2023-12-01": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2023-12-04": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2023-12-05": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2023-12-06": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2023-12-07": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2023-12-08": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2023-12-11": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2023-12-12": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2023-12-13": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2023-12-14": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2023-12-15": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2023-12-18": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2023-12-19": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2023-12-20": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2023-12-21": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2023-12-22": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2023-12-26": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2023-12-27": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2023-12-28": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2023-12-29": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2024-01-02": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2024-01-03": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2024-01-04": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2024-01-05": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2024-01-08": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2024-01-09": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2024-01-10": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2024-01-11": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2024-01-12": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2024-01-16": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2024-01-17": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2024-01-18": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2024-01-19": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2024-01-22": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2024-01-23": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2024-01-24": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2024-01-25": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2024-01-26": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2024-01-29": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2024-01-30": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2024-01-31": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2024-02-01": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2024-02-02": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2024-02-05": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2024-02-06": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2024-02-07": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2024-02-08": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2024-02-09": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2024-02-12": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2024-02-13": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2024-02-14": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2024-02-15": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2024-02-16": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2024-02-20": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2024-02-21": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2024-02-22": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2024-02-23": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2024-02-26": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2024-02-27": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2024-02-28": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2024-02-29": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2024-03-01": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2024-03-04": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2024-03-05": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2024-03-06": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2024-03-07": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2024-03-08": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2024-03-11": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2024-03-12": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2024-03-13": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2024-03-14": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2024-03-15": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2024-03-18": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2024-03-19": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2024-03-20": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2024-03-21": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2024-03-22": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2024-03-25": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2024-03-26": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2024-03-27": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2024-03-28": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2024-04-01": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2024-04-02": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2024-04-03": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2024-04-04": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2024-04-05": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2024-04-08": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2024-04-09": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2024-04-10": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2024-04-11": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2024-04-12": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2024-04-15": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2024-04-16": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2024-04-17": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2024-04-18": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2024-04-19": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2024-04-22": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2024-04-23": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2024-04-24": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2024-04-25": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2024-04-26": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2024-04-29": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2024-04-30": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2024-05-01": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2024-05-02": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2024-05-03": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2024-05-06": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2024-05-07": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2024-05-08": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2024-05-09": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2024-05-10": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2024-05-13": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2024-05-14": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2024-05-15": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2024-05-16": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2024-05-17": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2024-05-20": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2024-05-21": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2024-05-22": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2024-05-23": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2024-05-24": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2024-05-28": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2024-05-29": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2024-05-30": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2024-05-31": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2024-06-03": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2024-06-04": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2024-06-05": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2024-06-06": [
+    "diag_pilot_fa.py:train",
+    "s5_a6.py:train",
+    "s5_a7.py:train",
+    "s5_a7_sweep.py:train",
+    "s5_a8_gate.py:train",
+    "s5_bench.py:train",
+    "s5_cusum.py:train",
+    "s5_d2.py:train",
+    "s5_d2_stable.py:train",
+    "s5_d3.py:train",
+    "s5_d5c.py:train",
+    "s5_extreme.py:train",
+    "s5_fixes.py:train",
+    "s5_pilot.py:train"
+   ],
+   "2024-06-07": [
+    "diag_pilot_fa.py:val",
+    "s5_a6.py:val",
+    "s5_a7.py:val",
+    "s5_a7_sweep.py:val",
+    "s5_a8_gate.py:val",
+    "s5_bench.py:val",
+    "s5_cusum.py:val",
+    "s5_d2.py:val",
+    "s5_d2_stable.py:val",
+    "s5_d3.py:val",
+    "s5_d5c.py:val",
+    "s5_extreme.py:val",
+    "s5_fixes.py:val",
+    "s5_pilot.py:val"
+   ],
+   "2024-06-10": [
+    "diag_pilot_fa.py:val",
+    "s5_a6.py:val",
+    "s5_a7.py:val",
+    "s5_a7_sweep.py:val",
+    "s5_a8_gate.py:val",
+    "s5_bench.py:val",
+    "s5_cusum.py:val",
+    "s5_d2.py:val",
+    "s5_d2_stable.py:val",
+    "s5_d3.py:val",
+    "s5_d5c.py:val",
+    "s5_extreme.py:val",
+    "s5_fixes.py:val",
+    "s5_pilot.py:val"
+   ],
+   "2024-06-11": [
+    "diag_pilot_fa.py:val",
+    "s5_a6.py:val",
+    "s5_a7.py:val",
+    "s5_a7_sweep.py:val",
+    "s5_a8_gate.py:val",
+    "s5_bench.py:val",
+    "s5_cusum.py:val",
+    "s5_d2.py:val",
+    "s5_d2_stable.py:val",
+    "s5_d3.py:val",
+    "s5_d5c.py:val",
+    "s5_extreme.py:val",
+    "s5_fixes.py:val",
+    "s5_pilot.py:val"
+   ],
+   "2024-06-12": [
+    "diag_pilot_fa.py:val",
+    "s5_a6.py:val",
+    "s5_a7.py:val",
+    "s5_a7_sweep.py:val",
+    "s5_a8_gate.py:val",
+    "s5_bench.py:val",
+    "s5_cusum.py:val",
+    "s5_d2.py:val",
+    "s5_d2_stable.py:val",
+    "s5_d3.py:val",
+    "s5_d5c.py:val",
+    "s5_extreme.py:val",
+    "s5_fixes.py:val",
+    "s5_pilot.py:val"
+   ],
+   "2024-06-13": [
+    "diag_pilot_fa.py:val",
+    "s5_a6.py:val",
+    "s5_a7.py:val",
+    "s5_a7_sweep.py:val",
+    "s5_a8_gate.py:val",
+    "s5_bench.py:val",
+    "s5_cusum.py:val",
+    "s5_d2.py:val",
+    "s5_d2_stable.py:val",
+    "s5_d3.py:val",
+    "s5_d5c.py:val",
+    "s5_extreme.py:val",
+    "s5_fixes.py:val",
+    "s5_pilot.py:val"
+   ],
+   "2024-06-14": [
+    "diag_pilot_fa.py:val",
+    "s5_a6.py:val",
+    "s5_a7.py:val",
+    "s5_a7_sweep.py:val",
+    "s5_a8_gate.py:val",
+    "s5_bench.py:val",
+    "s5_cusum.py:val",
+    "s5_d2.py:val",
+    "s5_d2_stable.py:val",
+    "s5_d3.py:val",
+    "s5_d5c.py:val",
+    "s5_extreme.py:val",
+    "s5_fixes.py:val",
+    "s5_pilot.py:val"
+   ],
+   "2024-06-17": [
+    "diag_pilot_fa.py:val",
+    "s5_a6.py:val",
+    "s5_a7.py:val",
+    "s5_a7_sweep.py:val",
+    "s5_a8_gate.py:val",
+    "s5_bench.py:val",
+    "s5_cusum.py:val",
+    "s5_d2.py:val",
+    "s5_d2_stable.py:val",
+    "s5_d3.py:val",
+    "s5_d5c.py:val",
+    "s5_extreme.py:val",
+    "s5_fixes.py:val",
+    "s5_pilot.py:val"
+   ],
+   "2024-06-18": [
+    "diag_pilot_fa.py:val",
+    "s5_a6.py:val",
+    "s5_a7.py:val",
+    "s5_a7_sweep.py:val",
+    "s5_a8_gate.py:val",
+    "s5_bench.py:val",
+    "s5_cusum.py:val",
+    "s5_d2.py:val",
+    "s5_d2_stable.py:val",
+    "s5_d3.py:val",
+    "s5_d5c.py:val",
+    "s5_extreme.py:val",
+    "s5_fixes.py:val",
+    "s5_pilot.py:val"
+   ],
+   "2024-06-20": [
+    "diag_pilot_fa.py:val",
+    "s5_a6.py:val",
+    "s5_a7.py:val",
+    "s5_a7_sweep.py:val",
+    "s5_a8_gate.py:val",
+    "s5_bench.py:val",
+    "s5_cusum.py:val",
+    "s5_d2.py:val",
+    "s5_d2_stable.py:val",
+    "s5_d3.py:val",
+    "s5_d5c.py:val",
+    "s5_extreme.py:val",
+    "s5_fixes.py:val",
+    "s5_pilot.py:val"
+   ],
+   "2024-06-21": [
+    "diag_pilot_fa.py:val",
+    "s5_a6.py:val",
+    "s5_a7.py:val",
+    "s5_a7_sweep.py:val",
+    "s5_a8_gate.py:val",
+    "s5_bench.py:val",
+    "s5_cusum.py:val",
+    "s5_d2.py:val",
+    "s5_d2_stable.py:val",
+    "s5_d3.py:val",
+    "s5_d5c.py:val",
+    "s5_extreme.py:val",
+    "s5_fixes.py:val",
+    "s5_pilot.py:val"
+   ],
+   "2024-06-24": [
+    "diag_pilot_fa.py:val",
+    "s5_a6.py:val",
+    "s5_a7.py:val",
+    "s5_a7_sweep.py:val",
+    "s5_a8_gate.py:val",
+    "s5_bench.py:val",
+    "s5_cusum.py:val",
+    "s5_d2.py:val",
+    "s5_d2_stable.py:val",
+    "s5_d3.py:val",
+    "s5_d5c.py:val",
+    "s5_extreme.py:val",
+    "s5_fixes.py:val",
+    "s5_pilot.py:val"
+   ],
+   "2024-06-25": [
+    "diag_pilot_fa.py:val",
+    "s5_a6.py:val",
+    "s5_a7.py:val",
+    "s5_a7_sweep.py:val",
+    "s5_a8_gate.py:val",
+    "s5_bench.py:val",
+    "s5_cusum.py:val",
+    "s5_d2.py:val",
+    "s5_d2_stable.py:val",
+    "s5_d3.py:val",
+    "s5_d5c.py:val",
+    "s5_extreme.py:val",
+    "s5_fixes.py:val",
+    "s5_pilot.py:val"
+   ],
+   "2024-06-26": [
+    "diag_pilot_fa.py:val",
+    "s5_a6.py:val",
+    "s5_a7.py:val",
+    "s5_a7_sweep.py:val",
+    "s5_a8_gate.py:val",
+    "s5_bench.py:val",
+    "s5_cusum.py:val",
+    "s5_d2.py:val",
+    "s5_d2_stable.py:val",
+    "s5_d3.py:val",
+    "s5_d5c.py:val",
+    "s5_extreme.py:val",
+    "s5_fixes.py:val",
+    "s5_pilot.py:val"
+   ],
+   "2024-06-27": [
+    "diag_pilot_fa.py:val",
+    "s5_a6.py:val",
+    "s5_a7.py:val",
+    "s5_a7_sweep.py:val",
+    "s5_a8_gate.py:val",
+    "s5_bench.py:val",
+    "s5_cusum.py:val",
+    "s5_d2.py:val",
+    "s5_d2_stable.py:val",
+    "s5_d3.py:val",
+    "s5_d5c.py:val",
+    "s5_extreme.py:val",
+    "s5_fixes.py:val",
+    "s5_pilot.py:val"
+   ],
+   "2024-06-28": [
+    "diag_pilot_fa.py:val",
+    "s5_a6.py:val",
+    "s5_a7.py:val",
+    "s5_a7_sweep.py:val",
+    "s5_a8_gate.py:val",
+    "s5_bench.py:val",
+    "s5_cusum.py:val",
+    "s5_d2.py:val",
+    "s5_d2_stable.py:val",
+    "s5_d3.py:val",
+    "s5_d5c.py:val",
+    "s5_extreme.py:val",
+    "s5_fixes.py:val",
+    "s5_pilot.py:val"
+   ],
+   "2024-07-01": [
+    "diag_pilot_fa.py:val",
+    "s5_a6.py:val",
+    "s5_a7.py:val",
+    "s5_a7_sweep.py:val",
+    "s5_a8_gate.py:val",
+    "s5_bench.py:val",
+    "s5_cusum.py:val",
+    "s5_d2.py:val",
+    "s5_d2_stable.py:val",
+    "s5_d3.py:val",
+    "s5_d5c.py:val",
+    "s5_extreme.py:val",
+    "s5_fixes.py:val",
+    "s5_pilot.py:val"
+   ],
+   "2024-07-02": [
+    "diag_pilot_fa.py:val",
+    "s5_a6.py:val",
+    "s5_a7.py:val",
+    "s5_a7_sweep.py:val",
+    "s5_a8_gate.py:val",
+    "s5_bench.py:val",
+    "s5_cusum.py:val",
+    "s5_d2.py:val",
+    "s5_d2_stable.py:val",
+    "s5_d3.py:val",
+    "s5_d5c.py:val",
+    "s5_extreme.py:val",
+    "s5_fixes.py:val",
+    "s5_pilot.py:val"
+   ],
+   "2024-07-03": [
+    "diag_pilot_fa.py:val",
+    "s5_a6.py:val",
+    "s5_a7.py:val",
+    "s5_a7_sweep.py:val",
+    "s5_a8_gate.py:val",
+    "s5_bench.py:val",
+    "s5_cusum.py:val",
+    "s5_d2.py:val",
+    "s5_d2_stable.py:val",
+    "s5_d3.py:val",
+    "s5_d5c.py:val",
+    "s5_extreme.py:val",
+    "s5_fixes.py:val",
+    "s5_pilot.py:val"
+   ],
+   "2024-07-05": [
+    "diag_pilot_fa.py:val",
+    "s5_a6.py:val",
+    "s5_a7.py:val",
+    "s5_a7_sweep.py:val",
+    "s5_a8_gate.py:val",
+    "s5_bench.py:val",
+    "s5_cusum.py:val",
+    "s5_d2.py:val",
+    "s5_d2_stable.py:val",
+    "s5_d3.py:val",
+    "s5_d5c.py:val",
+    "s5_extreme.py:val",
+    "s5_fixes.py:val",
+    "s5_pilot.py:val"
+   ],
+   "2024-07-08": [
+    "diag_pilot_fa.py:val",
+    "s5_a6.py:val",
+    "s5_a7.py:val",
+    "s5_a7_sweep.py:val",
+    "s5_a8_gate.py:val",
+    "s5_bench.py:val",
+    "s5_cusum.py:val",
+    "s5_d2.py:val",
+    "s5_d2_stable.py:val",
+    "s5_d3.py:val",
+    "s5_d5c.py:val",
+    "s5_extreme.py:val",
+    "s5_fixes.py:val",
+    "s5_pilot.py:val"
+   ],
+   "2024-07-09": [
+    "diag_pilot_fa.py:val",
+    "s5_a6.py:val",
+    "s5_a7.py:val",
+    "s5_a7_sweep.py:val",
+    "s5_a8_gate.py:val",
+    "s5_bench.py:val",
+    "s5_cusum.py:val",
+    "s5_d2.py:val",
+    "s5_d2_stable.py:val",
+    "s5_d3.py:val",
+    "s5_d5c.py:val",
+    "s5_extreme.py:val",
+    "s5_fixes.py:val",
+    "s5_pilot.py:val"
+   ],
+   "2024-07-10": [
+    "diag_pilot_fa.py:val",
+    "s5_a6.py:val",
+    "s5_a7.py:val",
+    "s5_a7_sweep.py:val",
+    "s5_a8_gate.py:val",
+    "s5_bench.py:val",
+    "s5_cusum.py:val",
+    "s5_d2.py:val",
+    "s5_d2_stable.py:val",
+    "s5_d3.py:val",
+    "s5_d5c.py:val",
+    "s5_extreme.py:val",
+    "s5_fixes.py:val",
+    "s5_pilot.py:val"
+   ],
+   "2024-07-11": [
+    "diag_pilot_fa.py:val",
+    "s5_a6.py:val",
+    "s5_a7.py:val",
+    "s5_a7_sweep.py:val",
+    "s5_a8_gate.py:val",
+    "s5_bench.py:val",
+    "s5_cusum.py:val",
+    "s5_d2.py:val",
+    "s5_d2_stable.py:val",
+    "s5_d3.py:val",
+    "s5_d5c.py:val",
+    "s5_extreme.py:val",
+    "s5_fixes.py:val",
+    "s5_pilot.py:val"
+   ],
+   "2024-07-12": [
+    "diag_pilot_fa.py:val",
+    "s5_a6.py:val",
+    "s5_a7.py:val",
+    "s5_a7_sweep.py:val",
+    "s5_a8_gate.py:val",
+    "s5_bench.py:val",
+    "s5_cusum.py:val",
+    "s5_d2.py:val",
+    "s5_d2_stable.py:val",
+    "s5_d3.py:val",
+    "s5_d5c.py:val",
+    "s5_extreme.py:val",
+    "s5_fixes.py:val",
+    "s5_pilot.py:val"
+   ],
+   "2024-07-15": [
+    "diag_pilot_fa.py:val",
+    "s5_a6.py:val",
+    "s5_a7.py:val",
+    "s5_a7_sweep.py:val",
+    "s5_a8_gate.py:val",
+    "s5_bench.py:val",
+    "s5_cusum.py:val",
+    "s5_d2.py:val",
+    "s5_d2_stable.py:val",
+    "s5_d3.py:val",
+    "s5_d5c.py:val",
+    "s5_extreme.py:val",
+    "s5_fixes.py:val",
+    "s5_pilot.py:val"
+   ],
+   "2024-07-16": [
+    "diag_pilot_fa.py:val",
+    "s5_a6.py:val",
+    "s5_a7.py:val",
+    "s5_a7_sweep.py:val",
+    "s5_a8_gate.py:val",
+    "s5_bench.py:val",
+    "s5_cusum.py:val",
+    "s5_d2.py:val",
+    "s5_d2_stable.py:val",
+    "s5_d3.py:val",
+    "s5_d5c.py:val",
+    "s5_extreme.py:val",
+    "s5_fixes.py:val",
+    "s5_pilot.py:val"
+   ],
+   "2024-07-17": [
+    "diag_pilot_fa.py:val",
+    "s5_a6.py:val",
+    "s5_a7.py:val",
+    "s5_a7_sweep.py:val",
+    "s5_a8_gate.py:val",
+    "s5_bench.py:val",
+    "s5_cusum.py:val",
+    "s5_d2.py:val",
+    "s5_d2_stable.py:val",
+    "s5_d3.py:val",
+    "s5_d5c.py:val",
+    "s5_extreme.py:val",
+    "s5_fixes.py:val",
+    "s5_pilot.py:val"
+   ],
+   "2024-07-18": [
+    "diag_pilot_fa.py:val",
+    "s5_a6.py:val",
+    "s5_a7.py:val",
+    "s5_a7_sweep.py:val",
+    "s5_a8_gate.py:val",
+    "s5_bench.py:val",
+    "s5_cusum.py:val",
+    "s5_d2.py:val",
+    "s5_d2_stable.py:val",
+    "s5_d3.py:val",
+    "s5_d5c.py:val",
+    "s5_extreme.py:val",
+    "s5_fixes.py:val",
+    "s5_pilot.py:val"
+   ],
+   "2024-07-19": [
+    "diag_pilot_fa.py:val",
+    "s5_a6.py:val",
+    "s5_a7.py:val",
+    "s5_a7_sweep.py:val",
+    "s5_a8_gate.py:val",
+    "s5_bench.py:val",
+    "s5_cusum.py:val",
+    "s5_d2.py:val",
+    "s5_d2_stable.py:val",
+    "s5_d3.py:val",
+    "s5_d5c.py:val",
+    "s5_extreme.py:val",
+    "s5_fixes.py:val",
+    "s5_pilot.py:val"
+   ],
+   "2024-07-22": [
+    "diag_pilot_fa.py:val",
+    "s5_a6.py:val",
+    "s5_a7.py:val",
+    "s5_a7_sweep.py:val",
+    "s5_a8_gate.py:val",
+    "s5_bench.py:val",
+    "s5_cusum.py:val",
+    "s5_d2.py:val",
+    "s5_d2_stable.py:val",
+    "s5_d3.py:val",
+    "s5_d5c.py:val",
+    "s5_extreme.py:val",
+    "s5_fixes.py:val",
+    "s5_pilot.py:val"
+   ],
+   "2024-07-23": [
+    "diag_pilot_fa.py:val",
+    "s5_a6.py:val",
+    "s5_a7.py:val",
+    "s5_a7_sweep.py:val",
+    "s5_a8_gate.py:val",
+    "s5_bench.py:val",
+    "s5_cusum.py:val",
+    "s5_d2.py:val",
+    "s5_d2_stable.py:val",
+    "s5_d3.py:val",
+    "s5_d5c.py:val",
+    "s5_extreme.py:val",
+    "s5_fixes.py:val",
+    "s5_pilot.py:val"
+   ],
+   "2024-07-24": [
+    "diag_pilot_fa.py:val",
+    "s5_a6.py:val",
+    "s5_a7.py:val",
+    "s5_a7_sweep.py:val",
+    "s5_a8_gate.py:val",
+    "s5_bench.py:val",
+    "s5_cusum.py:val",
+    "s5_d2.py:val",
+    "s5_d2_stable.py:val",
+    "s5_d3.py:val",
+    "s5_d5c.py:val",
+    "s5_extreme.py:val",
+    "s5_fixes.py:val",
+    "s5_pilot.py:val"
+   ],
+   "2024-07-25": [
+    "diag_pilot_fa.py:val",
+    "s5_a6.py:val",
+    "s5_a7.py:val",
+    "s5_a7_sweep.py:val",
+    "s5_a8_gate.py:val",
+    "s5_bench.py:val",
+    "s5_cusum.py:val",
+    "s5_d2.py:val",
+    "s5_d2_stable.py:val",
+    "s5_d3.py:val",
+    "s5_d5c.py:val",
+    "s5_extreme.py:val",
+    "s5_fixes.py:val",
+    "s5_pilot.py:val"
+   ],
+   "2024-07-26": [
+    "diag_pilot_fa.py:val",
+    "s5_a6.py:val",
+    "s5_a7.py:val",
+    "s5_a7_sweep.py:val",
+    "s5_a8_gate.py:val",
+    "s5_bench.py:val",
+    "s5_cusum.py:val",
+    "s5_d2.py:val",
+    "s5_d2_stable.py:val",
+    "s5_d3.py:val",
+    "s5_d5c.py:val",
+    "s5_extreme.py:val",
+    "s5_fixes.py:val",
+    "s5_pilot.py:val"
+   ],
+   "2024-07-29": [
+    "diag_pilot_fa.py:val",
+    "s5_a6.py:val",
+    "s5_a7.py:val",
+    "s5_a7_sweep.py:val",
+    "s5_a8_gate.py:val",
+    "s5_bench.py:val",
+    "s5_cusum.py:val",
+    "s5_d2.py:val",
+    "s5_d2_stable.py:val",
+    "s5_d3.py:val",
+    "s5_d5c.py:val",
+    "s5_extreme.py:val",
+    "s5_fixes.py:val",
+    "s5_pilot.py:val"
+   ],
+   "2024-07-30": [
+    "diag_pilot_fa.py:val",
+    "s5_a6.py:val",
+    "s5_a7.py:val",
+    "s5_a7_sweep.py:val",
+    "s5_a8_gate.py:val",
+    "s5_bench.py:val",
+    "s5_cusum.py:val",
+    "s5_d2.py:val",
+    "s5_d2_stable.py:val",
+    "s5_d3.py:val",
+    "s5_d5c.py:val",
+    "s5_extreme.py:val",
+    "s5_fixes.py:val",
+    "s5_pilot.py:val"
+   ],
+   "2024-07-31": [
+    "diag_pilot_fa.py:val",
+    "s5_a6.py:val",
+    "s5_a7.py:val",
+    "s5_a7_sweep.py:val",
+    "s5_a8_gate.py:val",
+    "s5_bench.py:val",
+    "s5_cusum.py:val",
+    "s5_d2.py:val",
+    "s5_d2_stable.py:val",
+    "s5_d3.py:val",
+    "s5_d5c.py:val",
+    "s5_extreme.py:val",
+    "s5_fixes.py:val",
+    "s5_pilot.py:val"
+   ],
+   "2024-08-01": [
+    "diag_pilot_fa.py:val",
+    "s5_a6.py:val",
+    "s5_a7.py:val",
+    "s5_a7_sweep.py:val",
+    "s5_a8_gate.py:val",
+    "s5_bench.py:val",
+    "s5_cusum.py:val",
+    "s5_d2.py:val",
+    "s5_d2_stable.py:val",
+    "s5_d3.py:val",
+    "s5_d5c.py:val",
+    "s5_extreme.py:val",
+    "s5_fixes.py:val",
+    "s5_pilot.py:val"
+   ],
+   "2024-08-02": [
+    "diag_pilot_fa.py:val",
+    "s5_a6.py:val",
+    "s5_a7.py:val",
+    "s5_a7_sweep.py:val",
+    "s5_a8_gate.py:val",
+    "s5_bench.py:val",
+    "s5_cusum.py:val",
+    "s5_d2.py:val",
+    "s5_d2_stable.py:val",
+    "s5_d3.py:val",
+    "s5_d5c.py:val",
+    "s5_extreme.py:val",
+    "s5_fixes.py:val",
+    "s5_pilot.py:val"
+   ],
+   "2024-08-05": [
+    "diag_pilot_fa.py:val",
+    "s5_a6.py:val",
+    "s5_a7.py:val",
+    "s5_a7_sweep.py:val",
+    "s5_a8_gate.py:val",
+    "s5_bench.py:val",
+    "s5_cusum.py:val",
+    "s5_d2.py:val",
+    "s5_d2_stable.py:val",
+    "s5_d3.py:val",
+    "s5_d5c.py:val",
+    "s5_extreme.py:val",
+    "s5_fixes.py:val",
+    "s5_pilot.py:val"
+   ],
+   "2024-08-06": [
+    "diag_pilot_fa.py:val",
+    "s5_a6.py:val",
+    "s5_a7.py:val",
+    "s5_a7_sweep.py:val",
+    "s5_a8_gate.py:val",
+    "s5_bench.py:val",
+    "s5_cusum.py:val",
+    "s5_d2.py:val",
+    "s5_d2_stable.py:val",
+    "s5_d3.py:val",
+    "s5_d5c.py:val",
+    "s5_extreme.py:val",
+    "s5_fixes.py:val",
+    "s5_pilot.py:val"
+   ],
+   "2024-08-07": [
+    "diag_pilot_fa.py:val",
+    "s5_a6.py:val",
+    "s5_a7.py:val",
+    "s5_a7_sweep.py:val",
+    "s5_a8_gate.py:val",
+    "s5_bench.py:val",
+    "s5_cusum.py:val",
+    "s5_d2.py:val",
+    "s5_d2_stable.py:val",
+    "s5_d3.py:val",
+    "s5_d5c.py:val",
+    "s5_extreme.py:val",
+    "s5_fixes.py:val",
+    "s5_pilot.py:val"
+   ],
+   "2024-08-08": [
+    "diag_pilot_fa.py:val",
+    "s5_a6.py:val",
+    "s5_a7.py:val",
+    "s5_a7_sweep.py:val",
+    "s5_a8_gate.py:val",
+    "s5_bench.py:val",
+    "s5_cusum.py:val",
+    "s5_d2.py:val",
+    "s5_d2_stable.py:val",
+    "s5_d3.py:val",
+    "s5_d5c.py:val",
+    "s5_extreme.py:val",
+    "s5_fixes.py:val",
+    "s5_pilot.py:val"
+   ],
+   "2024-08-09": [
+    "diag_pilot_fa.py:val",
+    "s5_a6.py:val",
+    "s5_a7.py:val",
+    "s5_a7_sweep.py:val",
+    "s5_a8_gate.py:val",
+    "s5_bench.py:val",
+    "s5_cusum.py:val",
+    "s5_d2.py:val",
+    "s5_d2_stable.py:val",
+    "s5_d3.py:val",
+    "s5_d5c.py:val",
+    "s5_extreme.py:val",
+    "s5_fixes.py:val",
+    "s5_pilot.py:val"
+   ],
+   "2024-08-12": [
+    "diag_pilot_fa.py:val",
+    "s5_a6.py:val",
+    "s5_a7.py:val",
+    "s5_a7_sweep.py:val",
+    "s5_a8_gate.py:val",
+    "s5_bench.py:val",
+    "s5_cusum.py:val",
+    "s5_d2.py:val",
+    "s5_d2_stable.py:val",
+    "s5_d3.py:val",
+    "s5_d5c.py:val",
+    "s5_extreme.py:val",
+    "s5_fixes.py:val",
+    "s5_pilot.py:val"
+   ],
+   "2024-08-13": [
+    "diag_pilot_fa.py:val",
+    "s5_a6.py:val",
+    "s5_a7.py:val",
+    "s5_a7_sweep.py:val",
+    "s5_a8_gate.py:val",
+    "s5_bench.py:val",
+    "s5_cusum.py:val",
+    "s5_d2.py:val",
+    "s5_d2_stable.py:val",
+    "s5_d3.py:val",
+    "s5_d5c.py:val",
+    "s5_extreme.py:val",
+    "s5_fixes.py:val",
+    "s5_pilot.py:val"
+   ],
+   "2024-08-14": [
+    "diag_pilot_fa.py:val",
+    "s5_a6.py:val",
+    "s5_a7.py:val",
+    "s5_a7_sweep.py:val",
+    "s5_a8_gate.py:val",
+    "s5_bench.py:val",
+    "s5_cusum.py:val",
+    "s5_d2.py:val",
+    "s5_d2_stable.py:val",
+    "s5_d3.py:val",
+    "s5_d5c.py:val",
+    "s5_extreme.py:val",
+    "s5_fixes.py:val",
+    "s5_pilot.py:val"
+   ],
+   "2024-08-15": [
+    "diag_pilot_fa.py:val",
+    "s5_a6.py:val",
+    "s5_a7.py:val",
+    "s5_a7_sweep.py:val",
+    "s5_a8_gate.py:val",
+    "s5_bench.py:val",
+    "s5_cusum.py:val",
+    "s5_d2.py:val",
+    "s5_d2_stable.py:val",
+    "s5_d3.py:val",
+    "s5_d5c.py:val",
+    "s5_extreme.py:val",
+    "s5_fixes.py:val",
+    "s5_pilot.py:val"
+   ],
+   "2024-08-16": [
+    "diag_pilot_fa.py:val",
+    "s5_a6.py:val",
+    "s5_a7.py:val",
+    "s5_a7_sweep.py:val",
+    "s5_a8_gate.py:val",
+    "s5_bench.py:val",
+    "s5_cusum.py:val",
+    "s5_d2.py:val",
+    "s5_d2_stable.py:val",
+    "s5_d3.py:val",
+    "s5_d5c.py:val",
+    "s5_extreme.py:val",
+    "s5_fixes.py:val",
+    "s5_pilot.py:val"
+   ],
+   "2024-08-19": [
+    "diag_pilot_fa.py:val",
+    "s5_a6.py:val",
+    "s5_a7.py:val",
+    "s5_a7_sweep.py:val",
+    "s5_a8_gate.py:val",
+    "s5_bench.py:val",
+    "s5_cusum.py:val",
+    "s5_d2.py:val",
+    "s5_d2_stable.py:val",
+    "s5_d3.py:val",
+    "s5_d5c.py:val",
+    "s5_extreme.py:val",
+    "s5_fixes.py:val",
+    "s5_pilot.py:val"
+   ],
+   "2024-08-20": [
+    "diag_pilot_fa.py:val",
+    "s5_a6.py:val",
+    "s5_a7.py:val",
+    "s5_a7_sweep.py:val",
+    "s5_a8_gate.py:val",
+    "s5_bench.py:val",
+    "s5_cusum.py:val",
+    "s5_d2.py:val",
+    "s5_d2_stable.py:val",
+    "s5_d3.py:val",
+    "s5_d5c.py:val",
+    "s5_extreme.py:val",
+    "s5_fixes.py:val",
+    "s5_pilot.py:val"
+   ],
+   "2024-08-21": [
+    "diag_pilot_fa.py:val",
+    "s5_a6.py:val",
+    "s5_a7.py:val",
+    "s5_a7_sweep.py:val",
+    "s5_a8_gate.py:val",
+    "s5_bench.py:val",
+    "s5_cusum.py:val",
+    "s5_d2.py:val",
+    "s5_d2_stable.py:val",
+    "s5_d3.py:val",
+    "s5_d5c.py:val",
+    "s5_extreme.py:val",
+    "s5_fixes.py:val",
+    "s5_pilot.py:val"
+   ],
+   "2024-08-22": [
+    "diag_pilot_fa.py:val",
+    "s5_a6.py:val",
+    "s5_a7.py:val",
+    "s5_a7_sweep.py:val",
+    "s5_a8_gate.py:val",
+    "s5_bench.py:val",
+    "s5_cusum.py:val",
+    "s5_d2.py:val",
+    "s5_d2_stable.py:val",
+    "s5_d3.py:val",
+    "s5_d5c.py:val",
+    "s5_extreme.py:val",
+    "s5_fixes.py:val",
+    "s5_pilot.py:val"
+   ],
+   "2024-08-23": [
+    "diag_pilot_fa.py:val",
+    "s5_a6.py:val",
+    "s5_a7.py:val",
+    "s5_a7_sweep.py:val",
+    "s5_a8_gate.py:val",
+    "s5_bench.py:val",
+    "s5_cusum.py:val",
+    "s5_d2.py:val",
+    "s5_d2_stable.py:val",
+    "s5_d3.py:val",
+    "s5_d5c.py:val",
+    "s5_extreme.py:val",
+    "s5_fixes.py:val",
+    "s5_pilot.py:val"
+   ],
+   "2024-08-26": [
+    "diag_pilot_fa.py:val",
+    "s5_a6.py:val",
+    "s5_a7.py:val",
+    "s5_a7_sweep.py:val",
+    "s5_a8_gate.py:val",
+    "s5_bench.py:val",
+    "s5_cusum.py:val",
+    "s5_d2.py:val",
+    "s5_d2_stable.py:val",
+    "s5_d3.py:val",
+    "s5_d5c.py:val",
+    "s5_extreme.py:val",
+    "s5_fixes.py:val",
+    "s5_pilot.py:val"
+   ],
+   "2024-08-27": [
+    "diag_pilot_fa.py:val",
+    "s5_a6.py:val",
+    "s5_a7.py:val",
+    "s5_a7_sweep.py:val",
+    "s5_a8_gate.py:val",
+    "s5_bench.py:val",
+    "s5_cusum.py:val",
+    "s5_d2.py:val",
+    "s5_d2_stable.py:val",
+    "s5_d3.py:val",
+    "s5_d5c.py:val",
+    "s5_extreme.py:val",
+    "s5_fixes.py:val",
+    "s5_pilot.py:val"
+   ],
+   "2024-08-28": [
+    "diag_pilot_fa.py:val",
+    "s5_a6.py:val",
+    "s5_a7.py:val",
+    "s5_a7_sweep.py:val",
+    "s5_a8_gate.py:val",
+    "s5_bench.py:val",
+    "s5_cusum.py:val",
+    "s5_d2.py:val",
+    "s5_d2_stable.py:val",
+    "s5_d3.py:val",
+    "s5_d5c.py:val",
+    "s5_extreme.py:val",
+    "s5_fixes.py:val",
+    "s5_pilot.py:val"
+   ],
+   "2024-08-29": [
+    "diag_pilot_fa.py:val",
+    "s5_a6.py:val",
+    "s5_a7.py:val",
+    "s5_a7_sweep.py:val",
+    "s5_a8_gate.py:val",
+    "s5_bench.py:val",
+    "s5_cusum.py:val",
+    "s5_d2.py:val",
+    "s5_d2_stable.py:val",
+    "s5_d3.py:val",
+    "s5_d5c.py:val",
+    "s5_extreme.py:val",
+    "s5_fixes.py:val",
+    "s5_pilot.py:val"
+   ],
+   "2024-08-30": [
+    "diag_pilot_fa.py:val",
+    "s5_a6.py:val",
+    "s5_a7.py:val",
+    "s5_a7_sweep.py:val",
+    "s5_a8_gate.py:val",
+    "s5_bench.py:val",
+    "s5_cusum.py:val",
+    "s5_d2.py:val",
+    "s5_d2_stable.py:val",
+    "s5_d3.py:val",
+    "s5_d5c.py:val",
+    "s5_extreme.py:val",
+    "s5_fixes.py:val",
+    "s5_pilot.py:val"
+   ],
+   "2024-09-03": [
+    "diag_pilot_fa.py:val",
+    "s5_a6.py:val",
+    "s5_a7.py:val",
+    "s5_a7_sweep.py:val",
+    "s5_a8_gate.py:val",
+    "s5_bench.py:val",
+    "s5_cusum.py:val",
+    "s5_d2.py:val",
+    "s5_d2_stable.py:val",
+    "s5_d3.py:val",
+    "s5_d5c.py:val",
+    "s5_extreme.py:val",
+    "s5_fixes.py:val",
+    "s5_pilot.py:val"
+   ],
+   "2024-09-04": [
+    "diag_pilot_fa.py:val",
+    "s5_a6.py:val",
+    "s5_a7.py:val",
+    "s5_a7_sweep.py:val",
+    "s5_a8_gate.py:val",
+    "s5_bench.py:val",
+    "s5_cusum.py:val",
+    "s5_d2.py:val",
+    "s5_d2_stable.py:val",
+    "s5_d3.py:val",
+    "s5_d5c.py:val",
+    "s5_extreme.py:val",
+    "s5_fixes.py:val",
+    "s5_pilot.py:val"
+   ],
+   "2024-09-05": [
+    "diag_pilot_fa.py:val",
+    "s5_a6.py:val",
+    "s5_a7.py:val",
+    "s5_a7_sweep.py:val",
+    "s5_a8_gate.py:val",
+    "s5_bench.py:val",
+    "s5_cusum.py:val",
+    "s5_d2.py:val",
+    "s5_d2_stable.py:val",
+    "s5_d3.py:val",
+    "s5_d5c.py:val",
+    "s5_extreme.py:val",
+    "s5_fixes.py:val",
+    "s5_pilot.py:val"
+   ],
+   "2024-09-06": [
+    "diag_pilot_fa.py:val",
+    "s5_a6.py:val",
+    "s5_a7.py:val",
+    "s5_a7_sweep.py:val",
+    "s5_a8_gate.py:val",
+    "s5_bench.py:val",
+    "s5_cusum.py:val",
+    "s5_d2.py:val",
+    "s5_d2_stable.py:val",
+    "s5_d3.py:val",
+    "s5_d5c.py:val",
+    "s5_extreme.py:val",
+    "s5_fixes.py:val",
+    "s5_pilot.py:val"
+   ],
+   "2024-09-09": [
+    "diag_pilot_fa.py:test",
+    "s5_a6.py:test",
+    "s5_a7.py:test",
+    "s5_a7_sweep.py:test",
+    "s5_bench.py:test",
+    "s5_cusum.py:test",
+    "s5_d2.py:test",
+    "s5_d2_stable.py:test",
+    "s5_d3.py:test",
+    "s5_d5c.py:test",
+    "s5_extreme.py:test",
+    "s5_fixes.py:test",
+    "s5_pilot.py:test"
+   ],
+   "2024-09-10": [
+    "diag_pilot_fa.py:test",
+    "s5_a6.py:test",
+    "s5_a7.py:test",
+    "s5_a7_sweep.py:test",
+    "s5_bench.py:test",
+    "s5_cusum.py:test",
+    "s5_d2.py:test",
+    "s5_d2_stable.py:test",
+    "s5_d3.py:test",
+    "s5_d5c.py:test",
+    "s5_extreme.py:test",
+    "s5_fixes.py:test",
+    "s5_pilot.py:test"
+   ],
+   "2024-09-11": [
+    "diag_pilot_fa.py:test",
+    "s5_a6.py:test",
+    "s5_a7.py:test",
+    "s5_a7_sweep.py:test",
+    "s5_bench.py:test",
+    "s5_cusum.py:test",
+    "s5_d2.py:test",
+    "s5_d2_stable.py:test",
+    "s5_d3.py:test",
+    "s5_d5c.py:test",
+    "s5_extreme.py:test",
+    "s5_fixes.py:test",
+    "s5_pilot.py:test"
+   ],
+   "2024-09-12": [
+    "diag_pilot_fa.py:test",
+    "s5_a6.py:test",
+    "s5_a7.py:test",
+    "s5_a7_sweep.py:test",
+    "s5_bench.py:test",
+    "s5_cusum.py:test",
+    "s5_d2.py:test",
+    "s5_d2_stable.py:test",
+    "s5_d3.py:test",
+    "s5_d5c.py:test",
+    "s5_extreme.py:test",
+    "s5_fixes.py:test",
+    "s5_pilot.py:test"
+   ],
+   "2024-09-13": [
+    "diag_pilot_fa.py:test",
+    "s5_a6.py:test",
+    "s5_a7.py:test",
+    "s5_a7_sweep.py:test",
+    "s5_bench.py:test",
+    "s5_cusum.py:test",
+    "s5_d2.py:test",
+    "s5_d2_stable.py:test",
+    "s5_d3.py:test",
+    "s5_d5c.py:test",
+    "s5_extreme.py:test",
+    "s5_fixes.py:test",
+    "s5_pilot.py:test"
+   ],
+   "2024-09-16": [
+    "diag_pilot_fa.py:test",
+    "s5_a6.py:test",
+    "s5_a7.py:test",
+    "s5_a7_sweep.py:test",
+    "s5_bench.py:test",
+    "s5_cusum.py:test",
+    "s5_d2.py:test",
+    "s5_d2_stable.py:test",
+    "s5_d3.py:test",
+    "s5_d5c.py:test",
+    "s5_extreme.py:test",
+    "s5_fixes.py:test",
+    "s5_pilot.py:test"
+   ],
+   "2024-09-17": [
+    "diag_pilot_fa.py:test",
+    "s5_a6.py:test",
+    "s5_a7.py:test",
+    "s5_a7_sweep.py:test",
+    "s5_bench.py:test",
+    "s5_cusum.py:test",
+    "s5_d2.py:test",
+    "s5_d2_stable.py:test",
+    "s5_d3.py:test",
+    "s5_d5c.py:test",
+    "s5_extreme.py:test",
+    "s5_fixes.py:test",
+    "s5_pilot.py:test"
+   ],
+   "2024-09-18": [
+    "diag_pilot_fa.py:test",
+    "s5_a6.py:test",
+    "s5_a7.py:test",
+    "s5_a7_sweep.py:test",
+    "s5_bench.py:test",
+    "s5_cusum.py:test",
+    "s5_d2.py:test",
+    "s5_d2_stable.py:test",
+    "s5_d3.py:test",
+    "s5_d5c.py:test",
+    "s5_extreme.py:test",
+    "s5_fixes.py:test",
+    "s5_pilot.py:test"
+   ],
+   "2024-09-19": [
+    "diag_pilot_fa.py:test",
+    "s5_a6.py:test",
+    "s5_a7.py:test",
+    "s5_a7_sweep.py:test",
+    "s5_bench.py:test",
+    "s5_cusum.py:test",
+    "s5_d2.py:test",
+    "s5_d2_stable.py:test",
+    "s5_d3.py:test",
+    "s5_d5c.py:test",
+    "s5_extreme.py:test",
+    "s5_fixes.py:test",
+    "s5_pilot.py:test"
+   ],
+   "2024-09-20": [
+    "diag_pilot_fa.py:test",
+    "s5_a6.py:test",
+    "s5_a7.py:test",
+    "s5_a7_sweep.py:test",
+    "s5_bench.py:test",
+    "s5_cusum.py:test",
+    "s5_d2.py:test",
+    "s5_d2_stable.py:test",
+    "s5_d3.py:test",
+    "s5_d5c.py:test",
+    "s5_extreme.py:test",
+    "s5_fixes.py:test",
+    "s5_pilot.py:test"
+   ],
+   "2024-09-23": [
+    "diag_pilot_fa.py:test",
+    "s5_a6.py:test",
+    "s5_a7.py:test",
+    "s5_a7_sweep.py:test",
+    "s5_bench.py:test",
+    "s5_cusum.py:test",
+    "s5_d2.py:test",
+    "s5_d2_stable.py:test",
+    "s5_d3.py:test",
+    "s5_d5c.py:test",
+    "s5_extreme.py:test",
+    "s5_fixes.py:test",
+    "s5_pilot.py:test"
+   ],
+   "2024-09-24": [
+    "diag_pilot_fa.py:test",
+    "s5_a6.py:test",
+    "s5_a7.py:test",
+    "s5_a7_sweep.py:test",
+    "s5_bench.py:test",
+    "s5_cusum.py:test",
+    "s5_d2.py:test",
+    "s5_d2_stable.py:test",
+    "s5_d3.py:test",
+    "s5_d5c.py:test",
+    "s5_extreme.py:test",
+    "s5_fixes.py:test",
+    "s5_pilot.py:test"
+   ],
+   "2024-09-25": [
+    "diag_pilot_fa.py:test",
+    "s5_a6.py:test",
+    "s5_a7.py:test",
+    "s5_a7_sweep.py:test",
+    "s5_bench.py:test",
+    "s5_cusum.py:test",
+    "s5_d2.py:test",
+    "s5_d2_stable.py:test",
+    "s5_d3.py:test",
+    "s5_d5c.py:test",
+    "s5_extreme.py:test",
+    "s5_fixes.py:test",
+    "s5_pilot.py:test"
+   ],
+   "2024-09-26": [
+    "diag_pilot_fa.py:test",
+    "s5_a6.py:test",
+    "s5_a7.py:test",
+    "s5_a7_sweep.py:test",
+    "s5_bench.py:test",
+    "s5_cusum.py:test",
+    "s5_d2.py:test",
+    "s5_d2_stable.py:test",
+    "s5_d3.py:test",
+    "s5_d5c.py:test",
+    "s5_extreme.py:test",
+    "s5_fixes.py:test",
+    "s5_pilot.py:test"
+   ],
+   "2024-09-27": [
+    "diag_pilot_fa.py:test",
+    "s5_a6.py:test",
+    "s5_a7.py:test",
+    "s5_a7_sweep.py:test",
+    "s5_bench.py:test",
+    "s5_cusum.py:test",
+    "s5_d2.py:test",
+    "s5_d2_stable.py:test",
+    "s5_d3.py:test",
+    "s5_d5c.py:test",
+    "s5_extreme.py:test",
+    "s5_fixes.py:test",
+    "s5_pilot.py:test"
+   ],
+   "2024-09-30": [
+    "diag_pilot_fa.py:test",
+    "s5_a6.py:test",
+    "s5_a7.py:test",
+    "s5_a7_sweep.py:test",
+    "s5_bench.py:test",
+    "s5_cusum.py:test",
+    "s5_d2.py:test",
+    "s5_d2_stable.py:test",
+    "s5_d3.py:test",
+    "s5_d5c.py:test",
+    "s5_extreme.py:test",
+    "s5_fixes.py:test",
+    "s5_pilot.py:test"
+   ],
+   "2024-10-01": [
+    "diag_pilot_fa.py:test",
+    "s5_a6.py:test",
+    "s5_a7.py:test",
+    "s5_a7_sweep.py:test",
+    "s5_bench.py:test",
+    "s5_cusum.py:test",
+    "s5_d2.py:test",
+    "s5_d2_stable.py:test",
+    "s5_d3.py:test",
+    "s5_d5c.py:test",
+    "s5_extreme.py:test",
+    "s5_fixes.py:test",
+    "s5_pilot.py:test"
+   ],
+   "2024-10-02": [
+    "diag_pilot_fa.py:test",
+    "s5_a6.py:test",
+    "s5_a7.py:test",
+    "s5_a7_sweep.py:test",
+    "s5_bench.py:test",
+    "s5_cusum.py:test",
+    "s5_d2.py:test",
+    "s5_d2_stable.py:test",
+    "s5_d3.py:test",
+    "s5_d5c.py:test",
+    "s5_extreme.py:test",
+    "s5_fixes.py:test",
+    "s5_pilot.py:test"
+   ],
+   "2024-10-03": [
+    "diag_pilot_fa.py:test",
+    "s5_a6.py:test",
+    "s5_a7.py:test",
+    "s5_a7_sweep.py:test",
+    "s5_bench.py:test",
+    "s5_cusum.py:test",
+    "s5_d2.py:test",
+    "s5_d2_stable.py:test",
+    "s5_d3.py:test",
+    "s5_d5c.py:test",
+    "s5_extreme.py:test",
+    "s5_fixes.py:test",
+    "s5_pilot.py:test"
+   ],
+   "2024-10-04": [
+    "diag_pilot_fa.py:test",
+    "s5_a6.py:test",
+    "s5_a7.py:test",
+    "s5_a7_sweep.py:test",
+    "s5_bench.py:test",
+    "s5_cusum.py:test",
+    "s5_d2.py:test",
+    "s5_d2_stable.py:test",
+    "s5_d3.py:test",
+    "s5_d5c.py:test",
+    "s5_extreme.py:test",
+    "s5_fixes.py:test",
+    "s5_pilot.py:test"
+   ],
+   "2024-10-07": [
+    "diag_pilot_fa.py:test",
+    "s5_a6.py:test",
+    "s5_a7.py:test",
+    "s5_a7_sweep.py:test",
+    "s5_bench.py:test",
+    "s5_cusum.py:test",
+    "s5_d2.py:test",
+    "s5_d2_stable.py:test",
+    "s5_d3.py:test",
+    "s5_d5c.py:test",
+    "s5_extreme.py:test",
+    "s5_fixes.py:test",
+    "s5_pilot.py:test"
+   ],
+   "2024-10-08": [
+    "diag_pilot_fa.py:test",
+    "s5_a6.py:test",
+    "s5_a7.py:test",
+    "s5_a7_sweep.py:test",
+    "s5_bench.py:test",
+    "s5_cusum.py:test",
+    "s5_d2.py:test",
+    "s5_d2_stable.py:test",
+    "s5_d3.py:test",
+    "s5_d5c.py:test",
+    "s5_extreme.py:test",
+    "s5_fixes.py:test",
+    "s5_pilot.py:test"
+   ],
+   "2024-10-09": [
+    "diag_pilot_fa.py:test",
+    "s5_a6.py:test",
+    "s5_a7.py:test",
+    "s5_a7_sweep.py:test",
+    "s5_bench.py:test",
+    "s5_cusum.py:test",
+    "s5_d2.py:test",
+    "s5_d2_stable.py:test",
+    "s5_d3.py:test",
+    "s5_d5c.py:test",
+    "s5_extreme.py:test",
+    "s5_fixes.py:test",
+    "s5_pilot.py:test"
+   ],
+   "2024-10-10": [
+    "diag_pilot_fa.py:test",
+    "s5_a6.py:test",
+    "s5_a7.py:test",
+    "s5_a7_sweep.py:test",
+    "s5_bench.py:test",
+    "s5_cusum.py:test",
+    "s5_d2.py:test",
+    "s5_d2_stable.py:test",
+    "s5_d3.py:test",
+    "s5_d5c.py:test",
+    "s5_extreme.py:test",
+    "s5_fixes.py:test",
+    "s5_pilot.py:test"
+   ],
+   "2024-10-11": [
+    "diag_pilot_fa.py:test",
+    "s5_a6.py:test",
+    "s5_a7.py:test",
+    "s5_a7_sweep.py:test",
+    "s5_bench.py:test",
+    "s5_cusum.py:test",
+    "s5_d2.py:test",
+    "s5_d2_stable.py:test",
+    "s5_d3.py:test",
+    "s5_d5c.py:test",
+    "s5_extreme.py:test",
+    "s5_fixes.py:test",
+    "s5_pilot.py:test"
+   ],
+   "2024-10-14": [
+    "diag_pilot_fa.py:test",
+    "s5_a6.py:test",
+    "s5_a7.py:test",
+    "s5_a7_sweep.py:test",
+    "s5_bench.py:test",
+    "s5_cusum.py:test",
+    "s5_d2.py:test",
+    "s5_d2_stable.py:test",
+    "s5_d3.py:test",
+    "s5_d5c.py:test",
+    "s5_extreme.py:test",
+    "s5_fixes.py:test",
+    "s5_pilot.py:test"
+   ],
+   "2024-10-15": [
+    "diag_pilot_fa.py:test",
+    "s5_a6.py:test",
+    "s5_a7.py:test",
+    "s5_a7_sweep.py:test",
+    "s5_bench.py:test",
+    "s5_cusum.py:test",
+    "s5_d2.py:test",
+    "s5_d2_stable.py:test",
+    "s5_d3.py:test",
+    "s5_d5c.py:test",
+    "s5_extreme.py:test",
+    "s5_fixes.py:test",
+    "s5_pilot.py:test"
+   ],
+   "2024-10-16": [
+    "diag_pilot_fa.py:test",
+    "s5_a6.py:test",
+    "s5_a7.py:test",
+    "s5_a7_sweep.py:test",
+    "s5_bench.py:test",
+    "s5_cusum.py:test",
+    "s5_d2.py:test",
+    "s5_d2_stable.py:test",
+    "s5_d3.py:test",
+    "s5_d5c.py:test",
+    "s5_extreme.py:test",
+    "s5_fixes.py:test",
+    "s5_pilot.py:test"
+   ],
+   "2024-10-17": [
+    "diag_pilot_fa.py:test",
+    "s5_a6.py:test",
+    "s5_a7.py:test",
+    "s5_a7_sweep.py:test",
+    "s5_bench.py:test",
+    "s5_cusum.py:test",
+    "s5_d2.py:test",
+    "s5_d2_stable.py:test",
+    "s5_d3.py:test",
+    "s5_d5c.py:test",
+    "s5_extreme.py:test",
+    "s5_fixes.py:test",
+    "s5_pilot.py:test"
+   ],
+   "2024-10-18": [
+    "diag_pilot_fa.py:test",
+    "s5_a6.py:test",
+    "s5_a7.py:test",
+    "s5_a7_sweep.py:test",
+    "s5_bench.py:test",
+    "s5_cusum.py:test",
+    "s5_d2.py:test",
+    "s5_d2_stable.py:test",
+    "s5_d3.py:test",
+    "s5_d5c.py:test",
+    "s5_extreme.py:test",
+    "s5_fixes.py:test",
+    "s5_pilot.py:test"
+   ],
+   "2024-10-21": [
+    "diag_pilot_fa.py:test",
+    "s5_a6.py:test",
+    "s5_a7.py:test",
+    "s5_a7_sweep.py:test",
+    "s5_bench.py:test",
+    "s5_cusum.py:test",
+    "s5_d2.py:test",
+    "s5_d2_stable.py:test",
+    "s5_d3.py:test",
+    "s5_d5c.py:test",
+    "s5_extreme.py:test",
+    "s5_fixes.py:test",
+    "s5_pilot.py:test"
+   ],
+   "2024-10-22": [
+    "diag_pilot_fa.py:test",
+    "s5_a6.py:test",
+    "s5_a7.py:test",
+    "s5_a7_sweep.py:test",
+    "s5_bench.py:test",
+    "s5_cusum.py:test",
+    "s5_d2.py:test",
+    "s5_d2_stable.py:test",
+    "s5_d3.py:test",
+    "s5_d5c.py:test",
+    "s5_extreme.py:test",
+    "s5_fixes.py:test",
+    "s5_pilot.py:test"
+   ],
+   "2024-10-23": [
+    "diag_pilot_fa.py:test",
+    "s5_a6.py:test",
+    "s5_a7.py:test",
+    "s5_a7_sweep.py:test",
+    "s5_bench.py:test",
+    "s5_cusum.py:test",
+    "s5_d2.py:test",
+    "s5_d2_stable.py:test",
+    "s5_d3.py:test",
+    "s5_d5c.py:test",
+    "s5_extreme.py:test",
+    "s5_fixes.py:test",
+    "s5_pilot.py:test"
+   ],
+   "2024-10-24": [
+    "diag_pilot_fa.py:test",
+    "s5_a6.py:test",
+    "s5_a7.py:test",
+    "s5_a7_sweep.py:test",
+    "s5_bench.py:test",
+    "s5_cusum.py:test",
+    "s5_d2.py:test",
+    "s5_d2_stable.py:test",
+    "s5_d3.py:test",
+    "s5_d5c.py:test",
+    "s5_extreme.py:test",
+    "s5_fixes.py:test",
+    "s5_pilot.py:test"
+   ],
+   "2024-10-25": [
+    "diag_pilot_fa.py:test",
+    "s5_a6.py:test",
+    "s5_a7.py:test",
+    "s5_a7_sweep.py:test",
+    "s5_bench.py:test",
+    "s5_cusum.py:test",
+    "s5_d2.py:test",
+    "s5_d2_stable.py:test",
+    "s5_d3.py:test",
+    "s5_d5c.py:test",
+    "s5_extreme.py:test",
+    "s5_fixes.py:test",
+    "s5_pilot.py:test"
+   ],
+   "2024-10-28": [
+    "diag_pilot_fa.py:test",
+    "s5_a6.py:test",
+    "s5_a7.py:test",
+    "s5_a7_sweep.py:test",
+    "s5_bench.py:test",
+    "s5_cusum.py:test",
+    "s5_d2.py:test",
+    "s5_d2_stable.py:test",
+    "s5_d3.py:test",
+    "s5_d5c.py:test",
+    "s5_extreme.py:test",
+    "s5_fixes.py:test",
+    "s5_pilot.py:test"
+   ],
+   "2024-10-29": [
+    "diag_pilot_fa.py:test",
+    "s5_a6.py:test",
+    "s5_a7.py:test",
+    "s5_a7_sweep.py:test",
+    "s5_bench.py:test",
+    "s5_cusum.py:test",
+    "s5_d2.py:test",
+    "s5_d2_stable.py:test",
+    "s5_d3.py:test",
+    "s5_d5c.py:test",
+    "s5_extreme.py:test",
+    "s5_fixes.py:test",
+    "s5_pilot.py:test"
+   ],
+   "2024-10-30": [
+    "diag_pilot_fa.py:test",
+    "s5_a6.py:test",
+    "s5_a7.py:test",
+    "s5_a7_sweep.py:test",
+    "s5_bench.py:test",
+    "s5_cusum.py:test",
+    "s5_d2.py:test",
+    "s5_d2_stable.py:test",
+    "s5_d3.py:test",
+    "s5_d5c.py:test",
+    "s5_extreme.py:test",
+    "s5_fixes.py:test",
+    "s5_pilot.py:test"
+   ],
+   "2024-10-31": [
+    "diag_pilot_fa.py:test",
+    "s5_a6.py:test",
+    "s5_a7.py:test",
+    "s5_a7_sweep.py:test",
+    "s5_bench.py:test",
+    "s5_cusum.py:test",
+    "s5_d2.py:test",
+    "s5_d2_stable.py:test",
+    "s5_d3.py:test",
+    "s5_d5c.py:test",
+    "s5_extreme.py:test",
+    "s5_fixes.py:test",
+    "s5_pilot.py:test"
+   ],
+   "2024-11-01": [
+    "diag_pilot_fa.py:test",
+    "s5_a6.py:test",
+    "s5_a7.py:test",
+    "s5_a7_sweep.py:test",
+    "s5_bench.py:test",
+    "s5_cusum.py:test",
+    "s5_d2.py:test",
+    "s5_d2_stable.py:test",
+    "s5_d3.py:test",
+    "s5_d5c.py:test",
+    "s5_extreme.py:test",
+    "s5_fixes.py:test",
+    "s5_pilot.py:test"
+   ],
+   "2024-11-04": [
+    "diag_pilot_fa.py:test",
+    "s5_a6.py:test",
+    "s5_a7.py:test",
+    "s5_a7_sweep.py:test",
+    "s5_bench.py:test",
+    "s5_cusum.py:test",
+    "s5_d2.py:test",
+    "s5_d2_stable.py:test",
+    "s5_d3.py:test",
+    "s5_d5c.py:test",
+    "s5_extreme.py:test",
+    "s5_fixes.py:test",
+    "s5_pilot.py:test"
+   ],
+   "2024-11-05": [
+    "diag_pilot_fa.py:test",
+    "s5_a6.py:test",
+    "s5_a7.py:test",
+    "s5_a7_sweep.py:test",
+    "s5_bench.py:test",
+    "s5_cusum.py:test",
+    "s5_d2.py:test",
+    "s5_d2_stable.py:test",
+    "s5_d3.py:test",
+    "s5_d5c.py:test",
+    "s5_extreme.py:test",
+    "s5_fixes.py:test",
+    "s5_pilot.py:test"
+   ],
+   "2024-11-06": [
+    "diag_pilot_fa.py:test",
+    "s5_a6.py:test",
+    "s5_a7.py:test",
+    "s5_a7_sweep.py:test",
+    "s5_bench.py:test",
+    "s5_cusum.py:test",
+    "s5_d2.py:test",
+    "s5_d2_stable.py:test",
+    "s5_d3.py:test",
+    "s5_d5c.py:test",
+    "s5_extreme.py:test",
+    "s5_fixes.py:test",
+    "s5_pilot.py:test"
+   ],
+   "2024-11-07": [
+    "diag_pilot_fa.py:test",
+    "s5_a6.py:test",
+    "s5_a7.py:test",
+    "s5_a7_sweep.py:test",
+    "s5_bench.py:test",
+    "s5_cusum.py:test",
+    "s5_d2.py:test",
+    "s5_d2_stable.py:test",
+    "s5_d3.py:test",
+    "s5_d5c.py:test",
+    "s5_extreme.py:test",
+    "s5_fixes.py:test",
+    "s5_pilot.py:test"
+   ],
+   "2024-11-08": [
+    "diag_pilot_fa.py:test",
+    "s5_a6.py:test",
+    "s5_a7.py:test",
+    "s5_a7_sweep.py:test",
+    "s5_bench.py:test",
+    "s5_cusum.py:test",
+    "s5_d2.py:test",
+    "s5_d2_stable.py:test",
+    "s5_d3.py:test",
+    "s5_d5c.py:test",
+    "s5_extreme.py:test",
+    "s5_fixes.py:test",
+    "s5_pilot.py:test"
+   ],
+   "2024-11-11": [
+    "diag_pilot_fa.py:test",
+    "s5_a6.py:test",
+    "s5_a7.py:test",
+    "s5_a7_sweep.py:test",
+    "s5_bench.py:test",
+    "s5_cusum.py:test",
+    "s5_d2.py:test",
+    "s5_d2_stable.py:test",
+    "s5_d3.py:test",
+    "s5_d5c.py:test",
+    "s5_extreme.py:test",
+    "s5_fixes.py:test",
+    "s5_pilot.py:test"
+   ],
+   "2024-11-12": [
+    "diag_pilot_fa.py:test",
+    "s5_a6.py:test",
+    "s5_a7.py:test",
+    "s5_a7_sweep.py:test",
+    "s5_bench.py:test",
+    "s5_cusum.py:test",
+    "s5_d2.py:test",
+    "s5_d2_stable.py:test",
+    "s5_d3.py:test",
+    "s5_d5c.py:test",
+    "s5_extreme.py:test",
+    "s5_fixes.py:test",
+    "s5_pilot.py:test"
+   ],
+   "2024-11-13": [
+    "diag_pilot_fa.py:test",
+    "s5_a6.py:test",
+    "s5_a7.py:test",
+    "s5_a7_sweep.py:test",
+    "s5_bench.py:test",
+    "s5_cusum.py:test",
+    "s5_d2.py:test",
+    "s5_d2_stable.py:test",
+    "s5_d3.py:test",
+    "s5_d5c.py:test",
+    "s5_extreme.py:test",
+    "s5_fixes.py:test",
+    "s5_pilot.py:test"
+   ],
+   "2024-11-14": [
+    "diag_pilot_fa.py:test",
+    "s5_a6.py:test",
+    "s5_a7.py:test",
+    "s5_a7_sweep.py:test",
+    "s5_bench.py:test",
+    "s5_cusum.py:test",
+    "s5_d2.py:test",
+    "s5_d2_stable.py:test",
+    "s5_d3.py:test",
+    "s5_d5c.py:test",
+    "s5_extreme.py:test",
+    "s5_fixes.py:test",
+    "s5_pilot.py:test"
+   ],
+   "2024-11-15": [
+    "diag_pilot_fa.py:test",
+    "s5_a6.py:test",
+    "s5_a7.py:test",
+    "s5_a7_sweep.py:test",
+    "s5_bench.py:test",
+    "s5_cusum.py:test",
+    "s5_d2.py:test",
+    "s5_d2_stable.py:test",
+    "s5_d3.py:test",
+    "s5_d5c.py:test",
+    "s5_extreme.py:test",
+    "s5_fixes.py:test",
+    "s5_pilot.py:test"
+   ],
+   "2024-11-18": [
+    "diag_pilot_fa.py:test",
+    "s5_a6.py:test",
+    "s5_a7.py:test",
+    "s5_a7_sweep.py:test",
+    "s5_bench.py:test",
+    "s5_cusum.py:test",
+    "s5_d2.py:test",
+    "s5_d2_stable.py:test",
+    "s5_d3.py:test",
+    "s5_d5c.py:test",
+    "s5_extreme.py:test",
+    "s5_fixes.py:test",
+    "s5_pilot.py:test"
+   ],
+   "2024-11-19": [
+    "diag_pilot_fa.py:test",
+    "s5_a6.py:test",
+    "s5_a7.py:test",
+    "s5_a7_sweep.py:test",
+    "s5_bench.py:test",
+    "s5_cusum.py:test",
+    "s5_d2.py:test",
+    "s5_d2_stable.py:test",
+    "s5_d3.py:test",
+    "s5_d5c.py:test",
+    "s5_extreme.py:test",
+    "s5_fixes.py:test",
+    "s5_pilot.py:test"
+   ],
+   "2024-11-20": [
+    "diag_pilot_fa.py:test",
+    "s5_a6.py:test",
+    "s5_a7.py:test",
+    "s5_a7_sweep.py:test",
+    "s5_bench.py:test",
+    "s5_cusum.py:test",
+    "s5_d2.py:test",
+    "s5_d2_stable.py:test",
+    "s5_d3.py:test",
+    "s5_d5c.py:test",
+    "s5_extreme.py:test",
+    "s5_fixes.py:test",
+    "s5_pilot.py:test"
+   ],
+   "2024-11-21": [
+    "diag_pilot_fa.py:test",
+    "s5_a6.py:test",
+    "s5_a7.py:test",
+    "s5_a7_sweep.py:test",
+    "s5_bench.py:test",
+    "s5_cusum.py:test",
+    "s5_d2.py:test",
+    "s5_d2_stable.py:test",
+    "s5_d3.py:test",
+    "s5_d5c.py:test",
+    "s5_extreme.py:test",
+    "s5_fixes.py:test",
+    "s5_pilot.py:test"
+   ],
+   "2024-11-22": [
+    "diag_pilot_fa.py:test",
+    "s5_a6.py:test",
+    "s5_a7.py:test",
+    "s5_a7_sweep.py:test",
+    "s5_bench.py:test",
+    "s5_cusum.py:test",
+    "s5_d2.py:test",
+    "s5_d2_stable.py:test",
+    "s5_d3.py:test",
+    "s5_d5c.py:test",
+    "s5_extreme.py:test",
+    "s5_fixes.py:test",
+    "s5_pilot.py:test"
+   ],
+   "2024-11-25": [
+    "diag_pilot_fa.py:test",
+    "s5_a6.py:test",
+    "s5_a7.py:test",
+    "s5_a7_sweep.py:test",
+    "s5_bench.py:test",
+    "s5_cusum.py:test",
+    "s5_d2.py:test",
+    "s5_d2_stable.py:test",
+    "s5_d3.py:test",
+    "s5_d5c.py:test",
+    "s5_extreme.py:test",
+    "s5_fixes.py:test",
+    "s5_pilot.py:test"
+   ],
+   "2024-11-26": [
+    "diag_pilot_fa.py:test",
+    "s5_a6.py:test",
+    "s5_a7.py:test",
+    "s5_a7_sweep.py:test",
+    "s5_bench.py:test",
+    "s5_cusum.py:test",
+    "s5_d2.py:test",
+    "s5_d2_stable.py:test",
+    "s5_d3.py:test",
+    "s5_d5c.py:test",
+    "s5_extreme.py:test",
+    "s5_fixes.py:test",
+    "s5_pilot.py:test"
+   ],
+   "2024-11-27": [
+    "diag_pilot_fa.py:test",
+    "s5_a6.py:test",
+    "s5_a7.py:test",
+    "s5_a7_sweep.py:test",
+    "s5_bench.py:test",
+    "s5_cusum.py:test",
+    "s5_d2.py:test",
+    "s5_d2_stable.py:test",
+    "s5_d3.py:test",
+    "s5_d5c.py:test",
+    "s5_extreme.py:test",
+    "s5_fixes.py:test",
+    "s5_pilot.py:test"
+   ],
+   "2024-11-29": [
+    "diag_pilot_fa.py:test",
+    "s5_a6.py:test",
+    "s5_a7.py:test",
+    "s5_a7_sweep.py:test",
+    "s5_bench.py:test",
+    "s5_cusum.py:test",
+    "s5_d2.py:test",
+    "s5_d2_stable.py:test",
+    "s5_d3.py:test",
+    "s5_d5c.py:test",
+    "s5_extreme.py:test",
+    "s5_fixes.py:test",
+    "s5_pilot.py:test"
+   ],
+   "2024-12-02": [
+    "diag_pilot_fa.py:test",
+    "s5_a6.py:test",
+    "s5_a7.py:test",
+    "s5_a7_sweep.py:test",
+    "s5_bench.py:test",
+    "s5_cusum.py:test",
+    "s5_d2.py:test",
+    "s5_d2_stable.py:test",
+    "s5_d3.py:test",
+    "s5_d5c.py:test",
+    "s5_extreme.py:test",
+    "s5_fixes.py:test",
+    "s5_pilot.py:test"
+   ],
+   "2024-12-03": [
+    "diag_pilot_fa.py:test",
+    "s5_a6.py:test",
+    "s5_a7.py:test",
+    "s5_a7_sweep.py:test",
+    "s5_bench.py:test",
+    "s5_cusum.py:test",
+    "s5_d2.py:test",
+    "s5_d2_stable.py:test",
+    "s5_d3.py:test",
+    "s5_d5c.py:test",
+    "s5_extreme.py:test",
+    "s5_fixes.py:test",
+    "s5_pilot.py:test"
+   ],
+   "2024-12-04": [
+    "diag_pilot_fa.py:test",
+    "s5_a6.py:test",
+    "s5_a7.py:test",
+    "s5_a7_sweep.py:test",
+    "s5_bench.py:test",
+    "s5_cusum.py:test",
+    "s5_d2.py:test",
+    "s5_d2_stable.py:test",
+    "s5_d3.py:test",
+    "s5_d5c.py:test",
+    "s5_extreme.py:test",
+    "s5_fixes.py:test",
+    "s5_pilot.py:test"
+   ],
+   "2024-12-05": [
+    "diag_pilot_fa.py:test",
+    "s5_a6.py:test",
+    "s5_a7.py:test",
+    "s5_a7_sweep.py:test",
+    "s5_bench.py:test",
+    "s5_cusum.py:test",
+    "s5_d2.py:test",
+    "s5_d2_stable.py:test",
+    "s5_d3.py:test",
+    "s5_d5c.py:test",
+    "s5_extreme.py:test",
+    "s5_fixes.py:test",
+    "s5_pilot.py:test"
+   ],
+   "2024-12-06": [
+    "diag_pilot_fa.py:test",
+    "s5_a6.py:test",
+    "s5_a7.py:test",
+    "s5_a7_sweep.py:test",
+    "s5_bench.py:test",
+    "s5_cusum.py:test",
+    "s5_d2.py:test",
+    "s5_d2_stable.py:test",
+    "s5_d3.py:test",
+    "s5_d5c.py:test",
+    "s5_extreme.py:test",
+    "s5_fixes.py:test",
+    "s5_pilot.py:test"
+   ],
+   "2024-12-09": [
+    "diag_pilot_fa.py:test",
+    "s5_a6.py:test",
+    "s5_a7.py:test",
+    "s5_a7_sweep.py:test",
+    "s5_bench.py:test",
+    "s5_cusum.py:test",
+    "s5_d2.py:test",
+    "s5_d2_stable.py:test",
+    "s5_d3.py:test",
+    "s5_d5c.py:test",
+    "s5_extreme.py:test",
+    "s5_fixes.py:test",
+    "s5_pilot.py:test"
+   ],
+   "2024-12-10": [
+    "diag_pilot_fa.py:test",
+    "s5_a6.py:test",
+    "s5_a7.py:test",
+    "s5_a7_sweep.py:test",
+    "s5_bench.py:test",
+    "s5_cusum.py:test",
+    "s5_d2.py:test",
+    "s5_d2_stable.py:test",
+    "s5_d3.py:test",
+    "s5_d5c.py:test",
+    "s5_extreme.py:test",
+    "s5_fixes.py:test",
+    "s5_pilot.py:test"
+   ],
+   "2024-12-11": [
+    "diag_pilot_fa.py:test",
+    "s5_a6.py:test",
+    "s5_a7.py:test",
+    "s5_a7_sweep.py:test",
+    "s5_bench.py:test",
+    "s5_cusum.py:test",
+    "s5_d2.py:test",
+    "s5_d2_stable.py:test",
+    "s5_d3.py:test",
+    "s5_d5c.py:test",
+    "s5_extreme.py:test",
+    "s5_fixes.py:test",
+    "s5_pilot.py:test"
+   ],
+   "2024-12-12": [
+    "diag_pilot_fa.py:test",
+    "s5_a6.py:test",
+    "s5_a7.py:test",
+    "s5_a7_sweep.py:test",
+    "s5_bench.py:test",
+    "s5_cusum.py:test",
+    "s5_d2.py:test",
+    "s5_d2_stable.py:test",
+    "s5_d3.py:test",
+    "s5_d5c.py:test",
+    "s5_extreme.py:test",
+    "s5_fixes.py:test",
+    "s5_pilot.py:test"
+   ],
+   "2024-12-13": [
+    "diag_pilot_fa.py:test",
+    "s5_a6.py:test",
+    "s5_a7.py:test",
+    "s5_a7_sweep.py:test",
+    "s5_bench.py:test",
+    "s5_cusum.py:test",
+    "s5_d2.py:test",
+    "s5_d2_stable.py:test",
+    "s5_d3.py:test",
+    "s5_d5c.py:test",
+    "s5_extreme.py:test",
+    "s5_fixes.py:test",
+    "s5_pilot.py:test"
+   ],
+   "2024-12-16": [
+    "diag_pilot_fa.py:test",
+    "s5_a6.py:test",
+    "s5_a7.py:test",
+    "s5_a7_sweep.py:test",
+    "s5_bench.py:test",
+    "s5_cusum.py:test",
+    "s5_d2.py:test",
+    "s5_d2_stable.py:test",
+    "s5_d3.py:test",
+    "s5_d5c.py:test",
+    "s5_extreme.py:test",
+    "s5_fixes.py:test",
+    "s5_pilot.py:test"
+   ],
+   "2024-12-17": [
+    "diag_pilot_fa.py:test",
+    "s5_a6.py:test",
+    "s5_a7.py:test",
+    "s5_a7_sweep.py:test",
+    "s5_bench.py:test",
+    "s5_cusum.py:test",
+    "s5_d2.py:test",
+    "s5_d2_stable.py:test",
+    "s5_d3.py:test",
+    "s5_d5c.py:test",
+    "s5_extreme.py:test",
+    "s5_fixes.py:test",
+    "s5_pilot.py:test"
+   ],
+   "2024-12-18": [
+    "diag_pilot_fa.py:test",
+    "s5_a6.py:test",
+    "s5_a7.py:test",
+    "s5_a7_sweep.py:test",
+    "s5_bench.py:test",
+    "s5_cusum.py:test",
+    "s5_d2.py:test",
+    "s5_d2_stable.py:test",
+    "s5_d3.py:test",
+    "s5_d5c.py:test",
+    "s5_extreme.py:test",
+    "s5_fixes.py:test",
+    "s5_pilot.py:test"
+   ],
+   "2024-12-19": [
+    "diag_pilot_fa.py:test",
+    "s5_a6.py:test",
+    "s5_a7.py:test",
+    "s5_a7_sweep.py:test",
+    "s5_bench.py:test",
+    "s5_cusum.py:test",
+    "s5_d2.py:test",
+    "s5_d2_stable.py:test",
+    "s5_d3.py:test",
+    "s5_d5c.py:test",
+    "s5_extreme.py:test",
+    "s5_fixes.py:test",
+    "s5_pilot.py:test"
+   ],
+   "2024-12-20": [
+    "diag_pilot_fa.py:test",
+    "s5_a6.py:test",
+    "s5_a7.py:test",
+    "s5_a7_sweep.py:test",
+    "s5_bench.py:test",
+    "s5_cusum.py:test",
+    "s5_d2.py:test",
+    "s5_d2_stable.py:test",
+    "s5_d3.py:test",
+    "s5_d5c.py:test",
+    "s5_extreme.py:test",
+    "s5_fixes.py:test",
+    "s5_pilot.py:test"
+   ],
+   "2024-12-23": [
+    "diag_pilot_fa.py:test",
+    "s5_a6.py:test",
+    "s5_a7.py:test",
+    "s5_a7_sweep.py:test",
+    "s5_bench.py:test",
+    "s5_cusum.py:test",
+    "s5_d2.py:test",
+    "s5_d2_stable.py:test",
+    "s5_d3.py:test",
+    "s5_d5c.py:test",
+    "s5_extreme.py:test",
+    "s5_fixes.py:test",
+    "s5_pilot.py:test"
+   ]
+  }
+ }
+}
