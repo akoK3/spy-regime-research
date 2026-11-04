@@ -3,7 +3,7 @@
 before the 5-session embargo drop), plus date-level exposures (D6 FOMC and shock dates). Folds whose post-embargo TEST segment intersects the list are excluded from confirmatory H1.
 Session days per era come from section5/results/session_days.json (built once from the TRAIN panels by `build_days`).
 Usage: s5_contamination.py build_days | list"""
-import sys, json
+import sys, re, json
 from pathlib import Path
 import numpy as np, pandas as pd
 sys.path.insert(0, str(Path(__file__).resolve().parent))
@@ -20,7 +20,33 @@ REGISTRY = {
     "s5_a8_gate.py": [("RAW", 3, ("train", "val")), ("LEGACY", 29, ("train", "val"))],      # validation days only; no test segment
     "s5_d6.py": "DESCRIPTIVE", "s5_d6_flash.py": "DESCRIPTIVE",   # A8.2: D6 ran no detector/model; its dates are not contamination
     "s5_lib.py": "LIBRARY", "s5_fast.py": "LIBRARY", "s5_contamination.py": "LIBRARY", "s5_tests.py": "LIBRARY",
+    # A15 rule 3: scripts the earlier pattern missed, and backend-mediated loaders
+    "s5_a8_gate_seeds.py": [("RAW", 3, ("train", "val")), ("LEGACY", 29, ("train", "val"))],      # A8.3, validation days only
+    "s5_a8_loo.py": [("LEGACY", 29, ("train", "val"))],                                            # A8.4, validation days only
+    "s5_machinery_run.py": RAW3 + L29, "s5_a14_diag.py": [("RAW", 3, ("train",)), ("LEGACY", 29, ("train",))],
+    "s5_backend.py": "LIBRARY", "s5_era_threshold.py": "LIBRARY", "s5_main.py": "MAIN_RUN",
+    "s5_tests_a11.py": "LIBRARY", "s5_tests_backend.py": "LIBRARY", "s5_tests_a15.py": "LIBRARY",
+    # A15 rule 2: the first cold audit (section5_cold_audit.md; scripts in that audit's scratchpad, not in the repository)
+    "cold_audit_1/x5_robust.py": [("LEGACY", 25, ("train", "val")), ("LEGACY", 29, ("train", "val")), ("RAW", 3, ("train", "val"))],   # detectors fitted and scored
+    "cold_audit_1/x4_placebo.py": [("RAW", 3, ("train", "val")), ("LEGACY", 29, ("train", "val"))],
+    "cold_audit_1/x3_events.py": [("RAW", 3, ("train", "val")), ("LEGACY", 29, ("train", "val"))],
+    "cold_audit_1/x1_folds.py": "LABEL_FREE", "cold_audit_1/x1b.py": "LABEL_FREE", "cold_audit_1/x2_causal.py": "LABEL_FREE",     # counts, splice specs, features; no detector
 }
+# A15 rule 6d: LABEL_FREE = no detector or regime model, no outcome (counts, splice specs, feature or preprocessing computation); MAIN_RUN = the run the list protects.
+NOT_TOUCHING = ("LIBRARY", "DESCRIPTIVE", "LABEL_FREE", "MAIN_RUN")
+# A15 rule 3: data loading = these calls; a plain raw string, no control characters (the pattern before A15 held two backspace bytes and matched nothing).
+DATA_LOAD = re.compile(r"\b(?:fold_segments|load_era|DataBackend|EraBackend|MainBackend)\(")
+
+
+def unregistered(folder=HERE, registry=REGISTRY):
+    """Scripts in `folder` (writer scripts excepted) that load data but are not in the registry."""
+    return sorted(f.name for f in Path(folder).glob("*.py") if not f.name.startswith("write_") and DATA_LOAD.search(f.read_text(encoding="utf-8", errors="ignore")) and f.name not in registry)
+
+
+def check_registry(folder=HERE, registry=REGISTRY):
+    bad = unregistered(folder, registry)
+    if bad: raise AssertionError(f"scripts load data but are not in the contamination registry: {bad}")
+    return True
 SHOCK_DAYS = ["2010-05-06", "2015-08-24", "2018-02-05"]
 
 
@@ -41,7 +67,7 @@ def touched(days_by_era, fomc_days, registry=REGISTRY, ft=None):
     """-> {era: {day: [reasons]}}"""
     ft = folds_table() if ft is None else ft; out = {e: {} for e in days_by_era}
     for script, spec in registry.items():
-        if spec in ("LIBRARY", "DESCRIPTIVE"): continue
+        if spec in NOT_TOUCHING: continue
         for era, fold, segs in spec:
             row = ft[(ft.era == era) & (ft.fold == fold)].iloc[0]
             for s in segs:

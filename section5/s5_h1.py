@@ -14,10 +14,12 @@ SECONDARY_FAMILIES = ("bocpd",)                                # scored and repo
 FAMILIES = H1_FAMILIES + SECONDARY_FAMILIES
 
 
-def h1a_fold_effect(points_feat, points_base, n_stable_test):
-    """pAUC(features) - pAUC(baseline) on one fold; None (skipped, with the reason) if the fold has fewer than 8 stable test days."""
-    if n_stable_test < MIN_STABLE_TEST_DAYS: return dict(effect=None, skipped=f"{n_stable_test} < {MIN_STABLE_TEST_DAYS} stable test days")
-    return dict(effect=float(A.pauc(points_feat) - A.pauc(points_base)), skipped=None)
+def h1a_fold_effect(points_feat, points_base, n_stable_test, failed=None):
+    """pAUC(features) - pAUC(baseline) on one fold; None (skipped, with the reason) if the fold has fewer than 8 stable test days.
+    A15 rule 6b: with 8 or more stable days, a failed splice construction (or an empty curve) is a failure with its reason, never a zero effect."""
+    if n_stable_test < MIN_STABLE_TEST_DAYS: return dict(effect=None, skipped=f"{n_stable_test} < {MIN_STABLE_TEST_DAYS} stable test days", failed=None)
+    if failed or not points_feat or not points_base: return dict(effect=None, skipped=None, failed=failed or "empty H1(a) curve")
+    return dict(effect=float(A.pauc(points_feat) - A.pauc(points_base)), skipped=None, failed=None)
 
 
 def h1b_fold_effect(loss_base, key_base, loss_feat, key_feat, lag=12):
@@ -28,7 +30,7 @@ def h1b_fold_effect(loss_base, key_base, loss_feat, key_feat, lag=12):
     return dict(effect=float(lb.mean() - lf.mean()), dm=V.diebold_mariano(lb, lf, lag), n=int(len(lb)), skipped=None)
 
 
-def family_result(effects_a, effects_b, fold_ids, excluded=(), nboot=10000, seed=0, flagged=None):
+def family_result(effects_a, effects_b, fold_ids, excluded=(), nboot=10000, seed=0, flagged=None, failed_a=None):
     """effects_a / effects_b: lists over fold_ids (consecutive fold order; None = skipped or not evaluable). Confirmatory = folds not in `excluded`; sensitivity = all folds.
     Fold-level tests per component (5.9) and the IU p-value of the two block-bootstrap p-values."""
     out = {}
@@ -37,7 +39,8 @@ def family_result(effects_a, effects_b, fold_ids, excluded=(), nboot=10000, seed
     for label, keep in sets:
         xa = [e for e, k in zip(effects_a, keep) if k and e is not None]; xb = [e for e, k in zip(effects_b, keep) if k and e is not None]
         ta, tb = ST.fold_tests(xa, nboot=nboot, seed=seed), ST.fold_tests(xb, nboot=nboot, seed=seed + 1)
-        out[label] = dict(H1a=ta, H1b=tb, p_iu=ST.intersection_union(ta["p_block_bootstrap"], tb["p_block_bootstrap"]))
+        out[label] = dict(H1a=ta, H1b=tb, p_iu=ST.intersection_union(ta["p_block_bootstrap"], tb["p_block_bootstrap"]),
+                          H1a_failed_folds=[f for f, k, fl in zip(fold_ids, keep, failed_a or [None] * len(fold_ids)) if k and fl])      # A15 rule 6b
     return out
 
 

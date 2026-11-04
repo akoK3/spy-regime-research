@@ -28,7 +28,7 @@ class TestRun(unittest.TestCase):
             p = Path(td) / "c.json"; p.write_text(json.dumps(dict(folds=[dict(era="LEGACY", fold=1, excluded=True), dict(era="RAW", fold=0, excluded=False)])))
             self.assertEqual(RUN.excluded_from_contamination(p), {"LEGACY|1"})
         real = Path(RUN.HERE) / "results" / "contamination_list.json"
-        if real.exists(): self.assertEqual(len(RUN.excluded_from_contamination(real)), 6)
+        if real.exists(): self.assertEqual(len(RUN.excluded_from_contamination(real)), 8)                # A15 rule 2: LEGACY 23 and 24 added
 
     def test_select_fold_finds_true_features_and_tunes(self):
         b = DR.SyntheticBackend(); s = RUN.select_fold(b, "LEGACY|0", "gaussian_hmm"); self.assertEqual(s["features"], ["f1", "f2"]); self.assertEqual(s["params"], dict(K=3)); self.assertFalse(s["budget_exhausted"])
@@ -42,7 +42,7 @@ class TestRun(unittest.TestCase):
     def test_full_synthetic_run_decisions_resume_and_exclusions(self):
         b = DR.SyntheticBackend(); exc = {"LEGACY|14", "RAW|2"}
         with tempfile.TemporaryDirectory() as td:
-            s1 = RUN.run_all(b, td, excluded=exc, nboot=1000); s2 = RUN.run_all(b, td, excluded=exc, nboot=1000)
+            cf = DR.contamination_file(Path(td) / "c.json", exc, b.folds()); s1 = RUN.run_all(b, Path(td) / "run", contamination=cf, nboot=1000); s2 = RUN.run_all(b, Path(td) / "run", contamination=cf, nboot=1000)
             self.assertEqual(s1["checkpoint"]["hits"], 0); self.assertEqual(s2["checkpoint"]["misses"], 0); self.assertEqual(s2["checkpoint"]["hits"], s1["checkpoint"]["misses"])    # resume
             c = s1["holm"]["confirmatory"]; self.assertTrue(c["gaussian_hmm"]["reject"] and c["student_t_hmm"]["reject"]); self.assertFalse(c["hsmm"]["reject"])
             self.assertTrue(c["bocpd"]["secondary"] and not c["bocpd"]["reject"])                       # BOCPD reported, outside Holm
@@ -57,7 +57,7 @@ class TestRun(unittest.TestCase):
     def test_code_change_invalidates_checkpoints_in_a_run(self):
         b = DR.SyntheticBackend(n_legacy=4, n_raw=0)
         with tempfile.TemporaryDirectory() as td:
-            s1 = RUN.run_all(b, td, nboot=200); s2 = RUN.run_all(b, td, nboot=200, files=RUN.CODE_FILES + ["s5_dry_run.py"])
+            s1 = RUN.run_all(b, td, nboot=200, files=["s5_run.py"]); s2 = RUN.run_all(b, td, nboot=200, files=["s5_run.py", "s5_dry_run.py"])
             self.assertEqual(s2["checkpoint"]["hits"], 0); self.assertNotEqual(s1["code_version"], s2["code_version"])
 
 

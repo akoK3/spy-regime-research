@@ -31,12 +31,10 @@ def intersection_union(p_a, p_b):
 
 
 def holm(pvals, alpha=0.05):
-    """Holm step-down. pvals: dict name -> p (NaN = not evaluable: never rejected, not counted in m). Returns name -> dict(p, p_adj, reject)."""
-    names = [k for k, v in pvals.items() if np.isfinite(v)]; m = len(names); order = sorted(names, key=lambda k: pvals[k]); out = {}; run = 0.0; stop = False
+    """Holm step-down. pvals: dict name -> p. A15 rule 6a: a missing p (NaN = not evaluable) enters as 1 and counts in m; it is never rejected. Returns name -> dict(p, p_used, p_adj, reject)."""
+    pu = {k: (float(v) if np.isfinite(v) else 1.0) for k, v in pvals.items()}; names = list(pvals); m = len(names); order = sorted(names, key=lambda k: pu[k]); out = {}; run = 0.0; stop = False
     for i, k in enumerate(order):
-        run = max(run, min(1.0, (m - i) * pvals[k])); stop = stop or pvals[k] > alpha / (m - i); out[k] = dict(p=pvals[k], p_adj=run, reject=not stop)
-    for k, v in pvals.items():
-        if k not in out: out[k] = dict(p=v, p_adj=float("nan"), reject=False)
+        run = max(run, min(1.0, (m - i) * pu[k])); stop = stop or pu[k] > alpha / (m - i); out[k] = dict(p=pvals[k], p_used=pu[k], p_adj=run, reject=(not stop) and bool(np.isfinite(pvals[k])))
     return out
 
 

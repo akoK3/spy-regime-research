@@ -407,11 +407,8 @@ class TestA8(unittest.TestCase):
 
 class TestA8Items25(unittest.TestCase):
     def test_every_data_loading_script_is_registered(self):
-        import re, s5_contamination as C
-        for f in sorted(L.HERE.glob("*.py")):
-            t = f.read_text(encoding="utf-8")
-            if re.search(r"fold_segments\(|load_era\(", t) and not f.name.startswith("write_"):
-                self.assertIn(f.name, C.REGISTRY, f"{f.name} loads data but is not in the contamination registry")
+        import s5_contamination as C                     # A15 rule 3: the check lives in s5_contamination (pattern without control characters); s5_tests_a15 shows it can fail
+        self.assertTrue(C.check_registry(L.HERE))
 
     def test_contamination_and_exclusion(self):
         import pandas as pd, s5_contamination as C

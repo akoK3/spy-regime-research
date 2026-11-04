@@ -73,7 +73,7 @@ class TestStats(unittest.TestCase):
     def test_holm_known_values(self):
         r = ST.holm(dict(a=0.01, b=0.04, c=0.03, d=0.5)); self.assertAlmostEqual(r["a"]["p_adj"], 0.04); self.assertAlmostEqual(r["c"]["p_adj"], 0.09); self.assertAlmostEqual(r["b"]["p_adj"], 0.09)
         self.assertEqual([r[k]["reject"] for k in "abcd"], [True, False, False, False])
-        r2 = ST.holm(dict(a=0.001, b=float("nan"), c=0.2)); self.assertTrue(r2["a"]["reject"]); self.assertFalse(r2["b"]["reject"]); self.assertAlmostEqual(r2["a"]["p_adj"], 0.002)    # NaN not counted in m
+        r2 = ST.holm(dict(a=0.001, b=float("nan"), c=0.2)); self.assertTrue(r2["a"]["reject"]); self.assertFalse(r2["b"]["reject"]); self.assertAlmostEqual(r2["a"]["p_adj"], 0.003)    # A15 rule 6a: NaN enters as 1 and counts in m
 
     def test_bh_known_values(self):
         r = ST.benjamini_hochberg(dict(a=0.01, b=0.02, c=0.03, d=0.5)); self.assertAlmostEqual(r["a"]["q_adj"], 0.04); self.assertAlmostEqual(r["c"]["q_adj"], 0.04); self.assertAlmostEqual(r["d"]["q_adj"], 0.5)

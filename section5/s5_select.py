@@ -55,7 +55,15 @@ def final_setup(setups):
     """5.13 input from the per-fold setups [dict(features=[...], params=dict)]: feature count = median across folds (round half up), filled by selection frequency, ties by
     dictionary order; parameters = mode per key, ties to the smaller value."""
     n = int(np.floor(np.median([len(s["features"]) for s in setups]) + 0.5)); cnt = Counter(f for s in setups for f in s["features"])
-    order = sorted(cnt.items(), key=lambda kv: (-kv[1], kv[0])); feats = [f for f, _ in order][:n]; par = {}
-    for k in sorted({k for s in setups for k in s["params"]}):
-        c = Counter(s["params"][k] for s in setups if k in s["params"]); top = max(c.values()); par[k] = min(v for v, m in c.items() if m == top)
-    return dict(n_features=n, features=feats, params=par, frequency=dict(sorted(cnt.items())))
+    order = sorted(cnt.items(), key=lambda kv: (-kv[1], kv[0])); feats = [f for f, _ in order][:n]
+    out = dict(n_features=n, features=feats, params=_mode_params([s["params"] for s in setups]), frequency=dict(sorted(cnt.items())))
+    if any(s.get("base_params") for s in setups): out["base_params"] = _mode_params([s["base_params"] for s in setups if s.get("base_params")])      # A15 rule 1
+    return out
+
+
+def _mode_params(plist):
+    """Mode per key across folds, ties to the smaller value."""
+    par = {}
+    for k in sorted({k for p in plist for k in p}):
+        c = Counter(p[k] for p in plist if k in p); top = max(c.values()); par[k] = min(v for v, m in c.items() if m == top)
+    return par

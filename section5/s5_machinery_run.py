@@ -49,9 +49,11 @@ def main(era, fold):
     b = Timed(BK.DataBackend(era, fold)); out_dir = HERE / "results" / f"{TAG}_machinery_{era}{fold}"; res = dict(era=era, fold=fold, failures=[])
     t0 = time.time(); b._b.c; res["load_and_features_s"] = round(time.time() - t0, 1); log(f"context built ({res['load_and_features_s']} s)")
     try:
-        s1 = RUN.run_all(b, out_dir, excluded=set(), nboot=1000); res["run_s"] = round(time.time() - T0, 1); log("run_all done")
-        s2 = RUN.run_all(b, out_dir, excluded=set(), nboot=1000); res["resume"] = dict(first=s1["checkpoint"], second=s2["checkpoint"]); log("resume check done")
-        with tempfile.TemporaryDirectory() as td: p, doc = RUN.freeze_step(b, s1, Path(td), "machinery-check-not-a-freeze", ["A10"]); res["freeze_step"] = dict(written_in_tempdir=True, h2_primary=doc["h2_primary_detector"], passing=doc["h1_passing_families"])
+        s1 = RUN.run_all(b, out_dir, nboot=1000); res["run_s"] = round(time.time() - T0, 1); log("run_all done")
+        s2 = RUN.run_all(b, out_dir, nboot=1000); res["resume"] = dict(first=s1["checkpoint"], second=s2["checkpoint"]); log("resume check done")
+        try:                                                                   # A15 rule 5c: era-level thresholds only through MainBackend after a complete run
+            with tempfile.TemporaryDirectory() as td: RUN.freeze_step(b, s1, Path(td), "machinery-check-not-a-freeze", ["A10"]); res["freeze_step"] = "written (unexpected)"
+        except PermissionError as e: res["freeze_step"] = f"refused for a fold backend as required: {e}"
         pf = s1["_per_fold"]; fid = f"{era}|{fold}"
         res["setups"] = {fam: dict(features=pf[fam][fid]["setup"]["features"], params=pf[fam][fid]["setup"]["params"], val_qlike=pf[fam][fid]["setup"]["val_qlike"], base_qlike=pf[fam][fid]["setup"]["base_qlike"],
                                    budget_exhausted=pf[fam][fid]["setup"]["budget_exhausted"], n_steps=len(pf[fam][fid]["setup"]["trace"])) for fam in pf}

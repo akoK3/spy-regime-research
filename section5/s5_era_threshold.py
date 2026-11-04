@@ -18,9 +18,12 @@ def era_split(n, n_cal=N_CAL, embargo=EMBARGO):
 
 
 class EraBackend(BK.DataBackend):
-    def __init__(self, era):
+    kind = "era"
+
+    def __init__(self, era, shared=None):
         if era not in ("LEGACY", "RAW"): raise ValueError(era)
-        self.era, self.fold, self.id = era, -1, f"{era}|ERA"; self.min_days = 8; self._ctx = None; self._fits = {}; self._seqs = {}; self._splice = None
+        if shared is not None and shared["era"] != era: raise ValueError("shared era context of another era")
+        self.era, self.fold, self.id = era, -1, f"{era}|ERA"; self.min_days = 8; self._shared = shared; self._ctx = None; self._fits = {}; self._seqs = {}; self._splice = None
 
     def _segments(self, d):
         fit, emb, cal = era_split(len(d["first"])); return dict(train=fit, val=cal, test=np.array([], int), embargo=emb)

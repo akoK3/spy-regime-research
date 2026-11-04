@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
-"""A10: data backend for s5_run.py, one fold per instance. Real features, fitted models, splices. Guards: only folds listed in ALLOWED_MACHINERY (the contaminated RAW 3 and LEGACY 29)
-and only if the contamination list excludes them; only sessions of the fold's own segments are read.
-Selection (5.8) uses the fold's inner train and validation only; the test segment is read by score() only, after selection."""
-import sys, json, hashlib
+"""A10/A15: data backend for s5_run.py, one fold per instance. Real features, fitted models, splices. Guards: only folds listed in `allowed` (default ALLOWED_MACHINERY, the contaminated
+RAW 3 and LEGACY 29); a fold that is not on the contamination list (a clean fold) is served only with the sha256 of the FROZEN protocol (A15 rule 5b). Models are fitted on the fold's
+inner train; the era panel is read whole for the 20-session deseasonalising and splice baselines (past sessions only).
+Selection (5.8) uses the fold's inner train and validation only; the test segment is read by score() only, after selection. Era-level thresholds (A11) are not served here (A15 rule 5c)."""
+import sys, re, json, hashlib
 from pathlib import Path
 import numpy as np
 sys.path.insert(0, str(Path(__file__).resolve().parent))
@@ -13,15 +14,60 @@ ALLOWED_MACHINERY = {"RAW|3", "LEGACY|29"}
 HMM_GRID = [dict(K=2), dict(K=3), dict(K=4)]; HSMM_GRID = [dict(K=2), dict(K=3)]      # A11 item 2: 5.4 gives HSMM K 2-3; HMM families K 2-4
 BOCPD_GRID = [dict(lam=12), dict(lam=39), dict(lam=78)]
 TARGET = B.TARGET; BOUNDS = B.BOUNDS
+PROTOCOL = ROOT / "SECTION5_PROTOCOL.md"; CONTAMINATION = HERE / "results" / "contamination_list.json"
+
+
+def sha(p):
+    h = hashlib.sha256()
+    with open(p, "rb") as f:
+        for b in iter(lambda: f.read(1 << 20), b""): h.update(b)
+    return h.hexdigest()
+
+
+def verify_frozen_protocol(token, protocol=PROTOCOL):
+    """A15 rule 5b: returns the protocol hash if `token` equals the sha256 of SECTION5_PROTOCOL.md, its sidecar states the same hash and the text says FROZEN; else PermissionError."""
+    h = sha(protocol); side = Path(protocol).with_suffix(".sha256"); side_h = side.read_text().split()[0] if side.exists() else None
+    if token != h or side_h != h or "**Status: FROZEN**" not in Path(protocol).read_text(encoding="utf-8"):
+        raise PermissionError("clean folds need the sha256 of the FROZEN SECTION5_PROTOCOL.md matching its sidecar (A15 rule 5b)")
+    return h
+
+
+def era_context(era):
+    """Era panel, primary columns, deseasonalising matrix and raw grid rows of every session (shared by the fold backends of one era)."""
+    primary, _, _ = L.pools(); cols = primary
+    d = L.load_era(era, cols + ["lee_mykland_approx60"]); dv = S.des_variance(d)
+    native = [L.session_grid(d, i, cols) for i in range(len(d["first"]))]; Mx = np.full((len(native), 78), np.nan)
+    for i, r in enumerate(native): Mx[i, :len(r["X"])] = r["X"][:, 0]
+    return dict(era=era, d=d, dv=dv, cols=cols, native=native, Mx=Mx)
+
+
+def freeze_input_hashes(protocol=PROTOCOL):
+    """A15 rule 6c: sha256 of the protocol, every amendment it integrates, the cited inputs, the folds CSV, the split manifest, the contamination list, the H1(c) times and the
+    LEGACY and RAW panel and SPY ETF files."""
+    t = Path(protocol).read_text(encoding="utf-8"); out = {"SECTION5_PROTOCOL.md": sha(protocol)}
+    for f in sorted(set(re.findall(r"`(AMENDMENT_A[0-9_]+\.md)`", t))): out[f] = sha(ROOT / f)
+    for f in sorted(set(re.findall(r"`(section431_step3_all_in_one_results/[^`]+)`", t))): out[f] = sha(ROOT / f)
+    out["folds_csv"] = sha(L.R / "a4_development_nested_folds_TRAIN.csv"); out["split_manifest"] = sha(L.FZ / "section430_executable_split_manifest.csv")
+    for q in (CONTAMINATION, HERE / "results" / "h1c_schedule_times.json"): out[f"section5/results/{q.name}"] = sha(q)
+    s = L._step3()
+    for era in ("LEGACY", "RAW"):
+        _, _, pf, ef = s.CONFIG[era]
+        for k, x in (("panel", pf), ("etf", ef)): fp = Path(s.file_path(x)); out[f"{era}_{k}:{fp.name}"] = sha(fp)
+    return out
 
 
 class DataBackend:
-    def __init__(self, era, fold, allowed=ALLOWED_MACHINERY, contamination=HERE / "results" / "contamination_list.json", min_days=8):
+    kind = "data_fold"
+
+    def __init__(self, era, fold, allowed=ALLOWED_MACHINERY, contamination=CONTAMINATION, min_days=8, protocol_sha256=None, shared=None):
         self.era, self.fold, self.id = era, int(fold), f"{era}|{int(fold)}"; self.min_days = min_days
-        if self.id not in allowed: raise PermissionError(f"{self.id} is not an allowed machinery fold {sorted(allowed)}")
+        if self.id not in allowed: raise PermissionError(f"{self.id} is not an allowed fold {sorted(allowed)}")
         cl = json.loads(Path(contamination).read_text(encoding="utf-8")); ex = {f"{x['era']}|{x['fold']}": x["excluded"] for x in cl["folds"]}
-        if not ex.get(self.id, False): raise PermissionError(f"{self.id} is not on the contaminated (excluded) list; machinery checks use contaminated folds only")
-        self._ctx = None; self._fits = {}; self._seqs = {}; self._splice = None
+        if not ex.get(self.id, False):
+            if protocol_sha256 is None: raise PermissionError(f"{self.id} is a clean fold (not on the contaminated list); machinery checks use contaminated folds only, the main run needs the frozen protocol hash")
+            verify_frozen_protocol(protocol_sha256)
+        if shared is not None and shared["era"] != era: raise ValueError("shared era context of another era")
+        self._shared = shared; self._ctx = None; self._fits = {}; self._seqs = {}; self._splice = None
 
     # ---- context (lazy, once per fold)
     @property
@@ -30,12 +76,10 @@ class DataBackend:
         return self._ctx
 
     def _build(self):
-        primary, _, _ = L.pools(); cols = primary; names = [L.RET_NAME] + cols
-        d = L.load_era(self.era, cols + ["lee_mykland_approx60"]); seg = self._segments(d); dv = S.des_variance(d)
-        native = [L.session_grid(d, i, cols) for i in range(len(d["first"]))]; Mx = np.full((len(native), 78), np.nan)
-        for i, r in enumerate(native): Mx[i, :len(r["X"])] = r["X"][:, 0]
+        ctx = self._shared if self._shared is not None else era_context(self.era)
+        d, dv, cols, native, Mx = ctx["d"], ctx["dv"], ctx["cols"], ctx["native"], ctx["Mx"]; names = [L.RET_NAME] + cols; seg = self._segments(d)
         to_des = lambda r, sess: dict(r, X=F.deseason(r["X"], F.ret5_scale(Mx, sess)))
-        rows = {k: [to_des(native[i], i) for i in seg[k]] for k in ("train", "val", "test")}; del native
+        rows = {k: [to_des(native[i], i) for i in seg[k]] for k in ("train", "val", "test")}
         prep = L.Prep().fit(np.vstack([r["X"] for r in rows["train"]]), names)
         mk = lambda r, sub: L.build_sequence(dict(r, X=prep.transform(r["X"])[:, [prep.keep.index(L.RET_NAME)] + [prep.keep.index(x) for x in sub]]))
         used = set(map(int, np.r_[seg["train"], seg["val"], seg["test"]])); L.assert_train_only(self.era, [d["day"][d["first"][i]] for i in sorted(used)])
@@ -96,12 +140,14 @@ class DataBackend:
 
     def score(self, fold, family, setup):
         self._chk(fold); sp = self._splices(); feats = tuple(setup["features"]); params = dict(setup["params"])
-        mf, mb = self.fit(family, feats, params, 3), self.fit(family, (), params, 3)
-        lf, kf = self.qlike_on(family, mf, feats, "test"); lb, kb = self.qlike_on(family, mb, (), "test")
+        mf, mb = self.fit(family, feats, params, 3), self.fit(family, (), dict(setup["base_params"]), 3)      # A15 rule 1: the baseline with its own tuned K/lambda
+        lf, kf = self.qlike_on(family, mf, feats, "test"); lb, kb = self.qlike_on(family, mb, (), "test"); failed = None
         if sp["n_stable"] >= self.min_days and sp["specs"]: pf, pb = self._h1a_points(family, mf, feats), self._h1a_points(family, mb, ())
-        else: pf, pb = [], []
+        else:
+            pf, pb = [], []
+            if sp["n_stable"] >= self.min_days: failed = sp["why"] or "splice construction returned no specs"      # A15 rule 6b: a failure, not a skip
         flagged = any(m.fit_info.get("kept_fit_occupancy_ok", True) is False for m in (mf, mb) if hasattr(m, "fit_info"))      # A14.2: a kept Student-t fit with a state under 1%
-        return dict(points_feat=pf, points_base=pb, n_stable_test=sp["n_stable"], loss_base=lb, key_base=kb, loss_feat=lf, key_feat=kf, val_qlike=setup["val_qlike"], flagged_fit=flagged)
+        return dict(points_feat=pf, points_base=pb, n_stable_test=sp["n_stable"], loss_base=lb, key_base=kb, loss_feat=lf, key_feat=kf, val_qlike=setup["val_qlike"], flagged_fit=flagged, h1a_failed=failed)
 
     def final_thresholds(self, era, family, setup):
         """A7 rule on this fold's real validation sessions for the given (era-level final) setup; the era-level numeric threshold for 5.13 is not defined by A6-A10 (open)."""
@@ -112,8 +158,7 @@ class DataBackend:
         open_share = float(np.mean([det(r, q)[1] for q, r in zip(qs, rs)]))          # A12 finding 15: sessions that end with an unconfirmed candidate
         return dict(rule="A7: bisection to 0.2 alarms per session on real validation sessions", fold=self.id, threshold=thr, validation_rate=rate(thr), open_candidate_share_at_close=open_share, numeric_era_threshold="see A11 for the era-level rule")
 
-    def input_hashes(self):
-        sha = lambda p: hashlib.sha256(Path(p).read_bytes()).hexdigest(); out = {}
-        for f in ("SECTION5_PROTOCOL.md", "AMENDMENT_A6.md", "AMENDMENT_A7.md", "AMENDMENT_A8.md", "AMENDMENT_A9.md", "AMENDMENT_A10.md"):
-            if (ROOT / f).exists(): out[f] = sha(ROOT / f)
-        out["folds_csv"] = sha(L.R / "a4_development_nested_folds_TRAIN.csv"); return out
+    def era_thresholds(self, era, family, setup):
+        raise PermissionError("era-level thresholds (A11) come only from MainBackend after a complete run (A15 rule 5c)")
+
+    def input_hashes(self): return freeze_input_hashes()
