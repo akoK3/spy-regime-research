@@ -3,7 +3,7 @@
 after any later step. Hashes are computed from the files; dates are the 'Dated/Written' stamp inside the file, else the last git commit time of the file. The Section 5 table is the last
 thing in the ledger, so rows are appended at the end of the file. The ledger's own sidecar is rewritten after every change. Usage:
   s5_ledger.py init
-  s5_ledger.py add FILE "KIND" "DECISION" "REASON"      (FILE relative to the repository root)"""
+  s5_ledger.py add FILE "KIND" "DECISION" "WHY" "EVIDENCE"      (FILE relative to the repository root; both WHY and EVIDENCE required from A13 on)"""
 import sys, re, hashlib, subprocess, datetime
 from pathlib import Path
 
@@ -80,11 +80,26 @@ def init():
     LEDGER.write_text(t + "\n".join(intro + [row(*r) for r in ROWS]) + "\n", encoding="utf-8"); finish(); print(len(ROWS), "rows")
 
 
-def add(f, kind, decision, reason):
-    t = LEDGER.read_text(encoding="utf-8")
+MARK2 = "### Section 5 rows with WHY and EVIDENCE (from Amendment A13)"
+HEAD2 = ["| Date (UTC) | Kind | Decision | WHY | EVIDENCE | File | SHA-256 |", "|---|---|---|---|---|---|---|"]
+
+
+def row2(f, kind, decision, why, evidence, root=None):
+    esc = lambda x: x.replace("|", "/").replace("\n", " ")
+    return f"| {date_of(f)} | {kind} | {esc(decision)} | {esc(why)} | {esc(evidence)} | {f} | `{sha((root or ROOT) / f)}` |"
+
+
+def add(f, kind, decision, why, evidence, ledger=None, root=None):
+    """From A13 on every row carries WHY (the reason for the step) and EVIDENCE (diagnostic, audit finding, report or literature citation); empty values are refused."""
+    for name, v in (("WHY", why), ("EVIDENCE", evidence), ("DECISION", decision), ("KIND", kind)):
+        if not v or not v.strip(): raise SystemExit(f"ledger row refused: {name} is empty")
+    led = Path(ledger) if ledger else LEDGER; t = led.read_text(encoding="utf-8")
     if MARK not in t: raise SystemExit("run init first")
-    LEDGER.write_text(t.rstrip("\n") + "\n" + row(f, kind, decision, reason) + "\n", encoding="utf-8"); finish(); print("added", f)
+    if MARK2 not in t: t = t.rstrip("\n") + "\n\n" + MARK2 + "\n\n" + "\n".join(HEAD2) + "\n"
+    led.write_text(t.rstrip("\n") + "\n" + row2(f, kind, decision, why, evidence, root) + "\n", encoding="utf-8")
+    if led == LEDGER: finish()
+    print("added", f)
 
 
 if __name__ == "__main__":
-    {"init": lambda: init(), "add": lambda: add(*sys.argv[2:6])}[sys.argv[1]]()
+    {"init": lambda: init(), "add": lambda: add(*sys.argv[2:7])}[sys.argv[1]]()

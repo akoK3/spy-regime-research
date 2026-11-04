@@ -24,7 +24,7 @@ def null_specs(d, dv, stable, rng, n):
     return out
 
 
-def main(era, fold, seed):
+def main(era, fold, seed, tag="a8_2"):
     T0 = time.time(); log = lambda m: print(f"[{(time.time()-T0)/60:5.1f} min] {m}", flush=True)
     primary, _, _ = L.pools(); cols = primary; names = [L.RET_NAME] + cols
     d = L.load_era(era, cols + ["lee_mykland_approx60"]); seg = L.fold_segments(d, era, fold); dv = S.des_variance(d)
@@ -75,8 +75,8 @@ def main(era, fold, seed):
     sn, sp_ = shifts(rows2), shifts(rowsp)
     res = dict(rule="A8.2: P1 inside 95% day-level bootstrap interval of P2", era=era, fold=fold, seed=seed, stable_validation_days=len(stable), n=dict(N1=len(n1), N2=len(n2), placebo=len(pl), placebo2=len(pl2)), detectors=out, all_inside=all(v["inside"] for v in out.values()),
                pauc_f3_minus_base=diff, feature_shift_median_log_ratio_after_over_before=dict(names=names, null=sn.tolist(), placebo=sp_.tolist()), minutes=round((time.time() - T0) / 60, 1))
-    (L.HERE / "results" / f"a8_2_gate_{era}{fold}_seed{seed}.json").write_text(json.dumps(res, indent=1, default=float)); log(f"GATE all_inside={res['all_inside']}")
+    (L.HERE / "results" / f"{tag}_gate_{era}{fold}_seed{seed}.json").write_text(json.dumps(res, indent=1, default=float)); log(f"GATE all_inside={res['all_inside']}")
 
 
 if __name__ == "__main__":
-    main(sys.argv[1], int(sys.argv[2]), int(sys.argv[3]))
+    main(sys.argv[1], int(sys.argv[2]), int(sys.argv[3]), *(sys.argv[4:5] or ["a8_2"]))

@@ -85,7 +85,7 @@ class _HMMBase:
 class GaussianHMM(_HMMBase):
     name = "gaussian_hmm"
 
-    def __init__(self, K=3, starts=3, iters=200, tol=1e-4, seed=0):
+    def __init__(self, K=3, starts=3, iters=500, tol=1e-6, seed=0):
         self.K, self.starts, self.iters, self.tol, self.seed = K, starts, iters, tol, seed
 
     def _logB(self, X):
@@ -116,13 +116,13 @@ class GaussianHMM(_HMMBase):
         return ll
 
     def fit(self, batch):
-        best = None; self.fit_info = dict(iterations=[], restarts=0)
+        nobs = max(int(np.sum(batch["real"])), 1) if batch is not None and "real" in batch else 1; best = None; self.fit_info = dict(iterations=[], restarts=0, n_obs=nobs, tol_per_obs=self.tol, cap=self.iters)
         for s in range(self.starts):
             rng = np.random.default_rng(self.seed * 1000 + s)
             self._init(batch, rng); prev = -np.inf; it = 0; conv = False
             for it in range(1, self.iters + 1):
                 ll = self._em_step(batch)
-                if np.isfinite(prev) and abs(ll - prev) < self.tol: conv = True; break
+                if np.isfinite(prev) and abs(ll - prev) < self.tol * nobs: conv = True; break
                 prev = ll
             self.fit_info["iterations"].append(it); self.fit_info.setdefault("converged", []).append(conv)
             if best is None or ll > best[0]: best = (ll, self._state())
@@ -180,14 +180,14 @@ class StudentTHMM(GaussianHMM):
         return ll
 
     def fit(self, batch):
-        best = None; self.fit_info = dict(iterations=[], restarts=0)
+        nobs = max(int(np.sum(batch["real"])), 1) if batch is not None and "real" in batch else 1; best = None; self.fit_info = dict(iterations=[], restarts=0, n_obs=nobs, tol_per_obs=self.tol, cap=self.iters)
         for s in range(self.starts):
             for attempt in range(10):  # restart (new initialisation) if a state is under 1% occupancy
                 rng = np.random.default_rng(self.seed * 1000 + s * 17 + attempt)
                 self._init(batch, rng); prev = -np.inf; conv = False
                 for it in range(1, self.iters + 1):
                     ll = self._em_step(batch)
-                    if np.isfinite(prev) and abs(ll - prev) < self.tol: conv = True; break
+                    if np.isfinite(prev) and abs(ll - prev) < self.tol * nobs: conv = True; break
                     prev = ll
                 if (self._occ >= 0.01).all(): break
                 self.fit_info["restarts"] += 1
@@ -203,7 +203,7 @@ class HSMM:
     right-censored at the session end. Reset: initial state distribution with duration 1."""
     name = "hsmm"
 
-    def __init__(self, K=2, starts=3, iters=200, tol=1e-4, seed=0, Dmax=78):
+    def __init__(self, K=2, starts=3, iters=500, tol=1e-6, seed=0, Dmax=78):
         self.K, self.starts, self.iters, self.tol, self.seed, self.Dmax = K, starts, iters, tol, seed, Dmax
 
     def _logB(self, X):
@@ -272,12 +272,12 @@ class HSMM:
         return float((np.log(c) + shift)[act].sum())
 
     def fit(self, batch):
-        best = None; self.fit_info = dict(iterations=[], restarts=0)
+        nobs = max(int(np.sum(batch["real"])), 1) if batch is not None and "real" in batch else 1; best = None; self.fit_info = dict(iterations=[], restarts=0, n_obs=nobs, tol_per_obs=self.tol, cap=self.iters)
         for s in range(self.starts):
             self._init(batch, np.random.default_rng(self.seed * 1000 + s)); prev = -np.inf; conv = False
             for it in range(1, self.iters + 1):
                 ll = self._em_step(batch)
-                if np.isfinite(prev) and abs(ll - prev) < self.tol: conv = True; break
+                if np.isfinite(prev) and abs(ll - prev) < self.tol * nobs: conv = True; break
                 prev = ll
             self.fit_info["iterations"].append(it); self.fit_info.setdefault("converged", []).append(conv)
             if best is None or ll > best[0]: best = (ll, {k: getattr(self, k).copy() for k in ("pi", "A", "mu", "var", "h")})

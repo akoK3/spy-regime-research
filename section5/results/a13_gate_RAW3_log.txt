@@ -1,0 +1,11 @@
+[  0.9 min] fits done
+[  4.3 min] 600 splices built; stable validation days 16
+[  4.3 min] gaussian_hmm|base P2 0.025 [0.009,0.048] P1 0.018 null 0.031 inside=True
+[  4.3 min] gaussian_hmm|f3 P2 0.021 [0.006,0.043] P1 0.009 null 0.061 inside=True
+[  4.3 min] student_t_hmm|base P2 0.022 [0.007,0.050] P1 0.017 null 0.018 inside=True
+[  4.4 min] student_t_hmm|f3 P2 0.023 [0.004,0.050] P1 0.009 null 0.063 inside=True
+[  4.4 min] hsmm|base P2 0.025 [0.005,0.059] P1 0.021 null 0.037 inside=True
+[  4.4 min] hsmm|f3 P2 0.021 [0.002,0.054] P1 0.008 null 0.049 inside=True
+[  4.4 min] bocpd|base P2 0.018 [0.004,0.038] P1 0.021 null 0.020 inside=True
+[  4.5 min] bocpd|f3 P2 0.027 [0.010,0.050] P1 0.013 null 0.058 inside=True
+[  4.5 min] GATE all_inside=True

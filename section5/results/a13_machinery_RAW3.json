@@ -1,0 +1,166 @@
+{
+ "era": "RAW",
+ "fold": 3,
+ "failures": [],
+ "load_and_features_s": 3.0,
+ "run_s": 1169.5,
+ "resume": {
+  "first": {
+   "hits": 0,
+   "misses": 8
+  },
+  "second": {
+   "hits": 8,
+   "misses": 0
+  }
+ },
+ "freeze_step": {
+  "written_in_tempdir": true,
+  "h2_primary": null,
+  "passing": []
+ },
+ "setups": {
+  "gaussian_hmm": {
+   "features": [
+    "rv10_partial90",
+    "momentum30_endpoint",
+    "intrabar_range_log"
+   ],
+   "params": {
+    "K": 4
+   },
+   "val_qlike": 0.2143995508607396,
+   "base_qlike": 0.41787592116637584,
+   "budget_exhausted": false,
+   "n_steps": 5
+  },
+  "student_t_hmm": {
+   "features": [
+    "rv10_partial90",
+    "momentum30_endpoint"
+   ],
+   "params": {
+    "K": 4
+   },
+   "val_qlike": 0.25902114741817195,
+   "base_qlike": 0.38284691051116493,
+   "budget_exhausted": false,
+   "n_steps": 4
+  },
+  "hsmm": {
+   "features": [
+    "rv10_partial90",
+    "momentum30_endpoint",
+    "intrabar_range_log"
+   ],
+   "params": {
+    "K": 3
+   },
+   "val_qlike": 0.21181119701376952,
+   "base_qlike": 0.4178607875651899,
+   "budget_exhausted": false,
+   "n_steps": 5
+  },
+  "bocpd": {
+   "features": [
+    "momentum30_endpoint"
+   ],
+   "params": {
+    "lam": 12
+   },
+   "val_qlike": 0.45150366200263314,
+   "base_qlike": 0.517496944121203,
+   "budget_exhausted": false,
+   "n_steps": 3
+  }
+ },
+ "em_fits": {
+  "n_models": 211,
+  "n_starts": 239,
+  "n_starts_reaching_cap": 1,
+  "iterations_median": 58.0,
+  "by_family": {
+   "gaussian_hmm": {
+    "starts": 86,
+    "at_cap": 0
+   },
+   "hsmm": {
+    "starts": 83,
+    "at_cap": 1
+   },
+   "student_t_hmm": {
+    "starts": 70,
+    "at_cap": 0
+   }
+  }
+ },
+ "scores": {
+  "gaussian_hmm": {
+   "a": 0.034088541666666666,
+   "a_skipped": null,
+   "b": 0.07910555161856248,
+   "b_skipped": null,
+   "b_n": 4104,
+   "b_dm_stat": 3.852972905459557,
+   "val_qlike": 0.2143995508607396
+  },
+  "student_t_hmm": {
+   "a": 0.0016718750000000449,
+   "a_skipped": null,
+   "b": 0.05173217796479196,
+   "b_skipped": null,
+   "b_n": 4104,
+   "b_dm_stat": 3.0616181467179033,
+   "val_qlike": 0.25902114741817195
+  },
+  "hsmm": {
+   "a": 0.0709270833333333,
+   "a_skipped": null,
+   "b": 0.08958747262416938,
+   "b_skipped": null,
+   "b_n": 4104,
+   "b_dm_stat": 4.206344216442441,
+   "val_qlike": 0.21181119701376952
+  },
+  "bocpd": {
+   "a": 0.00894270833333334,
+   "a_skipped": null,
+   "b": 0.012579404352414336,
+   "b_skipped": null,
+   "b_n": 4104,
+   "b_dm_stat": 3.8923613884812798,
+   "val_qlike": 0.45150366200263314
+  }
+ },
+ "skipped_h1a": {
+  "gaussian_hmm": [],
+  "student_t_hmm": [],
+  "hsmm": [],
+  "bocpd": []
+ },
+ "tests_note": "one fold per call: fold-level tests not evaluable (n<2); no H1 verdict is read",
+ "holm_confirmatory_is_not_evaluable": true,
+ "non_finite_outputs": [],
+ "n_stable_test": true,
+ "backend_seconds": {
+  "folds": 0.0,
+  "candidates": 0.0,
+  "objective_calls": 640.3,
+  "param_grid": 0.0,
+  "score": 526.2,
+  "final_thresholds": 25.8,
+  "input_hashes": 0.0
+ },
+ "backend_calls": {
+  "folds": 2,
+  "candidates": 4,
+  "objective_calls": 246,
+  "param_grid": 4,
+  "score": 4,
+  "final_thresholds": 4,
+  "input_hashes": 1
+ },
+ "peak_memory_mb": 416.0,
+ "min_free_system_mb": 1490.0,
+ "total_minutes": 19.92
+}

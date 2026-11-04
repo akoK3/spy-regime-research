@@ -7,7 +7,7 @@ import numpy as np
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import s5_run as RUN, s5_backend as BK, s5_legacy_pilot as LP
 
-HERE = Path(__file__).resolve().parent; TAG = "a12"      # A12 item 3: rerun under the A12 code (A10 results stay as the record of the earlier run)
+HERE = Path(__file__).resolve().parent; TAG = sys.argv[3] if len(sys.argv) > 3 else "a12"      # run tag: results of earlier tags stay as the record of the earlier code
 
 
 class Timed:
