@@ -300,3 +300,5 @@
 !COLD_AUDIT_STATUS_v5_A15.sha256
 !OPEN_AUDIT_FINDINGS_v4_A15.md
 !OPEN_AUDIT_FINDINGS_v4_A15.sha256
+!/section5/results/*.lock
+!/section5/results/rehearsal_a16/

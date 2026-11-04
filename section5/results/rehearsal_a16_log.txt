@@ -1,0 +1,3 @@
+[ 36.4 min] run_all done
+[ 36.4 min] resume done
+[ 36.4 min] done; failures 0; peak 1027 MB

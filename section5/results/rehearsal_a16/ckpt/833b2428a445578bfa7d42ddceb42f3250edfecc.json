@@ -1,0 +1,1 @@
+{"key": "score|rehearsal|budget=None|LEGACY|29|student_t_hmm", "version": "629de740dbc75332", "value": {"a": -0.020239583333333352, "a_skipped": null, "a_failed": null, "b": 0.5860794834435035, "b_skipped": null, "b_n": 7042, "b_dm_stat": 7.135992270116959, "val_qlike": 0.21137116344456533, "flagged_fit": false}}

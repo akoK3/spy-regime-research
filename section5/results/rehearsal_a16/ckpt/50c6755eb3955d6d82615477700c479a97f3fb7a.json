@@ -1,0 +1,1 @@
+{"key": "score|rehearsal|budget=None|LEGACY|29|gaussian_hmm", "version": "629de740dbc75332", "value": {"a": 0.03458333333333331, "a_skipped": null, "a_failed": null, "b": 0.4877096486318648, "b_skipped": null, "b_n": 6927, "b_dm_stat": 11.011590487002408, "val_qlike": 0.20574724932776103, "flagged_fit": false}}

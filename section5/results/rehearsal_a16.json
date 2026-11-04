@@ -1,0 +1,318 @@
+{
+ "folds": [
+  "LEGACY|29",
+  "RAW|3"
+ ],
+ "failures": [],
+ "lock_before": false,
+ "run_minutes": 36.37,
+ "resume": {
+  "first": {
+   "hits": 0,
+   "misses": 16
+  },
+  "second": {
+   "hits": 16,
+   "misses": 0
+  },
+  "seconds": 0.2
+ },
+ "completion_record_valid_as_main": false,
+ "completion_record_refused_because": "completion record is not a main run over all 34 folds",
+ "completion_record_hash_checked": true,
+ "freeze_step": {
+  "written_in_tempdir_and_discarded": true,
+  "seconds": 0.4,
+  "thresholds_are_stubs": true,
+  "n_input_hashes": 32,
+  "protocol_sha256": "0b0669b5f341b3d6a660473e83850e8947b5e36da19f8323400ad36137e97fe9"
+ },
+ "clean_fold_refused": true,
+ "setups": {
+  "gaussian_hmm": {
+   "LEGACY|29": {
+    "features": [
+     "rv5_strict",
+     "downside10_strict__sadj"
+    ],
+    "params": {
+     "K": 3
+    },
+    "base_params": {
+     "K": 4
+    }
+   },
+   "RAW|3": {
+    "features": [
+     "rv10_partial90",
+     "momentum30_endpoint",
+     "intrabar_range_log"
+    ],
+    "params": {
+     "K": 4
+    },
+    "base_params": {
+     "K": 3
+    }
+   }
+  },
+  "student_t_hmm": {
+   "LEGACY|29": {
+    "features": [
+     "downside5_strict"
+    ],
+    "params": {
+     "K": 3
+    },
+    "base_params": {
+     "K": 3
+    }
+   },
+   "RAW|3": {
+    "features": [
+     "rv10_partial90",
+     "momentum30_endpoint"
+    ],
+    "params": {
+     "K": 4
+    },
+    "base_params": {
+     "K": 4
+    }
+   }
+  },
+  "hsmm": {
+   "LEGACY|29": {
+    "features": [
+     "rv10_partial90",
+     "intrabar_range_log__sadj"
+    ],
+    "params": {
+     "K": 3
+    },
+    "base_params": {
+     "K": 3
+    }
+   },
+   "RAW|3": {
+    "features": [
+     "rv10_partial90",
+     "momentum30_endpoint",
+     "intrabar_range_log"
+    ],
+    "params": {
+     "K": 3
+    },
+    "base_params": {
+     "K": 3
+    }
+   }
+  },
+  "bocpd": {
+   "LEGACY|29": {
+    "features": [
+     "momentum15_endpoint",
+     "momentum10_endpoint"
+    ],
+    "params": {
+     "lam": 12
+    },
+    "base_params": {
+     "lam": 12
+    }
+   },
+   "RAW|3": {
+    "features": [
+     "momentum30_endpoint"
+    ],
+    "params": {
+     "lam": 12
+    },
+    "base_params": {
+     "lam": 78
+    }
+   }
+  }
+ },
+ "scores": {
+  "gaussian_hmm": {
+   "LEGACY|29": {
+    "a": 0.03458333333333331,
+    "a_skipped": null,
+    "a_failed": null,
+    "b": 0.4877096486318648,
+    "b_n": 6927,
+    "flagged_fit": false
+   },
+   "RAW|3": {
+    "a": 0.050234374999999984,
+    "a_skipped": null,
+    "a_failed": null,
+    "b": 0.08256380125113122,
+    "b_n": 4104,
+    "flagged_fit": false
+   }
+  },
+  "student_t_hmm": {
+   "LEGACY|29": {
+    "a": -0.020239583333333352,
+    "a_skipped": null,
+    "a_failed": null,
+    "b": 0.5860794834435035,
+    "b_n": 7042,
+    "flagged_fit": false
+   },
+   "RAW|3": {
+    "a": 0.0016718750000000449,
+    "a_skipped": null,
+    "a_failed": null,
+    "b": 0.05173217796479196,
+    "b_n": 4104,
+    "flagged_fit": false
+   }
+  },
+  "hsmm": {
+   "LEGACY|29": {
+    "a": 0.012276041666666668,
+    "a_skipped": null,
+    "a_failed": null,
+    "b": 0.559919887930229,
+    "b_n": 6929,
+    "flagged_fit": false
+   },
+   "RAW|3": {
+    "a": 0.0709270833333333,
+    "a_skipped": null,
+    "a_failed": null,
+    "b": 0.08958747262416938,
+    "b_n": 4104,
+    "flagged_fit": false
+   }
+  },
+  "bocpd": {
+   "LEGACY|29": {
+    "a": -0.009458333333333332,
+    "a_skipped": null,
+    "a_failed": null,
+    "b": 0.04783499927425705,
+    "b_n": 6823,
+    "flagged_fit": false
+   },
+   "RAW|3": {
+    "a": -0.06466145833333332,
+    "a_skipped": null,
+    "a_failed": null,
+    "b": 0.012353089721305888,
+    "b_n": 4104,
+    "flagged_fit": false
+   }
+  }
+ },
+ "non_finite": [],
+ "lock_after": false,
+ "backend_seconds": {
+  "era_context|LEGACY": 13.9,
+  "era_context|RAW": 3.0,
+  "objective_calls|LEGACY|29": 654.2,
+  "objective_calls|RAW|3": 831.9,
+  "score|LEGACY|29": 310.0,
+  "score|RAW|3": 368.5
+ },
+ "backend_calls": {
+  "era_context|LEGACY": 1,
+  "objective_calls|LEGACY|29": 225,
+  "score|LEGACY|29": 4,
+  "era_context|RAW": 1,
+  "objective_calls|RAW|3": 257,
+  "score|RAW|3": 4
+ },
+ "new_fit_seconds": {
+  "LEGACY|29|bocpd|starts=1": {
+   "n": 55,
+   "total": 1.0,
+   "median": 0.03
+  },
+  "LEGACY|29|bocpd|starts=3": {
+   "n": 6,
+   "total": 0.0,
+   "median": 0.0
+  },
+  "LEGACY|29|gaussian_hmm|starts=1": {
+   "n": 55,
+   "total": 30.5,
+   "median": 0.52
+  },
+  "LEGACY|29|gaussian_hmm|starts=3": {
+   "n": 6,
+   "total": 10.7,
+   "median": 1.73
+  },
+  "LEGACY|29|hsmm|starts=1": {
+   "n": 55,
+   "total": 381.3,
+   "median": 5.88
+  },
+  "LEGACY|29|hsmm|starts=3": {
+   "n": 4,
+   "total": 96.1,
+   "median": 24.45
+  },
+  "LEGACY|29|student_t_hmm|starts=1": {
+   "n": 38,
+   "total": 47.4,
+   "median": 1.05
+  },
+  "LEGACY|29|student_t_hmm|starts=3": {
+   "n": 6,
+   "total": 24.9,
+   "median": 3.22
+  },
+  "RAW|3|bocpd|starts=1": {
+   "n": 38,
+   "total": 0.6,
+   "median": 0.0
+  },
+  "RAW|3|bocpd|starts=3": {
+   "n": 6,
+   "total": 0.0,
+   "median": 0.0
+  },
+  "RAW|3|gaussian_hmm|starts=1": {
+   "n": 71,
+   "total": 39.2,
+   "median": 0.5
+  },
+  "RAW|3|gaussian_hmm|starts=3": {
+   "n": 6,
+   "total": 17.2,
+   "median": 1.79
+  },
+  "RAW|3|hsmm|starts=1": {
+   "n": 71,
+   "total": 450.7,
+   "median": 4.67
+  },
+  "RAW|3|hsmm|starts=3": {
+   "n": 4,
+   "total": 170.0,
+   "median": 18.95
+  },
+  "RAW|3|student_t_hmm|starts=1": {
+   "n": 55,
+   "total": 76.7,
+   "median": 1.16
+  },
+  "RAW|3|student_t_hmm|starts=3": {
+   "n": 6,
+   "total": 45.0,
+   "median": 3.43
+  }
+ },
+ "peak_memory_mb": 1027,
+ "min_free_system_mb": 1785,
+ "total_minutes": 36.38,
+ "fold_minutes": {
+  "LEGACY|29": 16.3,
+  "RAW|3": 20.1
+ }
+}
