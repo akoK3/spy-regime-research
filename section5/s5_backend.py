@@ -100,7 +100,8 @@ class DataBackend:
         lf, kf = self.qlike_on(family, mf, feats, "test"); lb, kb = self.qlike_on(family, mb, (), "test")
         if sp["n_stable"] >= self.min_days and sp["specs"]: pf, pb = self._h1a_points(family, mf, feats), self._h1a_points(family, mb, ())
         else: pf, pb = [], []
-        return dict(points_feat=pf, points_base=pb, n_stable_test=sp["n_stable"], loss_base=lb, key_base=kb, loss_feat=lf, key_feat=kf, val_qlike=setup["val_qlike"])
+        flagged = any(m.fit_info.get("kept_fit_occupancy_ok", True) is False for m in (mf, mb) if hasattr(m, "fit_info"))      # A14.2: a kept Student-t fit with a state under 1%
+        return dict(points_feat=pf, points_base=pb, n_stable_test=sp["n_stable"], loss_base=lb, key_base=kb, loss_feat=lf, key_feat=kf, val_qlike=setup["val_qlike"], flagged_fit=flagged)
 
     def final_thresholds(self, era, family, setup):
         """A7 rule on this fold's real validation sessions for the given (era-level final) setup; the era-level numeric threshold for 5.13 is not defined by A6-A10 (open)."""

@@ -59,6 +59,7 @@ def main(era, fold):
         occ = [(f, i) for f, i in fits if i and i.get("occupancy_ok") is not None]; res["student_t_occupancy"] = dict(n_starts=sum(len(i["occupancy_ok"]) for _, i in occ), n_starts_failing_1pct_rule=sum(1 for _, i in occ for ok in i["occupancy_ok"] if not ok), n_kept_fits_failing=sum(1 for _, i in occ if not i.get("kept_fit_occupancy_ok", True)), restarts=sum(i["restarts"] for _, i in occ))
         res["em_fits"] = dict(n_models=len(em), n_starts=sum(len(i["converged"]) for _, i in em), n_starts_reaching_cap=sum(1 for _, i in em for c in i["converged"] if not c), iterations_median=float(np.median([x for _, i in em for x in i["iterations"]])) if em else None,
                               by_family={f: dict(starts=sum(len(i["converged"]) for g, i in em if g == f), at_cap=sum(1 for g, i in em if g == f for c in i["converged"] if not c)) for f in sorted({f for f, _ in em})})
+        res["flagged_student_t_fits"] = res["student_t_occupancy"]["n_kept_fits_failing"]; res["flagged_folds_by_family"] = {fam: bool(pf[fam][fid]["score"].get("flagged_fit", False)) for fam in pf}
         res["scores"] = {fam: pf[fam][fid]["score"] for fam in pf}; res["skipped_h1a"] = s1["skipped_h1a"]; res["tests_note"] = "one fold per call: fold-level tests not evaluable (n<2); no H1 verdict is read"
         res["holm_confirmatory_is_not_evaluable"] = all(not np.isfinite(v["p"]) for v in s1["holm"]["confirmatory"].values())
         res["non_finite_outputs"] = finite_tree({k: v for k, v in res.items() if k != "scores"}) + finite_tree(res["scores"])

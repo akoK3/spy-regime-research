@@ -28,11 +28,13 @@ def h1b_fold_effect(loss_base, key_base, loss_feat, key_feat, lag=12):
     return dict(effect=float(lb.mean() - lf.mean()), dm=V.diebold_mariano(lb, lf, lag), n=int(len(lb)), skipped=None)
 
 
-def family_result(effects_a, effects_b, fold_ids, excluded=(), nboot=10000, seed=0):
+def family_result(effects_a, effects_b, fold_ids, excluded=(), nboot=10000, seed=0, flagged=None):
     """effects_a / effects_b: lists over fold_ids (consecutive fold order; None = skipped or not evaluable). Confirmatory = folds not in `excluded`; sensitivity = all folds.
     Fold-level tests per component (5.9) and the IU p-value of the two block-bootstrap p-values."""
     out = {}
-    for label, keep in (("confirmatory", [f not in set(excluded) for f in fold_ids]), ("all_folds_sensitivity", [True] * len(fold_ids))):
+    conf = [f not in set(excluded) for f in fold_ids]; sets = [("confirmatory", conf), ("all_folds_sensitivity", [True] * len(fold_ids))]
+    if flagged is not None and any(flagged): sets.append(("excluding_flagged_fits", [c and not fl for c, fl in zip(conf, flagged)]))      # A14.2: confirmatory folds whose kept Student-t fits satisfy the 1% rule
+    for label, keep in sets:
         xa = [e for e, k in zip(effects_a, keep) if k and e is not None]; xb = [e for e, k in zip(effects_b, keep) if k and e is not None]
         ta, tb = ST.fold_tests(xa, nboot=nboot, seed=seed), ST.fold_tests(xb, nboot=nboot, seed=seed + 1)
         out[label] = dict(H1a=ta, H1b=tb, p_iu=ST.intersection_union(ta["p_block_bootstrap"], tb["p_block_bootstrap"]))

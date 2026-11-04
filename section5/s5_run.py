@@ -52,7 +52,7 @@ def select_fold(backend, fold, family, budget=None):
 def score_fold(backend, fold, family, setup):
     s = backend.score(fold, family, setup)
     a = H.h1a_fold_effect(s["points_feat"], s["points_base"], s["n_stable_test"]); b = H.h1b_fold_effect(s["loss_base"], s["key_base"], s["loss_feat"], s["key_feat"])
-    return dict(a=a["effect"], a_skipped=a["skipped"], b=b["effect"], b_skipped=b["skipped"], b_n=b["n"], b_dm_stat=(b["dm"] or {}).get("stat"), val_qlike=s["val_qlike"])
+    return dict(a=a["effect"], a_skipped=a["skipped"], b=b["effect"], b_skipped=b["skipped"], b_n=b["n"], b_dm_stat=(b["dm"] or {}).get("stat"), val_qlike=s["val_qlike"], flagged_fit=bool(s.get("flagged_fit", False)))
 
 
 def run_all(backend, out_dir, excluded=(), budget=None, nboot=10000, seed=0, files=CODE_FILES):
@@ -61,7 +61,7 @@ def run_all(backend, out_dir, excluded=(), budget=None, nboot=10000, seed=0, fil
         for fold in folds:
             setup = ck.run(f"select|{fold}|{fam}", lambda: select_fold(backend, fold, fam, budget))
             sc = ck.run(f"score|{fold}|{fam}", lambda: score_fold(backend, fold, fam, setup)); per[fam][fold] = dict(setup=setup, score=sc)
-    fam_res = {fam: H.family_result([per[fam][f]["score"]["a"] for f in folds], [per[fam][f]["score"]["b"] for f in folds], folds, excluded, nboot, seed) for fam in H.FAMILIES}
+    fam_res = {fam: H.family_result([per[fam][f]["score"]["a"] for f in folds], [per[fam][f]["score"]["b"] for f in folds], folds, excluded, nboot, seed, flagged=[bool(per[fam][f]["score"].get("flagged_fit", False)) for f in folds]) for fam in H.FAMILIES}
     dec = {w: H.h1_decision(fam_res, which=w) for w in ("confirmatory", "all_folds_sensitivity")}
     eras = sorted({f.split("|")[0] for f in folds}); final = {e: {fam: SEL.final_setup([per[fam][f]["setup"] for f in folds if f.startswith(e + "|")]) for fam in H.FAMILIES} for e in eras}
     medq = {fam: float(np.median([per[fam][f]["score"]["val_qlike"] for f in folds])) for fam in H.FAMILIES}

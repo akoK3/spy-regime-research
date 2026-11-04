@@ -64,9 +64,36 @@ class TestFinding19(unittest.TestCase):
         self.assertEqual((m.fit_info["restarts"], m.fit_info["attempts"], m.fit_info["occupancy_ok"], m.fit_info["kept_fit_occupancy_ok"]), (10, [10], [False], False))
         self.assertEqual(m._loaded, {"ll": -19.0})                                                              # the failing fit is still kept (current behaviour, left open in A14)
 
-    def test_higher_likelihood_violating_start_is_still_kept_and_flagged(self):
-        m = stub(M.StudentTHMM(2, 2), [GOOD, BAD * 0 + BAD] + [BAD] * 9, [-20.0] + [-5.0] * 10); m.fit(self.batch)
-        self.assertEqual(m.fit_info["occupancy_ok"], [True, False]); self.assertFalse(m.fit_info["kept_fit_occupancy_ok"]); self.assertEqual(m._loaded, {"ll": -5.0})     # documents the open design choice
+    def test_a14_2_valid_start_preferred_over_higher_likelihood_violating_start(self):
+        m = stub(M.StudentTHMM(2, 2), [GOOD] + [BAD] * 10, [-20.0] + [-5.0] * 10); m.fit(self.batch)
+        self.assertEqual(m.fit_info["occupancy_ok"], [True, False]); self.assertTrue(m.fit_info["kept_fit_occupancy_ok"]); self.assertEqual(m._loaded, {"ll": -20.0})      # the valid start wins although -5 > -20
+        m = stub(M.StudentTHMM(2, 2), [BAD] * 10 + [GOOD], [-5.0] * 10 + [-20.0]); m.fit(self.batch)
+        self.assertEqual(m.fit_info["occupancy_ok"], [False, True]); self.assertEqual(m._loaded, {"ll": -20.0})
+        m = stub(M.StudentTHMM(2, 2), [GOOD, GOOD], [-20.0, -5.0]); m.fit(self.batch); self.assertEqual(m._loaded, {"ll": -5.0}); self.assertTrue(m.fit_info["kept_fit_occupancy_ok"])     # both valid: highest likelihood
+
+    def test_a14_2_no_valid_start_keeps_best_likelihood_flagged(self):
+        m = stub(M.StudentTHMM(2, 2), [BAD] * 20, [-10.0 - i * 0.1 for i in range(10)] + [-7.0 - i * 0.1 for i in range(10)]); m.fit(self.batch)
+        self.assertEqual(m.fit_info["occupancy_ok"], [False, False]); self.assertFalse(m.fit_info["kept_fit_occupancy_ok"]); self.assertEqual(m._loaded, {"ll": -7.9})
+
+    def test_a14_2_sensitivity_excluding_flagged_fits(self):
+        import s5_h1 as H
+        folds = list(range(10)); ea = [1.0] * 6 + [-5.0] * 4; eb = [1.0] * 6 + [-5.0] * 4; fl = [False] * 6 + [True] * 4
+        r = H.family_result(ea, eb, folds, excluded=[9], nboot=500, flagged=fl)
+        self.assertEqual(r["confirmatory"]["H1a"]["n_folds"], 9); self.assertEqual(r["excluding_flagged_fits"]["H1a"]["n_folds"], 6); self.assertGreater(r["excluding_flagged_fits"]["H1a"]["mean"], 0); self.assertLess(r["confirmatory"]["H1a"]["mean"], 0)
+        self.assertNotIn("excluding_flagged_fits", H.family_result(ea, eb, folds, nboot=200, flagged=[False] * 10)); self.assertNotIn("excluding_flagged_fits", H.family_result(ea, eb, folds, nboot=200))      # only when something is flagged
+
+    def test_a14_2_flag_reaches_the_fold_score_and_the_family_result(self):
+        import s5_run as RUN, s5_dry_run as DR
+        class FlagBackend(DR.SyntheticBackend):
+            def score(self, fold, family, setup):
+                r = super().score(fold, family, setup); r["flagged_fit"] = family == "student_t_hmm" and fold in ("LEGACY|0", "LEGACY|1"); return r
+        b = FlagBackend(n_legacy=8, n_raw=0)
+        self.assertTrue(RUN.score_fold(b, "LEGACY|0", "student_t_hmm", dict(features=[], params={}, val_qlike=1.0))["flagged_fit"]); self.assertFalse(RUN.score_fold(b, "LEGACY|2", "student_t_hmm", dict(features=[], params={}, val_qlike=1.0))["flagged_fit"])
+        import tempfile
+        with tempfile.TemporaryDirectory() as td: s = RUN.run_all(b, td, nboot=300)
+        self.assertIn("excluding_flagged_fits", s["family_results"]["student_t_hmm"]); self.assertNotIn("excluding_flagged_fits", s["family_results"]["gaussian_hmm"])
+        self.assertEqual(s["family_results"]["student_t_hmm"]["excluding_flagged_fits"]["H1a"]['n_folds'], 5)      # 8 folds: 2 flagged, 1 (LEGACY|3) has too few stable days for H1(a)
+
 
 
 if __name__ == "__main__":

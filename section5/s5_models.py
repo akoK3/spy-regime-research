@@ -206,7 +206,7 @@ class StudentTHMM(GaussianHMM):
                 self.fit_info["restarts"] += 1
             ok = bool((self._occ >= 0.01).all()); self.fit_info["iterations"].append(it); self.fit_info.setdefault("converged", []).append(conv)
             self.fit_info.setdefault("attempts", []).append(attempt + 1); self.fit_info.setdefault("occupancy_ok", []).append(ok)       # A14 finding 19: recorded per start
-            if best is None or ll > best[0]: best = (ll, self._state(), ok)
+            if best is None or (ok, ll) > (best[2], best[0]): best = (ll, self._state(), ok)      # A14.2: highest likelihood among starts satisfying the 1% rule; if none does, the highest likelihood (flagged)
         self._load(best[1]); self.loglik = best[0]; self._reorder(); self.fit_info["kept_fit_occupancy_ok"] = best[2]
         return self
 
