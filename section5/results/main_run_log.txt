@@ -1,0 +1,39 @@
+2026-11-03T23:45:01-05:00 [ps1 9052] === run_main_overnight.ps1 start: preflight only (-Check); protocol 0b0669b5f341b3d6...; max retries 5
+2026-11-03T23:45:01-05:00 [ps1 9052] attempt 1 of 6: starting Python
+2026-11-03T23:45:03-05:00 [py 20148] preflight: protocol FROZEN, sidecar matches, token = 0b0669b5f341b3d6...
+2026-11-03T23:45:03-05:00 [py 20148] preflight: canonical contamination list f6d67a57ca30184b..., 8 folds excluded, 26 confirmatory
+2026-11-03T23:45:03-05:00 [py 20148] preflight: no era-calibration lock
+2026-11-03T23:45:03-05:00 [py 20148] preflight: every data-loading script is registered
+2026-11-03T23:45:03-05:00 [py 20148] preflight: MainBackend built (34 folds, LEGACY|0 ... RAW|3); no data loaded
+2026-11-03T23:45:03-05:00 [py 20148] preflight: output C:\Users\kakij\Downloads\section5\results\main_run writable; code version b22b29ffacca13b4; checkpoint version 629de740dbc75332; existing checkpoint units 0 of 272
+2026-11-03T23:45:03-05:00 [py 20148] preflight: python 3.12.10 at C:\Users\kakij\AppData\Local\Programs\Python\Python312\python.exe; free disk 17.3 GB
+2026-11-03T23:45:03-05:00 [py 20148] preflight: free memory 4227 MB (rehearsal peak 1027 MB)
+2026-11-03T23:45:03-05:00 [py 20148] preflight passed (--check): main run NOT started
+2026-11-03T23:45:03-05:00 [ps1 9052] attempt 1: Python exited with code 0 after 0 min
+2026-11-03T23:45:03-05:00 [ps1 9052] === preflight passed; the main run was NOT started
+2026-11-04T09:13:32-05:00 [ps1 32560] === run_main_overnight.ps1 start: preflight only (-Check); protocol 0b0669b5f341b3d6...; max retries 5
+2026-11-04T09:13:32-05:00 [ps1 32560] attempt 1 of 6: starting Python
+2026-11-04T09:13:38-05:00 [py 31592] preflight: protocol FROZEN, sidecar matches, token = 0b0669b5f341b3d6...
+2026-11-04T09:13:38-05:00 [py 31592] preflight: canonical contamination list f6d67a57ca30184b..., 8 folds excluded, 26 confirmatory
+2026-11-04T09:13:38-05:00 [py 31592] preflight: no era-calibration lock
+2026-11-04T09:13:39-05:00 [py 31592] preflight: every data-loading script is registered
+2026-11-04T09:13:39-05:00 [py 31592] preflight: MainBackend built (34 folds, LEGACY|0 ... RAW|3); no data loaded
+2026-11-04T09:13:39-05:00 [py 31592] preflight: output C:\Users\kakij\Downloads\section5\results\main_run writable; code version b22b29ffacca13b4; checkpoint version 629de740dbc75332; existing checkpoint units 0 of 272
+2026-11-04T09:13:39-05:00 [py 31592] preflight: python 3.12.10 at C:\Users\kakij\AppData\Local\Programs\Python\Python312\python.exe; free disk 17.6 GB
+2026-11-04T09:13:39-05:00 [py 31592] preflight: free memory 1939 MB (rehearsal peak 1027 MB)
+2026-11-04T09:13:39-05:00 [py 31592] preflight passed (--check): main run NOT started
+2026-11-04T09:13:39-05:00 [ps1 32560] attempt 1: Python exited with code 0 after 0.1 min
+2026-11-04T09:13:39-05:00 [ps1 32560] === preflight passed; the main run was NOT started
+2026-11-04T09:13:53-05:00 [ps1 20900] === run_main_overnight.ps1 start: preflight only (-Check); protocol 0b0669b5f341b3d6...; max retries 5
+2026-11-04T09:13:53-05:00 [ps1 20900] attempt 1 of 6: starting Python
+2026-11-04T09:13:59-05:00 [py 25044] preflight: protocol FROZEN, sidecar matches, token = 0b0669b5f341b3d6...
+2026-11-04T09:13:59-05:00 [py 25044] preflight: canonical contamination list f6d67a57ca30184b..., 8 folds excluded, 26 confirmatory
+2026-11-04T09:13:59-05:00 [py 25044] preflight: no era-calibration lock
+2026-11-04T09:13:59-05:00 [py 25044] preflight: every data-loading script is registered
+2026-11-04T09:13:59-05:00 [py 25044] preflight: MainBackend built (34 folds, LEGACY|0 ... RAW|3); no data loaded
+2026-11-04T09:13:59-05:00 [py 25044] preflight: output C:\Users\kakij\Downloads\section5\results\main_run writable; code version b22b29ffacca13b4; checkpoint version 629de740dbc75332; existing checkpoint units 0 of 272
+2026-11-04T09:13:59-05:00 [py 25044] preflight: python 3.12.10 at C:\Users\kakij\Downloads\research_hmm_env\Scripts\python.exe; numpy 2.5.4, scipy 1.18.1, pandas 3.1.0; free disk 17.6 GB
+2026-11-04T09:13:59-05:00 [py 25044] preflight: free memory 1973 MB (rehearsal peak 1027 MB)
+2026-11-04T09:13:59-05:00 [py 25044] preflight passed (--check): main run NOT started
+2026-11-04T09:14:00-05:00 [ps1 20900] attempt 1: Python exited with code 0 after 0.1 min
+2026-11-04T09:14:00-05:00 [ps1 20900] === preflight passed; the main run was NOT started

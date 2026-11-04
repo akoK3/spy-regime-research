@@ -302,3 +302,4 @@
 !OPEN_AUDIT_FINDINGS_v4_A15.sha256
 !/section5/results/*.lock
 !/section5/results/rehearsal_a16/
+!/section5/*.ps1
