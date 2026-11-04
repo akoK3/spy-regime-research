@@ -21,14 +21,10 @@ class TestRun(unittest.TestCase):
 
     def test_code_version_changes_with_file_content(self):
         with tempfile.TemporaryDirectory() as td:
-            (Path(td) / "a.py").write_text("x=1"); v1 = RUN.code_version(["a.py"], Path(td)); (Path(td) / "a.py").write_text("x=2"); self.assertNotEqual(v1, RUN.code_version(["a.py"], Path(td)))
+            s = Path(td) / "section5"; s.mkdir(); (s / "s5_run.py").write_text("x=1"); v1 = RUN.code_version(base=s); (s / "s5_run.py").write_text("x=2"); self.assertNotEqual(v1, RUN.code_version(base=s))
 
     def test_excluded_from_contamination(self):
-        with tempfile.TemporaryDirectory() as td:
-            p = Path(td) / "c.json"; p.write_text(json.dumps(dict(folds=[dict(era="LEGACY", fold=1, excluded=True), dict(era="RAW", fold=0, excluded=False)])))
-            self.assertEqual(RUN.excluded_from_contamination(p), {"LEGACY|1"})
-        real = Path(RUN.HERE) / "results" / "contamination_list.json"
-        if real.exists(): self.assertEqual(len(RUN.excluded_from_contamination(real)), 8)                # A15 rule 2: LEGACY 23 and 24 added
+        self.assertEqual(len(RUN.excluded_from_contamination()), 8)                                     # A15 rule 2; A16 rule 2: the canonical list only
 
     def test_select_fold_finds_true_features_and_tunes(self):
         b = DR.SyntheticBackend(); s = RUN.select_fold(b, "LEGACY|0", "gaussian_hmm"); self.assertEqual(s["features"], ["f1", "f2"]); self.assertEqual(s["params"], dict(K=3)); self.assertFalse(s["budget_exhausted"])
@@ -40,26 +36,27 @@ class TestRun(unittest.TestCase):
         self.assertIsNone(r["a"]); self.assertIn("< 8", r["a_skipped"]); self.assertIsNotNone(r["b"]); r2 = RUN.score_fold(b, "LEGACY|4", "gaussian_hmm", st); self.assertIsNotNone(r2["a"])
 
     def test_full_synthetic_run_decisions_resume_and_exclusions(self):
-        b = DR.SyntheticBackend(); exc = {"LEGACY|14", "RAW|2"}
+        b = DR.SyntheticBackend()                                                                       # A16: canonical list excludes RAW|1-3 among these ids
         with tempfile.TemporaryDirectory() as td:
-            cf = DR.contamination_file(Path(td) / "c.json", exc, b.folds()); s1 = RUN.run_all(b, Path(td) / "run", contamination=cf, nboot=1000); s2 = RUN.run_all(b, Path(td) / "run", contamination=cf, nboot=1000)
+            s1 = RUN.run_all(b, Path(td) / "run", nboot=1000); s2 = RUN.run_all(b, Path(td) / "run", nboot=1000)
             self.assertEqual(s1["checkpoint"]["hits"], 0); self.assertEqual(s2["checkpoint"]["misses"], 0); self.assertEqual(s2["checkpoint"]["hits"], s1["checkpoint"]["misses"])    # resume
             c = s1["holm"]["confirmatory"]; self.assertTrue(c["gaussian_hmm"]["reject"] and c["student_t_hmm"]["reject"]); self.assertFalse(c["hsmm"]["reject"])
             self.assertTrue(c["bocpd"]["secondary"] and not c["bocpd"]["reject"])                       # BOCPD reported, outside Holm
-            self.assertEqual(s1["family_results"]["hsmm"]["confirmatory"]["H1a"]["n_folds"], 20 - 2 - 2)   # 2 excluded, 2 skipped for few stable days
+            self.assertEqual(s1["family_results"]["hsmm"]["confirmatory"]["H1a"]["n_folds"], 20 - 3 - 1)   # RAW|1-3 excluded, LEGACY|3 skipped (RAW|1 both)
             self.assertEqual(s1["family_results"]["hsmm"]["all_folds_sensitivity"]["H1a"]["n_folds"], 20 - 2)
             self.assertEqual(set(s1["final_setups"]), {"LEGACY", "RAW"}); self.assertEqual(s1["skipped_h1a"]["hsmm"], ["LEGACY|3", "RAW|1"])
             with tempfile.TemporaryDirectory() as td2:
-                p, doc = RUN.freeze_step(b, s1, Path(td2), "ph", ["A9"]); self.assertEqual(doc["h2_primary_detector"], "gaussian_hmm"); self.assertEqual(set(doc["h1_passing_families"]), {"gaussian_hmm", "student_t_hmm"})
+                p, doc = RUN.freeze_step(b, s1, Path(td2), ["A9"]); self.assertEqual(doc["h2_primary_detector"], "gaussian_hmm"); self.assertEqual(set(doc["h1_passing_families"]), {"gaussian_hmm", "student_t_hmm"})
                 FZ.verify_freeze(p)
-                with self.assertRaises(FileExistsError): RUN.freeze_step(b, s1, Path(td2), "ph", ["A9"])
+                with self.assertRaises(FileExistsError): RUN.freeze_step(b, s1, Path(td2), ["A9"])
 
     def test_code_change_invalidates_checkpoints_in_a_run(self):
-        b = DR.SyntheticBackend(n_legacy=4, n_raw=0)
+        b = DR.SyntheticBackend(n_legacy=4, n_raw=0); orig = RUN.G.code_version
         with tempfile.TemporaryDirectory() as td:
-            s1 = RUN.run_all(b, td, nboot=200, files=["s5_run.py"]); s2 = RUN.run_all(b, td, nboot=200, files=["s5_run.py", "s5_dry_run.py"])
-            self.assertEqual(s2["checkpoint"]["hits"], 0); self.assertNotEqual(s1["code_version"], s2["code_version"])
-
+            try:
+                RUN.G.code_version = lambda base=None: "v1"; s1 = RUN.run_all(b, td, nboot=200); RUN.G.code_version = lambda base=None: "v2"; s2 = RUN.run_all(b, td, nboot=200)
+            finally: RUN.G.code_version = orig
+            self.assertEqual(s2["checkpoint"]["hits"], 0); self.assertNotEqual(s1["checkpoint_version"], s2["checkpoint_version"])
 
 if __name__ == "__main__":
     t0 = time.time(); res = unittest.TextTestRunner(verbosity=1).run(unittest.defaultTestLoader.loadTestsFromModule(sys.modules[__name__]))

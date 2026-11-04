@@ -52,7 +52,7 @@ def main(era, fold):
         s1 = RUN.run_all(b, out_dir, nboot=1000); res["run_s"] = round(time.time() - T0, 1); log("run_all done")
         s2 = RUN.run_all(b, out_dir, nboot=1000); res["resume"] = dict(first=s1["checkpoint"], second=s2["checkpoint"]); log("resume check done")
         try:                                                                   # A15 rule 5c: era-level thresholds only through MainBackend after a complete run
-            with tempfile.TemporaryDirectory() as td: RUN.freeze_step(b, s1, Path(td), "machinery-check-not-a-freeze", ["A10"]); res["freeze_step"] = "written (unexpected)"
+            with tempfile.TemporaryDirectory() as td: RUN.freeze_step(b, s1, Path(td), ["A10"]); res["freeze_step"] = "written (unexpected)"
         except PermissionError as e: res["freeze_step"] = f"refused for a fold backend as required: {e}"
         pf = s1["_per_fold"]; fid = f"{era}|{fold}"
         res["setups"] = {fam: dict(features=pf[fam][fid]["setup"]["features"], params=pf[fam][fid]["setup"]["params"], val_qlike=pf[fam][fid]["setup"]["val_qlike"], base_qlike=pf[fam][fid]["setup"]["base_qlike"],

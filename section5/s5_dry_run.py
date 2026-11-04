@@ -11,11 +11,6 @@ TRUE_FEATS = {"gaussian_hmm": {"f1": 8.0, "f2": 4.0}, "student_t_hmm": {"f1": 6.
 EFFECT = {"gaussian_hmm": 0.08, "student_t_hmm": 0.06, "hsmm": 0.0, "bocpd": 0.07}          # true pAUC and loss effects of the synthetic features
 
 
-def contamination_file(path, excluded, ids):
-    """A15 rule 5d: run_all reads exclusions from a contamination list; synthetic runs write one."""
-    Path(path).write_text(json.dumps(dict(folds=[dict(era=i.split("|")[0], fold=int(i.split("|")[1]), excluded=i in set(excluded)) for i in ids])), encoding="utf-8"); return Path(path)
-
-
 class SyntheticBackend:
     kind = "synthetic"
 
@@ -41,20 +36,19 @@ class SyntheticBackend:
         return dict(points_feat=feat, points_base=base, n_stable_test=n_stable, loss_base=lb, key_base=keys, loss_feat=lf, key_feat=keys, val_qlike=float(setup["val_qlike"]))
 
     def final_thresholds(self, era, family, setup): return dict(rate_target=0.2, note="synthetic")
-    def era_thresholds(self, era, family, setup): return dict(rate_target=0.2, note="synthetic era-level")
+    def era_thresholds(self, era, family, setup, completion): return dict(rate_target=0.2, note="synthetic era-level", completion=str(completion))
     def input_hashes(self): return dict(synthetic="n/a")
 
 
 def main():
-    t0 = time.time(); b = SyntheticBackend(); exc = {"LEGACY|14", "LEGACY|15", "RAW|2", "RAW|3"}                   # synthetic exclusions
+    t0 = time.time(); b = SyntheticBackend()
     with tempfile.TemporaryDirectory() as td:
-        cf = contamination_file(Path(td) / "contamination.json", exc, b.folds())
-        s1 = RUN.run_all(b, Path(td) / "run", contamination=cf, nboot=2000); s2 = RUN.run_all(b, Path(td) / "run", contamination=cf, nboot=2000)           # second call must hit every checkpoint
-        res = Path(td) / "results"; res.mkdir(); fz_path, doc = RUN.freeze_step(b, s1, res, "synthetic-protocol-hash", ["A6", "A7", "A8", "A9"]); got = []
+        s1 = RUN.run_all(b, Path(td) / "run", nboot=2000); s2 = RUN.run_all(b, Path(td) / "run", nboot=2000)          # A16: canonical contamination list only           # second call must hit every checkpoint
+        res = Path(td) / "results"; res.mkdir(); fz_path, doc = RUN.freeze_step(b, s1, res, ["A6", "A7", "A8", "A9"]); got = []
         out = FZ.run_confirmatory(fz_path, res, ["LEGACY", "RAW"], lambda e, s, t: got.append(("fit", e)) or "M", lambda e, m, s, t: got.append(("run", e)) or dict(era=e, synthetic=True), FZ.sha(fz_path))
         try: FZ.run_confirmatory(fz_path, res, ["LEGACY"], lambda *a: 1, lambda *a: {}, FZ.sha(fz_path)); second = "ran again (BUG)"
         except RuntimeError: second = "blocked"
-    conf = s1["holm"]["confirmatory"]; summary = dict(SYNTHETIC=True, minutes=round((time.time() - t0) / 60, 3), code_version=s1["code_version"], n_folds=s1["n_folds"], excluded=sorted(exc),
+    conf = s1["holm"]["confirmatory"]; summary = dict(SYNTHETIC=True, minutes=round((time.time() - t0) / 60, 3), code_version=s1["code_version"], n_folds=s1["n_folds"], excluded=s1["excluded"],
         checkpoint_first_run=s1["checkpoint"], checkpoint_second_run=s2["checkpoint"], holm_confirmatory={f: dict(p=v["p"], p_adj=v["p_adj"], reject=v["reject"], secondary=v.get("secondary", False)) for f, v in conf.items()},
         h1a_skipped_folds=s1["skipped_h1a"], final_setups_LEGACY={f: dict(features=v["features"], params=v["params"]) for f, v in s1["final_setups"]["LEGACY"].items()},
         h1_passing=doc["h1_passing_families"], h2_primary_detector=doc["h2_primary_detector"], runner_calls=got, second_run=second, n_confirmatory_folds_used={f: s1["family_results"][f]["confirmatory"]["H1a"]["n_folds"] for f in H.FAMILIES},

@@ -1,6 +1,6 @@
-# Open cold-audit findings after A15 (earlier lists preserved as `OPEN_AUDIT_FINDINGS_v1_A13.md`, `_v2_A14.md`, `_v3_A14_2.md`)
+# Open cold-audit findings after A16 (earlier lists preserved as `OPEN_AUDIT_FINDINGS_v1_A13.md`, `_v2_A14.md`, `_v3_A14_2.md`, `_v4_A15.md`)
 
-Written 2026-11-04T01:25:48.634155+00:00 UTC. Sources: `section5_cold_audit.md` (audit 1), `section5_cold_audit_2.md` (sha256 `700a09fc527f00d532021deafdcd725641b9eea900caf03065bcdc11f011d942`) (audit 2), `COLD_AUDIT_STATUS.md`. Reclassified by `AMENDMENT_A15.md` rule 7. Facts only.
+Written 2026-11-04T01:25:48.634155+00:00 UTC. Sources: `section5_cold_audit.md` (audit 1), `section5_cold_audit_2.md` (sha256 `f6b2f00a474fffd1d9a278e2503cd8bbc2468f5560a27ad9904265aa14ea7602`, with the re-audit after A15; the A15 version `700a09fc527f00d532021deafdcd725641b9eea900caf03065bcdc11f011d942` is its first part) (audit 2), `COLD_AUDIT_STATUS.md`. Reclassified by `AMENDMENT_A15.md` rule 7. Facts only.
 
 ## Audit 1
 
@@ -21,7 +21,7 @@ Disclosed (problem remains, stated in a dated record): 1 (residual: the R=1 gate
 
 ## Audit 2
 
-Six findings are open, all Low. None changes the primary H1 detection or QLIKE computation; 12 concerns the H1 p-value (block bootstrap) and extends the disclosed remainder of audit 1 finding 4.
+Six findings are open, all Low (10-15). The re-audit's new problems (findings 16-21) are resolved by A16. None changes the primary H1 detection or QLIKE computation; 12 concerns the H1 p-value (block bootstrap) and extends the disclosed remainder of audit 1 finding 4.
 
 | # | Severity | Finding | What it affects |
 |---|---|---|---|

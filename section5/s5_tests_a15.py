@@ -4,7 +4,7 @@ import sys, json, time, tempfile, unittest, re, hashlib, shutil
 from pathlib import Path
 import numpy as np
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-import s5_run as RUN, s5_select as SEL, s5_stats as ST, s5_h1 as H, s5_backend as BK, s5_contamination as C, s5_dry_run as DR
+import s5_guard as G, s5_run as RUN, s5_select as SEL, s5_stats as ST, s5_h1 as H, s5_backend as BK, s5_contamination as C, s5_dry_run as DR
 
 HERE = Path(__file__).resolve().parent; ROOT = HERE.parent
 PROTOCOL_SHA = hashlib.sha256((ROOT / "SECTION5_PROTOCOL.md").read_bytes()).hexdigest()
@@ -93,8 +93,8 @@ class TestRule4CheckpointVersion(unittest.TestCase):
         self.assertNotEqual(old.hexdigest()[:16], RUN.code_version())
         class Other(DR.SyntheticBackend): kind = "other"
         with tempfile.TemporaryDirectory() as td:
-            b = DR.SyntheticBackend(n_legacy=3, n_raw=0); cf = DR.contamination_file(Path(td) / "c.json", [], b.folds())
-            RUN.run_all(b, Path(td) / "r", contamination=cf, nboot=100); s2 = RUN.run_all(Other(n_legacy=3, n_raw=0), Path(td) / "r", contamination=cf, nboot=100)
+            b = DR.SyntheticBackend(n_legacy=3, n_raw=0)
+            RUN.run_all(b, Path(td) / "r", nboot=100); s2 = RUN.run_all(Other(n_legacy=3, n_raw=0), Path(td) / "r", nboot=100)
             self.assertEqual(s2["checkpoint"]["hits"], 0)
 
 
@@ -108,29 +108,32 @@ class TestRule5MainRunPath(unittest.TestCase):
         with self.assertRaises(PermissionError): BK.DataBackend("LEGACY", 1, allowed=allowed, protocol_sha256=PROTOCOL_SHA)   # not allowed
 
     def test_protocol_must_say_frozen_and_match_sidecar(self):
+        import s5_guard as G; orig = G.PROTOCOL
         with tempfile.TemporaryDirectory() as td:
-            p = Path(td) / "P.md"; p.write_text("# draft\n"); h = BK.sha(p); p.with_suffix(".sha256").write_text(f"{h}  P.md\n")
-            with self.assertRaises(PermissionError): BK.verify_frozen_protocol(h, p)
-            p.write_text("**Status: FROZEN**\n"); h2 = BK.sha(p)
-            with self.assertRaises(PermissionError): BK.verify_frozen_protocol(h2, p)                                            # sidecar stale
-            p.with_suffix(".sha256").write_text(f"{h2}  P.md\n"); self.assertEqual(BK.verify_frozen_protocol(h2, p), h2)
+            try:
+                p = Path(td) / "P.md"; G.PROTOCOL = p; p.write_text("# draft\n"); h = BK.sha(p); p.with_suffix(".sha256").write_text(f"{h}  P.md\n")
+                with self.assertRaises(PermissionError): BK.verify_frozen_protocol(h)
+                p.write_text("**Status: FROZEN**\n"); h2 = BK.sha(p)
+                with self.assertRaises(PermissionError): BK.verify_frozen_protocol(h2)                                            # sidecar stale
+                p.with_suffix(".sha256").write_text(f"{h2}  P.md\n"); self.assertEqual(BK.verify_frozen_protocol(h2), h2)
+            finally: G.PROTOCOL = orig
 
     def test_main_backend_folds_and_era_guard(self):
         with self.assertRaises(PermissionError): __import__("s5_main").MainBackend("0" * 64)
         import s5_main as MB
         b = MB.MainBackend(PROTOCOL_SHA); self.assertEqual(b.folds(), [f"LEGACY|{i}" for i in range(30)] + [f"RAW|{i}" for i in range(4)])
         self.assertEqual(b.param_grid("hsmm"), [dict(K=2), dict(K=3)])
-        with self.assertRaises(PermissionError): b.era_thresholds("RAW", "gaussian_hmm", dict(features=[], params=dict(K=3)))     # before a complete run
-        with self.assertRaises(PermissionError): BK.DataBackend("RAW", 3).era_thresholds("RAW", "gaussian_hmm", {})
+        with tempfile.TemporaryDirectory() as td:
+            with self.assertRaises(PermissionError): b.era_thresholds("RAW", "gaussian_hmm", dict(features=[], params=dict(K=3)), Path(td) / "run_complete.json")     # no record (A16)
+        with self.assertRaises(PermissionError): BK.DataBackend("RAW", 3).era_thresholds("RAW", "gaussian_hmm", {}, None)
 
     def test_run_all_loads_contamination_and_freeze_needs_complete_run(self):
-        import inspect; self.assertNotIn("excluded", inspect.signature(RUN.run_all).parameters)
-        b = DR.SyntheticBackend(n_legacy=4, n_raw=0)
+        import inspect; self.assertNotIn("excluded", inspect.signature(RUN.run_all).parameters); self.assertNotIn("contamination", inspect.signature(RUN.run_all).parameters)
+        b = DR.SyntheticBackend(n_legacy=4, n_raw=4)
         with tempfile.TemporaryDirectory() as td:
-            cf = DR.contamination_file(Path(td) / "c.json", ["LEGACY|1"], b.folds()); s = RUN.run_all(b, Path(td) / "r", contamination=cf, nboot=100)
-            self.assertEqual(s["excluded"], ["LEGACY|1"]); self.assertEqual(s["contamination_sha256"], hashlib.sha256(cf.read_bytes()).hexdigest()); self.assertTrue(s["complete"])
-            with self.assertRaises(RuntimeError): RUN.freeze_step(b, dict(s, complete=False), Path(td), "ph", ["A15"])
-            (Path(td) / "fz").mkdir(); p, doc = RUN.freeze_step(b, s, Path(td) / "fz", "ph", ["A15"]); self.assertEqual(doc["thresholds"]["LEGACY"]["gaussian_hmm"]["note"], "synthetic era-level")
+            s = RUN.run_all(b, Path(td) / "r", nboot=100); canon = Path(RUN.HERE) / "results" / "contamination_list.json"
+            self.assertEqual(s["excluded"], sorted(G.excluded_folds()[0])); self.assertIn("RAW|1", s["excluded"]); self.assertEqual(s["contamination_sha256"], hashlib.sha256(canon.read_bytes()).hexdigest())
+            (Path(td) / "fz").mkdir(); p, doc = RUN.freeze_step(b, s, Path(td) / "fz", ["A15"]); self.assertEqual(doc["thresholds"]["LEGACY"]["gaussian_hmm"]["note"], "synthetic era-level")
 
 
 class TestRule6(unittest.TestCase):

@@ -17,10 +17,8 @@ class TestGuards(unittest.TestCase):
         self.assertTrue(all(ex[k] for k in BK.ALLOWED_MACHINERY))
 
     def test_allowed_fold_must_be_on_the_contaminated_list(self):
-        with tempfile.TemporaryDirectory() as td:
-            p = Path(td) / "c.json"; p.write_text(json.dumps(dict(folds=[dict(era="RAW", fold=3, excluded=False)])))
-            with self.assertRaises(PermissionError): BK.DataBackend("RAW", 3, contamination=p)
-            p.write_text(json.dumps(dict(folds=[dict(era="RAW", fold=3, excluded=True)]))); b = BK.DataBackend("RAW", 3, contamination=p); self.assertEqual(b.folds(), ["RAW|3"])
+        b = BK.DataBackend("RAW", 3); self.assertEqual(b.folds(), ["RAW|3"])                                        # on the canonical list
+        with self.assertRaises(TypeError): BK.DataBackend("RAW", 3, contamination="other.json")                  # A16 rule 2: no other list can be passed
 
     def test_backend_refuses_other_fold_ids_and_has_the_interface(self):
         b = BK.DataBackend("RAW", 3)

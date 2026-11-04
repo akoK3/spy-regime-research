@@ -7,29 +7,14 @@ import sys, re, json, hashlib
 from pathlib import Path
 import numpy as np
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-import s5_events as E, s5_lib as L, s5_eval as V, s5_fast as F, s5_d2 as D2, s5_d2_stable as S, s5_a6 as A, s5_a7 as B, s5_sweep as W
+import s5_guard as G, s5_events as E, s5_lib as L, s5_eval as V, s5_fast as F, s5_d2 as D2, s5_d2_stable as S, s5_a6 as A, s5_a7 as B, s5_sweep as W
 
 HERE = Path(__file__).resolve().parent; ROOT = HERE.parent
 ALLOWED_MACHINERY = {"RAW|3", "LEGACY|29"}
 HMM_GRID = [dict(K=2), dict(K=3), dict(K=4)]; HSMM_GRID = [dict(K=2), dict(K=3)]      # A11 item 2: 5.4 gives HSMM K 2-3; HMM families K 2-4
 BOCPD_GRID = [dict(lam=12), dict(lam=39), dict(lam=78)]
 TARGET = B.TARGET; BOUNDS = B.BOUNDS
-PROTOCOL = ROOT / "SECTION5_PROTOCOL.md"; CONTAMINATION = HERE / "results" / "contamination_list.json"
-
-
-def sha(p):
-    h = hashlib.sha256()
-    with open(p, "rb") as f:
-        for b in iter(lambda: f.read(1 << 20), b""): h.update(b)
-    return h.hexdigest()
-
-
-def verify_frozen_protocol(token, protocol=PROTOCOL):
-    """A15 rule 5b: returns the protocol hash if `token` equals the sha256 of SECTION5_PROTOCOL.md, its sidecar states the same hash and the text says FROZEN; else PermissionError."""
-    h = sha(protocol); side = Path(protocol).with_suffix(".sha256"); side_h = side.read_text().split()[0] if side.exists() else None
-    if token != h or side_h != h or "**Status: FROZEN**" not in Path(protocol).read_text(encoding="utf-8"):
-        raise PermissionError("clean folds need the sha256 of the FROZEN SECTION5_PROTOCOL.md matching its sidecar (A15 rule 5b)")
-    return h
+sha = G.sha; verify_frozen_protocol = G.verify_frozen_protocol            # A16: guards live in s5_guard (fixed paths)
 
 
 def era_context(era):
@@ -41,14 +26,14 @@ def era_context(era):
     return dict(era=era, d=d, dv=dv, cols=cols, native=native, Mx=Mx)
 
 
-def freeze_input_hashes(protocol=PROTOCOL):
-    """A15 rule 6c: sha256 of the protocol, every amendment it integrates, the cited inputs, the folds CSV, the split manifest, the contamination list, the H1(c) times and the
-    LEGACY and RAW panel and SPY ETF files."""
-    t = Path(protocol).read_text(encoding="utf-8"); out = {"SECTION5_PROTOCOL.md": sha(protocol)}
+def freeze_input_hashes():
+    """A15 rule 6c: sha256 of the protocol, every amendment it integrates, the cited inputs, the folds CSV, the split manifest, the contamination list (canonical, A16 rule 2), the
+    H1(c) times and the LEGACY and RAW panel and SPY ETF files."""
+    G.canonical_contamination(); t = G.PROTOCOL.read_text(encoding="utf-8"); out = {"SECTION5_PROTOCOL.md": sha(G.PROTOCOL)}
     for f in sorted(set(re.findall(r"`(AMENDMENT_A[0-9_]+\.md)`", t))): out[f] = sha(ROOT / f)
     for f in sorted(set(re.findall(r"`(section431_step3_all_in_one_results/[^`]+)`", t))): out[f] = sha(ROOT / f)
     out["folds_csv"] = sha(L.R / "a4_development_nested_folds_TRAIN.csv"); out["split_manifest"] = sha(L.FZ / "section430_executable_split_manifest.csv")
-    for q in (CONTAMINATION, HERE / "results" / "h1c_schedule_times.json"): out[f"section5/results/{q.name}"] = sha(q)
+    for q in (G.CONTAMINATION, HERE / "results" / "h1c_schedule_times.json"): out[f"section5/results/{q.name}"] = sha(q)
     s = L._step3()
     for era in ("LEGACY", "RAW"):
         _, _, pf, ef = s.CONFIG[era]
@@ -59,11 +44,11 @@ def freeze_input_hashes(protocol=PROTOCOL):
 class DataBackend:
     kind = "data_fold"
 
-    def __init__(self, era, fold, allowed=ALLOWED_MACHINERY, contamination=CONTAMINATION, min_days=8, protocol_sha256=None, shared=None):
+    def __init__(self, era, fold, allowed=ALLOWED_MACHINERY, min_days=8, protocol_sha256=None, shared=None):
         self.era, self.fold, self.id = era, int(fold), f"{era}|{int(fold)}"; self.min_days = min_days
         if self.id not in allowed: raise PermissionError(f"{self.id} is not an allowed fold {sorted(allowed)}")
-        cl = json.loads(Path(contamination).read_text(encoding="utf-8")); ex = {f"{x['era']}|{x['fold']}": x["excluded"] for x in cl["folds"]}
-        if not ex.get(self.id, False):
+        excluded, _ = G.excluded_folds()                                                    # A16 rule 2: the canonical, hash-checked list only
+        if self.id not in excluded:
             if protocol_sha256 is None: raise PermissionError(f"{self.id} is a clean fold (not on the contaminated list); machinery checks use contaminated folds only, the main run needs the frozen protocol hash")
             verify_frozen_protocol(protocol_sha256)
         if shared is not None and shared["era"] != era: raise ValueError("shared era context of another era")
@@ -112,7 +97,7 @@ class DataBackend:
         if fold != self.id: raise PermissionError(f"backend for {self.id} asked for {fold}")
 
     def objective(self, fold, family):
-        self._chk(fold)
+        self._chk(fold); G.check_unlocked("selection")                                       # A16 rule 5
         def f(subset, params, starts):
             m = self.fit(family, subset, params, starts); loss, _ = self.qlike_on(family, m, subset, "val"); loss = loss[np.isfinite(loss)]
             return dict(qlike=float(loss.mean()) if len(loss) else float("inf"), delay=float("nan"))       # delay not computed during search (A10 item 1)
@@ -139,7 +124,7 @@ class DataBackend:
         return list(zip(xs.tolist(), h.mean(0).tolist()))
 
     def score(self, fold, family, setup):
-        self._chk(fold); sp = self._splices(); feats = tuple(setup["features"]); params = dict(setup["params"])
+        self._chk(fold); G.check_unlocked("scoring"); sp = self._splices(); feats = tuple(setup["features"]); params = dict(setup["params"])
         mf, mb = self.fit(family, feats, params, 3), self.fit(family, (), dict(setup["base_params"]), 3)      # A15 rule 1: the baseline with its own tuned K/lambda
         lf, kf = self.qlike_on(family, mf, feats, "test"); lb, kb = self.qlike_on(family, mb, (), "test"); failed = None
         if sp["n_stable"] >= self.min_days and sp["specs"]: pf, pb = self._h1a_points(family, mf, feats), self._h1a_points(family, mb, ())
@@ -158,7 +143,7 @@ class DataBackend:
         open_share = float(np.mean([det(r, q)[1] for q, r in zip(qs, rs)]))          # A12 finding 15: sessions that end with an unconfirmed candidate
         return dict(rule="A7: bisection to 0.2 alarms per session on real validation sessions", fold=self.id, threshold=thr, validation_rate=rate(thr), open_candidate_share_at_close=open_share, numeric_era_threshold="see A11 for the era-level rule")
 
-    def era_thresholds(self, era, family, setup):
+    def era_thresholds(self, era, family, setup, completion=None):
         raise PermissionError("era-level thresholds (A11) come only from MainBackend after a complete run (A15 rule 5c)")
 
     def input_hashes(self): return freeze_input_hashes()

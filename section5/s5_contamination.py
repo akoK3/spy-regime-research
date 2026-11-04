@@ -25,7 +25,7 @@ REGISTRY = {
     "s5_a8_loo.py": [("LEGACY", 29, ("train", "val"))],                                            # A8.4, validation days only
     "s5_machinery_run.py": RAW3 + L29, "s5_a14_diag.py": [("RAW", 3, ("train",)), ("LEGACY", 29, ("train",))],
     "s5_backend.py": "LIBRARY", "s5_era_threshold.py": "LIBRARY", "s5_main.py": "MAIN_RUN",
-    "s5_tests_a11.py": "LIBRARY", "s5_tests_backend.py": "LIBRARY", "s5_tests_a15.py": "LIBRARY",
+    "s5_tests_a11.py": "LIBRARY", "s5_tests_backend.py": "LIBRARY", "s5_tests_a15.py": "LIBRARY", "s5_tests_a16.py": "LIBRARY",
     # A15 rule 2: the first cold audit (section5_cold_audit.md; scripts in that audit's scratchpad, not in the repository)
     "cold_audit_1/x5_robust.py": [("LEGACY", 25, ("train", "val")), ("LEGACY", 29, ("train", "val")), ("RAW", 3, ("train", "val"))],   # detectors fitted and scored
     "cold_audit_1/x4_placebo.py": [("RAW", 3, ("train", "val")), ("LEGACY", 29, ("train", "val"))],
@@ -35,7 +35,7 @@ REGISTRY = {
 # A15 rule 6d: LABEL_FREE = no detector or regime model, no outcome (counts, splice specs, feature or preprocessing computation); MAIN_RUN = the run the list protects.
 NOT_TOUCHING = ("LIBRARY", "DESCRIPTIVE", "LABEL_FREE", "MAIN_RUN")
 # A15 rule 3: data loading = these calls; a plain raw string, no control characters (the pattern before A15 held two backspace bytes and matched nothing).
-DATA_LOAD = re.compile(r"\b(?:fold_segments|load_era|DataBackend|EraBackend|MainBackend)\(")
+DATA_LOAD = re.compile(r"\b(?:fold_segments|load_era|era_context|splice_batch|DataBackend|EraBackend|MainBackend)\(|\b(?:D2|F|s5_d2|s5_fast)\._init\b")      # A16 rule 3
 
 
 def unregistered(folder=HERE, registry=REGISTRY):
@@ -114,7 +114,8 @@ def main():
                uncontaminated=[(e["era"], e["fold"]) for e in ex if not e["excluded"]],
                information_registry_segments_only_excluded=[(e["era"], e["fold"]) for e in ex_reg if e["excluded"]],
                touched_sessions={e: len(v) for e, v in tch.items()}, touched_detail={e: {k: sorted(set(r)) for k, r in v.items()} for e, v in tch.items()})
-    (RES / "contamination_list.json").write_text(json.dumps(res, indent=1)); print({k: v for k, v in res.items() if k != "touched_detail" and k != "folds"})
+    (RES / "contamination_list.json").write_text(json.dumps(res, indent=1)); import s5_guard as G; G.write_side(RES / "contamination_list.json")      # A16 rule 2: sidecar; protocol 5.14 must state the hash
+    print({k: v for k, v in res.items() if k != "touched_detail" and k != "folds"})
 
 
 if __name__ == "__main__":

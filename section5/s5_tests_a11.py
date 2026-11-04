@@ -16,9 +16,10 @@ class TestEraThreshold(unittest.TestCase):
         with self.assertRaises(ValueError): ET.era_split(150)
 
     def test_era_backend_segments_and_guards(self):
-        b = ET.EraBackend("RAW"); self.assertIsNone(b._ctx); seg = b._segments({"first": np.arange(705)}); self.assertEqual((len(seg["train"]), len(seg["embargo"]), len(seg["val"]), len(seg["test"])), (642, 5, 58, 0))
+        self.assertRaises(TypeError, ET.EraBackend, "RAW"); b = object.__new__(ET.EraBackend); b.id = "RAW|ERA"; seg = b._segments(      # A16 rule 1: no EraBackend without a completion record
+        {"first": np.arange(705)}); self.assertEqual((len(seg["train"]), len(seg["embargo"]), len(seg["val"]), len(seg["test"])), (642, 5, 58, 0))
         self.assertLess(seg["train"].max() + 5, seg["val"].min()); self.assertEqual(b.folds(), ["RAW|ERA"])
-        with self.assertRaises(ValueError): ET.EraBackend("EVAL")
+        with self.assertRaises(ValueError): ET.EraBackend("EVAL", None, None)          # era checked before the record (A16 signature)
         with self.assertRaises(PermissionError): b.candidates("RAW|3")                      # inherits the fold-id guard
 
     def test_fold_backend_still_guarded_and_hsmm_grid_is_k_2_3(self):

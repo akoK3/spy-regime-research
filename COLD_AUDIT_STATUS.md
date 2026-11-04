@@ -1,6 +1,6 @@
 # Cold audit status
 
-Written 2026-11-03T22:55:29.893522+00:00 UTC. Source: `section5_cold_audit.md` (sha256 `fc3b4a3fa8facb6a901b2916ecad4b9d45b407c9a23a736bfd86943d7c1fb062`), 22 findings. Cited by `AMENDMENT_A11.md`; updated by `AMENDMENT_A12.md` and later amendments, last by `AMENDMENT_A15.md` (the A14.2 version is preserved as `COLD_AUDIT_STATUS_v4_A14_2.md`; earlier ones as v1-v3) (the A11 version is preserved as `COLD_AUDIT_STATUS_v1_A11.md`). Status values: resolved (fixed and tested, or covered by an amendment that removes the problem), disclosed (stated in a dated record, problem remains), open (not addressed). Facts only.
+Written 2026-11-03T22:55:29.893522+00:00 UTC. Source: `section5_cold_audit.md` (sha256 `fc3b4a3fa8facb6a901b2916ecad4b9d45b407c9a23a736bfd86943d7c1fb062`), 22 findings. Cited by `AMENDMENT_A11.md`; updated by `AMENDMENT_A12.md` and later amendments, last by `AMENDMENT_A16.md` (the A15 version is preserved as `COLD_AUDIT_STATUS_v5_A15.md`; earlier ones as v1-v4) (the A11 version is preserved as `COLD_AUDIT_STATUS_v1_A11.md`). Status values: resolved (fixed and tested, or covered by an amendment that removes the problem), disclosed (stated in a dated record, problem remains), open (not addressed). Facts only.
 
 Totals: resolved 10, disclosed 4, open 8.
 
@@ -32,9 +32,9 @@ Totals: resolved 10, disclosed 4, open 8.
 Findings 6, 7, 9, 14 and 15 were fixed by A12; 22 by A14/A14.1. Fixed by A14.2: 19. Reopened and resolved by A15: 3, 11. Still open: 10, 13, 17 (Medium), 12, 16, 18, 20, 21 (Low); disclosed: 1 (residual), 2, 5, 8; resolved with a disclosed remainder: 4 (gap handling).
 
 
-## Cold audit 2 (`section5_cold_audit_2.md` (sha256 `700a09fc527f00d532021deafdcd725641b9eea900caf03065bcdc11f011d942`), 15 findings; A15)
+## Cold audit 2 (`section5_cold_audit_2.md`, sha256 `f6b2f00a474fffd1d9a278e2503cd8bbc2468f5560a27ad9904265aa14ea7602` with the re-audit after A15 appended (the first part, sha256 `700a09fc527f00d532021deafdcd725641b9eea900caf03065bcdc11f011d942`, is byte-identical to the version A15 cites); 21 findings: 15 in the audit, 16-21 = the re-audit's new problems 1-6; A15, A16)
 
-Totals: resolved 9, open 6.
+Totals: resolved 15, open 6. The re-audit confirmed findings 1-9 as fixed (3, 4 and 5 with the residuals 16-21).
 
 | # | Severity | Finding | Status | Evidence |
 |---|---|---|---|---|
@@ -53,3 +53,9 @@ Totals: resolved 9, open 6.
 | 13 | Low | Flagged-fit counts and EM cap hits missing from run_summary.json | **open** | No change (see audit 1 finding 16). |
 | 14 | Low | Feature caches have no version key | **open** | No change. |
 | 15 | Low | 5.16 overstates the backend session guard | **open** | No change. |
+| 16 | Medium | Era calibration guard was a public flag; EraBackend callable directly | **resolved** | A16 rule 1: EraBackend needs the hash-checked completion record of a main run over 34 folds; unit-tested (`s5_tests_a16.py`). |
+| 17 | Medium | Contamination list supplied by the caller; freeze did not compare lists | **resolved** | A16 rule 2: one canonical list, checked against its sidecar and protocol 5.14 everywhere; unit-tested (`s5_tests_a16.py`). |
+| 18 | Medium | Registry pattern missed era_context(, splice_batch(, pool initialisers | **resolved** | A16 rule 3: pattern extended; unit-tested; unit-tested (`s5_tests_a16.py`). |
+| 19 | Low | run_all(files=...) could narrow the checkpoint version | **resolved** | A16 rule 4: argument removed; unit-tested (`s5_tests_a16.py`). |
+| 20 | Low | Nothing blocked re-scoring after the era calibration | **resolved** | A16 rule 5: ERA_CALIBRATION.lock written before the first era fit blocks selection and scoring; unit-tested (`s5_tests_a16.py`). |
+| 21 | Low | Protocol hash checked once; freeze stored any string; checkpoints ignored it | **resolved** | A16 rule 6: run_all verifies it, checkpoint version includes it, freeze re-verifies against the completion record; unit-tested (`s5_tests_a16.py`). |
