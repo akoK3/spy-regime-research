@@ -20,7 +20,7 @@ def thr_grid(family, extended=False):
     return g + EXTRA_THR if extended else g
 
 
-def make_model(family, K=3, lam=39, starts=1, seed=0, Dmax=78):
+def make_model(family, K=3, lam=39, starts=1, seed=0, Dmax=M.DUR_CAP):
     if family == "gaussian_hmm": return M.GaussianHMM(K, starts, seed=seed)
     if family == "student_t_hmm": return M.StudentTHMM(K, starts, seed=seed)
     if family == "hsmm": return M.HSMM(K, starts, seed=seed, Dmax=Dmax)

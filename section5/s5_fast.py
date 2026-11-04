@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Faster, equivalent splice features (features of the spliced session computed on that session alone; relative_volume20 and __sadj baselines
 patched in from A's 20 previous sessions), causal deseasonalisation of the 5-min return, and a process pool for splices.
-Equivalence with s5_eval.splice_rows (21-session recomputation) is checked in s5_fixes.py (rtol 1e-9)."""
+Equivalence with s5_eval.splice_rows (21-session recomputation) is checked in s5_bench.py (rtol 1e-9; corrected in A14, audit finding 22)."""
 import numpy as np
 import s5_lib as L
 import s5_eval as V

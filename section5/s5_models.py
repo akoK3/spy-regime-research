@@ -7,6 +7,19 @@ from scipy.special import gammaln, digamma, logsumexp
 from scipy.optimize import brentq
 
 VAR_FLOOR = 1e-6
+HSMM_HAZARD_PSEUDO = 0.5     # A14: pseudo-observation weight at the pooled hazard in the HSMM duration M-step
+HAZARD_CLIP = 1e-6          # A14: hazards are clipped to [HAZARD_CLIP, 1]
+PROB_FLOOR = 1e-12          # A14: added to initial-state and transition counts before normalisation
+DUR_CAP = 78                # A14: HSMM duration bins = decision updates of a full 390-minute session on the 5-minute grid
+HAZARD_H0_EPS = 1e-9
+WEIGHT_GUARD = 1e-12        # A14.1: numerical guard added to / floors state weights used as denominators in the M-steps
+
+
+def hsmm_hazard_update(leave_c, stay_c):
+    """A14 (finding 22): h[k, d] = (leave + 0.5 h0) / (leave + stay + 0.5), h0 = pooled hazard; last bin 1; clipped to [1e-6, 1]."""
+    h0 = (leave_c.sum() + HAZARD_H0_EPS) / (leave_c.sum() + stay_c.sum() + HAZARD_H0_EPS)
+    h = (leave_c + HSMM_HAZARD_PSEUDO * h0) / (leave_c + stay_c + HSMM_HAZARD_PSEUDO); h[:, -1] = 1.0
+    return np.clip(h, HAZARD_CLIP, 1.0)
 VERSIONS = dict(numpy=np.__version__)
 
 
@@ -102,7 +115,7 @@ class GaussianHMM(_HMMBase):
     def _mstep_emission(self, batch, gamma, extra=None):
         X = np.where(batch["real"][:, :, None], batch["X"], 0.0); W = gamma * batch["real"][:, :, None]
         if extra is not None: W = W * extra
-        sw = W.sum((0, 1)) + 1e-12
+        sw = W.sum((0, 1)) + WEIGHT_GUARD
         mu = np.einsum("stk,std->kd", W, X) / sw[:, None]
         var = np.einsum("stk,stkd->kd", W, (X[:, :, None, :] - mu[None, None]) ** 2) / sw[:, None]
         return mu, np.maximum(var, VAR_FLOOR)
@@ -110,8 +123,8 @@ class GaussianHMM(_HMMBase):
     def _em_step(self, batch):
         logB = self._logB(batch["X"])[0]
         _, gamma, xi, ll, act = self._fb(logB, batch["L"], self.pi, self.A)
-        self.pi = gamma[:, 0].sum(0) + 1e-12; self.pi /= self.pi.sum()
-        self.A = xi + 1e-12; self.A /= self.A.sum(1, keepdims=True)
+        self.pi = gamma[:, 0].sum(0) + PROB_FLOOR; self.pi /= self.pi.sum()
+        self.A = xi + PROB_FLOOR; self.A /= self.A.sum(1, keepdims=True)
         self.mu, self.var = self._mstep_emission(batch, gamma)
         return ll
 
@@ -164,11 +177,11 @@ class StudentTHMM(GaussianHMM):
         D = batch["D"]; nu = self.nu[None, None]
         u = (nu + D) / (nu + d)
         Elogu = digamma((nu + D) / 2) - np.log((nu + D) / 2) + np.log(u)  # E[log u | x, z]
-        self.pi = gamma[:, 0].sum(0) + 1e-12; self.pi /= self.pi.sum()
-        self.A = xi + 1e-12; self.A /= self.A.sum(1, keepdims=True)
+        self.pi = gamma[:, 0].sum(0) + PROB_FLOOR; self.pi /= self.pi.sum()
+        self.A = xi + PROB_FLOOR; self.A /= self.A.sum(1, keepdims=True)
         X = np.where(batch["real"][:, :, None], batch["X"], 0.0); W = gamma * batch["real"][:, :, None]
         Wu = W * u
-        sw, swu = W.sum((0, 1)) + 1e-12, Wu.sum((0, 1)) + 1e-12
+        sw, swu = W.sum((0, 1)) + WEIGHT_GUARD, Wu.sum((0, 1)) + WEIGHT_GUARD
         self.mu = np.einsum("stk,std->kd", Wu, X) / swu[:, None]
         self.var = np.maximum(np.einsum("stk,stkd->kd", Wu, (X[:, :, None, :] - self.mu[None, None]) ** 2) / sw[:, None], VAR_FLOOR)
         for k in range(self.K):
@@ -176,7 +189,7 @@ class StudentTHMM(GaussianHMM):
             f = lambda v: -digamma(v / 2) + np.log(v / 2) + 1 + c  # c already carries the old-nu terms of E[log u]
             lo, hi = self.NU_LO, self.NU_HI
             self.nu[k] = lo if f(lo) < 0 else (hi if f(hi) > 0 else brentq(f, lo, hi))
-        self._occ = W.sum((0, 1)) / max(W.sum(), 1e-12)
+        self._occ = W.sum((0, 1)) / max(W.sum(), WEIGHT_GUARD)
         return ll
 
     def fit(self, batch):
@@ -191,9 +204,10 @@ class StudentTHMM(GaussianHMM):
                     prev = ll
                 if (self._occ >= 0.01).all(): break
                 self.fit_info["restarts"] += 1
-            self.fit_info["iterations"].append(it); self.fit_info.setdefault("converged", []).append(conv)
-            if best is None or ll > best[0]: best = (ll, self._state())
-        self._load(best[1]); self.loglik = best[0]; self._reorder()
+            ok = bool((self._occ >= 0.01).all()); self.fit_info["iterations"].append(it); self.fit_info.setdefault("converged", []).append(conv)
+            self.fit_info.setdefault("attempts", []).append(attempt + 1); self.fit_info.setdefault("occupancy_ok", []).append(ok)       # A14 finding 19: recorded per start
+            if best is None or ll > best[0]: best = (ll, self._state(), ok)
+        self._load(best[1]); self.loglik = best[0]; self._reorder(); self.fit_info["kept_fit_occupancy_ok"] = best[2]
         return self
 
 
@@ -203,7 +217,7 @@ class HSMM:
     right-censored at the session end. Reset: initial state distribution with duration 1."""
     name = "hsmm"
 
-    def __init__(self, K=2, starts=3, iters=500, tol=1e-6, seed=0, Dmax=78):
+    def __init__(self, K=2, starts=3, iters=500, tol=1e-6, seed=0, Dmax=DUR_CAP):
         self.K, self.starts, self.iters, self.tol, self.seed, self.Dmax = K, starts, iters, tol, seed, Dmax
 
     def _logB(self, X):
@@ -261,12 +275,10 @@ class HSMM:
             st = np.zeros_like(a); st[:, :, :-1] = a[:, :, :-1] * (1 - h[None, :, :-1]) * nb[:, :, None] * bn[:, :, 1:] / cc
             stay_c += st.sum(0)
             xiA += (((a * h[None]).sum(-1) / c[w, t + 1][:, None])[:, :, None] * A[None] * bj0[:, None, :]).sum(0)
-        h0 = (leave_c.sum() + 1e-9) / (leave_c.sum() + stay_c.sum() + 1e-9)
-        self.h = (leave_c + 0.5 * h0) / (leave_c + stay_c + 0.5); self.h[:, -1] = 1.0
-        self.h = np.clip(self.h, 1e-6, 1.0)
-        np.fill_diagonal(xiA, 0.0); self.A = xiA + 1e-12; np.fill_diagonal(self.A, 0.0); self.A /= self.A.sum(1, keepdims=True)
-        self.pi = gam[:, 0].sum(0) + 1e-12; self.pi /= self.pi.sum()
-        X = np.where(batch["real"][:, :, None], batch["X"], 0.0); W = gam * batch["real"][:, :, None]; sw = W.sum((0, 1)) + 1e-12
+        self.h = hsmm_hazard_update(leave_c, stay_c)
+        np.fill_diagonal(xiA, 0.0); self.A = xiA + PROB_FLOOR; np.fill_diagonal(self.A, 0.0); self.A /= self.A.sum(1, keepdims=True)
+        self.pi = gam[:, 0].sum(0) + PROB_FLOOR; self.pi /= self.pi.sum()
+        X = np.where(batch["real"][:, :, None], batch["X"], 0.0); W = gam * batch["real"][:, :, None]; sw = W.sum((0, 1)) + WEIGHT_GUARD
         self.mu = np.einsum("stk,std->kd", W, X) / sw[:, None]
         self.var = np.maximum(np.einsum("stk,stkd->kd", W, (X[:, :, None, :] - self.mu[None, None]) ** 2) / sw[:, None], VAR_FLOOR)
         return float((np.log(c) + shift)[act].sum())

@@ -2,7 +2,7 @@
 
 Written 2026-11-03T22:55:29.893522+00:00 UTC. Source: `section5_cold_audit.md` (sha256 `fc3b4a3fa8facb6a901b2916ecad4b9d45b407c9a23a736bfd86943d7c1fb062`), 22 findings. Cited by `AMENDMENT_A11.md`; updated by `AMENDMENT_A12.md` (the A11 version is preserved as `COLD_AUDIT_STATUS_v1_A11.md`). Status values: resolved (fixed and tested, or covered by an amendment that removes the problem), disclosed (stated in a dated record, problem remains), open (not addressed). Facts only.
 
-Totals: resolved 8, disclosed 4, open 10.
+Totals: resolved 9, disclosed 4, open 9.
 
 | # | Severity | Finding | Status | Evidence |
 |---|---|---|---|---|
@@ -24,9 +24,9 @@ Totals: resolved 8, disclosed 4, open 10.
 | 16 | Low | Seeds, versions and shares not recorded | **open** | Partly: run summaries record the code version; seeds, library versions and abstention/skip shares are not recorded in them. |
 | 17 | Low | Input hashes not checked at run time | **open** | The backend records input hashes for the freeze but does not verify the data files against them. |
 | 18 | Low | Student-t states ordered by scale, not variance | **open** | No change made. |
-| 19 | Low | A bad Student-t start can win silently | **open** | No change made. |
+| 19 | Low | A bad Student-t start can win silently | **open** | A14: per-start attempts and the 1% occupancy flag are now recorded and reported (reporting fix). Measured on 80 inner-train fits of the contaminated folds: 1 needed a restart, none used all 10 attempts, none was kept with a state under 1%. The behaviour when all attempts fail (reject, keep flagged, raise the cap) and whether to prefer a valid start over a higher-likelihood violating one is a design choice, not decided. |
 | 20 | Low | Superseded code paths still live | **open** | No change made (`V.events_for`, hard-coded RAW in `s5_d2.py`). |
 | 21 | Low | Sensitivity pool not limited to RAW in code | **open** | No change made. |
-| 22 | Low | Unamended choices and records | **open** | Resolved part: the protocol no longer says DRAFT (frozen). Open: HSMM 0.5 pseudo-count and the duration cap of 78 were never amended; the s5_fast docstring credit and the LEGACY report's missing writer script and hash table are unchanged. |
+| 22 | Low | Unamended choices and records | **resolved** | A14, A14.1: HSMM pseudo-count 0.5 (hazard smoothing), hazard clip, probability floors, weight guard and the duration cap 78 (= full-session updates) are documented as named constants with unit tests, results unchanged; the `s5_fast.py` docstring credit is corrected; `PILOT_REPORT_LEGACY_FILES.md` gives the file hashes the LEGACY report lacks (its writer script is not recoverable); the protocol no longer says DRAFT (frozen). |
 
-Findings 6, 7, 9, 14 and 15 were fixed by A12. Still open: 10, 12, 13, 16-21 and the open part of 22; disclosed: 1 (residual), 2, 4 (gap handling), 5, 8.
+Findings 6, 7, 9, 14 and 15 were fixed by A12; 22 by A14/A14.1. Still open: 10, 12, 13, 16-21 (19 has the reporting fix of A14 and waits for a design choice); disclosed: 1 (residual), 2, 4 (gap handling), 5, 8.
