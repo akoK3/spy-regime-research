@@ -153,3 +153,64 @@ I found no look-ahead in the filters, events, targets, deseasonalisation or prep
 2. Add the first audit's LEGACY 25 run to the registry. Fix the regex and register `s5_backend.py`, `s5_a8_gate_seeds.py`, `s5_a8_loo.py`, and the backend-mediated scripts. Regenerate the contamination list.
 3. Version checkpoints with every result-determining file and the feature caches.
 4. Amend the records for the reclassifications above, under the protocol's dated, hashed amendment rule.
+
+
+---
+
+# Re-audit after A15 (commit `b3c400d`): 9 of 9 items fixed, 3 only in part; 6 new problems, none critical
+
+**Every item 1-9 is fixed as A15 states it. Three fixes have gaps: the registry check (item 3), the checkpoint version (item 4) and the main-run guards (item 5).** The guards protecting the main run can be bypassed by calling a lower-level class, by passing a different contamination list, or by setting a flag. None of the new problems changes a number the code computes when the documented entry points are used as intended.
+
+**Scope:** only what A15 changed, which is the diff `bedc2ce..b3c400d` in `section5/` plus the regenerated contamination list. I checked items 1-9 above against that code. Nothing was fixed. Same severity scale and evidence labels as above. No data were loaded: I fitted no model and ran no detector. The probes used lazy backends, the synthetic backend and temporary files. All 9 unit-test suites passed at `b3c400d` (123 tests).
+
+## Items 1-9
+
+| # | Item | Verdict | Evidence |
+|---|---|---|---|
+| 1 | Baseline never tuned | **Fixed** | `s5_run.py` `select_fold` calls `SEL.tune((), obj, grid)` with the same grid, 3 starts and tie rule as the feature tuning. `s5_backend.py` `score()` fits the baseline with `setup["base_params"]`, and A14.2 flags now come from that model. Old setups have no `base_params` and would raise `KeyError`, but they cannot be reached: the A15 version tag invalidates them. (Read; `s5_tests_a15` rule-1 tests.) |
+| 2 | LEGACY 23/24 in the confirmatory set | **Fixed** | Regenerated list: 8 excluded (LEGACY 23, 24, 27, 28, 29; RAW 1, 2, 3), 26 confirmatory, 98 H1(c) events. Removing the `cold_audit_1/x5_robust.py` entry brings back LEGACY 23 and 24 (measured). The footprints of the first audit's scripts come from my reading of their scratchpad copies, which are not in the repository, so the registry entry can't be re-checked from the repo alone. The 31 October re-audit ran no Section 5 detector (read). |
+| 3 | Registry test could not fail | **Fixed, with a gap** | The pattern has no control characters, the test calls `check_registry`, and the check fails on a planted script (measured). The 3 scripts are registered. Gap: see new problem 3. The pattern misses `era_context(`, which A15 itself added and which loads a whole era, as well as `splice_batch(` and the `_init` pool initialisers. A planted script using them passes the check (measured). |
+| 4 | Checkpoint version too narrow | **Fixed, with a gap** | The closure covers 23 modules, including the model, event, sweep, backend and Section 4 code. There are no name collisions across the three search directories and no dynamic imports in the closure (measured). A change to `s5_models.py` changes the version (test). Gap: see new problem 4. `run_all(files=...)` still accepts a hand-picked list (measured). |
+| 5 | No main-run path | **Fixed, with gaps** | `MainBackend` serves the 34 folds in order, one fold in memory at a time. Freeze thresholds come from `EraBackend.calibrate`, and `DataBackend.era_thresholds` refuses. `run_all` reads the list itself (read; tests). Gaps: see new problems 1, 2 and 6. Each guard sits at one entry point only. |
+| 6 | Holm drops a missing p | **Fixed** | NaN enters as 1, counts in m and is never rejected. With p = .02 / .024 / NaN, nothing is rejected (adjusted p .06), the same as with p = 1 (test). |
+| 7 | Failed H1(a) recorded as zero | **Fixed** | With 8 or more stable days and no specs (or an empty curve), the result is `effect=None` with `failed=<reason>`. Failed folds are listed per family, in `run_summary.json` and in the freeze document (read; test). |
+| 8 | Freeze hashes incomplete | **Fixed** | `freeze_input_hashes` covers the protocol, all 16 amendments integrated in it, the 6 cited inputs, the folds CSV, the split manifest, the contamination list, the H1(c) times and the 4 market-data files (test). The feature caches the run actually reads are not hashed (open audit 2 finding 14). |
+| 9 | 5.14 unbounded for label-free analyses | **Fixed** | Protocol 5.14 and the `LABEL_FREE` / `MAIN_RUN` registry categories match. `touched()` ignores both (test). |
+
+## New problems in the A15 code
+
+### Medium
+
+**1. The era-calibration guard covers only `MainBackend`; `EraBackend` can be called directly (measured)**
+- **Where:** `section5/s5_era_threshold.py:20-23` (`__init__`), `section5/s5_main.py` `era_thresholds` and `mark_scoring_complete`
+- A15 rule 5c refuses the era calibration until every fold has been selected and scored, because the calibration fits models on sessions 0 to n-64. Those sessions include every fold's test segment.
+- That refusal exists only in `MainBackend.era_thresholds`. `ET.EraBackend("LEGACY")` builds without the protocol hash and without a completed run, and `calibrate()` can then be called on it.
+- Inside `MainBackend`, the completion check is a public flag: `mark_scoring_complete()` can be called by hand before any fold is scored.
+- If either path ran before the fold scoring, every confirmatory fold's test segment would have been touched by a model fit. No error would appear, and no registry entry would show it, because `s5_era_threshold.py` is registered as `LIBRARY` and `s5_main.py` as `MAIN_RUN`.
+
+**2. The contamination list is supplied by the caller, and the freeze doesn't check which list the run used (measured)**
+- **Where:** `section5/s5_backend.py` `DataBackend.__init__` (`contamination=`), `section5/s5_run.py` `run_all(contamination=...)` and `freeze_step`, `section5/s5_main.py` `MainBackend(contamination=...)`
+- `DataBackend("LEGACY", 0, allowed={"LEGACY|0"}, contamination=<file marking it excluded>)` serves a clean fold without the frozen-protocol hash. The fold counts as "contaminated", so the machinery path lets it through.
+- `run_all` takes its exclusions from whatever file it is given. `MainBackend` and `run_all` each take their own path, and nothing checks that the two agree.
+- `freeze_step` writes the run's `contamination_sha256` next to `input_hashes`, which hashes the canonical list, but never compares them. A freeze built from a run on a different list is written without error (measured with the synthetic backend).
+- Rule 5d ("`run_all` loads the contamination list itself") holds only when the default path is used.
+
+**3. The registry check misses a loader that A15 itself added (measured)**
+- **Where:** `section5/s5_contamination.py` `DATA_LOAD`
+- `era_context(` (new in `s5_backend.py`), `splice_batch(` and the pool initialisers `F._init` / `D2._init` all call `load_era` internally. A script that uses only these passes `check_registry`. A planted script calling `BK.era_context` and `F.splice_batch` is not reported.
+- This is the same class of gap as item 3, and it was reopened by the A15 change itself.
+
+### Low
+
+**4. `run_all(files=...)` can still narrow the checkpoint version (measured):** passing a short list (for example `["s5_run.py"]`) brings back the pre-A15 behaviour. `run_summary.json` records the version but not whether it came from the full closure. Only the tests use this argument.
+
+**5. Nothing stops a fold re-run after the era calibration (read):** after `freeze_step`, the era fits have touched every fold's test segment. A later `run_all` with changed code would miss every checkpoint and re-score all folds on touched sessions. The contamination list wouldn't record it, because `MAIN_RUN` doesn't mark sessions as touched. The freeze-file guard blocks a second freeze, but not a second scoring.
+
+**6. The protocol hash is checked once, at backend construction (read):**
+- `freeze_step(protocol_hash=...)` stores whatever string it is given. It doesn't compare it with the file, or with the hash `MainBackend` verified.
+- The checkpoints don't carry the protocol hash. A run resumed after a later amendment that left the code unchanged would reuse its fold results under the new protocol text, and nothing would record this.
+
+## Classification update
+- Audit 2 items 1, 2, 6, 7, 8 and 9: resolved as recorded.
+- Items 3, 4 and 5: resolved as recorded, but each has a residual, listed as new problems 3, 4, and 1, 2, 6 respectively.
+- None of the six new problems was in the 15 findings above. If carried, they would be audit 2 findings 16-21: Medium for 1-3 and Low for 4-6. Open audit 2 findings 10-15 are unchanged by A15.
