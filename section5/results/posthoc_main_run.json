@@ -1,0 +1,617 @@
+{
+ "source": {
+  "completion_record_sha256": "e6f56ae2e19bbc0f56c1437adc04edfa425e2b86c9334065b8d0d3c034630dc1",
+  "results_sha256": "7cd6a5926442b8e6640073ecd6e72c50f6fdc8dadec7ba13b095b1fbf4e2ccdc"
+ },
+ "D1": {
+  "family_mapping": {
+   "downside10_strict__sadj": "downside",
+   "downside5_strict": "downside",
+   "downside5_strict__sadj": "downside",
+   "intrabar_range_log": "intrabar_range",
+   "intrabar_range_log__sadj": "intrabar_range",
+   "momentum10_endpoint": "momentum",
+   "momentum15_endpoint": "momentum",
+   "momentum30_endpoint": "momentum",
+   "relative_volume20": "relative_volume",
+   "rv10_partial90": "rv",
+   "rv5_strict": "rv"
+  },
+  "by_model_family": {
+   "gaussian_hmm": {
+    "n_folds": 34,
+    "mean_features": 1.32,
+    "folds_with_no_feature": 0,
+    "feature_frequency": {
+     "rv10_partial90": 30,
+     "intrabar_range_log": 9,
+     "rv5_strict": 3,
+     "relative_volume20": 1,
+     "downside10_strict__sadj": 1,
+     "momentum30_endpoint": 1
+    },
+    "family_frequency_folds": {
+     "rv": 33,
+     "intrabar_range": 9,
+     "relative_volume": 1,
+     "downside": 1,
+     "momentum": 1
+    },
+    "same_family_coselection_folds": {},
+    "family_pair_coselection_folds": {
+     "intrabar_range+rv": 8,
+     "relative_volume+rv": 1,
+     "downside+rv": 1,
+     "intrabar_range+momentum": 1,
+     "momentum+rv": 1
+    },
+    "by_era": {
+     "LEGACY": {
+      "rv": 29,
+      "intrabar_range": 7,
+      "relative_volume": 1,
+      "downside": 1
+     },
+     "RAW": {
+      "rv": 4,
+      "intrabar_range": 2,
+      "momentum": 1
+     }
+    }
+   },
+   "student_t_hmm": {
+    "n_folds": 34,
+    "mean_features": 1.24,
+    "folds_with_no_feature": 0,
+    "feature_frequency": {
+     "rv10_partial90": 16,
+     "intrabar_range_log": 13,
+     "rv5_strict": 9,
+     "downside5_strict__sadj": 1,
+     "relative_volume20": 1,
+     "downside5_strict": 1,
+     "momentum30_endpoint": 1
+    },
+    "family_frequency_folds": {
+     "rv": 25,
+     "intrabar_range": 13,
+     "downside": 2,
+     "relative_volume": 1,
+     "momentum": 1
+    },
+    "same_family_coselection_folds": {},
+    "family_pair_coselection_folds": {
+     "intrabar_range+rv": 5,
+     "downside+intrabar_range": 1,
+     "relative_volume+rv": 1,
+     "momentum+rv": 1
+    },
+    "by_era": {
+     "LEGACY": {
+      "rv": 21,
+      "intrabar_range": 12,
+      "downside": 2,
+      "relative_volume": 1
+     },
+     "RAW": {
+      "rv": 4,
+      "intrabar_range": 1,
+      "momentum": 1
+     }
+    }
+   },
+   "hsmm": {
+    "n_folds": 34,
+    "mean_features": 1.41,
+    "folds_with_no_feature": 0,
+    "feature_frequency": {
+     "rv10_partial90": 30,
+     "intrabar_range_log": 12,
+     "rv5_strict": 3,
+     "relative_volume20": 1,
+     "intrabar_range_log__sadj": 1,
+     "momentum30_endpoint": 1
+    },
+    "family_frequency_folds": {
+     "rv": 33,
+     "intrabar_range": 13,
+     "relative_volume": 1,
+     "momentum": 1
+    },
+    "same_family_coselection_folds": {},
+    "family_pair_coselection_folds": {
+     "intrabar_range+rv": 12,
+     "relative_volume+rv": 1,
+     "intrabar_range+momentum": 1,
+     "momentum+rv": 1
+    },
+    "by_era": {
+     "LEGACY": {
+      "rv": 29,
+      "intrabar_range": 10,
+      "relative_volume": 1
+     },
+     "RAW": {
+      "rv": 4,
+      "intrabar_range": 3,
+      "momentum": 1
+     }
+    }
+   },
+   "bocpd": {
+    "n_folds": 34,
+    "mean_features": 0.62,
+    "folds_with_no_feature": 16,
+    "feature_frequency": {
+     "momentum15_endpoint": 8,
+     "momentum30_endpoint": 7,
+     "momentum10_endpoint": 6
+    },
+    "family_frequency_folds": {
+     "momentum": 18
+    },
+    "same_family_coselection_folds": {
+     "momentum": 3
+    },
+    "family_pair_coselection_folds": {},
+    "by_era": {
+     "LEGACY": {
+      "momentum": 14
+     },
+     "RAW": {
+      "momentum": 4
+     }
+    }
+   }
+  },
+  "note": "Family labels are a name-stem mapping defined in this script; Section 4 defines no family labels for the 19 primary columns."
+ },
+ "POST_HOC_within_era_bootstrap": {
+  "confirmatory": {
+   "gaussian_hmm": {
+    "H1a": {
+     "n": 22,
+     "n_by_era": {
+      "LEGACY": 21,
+      "RAW": 1
+     },
+     "mean": 0.09,
+     "p_within_era": 9.999000099990002e-05,
+     "p_within_era_fmt": "< 1/10001",
+     "p_main_run": 9.999000099990002e-05,
+     "p_main_run_fmt": "< 1/10001"
+    },
+    "H1b": {
+     "n": 26,
+     "n_by_era": {
+      "LEGACY": 25,
+      "RAW": 1
+     },
+     "mean": 0.3488,
+     "p_within_era": 9.999000099990002e-05,
+     "p_within_era_fmt": "< 1/10001",
+     "p_main_run": 0.00029997000299970003,
+     "p_main_run_fmt": 0.0003
+    },
+    "p_iu": 9.999000099990002e-05,
+    "p_iu_fmt": "< 1/10001",
+    "holm_p_adj": 0.00029997000299970003,
+    "holm_p_adj_fmt": "<= 3/10001",
+    "holm_reject": true
+   },
+   "student_t_hmm": {
+    "H1a": {
+     "n": 22,
+     "n_by_era": {
+      "LEGACY": 21,
+      "RAW": 1
+     },
+     "mean": 0.0507,
+     "p_within_era": 0.00019998000199980003,
+     "p_within_era_fmt": 0.0002,
+     "p_main_run": 0.00039996000399960006,
+     "p_main_run_fmt": 0.0004
+    },
+    "H1b": {
+     "n": 26,
+     "n_by_era": {
+      "LEGACY": 25,
+      "RAW": 1
+     },
+     "mean": 0.3418,
+     "p_within_era": 0.0006999300069993001,
+     "p_within_era_fmt": 0.0007,
+     "p_main_run": 0.000999900009999,
+     "p_main_run_fmt": 0.001
+    },
+    "p_iu": 0.0006999300069993001,
+    "p_iu_fmt": 0.0007,
+    "holm_p_adj": 0.0006999300069993001,
+    "holm_p_adj_fmt": 0.0007,
+    "holm_reject": true
+   },
+   "hsmm": {
+    "H1a": {
+     "n": 22,
+     "n_by_era": {
+      "LEGACY": 21,
+      "RAW": 1
+     },
+     "mean": 0.06,
+     "p_within_era": 9.999000099990002e-05,
+     "p_within_era_fmt": "< 1/10001",
+     "p_main_run": 9.999000099990002e-05,
+     "p_main_run_fmt": "< 1/10001"
+    },
+    "H1b": {
+     "n": 26,
+     "n_by_era": {
+      "LEGACY": 25,
+      "RAW": 1
+     },
+     "mean": 0.324,
+     "p_within_era": 9.999000099990002e-05,
+     "p_within_era_fmt": "< 1/10001",
+     "p_main_run": 9.999000099990002e-05,
+     "p_main_run_fmt": "< 1/10001"
+    },
+    "p_iu": 9.999000099990002e-05,
+    "p_iu_fmt": "< 1/10001",
+    "holm_p_adj": 0.00029997000299970003,
+    "holm_p_adj_fmt": "<= 3/10001",
+    "holm_reject": true
+   },
+   "bocpd": {
+    "H1a": {
+     "n": 22,
+     "n_by_era": {
+      "LEGACY": 21,
+      "RAW": 1
+     },
+     "mean": -0.0266,
+     "p_within_era": 0.9993000699930007,
+     "p_within_era_fmt": 0.9993,
+     "p_main_run": 0.9996000399960004,
+     "p_main_run_fmt": 0.9996
+    },
+    "H1b": {
+     "n": 26,
+     "n_by_era": {
+      "LEGACY": 25,
+      "RAW": 1
+     },
+     "mean": -0.0,
+     "p_within_era": 0.40975902409759024,
+     "p_within_era_fmt": 0.4098,
+     "p_main_run": 0.37896210378962103,
+     "p_main_run_fmt": 0.379
+    },
+    "p_iu": 0.9993000699930007
+   }
+  },
+  "all_folds_sensitivity": {
+   "gaussian_hmm": {
+    "H1a": {
+     "n": 30,
+     "n_by_era": {
+      "LEGACY": 26,
+      "RAW": 4
+     },
+     "mean": 0.0898,
+     "p_within_era": 9.999000099990002e-05,
+     "p_within_era_fmt": "< 1/10001",
+     "p_main_run": 9.999000099990002e-05,
+     "p_main_run_fmt": "< 1/10001"
+    },
+    "H1b": {
+     "n": 34,
+     "n_by_era": {
+      "LEGACY": 30,
+      "RAW": 4
+     },
+     "mean": 0.356,
+     "p_within_era": 0.00019998000199980003,
+     "p_within_era_fmt": 0.0002,
+     "p_main_run": 0.00019998000199980003,
+     "p_main_run_fmt": 0.0002
+    },
+    "p_iu": 0.00019998000199980003,
+    "p_iu_fmt": 0.0002,
+    "holm_p_adj": 0.00039996000399960006,
+    "holm_p_adj_fmt": 0.0004,
+    "holm_reject": true
+   },
+   "student_t_hmm": {
+    "H1a": {
+     "n": 30,
+     "n_by_era": {
+      "LEGACY": 26,
+      "RAW": 4
+     },
+     "mean": 0.0509,
+     "p_within_era": 9.999000099990002e-05,
+     "p_within_era_fmt": "< 1/10001",
+     "p_main_run": 9.999000099990002e-05,
+     "p_main_run_fmt": "< 1/10001"
+    },
+    "H1b": {
+     "n": 34,
+     "n_by_era": {
+      "LEGACY": 30,
+      "RAW": 4
+     },
+     "mean": 0.3499,
+     "p_within_era": 0.00019998000199980003,
+     "p_within_era_fmt": 0.0002,
+     "p_main_run": 0.00029997000299970003,
+     "p_main_run_fmt": 0.0003
+    },
+    "p_iu": 0.00019998000199980003,
+    "p_iu_fmt": 0.0002,
+    "holm_p_adj": 0.00039996000399960006,
+    "holm_p_adj_fmt": 0.0004,
+    "holm_reject": true
+   },
+   "hsmm": {
+    "H1a": {
+     "n": 30,
+     "n_by_era": {
+      "LEGACY": 26,
+      "RAW": 4
+     },
+     "mean": 0.0589,
+     "p_within_era": 9.999000099990002e-05,
+     "p_within_era_fmt": "< 1/10001",
+     "p_main_run": 9.999000099990002e-05,
+     "p_main_run_fmt": "< 1/10001"
+    },
+    "H1b": {
+     "n": 34,
+     "n_by_era": {
+      "LEGACY": 30,
+      "RAW": 4
+     },
+     "mean": 0.3358,
+     "p_within_era": 9.999000099990002e-05,
+     "p_within_era_fmt": "< 1/10001",
+     "p_main_run": 0.00019998000199980003,
+     "p_main_run_fmt": 0.0002
+    },
+    "p_iu": 9.999000099990002e-05,
+    "p_iu_fmt": "< 1/10001",
+    "holm_p_adj": 0.00029997000299970003,
+    "holm_p_adj_fmt": "<= 3/10001",
+    "holm_reject": true
+   },
+   "bocpd": {
+    "H1a": {
+     "n": 30,
+     "n_by_era": {
+      "LEGACY": 26,
+      "RAW": 4
+     },
+     "mean": -0.0305,
+     "p_within_era": 1.0,
+     "p_within_era_fmt": 1.0,
+     "p_main_run": 1.0,
+     "p_main_run_fmt": 1.0
+    },
+    "H1b": {
+     "n": 34,
+     "n_by_era": {
+      "LEGACY": 30,
+      "RAW": 4
+     },
+     "mean": 0.0038,
+     "p_within_era": 0.11118888111188881,
+     "p_within_era_fmt": 0.1112,
+     "p_main_run": 0.19268073192680732,
+     "p_main_run_fmt": 0.1927
+    },
+    "p_iu": 1.0
+   }
+  }
+ },
+ "H1b_percent_QLIKE_improvement_VALIDATION": {
+  "by_family": {
+   "gaussian_hmm": {
+    "confirmatory_median_pct": 35.2,
+    "confirmatory_iqr_pct": [
+     25.2,
+     46.7
+    ],
+    "confirmatory_min_max_pct": [
+     16.1,
+     80.0
+    ],
+    "all_folds_median_pct": 34.7,
+    "per_fold_pct": {
+     "LEGACY|0": 46.2,
+     "LEGACY|1": 26.2,
+     "LEGACY|2": 19.5,
+     "LEGACY|3": 16.1,
+     "LEGACY|4": 19.8,
+     "LEGACY|5": 24.8,
+     "LEGACY|6": 27.0,
+     "LEGACY|7": 19.9,
+     "LEGACY|8": 34.8,
+     "LEGACY|9": 35.6,
+     "LEGACY|10": 80.0,
+     "LEGACY|11": 63.6,
+     "LEGACY|12": 51.3,
+     "LEGACY|13": 46.9,
+     "LEGACY|14": 41.4,
+     "LEGACY|15": 33.3,
+     "LEGACY|16": 23.4,
+     "LEGACY|17": 62.0,
+     "LEGACY|18": 27.2,
+     "LEGACY|19": 39.4,
+     "LEGACY|20": 18.6,
+     "LEGACY|21": 31.8,
+     "LEGACY|22": 45.6,
+     "LEGACY|23": 33.8,
+     "LEGACY|24": 22.9,
+     "LEGACY|25": 61.6,
+     "LEGACY|26": 56.8,
+     "LEGACY|27": 34.5,
+     "LEGACY|28": 31.2,
+     "LEGACY|29": 26.1,
+     "RAW|0": 38.2,
+     "RAW|1": 47.4,
+     "RAW|2": 39.2,
+     "RAW|3": 48.7
+    }
+   },
+   "student_t_hmm": {
+    "confirmatory_median_pct": 33.7,
+    "confirmatory_iqr_pct": [
+     24.2,
+     46.2
+    ],
+    "confirmatory_min_max_pct": [
+     15.7,
+     77.0
+    ],
+    "all_folds_median_pct": 31.1,
+    "per_fold_pct": {
+     "LEGACY|0": 46.9,
+     "LEGACY|1": 23.8,
+     "LEGACY|2": 21.2,
+     "LEGACY|3": 16.6,
+     "LEGACY|4": 19.2,
+     "LEGACY|5": 27.2,
+     "LEGACY|6": 26.3,
+     "LEGACY|7": 19.9,
+     "LEGACY|8": 39.2,
+     "LEGACY|9": 29.5,
+     "LEGACY|10": 77.0,
+     "LEGACY|11": 64.7,
+     "LEGACY|12": 51.9,
+     "LEGACY|13": 43.8,
+     "LEGACY|14": 38.8,
+     "LEGACY|15": 30.4,
+     "LEGACY|16": 21.1,
+     "LEGACY|17": 62.9,
+     "LEGACY|18": 25.2,
+     "LEGACY|19": 38.1,
+     "LEGACY|20": 15.7,
+     "LEGACY|21": 28.7,
+     "LEGACY|22": 39.6,
+     "LEGACY|23": 32.4,
+     "LEGACY|24": 20.3,
+     "LEGACY|25": 60.9,
+     "LEGACY|26": 54.8,
+     "LEGACY|27": 29.1,
+     "LEGACY|28": 30.0,
+     "LEGACY|29": 24.1,
+     "RAW|0": 37.0,
+     "RAW|1": 47.7,
+     "RAW|2": 39.3,
+     "RAW|3": 31.8
+    }
+   },
+   "hsmm": {
+    "confirmatory_median_pct": 33.3,
+    "confirmatory_iqr_pct": [
+     26.0,
+     47.9
+    ],
+    "confirmatory_min_max_pct": [
+     17.5,
+     72.3
+    ],
+    "all_folds_median_pct": 33.3,
+    "per_fold_pct": {
+     "LEGACY|0": 43.9,
+     "LEGACY|1": 25.6,
+     "LEGACY|2": 19.8,
+     "LEGACY|3": 17.5,
+     "LEGACY|4": 23.0,
+     "LEGACY|5": 28.9,
+     "LEGACY|6": 27.0,
+     "LEGACY|7": 24.1,
+     "LEGACY|8": 30.3,
+     "LEGACY|9": 33.2,
+     "LEGACY|10": 72.3,
+     "LEGACY|11": 62.1,
+     "LEGACY|12": 50.0,
+     "LEGACY|13": 49.0,
+     "LEGACY|14": 40.0,
+     "LEGACY|15": 33.3,
+     "LEGACY|16": 19.4,
+     "LEGACY|17": 57.9,
+     "LEGACY|18": 27.8,
+     "LEGACY|19": 40.4,
+     "LEGACY|20": 22.3,
+     "LEGACY|21": 32.1,
+     "LEGACY|22": 44.6,
+     "LEGACY|23": 32.9,
+     "LEGACY|24": 22.0,
+     "LEGACY|25": 59.4,
+     "LEGACY|26": 55.0,
+     "LEGACY|27": 32.4,
+     "LEGACY|28": 34.8,
+     "LEGACY|29": 30.3,
+     "RAW|0": 38.3,
+     "RAW|1": 46.5,
+     "RAW|2": 37.4,
+     "RAW|3": 49.3
+    }
+   },
+   "bocpd": {
+    "confirmatory_median_pct": 0.0,
+    "confirmatory_iqr_pct": [
+     0.0,
+     1.5
+    ],
+    "confirmatory_min_max_pct": [
+     0.0,
+     5.5
+    ],
+    "all_folds_median_pct": 0.9,
+    "per_fold_pct": {
+     "LEGACY|0": 5.5,
+     "LEGACY|1": 2.2,
+     "LEGACY|2": 0.0,
+     "LEGACY|3": 0.0,
+     "LEGACY|4": 0.0,
+     "LEGACY|5": 0.0,
+     "LEGACY|6": 1.0,
+     "LEGACY|7": 1.4,
+     "LEGACY|8": 0.0,
+     "LEGACY|9": 0.0,
+     "LEGACY|10": 0.0,
+     "LEGACY|11": 0.0,
+     "LEGACY|12": 0.0,
+     "LEGACY|13": 0.0,
+     "LEGACY|14": 0.0,
+     "LEGACY|15": 2.9,
+     "LEGACY|16": 2.2,
+     "LEGACY|17": 0.9,
+     "LEGACY|18": 0.0,
+     "LEGACY|19": 1.2,
+     "LEGACY|20": 0.0,
+     "LEGACY|21": 2.5,
+     "LEGACY|22": 0.0,
+     "LEGACY|23": 1.4,
+     "LEGACY|24": 4.6,
+     "LEGACY|25": 1.5,
+     "LEGACY|26": 0.0,
+     "LEGACY|27": 1.4,
+     "LEGACY|28": 0.0,
+     "LEGACY|29": 3.5,
+     "RAW|0": 3.3,
+     "RAW|1": 3.2,
+     "RAW|2": 2.2,
+     "RAW|3": 12.6
+    }
+   }
+  },
+  "note": "Validation segments (selection data), not the test segments H1(b) is scored on; test-level QLIKE means are not stored in the checkpoints."
+ },
+ "not_computable_from_stored_outputs": {
+  "H1(c)": "needs alarm times on FOMC test sessions: filtered outputs and fitted models are not stored",
+  "R=1 placebo gap": "needs detector runs on placebo splices: fitted models are not stored",
+  "H1(b) test percent": "needs the per-fold mean test QLIKE of the baseline: only the difference is stored"
+ }
+}
