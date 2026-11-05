@@ -1,0 +1,1 @@
+{"key": "score|main|budget=None|RAW|1|hsmm", "version": "629de740dbc75332", "value": {"a": 0.06517187499999999, "a_skipped": null, "a_failed": null, "b": 0.2937406781453469, "b_skipped": null, "b_n": 7708, "b_dm_stat": 37.134601691409436, "val_qlike": 0.3520916222305025, "flagged_fit": false}}

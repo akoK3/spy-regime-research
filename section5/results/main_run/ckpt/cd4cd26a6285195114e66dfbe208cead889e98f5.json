@@ -1,0 +1,1 @@
+{"key": "score|main|budget=None|LEGACY|11|student_t_hmm", "version": "629de740dbc75332", "value": {"a": null, "a_skipped": "3 < 8 stable test days", "a_failed": null, "b": 0.8885108131242024, "b_skipped": null, "b_n": 7291, "b_dm_stat": 72.8333258855898, "val_qlike": 0.2816015832972218, "flagged_fit": false}}

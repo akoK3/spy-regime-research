@@ -1,0 +1,1 @@
+{"key": "score|main|budget=None|LEGACY|17|bocpd", "version": "629de740dbc75332", "value": {"a": null, "a_skipped": "4 < 8 stable test days", "a_failed": null, "b": 0.026481130944640108, "b_skipped": null, "b_n": 7197, "b_dm_stat": 36.95831039985451, "val_qlike": 0.5480936463470428, "flagged_fit": false}}

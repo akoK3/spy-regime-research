@@ -303,3 +303,4 @@
 !/section5/results/*.lock
 !/section5/results/rehearsal_a16/
 !/section5/*.ps1
+!/section5/results/main_run/

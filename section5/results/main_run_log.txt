@@ -37,3 +37,473 @@
 2026-11-04T09:13:59-05:00 [py 25044] preflight passed (--check): main run NOT started
 2026-11-04T09:14:00-05:00 [ps1 20900] attempt 1: Python exited with code 0 after 0.1 min
 2026-11-04T09:14:00-05:00 [ps1 20900] === preflight passed; the main run was NOT started
+2026-11-04T09:14:49-05:00 [ps1 25100] === run_main_overnight.ps1 start: main run; protocol 0b0669b5f341b3d6...; max retries 5
+2026-11-04T09:14:49-05:00 [ps1 25100] attempt 1 of 6: starting Python
+2026-11-04T09:14:50-05:00 [py 9868] preflight: protocol FROZEN, sidecar matches, token = 0b0669b5f341b3d6...
+2026-11-04T09:14:50-05:00 [py 9868] preflight: canonical contamination list f6d67a57ca30184b..., 8 folds excluded, 26 confirmatory
+2026-11-04T09:14:50-05:00 [py 9868] preflight: no era-calibration lock
+2026-11-04T09:14:50-05:00 [py 9868] preflight: every data-loading script is registered
+2026-11-04T09:14:50-05:00 [py 9868] preflight: MainBackend built (34 folds, LEGACY|0 ... RAW|3); no data loaded
+2026-11-04T09:14:51-05:00 [py 9868] preflight: output C:\Users\kakij\Downloads\section5\results\main_run writable; code version b22b29ffacca13b4; checkpoint version 629de740dbc75332; existing checkpoint units 0 of 272
+2026-11-04T09:14:51-05:00 [py 9868] preflight: python 3.12.10 at C:\Users\kakij\Downloads\research_hmm_env\Scripts\python.exe; numpy 2.5.4, scipy 1.18.1, pandas 3.1.0; free disk 17.6 GB
+2026-11-04T09:14:51-05:00 [py 9868] preflight: free memory 2017 MB (rehearsal peak 1027 MB)
+2026-11-04T09:14:51-05:00 [py 9868] main run: start (resumes from existing checkpoints in C:\Users\kakij\Downloads\section5\results\main_run)
+2026-11-04T09:14:51-05:00 [py 9868] fold 1/34 LEGACY|0: start
+2026-11-04T09:14:51-05:00 [py 9868]   LEGACY|0 gaussian_hmm: selection start
+2026-11-04T09:16:09-05:00 [py 9868]   LEGACY|0 gaussian_hmm: selection done (1.3 min); features ['rv10_partial90', 'intrabar_range_log'] params {'K': 4} baseline {'K': 3}; scoring start
+2026-11-04T09:20:58-05:00 [py 9868]   LEGACY|0 gaussian_hmm: scoring done (4.8 min)
+2026-11-04T09:20:58-05:00 [py 9868]   LEGACY|0 student_t_hmm: selection start
+2026-11-04T09:22:48-05:00 [py 9868]   LEGACY|0 student_t_hmm: selection done (1.8 min); features ['intrabar_range_log'] params {'K': 4} baseline {'K': 3}; scoring start
+2026-11-04T09:22:51-05:00 [py 9868]   LEGACY|0 student_t_hmm: scoring done (0.0 min)
+2026-11-04T09:22:51-05:00 [py 9868]   LEGACY|0 hsmm: selection start
+2026-11-04T09:30:07-05:00 [py 9868]   LEGACY|0 hsmm: selection done (7.3 min); features ['rv10_partial90', 'intrabar_range_log'] params {'K': 3} baseline {'K': 3}; scoring start
+2026-11-04T09:30:10-05:00 [py 9868]   LEGACY|0 hsmm: scoring done (0.1 min)
+2026-11-04T09:30:10-05:00 [py 9868]   LEGACY|0 bocpd: selection start
+2026-11-04T09:30:38-05:00 [py 9868]   LEGACY|0 bocpd: selection done (0.5 min); features ['momentum30_endpoint'] params {'lam': 78} baseline {'lam': 78}; scoring start
+2026-11-04T09:30:49-05:00 [py 9868]   LEGACY|0 bocpd: scoring done (0.2 min)
+2026-11-04T09:30:49-05:00 [py 9868] fold 2/34 LEGACY|1: start
+2026-11-04T09:30:49-05:00 [py 9868]   LEGACY|1 gaussian_hmm: selection start
+2026-11-04T09:31:39-05:00 [py 9868]   LEGACY|1 gaussian_hmm: selection done (0.8 min); features ['rv10_partial90'] params {'K': 4} baseline {'K': 4}; scoring start
+2026-11-04T09:36:05-05:00 [py 9868]   LEGACY|1 gaussian_hmm: scoring done (4.4 min)
+2026-11-04T09:36:05-05:00 [py 9868]   LEGACY|1 student_t_hmm: selection start
+2026-11-04T09:38:06-05:00 [py 9868]   LEGACY|1 student_t_hmm: selection done (2.0 min); features ['rv10_partial90', 'intrabar_range_log'] params {'K': 4} baseline {'K': 4}; scoring start
+2026-11-04T09:38:09-05:00 [py 9868]   LEGACY|1 student_t_hmm: scoring done (0.0 min)
+2026-11-04T09:38:09-05:00 [py 9868]   LEGACY|1 hsmm: selection start
+2026-11-04T09:47:12-05:00 [py 9868]   LEGACY|1 hsmm: selection done (9.0 min); features ['rv10_partial90', 'intrabar_range_log'] params {'K': 3} baseline {'K': 2}; scoring start
+2026-11-04T09:47:15-05:00 [py 9868]   LEGACY|1 hsmm: scoring done (0.1 min)
+2026-11-04T09:47:15-05:00 [py 9868]   LEGACY|1 bocpd: selection start
+2026-11-04T09:47:43-05:00 [py 9868]   LEGACY|1 bocpd: selection done (0.5 min); features ['momentum30_endpoint'] params {'lam': 78} baseline {'lam': 78}; scoring start
+2026-11-04T09:47:54-05:00 [py 9868]   LEGACY|1 bocpd: scoring done (0.2 min)
+2026-11-04T09:47:54-05:00 [py 9868] fold 3/34 LEGACY|2: start
+2026-11-04T09:47:54-05:00 [py 9868]   LEGACY|2 gaussian_hmm: selection start
+2026-11-04T09:48:46-05:00 [py 9868]   LEGACY|2 gaussian_hmm: selection done (0.9 min); features ['rv10_partial90'] params {'K': 4} baseline {'K': 4}; scoring start
+2026-11-04T09:53:19-05:00 [py 9868]   LEGACY|2 gaussian_hmm: scoring done (4.6 min)
+2026-11-04T09:53:19-05:00 [py 9868]   LEGACY|2 student_t_hmm: selection start
+2026-11-04T09:55:24-05:00 [py 9868]   LEGACY|2 student_t_hmm: selection done (2.1 min); features ['rv10_partial90', 'intrabar_range_log'] params {'K': 4} baseline {'K': 4}; scoring start
+2026-11-04T09:55:27-05:00 [py 9868]   LEGACY|2 student_t_hmm: scoring done (0.0 min)
+2026-11-04T09:55:27-05:00 [py 9868]   LEGACY|2 hsmm: selection start
+2026-11-04T10:02:42-05:00 [py 9868]   LEGACY|2 hsmm: selection done (7.3 min); features ['rv10_partial90'] params {'K': 3} baseline {'K': 3}; scoring start
+2026-11-04T10:02:45-05:00 [py 9868]   LEGACY|2 hsmm: scoring done (0.1 min)
+2026-11-04T10:02:45-05:00 [py 9868]   LEGACY|2 bocpd: selection start
+2026-11-04T10:02:58-05:00 [py 9868]   LEGACY|2 bocpd: selection done (0.2 min); features [] params {'lam': 78} baseline {'lam': 78}; scoring start
+2026-11-04T10:03:05-05:00 [py 9868]   LEGACY|2 bocpd: scoring done (0.1 min)
+2026-11-04T10:03:05-05:00 [py 9868] fold 4/34 LEGACY|3: start
+2026-11-04T10:03:05-05:00 [py 9868]   LEGACY|3 gaussian_hmm: selection start
+2026-11-04T10:03:58-05:00 [py 9868]   LEGACY|3 gaussian_hmm: selection done (0.9 min); features ['rv10_partial90'] params {'K': 4} baseline {'K': 3}; scoring start
+2026-11-04T10:08:40-05:00 [py 9868]   LEGACY|3 gaussian_hmm: scoring done (4.7 min)
+2026-11-04T10:08:40-05:00 [py 9868]   LEGACY|3 student_t_hmm: selection start
+2026-11-04T10:10:52-05:00 [py 9868]   LEGACY|3 student_t_hmm: selection done (2.2 min); features ['rv10_partial90'] params {'K': 4} baseline {'K': 2}; scoring start
+2026-11-04T10:10:55-05:00 [py 9868]   LEGACY|3 student_t_hmm: scoring done (0.0 min)
+2026-11-04T10:10:55-05:00 [py 9868]   LEGACY|3 hsmm: selection start
+2026-11-04T10:17:56-05:00 [py 9868]   LEGACY|3 hsmm: selection done (7.0 min); features ['rv10_partial90'] params {'K': 3} baseline {'K': 3}; scoring start
+2026-11-04T10:17:59-05:00 [py 9868]   LEGACY|3 hsmm: scoring done (0.1 min)
+2026-11-04T10:17:59-05:00 [py 9868]   LEGACY|3 bocpd: selection start
+2026-11-04T10:18:13-05:00 [py 9868]   LEGACY|3 bocpd: selection done (0.2 min); features [] params {'lam': 78} baseline {'lam': 78}; scoring start
+2026-11-04T10:18:20-05:00 [py 9868]   LEGACY|3 bocpd: scoring done (0.1 min)
+2026-11-04T10:18:20-05:00 [py 9868] fold 5/34 LEGACY|4: start
+2026-11-04T10:18:20-05:00 [py 9868]   LEGACY|4 gaussian_hmm: selection start
+2026-11-04T10:19:18-05:00 [py 9868]   LEGACY|4 gaussian_hmm: selection done (1.0 min); features ['rv10_partial90'] params {'K': 4} baseline {'K': 3}; scoring start
+2026-11-04T10:19:18-05:00 [py 9868]   LEGACY|4 gaussian_hmm: scoring done (0.0 min)
+2026-11-04T10:19:18-05:00 [py 9868]   LEGACY|4 student_t_hmm: selection start
+2026-11-04T10:21:38-05:00 [py 9868]   LEGACY|4 student_t_hmm: selection done (2.3 min); features ['rv10_partial90'] params {'K': 4} baseline {'K': 3}; scoring start
+2026-11-04T10:21:38-05:00 [py 9868]   LEGACY|4 student_t_hmm: scoring done (0.0 min)
+2026-11-04T10:21:38-05:00 [py 9868]   LEGACY|4 hsmm: selection start
+2026-11-04T10:28:28-05:00 [py 9868]   LEGACY|4 hsmm: selection done (6.8 min); features ['rv10_partial90'] params {'K': 3} baseline {'K': 3}; scoring start
+2026-11-04T10:28:28-05:00 [py 9868]   LEGACY|4 hsmm: scoring done (0.0 min)
+2026-11-04T10:28:28-05:00 [py 9868]   LEGACY|4 bocpd: selection start
+2026-11-04T10:28:42-05:00 [py 9868]   LEGACY|4 bocpd: selection done (0.2 min); features [] params {'lam': 78} baseline {'lam': 78}; scoring start
+2026-11-04T10:28:42-05:00 [py 9868]   LEGACY|4 bocpd: scoring done (0.0 min)
+2026-11-04T10:28:42-05:00 [py 9868] fold 6/34 LEGACY|5: start
+2026-11-04T10:28:42-05:00 [py 9868]   LEGACY|5 gaussian_hmm: selection start
+2026-11-04T10:29:48-05:00 [py 9868]   LEGACY|5 gaussian_hmm: selection done (1.1 min); features ['rv10_partial90', 'intrabar_range_log'] params {'K': 4} baseline {'K': 3}; scoring start
+2026-11-04T10:34:31-05:00 [py 9868]   LEGACY|5 gaussian_hmm: scoring done (4.7 min)
+2026-11-04T10:34:31-05:00 [py 9868]   LEGACY|5 student_t_hmm: selection start
+2026-11-04T10:36:11-05:00 [py 9868]   LEGACY|5 student_t_hmm: selection done (1.7 min); features ['rv10_partial90'] params {'K': 4} baseline {'K': 2}; scoring start
+2026-11-04T10:36:13-05:00 [py 9868]   LEGACY|5 student_t_hmm: scoring done (0.0 min)
+2026-11-04T10:36:13-05:00 [py 9868]   LEGACY|5 hsmm: selection start
+2026-11-04T10:44:32-05:00 [py 9868]   LEGACY|5 hsmm: selection done (8.3 min); features ['rv10_partial90', 'intrabar_range_log'] params {'K': 3} baseline {'K': 3}; scoring start
+2026-11-04T10:44:35-05:00 [py 9868]   LEGACY|5 hsmm: scoring done (0.1 min)
+2026-11-04T10:44:35-05:00 [py 9868]   LEGACY|5 bocpd: selection start
+2026-11-04T10:44:50-05:00 [py 9868]   LEGACY|5 bocpd: selection done (0.2 min); features [] params {'lam': 78} baseline {'lam': 78}; scoring start
+2026-11-04T10:44:57-05:00 [py 9868]   LEGACY|5 bocpd: scoring done (0.1 min)
+2026-11-04T10:44:57-05:00 [py 9868] fold 7/34 LEGACY|6: start
+2026-11-04T10:44:57-05:00 [py 9868]   LEGACY|6 gaussian_hmm: selection start
+2026-11-04T10:45:53-05:00 [py 9868]   LEGACY|6 gaussian_hmm: selection done (0.9 min); features ['rv10_partial90', 'intrabar_range_log'] params {'K': 4} baseline {'K': 3}; scoring start
+2026-11-04T10:50:54-05:00 [py 9868]   LEGACY|6 gaussian_hmm: scoring done (5.0 min)
+2026-11-04T10:50:54-05:00 [py 9868]   LEGACY|6 student_t_hmm: selection start
+2026-11-04T10:53:19-05:00 [py 9868]   LEGACY|6 student_t_hmm: selection done (2.4 min); features ['rv10_partial90', 'intrabar_range_log'] params {'K': 4} baseline {'K': 3}; scoring start
+2026-11-04T10:53:22-05:00 [py 9868]   LEGACY|6 student_t_hmm: scoring done (0.0 min)
+2026-11-04T10:53:22-05:00 [py 9868]   LEGACY|6 hsmm: selection start
+2026-11-04T11:01:41-05:00 [py 9868]   LEGACY|6 hsmm: selection done (8.3 min); features ['rv10_partial90', 'intrabar_range_log'] params {'K': 3} baseline {'K': 3}; scoring start
+2026-11-04T11:01:45-05:00 [py 9868]   LEGACY|6 hsmm: scoring done (0.1 min)
+2026-11-04T11:01:45-05:00 [py 9868]   LEGACY|6 bocpd: selection start
+2026-11-04T11:02:14-05:00 [py 9868]   LEGACY|6 bocpd: selection done (0.5 min); features ['momentum15_endpoint'] params {'lam': 78} baseline {'lam': 78}; scoring start
+2026-11-04T11:02:25-05:00 [py 9868]   LEGACY|6 bocpd: scoring done (0.2 min)
+2026-11-04T11:02:25-05:00 [py 9868] fold 8/34 LEGACY|7: start
+2026-11-04T11:02:25-05:00 [py 9868]   LEGACY|7 gaussian_hmm: selection start
+2026-11-04T11:03:12-05:00 [py 9868]   LEGACY|7 gaussian_hmm: selection done (0.8 min); features ['rv10_partial90'] params {'K': 4} baseline {'K': 3}; scoring start
+2026-11-04T11:07:49-05:00 [py 9868]   LEGACY|7 gaussian_hmm: scoring done (4.6 min)
+2026-11-04T11:07:49-05:00 [py 9868]   LEGACY|7 student_t_hmm: selection start
+2026-11-04T11:10:10-05:00 [py 9868]   LEGACY|7 student_t_hmm: selection done (2.3 min); features ['rv5_strict'] params {'K': 4} baseline {'K': 4}; scoring start
+2026-11-04T11:10:12-05:00 [py 9868]   LEGACY|7 student_t_hmm: scoring done (0.0 min)
+2026-11-04T11:10:12-05:00 [py 9868]   LEGACY|7 hsmm: selection start
+2026-11-04T11:17:12-05:00 [py 9868]   LEGACY|7 hsmm: selection done (7.0 min); features ['rv10_partial90'] params {'K': 3} baseline {'K': 3}; scoring start
+2026-11-04T11:17:15-05:00 [py 9868]   LEGACY|7 hsmm: scoring done (0.1 min)
+2026-11-04T11:17:15-05:00 [py 9868]   LEGACY|7 bocpd: selection start
+2026-11-04T11:17:45-05:00 [py 9868]   LEGACY|7 bocpd: selection done (0.5 min); features ['momentum10_endpoint'] params {'lam': 12} baseline {'lam': 78}; scoring start
+2026-11-04T11:17:56-05:00 [py 9868]   LEGACY|7 bocpd: scoring done (0.2 min)
+2026-11-04T11:17:56-05:00 [py 9868] fold 9/34 LEGACY|8: start
+2026-11-04T11:17:56-05:00 [py 9868]   LEGACY|8 gaussian_hmm: selection start
+2026-11-04T11:18:40-05:00 [py 9868]   LEGACY|8 gaussian_hmm: selection done (0.7 min); features ['rv5_strict'] params {'K': 4} baseline {'K': 2}; scoring start
+2026-11-04T11:23:14-05:00 [py 9868]   LEGACY|8 gaussian_hmm: scoring done (4.6 min)
+2026-11-04T11:23:14-05:00 [py 9868]   LEGACY|8 student_t_hmm: selection start
+2026-11-04T11:24:38-05:00 [py 9868]   LEGACY|8 student_t_hmm: selection done (1.4 min); features ['intrabar_range_log'] params {'K': 4} baseline {'K': 2}; scoring start
+2026-11-04T11:24:40-05:00 [py 9868]   LEGACY|8 student_t_hmm: scoring done (0.0 min)
+2026-11-04T11:24:40-05:00 [py 9868]   LEGACY|8 hsmm: selection start
+2026-11-04T11:28:58-05:00 [py 9868]   LEGACY|8 hsmm: selection done (4.3 min); features ['rv5_strict'] params {'K': 2} baseline {'K': 2}; scoring start
+2026-11-04T11:29:01-05:00 [py 9868]   LEGACY|8 hsmm: scoring done (0.0 min)
+2026-11-04T11:29:01-05:00 [py 9868]   LEGACY|8 bocpd: selection start
+2026-11-04T11:29:14-05:00 [py 9868]   LEGACY|8 bocpd: selection done (0.2 min); features [] params {'lam': 12} baseline {'lam': 12}; scoring start
+2026-11-04T11:29:22-05:00 [py 9868]   LEGACY|8 bocpd: scoring done (0.1 min)
+2026-11-04T11:29:22-05:00 [py 9868] fold 10/34 LEGACY|9: start
+2026-11-04T11:29:22-05:00 [py 9868]   LEGACY|9 gaussian_hmm: selection start
+2026-11-04T11:30:01-05:00 [py 9868]   LEGACY|9 gaussian_hmm: selection done (0.6 min); features ['rv10_partial90'] params {'K': 4} baseline {'K': 2}; scoring start
+2026-11-04T11:34:56-05:00 [py 9868]   LEGACY|9 gaussian_hmm: scoring done (4.9 min)
+2026-11-04T11:34:56-05:00 [py 9868]   LEGACY|9 student_t_hmm: selection start
+2026-11-04T11:36:31-05:00 [py 9868]   LEGACY|9 student_t_hmm: selection done (1.6 min); features ['rv5_strict'] params {'K': 4} baseline {'K': 4}; scoring start
+2026-11-04T11:36:33-05:00 [py 9868]   LEGACY|9 student_t_hmm: scoring done (0.0 min)
+2026-11-04T11:36:33-05:00 [py 9868]   LEGACY|9 hsmm: selection start
+2026-11-04T11:42:55-05:00 [py 9868]   LEGACY|9 hsmm: selection done (6.4 min); features ['rv10_partial90'] params {'K': 3} baseline {'K': 3}; scoring start
+2026-11-04T11:42:58-05:00 [py 9868]   LEGACY|9 hsmm: scoring done (0.1 min)
+2026-11-04T11:42:58-05:00 [py 9868]   LEGACY|9 bocpd: selection start
+2026-11-04T11:43:12-05:00 [py 9868]   LEGACY|9 bocpd: selection done (0.2 min); features [] params {'lam': 78} baseline {'lam': 78}; scoring start
+2026-11-04T11:43:19-05:00 [py 9868]   LEGACY|9 bocpd: scoring done (0.1 min)
+2026-11-04T11:43:19-05:00 [py 9868] fold 11/34 LEGACY|10: start
+2026-11-04T11:43:19-05:00 [py 9868]   LEGACY|10 gaussian_hmm: selection start
+2026-11-04T11:44:03-05:00 [py 9868]   LEGACY|10 gaussian_hmm: selection done (0.7 min); features ['rv10_partial90'] params {'K': 4} baseline {'K': 2}; scoring start
+2026-11-04T11:48:47-05:00 [py 9868]   LEGACY|10 gaussian_hmm: scoring done (4.7 min)
+2026-11-04T11:48:47-05:00 [py 9868]   LEGACY|10 student_t_hmm: selection start
+2026-11-04T11:50:27-05:00 [py 9868]   LEGACY|10 student_t_hmm: selection done (1.7 min); features ['rv5_strict'] params {'K': 4} baseline {'K': 3}; scoring start
+2026-11-04T11:50:30-05:00 [py 9868]   LEGACY|10 student_t_hmm: scoring done (0.0 min)
+2026-11-04T11:50:30-05:00 [py 9868]   LEGACY|10 hsmm: selection start
+2026-11-04T11:58:16-05:00 [py 9868]   LEGACY|10 hsmm: selection done (7.8 min); features ['rv5_strict', 'intrabar_range_log'] params {'K': 3} baseline {'K': 2}; scoring start
+2026-11-04T11:58:19-05:00 [py 9868]   LEGACY|10 hsmm: scoring done (0.0 min)
+2026-11-04T11:58:19-05:00 [py 9868]   LEGACY|10 bocpd: selection start
+2026-11-04T11:58:32-05:00 [py 9868]   LEGACY|10 bocpd: selection done (0.2 min); features [] params {'lam': 12} baseline {'lam': 12}; scoring start
+2026-11-04T11:58:39-05:00 [py 9868]   LEGACY|10 bocpd: scoring done (0.1 min)
+2026-11-04T11:58:39-05:00 [py 9868] fold 12/34 LEGACY|11: start
+2026-11-04T11:58:39-05:00 [py 9868]   LEGACY|11 gaussian_hmm: selection start
+2026-11-04T11:59:13-05:00 [py 9868]   LEGACY|11 gaussian_hmm: selection done (0.6 min); features ['rv10_partial90'] params {'K': 4} baseline {'K': 4}; scoring start
+2026-11-04T11:59:13-05:00 [py 9868]   LEGACY|11 gaussian_hmm: scoring done (0.0 min)
+2026-11-04T11:59:13-05:00 [py 9868]   LEGACY|11 student_t_hmm: selection start
+2026-11-04T12:00:31-05:00 [py 9868]   LEGACY|11 student_t_hmm: selection done (1.3 min); features ['rv5_strict'] params {'K': 4} baseline {'K': 3}; scoring start
+2026-11-04T12:00:31-05:00 [py 9868]   LEGACY|11 student_t_hmm: scoring done (0.0 min)
+2026-11-04T12:00:31-05:00 [py 9868]   LEGACY|11 hsmm: selection start
+2026-11-04T12:07:12-05:00 [py 9868]   LEGACY|11 hsmm: selection done (6.7 min); features ['rv10_partial90'] params {'K': 3} baseline {'K': 3}; scoring start
+2026-11-04T12:07:12-05:00 [py 9868]   LEGACY|11 hsmm: scoring done (0.0 min)
+2026-11-04T12:07:12-05:00 [py 9868]   LEGACY|11 bocpd: selection start
+2026-11-04T12:07:25-05:00 [py 9868]   LEGACY|11 bocpd: selection done (0.2 min); features [] params {'lam': 78} baseline {'lam': 78}; scoring start
+2026-11-04T12:07:25-05:00 [py 9868]   LEGACY|11 bocpd: scoring done (0.0 min)
+2026-11-04T12:07:25-05:00 [py 9868] fold 13/34 LEGACY|12: start
+2026-11-04T12:07:25-05:00 [py 9868]   LEGACY|12 gaussian_hmm: selection start
+2026-11-04T12:08:08-05:00 [py 9868]   LEGACY|12 gaussian_hmm: selection done (0.7 min); features ['rv10_partial90'] params {'K': 4} baseline {'K': 4}; scoring start
+2026-11-04T12:12:48-05:00 [py 9868]   LEGACY|12 gaussian_hmm: scoring done (4.7 min)
+2026-11-04T12:12:48-05:00 [py 9868]   LEGACY|12 student_t_hmm: selection start
+2026-11-04T12:14:14-05:00 [py 9868]   LEGACY|12 student_t_hmm: selection done (1.4 min); features ['rv10_partial90', 'intrabar_range_log'] params {'K': 4} baseline {'K': 4}; scoring start
+2026-11-04T12:14:17-05:00 [py 9868]   LEGACY|12 student_t_hmm: scoring done (0.0 min)
+2026-11-04T12:14:17-05:00 [py 9868]   LEGACY|12 hsmm: selection start
+2026-11-04T12:20:25-05:00 [py 9868]   LEGACY|12 hsmm: selection done (6.1 min); features ['rv10_partial90'] params {'K': 3} baseline {'K': 2}; scoring start
+2026-11-04T12:20:28-05:00 [py 9868]   LEGACY|12 hsmm: scoring done (0.0 min)
+2026-11-04T12:20:28-05:00 [py 9868]   LEGACY|12 bocpd: selection start
+2026-11-04T12:20:41-05:00 [py 9868]   LEGACY|12 bocpd: selection done (0.2 min); features [] params {'lam': 78} baseline {'lam': 78}; scoring start
+2026-11-04T12:20:49-05:00 [py 9868]   LEGACY|12 bocpd: scoring done (0.1 min)
+2026-11-04T12:20:49-05:00 [py 9868] fold 14/34 LEGACY|13: start
+2026-11-04T12:20:49-05:00 [py 9868]   LEGACY|13 gaussian_hmm: selection start
+2026-11-04T12:21:35-05:00 [py 9868]   LEGACY|13 gaussian_hmm: selection done (0.8 min); features ['rv10_partial90'] params {'K': 4} baseline {'K': 4}; scoring start
+2026-11-04T12:25:56-05:00 [py 9868]   LEGACY|13 gaussian_hmm: scoring done (4.4 min)
+2026-11-04T12:25:56-05:00 [py 9868]   LEGACY|13 student_t_hmm: selection start
+2026-11-04T12:27:17-05:00 [py 9868]   LEGACY|13 student_t_hmm: selection done (1.3 min); features ['rv5_strict'] params {'K': 3} baseline {'K': 4}; scoring start
+2026-11-04T12:27:19-05:00 [py 9868]   LEGACY|13 student_t_hmm: scoring done (0.0 min)
+2026-11-04T12:27:19-05:00 [py 9868]   LEGACY|13 hsmm: selection start
+2026-11-04T12:34:40-05:00 [py 9868]   LEGACY|13 hsmm: selection done (7.3 min); features ['rv10_partial90'] params {'K': 3} baseline {'K': 3}; scoring start
+2026-11-04T12:34:43-05:00 [py 9868]   LEGACY|13 hsmm: scoring done (0.1 min)
+2026-11-04T12:34:43-05:00 [py 9868]   LEGACY|13 bocpd: selection start
+2026-11-04T12:34:55-05:00 [py 9868]   LEGACY|13 bocpd: selection done (0.2 min); features [] params {'lam': 12} baseline {'lam': 12}; scoring start
+2026-11-04T12:35:02-05:00 [py 9868]   LEGACY|13 bocpd: scoring done (0.1 min)
+2026-11-04T12:35:02-05:00 [py 9868] fold 15/34 LEGACY|14: start
+2026-11-04T12:35:02-05:00 [py 9868]   LEGACY|14 gaussian_hmm: selection start
+2026-11-04T12:35:39-05:00 [py 9868]   LEGACY|14 gaussian_hmm: selection done (0.6 min); features ['rv10_partial90'] params {'K': 4} baseline {'K': 4}; scoring start
+2026-11-04T12:40:26-05:00 [py 9868]   LEGACY|14 gaussian_hmm: scoring done (4.8 min)
+2026-11-04T12:40:26-05:00 [py 9868]   LEGACY|14 student_t_hmm: selection start
+2026-11-04T12:41:46-05:00 [py 9868]   LEGACY|14 student_t_hmm: selection done (1.3 min); features ['rv5_strict'] params {'K': 4} baseline {'K': 4}; scoring start
+2026-11-04T12:41:49-05:00 [py 9868]   LEGACY|14 student_t_hmm: scoring done (0.0 min)
+2026-11-04T12:41:49-05:00 [py 9868]   LEGACY|14 hsmm: selection start
+2026-11-04T12:47:52-05:00 [py 9868]   LEGACY|14 hsmm: selection done (6.1 min); features ['rv10_partial90'] params {'K': 3} baseline {'K': 3}; scoring start
+2026-11-04T12:47:55-05:00 [py 9868]   LEGACY|14 hsmm: scoring done (0.1 min)
+2026-11-04T12:47:55-05:00 [py 9868]   LEGACY|14 bocpd: selection start
+2026-11-04T12:48:09-05:00 [py 9868]   LEGACY|14 bocpd: selection done (0.2 min); features [] params {'lam': 78} baseline {'lam': 78}; scoring start
+2026-11-04T12:48:16-05:00 [py 9868]   LEGACY|14 bocpd: scoring done (0.1 min)
+2026-11-04T12:48:16-05:00 [py 9868] fold 16/34 LEGACY|15: start
+2026-11-04T12:48:16-05:00 [py 9868]   LEGACY|15 gaussian_hmm: selection start
+2026-11-04T12:49:07-05:00 [py 9868]   LEGACY|15 gaussian_hmm: selection done (0.8 min); features ['rv10_partial90'] params {'K': 4} baseline {'K': 4}; scoring start
+2026-11-04T12:53:50-05:00 [py 9868]   LEGACY|15 gaussian_hmm: scoring done (4.7 min)
+2026-11-04T12:53:50-05:00 [py 9868]   LEGACY|15 student_t_hmm: selection start
+2026-11-04T12:55:16-05:00 [py 9868]   LEGACY|15 student_t_hmm: selection done (1.4 min); features ['rv10_partial90'] params {'K': 4} baseline {'K': 3}; scoring start
+2026-11-04T12:55:18-05:00 [py 9868]   LEGACY|15 student_t_hmm: scoring done (0.0 min)
+2026-11-04T12:55:18-05:00 [py 9868]   LEGACY|15 hsmm: selection start
+2026-11-04T13:00:50-05:00 [py 9868]   LEGACY|15 hsmm: selection done (5.5 min); features ['rv10_partial90'] params {'K': 3} baseline {'K': 3}; scoring start
+2026-11-04T13:00:53-05:00 [py 9868]   LEGACY|15 hsmm: scoring done (0.1 min)
+2026-11-04T13:00:53-05:00 [py 9868]   LEGACY|15 bocpd: selection start
+2026-11-04T13:01:22-05:00 [py 9868]   LEGACY|15 bocpd: selection done (0.5 min); features ['momentum30_endpoint'] params {'lam': 78} baseline {'lam': 78}; scoring start
+2026-11-04T13:01:32-05:00 [py 9868]   LEGACY|15 bocpd: scoring done (0.2 min)
+2026-11-04T13:01:32-05:00 [py 9868] fold 17/34 LEGACY|16: start
+2026-11-04T13:01:32-05:00 [py 9868]   LEGACY|16 gaussian_hmm: selection start
+2026-11-04T13:02:17-05:00 [py 9868]   LEGACY|16 gaussian_hmm: selection done (0.7 min); features ['intrabar_range_log'] params {'K': 4} baseline {'K': 4}; scoring start
+2026-11-04T13:06:48-05:00 [py 9868]   LEGACY|16 gaussian_hmm: scoring done (4.5 min)
+2026-11-04T13:06:48-05:00 [py 9868]   LEGACY|16 student_t_hmm: selection start
+2026-11-04T13:08:27-05:00 [py 9868]   LEGACY|16 student_t_hmm: selection done (1.7 min); features ['intrabar_range_log', 'downside5_strict__sadj'] params {'K': 4} baseline {'K': 4}; scoring start
+2026-11-04T13:08:30-05:00 [py 9868]   LEGACY|16 student_t_hmm: scoring done (0.0 min)
+2026-11-04T13:08:30-05:00 [py 9868]   LEGACY|16 hsmm: selection start
+2026-11-04T13:15:20-05:00 [py 9868]   LEGACY|16 hsmm: selection done (6.8 min); features ['intrabar_range_log'] params {'K': 3} baseline {'K': 3}; scoring start
+2026-11-04T13:15:23-05:00 [py 9868]   LEGACY|16 hsmm: scoring done (0.1 min)
+2026-11-04T13:15:23-05:00 [py 9868]   LEGACY|16 bocpd: selection start
+2026-11-04T13:15:52-05:00 [py 9868]   LEGACY|16 bocpd: selection done (0.5 min); features ['momentum15_endpoint'] params {'lam': 12} baseline {'lam': 78}; scoring start
+2026-11-04T13:16:03-05:00 [py 9868]   LEGACY|16 bocpd: scoring done (0.2 min)
+2026-11-04T13:16:03-05:00 [py 9868] fold 18/34 LEGACY|17: start
+2026-11-04T13:16:03-05:00 [py 9868]   LEGACY|17 gaussian_hmm: selection start
+2026-11-04T13:16:48-05:00 [py 9868]   LEGACY|17 gaussian_hmm: selection done (0.7 min); features ['rv10_partial90'] params {'K': 4} baseline {'K': 4}; scoring start
+2026-11-04T13:16:48-05:00 [py 9868]   LEGACY|17 gaussian_hmm: scoring done (0.0 min)
+2026-11-04T13:16:48-05:00 [py 9868]   LEGACY|17 student_t_hmm: selection start
+2026-11-04T13:18:06-05:00 [py 9868]   LEGACY|17 student_t_hmm: selection done (1.3 min); features ['rv5_strict'] params {'K': 4} baseline {'K': 4}; scoring start
+2026-11-04T13:18:06-05:00 [py 9868]   LEGACY|17 student_t_hmm: scoring done (0.0 min)
+2026-11-04T13:18:06-05:00 [py 9868]   LEGACY|17 hsmm: selection start
+2026-11-04T13:23:47-05:00 [py 9868]   LEGACY|17 hsmm: selection done (5.7 min); features ['rv10_partial90'] params {'K': 3} baseline {'K': 3}; scoring start
+2026-11-04T13:23:47-05:00 [py 9868]   LEGACY|17 hsmm: scoring done (0.0 min)
+2026-11-04T13:23:47-05:00 [py 9868]   LEGACY|17 bocpd: selection start
+2026-11-04T13:24:16-05:00 [py 9868]   LEGACY|17 bocpd: selection done (0.5 min); features ['momentum15_endpoint'] params {'lam': 12} baseline {'lam': 78}; scoring start
+2026-11-04T13:24:17-05:00 [py 9868]   LEGACY|17 bocpd: scoring done (0.0 min)
+2026-11-04T13:24:17-05:00 [py 9868] fold 19/34 LEGACY|18: start
+2026-11-04T13:24:17-05:00 [py 9868]   LEGACY|18 gaussian_hmm: selection start
+2026-11-04T13:25:02-05:00 [py 9868]   LEGACY|18 gaussian_hmm: selection done (0.7 min); features ['rv10_partial90'] params {'K': 4} baseline {'K': 4}; scoring start
+2026-11-04T13:25:02-05:00 [py 9868]   LEGACY|18 gaussian_hmm: scoring done (0.0 min)
+2026-11-04T13:25:02-05:00 [py 9868]   LEGACY|18 student_t_hmm: selection start
+2026-11-04T13:26:38-05:00 [py 9868]   LEGACY|18 student_t_hmm: selection done (1.6 min); features ['rv5_strict'] params {'K': 4} baseline {'K': 4}; scoring start
+2026-11-04T13:26:38-05:00 [py 9868]   LEGACY|18 student_t_hmm: scoring done (0.0 min)
+2026-11-04T13:26:38-05:00 [py 9868]   LEGACY|18 hsmm: selection start
+2026-11-04T13:34:16-05:00 [py 9868]   LEGACY|18 hsmm: selection done (7.6 min); features ['rv10_partial90'] params {'K': 3} baseline {'K': 3}; scoring start
+2026-11-04T13:34:16-05:00 [py 9868]   LEGACY|18 hsmm: scoring done (0.0 min)
+2026-11-04T13:34:16-05:00 [py 9868]   LEGACY|18 bocpd: selection start
+2026-11-04T13:34:29-05:00 [py 9868]   LEGACY|18 bocpd: selection done (0.2 min); features [] params {'lam': 78} baseline {'lam': 78}; scoring start
+2026-11-04T13:34:30-05:00 [py 9868]   LEGACY|18 bocpd: scoring done (0.0 min)
+2026-11-04T13:34:30-05:00 [py 9868] fold 20/34 LEGACY|19: start
+2026-11-04T13:34:30-05:00 [py 9868]   LEGACY|19 gaussian_hmm: selection start
+2026-11-04T13:35:31-05:00 [py 9868]   LEGACY|19 gaussian_hmm: selection done (1.0 min); features ['rv10_partial90', 'intrabar_range_log'] params {'K': 4} baseline {'K': 3}; scoring start
+2026-11-04T13:40:20-05:00 [py 9868]   LEGACY|19 gaussian_hmm: scoring done (4.8 min)
+2026-11-04T13:40:20-05:00 [py 9868]   LEGACY|19 student_t_hmm: selection start
+2026-11-04T13:42:30-05:00 [py 9868]   LEGACY|19 student_t_hmm: selection done (2.2 min); features ['rv10_partial90'] params {'K': 4} baseline {'K': 4}; scoring start
+2026-11-04T13:42:33-05:00 [py 9868]   LEGACY|19 student_t_hmm: scoring done (0.0 min)
+2026-11-04T13:42:33-05:00 [py 9868]   LEGACY|19 hsmm: selection start
+2026-11-04T13:50:03-05:00 [py 9868]   LEGACY|19 hsmm: selection done (7.5 min); features ['rv10_partial90', 'intrabar_range_log'] params {'K': 3} baseline {'K': 3}; scoring start
+2026-11-04T13:50:06-05:00 [py 9868]   LEGACY|19 hsmm: scoring done (0.1 min)
+2026-11-04T13:50:06-05:00 [py 9868]   LEGACY|19 bocpd: selection start
+2026-11-04T13:50:35-05:00 [py 9868]   LEGACY|19 bocpd: selection done (0.5 min); features ['momentum15_endpoint'] params {'lam': 12} baseline {'lam': 78}; scoring start
+2026-11-04T13:50:46-05:00 [py 9868]   LEGACY|19 bocpd: scoring done (0.2 min)
+2026-11-04T13:50:46-05:00 [py 9868] fold 21/34 LEGACY|20: start
+2026-11-04T13:50:46-05:00 [py 9868]   LEGACY|20 gaussian_hmm: selection start
+2026-11-04T13:51:53-05:00 [py 9868]   LEGACY|20 gaussian_hmm: selection done (1.1 min); features ['rv10_partial90', 'relative_volume20'] params {'K': 4} baseline {'K': 4}; scoring start
+2026-11-04T13:56:44-05:00 [py 9868]   LEGACY|20 gaussian_hmm: scoring done (4.9 min)
+2026-11-04T13:56:44-05:00 [py 9868]   LEGACY|20 student_t_hmm: selection start
+2026-11-04T13:58:25-05:00 [py 9868]   LEGACY|20 student_t_hmm: selection done (1.7 min); features ['intrabar_range_log'] params {'K': 4} baseline {'K': 4}; scoring start
+2026-11-04T13:58:28-05:00 [py 9868]   LEGACY|20 student_t_hmm: scoring done (0.0 min)
+2026-11-04T13:58:28-05:00 [py 9868]   LEGACY|20 hsmm: selection start
+2026-11-04T14:07:14-05:00 [py 9868]   LEGACY|20 hsmm: selection done (8.8 min); features ['rv10_partial90', 'relative_volume20'] params {'K': 3} baseline {'K': 3}; scoring start
+2026-11-04T14:07:17-05:00 [py 9868]   LEGACY|20 hsmm: scoring done (0.1 min)
+2026-11-04T14:07:17-05:00 [py 9868]   LEGACY|20 bocpd: selection start
+2026-11-04T14:07:30-05:00 [py 9868]   LEGACY|20 bocpd: selection done (0.2 min); features [] params {'lam': 78} baseline {'lam': 78}; scoring start
+2026-11-04T14:07:38-05:00 [py 9868]   LEGACY|20 bocpd: scoring done (0.1 min)
+2026-11-04T14:07:38-05:00 [py 9868] fold 22/34 LEGACY|21: start
+2026-11-04T14:07:38-05:00 [py 9868]   LEGACY|21 gaussian_hmm: selection start
+2026-11-04T14:08:24-05:00 [py 9868]   LEGACY|21 gaussian_hmm: selection done (0.8 min); features ['rv10_partial90'] params {'K': 4} baseline {'K': 3}; scoring start
+2026-11-04T14:13:03-05:00 [py 9868]   LEGACY|21 gaussian_hmm: scoring done (4.6 min)
+2026-11-04T14:13:03-05:00 [py 9868]   LEGACY|21 student_t_hmm: selection start
+2026-11-04T14:15:15-05:00 [py 9868]   LEGACY|21 student_t_hmm: selection done (2.2 min); features ['rv10_partial90', 'relative_volume20'] params {'K': 4} baseline {'K': 3}; scoring start
+2026-11-04T14:15:18-05:00 [py 9868]   LEGACY|21 student_t_hmm: scoring done (0.0 min)
+2026-11-04T14:15:18-05:00 [py 9868]   LEGACY|21 hsmm: selection start
+2026-11-04T14:21:33-05:00 [py 9868]   LEGACY|21 hsmm: selection done (6.3 min); features ['rv10_partial90'] params {'K': 3} baseline {'K': 3}; scoring start
+2026-11-04T14:21:36-05:00 [py 9868]   LEGACY|21 hsmm: scoring done (0.1 min)
+2026-11-04T14:21:36-05:00 [py 9868]   LEGACY|21 bocpd: selection start
+2026-11-04T14:22:06-05:00 [py 9868]   LEGACY|21 bocpd: selection done (0.5 min); features ['momentum30_endpoint'] params {'lam': 78} baseline {'lam': 78}; scoring start
+2026-11-04T14:22:17-05:00 [py 9868]   LEGACY|21 bocpd: scoring done (0.2 min)
+2026-11-04T14:22:17-05:00 [py 9868] fold 23/34 LEGACY|22: start
+2026-11-04T14:22:17-05:00 [py 9868]   LEGACY|22 gaussian_hmm: selection start
+2026-11-04T14:23:14-05:00 [py 9868]   LEGACY|22 gaussian_hmm: selection done (1.0 min); features ['rv10_partial90', 'intrabar_range_log'] params {'K': 4} baseline {'K': 4}; scoring start
+2026-11-04T14:28:03-05:00 [py 9868]   LEGACY|22 gaussian_hmm: scoring done (4.8 min)
+2026-11-04T14:28:03-05:00 [py 9868]   LEGACY|22 student_t_hmm: selection start
+2026-11-04T14:29:43-05:00 [py 9868]   LEGACY|22 student_t_hmm: selection done (1.7 min); features ['intrabar_range_log'] params {'K': 4} baseline {'K': 3}; scoring start
+2026-11-04T14:29:46-05:00 [py 9868]   LEGACY|22 student_t_hmm: scoring done (0.0 min)
+2026-11-04T14:29:46-05:00 [py 9868]   LEGACY|22 hsmm: selection start
+2026-11-04T14:36:58-05:00 [py 9868]   LEGACY|22 hsmm: selection done (7.2 min); features ['rv10_partial90', 'intrabar_range_log'] params {'K': 3} baseline {'K': 3}; scoring start
+2026-11-04T14:37:01-05:00 [py 9868]   LEGACY|22 hsmm: scoring done (0.1 min)
+2026-11-04T14:37:01-05:00 [py 9868]   LEGACY|22 bocpd: selection start
+2026-11-04T14:37:15-05:00 [py 9868]   LEGACY|22 bocpd: selection done (0.2 min); features [] params {'lam': 12} baseline {'lam': 12}; scoring start
+2026-11-04T14:37:22-05:00 [py 9868]   LEGACY|22 bocpd: scoring done (0.1 min)
+2026-11-04T14:37:22-05:00 [py 9868] fold 24/34 LEGACY|23: start
+2026-11-04T14:37:22-05:00 [py 9868]   LEGACY|23 gaussian_hmm: selection start
+2026-11-04T14:38:03-05:00 [py 9868]   LEGACY|23 gaussian_hmm: selection done (0.7 min); features ['rv10_partial90'] params {'K': 4} baseline {'K': 4}; scoring start
+2026-11-04T14:42:46-05:00 [py 9868]   LEGACY|23 gaussian_hmm: scoring done (4.7 min)
+2026-11-04T14:42:46-05:00 [py 9868]   LEGACY|23 student_t_hmm: selection start
+2026-11-04T14:42:50-05:00 [py 9868] STOPPED by the user (Ctrl+C) after 328.0 min; finished units are checkpointed; not retried
+2026-11-04T16:54:53-05:00 [ps1 13268] === run_main_overnight.ps1 start: main run; protocol 0b0669b5f341b3d6...; max retries 5
+2026-11-04T16:54:53-05:00 [ps1 13268] attempt 1 of 6: starting Python
+2026-11-04T16:55:13-05:00 [py 42276] preflight: protocol FROZEN, sidecar matches, token = 0b0669b5f341b3d6...
+2026-11-04T16:55:13-05:00 [py 42276] preflight: canonical contamination list f6d67a57ca30184b..., 8 folds excluded, 26 confirmatory
+2026-11-04T16:55:13-05:00 [py 42276] preflight: no era-calibration lock
+2026-11-04T16:55:14-05:00 [py 42276] preflight: every data-loading script is registered
+2026-11-04T16:55:14-05:00 [py 42276] preflight: MainBackend built (34 folds, LEGACY|0 ... RAW|3); no data loaded
+2026-11-04T16:55:14-05:00 [py 42276] preflight: output C:\Users\kakij\Downloads\section5\results\main_run writable; code version b22b29ffacca13b4; checkpoint version 629de740dbc75332; existing checkpoint units 186 of 272
+2026-11-04T16:55:14-05:00 [py 42276] preflight: python 3.12.10 at C:\Users\kakij\Downloads\research_hmm_env\Scripts\python.exe; numpy 2.5.4, scipy 1.18.1, pandas 3.1.0; free disk 18.9 GB
+2026-11-04T16:55:14-05:00 [py 42276] preflight: free memory 4230 MB (rehearsal peak 1027 MB)
+2026-11-04T16:55:14-05:00 [py 42276] main run: start (resumes from existing checkpoints in C:\Users\kakij\Downloads\section5\results\main_run)
+2026-11-04T16:55:16-05:00 [py 42276] fold 1/34 LEGACY|23: start
+2026-11-04T16:55:16-05:00 [py 42276]   LEGACY|23 student_t_hmm: selection start
+2026-11-04T16:56:42-05:00 [py 42276]   LEGACY|23 student_t_hmm: selection done (1.4 min); features ['intrabar_range_log'] params {'K': 4} baseline {'K': 4}; scoring start
+2026-11-04T17:01:29-05:00 [py 42276]   LEGACY|23 student_t_hmm: scoring done (4.8 min)
+2026-11-04T17:01:29-05:00 [py 42276]   LEGACY|23 hsmm: selection start
+2026-11-04T17:08:02-05:00 [py 42276]   LEGACY|23 hsmm: selection done (6.5 min); features ['rv10_partial90'] params {'K': 3} baseline {'K': 3}; scoring start
+2026-11-04T17:08:06-05:00 [py 42276]   LEGACY|23 hsmm: scoring done (0.1 min)
+2026-11-04T17:08:06-05:00 [py 42276]   LEGACY|23 bocpd: selection start
+2026-11-04T17:08:34-05:00 [py 42276]   LEGACY|23 bocpd: selection done (0.5 min); features ['momentum10_endpoint'] params {'lam': 12} baseline {'lam': 78}; scoring start
+2026-11-04T17:08:45-05:00 [py 42276]   LEGACY|23 bocpd: scoring done (0.2 min)
+2026-11-04T17:08:45-05:00 [py 42276] fold 2/34 LEGACY|24: start
+2026-11-04T17:08:45-05:00 [py 42276]   LEGACY|24 gaussian_hmm: selection start
+2026-11-04T17:09:33-05:00 [py 42276]   LEGACY|24 gaussian_hmm: selection done (0.8 min); features ['rv5_strict'] params {'K': 4} baseline {'K': 3}; scoring start
+2026-11-04T17:14:10-05:00 [py 42276]   LEGACY|24 gaussian_hmm: scoring done (4.6 min)
+2026-11-04T17:14:10-05:00 [py 42276]   LEGACY|24 student_t_hmm: selection start
+2026-11-04T17:15:39-05:00 [py 42276]   LEGACY|24 student_t_hmm: selection done (1.5 min); features ['rv5_strict'] params {'K': 4} baseline {'K': 3}; scoring start
+2026-11-04T17:15:42-05:00 [py 42276]   LEGACY|24 student_t_hmm: scoring done (0.0 min)
+2026-11-04T17:15:42-05:00 [py 42276]   LEGACY|24 hsmm: selection start
+2026-11-04T17:21:32-05:00 [py 42276]   LEGACY|24 hsmm: selection done (5.8 min); features ['rv5_strict'] params {'K': 3} baseline {'K': 3}; scoring start
+2026-11-04T17:21:35-05:00 [py 42276]   LEGACY|24 hsmm: scoring done (0.1 min)
+2026-11-04T17:21:35-05:00 [py 42276]   LEGACY|24 bocpd: selection start
+2026-11-04T17:22:04-05:00 [py 42276]   LEGACY|24 bocpd: selection done (0.5 min); features ['momentum30_endpoint'] params {'lam': 12} baseline {'lam': 78}; scoring start
+2026-11-04T17:22:15-05:00 [py 42276]   LEGACY|24 bocpd: scoring done (0.2 min)
+2026-11-04T17:22:15-05:00 [py 42276] fold 3/34 LEGACY|25: start
+2026-11-04T17:22:15-05:00 [py 42276]   LEGACY|25 gaussian_hmm: selection start
+2026-11-04T17:22:48-05:00 [py 42276]   LEGACY|25 gaussian_hmm: selection done (0.6 min); features ['rv10_partial90'] params {'K': 4} baseline {'K': 3}; scoring start
+2026-11-04T17:27:32-05:00 [py 42276]   LEGACY|25 gaussian_hmm: scoring done (4.7 min)
+2026-11-04T17:27:32-05:00 [py 42276]   LEGACY|25 student_t_hmm: selection start
+2026-11-04T17:28:49-05:00 [py 42276]   LEGACY|25 student_t_hmm: selection done (1.3 min); features ['rv10_partial90'] params {'K': 4} baseline {'K': 4}; scoring start
+2026-11-04T17:28:52-05:00 [py 42276]   LEGACY|25 student_t_hmm: scoring done (0.0 min)
+2026-11-04T17:28:52-05:00 [py 42276]   LEGACY|25 hsmm: selection start
+2026-11-04T17:33:53-05:00 [py 42276]   LEGACY|25 hsmm: selection done (5.0 min); features ['rv10_partial90'] params {'K': 3} baseline {'K': 3}; scoring start
+2026-11-04T17:33:56-05:00 [py 42276]   LEGACY|25 hsmm: scoring done (0.1 min)
+2026-11-04T17:33:56-05:00 [py 42276]   LEGACY|25 bocpd: selection start
+2026-11-04T17:34:25-05:00 [py 42276]   LEGACY|25 bocpd: selection done (0.5 min); features ['momentum15_endpoint'] params {'lam': 12} baseline {'lam': 78}; scoring start
+2026-11-04T17:34:36-05:00 [py 42276]   LEGACY|25 bocpd: scoring done (0.2 min)
+2026-11-04T17:34:36-05:00 [py 42276] fold 4/34 LEGACY|26: start
+2026-11-04T17:34:36-05:00 [py 42276]   LEGACY|26 gaussian_hmm: selection start
+2026-11-04T17:35:18-05:00 [py 42276]   LEGACY|26 gaussian_hmm: selection done (0.7 min); features ['rv10_partial90'] params {'K': 4} baseline {'K': 4}; scoring start
+2026-11-04T17:40:05-05:00 [py 42276]   LEGACY|26 gaussian_hmm: scoring done (4.8 min)
+2026-11-04T17:40:05-05:00 [py 42276]   LEGACY|26 student_t_hmm: selection start
+2026-11-04T17:41:46-05:00 [py 42276]   LEGACY|26 student_t_hmm: selection done (1.7 min); features ['rv10_partial90'] params {'K': 4} baseline {'K': 4}; scoring start
+2026-11-04T17:41:49-05:00 [py 42276]   LEGACY|26 student_t_hmm: scoring done (0.0 min)
+2026-11-04T17:41:49-05:00 [py 42276]   LEGACY|26 hsmm: selection start
+2026-11-04T17:49:28-05:00 [py 42276]   LEGACY|26 hsmm: selection done (7.7 min); features ['rv10_partial90'] params {'K': 3} baseline {'K': 3}; scoring start
+2026-11-04T17:49:32-05:00 [py 42276]   LEGACY|26 hsmm: scoring done (0.1 min)
+2026-11-04T17:49:32-05:00 [py 42276]   LEGACY|26 bocpd: selection start
+2026-11-04T17:49:45-05:00 [py 42276]   LEGACY|26 bocpd: selection done (0.2 min); features [] params {'lam': 78} baseline {'lam': 78}; scoring start
+2026-11-04T17:49:52-05:00 [py 42276]   LEGACY|26 bocpd: scoring done (0.1 min)
+2026-11-04T17:49:52-05:00 [py 42276] fold 5/34 LEGACY|27: start
+2026-11-04T17:49:52-05:00 [py 42276]   LEGACY|27 gaussian_hmm: selection start
+2026-11-04T17:50:38-05:00 [py 42276]   LEGACY|27 gaussian_hmm: selection done (0.8 min); features ['rv10_partial90'] params {'K': 4} baseline {'K': 3}; scoring start
+2026-11-04T17:55:23-05:00 [py 42276]   LEGACY|27 gaussian_hmm: scoring done (4.8 min)
+2026-11-04T17:55:23-05:00 [py 42276]   LEGACY|27 student_t_hmm: selection start
+2026-11-04T17:57:12-05:00 [py 42276]   LEGACY|27 student_t_hmm: selection done (1.8 min); features ['intrabar_range_log'] params {'K': 4} baseline {'K': 4}; scoring start
+2026-11-04T17:57:15-05:00 [py 42276]   LEGACY|27 student_t_hmm: scoring done (0.1 min)
+2026-11-04T17:57:15-05:00 [py 42276]   LEGACY|27 hsmm: selection start
+2026-11-04T18:03:26-05:00 [py 42276]   LEGACY|27 hsmm: selection done (6.2 min); features ['rv10_partial90'] params {'K': 3} baseline {'K': 3}; scoring start
+2026-11-04T18:03:30-05:00 [py 42276]   LEGACY|27 hsmm: scoring done (0.1 min)
+2026-11-04T18:03:30-05:00 [py 42276]   LEGACY|27 bocpd: selection start
+2026-11-04T18:04:00-05:00 [py 42276]   LEGACY|27 bocpd: selection done (0.5 min); features ['momentum10_endpoint'] params {'lam': 12} baseline {'lam': 78}; scoring start
+2026-11-04T18:04:11-05:00 [py 42276]   LEGACY|27 bocpd: scoring done (0.2 min)
+2026-11-04T18:04:11-05:00 [py 42276] fold 6/34 LEGACY|28: start
+2026-11-04T18:04:11-05:00 [py 42276]   LEGACY|28 gaussian_hmm: selection start
+2026-11-04T18:04:59-05:00 [py 42276]   LEGACY|28 gaussian_hmm: selection done (0.8 min); features ['rv10_partial90', 'intrabar_range_log'] params {'K': 4} baseline {'K': 3}; scoring start
+2026-11-04T18:09:47-05:00 [py 42276]   LEGACY|28 gaussian_hmm: scoring done (4.8 min)
+2026-11-04T18:09:47-05:00 [py 42276]   LEGACY|28 student_t_hmm: selection start
+2026-11-04T18:11:45-05:00 [py 42276]   LEGACY|28 student_t_hmm: selection done (2.0 min); features ['intrabar_range_log'] params {'K': 4} baseline {'K': 3}; scoring start
+2026-11-04T18:11:48-05:00 [py 42276]   LEGACY|28 student_t_hmm: scoring done (0.0 min)
+2026-11-04T18:11:48-05:00 [py 42276]   LEGACY|28 hsmm: selection start
+2026-11-04T18:18:54-05:00 [py 42276]   LEGACY|28 hsmm: selection done (7.1 min); features ['rv10_partial90', 'intrabar_range_log'] params {'K': 3} baseline {'K': 3}; scoring start
+2026-11-04T18:18:58-05:00 [py 42276]   LEGACY|28 hsmm: scoring done (0.1 min)
+2026-11-04T18:18:58-05:00 [py 42276]   LEGACY|28 bocpd: selection start
+2026-11-04T18:19:11-05:00 [py 42276]   LEGACY|28 bocpd: selection done (0.2 min); features [] params {'lam': 12} baseline {'lam': 12}; scoring start
+2026-11-04T18:19:18-05:00 [py 42276]   LEGACY|28 bocpd: scoring done (0.1 min)
+2026-11-04T18:19:18-05:00 [py 42276] fold 7/34 LEGACY|29: start
+2026-11-04T18:19:18-05:00 [py 42276]   LEGACY|29 gaussian_hmm: selection start
+2026-11-04T18:20:02-05:00 [py 42276]   LEGACY|29 gaussian_hmm: selection done (0.7 min); features ['rv5_strict', 'downside10_strict__sadj'] params {'K': 3} baseline {'K': 4}; scoring start
+2026-11-04T18:24:22-05:00 [py 42276]   LEGACY|29 gaussian_hmm: scoring done (4.3 min)
+2026-11-04T18:24:22-05:00 [py 42276]   LEGACY|29 student_t_hmm: selection start
+2026-11-04T18:25:32-05:00 [py 42276]   LEGACY|29 student_t_hmm: selection done (1.2 min); features ['downside5_strict'] params {'K': 3} baseline {'K': 3}; scoring start
+2026-11-04T18:25:35-05:00 [py 42276]   LEGACY|29 student_t_hmm: scoring done (0.0 min)
+2026-11-04T18:25:35-05:00 [py 42276]   LEGACY|29 hsmm: selection start
+2026-11-04T18:33:57-05:00 [py 42276]   LEGACY|29 hsmm: selection done (8.4 min); features ['rv10_partial90', 'intrabar_range_log__sadj'] params {'K': 3} baseline {'K': 3}; scoring start
+2026-11-04T18:34:00-05:00 [py 42276]   LEGACY|29 hsmm: scoring done (0.1 min)
+2026-11-04T18:34:00-05:00 [py 42276]   LEGACY|29 bocpd: selection start
+2026-11-04T18:35:03-05:00 [py 42276]   LEGACY|29 bocpd: selection done (1.0 min); features ['momentum15_endpoint', 'momentum10_endpoint'] params {'lam': 12} baseline {'lam': 12}; scoring start
+2026-11-04T18:35:17-05:00 [py 42276]   LEGACY|29 bocpd: scoring done (0.2 min)
+2026-11-04T18:35:17-05:00 [py 42276] fold 8/34 RAW|0: start
+2026-11-04T18:35:17-05:00 [py 42276]   RAW|0 gaussian_hmm: selection start
+2026-11-04T18:36:14-05:00 [py 42276]   RAW|0 gaussian_hmm: selection done (0.9 min); features ['rv10_partial90', 'intrabar_range_log'] params {'K': 4} baseline {'K': 4}; scoring start
+2026-11-04T18:42:10-05:00 [py 42276]   RAW|0 gaussian_hmm: scoring done (5.9 min)
+2026-11-04T18:42:10-05:00 [py 42276]   RAW|0 student_t_hmm: selection start
+2026-11-04T18:44:08-05:00 [py 42276]   RAW|0 student_t_hmm: selection done (2.0 min); features ['rv10_partial90', 'intrabar_range_log'] params {'K': 4} baseline {'K': 4}; scoring start
+2026-11-04T18:44:11-05:00 [py 42276]   RAW|0 student_t_hmm: scoring done (0.0 min)
+2026-11-04T18:44:11-05:00 [py 42276]   RAW|0 hsmm: selection start
+2026-11-04T18:53:04-05:00 [py 42276]   RAW|0 hsmm: selection done (8.9 min); features ['rv10_partial90', 'intrabar_range_log'] params {'K': 3} baseline {'K': 3}; scoring start
+2026-11-04T18:53:07-05:00 [py 42276]   RAW|0 hsmm: scoring done (0.1 min)
+2026-11-04T18:53:07-05:00 [py 42276]   RAW|0 bocpd: selection start
+2026-11-04T18:54:12-05:00 [py 42276]   RAW|0 bocpd: selection done (1.1 min); features ['momentum10_endpoint', 'momentum15_endpoint'] params {'lam': 12} baseline {'lam': 78}; scoring start
+2026-11-04T18:54:26-05:00 [py 42276]   RAW|0 bocpd: scoring done (0.2 min)
+2026-11-04T18:54:26-05:00 [py 42276] fold 9/34 RAW|1: start
+2026-11-04T18:54:26-05:00 [py 42276]   RAW|1 gaussian_hmm: selection start
+2026-11-04T18:55:16-05:00 [py 42276]   RAW|1 gaussian_hmm: selection done (0.8 min); features ['rv10_partial90'] params {'K': 4} baseline {'K': 4}; scoring start
+2026-11-04T19:01:19-05:00 [py 42276]   RAW|1 gaussian_hmm: scoring done (6.0 min)
+2026-11-04T19:01:19-05:00 [py 42276]   RAW|1 student_t_hmm: selection start
+2026-11-04T19:02:53-05:00 [py 42276]   RAW|1 student_t_hmm: selection done (1.6 min); features ['rv10_partial90'] params {'K': 4} baseline {'K': 4}; scoring start
+2026-11-04T19:02:56-05:00 [py 42276]   RAW|1 student_t_hmm: scoring done (0.1 min)
+2026-11-04T19:02:56-05:00 [py 42276]   RAW|1 hsmm: selection start
+2026-11-04T19:11:41-05:00 [py 42276]   RAW|1 hsmm: selection done (8.8 min); features ['rv10_partial90', 'intrabar_range_log'] params {'K': 3} baseline {'K': 3}; scoring start
+2026-11-04T19:11:44-05:00 [py 42276]   RAW|1 hsmm: scoring done (0.1 min)
+2026-11-04T19:11:44-05:00 [py 42276]   RAW|1 bocpd: selection start
+2026-11-04T19:12:47-05:00 [py 42276]   RAW|1 bocpd: selection done (1.0 min); features ['momentum15_endpoint', 'momentum10_endpoint'] params {'lam': 12} baseline {'lam': 78}; scoring start
+2026-11-04T19:13:01-05:00 [py 42276]   RAW|1 bocpd: scoring done (0.2 min)
+2026-11-04T19:13:01-05:00 [py 42276] fold 10/34 RAW|2: start
+2026-11-04T19:13:01-05:00 [py 42276]   RAW|2 gaussian_hmm: selection start
+2026-11-04T19:14:00-05:00 [py 42276]   RAW|2 gaussian_hmm: selection done (1.0 min); features ['rv10_partial90'] params {'K': 4} baseline {'K': 3}; scoring start
+2026-11-04T19:19:39-05:00 [py 42276]   RAW|2 gaussian_hmm: scoring done (5.7 min)
+2026-11-04T19:19:39-05:00 [py 42276]   RAW|2 student_t_hmm: selection start
+2026-11-04T19:21:12-05:00 [py 42276]   RAW|2 student_t_hmm: selection done (1.6 min); features ['rv10_partial90'] params {'K': 4} baseline {'K': 4}; scoring start
+2026-11-04T19:21:15-05:00 [py 42276]   RAW|2 student_t_hmm: scoring done (0.0 min)
+2026-11-04T19:21:15-05:00 [py 42276]   RAW|2 hsmm: selection start
+2026-11-04T19:28:37-05:00 [py 42276]   RAW|2 hsmm: selection done (7.4 min); features ['rv10_partial90'] params {'K': 3} baseline {'K': 3}; scoring start
+2026-11-04T19:28:40-05:00 [py 42276]   RAW|2 hsmm: scoring done (0.1 min)
+2026-11-04T19:28:40-05:00 [py 42276]   RAW|2 bocpd: selection start
+2026-11-04T19:29:07-05:00 [py 42276]   RAW|2 bocpd: selection done (0.5 min); features ['momentum30_endpoint'] params {'lam': 12} baseline {'lam': 78}; scoring start
+2026-11-04T19:29:17-05:00 [py 42276]   RAW|2 bocpd: scoring done (0.2 min)
+2026-11-04T19:29:17-05:00 [py 42276] fold 11/34 RAW|3: start
+2026-11-04T19:29:17-05:00 [py 42276]   RAW|3 gaussian_hmm: selection start
+2026-11-04T19:30:09-05:00 [py 42276]   RAW|3 gaussian_hmm: selection done (0.9 min); features ['rv10_partial90', 'momentum30_endpoint', 'intrabar_range_log'] params {'K': 4} baseline {'K': 3}; scoring start
+2026-11-04T19:35:27-05:00 [py 42276]   RAW|3 gaussian_hmm: scoring done (5.3 min)
+2026-11-04T19:35:27-05:00 [py 42276]   RAW|3 student_t_hmm: selection start
+2026-11-04T19:37:20-05:00 [py 42276]   RAW|3 student_t_hmm: selection done (1.9 min); features ['rv10_partial90', 'momentum30_endpoint'] params {'K': 4} baseline {'K': 4}; scoring start
+2026-11-04T19:37:22-05:00 [py 42276]   RAW|3 student_t_hmm: scoring done (0.0 min)
+2026-11-04T19:37:22-05:00 [py 42276]   RAW|3 hsmm: selection start
+2026-11-04T19:47:29-05:00 [py 42276]   RAW|3 hsmm: selection done (10.1 min); features ['rv10_partial90', 'momentum30_endpoint', 'intrabar_range_log'] params {'K': 3} baseline {'K': 3}; scoring start
+2026-11-04T19:47:32-05:00 [py 42276]   RAW|3 hsmm: scoring done (0.0 min)
+2026-11-04T19:47:32-05:00 [py 42276]   RAW|3 bocpd: selection start
+2026-11-04T19:47:59-05:00 [py 42276]   RAW|3 bocpd: selection done (0.5 min); features ['momentum30_endpoint'] params {'lam': 12} baseline {'lam': 78}; scoring start
+2026-11-04T19:48:09-05:00 [py 42276]   RAW|3 bocpd: scoring done (0.2 min)
+2026-11-04T19:48:09-05:00 [py 42276] main run: DONE in 2.88 h; checkpoint hits 186, misses 86; completion record verified (sha256 e6f56ae2e19bbc0f..., results 7cd6a5926442b8e6...); H1(a) failures 0; no freeze, no era calibration
+2026-11-04T19:48:09-05:00 [ps1 13268] attempt 1: Python exited with code 0 after 173.3 min
+2026-11-04T19:48:09-05:00 [ps1 13268] === DONE: completion record written (C:\Users\kakij\Downloads\section5\results\main_run\run_complete.json). No freeze, no era calibration.

@@ -1,0 +1,1 @@
+{"key": "score|main|budget=None|LEGACY|11|hsmm", "version": "629de740dbc75332", "value": {"a": null, "a_skipped": "3 < 8 stable test days", "a_failed": null, "b": 0.8318228503377504, "b_skipped": null, "b_n": 7167, "b_dm_stat": 86.44783949747772, "val_qlike": 0.3231114797690692, "flagged_fit": false}}
