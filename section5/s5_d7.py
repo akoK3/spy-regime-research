@@ -58,9 +58,9 @@ def inject(p, g, kind, level, w, rng, sign):
         x = r.copy()
         for k in range(1, WIN): x[k] = r[k] + level * x[k - 1]
     elif kind == "jumps":
-        lsd = local_sd(p["r"], g)
-        if not np.isfinite(lsd): return None, dict(vr=float("nan"), scale=float("nan"), why="local sd undefined")
-        k, size = level; x = r.copy(); at = rng.choice(WIN, int(k), replace=False); jumps[at] = True; x[at] = r[at] + rng.choice([-1.0, 1.0], int(k)) * size * lsd
+        s = math.sqrt(S0 / WIN)                                                                                     # A19.3: the post-tau window's own deseasonalised sd
+        if not s > 0: return None, dict(vr=float("nan"), scale=float("nan"), why="window variance zero")
+        k, size = level; x = r.copy(); at = rng.choice(WIN, int(k), replace=False); jumps[at] = True; x[at] = rng.choice([-1.0, 1.0], int(k)) * size * s / np.sqrt(wj[at])   # replaces the minute's return
     else: raise ValueError(kind)
     sj = float((wj[jumps] * x[jumps] ** 2).sum()); sn = float((wj[~jumps] * x[~jumps] ** 2).sum()); c2 = (S0 - sj) / sn if sn > 0 else float("nan")
     c = math.sqrt(c2) if c2 > 0 else 1.0; x = np.where(jumps, x, c * x)                                            # infeasible rescale: left unscaled; the VR gate records it

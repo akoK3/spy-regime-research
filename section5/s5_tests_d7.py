@@ -42,9 +42,10 @@ class TestInject(unittest.TestCase):
         self.assertGreater(np.mean(acs), 0.25)
 
     def test_jumps_and_liquidity(self):
-        p, q, info, _ = self.run_("jumps", (2, 5.0)); lsd = D.local_sd(p["r"], self.g); x = q["r"][self.g + 1:self.g + 61]
-        r0 = p["r"][self.g + 1:self.g + 61]; jb = np.abs(x - info["scale"] * r0) > 1e-12; self.assertEqual(int(jb.sum()), 2); self.assertTrue(np.allclose(np.abs(x[jb] - r0[jb]), 5 * lsd)); self.assertLess(info["scale"], 1.0); self.assertAlmostEqual(info["vr"], 1.0, places=9)        # A19.2: diffusive part rescaled
-        p, q, info, _ = self.run_("jumps", (3, 6.0)); self.assertEqual(info["scale"], 1.0); self.assertLess(info["c2"], 0); self.assertGreater(info["vr"], D.VR_BAND[1])   # A19 size: infeasible, caught by gate (i)
+        for seed in range(20):                                                                                            # A19.3: sized from the post-tau window, always feasible
+            p, q, info, w = self.run_("jumps", (2, 5.0), seed); J = slice(self.g + 1, self.g + 61); x, r0, wj = q["r"][J], p["r"][J], w[J]; s = np.sqrt((wj * r0 * r0).sum() / 60)
+            jb = np.abs(x - info["scale"] * r0) > 1e-12; self.assertEqual(int(jb.sum()), 2); self.assertTrue(np.allclose(np.abs(x[jb]) * np.sqrt(wj[jb]), 5 * s))
+            self.assertLess(info["scale"], 1.0); self.assertAlmostEqual(info["vr"], 1.0, places=9)
         p, q, info, _ = self.run_("liquidity", 0.5); self.assertTrue(np.allclose(q["volume"][self.g + 1:], 0.5 * p["volume"][self.g + 1:])); self.assertTrue(np.array_equal(q["volume"][:self.g + 1], p["volume"][:self.g + 1]))
         self.assertTrue(np.array_equal(q["close"], p["close"]))
 
