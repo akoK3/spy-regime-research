@@ -1,0 +1,24 @@
+2026-11-06T14:08:11-05:00 [py 14224] D7 guards: protocol 0b0669b5f341b3d6..., main record verified, canonical list, no lock, registry ok, A17 manifest 136 models
+2026-11-06T14:08:21-05:00 [py 14224] D7 preflight: RAW 3 (contaminated) 18 stable test days, 3 scored, 0 skipped; 24 injections, VR outside [0.95, 1.05]: 3 [2.2594725248874905, 3.248947938260769, 4.393279397670517]; null hits (Gaussian feature) [False, False, False]; pc_ratio3 [False, False, False]; 0.2 min (incl. load); nothing written to results/d7/ckpt
+2026-11-06T14:08:21-05:00 [py 14224] D7 preflight: aggregate ran on 3 days (gates on this mini sample are not meaningful: {'ii_positive_control': False, 'iii_null_sanity': False, 'iv_days': False, 'n_days': 3})
+2026-11-06T14:08:21-05:00 [py 14224] D7 preflight: 0 of 26 D7 fold units already checkpointed
+2026-11-06T14:08:21-05:00 [py 14224] D7 preflight passed (--check): D7 NOT started
+2026-11-06T14:10:19-05:00 [py 27640] D7 guards: protocol 0b0669b5f341b3d6..., main record verified, canonical list, no lock, registry ok, A17 manifest 136 models
+2026-11-06T14:10:29-05:00 [py 27640] D7 preflight: RAW 3 (contaminated) 18 stable test days, 3 scored, 0 skipped; 24 injections, VR outside [0.95, 1.05]: 3 [2.2594725248874905, 3.248947938260769, 4.393279397670517]; null hits (Gaussian feature) [False, False, False]; pc_ratio3 [False, False, False]; 0.2 min (incl. load); nothing written to results/d7/ckpt
+2026-11-06T14:10:29-05:00 [py 27640] D7 preflight: aggregate ran on 3 days (gates on this mini sample are not meaningful: {'ii_positive_control': False, 'iii_null_sanity': False, 'iv_days': False, 'n_days': 3})
+2026-11-06T14:10:29-05:00 [py 27640] D7 preflight: 0 of 26 D7 fold units already checkpointed
+2026-11-06T14:10:29-05:00 [py 27640] D7 preflight passed (--check): D7 NOT started
+2026-11-06T14:10:37-05:00 [py 16524] D7 guards: protocol 0b0669b5f341b3d6..., main record verified, canonical list, no lock, registry ok, A17 manifest 136 models
+2026-11-06T14:10:47-05:00 [py 16524] D7 preflight: RAW 3 (contaminated) 18 stable test days, 3 scored, 0 skipped; 24 injections, VR outside [0.95, 1.05]: 3 [2.2594725248874905, 3.248947938260769, 4.393279397670517]; null hits (Gaussian feature) [False, False, False]; pc_ratio3 [False, False, False]; 0.2 min (incl. load); nothing written to results/d7/ckpt
+2026-11-06T14:10:47-05:00 [py 16524] D7 preflight: aggregate ran on 3 days (gates on this mini sample are not meaningful: {'ii_positive_control': False, 'iii_null_sanity': False, 'iv_days': False, 'n_days': 3})
+2026-11-06T14:10:47-05:00 [py 16524] D7 preflight: 0 of 26 D7 fold units already checkpointed
+2026-11-06T14:10:47-05:00 [py 16524] D7 preflight passed (--check): D7 NOT started
+2026-11-06T14:10:56-05:00 [ps1 30724] === run_d7_overnight.ps1 start: preflight only (-Check); protocol 0b0669b5f341b3d6...; max retries 5 per phase
+2026-11-06T14:10:56-05:00 [ps1 30724] D7 attempt 1 of 6: starting Python
+2026-11-06T14:10:58-05:00 [py 8556] D7 guards: protocol 0b0669b5f341b3d6..., main record verified, canonical list, no lock, registry ok, A17 manifest 136 models
+2026-11-06T14:11:08-05:00 [py 8556] D7 preflight: RAW 3 (contaminated) 18 stable test days, 3 scored, 0 skipped; 24 injections, VR outside [0.95, 1.05]: 3 [2.2594725248874905, 3.248947938260769, 4.393279397670517]; null hits (Gaussian feature) [False, False, False]; pc_ratio3 [False, False, False]; 0.2 min (incl. load); nothing written to results/d7/ckpt
+2026-11-06T14:11:08-05:00 [py 8556] D7 preflight: aggregate ran on 3 days (gates on this mini sample are not meaningful: {'ii_positive_control': False, 'iii_null_sanity': False, 'iv_days': False, 'n_days': 3})
+2026-11-06T14:11:08-05:00 [py 8556] D7 preflight: 0 of 26 D7 fold units already checkpointed
+2026-11-06T14:11:08-05:00 [py 8556] D7 preflight passed (--check): D7 NOT started
+2026-11-06T14:11:08-05:00 [ps1 30724] D7 attempt 1: Python exited with code 0 after 0.2 min
+2026-11-06T14:11:08-05:00 [ps1 30724] === preflight passed for D7; nothing was started
