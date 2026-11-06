@@ -1,0 +1,251 @@
+{
+ "label": "D8b sensitivity (AMENDMENT_A19_1.md); does not change D8",
+ "generated": "2026-11-06T19:02:34.390283+00:00",
+ "amendment_sha256": "bffed0e9f8acf7aea9d98ae83950624d7cb3f4b95e37c15997fccda584eed0a0",
+ "variants": {
+  "D8_primary_recomputed": {
+   "settings": {
+    "w": 60,
+    "large": {
+     "trend": 3.6430141366730933,
+     "momentum": 0.4703111027111026,
+     "vol_hi": 2.0,
+     "vol_lo": 0.5,
+     "jump": 1
+    },
+    "legacy_complete": 0.98
+   },
+   "eras": {
+    "LEGACY": {
+     "sessions": 467,
+     "windows": 25658,
+     "variance_stable_share": 0.3293319822277652,
+     "large_given_variance_stable": {
+      "trend": 0.004378698224852071,
+      "momentum": 0.010650887573964497,
+      "liquidity": 0.03017751479289941,
+      "jumps": 0.03538461538461538
+     }
+    },
+    "RAW": {
+     "sessions": 230,
+     "windows": 12650,
+     "variance_stable_share": 0.34474308300395257,
+     "large_given_variance_stable": {
+      "trend": 0.006420545746388443,
+      "momentum": 0.011006649850951617,
+      "liquidity": 0.04998853473973859,
+      "jumps": 0.04333868378812199
+     }
+    }
+   },
+   "occurs": {
+    "trend": false,
+    "momentum": false,
+    "liquidity": true,
+    "jumps": true
+   }
+  },
+  "S1_strict": {
+   "settings": {
+    "w": 60,
+    "large": {
+     "trend": 4.654176833769856,
+     "momentum": 0.6008516455831672,
+     "vol_hi": 3.0,
+     "vol_lo": 0.3333333333333333,
+     "jump": 2
+    },
+    "legacy_complete": 0.98
+   },
+   "eras": {
+    "LEGACY": {
+     "sessions": 467,
+     "windows": 25658,
+     "variance_stable_share": 0.3293319822277652,
+     "large_given_variance_stable": {
+      "trend": 0.00011834319526627219,
+      "momentum": 0.0007100591715976331,
+      "liquidity": 0.0016568047337278107,
+      "jumps": 0.0007100591715976331
+     }
+    },
+    "RAW": {
+     "sessions": 230,
+     "windows": 12650,
+     "variance_stable_share": 0.34474308300395257,
+     "large_given_variance_stable": {
+      "trend": 0.000687915615684476,
+      "momentum": 0.0009172208209126347,
+      "liquidity": 0.004815409309791332,
+      "jumps": 0.0009172208209126347
+     }
+    }
+   },
+   "occurs": {
+    "trend": false,
+    "momentum": false,
+    "liquidity": false,
+    "jumps": false
+   }
+  },
+  "S2_w30": {
+   "settings": {
+    "w": 30,
+    "large": {
+     "trend": 3.6430141366730933,
+     "momentum": 0.665120339988687,
+     "vol_hi": 2.0,
+     "vol_lo": 0.5,
+     "jump": 1
+    },
+    "legacy_complete": 0.98
+   },
+   "eras": {
+    "LEGACY": {
+     "sessions": 467,
+     "windows": 30529,
+     "variance_stable_share": 0.27937371024272006,
+     "large_given_variance_stable": {
+      "trend": 0.0045726345409778405,
+      "momentum": 0.007855551647320906,
+      "liquidity": 0.045140110212217144,
+      "jumps": 0.012076445069761988
+     }
+    },
+    "RAW": {
+     "sessions": 230,
+     "windows": 15404,
+     "variance_stable_share": 0.305959491041288,
+     "large_given_variance_stable": {
+      "trend": 0.007426267769997878,
+      "momentum": 0.00976023764056864,
+      "liquidity": 0.07744536388712073,
+      "jumps": 0.013155102906853384
+     }
+    }
+   },
+   "occurs": {
+    "trend": false,
+    "momentum": false,
+    "liquidity": true,
+    "jumps": false
+   }
+  },
+  "S2_w120": {
+   "settings": {
+    "w": 120,
+    "large": {
+     "trend": 3.6430141366730933,
+     "momentum": 0.3325601699943435,
+     "vol_hi": 2.0,
+     "vol_lo": 0.5,
+     "jump": 1
+    },
+    "legacy_complete": 0.98
+   },
+   "eras": {
+    "LEGACY": {
+     "sessions": 467,
+     "windows": 14477,
+     "variance_stable_share": 0.3701733784623886,
+     "large_given_variance_stable": {
+      "trend": 0.004291845493562232,
+      "momentum": 0.015674566150401196,
+      "liquidity": 0.02892330658704982,
+      "jumps": 0.10916215711886545
+     }
+    },
+    "RAW": {
+     "sessions": 230,
+     "windows": 7130,
+     "variance_stable_share": 0.3768583450210379,
+     "large_given_variance_stable": {
+      "trend": 0.010048381094157052,
+      "momentum": 0.002232973576479345,
+      "liquidity": 0.024934871604019353,
+      "jumps": 0.14998139188686266
+     }
+    }
+   },
+   "occurs": {
+    "trend": false,
+    "momentum": false,
+    "liquidity": true,
+    "jumps": true
+   }
+  },
+  "S3_legacy90": {
+   "settings": {
+    "w": 60,
+    "large": {
+     "trend": 3.6430141366730933,
+     "momentum": 0.4703111027111026,
+     "vol_hi": 2.0,
+     "vol_lo": 0.5,
+     "jump": 1
+    },
+    "legacy_complete": 0.9
+   },
+   "eras": {
+    "LEGACY": {
+     "sessions": 1703,
+     "windows": 86004,
+     "variance_stable_share": 0.3197176875494163,
+     "large_given_variance_stable": {
+      "trend": 0.0032003491289958903,
+      "momentum": 0.009091900934647417,
+      "liquidity": 0.0380041459068262,
+      "jumps": 0.03440375313670582
+     }
+    },
+    "RAW": {
+     "sessions": 230,
+     "windows": 12650,
+     "variance_stable_share": 0.34474308300395257,
+     "large_given_variance_stable": {
+      "trend": 0.006420545746388443,
+      "momentum": 0.011006649850951617,
+      "liquidity": 0.04998853473973859,
+      "jumps": 0.04333868378812199
+     }
+    }
+   },
+   "occurs": {
+    "trend": false,
+    "momentum": false,
+    "liquidity": true,
+    "jumps": true
+   }
+  }
+ },
+ "d8_primary_occurs": {
+  "trend": false,
+  "momentum": false,
+  "liquidity": true,
+  "jumps": true
+ },
+ "primary_reproduced": true,
+ "verdict_changes": {
+  "D8_primary_recomputed": {},
+  "S1_strict": {
+   "liquidity": [
+    true,
+    false
+   ],
+   "jumps": [
+    true,
+    false
+   ]
+  },
+  "S2_w30": {
+   "jumps": [
+    true,
+    false
+   ]
+  },
+  "S2_w120": {},
+  "S3_legacy90": {}
+ },
+ "seconds": 67.2
+}
