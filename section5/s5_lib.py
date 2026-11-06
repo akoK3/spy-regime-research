@@ -62,6 +62,21 @@ def pools():
     return primary, sens, sens_all
 
 
+SCALE_STEMS = ("rv", "downside", "abs_return", "intrabar_range")              # A20 rule 1: scale-type name-stem families (A18 rule 3)
+
+
+def stem_of(col):
+    c = col[:-6] if col.endswith("__sadj") else col
+    for stem in ("abs_return", "return", "intrabar_range", "relative_volume", "close_location", "downside", "momentum", "rv"):
+        if c.startswith(stem): return stem
+    return None
+
+
+def a20_pool(cols):
+    """A20 rule 1: scale-type columns only in their __sadj versions (raw scale columns excluded); other columns unchanged."""
+    return [c for c in cols if stem_of(c) not in SCALE_STEMS or c.endswith("__sadj")]
+
+
 def assert_pool(cols, kind, response_names=()):
     """kind: 'primary' or 'sensitivity'. Enforces every 5.2 exclusion on the column names that reach a model."""
     cols = list(cols)
@@ -207,7 +222,7 @@ def grid_slots(m):
 
 
 def session_grid(d, i, cols):
-    """Raw decision-grid rows of one session: 5-minute return + feature columns at the grid bars, availability times, 60-min targets."""
+    """Raw decision-grid rows of one session: 5-minute return + feature columns at the grid bars, availability times, 60-min targets (A20: deseasonalised, from d['dv'])."""
     a, b = int(d["first"][i]), int(d["end"][i]); m = b - a
     g = grid_slots(m); c, o = d["close"][a:b], d["open"][a:b]
     prev = np.where(g - GRID >= 0, c[np.maximum(g - GRID, 0)], o[0])  # slot 4: from the session open
@@ -216,12 +231,13 @@ def session_grid(d, i, cols):
     ok = np.isfinite(ret5) & d["valid"][a:b][g]
     ret5 = np.where(ok, ret5, np.nan)
     X = np.column_stack([ret5] + [d["features"][n][a:b][g] for n in cols])
-    r = np.where(d["valid"][a:b], d["r"][a:b], np.nan)
     tgt = np.full(len(g), np.nan)
-    for k, s0 in enumerate(g):
-        if s0 + HORIZON <= m - 1:
-            w = r[s0 + 1:s0 + 1 + HORIZON]; n = np.isfinite(w).sum()
-            if n >= 50: tgt[k] = max(np.nansum(w ** 2) * HORIZON / n, QLIKE_FLOOR)
+    if "dv" in d:                                                               # A20 rule 2: deseasonalised target (r^2 / causal slot baseline); no dv -> no target
+        r2 = d["dv"][a:b]
+        for k, s0 in enumerate(g):
+            if s0 + HORIZON <= m - 1:
+                w = r2[s0 + 1:s0 + 1 + HORIZON]; n = np.isfinite(w).sum()
+                if n >= 50: tgt[k] = max(np.nansum(w) * HORIZON / n, QLIKE_FLOOR)
     return dict(sess=int(i), slots=g, avail=d["available"][a:b][g], X=X, tgt=tgt)
 
 

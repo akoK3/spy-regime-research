@@ -1,0 +1,27 @@
+2026-11-06T15:07:14-05:00 [ps1 22912] === run_mr2_overnight.ps1 start: preflight only (-Check); protocol 15be2570a592279e...; max retries 5 per phase
+2026-11-06T15:07:14-05:00 [ps1 22912] MR2 preflight attempt 1 of 6: starting Python
+2026-11-06T15:07:15-05:00 [py 25156] MR2 preflight: protocol 15be2570a592279e... FROZEN (through A20), canonical list, 8 excluded, no lock, registry ok; code version a0323ed24d68e896
+2026-11-06T15:07:15-05:00 [py 25156] preflight: protocol FROZEN, sidecar matches, token = 15be2570a592279e...
+2026-11-06T15:07:15-05:00 [py 25156] preflight: canonical contamination list f6d67a57ca30184b..., 8 folds excluded, 26 confirmatory
+2026-11-06T15:07:15-05:00 [py 25156] preflight: no era-calibration lock
+2026-11-06T15:07:16-05:00 [py 25156] preflight: every data-loading script is registered
+2026-11-06T15:07:16-05:00 [py 25156] preflight: MainBackend built (34 folds, LEGACY|0 ... RAW|3); no data loaded
+2026-11-06T15:07:16-05:00 [py 25156] preflight: output C:\Users\kakij\Downloads\section5\results\main_run_2 writable; code version a0323ed24d68e896; checkpoint version bbc114924f8edf6b; existing checkpoint units 0 of 272
+2026-11-06T15:07:16-05:00 [py 25156] preflight: python 3.12.10 at C:\Users\kakij\Downloads\research_hmm_env\Scripts\python.exe; numpy 2.5.4, scipy 1.18.1, pandas 3.1.0; free disk 15.0 GB
+2026-11-06T15:07:16-05:00 [py 25156] preflight: free memory 2587 MB (rehearsal peak 1027 MB)
+2026-11-06T15:07:19-05:00 [py 25156] MR2 preflight RAW|3: pool 13 (A20), validation QLIKE target median 216.6 (deseasonalised; raw would be ~1e-4)
+2026-11-06T15:19:39-05:00 [py 25156] MR2 preflight RAW|3 gaussian_hmm: features ['rv10_partial90__sadj'] K/lam {'K': 4} baseline {'K': 3}; H1(a) 0.10354687500000005, H1(b) 0.05343532979210819; reproduced exactly; thresholds 14.74/3.35; QLIKE pct 16.9; placebo gap -0.0468; 12.3 min
+2026-11-06T15:21:41-05:00 [py 25156] MR2 preflight RAW|3 student_t_hmm: features ['rv10_partial90__sadj'] K/lam {'K': 4} baseline {'K': 3}; H1(a) 0.07376041666666668, H1(b) 0.020394696146864733; reproduced exactly; thresholds 12.03/4.49; QLIKE pct 7.2; placebo gap -0.04337500000000001; 2.0 min
+2026-11-06T15:30:03-05:00 [py 25156] MR2 preflight RAW|3 hsmm: features ['rv10_partial90__sadj'] K/lam {'K': 3} baseline {'K': 3}; H1(a) 0.16038541666666667, H1(b) 0.032693223582018205; reproduced exactly; thresholds 10.82/4.15; QLIKE pct 10.5; placebo gap -0.015725000000000003; 8.4 min
+2026-11-06T15:30:55-05:00 [py 25156] MR2 preflight RAW|3 bocpd: features ['momentum30_endpoint'] K/lam {'lam': 12} baseline {'lam': 12}; H1(a) 0.00894270833333334, H1(b) 0.0017349486350282106; reproduced exactly; thresholds 27.23/48.21; QLIKE pct 0.4; placebo gap 0.0158; 0.9 min
+2026-11-06T15:31:52-05:00 [py 25156] MR2 preflight RAW|3 D7 (18 days): positive control (sweep gain, feature models) pc_ratio3: gaussian +0.15*, student +0.14*, hsmm +0.07; pc_ratio5.29: gaussian +0.45*, student +0.42*, hsmm +0.35*; baselines x5.29 +0.28, +0.15, +0.30; gates {'ii_positive_control': False, 'iii_null_sanity': True, 'iv_days': False, 'n_days': 18}
+2026-11-06T15:32:06-05:00 [py 25156] MR2 preflight LEGACY|29: pool 13 (A20), validation QLIKE target median 131.9 (deseasonalised; raw would be ~1e-4)
+2026-11-06T15:43:26-05:00 [py 25156] MR2 preflight LEGACY|29 gaussian_hmm: features ['rv10_partial90__sadj'] K/lam {'K': 4} baseline {'K': 4}; H1(a) 0.09808333333333334, H1(b) 0.042275264082273556; reproduced exactly; thresholds 11.69/3.44; QLIKE pct 15.1; placebo gap -0.005150000000000002; 11.3 min
+2026-11-06T15:45:06-05:00 [py 25156] MR2 preflight LEGACY|29 student_t_hmm: features ['rv10_partial90__sadj'] K/lam {'K': 4} baseline {'K': 4}; H1(a) 0.12598958333333332, H1(b) 0.011719429593002761; reproduced exactly; thresholds 10.49/4.13; QLIKE pct 4.6; placebo gap -0.0322; 1.7 min
+2026-11-06T15:50:01-05:00 [py 25156] MR2 preflight LEGACY|29 hsmm: features ['rv10_partial90__sadj'] K/lam {'K': 3} baseline {'K': 3}; H1(a) 0.11371354166666665, H1(b) 0.04881336475082426; reproduced exactly; thresholds 7.96/3.87; QLIKE pct 16.0; placebo gap -0.02175; 4.9 min
+2026-11-06T15:50:26-05:00 [py 25156] MR2 preflight LEGACY|29 bocpd: features [] K/lam {'lam': 12} baseline {'lam': 12}; H1(a) 0.0, H1(b) 0.0; reproduced exactly; thresholds 46.05/46.05; QLIKE pct 0.0; placebo gap 0.0; 0.4 min
+2026-11-06T15:50:50-05:00 [py 25156] MR2 preflight LEGACY|29 D7 (11 days): positive control (sweep gain, feature models) pc_ratio3: gaussian +0.39*, student +0.46*, hsmm +0.60*; pc_ratio5.29: gaussian +0.80*, student +0.89*, hsmm +0.88*; baselines x5.29 +0.27, +0.40, +0.24; gates {'ii_positive_control': True, 'iii_null_sanity': True, 'iv_days': False, 'n_days': 11}
+2026-11-06T15:50:53-05:00 [py 25156] MR2 preflight, both contaminated folds pooled (29 days): gates {'ii_positive_control': True, 'iii_null_sanity': True, 'iv_days': False, 'n_days': 29}; D7 verdicts {liquidity: missed=False, trend: missed=False, momentum: missed=False, jumps: missed=False} (preflight only; written to results/mr2_preflight/); 43.6 min
+2026-11-06T15:50:53-05:00 [py 25156] MR2 preflight passed (--check): nothing started
+2026-11-06T15:50:54-05:00 [ps1 22912] MR2 preflight attempt 1: Python exited with code 0 after 43.7 min
+2026-11-06T15:50:54-05:00 [ps1 22912] === preflight passed; nothing was started

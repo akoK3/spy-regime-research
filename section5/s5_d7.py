@@ -9,7 +9,7 @@ from pathlib import Path
 import numpy as np
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
-HERE = Path(__file__).resolve().parent; RES = HERE / "results"; OUT = RES / "d7"; CK = OUT / "ckpt"; A17 = RES / "a17"; LOG = RES / "d7_log.txt"
+HERE = Path(__file__).resolve().parent; RES = HERE / "results"; OUT = RES / "d7"; CK = OUT / "ckpt"; A17 = RES / "a17"; LOG = RES / "d7_log.txt"; MAIN_DIR = RES / "main_run"   # MR2 (A20) sets these
 EXIT_OK, EXIT_CRASH, EXIT_STOP, EXIT_GUARD = 0, 1, 2, 3
 SEED = 1907; NBOOT = 10000; WIN = 60; RESPOND = 0.10; VR_BAND = (0.95, 1.05); NULL_MAX = 0.30; MIN_DAYS = 100
 PC = {"pc_ratio3": 3.0, "pc_ratio5.29": 5.29}                                                                                   # A19.2 rule 3
@@ -140,7 +140,7 @@ def sweep_day_values(u, key, label):
 # ---------- guards, models
 def guards(token):
     import s5_guard as G, s5_contamination as C
-    ph = G.verify_frozen_protocol(token); G.verify_completion(RES / "main_run" / G.COMPLETION, require_main=True); G.canonical_contamination()
+    ph = G.verify_frozen_protocol(token); G.verify_completion(MAIN_DIR / G.COMPLETION, require_main=True); G.canonical_contamination()
     if G.LOCK.exists(): raise PermissionError("era-calibration lock exists (A16 rule 5)")
     C.check_registry(HERE); a17 = A17 / "a17_results.json"
     if not a17.exists(): raise PermissionError("A17 results missing")

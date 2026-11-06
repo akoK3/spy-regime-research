@@ -19,8 +19,8 @@ sha = G.sha; verify_frozen_protocol = G.verify_frozen_protocol            # A16:
 
 def era_context(era):
     """Era panel, primary columns, deseasonalising matrix and raw grid rows of every session (shared by the fold backends of one era)."""
-    primary, _, _ = L.pools(); cols = primary
-    d = L.load_era(era, cols + ["lee_mykland_approx60"]); dv = S.des_variance(d)
+    primary, _, _ = L.pools(); cols = L.a20_pool(primary)                                    # A20 rule 1: 13 columns
+    d = L.load_era(era, cols + ["lee_mykland_approx60"]); dv = S.des_variance(d); d["dv"] = dv     # A20 rule 2: deseasonalised QLIKE target
     native = [L.session_grid(d, i, cols) for i in range(len(d["first"]))]; Mx = np.full((len(native), 78), np.nan)
     for i, r in enumerate(native): Mx[i, :len(r["X"])] = r["X"][:, 0]
     return dict(era=era, d=d, dv=dv, cols=cols, native=native, Mx=Mx)
