@@ -321,3 +321,12 @@
 !AMENDMENT_A19_2.sha256
 !AMENDMENT_A19_3.md
 !AMENDMENT_A19_3.sha256
+!AMENDMENT_A20.md
+!AMENDMENT_A20.sha256
+!SECTION5_PROTOCOL_v8_FROZEN_A16.md
+!SECTION5_PROTOCOL_v8_FROZEN_A16.sha256
+!/section5/results/main_run_2/
+!/section5/results/mr2/
+/section5/results/mr2/a17/models/
+/section5/results/mr2_preflight/models/
+!/section5/results/mr2_preflight/
