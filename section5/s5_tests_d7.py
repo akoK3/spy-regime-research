@@ -26,7 +26,6 @@ class TestInject(unittest.TestCase):
         for kind, lv in D.LEVELS.items():
             for _, level in lv:
                 p, q, info, w = self.run_(kind, level)
-                if (kind, level) == ("jumps", 3): self.assertGreater(info["vr"], D.VR_BAND[1]); continue      # 3 x 6 local sd exceeds the window's variance: infeasible, recorded by gate (i)
                 self.assertAlmostEqual(info["vr"], 1.0, places=9, msg=kind)
                 self.assertTrue(np.allclose(np.diff(np.log(q["close"][self.g:])), np.r_[q["r"][J], p["r"][self.g + 61:]], rtol=1e-9, atol=1e-15), kind)      # returns after the window unchanged
                 self.assertTrue(np.array_equal(q["close"][:self.g + 1], p["close"][:self.g + 1]))                                                                       # nothing before tau changes
@@ -43,11 +42,24 @@ class TestInject(unittest.TestCase):
         self.assertGreater(np.mean(acs), 0.25)
 
     def test_jumps_and_liquidity(self):
-        p, q, info, _ = self.run_("jumps", 3); lsd = D.local_sd(p["r"], self.g); x = q["r"][self.g + 1:self.g + 61]
-        self.assertEqual(int((np.abs(x) > 3 * lsd).sum()), 3); self.assertEqual(info["scale"], 1.0); self.assertLess(info["c2"], 0)
-        p, q, info, _ = self.run_("jumps", 1); self.assertLess(info["scale"], 1.0); self.assertAlmostEqual(info["vr"], 1.0, places=9)
+        p, q, info, _ = self.run_("jumps", (2, 5.0)); lsd = D.local_sd(p["r"], self.g); x = q["r"][self.g + 1:self.g + 61]
+        r0 = p["r"][self.g + 1:self.g + 61]; jb = np.abs(x - info["scale"] * r0) > 1e-12; self.assertEqual(int(jb.sum()), 2); self.assertTrue(np.allclose(np.abs(x[jb] - r0[jb]), 5 * lsd)); self.assertLess(info["scale"], 1.0); self.assertAlmostEqual(info["vr"], 1.0, places=9)        # A19.2: diffusive part rescaled
+        p, q, info, _ = self.run_("jumps", (3, 6.0)); self.assertEqual(info["scale"], 1.0); self.assertLess(info["c2"], 0); self.assertGreater(info["vr"], D.VR_BAND[1])   # A19 size: infeasible, caught by gate (i)
         p, q, info, _ = self.run_("liquidity", 0.5); self.assertTrue(np.allclose(q["volume"][self.g + 1:], 0.5 * p["volume"][self.g + 1:])); self.assertTrue(np.array_equal(q["volume"][:self.g + 1], p["volume"][:self.g + 1]))
         self.assertTrue(np.array_equal(q["close"], p["close"]))
+
+
+class TestSweep(unittest.TestCase):
+    def test_grid_average_uses_loosest_threshold_within_rate(self):
+        # 3 thresholds, null alarm rates (mean counts) 0.6, 0.2, 0.0 (looser -> stricter); day hit bits per threshold
+        u = dict(days=[{}, {}], sweep={"m": {"null_counts": [[1, 0, 0], [0, 1, 0]], "null": ["000", "010"], "x": ["111", "011"]}})
+        a, b = D.sweep_day_values(u, "m", "x")
+        n = len(D.XGRID)
+        # rates: [0.5, 0.5, 0.0]: x < 0.5 uses threshold 2 (rate 0); x = 0.5 uses threshold 0 (loosest with rate <= 0.5)
+        self.assertAlmostEqual(a[0], 1.0); self.assertAlmostEqual(a[1], (n - 1) / n * 1 + 1 / n * 0); self.assertAlmostEqual(b[0], 0.0); self.assertAlmostEqual(b[1], 0.0)
+
+    def test_no_qualifying_threshold_gives_zero(self):
+        u = dict(days=[{}], sweep={"m": {"null_counts": [[2, 1]], "null": ["11"], "x": ["11"]}}); a, b = D.sweep_day_values(u, "m", "x"); self.assertEqual(a[0], 0.0); self.assertEqual(b[0], 0.0)
 
 
 class TestRule(unittest.TestCase):

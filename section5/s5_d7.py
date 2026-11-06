@@ -2,7 +2,7 @@
 """D7 (AMENDMENT_A19.md rule 2): do the main-run detectors respond to non-volatility changes? Variance-neutral liquidity / trend / momentum / jump injections after tau on the stable TEST
 days of the 26 confirmatory folds, scored with the A17 saved fits (no refit; pickles verified against the A17 manifest) at the A17 fold-level A7 thresholds. Null = the same day and tau
 unmodified. Positive control = a 5.6 variance splice of ratio 3 (permanent) on the same day and tau. 'Responds' = hit minus null >= 0.10 with a day-clustered 95% CI excluding 0.
-Usage: s5_d7.py PROTOCOL_SHA256 [--check]      --check: guards + a smoke test on the contaminated RAW 3 fold (3 days; nothing written to results/d7/ckpt).
+Usage: s5_d7.py PROTOCOL_SHA256 [--check]      --check: guards + a smoke test on the contaminated RAW 3 fold (all its stable test days; nothing written to results/d7/ckpt).
 Exit codes: 0 done, 1 crash (retryable; resumes from results/d7/ckpt), 2 Ctrl+C, 3 guard refusal."""
 import sys, os, json, time, pickle, math, datetime, traceback, hashlib
 from pathlib import Path
@@ -11,9 +11,11 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 HERE = Path(__file__).resolve().parent; RES = HERE / "results"; OUT = RES / "d7"; CK = OUT / "ckpt"; A17 = RES / "a17"; LOG = RES / "d7_log.txt"
 EXIT_OK, EXIT_CRASH, EXIT_STOP, EXIT_GUARD = 0, 1, 2, 3
-SEED = 1907; NBOOT = 10000; WIN = 60; JUMP_SD = 6.0; RESPOND = 0.10; VR_BAND = (0.95, 1.05); NULL_MAX = 0.30; MIN_DAYS = 100; PC_RATIO = 3.0
-LEVELS = {"liquidity": [("vol_x2", 2.0), ("vol_x0.5", 0.5)], "trend": [("t2", 2.0), ("t4", 4.0)], "momentum": [("rho0.2", 0.2), ("rho0.4", 0.4)], "jumps": [("jumps1", 1), ("jumps3", 3)]}
-PRIMARY = {"liquidity": "vol_x2", "trend": "t4", "momentum": "rho0.4", "jumps": "jumps3"}                # A19 rule 2c
+SEED = 1907; NBOOT = 10000; WIN = 60; RESPOND = 0.10; VR_BAND = (0.95, 1.05); NULL_MAX = 0.30; MIN_DAYS = 100
+PC = {"pc_ratio3": 3.0, "pc_ratio5.29": 5.29}                                                                                   # A19.2 rule 3
+XGRID = np.round(np.arange(0, 0.5001, 0.01), 2)                                                                                # A19.2 rule 2
+LEVELS = {"liquidity": [("vol_x2", 2.0), ("vol_x0.5", 0.5)], "trend": [("t2", 2.0), ("t4", 4.0)], "momentum": [("rho0.2", 0.2), ("rho0.4", 0.4)], "jumps": [("jumps2x4sd", (2, 4.0)), ("jumps2x5sd", (2, 5.0))]}
+PRIMARY = {"liquidity": "vol_x2", "trend": "t4", "momentum": "rho0.4", "jumps": "jumps2x5sd"}                # A19 rule 2c; jumps A19.2 rule 1
 FAMILIES = ("gaussian_hmm", "student_t_hmm", "hsmm", "bocpd"); H1_FAMILIES = FAMILIES[:3]
 PX = ("open", "high", "low", "close")
 
@@ -58,7 +60,7 @@ def inject(p, g, kind, level, w, rng, sign):
     elif kind == "jumps":
         lsd = local_sd(p["r"], g)
         if not np.isfinite(lsd): return None, dict(vr=float("nan"), scale=float("nan"), why="local sd undefined")
-        x = r.copy(); at = rng.choice(WIN, int(level), replace=False); jumps[at] = True; x[at] = r[at] + rng.choice([-1.0, 1.0], int(level)) * JUMP_SD * lsd
+        k, size = level; x = r.copy(); at = rng.choice(WIN, int(k), replace=False); jumps[at] = True; x[at] = r[at] + rng.choice([-1.0, 1.0], int(k)) * size * lsd
     else: raise ValueError(kind)
     sj = float((wj[jumps] * x[jumps] ** 2).sum()); sn = float((wj[~jumps] * x[~jumps] ** 2).sum()); c2 = (S0 - sj) / sn if sn > 0 else float("nan")
     c = math.sqrt(c2) if c2 > 0 else 1.0; x = np.where(jumps, x, c * x)                                            # infeasible rescale: left unscaled; the VR gate records it
@@ -89,7 +91,7 @@ def fold_unit(db, fold, models, thresholds, max_days=None):
     import s5_d2_stable as S, s5_d2 as D2, s5_fast as F, s5_lib as L, s5_eval as V, s5_a7 as B, s5_events as E
     c = db.c; d, dv, cols = c["d"], c["dv"], c["cols"]; stable, _ = S.stable_days(d, c["seg"]["test"], dv); bases = F.load_bases(d, db.era, cols)
     era_code = 0 if db.era == "LEGACY" else 1; out = dict(fold=fold, n_stable=len(stable), days=[], skipped=[])
-    rows = {}; lab = ["null", "pc_ratio3"] + [f"{k}:{n}" for k, lv in LEVELS.items() for n, _ in lv]
+    rows = {}; lab = ["null"] + list(PC) + [f"{k}:{n}" for k, lv in LEVELS.items() for n, _ in lv]
     for i in (stable if max_days is None else stable[:max_days]):
         rng = np.random.default_rng((SEED, era_code, db.fold, int(i))); fa = int(d["first"][i]); p0 = L.sub_panel(d, [i]); g = None
         for _ in range(200):
@@ -99,7 +101,7 @@ def fold_unit(db, fold, models, thresholds, max_days=None):
         w = F.in_units_of_A(d, i, np.ones(390)); sign = 1.0 if i % 2 == 0 else -1.0; tau = int(p0["available"][g]); rec = dict(day=str(d["day"][fa]), i=int(i), g=g, vr={}, info={})
         pan = {"null": p0}
         pre = np.nanmean(dv[fa + 1:fa + g + 1]); rB2 = np.where(d["valid"][fa:fa + 390], d["r"][fa:fa + 390], np.nan) ** 2; post = np.nanmean(F.in_units_of_A(d, i, rB2)[g + 1:390])
-        pan["pc_ratio3"], _ = D2.regime_panel(d, i, i, g, float(np.sqrt(PC_RATIO * pre / post)), None)                      # 5.6 permanent variance splice, B = A
+        for name, R in PC.items(): pan[name], _ = D2.regime_panel(d, i, i, g, float(np.sqrt(R * pre / post)), None)            # 5.6 permanent variance splices, B = A
         for kind, lv in LEVELS.items():
             for name, level in lv:
                 q, info = inject(p0, g, kind, level, w, rng, sign); rec["vr"][f"{kind}:{name}"] = info["vr"]; rec["info"][f"{kind}:{name}"] = {k: v for k, v in info.items() if k != "vr"}
@@ -107,7 +109,7 @@ def fold_unit(db, fold, models, thresholds, max_days=None):
         for k in lab:
             if k in pan: rows[(len(out["days"]), k)] = F.rows_from_panel(d, bases, pan[k], i, i, g, tau, cols)
         rec["tau"] = tau; out["days"].append(rec)
-    hits = {}
+    hits, sweep = {}, {}; import s5_sweep as W
     for fam in FAMILIES:
         for which in ("feature", "baseline"):
             m, sub = models[fam][which]; thr = thresholds[fam][which]; D = 1 + len(sub); keys = sorted(rows)
@@ -115,7 +117,24 @@ def fold_unit(db, fold, models, thresholds, max_days=None):
             for k, q, r in zip(keys, qs, rs):
                 tau = rows[k]["tau"]; h.setdefault(k[1], {})[k[0]] = bool(any(q["avail"][e["i_d"]] > tau and q["avail"][e["i_c"]] <= tau + WIN * E.MIN for e in (B.events(fam, r, q, thr) if q["n"] else [])))
             hits[f"{fam}|{which}"] = {lb: [v.get(j) for j in range(len(out["days"]))] for lb, v in h.items()}
-    out["hits"] = hits; return out
+            grid = B.MGRID if fam == "bocpd" else B.THETA; R_, re_, av_ = W.stack(rs, qs, "rstar" if fam == "bocpd" else "P"); taus = np.array([rows[k]["tau"] for k in keys], np.int64)
+            cnt, hit = (W.sweep_map if fam == "bocpd" else W.sweep_old_state)(R_, re_, av_, grid, taus); sw = {"null_counts": {}}
+            for n_, k in enumerate(keys):
+                sw.setdefault(k[1], {})[k[0]] = "".join("1" if x else "0" for x in hit[n_])
+                if k[1] == "null": sw["null_counts"][k[0]] = cnt[n_].tolist()
+            sweep[f"{fam}|{which}"] = {lb: [v.get(j) for j in range(len(out["days"]))] for lb, v in sw.items()}
+    out["hits"] = hits; out["sweep"] = sweep; return out
+
+
+def sweep_day_values(u, key, label):
+    """A19.2 rule 2: per day, the grid-averaged hit indicator of `label` and of the matched null, at the fold's loosest threshold with matched-null alarm rate <= x."""
+    s = u["sweep"][key]; nd = len(u["days"]); cnts = [c for c in s["null_counts"] if c is not None]
+    if not cnts: return [None] * nd, [None] * nd
+    rate = np.mean(np.array(cnts, float), 0); idx = []
+    for x in XGRID:
+        ok = np.where(rate <= x + 1e-12)[0]; idx.append(int(ok[np.argmax(rate[ok])]) if len(ok) else -1)       # loosest qualifying threshold; ties to the smaller index
+    val = lambda bits: None if bits is None else float(np.mean([k >= 0 and bits[k] == "1" for k in idx]))
+    return [val(b) for b in s.get(label, [None] * nd)], [val(b) for b in s["null"]]
 
 
 # ---------- guards, models
@@ -147,16 +166,24 @@ def aggregate(units):
     def pair(key, lab):
         a, b = np.array(col(key, lab), dtype=object), np.array(col(key, "null"), dtype=object); ok = np.array([x is not None and y is not None for x, y in zip(a, b)])
         return a[ok].astype(float), b[ok].astype(float), np.array(cl, dtype=object)[ok]
-    labels = ["pc_ratio3"] + [f"{k}:{n}" for k, lv in LEVELS.items() for n, _ in lv]
+    def spair(key, lab):
+        v1, v0 = [], []
+        for u in units: a, b = sweep_day_values(u, key, lab); v1 += a; v0 += b
+        ok = np.array([x is not None and y is not None for x, y in zip(v1, v0)])
+        return np.array(v1, dtype=object)[ok].astype(float), np.array(v0, dtype=object)[ok].astype(float), np.array(cl, dtype=object)[ok]
+    labels = list(PC) + [f"{k}:{n}" for k, lv in LEVELS.items() for n, _ in lv]; res["fixed_threshold_secondary"] = {}
     for lab in labels:
-        e = {}
+        e, fx = {}, {}
         for fam in FAMILIES:
-            for which in ("feature", "baseline"): y1, y0, cc = pair(f"{fam}|{which}", lab); e[f"{fam}|{which}"] = cluster_diff(y1, y0, cc)
-            f1, f0, cc = pair(f"{fam}|feature", lab); b1, b0, _ = pair(f"{fam}|baseline", lab); e[f"{fam}|feature_minus_baseline"] = cluster_diff(f1 - f0, b1 - b0, cc)
-        if lab != "pc_ratio3": vr = np.array([dd["vr"][lab] for _, dd in rows], float); e["variance_neutral_share"] = float(np.mean((vr >= VR_BAND[0]) & (vr <= VR_BAND[1])))
+            for which in ("feature", "baseline"):
+                y1, y0, cc = spair(f"{fam}|{which}", lab); e[f"{fam}|{which}"] = cluster_diff(y1, y0, cc)
+                y1, y0, cc = pair(f"{fam}|{which}", lab); fx[f"{fam}|{which}"] = cluster_diff(y1, y0, cc)
+            f1, f0, cc = spair(f"{fam}|feature", lab); b1, b0, _ = spair(f"{fam}|baseline", lab); e[f"{fam}|feature_minus_baseline"] = cluster_diff(f1 - f0, b1 - b0, cc)
+        res["fixed_threshold_secondary"][lab] = fx
+        if lab not in PC: vr = np.array([dd["vr"][lab] for _, dd in rows], float); e["variance_neutral_share"] = float(np.mean((vr >= VR_BAND[0]) & (vr <= VR_BAND[1])))
         res["types"][lab] = e
-    nulls = {f"{fam}|{w}": float(np.mean([x for x in col(f"{fam}|{w}", "null") if x is not None])) for fam in FAMILIES for w in ("feature", "baseline")}
-    g2 = all(res["types"]["pc_ratio3"][f"{f}|feature"]["responds"] for f in H1_FAMILIES); g3 = all(nulls[f"{f}|{w}"] <= NULL_MAX for f in H1_FAMILIES for w in ("feature", "baseline")); g4 = res["n_days"] >= MIN_DAYS
+    nulls = {f"{fam}|{w}": res["types"]["pc_ratio3"][f"{fam}|{w}"]["rate0"] for fam in FAMILIES for w in ("feature", "baseline")}         # matched-null grid-averaged hit rate (A19.2 rule 4)
+    g2 = all(res["types"][pc][f"{f}|feature"]["responds"] for pc in PC for f in H1_FAMILIES); g3 = all(nulls[f"{f}|{w}"] <= NULL_MAX for f in H1_FAMILIES for w in ("feature", "baseline")); g4 = res["n_days"] >= MIN_DAYS
     res["null_hit_rates"] = nulls; res["gates"] = dict(ii_positive_control=g2, iii_null_sanity=g3, iv_days=g4, n_days=res["n_days"])
     d8 = json.loads((RES / "d8" / "d8_results.json").read_text(encoding="utf-8"))["occurs"]; res["verdict"] = {}
     for kind, lev in PRIMARY.items():
@@ -166,15 +193,17 @@ def aggregate(units):
     return res
 
 
-def preflight(token, days=3):
+def preflight(token, days=None):
     import s5_backend as BK
     ph, man = guards(token); db = BK.DataBackend("RAW", 3); t0 = time.time(); models, thr = load_fold_models("RAW|3", man)
     u = fold_unit(db, "RAW|3", models, thr, max_days=days); dt = (time.time() - t0) / 60
     vr = [v for dd in u["days"] for v in dd["vr"].values()]; bad = [v for v in vr if not (VR_BAND[0] <= v <= VR_BAND[1])]
     if len(u["days"]) < 1 or set(u["hits"]) != {f"{f}|{w}" for f in FAMILIES for w in ("feature", "baseline")}: raise RuntimeError(f"D7 smoke test incomplete: {len(u['days'])} days, {sorted(u['hits'])}")
     log(f"D7 preflight: RAW 3 (contaminated) {u['n_stable']} stable test days, {len(u['days'])} scored, {len(u['skipped'])} skipped; {len(vr)} injections, VR outside [0.95, 1.05]: {len(bad)} {bad[:3]}; "
-        f"null hits (Gaussian feature) {u['hits']['gaussian_hmm|feature']['null']}; pc_ratio3 {u['hits']['gaussian_hmm|feature']['pc_ratio3']}; {dt:.1f} min (incl. load); nothing written to results/d7/ckpt")
-    agg = aggregate([u]); log(f"D7 preflight: aggregate ran on {agg['n_days']} days (gates on this mini sample are not meaningful: {agg['gates']})")
+        f"{dt:.1f} min (incl. load); nothing written to results/d7/ckpt")
+    agg = aggregate([u]); s = lambda lab, k="gaussian_hmm|feature": agg["types"][lab][k]
+    log(f"D7 preflight (RAW 3 only, {agg['n_days']} days): sweep gain Gaussian feature: pc x3 {s('pc_ratio3')['diff']:+.2f}, pc x5.29 {s('pc_ratio5.29')['diff']:+.2f}, jumps 2x5sd {s('jumps:jumps2x5sd')['diff']:+.2f}; "
+        f"variance-neutral share jumps 2x5sd {agg['types']['jumps:jumps2x5sd']['variance_neutral_share']:.2f}, 2x4sd {agg['types']['jumps:jumps2x4sd']['variance_neutral_share']:.2f}; gates on this fold {agg['gates']}")
     n = len(list(CK.glob("*.json"))) if CK.exists() else 0; log(f"D7 preflight: {n} of 26 D7 fold units already checkpointed"); return ph
 
 
