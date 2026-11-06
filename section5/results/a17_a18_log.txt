@@ -1,0 +1,26 @@
+2026-11-05T22:44:46-05:00 [ps1 35712] === run_a17_a18_overnight.ps1 start: preflight only (-Check); protocol 0b0669b5f341b3d6...; max retries 5 per phase
+2026-11-05T22:44:46-05:00 [ps1 35712] A17 attempt 1 of 6: starting Python
+2026-11-05T22:44:49-05:00 [py 27168] A17 guards: protocol 0b0669b5f341b3d6..., main record verified (results 7cd6a5926442b8e6...), code b22b29ffacca13b4, 272 units, 98 H1(c) events, no lock, registry ok
+2026-11-05T22:51:00-05:00 [py 27168] A17 preflight: RAW 3 Gaussian HMM reproduced the rehearsal checkpoint exactly; extras ran (thresholds 15.496/3.346, QLIKE test pct 22.3, placebo gap -0.026799999999999997) in 6.2 min; nothing written to results/a17/ckpt
+2026-11-05T22:51:00-05:00 [py 27168] A17 preflight: 0 of 136 A17 units already checkpointed
+2026-11-05T22:51:00-05:00 [py 27168] A17 preflight passed (--check): A17 NOT started
+2026-11-05T22:51:00-05:00 [ps1 35712] A17 attempt 1: Python exited with code 0 after 6.2 min
+2026-11-05T22:51:00-05:00 [ps1 35712] === stopped after A17 (code 2026-11-05T22:44:49-05:00 [py 27168] A17 guards: protocol 0b0669b5f341b3d6..., main record verified (results 7cd6a5926442b8e6...), code b22b29ffacca13b4, 272 units, 98 H1(c) events, no lock, registry ok 2026-11-05T22:51:00-05:00 [py 27168] A17 preflight: RAW 3 Gaussian HMM reproduced the rehearsal checkpoint exactly; extras ran (thresholds 15.496/3.346, QLIKE test pct 22.3, placebo gap -0.026799999999999997) in 6.2 min; nothing written to results/a17/ckpt 2026-11-05T22:51:00-05:00 [py 27168] A17 preflight: 0 of 136 A17 units already checkpointed 2026-11-05T22:51:00-05:00 [py 27168] A17 preflight passed (--check): A17 NOT started 0); A18 not started
+2026-11-05T22:51:17-05:00 [ps1 22296] === run_a17_a18_overnight.ps1 start: preflight only (-Check); protocol 0b0669b5f341b3d6...; max retries 5 per phase
+2026-11-05T22:51:17-05:00 [ps1 22296] A17 attempt 1 of 6: starting Python
+2026-11-05T22:51:19-05:00 [py 32260] A17 guards: protocol 0b0669b5f341b3d6..., main record verified (results 7cd6a5926442b8e6...), code b22b29ffacca13b4, 272 units, 98 H1(c) events, no lock, registry ok
+2026-11-05T22:57:30-05:00 [py 32260] A17 preflight: RAW 3 Gaussian HMM reproduced the rehearsal checkpoint exactly; extras ran (thresholds 15.496/3.346, QLIKE test pct 22.3, placebo gap -0.026799999999999997) in 6.2 min; nothing written to results/a17/ckpt
+2026-11-05T22:57:30-05:00 [py 32260] A17 preflight: 0 of 136 A17 units already checkpointed
+2026-11-05T22:57:30-05:00 [py 32260] A17 preflight passed (--check): A17 NOT started
+2026-11-05T22:57:30-05:00 [ps1 22296] A17 attempt 1: Python exited with code 0 after 6.2 min
+2026-11-05T22:57:30-05:00 [ps1 22296] A18 attempt 1 of 6: starting Python
+2026-11-05T22:57:32-05:00 [py 36388] A18 guards: protocol 0b0669b5f341b3d6..., main record verified, canonical list, no lock, registry ok; backend kind a18-580bb98e81eb453b
+2026-11-05T22:57:37-05:00 [py 36388] A18 preflight: RAW 3 gaussian_hmm: NLL return-only 1.3616 (4408 bars), + abs_return_1m 1.3942
+2026-11-05T22:57:41-05:00 [py 36388] A18 preflight: RAW 3 student_t_hmm: NLL return-only 1.3523 (4408 bars), + abs_return_1m 1.3973
+2026-11-05T22:58:31-05:00 [py 36388] A18 preflight: RAW 3 hsmm: NLL return-only 1.3573 (4408 bars), + abs_return_1m 1.3843
+2026-11-05T22:58:31-05:00 [py 36388] A18 preflight: RAW 3 bocpd: NLL return-only 1.4061 (4408 bars), + abs_return_1m 1.4064
+2026-11-05T23:04:12-05:00 [py 36388] A18 preflight: RAW 3 Gaussian HMM selection [] K={'K': 4} baseline {'K': 4}; H1(a) 0.0, H1(b) 0.0; 6.7 min; nothing written to results/a18
+2026-11-05T23:04:12-05:00 [py 36388] A18 preflight: 0 of 272 A18 checkpoint units exist for any version
+2026-11-05T23:04:12-05:00 [py 36388] A18 preflight passed (--check): A18 NOT started
+2026-11-05T23:04:12-05:00 [ps1 22296] A18 attempt 1: Python exited with code 0 after 6.7 min
+2026-11-05T23:04:12-05:00 [ps1 22296] === preflight passed for A17 and A18; nothing was started

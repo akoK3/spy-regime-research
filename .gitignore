@@ -304,3 +304,10 @@
 !/section5/results/rehearsal_a16/
 !/section5/*.ps1
 !/section5/results/main_run/
+!AMENDMENT_A17.md
+!AMENDMENT_A17.sha256
+!AMENDMENT_A18.md
+!AMENDMENT_A18.sha256
+!/section5/results/a17/
+!/section5/results/a18/
+/section5/results/a17/models/
