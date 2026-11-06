@@ -26,6 +26,7 @@ REGISTRY = {
     "s5_machinery_run.py": RAW3 + L29, "s5_rehearsal.py": RAW3 + L29, "s5_a14_diag.py": [("RAW", 3, ("train",)), ("LEGACY", 29, ("train",))],
     "s5_backend.py": "LIBRARY", "s5_era_threshold.py": "LIBRARY", "s5_main.py": "MAIN_RUN", "s5_main_run.py": "MAIN_RUN",
     "s5_a17.py": "POST_MAIN_RUN", "s5_a18.py": "POST_MAIN_RUN", "s5_tests_a17_a18.py": "LIBRARY",      # A17 rule 6
+    "s5_d8.py": "DESCRIPTIVE",      # A19 rule 1g: no detector, no model, no outcome; validation sessions already used by the main run
     "s5_tests_a11.py": "LIBRARY", "s5_tests_backend.py": "LIBRARY", "s5_tests_a15.py": "LIBRARY", "s5_tests_a16.py": "LIBRARY",
     # A15 rule 2: the first cold audit (section5_cold_audit.md; scripts in that audit's scratchpad, not in the repository)
     "cold_audit_1/x5_robust.py": [("LEGACY", 25, ("train", "val")), ("LEGACY", 29, ("train", "val")), ("RAW", 3, ("train", "val"))],   # detectors fitted and scored
