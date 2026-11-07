@@ -21,3 +21,200 @@
 2026-11-07T02:53:16-05:00 [ps1 37404] === run_a21_overnight.ps1 start: D7 (A21) -> Step 2 liquidity; protocol 15be2570a592279e...; max retries 5 per phase
 2026-11-07T02:53:16-05:00 [ps1 37404] D7 (A21) attempt 1 of 6: starting Python
 2026-11-07T02:53:18-05:00 [py 3764] D7 guards: protocol 15be2570a592279e..., main record verified, canonical list, no lock, registry ok, A17 manifest 136 models
+2026-11-07T02:53:51-05:00 [py 3764] D7 fold 1/26 LEGACY|0: 9 days (5 skipped); 0.5 min
+2026-11-07T02:53:59-05:00 [py 3764] D7 fold 2/26 LEGACY|1: 4 days (4 skipped); 0.1 min
+2026-11-07T02:54:03-05:00 [py 3764] D7 fold 3/26 LEGACY|2: 2 days (8 skipped); 0.1 min
+2026-11-07T02:54:12-05:00 [py 3764] D7 fold 4/26 LEGACY|3: 4 days (4 skipped); 0.1 min
+2026-11-07T02:54:20-05:00 [py 3764] D7 fold 5/26 LEGACY|4: 3 days (3 skipped); 0.1 min
+2026-11-07T02:54:27-05:00 [py 3764] D7 fold 6/26 LEGACY|5: 3 days (5 skipped); 0.1 min
+2026-11-07T02:54:53-05:00 [py 3764] D7 fold 7/26 LEGACY|6: 11 days (1 skipped); 0.4 min
+2026-11-07T02:55:16-05:00 [py 3764] D7 fold 8/26 LEGACY|7: 11 days (0 skipped); 0.4 min
+2026-11-07T02:55:36-05:00 [py 3764] D7 fold 9/26 LEGACY|8: 9 days (0 skipped); 0.3 min
+2026-11-07T02:56:11-05:00 [py 3764] D7 fold 10/26 LEGACY|9: 16 days (0 skipped); 0.6 min
+2026-11-07T02:56:50-05:00 [py 3764] D7 fold 11/26 LEGACY|10: 18 days (0 skipped); 0.6 min
+2026-11-07T02:56:55-05:00 [py 3764] D7 fold 12/26 LEGACY|11: 2 days (1 skipped); 0.1 min
+2026-11-07T02:57:13-05:00 [py 3764] D7 fold 13/26 LEGACY|12: 8 days (1 skipped); 0.3 min
+2026-11-07T02:57:30-05:00 [py 3764] D7 fold 14/26 LEGACY|13: 8 days (0 skipped); 0.3 min
+2026-11-07T02:57:43-05:00 [py 3764] D7 fold 15/26 LEGACY|14: 6 days (3 skipped); 0.2 min
+2026-11-07T02:58:23-05:00 [py 3764] D7 fold 16/26 LEGACY|15: 18 days (0 skipped); 0.7 min
+2026-11-07T02:58:42-05:00 [py 3764] D7 fold 17/26 LEGACY|16: 9 days (5 skipped); 0.3 min
+2026-11-07T02:58:46-05:00 [py 3764] D7 fold 18/26 LEGACY|17: 2 days (2 skipped); 0.1 min
+2026-11-07T02:58:56-05:00 [py 3764] D7 fold 19/26 LEGACY|18: 4 days (3 skipped); 0.2 min
+2026-11-07T02:59:20-05:00 [py 3764] D7 fold 20/26 LEGACY|19: 11 days (1 skipped); 0.4 min
+2026-11-07T02:59:44-05:00 [py 3764] D7 fold 21/26 LEGACY|20: 11 days (0 skipped); 0.4 min
+2026-11-07T03:00:06-05:00 [py 3764] D7 fold 22/26 LEGACY|21: 10 days (1 skipped); 0.4 min
+2026-11-07T03:00:31-05:00 [py 3764] D7 fold 23/26 LEGACY|22: 11 days (1 skipped); 0.4 min
+2026-11-07T03:00:59-05:00 [py 3764] D7 fold 24/26 LEGACY|25: 13 days (0 skipped); 0.5 min
+2026-11-07T03:01:31-05:00 [py 3764] D7 fold 25/26 LEGACY|26: 15 days (0 skipped); 0.5 min
+2026-11-07T03:03:20-05:00 [py 3764] D7 fold 26/26 RAW|0: 40 days (0 skipped); 1.8 min
+2026-11-07T03:03:43-05:00 [py 3764] D7 DONE in 0.17 h; results/d7/d7_results.json written
+2026-11-07T03:03:44-05:00 [ps1 37404] D7 (A21) attempt 1: Python exited with code 0 after 10.5 min
+2026-11-07T03:03:44-05:00 [ps1 37404] D7 (A21) DONE (results\mr2\d7_a21\d7_results.json written)
+2026-11-07T03:03:44-05:00 [ps1 37404] Step 2 liquidity attempt 1 of 6: starting Python
+2026-11-07T03:03:45-05:00 [py 23556] Step 2 (liquidity) start: 34 folds x 4 families, then D7 on 26 confirmatory folds; tag f4fdf4c2e775/a0f531b8e79d
+2026-11-07T03:05:01-05:00 [py 23556] Step 2 fold 1/34 LEGACY|0 gaussian_hmm: features ['relative_volume20'] params {'K': 4} baseline {'K': 3}; b 0.007727125920270583; 1.0 min
+2026-11-07T03:06:49-05:00 [py 23556] Step 2 fold 1/34 LEGACY|0 student_t_hmm: features ['relative_volume20'] params {'K': 4} baseline {'K': 4}; b 0.00589275221682703; 1.8 min
+2026-11-07T03:12:35-05:00 [py 23556] Step 2 fold 1/34 LEGACY|0 hsmm: features ['relative_volume20'] params {'K': 3} baseline {'K': 3}; b 0.008303799546844015; 5.8 min
+2026-11-07T03:12:44-05:00 [py 23556] Step 2 fold 1/34 LEGACY|0 bocpd: features [] params {'lam': 78} baseline {'lam': 78}; b 0.0; 0.2 min
+2026-11-07T03:13:04-05:00 [py 23556] Step 2 D7 LEGACY|0: 9 days (5 skipped); 0.3 min
+2026-11-07T03:13:49-05:00 [py 23556] Step 2 fold 2/34 LEGACY|1 gaussian_hmm: features ['rv10_partial90__sadj', 'relative_volume20'] params {'K': 4} baseline {'K': 4}; b 0.004482212481787859; 0.8 min
+2026-11-07T03:15:16-05:00 [py 23556] Step 2 fold 2/34 LEGACY|1 student_t_hmm: features ['rv10_partial90__sadj', 'relative_volume20'] params {'K': 3} baseline {'K': 4}; b 0.0018397354261496801; 1.4 min
+2026-11-07T03:21:48-05:00 [py 23556] Step 2 fold 2/34 LEGACY|1 hsmm: features ['relative_volume20'] params {'K': 3} baseline {'K': 3}; b 0.005778901668144459; 6.5 min
+2026-11-07T03:21:58-05:00 [py 23556] Step 2 fold 2/34 LEGACY|1 bocpd: features [] params {'lam': 78} baseline {'lam': 78}; b 0.0; 0.2 min
+2026-11-07T03:22:06-05:00 [py 23556] Step 2 D7 LEGACY|1: 4 days (4 skipped); 0.1 min
+2026-11-07T03:22:54-05:00 [py 23556] Step 2 fold 3/34 LEGACY|2 gaussian_hmm: features ['rv10_partial90__sadj', 'relative_volume20'] params {'K': 4} baseline {'K': 4}; b 0.0031312752317210757; 0.8 min
+2026-11-07T03:24:24-05:00 [py 23556] Step 2 fold 3/34 LEGACY|2 student_t_hmm: features ['rv10_partial90__sadj', 'relative_volume20'] params {'K': 4} baseline {'K': 4}; b 0.0023706648778880485; 1.5 min
+2026-11-07T03:30:50-05:00 [py 23556] Step 2 fold 3/34 LEGACY|2 hsmm: features ['rv10_partial90__sadj', 'relative_volume20'] params {'K': 3} baseline {'K': 3}; b 0.004536380611302793; 6.4 min
+2026-11-07T03:31:00-05:00 [py 23556] Step 2 fold 3/34 LEGACY|2 bocpd: features [] params {'lam': 78} baseline {'lam': 78}; b 0.0; 0.2 min
+2026-11-07T03:31:05-05:00 [py 23556] Step 2 D7 LEGACY|2: 2 days (8 skipped); 0.1 min
+2026-11-07T03:31:53-05:00 [py 23556] Step 2 fold 4/34 LEGACY|3 gaussian_hmm: features ['relative_volume20'] params {'K': 4} baseline {'K': 3}; b 0.004417499948160125; 0.8 min
+2026-11-07T03:33:53-05:00 [py 23556] Step 2 fold 4/34 LEGACY|3 student_t_hmm: features ['relative_volume20'] params {'K': 4} baseline {'K': 4}; b 0.004568262349522567; 2.0 min
+2026-11-07T03:39:37-05:00 [py 23556] Step 2 fold 4/34 LEGACY|3 hsmm: features ['relative_volume20'] params {'K': 3} baseline {'K': 3}; b 0.005961632908835904; 5.7 min
+2026-11-07T03:39:47-05:00 [py 23556] Step 2 fold 4/34 LEGACY|3 bocpd: features [] params {'lam': 78} baseline {'lam': 78}; b 0.0; 0.2 min
+2026-11-07T03:39:56-05:00 [py 23556] Step 2 D7 LEGACY|3: 4 days (4 skipped); 0.1 min
+2026-11-07T03:40:50-05:00 [py 23556] Step 2 fold 5/34 LEGACY|4 gaussian_hmm: features ['relative_volume20'] params {'K': 4} baseline {'K': 3}; b 0.004658986366741558; 0.9 min
+2026-11-07T03:42:15-05:00 [py 23556] Step 2 fold 5/34 LEGACY|4 student_t_hmm: features [] params {'K': 4} baseline {'K': 4}; b 0.0; 1.4 min
+2026-11-07T03:47:43-05:00 [py 23556] Step 2 fold 5/34 LEGACY|4 hsmm: features ['relative_volume20'] params {'K': 3} baseline {'K': 3}; b 0.008277973233912245; 5.5 min
+2026-11-07T03:47:53-05:00 [py 23556] Step 2 fold 5/34 LEGACY|4 bocpd: features [] params {'lam': 78} baseline {'lam': 78}; b 0.0; 0.2 min
+2026-11-07T03:48:00-05:00 [py 23556] Step 2 D7 LEGACY|4: 3 days (3 skipped); 0.1 min
+2026-11-07T03:48:49-05:00 [py 23556] Step 2 fold 6/34 LEGACY|5 gaussian_hmm: features ['rv10_partial90__sadj', 'relative_volume20'] params {'K': 4} baseline {'K': 3}; b 0.005117270995648085; 0.8 min
+2026-11-07T03:50:21-05:00 [py 23556] Step 2 fold 6/34 LEGACY|5 student_t_hmm: features ['rv10_partial90__sadj', 'relative_volume20', 'intrabar_range_log__sadj'] params {'K': 4} baseline {'K': 4}; b 0.0024976847766678134; 1.5 min
+2026-11-07T03:56:52-05:00 [py 23556] Step 2 fold 6/34 LEGACY|5 hsmm: features ['rv10_partial90__sadj', 'relative_volume20', 'intrabar_range_log__sadj'] params {'K': 3} baseline {'K': 3}; b 0.008463234998827826; 6.5 min
+2026-11-07T03:57:01-05:00 [py 23556] Step 2 fold 6/34 LEGACY|5 bocpd: features [] params {'lam': 78} baseline {'lam': 78}; b 0.0; 0.2 min
+2026-11-07T03:57:08-05:00 [py 23556] Step 2 D7 LEGACY|5: 3 days (5 skipped); 0.1 min
+2026-11-07T03:57:52-05:00 [py 23556] Step 2 fold 7/34 LEGACY|6 gaussian_hmm: features ['relative_volume20'] params {'K': 4} baseline {'K': 3}; b 0.010342905935538743; 0.7 min
+2026-11-07T03:59:43-05:00 [py 23556] Step 2 fold 7/34 LEGACY|6 student_t_hmm: features ['relative_volume20'] params {'K': 4} baseline {'K': 3}; b 0.005612091152556661; 1.8 min
+2026-11-07T04:04:43-05:00 [py 23556] Step 2 fold 7/34 LEGACY|6 hsmm: features ['relative_volume20'] params {'K': 3} baseline {'K': 3}; b 0.00997453875098607; 5.0 min
+2026-11-07T04:04:52-05:00 [py 23556] Step 2 fold 7/34 LEGACY|6 bocpd: features [] params {'lam': 78} baseline {'lam': 78}; b 0.0; 0.2 min
+2026-11-07T04:05:18-05:00 [py 23556] Step 2 D7 LEGACY|6: 11 days (1 skipped); 0.4 min
+2026-11-07T04:05:44-05:00 [py 23556] Step 2 fold 8/34 LEGACY|7 gaussian_hmm: features [] params {'K': 3} baseline {'K': 3}; b 0.0; 0.4 min
+2026-11-07T04:07:10-05:00 [py 23556] Step 2 fold 8/34 LEGACY|7 student_t_hmm: features [] params {'K': 3} baseline {'K': 3}; b 0.0; 1.4 min
+2026-11-07T04:13:05-05:00 [py 23556] Step 2 fold 8/34 LEGACY|7 hsmm: features ['downside10_strict__sadj', 'relative_volume20'] params {'K': 3} baseline {'K': 3}; b 0.017810981529504583; 5.9 min
+2026-11-07T04:13:15-05:00 [py 23556] Step 2 fold 8/34 LEGACY|7 bocpd: features [] params {'lam': 78} baseline {'lam': 78}; b 0.0; 0.2 min
+2026-11-07T04:13:38-05:00 [py 23556] Step 2 D7 LEGACY|7: 11 days (0 skipped); 0.4 min
+2026-11-07T04:14:18-05:00 [py 23556] Step 2 fold 9/34 LEGACY|8 gaussian_hmm: features ['rv10_partial90__sadj', 'relative_volume20'] params {'K': 4} baseline {'K': 4}; b 0.0024477741177184736; 0.7 min
+2026-11-07T04:14:59-05:00 [py 23556] Step 2 fold 9/34 LEGACY|8 student_t_hmm: features [] params {'K': 3} baseline {'K': 3}; b 0.0; 0.7 min
+2026-11-07T04:19:07-05:00 [py 23556] Step 2 fold 9/34 LEGACY|8 hsmm: features ['rv10_partial90__sadj', 'relative_volume20'] params {'K': 3} baseline {'K': 3}; b 0.008424321107044802; 4.1 min
+2026-11-07T04:19:17-05:00 [py 23556] Step 2 fold 9/34 LEGACY|8 bocpd: features [] params {'lam': 12} baseline {'lam': 12}; b 0.0; 0.2 min
+2026-11-07T04:19:36-05:00 [py 23556] Step 2 D7 LEGACY|8: 9 days (0 skipped); 0.3 min
+2026-11-07T04:20:11-05:00 [py 23556] Step 2 fold 10/34 LEGACY|9 gaussian_hmm: features ['relative_volume20'] params {'K': 4} baseline {'K': 2}; b 0.013412795862236385; 0.6 min
+2026-11-07T04:21:32-05:00 [py 23556] Step 2 fold 10/34 LEGACY|9 student_t_hmm: features ['relative_volume20'] params {'K': 3} baseline {'K': 4}; b 0.0031666303835214404; 1.4 min
+2026-11-07T04:24:34-05:00 [py 23556] Step 2 fold 10/34 LEGACY|9 hsmm: features [] params {'K': 3} baseline {'K': 3}; b 0.0; 3.0 min
+2026-11-07T04:24:43-05:00 [py 23556] Step 2 fold 10/34 LEGACY|9 bocpd: features [] params {'lam': 12} baseline {'lam': 12}; b 0.0; 0.2 min
+2026-11-07T04:25:19-05:00 [py 23556] Step 2 D7 LEGACY|9: 16 days (0 skipped); 0.6 min
+2026-11-07T04:25:59-05:00 [py 23556] Step 2 fold 11/34 LEGACY|10 gaussian_hmm: features ['rv10_partial90__sadj', 'relative_volume20'] params {'K': 4} baseline {'K': 4}; b 0.003971783551739452; 0.7 min
+2026-11-07T04:27:26-05:00 [py 23556] Step 2 fold 11/34 LEGACY|10 student_t_hmm: features ['rv10_partial90__sadj', 'relative_volume20'] params {'K': 4} baseline {'K': 4}; b 0.0004064081754570695; 1.5 min
+2026-11-07T04:33:13-05:00 [py 23556] Step 2 fold 11/34 LEGACY|10 hsmm: features ['rv10_partial90__sadj', 'relative_volume20'] params {'K': 3} baseline {'K': 3}; b 0.004803477910770355; 5.8 min
+2026-11-07T04:33:23-05:00 [py 23556] Step 2 fold 11/34 LEGACY|10 bocpd: features [] params {'lam': 12} baseline {'lam': 12}; b 0.0; 0.2 min
+2026-11-07T04:34:02-05:00 [py 23556] Step 2 D7 LEGACY|10: 18 days (0 skipped); 0.7 min
+2026-11-07T04:34:34-05:00 [py 23556] Step 2 fold 12/34 LEGACY|11 gaussian_hmm: features ['rv5_strict__sadj'] params {'K': 4} baseline {'K': 2}; b 0.0007683828901443035; 0.5 min
+2026-11-07T04:35:45-05:00 [py 23556] Step 2 fold 12/34 LEGACY|11 student_t_hmm: features ['relative_volume20'] params {'K': 4} baseline {'K': 4}; b 0.0039487466835541885; 1.2 min
+2026-11-07T04:38:57-05:00 [py 23556] Step 2 fold 12/34 LEGACY|11 hsmm: features [] params {'K': 3} baseline {'K': 3}; b 0.0; 3.2 min
+2026-11-07T04:39:07-05:00 [py 23556] Step 2 fold 12/34 LEGACY|11 bocpd: features [] params {'lam': 12} baseline {'lam': 12}; b 0.0; 0.2 min
+2026-11-07T04:39:11-05:00 [py 23556] Step 2 D7 LEGACY|11: 2 days (1 skipped); 0.1 min
+2026-11-07T04:39:57-05:00 [py 23556] Step 2 fold 13/34 LEGACY|12 gaussian_hmm: features ['rv10_partial90__sadj', 'relative_volume20'] params {'K': 4} baseline {'K': 4}; b 0.03603110033036368; 0.8 min
+2026-11-07T04:41:12-05:00 [py 23556] Step 2 fold 13/34 LEGACY|12 student_t_hmm: features ['rv5_strict__sadj'] params {'K': 4} baseline {'K': 4}; b 0.01903542498844059; 1.3 min
+2026-11-07T04:46:48-05:00 [py 23556] Step 2 fold 13/34 LEGACY|12 hsmm: features ['rv10_partial90__sadj', 'relative_volume20'] params {'K': 3} baseline {'K': 2}; b 0.031134082665137175; 5.6 min
+2026-11-07T04:46:58-05:00 [py 23556] Step 2 fold 13/34 LEGACY|12 bocpd: features [] params {'lam': 78} baseline {'lam': 78}; b 0.0; 0.2 min
+2026-11-07T04:47:15-05:00 [py 23556] Step 2 D7 LEGACY|12: 8 days (1 skipped); 0.3 min
+2026-11-07T04:47:59-05:00 [py 23556] Step 2 fold 14/34 LEGACY|13 gaussian_hmm: features ['rv10_partial90__sadj', 'relative_volume20'] params {'K': 4} baseline {'K': 4}; b 0.002814055151381778; 0.7 min
+2026-11-07T04:48:39-05:00 [py 23556] Step 2 fold 14/34 LEGACY|13 student_t_hmm: features [] params {'K': 3} baseline {'K': 3}; b 0.0; 0.7 min
+2026-11-07T04:55:43-05:00 [py 23556] Step 2 fold 14/34 LEGACY|13 hsmm: features ['rv10_partial90__sadj', 'relative_volume20'] params {'K': 3} baseline {'K': 3}; b 0.00745747949728251; 7.1 min
+2026-11-07T04:55:52-05:00 [py 23556] Step 2 fold 14/34 LEGACY|13 bocpd: features [] params {'lam': 12} baseline {'lam': 12}; b 0.0; 0.2 min
+2026-11-07T04:56:10-05:00 [py 23556] Step 2 D7 LEGACY|13: 8 days (0 skipped); 0.3 min
+2026-11-07T04:56:41-05:00 [py 23556] Step 2 fold 15/34 LEGACY|14 gaussian_hmm: features ['relative_volume20'] params {'K': 4} baseline {'K': 3}; b 0.003991004201181987; 0.5 min
+2026-11-07T04:57:47-05:00 [py 23556] Step 2 fold 15/34 LEGACY|14 student_t_hmm: features ['relative_volume20'] params {'K': 4} baseline {'K': 4}; b -0.0002833864468756789; 1.1 min
+2026-11-07T05:02:01-05:00 [py 23556] Step 2 fold 15/34 LEGACY|14 hsmm: features ['relative_volume20'] params {'K': 3} baseline {'K': 3}; b 0.0028297735732497886; 4.2 min
+2026-11-07T05:02:10-05:00 [py 23556] Step 2 fold 15/34 LEGACY|14 bocpd: features [] params {'lam': 12} baseline {'lam': 12}; b 0.0; 0.2 min
+2026-11-07T05:02:23-05:00 [py 23556] Step 2 D7 LEGACY|14: 6 days (3 skipped); 0.2 min
+2026-11-07T05:02:53-05:00 [py 23556] Step 2 fold 16/34 LEGACY|15 gaussian_hmm: features [] params {'K': 4} baseline {'K': 4}; b 0.0; 0.5 min
+2026-11-07T05:03:38-05:00 [py 23556] Step 2 fold 16/34 LEGACY|15 student_t_hmm: features [] params {'K': 2} baseline {'K': 2}; b 0.0; 0.8 min
+2026-11-07T05:08:01-05:00 [py 23556] Step 2 fold 16/34 LEGACY|15 hsmm: features ['relative_volume20'] params {'K': 3} baseline {'K': 3}; b 0.008565872796345117; 4.4 min
+2026-11-07T05:08:11-05:00 [py 23556] Step 2 fold 16/34 LEGACY|15 bocpd: features [] params {'lam': 12} baseline {'lam': 12}; b 0.0; 0.2 min
+2026-11-07T05:08:50-05:00 [py 23556] Step 2 D7 LEGACY|15: 18 days (0 skipped); 0.7 min
+2026-11-07T05:09:32-05:00 [py 23556] Step 2 fold 17/34 LEGACY|16 gaussian_hmm: features ['rv10_partial90__sadj', 'relative_volume20'] params {'K': 4} baseline {'K': 4}; b 0.002253521440466817; 0.7 min
+2026-11-07T05:10:36-05:00 [py 23556] Step 2 fold 17/34 LEGACY|16 student_t_hmm: features ['intrabar_range_log__sadj'] params {'K': 4} baseline {'K': 4}; b 0.0006274691959683235; 1.1 min
+2026-11-07T05:16:43-05:00 [py 23556] Step 2 fold 17/34 LEGACY|16 hsmm: features ['rv10_partial90__sadj', 'relative_volume20'] params {'K': 3} baseline {'K': 3}; b 0.0035635375035527467; 6.1 min
+2026-11-07T05:16:52-05:00 [py 23556] Step 2 fold 17/34 LEGACY|16 bocpd: features [] params {'lam': 12} baseline {'lam': 12}; b 0.0; 0.2 min
+2026-11-07T05:17:11-05:00 [py 23556] Step 2 D7 LEGACY|16: 9 days (5 skipped); 0.3 min
+2026-11-07T05:17:37-05:00 [py 23556] Step 2 fold 18/34 LEGACY|17 gaussian_hmm: features [] params {'K': 3} baseline {'K': 3}; b 0.0; 0.4 min
+2026-11-07T05:18:39-05:00 [py 23556] Step 2 fold 18/34 LEGACY|17 student_t_hmm: features ['relative_volume20'] params {'K': 3} baseline {'K': 3}; b 0.00559747357182909; 1.0 min
+2026-11-07T05:22:47-05:00 [py 23556] Step 2 fold 18/34 LEGACY|17 hsmm: features ['relative_volume20'] params {'K': 2} baseline {'K': 3}; b 0.0036617299112494117; 4.1 min
+2026-11-07T05:22:56-05:00 [py 23556] Step 2 fold 18/34 LEGACY|17 bocpd: features [] params {'lam': 78} baseline {'lam': 78}; b 0.0; 0.2 min
+2026-11-07T05:23:01-05:00 [py 23556] Step 2 D7 LEGACY|17: 2 days (2 skipped); 0.1 min
+2026-11-07T05:23:45-05:00 [py 23556] Step 2 fold 19/34 LEGACY|18 gaussian_hmm: features ['relative_volume20'] params {'K': 4} baseline {'K': 4}; b 0.006288910976356615; 0.7 min
+2026-11-07T05:25:18-05:00 [py 23556] Step 2 fold 19/34 LEGACY|18 student_t_hmm: features ['relative_volume20'] params {'K': 4} baseline {'K': 2}; b 0.0033404244103689; 1.5 min
+2026-11-07T05:31:05-05:00 [py 23556] Step 2 fold 19/34 LEGACY|18 hsmm: features ['relative_volume20'] params {'K': 3} baseline {'K': 3}; b 0.006769960764438657; 5.8 min
+2026-11-07T05:31:14-05:00 [py 23556] Step 2 fold 19/34 LEGACY|18 bocpd: features [] params {'lam': 12} baseline {'lam': 12}; b 0.0; 0.2 min
+2026-11-07T05:31:24-05:00 [py 23556] Step 2 D7 LEGACY|18: 4 days (3 skipped); 0.2 min
+2026-11-07T05:32:08-05:00 [py 23556] Step 2 fold 20/34 LEGACY|19 gaussian_hmm: features ['rv10_partial90__sadj', 'relative_volume20'] params {'K': 4} baseline {'K': 3}; b 0.005477836607552536; 0.7 min
+2026-11-07T05:34:03-05:00 [py 23556] Step 2 fold 20/34 LEGACY|19 student_t_hmm: features ['rv10_partial90__sadj', 'relative_volume20'] params {'K': 4} baseline {'K': 2}; b 0.005642238907811445; 1.9 min
+2026-11-07T05:39:09-05:00 [py 23556] Step 2 fold 20/34 LEGACY|19 hsmm: features ['rv10_partial90__sadj', 'relative_volume20'] params {'K': 3} baseline {'K': 3}; b 0.00903769756436451; 5.1 min
+2026-11-07T05:39:18-05:00 [py 23556] Step 2 fold 20/34 LEGACY|19 bocpd: features [] params {'lam': 12} baseline {'lam': 12}; b 0.0; 0.2 min
+2026-11-07T05:39:42-05:00 [py 23556] Step 2 D7 LEGACY|19: 11 days (1 skipped); 0.4 min
+2026-11-07T05:40:37-05:00 [py 23556] Step 2 fold 21/34 LEGACY|20 gaussian_hmm: features ['relative_volume20'] params {'K': 4} baseline {'K': 3}; b 0.009904746028882486; 0.9 min
+2026-11-07T05:41:54-05:00 [py 23556] Step 2 fold 21/34 LEGACY|20 student_t_hmm: features ['relative_volume20'] params {'K': 3} baseline {'K': 4}; b 0.008965795363413492; 1.3 min
+2026-11-07T05:46:47-05:00 [py 23556] Step 2 fold 21/34 LEGACY|20 hsmm: features ['relative_volume20'] params {'K': 3} baseline {'K': 3}; b 0.010426521495866453; 4.9 min
+2026-11-07T05:46:57-05:00 [py 23556] Step 2 fold 21/34 LEGACY|20 bocpd: features [] params {'lam': 12} baseline {'lam': 12}; b 0.0; 0.2 min
+2026-11-07T05:47:21-05:00 [py 23556] Step 2 D7 LEGACY|20: 11 days (0 skipped); 0.4 min
+2026-11-07T05:48:00-05:00 [py 23556] Step 2 fold 22/34 LEGACY|21 gaussian_hmm: features ['relative_volume20'] params {'K': 4} baseline {'K': 4}; b 0.03727203989964359; 0.7 min
+2026-11-07T05:49:26-05:00 [py 23556] Step 2 fold 22/34 LEGACY|21 student_t_hmm: features ['relative_volume20'] params {'K': 4} baseline {'K': 3}; b 0.01397150193415729; 1.4 min
+2026-11-07T05:53:34-05:00 [py 23556] Step 2 fold 22/34 LEGACY|21 hsmm: features ['relative_volume20'] params {'K': 3} baseline {'K': 3}; b 0.021682460496879816; 4.1 min
+2026-11-07T05:53:44-05:00 [py 23556] Step 2 fold 22/34 LEGACY|21 bocpd: features [] params {'lam': 12} baseline {'lam': 12}; b 0.0; 0.2 min
+2026-11-07T05:54:06-05:00 [py 23556] Step 2 D7 LEGACY|21: 10 days (1 skipped); 0.4 min
+2026-11-07T05:54:49-05:00 [py 23556] Step 2 fold 23/34 LEGACY|22 gaussian_hmm: features ['rv10_partial90__sadj', 'relative_volume20'] params {'K': 4} baseline {'K': 4}; b 0.004936127749337174; 0.7 min
+2026-11-07T05:56:07-05:00 [py 23556] Step 2 fold 23/34 LEGACY|22 student_t_hmm: features ['relative_volume20'] params {'K': 4} baseline {'K': 3}; b 0.009447867612560674; 1.3 min
+2026-11-07T06:00:57-05:00 [py 23556] Step 2 fold 23/34 LEGACY|22 hsmm: features ['rv10_partial90__sadj', 'relative_volume20'] params {'K': 3} baseline {'K': 3}; b 0.008408593189850613; 4.8 min
+2026-11-07T06:01:07-05:00 [py 23556] Step 2 fold 23/34 LEGACY|22 bocpd: features [] params {'lam': 12} baseline {'lam': 12}; b 0.0; 0.2 min
+2026-11-07T06:01:32-05:00 [py 23556] Step 2 D7 LEGACY|22: 11 days (1 skipped); 0.4 min
+2026-11-07T06:02:07-05:00 [py 23556] Step 2 fold 24/34 LEGACY|23 gaussian_hmm: features ['relative_volume20'] params {'K': 4} baseline {'K': 3}; b 0.016276049046250726; 0.6 min
+2026-11-07T06:03:08-05:00 [py 23556] Step 2 fold 24/34 LEGACY|23 student_t_hmm: features ['relative_volume20'] params {'K': 4} baseline {'K': 2}; b 0.02767266246815482; 1.0 min
+2026-11-07T06:08:17-05:00 [py 23556] Step 2 fold 24/34 LEGACY|23 hsmm: features ['relative_volume20'] params {'K': 3} baseline {'K': 3}; b 0.016538812013338747; 5.2 min
+2026-11-07T06:08:27-05:00 [py 23556] Step 2 fold 24/34 LEGACY|23 bocpd: features [] params {'lam': 12} baseline {'lam': 12}; b 0.0; 0.2 min
+2026-11-07T06:09:02-05:00 [py 23556] Step 2 fold 25/34 LEGACY|24 gaussian_hmm: features ['relative_volume20'] params {'K': 4} baseline {'K': 3}; b 0.006232909429670537; 0.6 min
+2026-11-07T06:10:22-05:00 [py 23556] Step 2 fold 25/34 LEGACY|24 student_t_hmm: features ['relative_volume20'] params {'K': 4} baseline {'K': 4}; b 0.008408770936614504; 1.3 min
+2026-11-07T06:15:03-05:00 [py 23556] Step 2 fold 25/34 LEGACY|24 hsmm: features ['relative_volume20'] params {'K': 3} baseline {'K': 3}; b 0.009250089369999014; 4.7 min
+2026-11-07T06:15:13-05:00 [py 23556] Step 2 fold 25/34 LEGACY|24 bocpd: features [] params {'lam': 12} baseline {'lam': 12}; b 0.0; 0.2 min
+2026-11-07T06:15:44-05:00 [py 23556] Step 2 fold 26/34 LEGACY|25 gaussian_hmm: features ['relative_volume20'] params {'K': 4} baseline {'K': 3}; b 0.01176295630259; 0.5 min
+2026-11-07T06:16:50-05:00 [py 23556] Step 2 fold 26/34 LEGACY|25 student_t_hmm: features ['relative_volume20'] params {'K': 4} baseline {'K': 4}; b 0.011301697251042228; 1.1 min
+2026-11-07T06:21:18-05:00 [py 23556] Step 2 fold 26/34 LEGACY|25 hsmm: features ['relative_volume20', 'rv5_strict__sadj'] params {'K': 3} baseline {'K': 3}; b 0.00969206139365797; 4.5 min
+2026-11-07T06:21:28-05:00 [py 23556] Step 2 fold 26/34 LEGACY|25 bocpd: features [] params {'lam': 12} baseline {'lam': 12}; b 0.0; 0.2 min
+2026-11-07T06:21:56-05:00 [py 23556] Step 2 D7 LEGACY|25: 13 days (0 skipped); 0.5 min
+2026-11-07T06:22:33-05:00 [py 23556] Step 2 fold 27/34 LEGACY|26 gaussian_hmm: features ['relative_volume20'] params {'K': 4} baseline {'K': 4}; b 0.01108500788092541; 0.6 min
+2026-11-07T06:24:07-05:00 [py 23556] Step 2 fold 27/34 LEGACY|26 student_t_hmm: features ['relative_volume20'] params {'K': 4} baseline {'K': 4}; b 0.010678167088884777; 1.6 min
+2026-11-07T06:30:15-05:00 [py 23556] Step 2 fold 27/34 LEGACY|26 hsmm: features ['relative_volume20'] params {'K': 3} baseline {'K': 3}; b 0.008240597324930175; 6.1 min
+2026-11-07T06:30:25-05:00 [py 23556] Step 2 fold 27/34 LEGACY|26 bocpd: features [] params {'lam': 12} baseline {'lam': 12}; b 0.0; 0.2 min
+2026-11-07T06:30:57-05:00 [py 23556] Step 2 D7 LEGACY|26: 15 days (0 skipped); 0.5 min
+2026-11-07T06:31:37-05:00 [py 23556] Step 2 fold 28/34 LEGACY|27 gaussian_hmm: features ['relative_volume20'] params {'K': 4} baseline {'K': 3}; b 0.019109634703260964; 0.7 min
+2026-11-07T06:32:50-05:00 [py 23556] Step 2 fold 28/34 LEGACY|27 student_t_hmm: features ['relative_volume20'] params {'K': 4} baseline {'K': 4}; b 0.010150000244824403; 1.2 min
+2026-11-07T06:38:03-05:00 [py 23556] Step 2 fold 28/34 LEGACY|27 hsmm: features ['relative_volume20'] params {'K': 3} baseline {'K': 3}; b 0.013092741021210039; 5.2 min
+2026-11-07T06:38:13-05:00 [py 23556] Step 2 fold 28/34 LEGACY|27 bocpd: features [] params {'lam': 12} baseline {'lam': 12}; b 0.0; 0.2 min
+2026-11-07T06:38:48-05:00 [py 23556] Step 2 fold 29/34 LEGACY|28 gaussian_hmm: features ['relative_volume20'] params {'K': 4} baseline {'K': 3}; b 0.007999770613212387; 0.6 min
+2026-11-07T06:40:21-05:00 [py 23556] Step 2 fold 29/34 LEGACY|28 student_t_hmm: features ['relative_volume20'] params {'K': 4} baseline {'K': 4}; b 0.011444353611248154; 1.5 min
+2026-11-07T06:45:16-05:00 [py 23556] Step 2 fold 29/34 LEGACY|28 hsmm: features ['relative_volume20', 'return_1m'] params {'K': 3} baseline {'K': 3}; b 0.0033384638536785582; 4.9 min
+2026-11-07T06:45:26-05:00 [py 23556] Step 2 fold 29/34 LEGACY|28 bocpd: features [] params {'lam': 12} baseline {'lam': 12}; b 0.0; 0.2 min
+2026-11-07T06:45:58-05:00 [py 23556] Step 2 fold 30/34 LEGACY|29 gaussian_hmm: features ['rv10_partial90__sadj', 'relative_volume20'] params {'K': 4} baseline {'K': 3}; b 0.011071174581667093; 0.5 min
+2026-11-07T06:46:51-05:00 [py 23556] Step 2 fold 30/34 LEGACY|29 student_t_hmm: features ['relative_volume20'] params {'K': 4} baseline {'K': 4}; b 0.014255687409509103; 0.9 min
+2026-11-07T06:51:38-05:00 [py 23556] Step 2 fold 30/34 LEGACY|29 hsmm: features ['rv10_partial90__sadj', 'relative_volume20'] params {'K': 3} baseline {'K': 3}; b 0.010737691321617282; 4.8 min
+2026-11-07T06:51:48-05:00 [py 23556] Step 2 fold 30/34 LEGACY|29 bocpd: features [] params {'lam': 12} baseline {'lam': 12}; b 0.0; 0.2 min
+2026-11-07T06:52:31-05:00 [py 23556] Step 2 fold 31/34 RAW|0 gaussian_hmm: features ['relative_volume20'] params {'K': 4} baseline {'K': 2}; b 0.011737920604883108; 0.7 min
+2026-11-07T06:53:57-05:00 [py 23556] Step 2 fold 31/34 RAW|0 student_t_hmm: features ['relative_volume20'] params {'K': 3} baseline {'K': 4}; b 0.010397260899464807; 1.4 min
+2026-11-07T07:00:40-05:00 [py 23556] Step 2 fold 31/34 RAW|0 hsmm: features ['relative_volume20'] params {'K': 3} baseline {'K': 2}; b 0.00879653284007631; 6.7 min
+2026-11-07T07:00:49-05:00 [py 23556] Step 2 fold 31/34 RAW|0 bocpd: features [] params {'lam': 12} baseline {'lam': 12}; b 0.0; 0.2 min
+2026-11-07T07:02:36-05:00 [py 23556] Step 2 D7 RAW|0: 40 days (0 skipped); 1.8 min
+2026-11-07T07:03:22-05:00 [py 23556] Step 2 fold 32/34 RAW|1 gaussian_hmm: features ['relative_volume20'] params {'K': 4} baseline {'K': 4}; b 0.0180845165513447; 0.8 min
+2026-11-07T07:04:38-05:00 [py 23556] Step 2 fold 32/34 RAW|1 student_t_hmm: features ['relative_volume20'] params {'K': 3} baseline {'K': 4}; b 0.01889429122424198; 1.3 min
+2026-11-07T07:10:46-05:00 [py 23556] Step 2 fold 32/34 RAW|1 hsmm: features ['relative_volume20'] params {'K': 3} baseline {'K': 3}; b 0.012943131500546698; 6.1 min
+2026-11-07T07:10:56-05:00 [py 23556] Step 2 fold 32/34 RAW|1 bocpd: features [] params {'lam': 12} baseline {'lam': 12}; b 0.0; 0.2 min
+2026-11-07T07:11:50-05:00 [py 23556] Step 2 fold 33/34 RAW|2 gaussian_hmm: features ['relative_volume20'] params {'K': 4} baseline {'K': 3}; b 0.012050212523157328; 0.9 min
+2026-11-07T07:13:10-05:00 [py 23556] Step 2 fold 33/34 RAW|2 student_t_hmm: features ['relative_volume20'] params {'K': 4} baseline {'K': 2}; b 0.012814996890795557; 1.3 min
+2026-11-07T07:20:13-05:00 [py 23556] Step 2 fold 33/34 RAW|2 hsmm: features ['relative_volume20'] params {'K': 3} baseline {'K': 3}; b 0.00798280251910817; 7.0 min
+2026-11-07T07:20:23-05:00 [py 23556] Step 2 fold 33/34 RAW|2 bocpd: features [] params {'lam': 78} baseline {'lam': 78}; b 0.0; 0.2 min
+2026-11-07T07:20:58-05:00 [py 23556] Step 2 fold 34/34 RAW|3 gaussian_hmm: features ['relative_volume20'] params {'K': 4} baseline {'K': 3}; b 0.01732011222462916; 0.6 min
+2026-11-07T07:22:22-05:00 [py 23556] Step 2 fold 34/34 RAW|3 student_t_hmm: features ['relative_volume20'] params {'K': 4} baseline {'K': 3}; b 0.017670577095556472; 1.4 min
+2026-11-07T07:29:06-05:00 [py 23556] Step 2 fold 34/34 RAW|3 hsmm: features ['relative_volume20'] params {'K': 3} baseline {'K': 3}; b 0.009757178712846232; 6.7 min
+2026-11-07T07:29:16-05:00 [py 23556] Step 2 fold 34/34 RAW|3 bocpd: features [] params {'lam': 12} baseline {'lam': 12}; b 0.0; 0.2 min
+2026-11-07T07:29:39-05:00 [py 23556] Step 2 DONE in 4.43 h; results/step2_liquidity/step2_results.json written; no freeze, no era calibration
+2026-11-07T07:29:39-05:00 [ps1 37404] Step 2 liquidity attempt 1: Python exited with code 0 after 265.9 min
+2026-11-07T07:29:39-05:00 [ps1 37404] Step 2 liquidity DONE (results\step2_liquidity\step2_results.json written)
+2026-11-07T07:29:39-05:00 [ps1 37404] === D7 (A21) and Step 2 liquidity DONE. No 5.12 freeze, no era calibration.
