@@ -59,7 +59,7 @@ def inject(p, g, kind, level, w, rng, sign):
         for k in range(1, WIN): x[k] = r[k] + level * x[k - 1]
     elif kind == "jumps":
         s = math.sqrt(S0 / WIN)                                                                                     # A19.3: the post-tau window's own deseasonalised sd
-        if not s > 0: return None, dict(vr=float("nan"), scale=float("nan"), why="window variance zero")
+        if not s > 0: return None, dict(vr=float("nan"), scale=float("nan"), why="window variance undefined (NaN)" if math.isnan(s) else "window variance zero")      # A21 rule 1: label
         k, size = level; x = r.copy(); at = rng.choice(WIN, int(k), replace=False); jumps[at] = True; x[at] = rng.choice([-1.0, 1.0], int(k)) * size * s / np.sqrt(wj[at])   # replaces the minute's return
     else: raise ValueError(kind)
     sj = float((wj[jumps] * x[jumps] ** 2).sum()); sn = float((wj[~jumps] * x[~jumps] ** 2).sum()); c2 = (S0 - sj) / sn if sn > 0 else float("nan")
@@ -106,6 +106,8 @@ def fold_unit(db, fold, models, thresholds, max_days=None):
             for name, level in lv:
                 q, info = inject(p0, g, kind, level, w, rng, sign); rec["vr"][f"{kind}:{name}"] = info["vr"]; rec["info"][f"{kind}:{name}"] = {k: v for k, v in info.items() if k != "vr"}
                 if q is not None: pan[f"{kind}:{name}"] = q
+        if any(not np.isfinite(v) for v in rec["vr"].values()):                                                   # A21 rule 1: data validity, before any detector sees the day
+            out["skipped"].append(dict(day=rec["day"], why="undefined variance ratio (A21)", nan_types=sorted(k for k, v in rec["vr"].items() if not np.isfinite(v)))); continue
         for k in lab:
             if k in pan: rows[(len(out["days"]), k)] = F.rows_from_panel(d, bases, pan[k], i, i, g, tau, cols)
         rec["tau"] = tau; out["days"].append(rec)
@@ -227,7 +229,8 @@ def main():
             G.check_unlocked("D7"); t1 = time.time(); models, thr = load_fold_models(fold, man); u = fold_unit(b._b(fold), fold, models, thr); u["tag"] = tag
             tmp = p.with_suffix(".tmp"); tmp.write_text(json.dumps(u, default=float), encoding="utf-8"); tmp.replace(p); units.append(u)
             log(f"D7 fold {k}/{len(folds)} {fold}: {len(u['days'])} days ({len(u['skipped'])} skipped); {(time.time() - t1) / 60:.1f} min")
-        res = aggregate(units); res.update(label="D7 (AMENDMENT_A19.md rule 2)", amendment_sha256=file_sha(HERE.parent / "AMENDMENT_A19.md"), tag=tag, folds=folds, hours=(time.time() - t0) / 3600)
+        res = aggregate(units); res.update(label="D7 (AMENDMENT_A19.md rule 2; A21 rule 1)", amendment_sha256=file_sha(HERE.parent / "AMENDMENT_A19.md"), a21_sha256=file_sha(HERE.parent / "AMENDMENT_A21.md"),
+                   skipped=[dict(fold=u["fold"], **s) for u in units for s in u["skipped"]], tag=tag, folds=folds, hours=(time.time() - t0) / 3600)
         (OUT / "d7_results.json").write_text(json.dumps(res, indent=1, default=float), encoding="utf-8"); log(f"D7 DONE in {(time.time() - t0) / 3600:.2f} h; results/d7/d7_results.json written"); return EXIT_OK
     except PermissionError as e: log(f"D7 REFUSED (not retryable): {e}"); return EXIT_GUARD
     except KeyboardInterrupt: log("D7 STOPPED by the user (Ctrl+C); finished folds are checkpointed"); return EXIT_STOP

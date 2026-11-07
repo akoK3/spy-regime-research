@@ -1,0 +1,20 @@
+2026-11-07T02:34:48-05:00 [ps1 34008] === run_a21_overnight.ps1 start: preflight only (-Check); protocol 15be2570a592279e...; max retries 5 per phase
+2026-11-07T02:34:48-05:00 [ps1 34008] A21 preflight attempt 1 of 6: starting Python
+2026-11-07T02:34:50-05:00 [py 29864] A21 preflight: protocol 15be2570a592279e... FROZEN, canonical list, no lock, registry ok, A21 sidecar ok; 10 Step 2 unit tests pass
+2026-11-07T02:35:40-05:00 [py 29864] A21 preflight D7 (MR2 fits) RAW|3: 18 days kept, 0 skipped []; no undefined ratio left
+2026-11-07T02:36:17-05:00 [py 29864] A21 preflight D7 (MR2 fits) LEGACY|29: 11 days kept, 0 skipped []; no undefined ratio left
+2026-11-07T02:36:19-05:00 [py 29864] A21 preflight D7 pooled (29 days): variance-neutral shares {'pc_ratio3': None, 'pc_ratio5.29': None, 'liquidity:vol_x2': 1.0, 'liquidity:vol_x0.5': 1.0, 'trend:t2': 1.0, 'trend:t4': 1.0, 'momentum:rho0.2': 1.0, 'momentum:rho0.4': 1.0, 'jumps:jumps2x4sd': 1.0, 'jumps:jumps2x5sd': 1.0}; gates {'ii_positive_control': True, 'iii_null_sanity': True, 'iv_days': False, 'n_days': 29}
+2026-11-07T02:36:57-05:00 [py 29864] A21 preflight Step 2 RAW|3 gaussian_hmm: features ['relative_volume20'] params {'K': 4} baseline {'K': 3}; liquidity QLIKE base-feat +0.0173 (+17.5%), DM p 2.191358206005134e-12; thresholds 5.61/3.35; 0.6 min
+2026-11-07T02:38:24-05:00 [py 29864] A21 preflight Step 2 RAW|3 student_t_hmm: features ['relative_volume20'] params {'K': 4} baseline {'K': 3}; liquidity QLIKE base-feat +0.0177 (+18.1%), DM p 8.807399254351367e-13; thresholds 5.64/4.49; 1.5 min
+2026-11-07T02:44:52-05:00 [py 29864] A21 preflight Step 2 RAW|3 hsmm: features ['relative_volume20'] params {'K': 3} baseline {'K': 3}; liquidity QLIKE base-feat +0.0098 (+9.9%), DM p 1.4721224239622188e-11; thresholds 5.50/4.15; 6.5 min
+2026-11-07T02:45:01-05:00 [py 29864] A21 preflight Step 2 RAW|3 bocpd: features [] params {'lam': 12} baseline {'lam': 12}; liquidity QLIKE base-feat +0.0000 (+0.0%), DM p 0.5; thresholds 48.21/48.21; 0.2 min
+2026-11-07T02:45:50-05:00 [py 29864] A21 preflight Step 2 D7 RAW|3 (18 days): liquidity x2 sweep gain (feature) gaussian +0.05, student +0.04, hsmm -0.01, bocpd +0.00
+2026-11-07T02:46:36-05:00 [py 29864] A21 preflight Step 2 LEGACY|29 gaussian_hmm: features ['rv10_partial90__sadj', 'relative_volume20'] params {'K': 4} baseline {'K': 3}; liquidity QLIKE base-feat +0.0111 (+14.0%), DM p 2.881207134763919e-06; thresholds 11.69/3.12; 0.5 min
+2026-11-07T02:47:30-05:00 [py 29864] A21 preflight Step 2 LEGACY|29 student_t_hmm: features ['relative_volume20'] params {'K': 4} baseline {'K': 4}; liquidity QLIKE base-feat +0.0143 (+18.9%), DM p 4.057754132702485e-12; thresholds 6.23/4.13; 0.9 min
+2026-11-07T02:52:18-05:00 [py 29864] A21 preflight Step 2 LEGACY|29 hsmm: features ['rv10_partial90__sadj', 'relative_volume20'] params {'K': 3} baseline {'K': 3}; liquidity QLIKE base-feat +0.0107 (+13.1%), DM p 2.4163563361323526e-07; thresholds 8.15/3.87; 4.8 min
+2026-11-07T02:52:28-05:00 [py 29864] A21 preflight Step 2 LEGACY|29 bocpd: features [] params {'lam': 12} baseline {'lam': 12}; liquidity QLIKE base-feat +0.0000 (+0.0%), DM p 0.5; thresholds 46.05/46.05; 0.2 min
+2026-11-07T02:52:52-05:00 [py 29864] A21 preflight Step 2 D7 LEGACY|29 (11 days): liquidity x2 sweep gain (feature) gaussian +0.00, student +0.02, hsmm +0.07, bocpd +0.00
+2026-11-07T02:52:55-05:00 [py 29864] A21 preflight Step 2 D7 pooled (29 days): gate i {'vol_x2': 1.0, 'vol_x0.5': 1.0}, iii True, iv False (not evaluable on 2 folds); gains x2 gaussian +0.03, student +0.04, hsmm +0.02, bocpd +0.00
+2026-11-07T02:52:55-05:00 [py 29864] A21 preflight PASSED in 18.1 min (written to results/step2_preflight/)
+2026-11-07T02:52:55-05:00 [ps1 34008] A21 preflight attempt 1: Python exited with code 0 after 18.1 min
+2026-11-07T02:52:55-05:00 [ps1 34008] === preflight passed; nothing was started

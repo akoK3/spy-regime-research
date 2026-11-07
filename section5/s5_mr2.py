@@ -2,7 +2,7 @@
 """MR2 (AMENDMENT_A20.md): the main run under A20 (__sadj-only scale inputs, deseasonalised QLIKE target), then the A17-style phase on its fits (reproduction with exact-match abort,
 saved models and alarms, H1(c), POST HOC R=1-net H1(a), QLIKE percent), then D7 per A19.3 on the MR2 fits. Reuses s5_main_run, s5_a17 and s5_d7 with MR2 directories; their rules are unchanged.
 Usage: s5_mr2.py PROTOCOL_SHA256 STAGE [--check]
-  STAGE: mr2 | a17 | d7 (the runner calls them in this order).   --check (any stage): guards plus the full preflight on the contaminated folds RAW 3 and LEGACY 29 (selection and
+  STAGE: mr2 | a17 | d7 (the runner calls them in this order); d7a21 = D7 rerun with A21 rule 1 into results/mr2/d7_a21 (AMENDMENT_A21.md rule 2).   --check (any stage): guards plus the full preflight on the contaminated folds RAW 3 and LEGACY 29 (selection and
   scoring of all four families, A17-style reproduction and extras, D7 including its positive control); writes only to results/mr2_preflight/.
 Exit codes: 0 done, 1 crash (retryable; resumes from checkpoints), 2 Ctrl+C, 3 guard refusal, 4 A17-style reproduction mismatch (stop)."""
 import sys, os, json, time, pickle, traceback
@@ -66,7 +66,7 @@ def preflight(token):
 
 
 def main():
-    if len(sys.argv) < 3 or sys.argv[2] not in ("mr2", "a17", "d7"): print(__doc__); return 3
+    if len(sys.argv) < 3 or sys.argv[2] not in ("mr2", "a17", "d7", "d7a21"): print(__doc__); return 3
     token, stage, check = sys.argv[1], sys.argv[2], "--check" in sys.argv[3:]
     MR, A, CM, D = configure(); LOG.parent.mkdir(parents=True, exist_ok=True); (MR2 / "a17" / "models").mkdir(parents=True, exist_ok=True)
     if check:
@@ -77,6 +77,9 @@ def main():
             CM.log(f"MR2 preflight CRASH: {type(e).__name__}: {e}")
             for l in traceback.format_exc().rstrip().splitlines(): CM.log("  | " + l)
             return 1
+    if stage == "d7a21":                                                                                         # A21 rule 2: D7 with the A21 rule-1 exclusion, own directory and log
+        if check: print("d7a21 has no --check here; its preflight is s5_step2.py --check (A21 rule 4)"); return 3
+        D.OUT, D.CK, D.LOG = MR2 / "d7_a21", MR2 / "d7_a21" / "ckpt", RES / "a21_log.txt"; D.OUT.mkdir(parents=True, exist_ok=True); stage = "d7"
     sys.argv = [sys.argv[0], token]                                                                              # the reused mains read argv[1] = token
     return {"mr2": MR.main, "a17": A.main, "d7": D.main}[stage]()
 
