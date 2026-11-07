@@ -25,3 +25,632 @@
 2026-11-06T15:50:53-05:00 [py 25156] MR2 preflight passed (--check): nothing started
 2026-11-06T15:50:54-05:00 [ps1 22912] MR2 preflight attempt 1: Python exited with code 0 after 43.7 min
 2026-11-06T15:50:54-05:00 [ps1 22912] === preflight passed; nothing was started
+2026-11-06T15:55:20-05:00 [ps1 36492] === run_mr2_overnight.ps1 start: MR2 -> A17-style -> D7; protocol 15be2570a592279e...; max retries 5 per phase
+2026-11-06T15:55:20-05:00 [ps1 36492] MR2 attempt 1 of 6: starting Python
+2026-11-06T15:55:28-05:00 [py 37112] preflight: protocol FROZEN, sidecar matches, token = 15be2570a592279e...
+2026-11-06T15:55:28-05:00 [py 37112] preflight: canonical contamination list f6d67a57ca30184b..., 8 folds excluded, 26 confirmatory
+2026-11-06T15:55:28-05:00 [py 37112] preflight: no era-calibration lock
+2026-11-06T15:55:28-05:00 [py 37112] preflight: every data-loading script is registered
+2026-11-06T15:55:28-05:00 [py 37112] preflight: MainBackend built (34 folds, LEGACY|0 ... RAW|3); no data loaded
+2026-11-06T15:55:28-05:00 [py 37112] preflight: output C:\Users\kakij\Downloads\section5\results\main_run_2 writable; code version a0323ed24d68e896; checkpoint version bbc114924f8edf6b; existing checkpoint units 0 of 272
+2026-11-06T15:55:28-05:00 [py 37112] preflight: python 3.12.10 at C:\Users\kakij\Downloads\research_hmm_env\Scripts\python.exe; numpy 2.5.4, scipy 1.18.1, pandas 3.1.0; free disk 15.1 GB
+2026-11-06T15:55:28-05:00 [py 37112] preflight: free memory 3349 MB (rehearsal peak 1027 MB)
+2026-11-06T15:55:28-05:00 [py 37112] main run: start (resumes from existing checkpoints in C:\Users\kakij\Downloads\section5\results\main_run_2)
+2026-11-06T15:55:29-05:00 [py 37112] fold 1/34 LEGACY|0: start
+2026-11-06T15:55:29-05:00 [py 37112]   LEGACY|0 gaussian_hmm: selection start
+2026-11-06T15:56:36-05:00 [py 37112]   LEGACY|0 gaussian_hmm: selection done (1.1 min); features ['rv10_partial90__sadj'] params {'K': 4} baseline {'K': 3}; scoring start
+2026-11-06T16:00:56-05:00 [py 37112]   LEGACY|0 gaussian_hmm: scoring done (4.3 min)
+2026-11-06T16:00:57-05:00 [py 37112]   LEGACY|0 student_t_hmm: selection start
+2026-11-06T16:02:46-05:00 [py 37112]   LEGACY|0 student_t_hmm: selection done (1.8 min); features ['rv10_partial90__sadj', 'intrabar_range_log__sadj'] params {'K': 4} baseline {'K': 4}; scoring start
+2026-11-06T16:02:48-05:00 [py 37112]   LEGACY|0 student_t_hmm: scoring done (0.0 min)
+2026-11-06T16:02:48-05:00 [py 37112]   LEGACY|0 hsmm: selection start
+2026-11-06T16:07:20-05:00 [py 37112]   LEGACY|0 hsmm: selection done (4.5 min); features ['rv10_partial90__sadj'] params {'K': 3} baseline {'K': 3}; scoring start
+2026-11-06T16:07:22-05:00 [py 37112]   LEGACY|0 hsmm: scoring done (0.0 min)
+2026-11-06T16:07:22-05:00 [py 37112]   LEGACY|0 bocpd: selection start
+2026-11-06T16:07:31-05:00 [py 37112]   LEGACY|0 bocpd: selection done (0.1 min); features [] params {'lam': 12} baseline {'lam': 12}; scoring start
+2026-11-06T16:07:38-05:00 [py 37112]   LEGACY|0 bocpd: scoring done (0.1 min)
+2026-11-06T16:07:38-05:00 [py 37112] fold 2/34 LEGACY|1: start
+2026-11-06T16:07:38-05:00 [py 37112]   LEGACY|1 gaussian_hmm: selection start
+2026-11-06T16:08:16-05:00 [py 37112]   LEGACY|1 gaussian_hmm: selection done (0.6 min); features ['rv10_partial90__sadj'] params {'K': 4} baseline {'K': 4}; scoring start
+2026-11-06T16:12:24-05:00 [py 37112]   LEGACY|1 gaussian_hmm: scoring done (4.1 min)
+2026-11-06T16:12:24-05:00 [py 37112]   LEGACY|1 student_t_hmm: selection start
+2026-11-06T16:13:47-05:00 [py 37112]   LEGACY|1 student_t_hmm: selection done (1.4 min); features ['rv10_partial90__sadj'] params {'K': 4} baseline {'K': 4}; scoring start
+2026-11-06T16:13:49-05:00 [py 37112]   LEGACY|1 student_t_hmm: scoring done (0.0 min)
+2026-11-06T16:13:49-05:00 [py 37112]   LEGACY|1 hsmm: selection start
+2026-11-06T16:20:36-05:00 [py 37112]   LEGACY|1 hsmm: selection done (6.8 min); features ['rv10_partial90__sadj', 'intrabar_range_log__sadj'] params {'K': 3} baseline {'K': 3}; scoring start
+2026-11-06T16:20:39-05:00 [py 37112]   LEGACY|1 hsmm: scoring done (0.0 min)
+2026-11-06T16:20:39-05:00 [py 37112]   LEGACY|1 bocpd: selection start
+2026-11-06T16:20:48-05:00 [py 37112]   LEGACY|1 bocpd: selection done (0.1 min); features [] params {'lam': 12} baseline {'lam': 12}; scoring start
+2026-11-06T16:20:55-05:00 [py 37112]   LEGACY|1 bocpd: scoring done (0.1 min)
+2026-11-06T16:20:55-05:00 [py 37112] fold 3/34 LEGACY|2: start
+2026-11-06T16:20:55-05:00 [py 37112]   LEGACY|2 gaussian_hmm: selection start
+2026-11-06T16:21:42-05:00 [py 37112]   LEGACY|2 gaussian_hmm: selection done (0.8 min); features ['rv10_partial90__sadj', 'intrabar_range_log__sadj'] params {'K': 4} baseline {'K': 4}; scoring start
+2026-11-06T16:25:55-05:00 [py 37112]   LEGACY|2 gaussian_hmm: scoring done (4.2 min)
+2026-11-06T16:25:55-05:00 [py 37112]   LEGACY|2 student_t_hmm: selection start
+2026-11-06T16:27:31-05:00 [py 37112]   LEGACY|2 student_t_hmm: selection done (1.6 min); features ['rv10_partial90__sadj', 'intrabar_range_log__sadj'] params {'K': 4} baseline {'K': 4}; scoring start
+2026-11-06T16:27:33-05:00 [py 37112]   LEGACY|2 student_t_hmm: scoring done (0.0 min)
+2026-11-06T16:27:33-05:00 [py 37112]   LEGACY|2 hsmm: selection start
+2026-11-06T16:34:08-05:00 [py 37112]   LEGACY|2 hsmm: selection done (6.6 min); features ['rv10_partial90__sadj', 'intrabar_range_log__sadj'] params {'K': 3} baseline {'K': 3}; scoring start
+2026-11-06T16:34:11-05:00 [py 37112]   LEGACY|2 hsmm: scoring done (0.0 min)
+2026-11-06T16:34:11-05:00 [py 37112]   LEGACY|2 bocpd: selection start
+2026-11-06T16:34:20-05:00 [py 37112]   LEGACY|2 bocpd: selection done (0.2 min); features [] params {'lam': 12} baseline {'lam': 12}; scoring start
+2026-11-06T16:34:27-05:00 [py 37112]   LEGACY|2 bocpd: scoring done (0.1 min)
+2026-11-06T16:34:27-05:00 [py 37112] fold 4/34 LEGACY|3: start
+2026-11-06T16:34:27-05:00 [py 37112]   LEGACY|3 gaussian_hmm: selection start
+2026-11-06T16:35:09-05:00 [py 37112]   LEGACY|3 gaussian_hmm: selection done (0.7 min); features ['rv10_partial90__sadj'] params {'K': 4} baseline {'K': 3}; scoring start
+2026-11-06T16:39:31-05:00 [py 37112]   LEGACY|3 gaussian_hmm: scoring done (4.4 min)
+2026-11-06T16:39:31-05:00 [py 37112]   LEGACY|3 student_t_hmm: selection start
+2026-11-06T16:41:17-05:00 [py 37112]   LEGACY|3 student_t_hmm: selection done (1.8 min); features ['rv10_partial90__sadj'] params {'K': 4} baseline {'K': 2}; scoring start
+2026-11-06T16:41:19-05:00 [py 37112]   LEGACY|3 student_t_hmm: scoring done (0.0 min)
+2026-11-06T16:41:19-05:00 [py 37112]   LEGACY|3 hsmm: selection start
+2026-11-06T16:46:57-05:00 [py 37112]   LEGACY|3 hsmm: selection done (5.6 min); features ['rv10_partial90__sadj'] params {'K': 3} baseline {'K': 2}; scoring start
+2026-11-06T16:47:00-05:00 [py 37112]   LEGACY|3 hsmm: scoring done (0.0 min)
+2026-11-06T16:47:00-05:00 [py 37112]   LEGACY|3 bocpd: selection start
+2026-11-06T16:47:09-05:00 [py 37112]   LEGACY|3 bocpd: selection done (0.1 min); features [] params {'lam': 12} baseline {'lam': 12}; scoring start
+2026-11-06T16:47:16-05:00 [py 37112]   LEGACY|3 bocpd: scoring done (0.1 min)
+2026-11-06T16:47:16-05:00 [py 37112] fold 5/34 LEGACY|4: start
+2026-11-06T16:47:16-05:00 [py 37112]   LEGACY|4 gaussian_hmm: selection start
+2026-11-06T16:48:03-05:00 [py 37112]   LEGACY|4 gaussian_hmm: selection done (0.8 min); features ['rv10_partial90__sadj'] params {'K': 4} baseline {'K': 3}; scoring start
+2026-11-06T16:48:03-05:00 [py 37112]   LEGACY|4 gaussian_hmm: scoring done (0.0 min)
+2026-11-06T16:48:03-05:00 [py 37112]   LEGACY|4 student_t_hmm: selection start
+2026-11-06T16:49:28-05:00 [py 37112]   LEGACY|4 student_t_hmm: selection done (1.4 min); features [] params {'K': 3} baseline {'K': 3}; scoring start
+2026-11-06T16:49:28-05:00 [py 37112]   LEGACY|4 student_t_hmm: scoring done (0.0 min)
+2026-11-06T16:49:28-05:00 [py 37112]   LEGACY|4 hsmm: selection start
+2026-11-06T16:54:34-05:00 [py 37112]   LEGACY|4 hsmm: selection done (5.1 min); features ['rv10_partial90__sadj'] params {'K': 3} baseline {'K': 3}; scoring start
+2026-11-06T16:54:34-05:00 [py 37112]   LEGACY|4 hsmm: scoring done (0.0 min)
+2026-11-06T16:54:34-05:00 [py 37112]   LEGACY|4 bocpd: selection start
+2026-11-06T16:54:43-05:00 [py 37112]   LEGACY|4 bocpd: selection done (0.1 min); features [] params {'lam': 12} baseline {'lam': 12}; scoring start
+2026-11-06T16:54:43-05:00 [py 37112]   LEGACY|4 bocpd: scoring done (0.0 min)
+2026-11-06T16:54:43-05:00 [py 37112] fold 6/34 LEGACY|5: start
+2026-11-06T16:54:43-05:00 [py 37112]   LEGACY|5 gaussian_hmm: selection start
+2026-11-06T16:55:27-05:00 [py 37112]   LEGACY|5 gaussian_hmm: selection done (0.7 min); features ['rv10_partial90__sadj'] params {'K': 4} baseline {'K': 3}; scoring start
+2026-11-06T16:59:51-05:00 [py 37112]   LEGACY|5 gaussian_hmm: scoring done (4.4 min)
+2026-11-06T16:59:51-05:00 [py 37112]   LEGACY|5 student_t_hmm: selection start
+2026-11-06T17:01:08-05:00 [py 37112]   LEGACY|5 student_t_hmm: selection done (1.3 min); features ['rv10_partial90__sadj'] params {'K': 4} baseline {'K': 4}; scoring start
+2026-11-06T17:01:11-05:00 [py 37112]   LEGACY|5 student_t_hmm: scoring done (0.0 min)
+2026-11-06T17:01:11-05:00 [py 37112]   LEGACY|5 hsmm: selection start
+2026-11-06T17:06:17-05:00 [py 37112]   LEGACY|5 hsmm: selection done (5.1 min); features ['rv10_partial90__sadj'] params {'K': 3} baseline {'K': 3}; scoring start
+2026-11-06T17:06:20-05:00 [py 37112]   LEGACY|5 hsmm: scoring done (0.0 min)
+2026-11-06T17:06:20-05:00 [py 37112]   LEGACY|5 bocpd: selection start
+2026-11-06T17:06:29-05:00 [py 37112]   LEGACY|5 bocpd: selection done (0.2 min); features [] params {'lam': 12} baseline {'lam': 12}; scoring start
+2026-11-06T17:06:35-05:00 [py 37112]   LEGACY|5 bocpd: scoring done (0.1 min)
+2026-11-06T17:06:35-05:00 [py 37112] fold 7/34 LEGACY|6: start
+2026-11-06T17:06:35-05:00 [py 37112]   LEGACY|6 gaussian_hmm: selection start
+2026-11-06T17:07:13-05:00 [py 37112]   LEGACY|6 gaussian_hmm: selection done (0.6 min); features ['rv10_partial90__sadj'] params {'K': 4} baseline {'K': 3}; scoring start
+2026-11-06T17:11:52-05:00 [py 37112]   LEGACY|6 gaussian_hmm: scoring done (4.6 min)
+2026-11-06T17:11:52-05:00 [py 37112]   LEGACY|6 student_t_hmm: selection start
+2026-11-06T17:13:10-05:00 [py 37112]   LEGACY|6 student_t_hmm: selection done (1.3 min); features [] params {'K': 3} baseline {'K': 3}; scoring start
+2026-11-06T17:13:12-05:00 [py 37112]   LEGACY|6 student_t_hmm: scoring done (0.0 min)
+2026-11-06T17:13:12-05:00 [py 37112]   LEGACY|6 hsmm: selection start
+2026-11-06T17:18:01-05:00 [py 37112]   LEGACY|6 hsmm: selection done (4.8 min); features ['rv10_partial90__sadj'] params {'K': 3} baseline {'K': 3}; scoring start
+2026-11-06T17:18:04-05:00 [py 37112]   LEGACY|6 hsmm: scoring done (0.0 min)
+2026-11-06T17:18:04-05:00 [py 37112]   LEGACY|6 bocpd: selection start
+2026-11-06T17:18:13-05:00 [py 37112]   LEGACY|6 bocpd: selection done (0.2 min); features [] params {'lam': 12} baseline {'lam': 12}; scoring start
+2026-11-06T17:18:20-05:00 [py 37112]   LEGACY|6 bocpd: scoring done (0.1 min)
+2026-11-06T17:18:20-05:00 [py 37112] fold 8/34 LEGACY|7: start
+2026-11-06T17:18:20-05:00 [py 37112]   LEGACY|7 gaussian_hmm: selection start
+2026-11-06T17:18:45-05:00 [py 37112]   LEGACY|7 gaussian_hmm: selection done (0.4 min); features [] params {'K': 3} baseline {'K': 3}; scoring start
+2026-11-06T17:23:03-05:00 [py 37112]   LEGACY|7 gaussian_hmm: scoring done (4.3 min)
+2026-11-06T17:23:03-05:00 [py 37112]   LEGACY|7 student_t_hmm: selection start
+2026-11-06T17:24:29-05:00 [py 37112]   LEGACY|7 student_t_hmm: selection done (1.4 min); features [] params {'K': 4} baseline {'K': 4}; scoring start
+2026-11-06T17:24:32-05:00 [py 37112]   LEGACY|7 student_t_hmm: scoring done (0.0 min)
+2026-11-06T17:24:32-05:00 [py 37112]   LEGACY|7 hsmm: selection start
+2026-11-06T17:29:09-05:00 [py 37112]   LEGACY|7 hsmm: selection done (4.6 min); features ['rv10_partial90__sadj'] params {'K': 3} baseline {'K': 3}; scoring start
+2026-11-06T17:29:12-05:00 [py 37112]   LEGACY|7 hsmm: scoring done (0.0 min)
+2026-11-06T17:29:12-05:00 [py 37112]   LEGACY|7 bocpd: selection start
+2026-11-06T17:29:21-05:00 [py 37112]   LEGACY|7 bocpd: selection done (0.2 min); features [] params {'lam': 12} baseline {'lam': 12}; scoring start
+2026-11-06T17:29:27-05:00 [py 37112]   LEGACY|7 bocpd: scoring done (0.1 min)
+2026-11-06T17:29:27-05:00 [py 37112] fold 9/34 LEGACY|8: start
+2026-11-06T17:29:27-05:00 [py 37112]   LEGACY|8 gaussian_hmm: selection start
+2026-11-06T17:30:01-05:00 [py 37112]   LEGACY|8 gaussian_hmm: selection done (0.6 min); features ['rv10_partial90__sadj'] params {'K': 4} baseline {'K': 4}; scoring start
+2026-11-06T17:34:15-05:00 [py 37112]   LEGACY|8 gaussian_hmm: scoring done (4.2 min)
+2026-11-06T17:34:15-05:00 [py 37112]   LEGACY|8 student_t_hmm: selection start
+2026-11-06T17:34:56-05:00 [py 37112]   LEGACY|8 student_t_hmm: selection done (0.7 min); features [] params {'K': 3} baseline {'K': 3}; scoring start
+2026-11-06T17:34:59-05:00 [py 37112]   LEGACY|8 student_t_hmm: scoring done (0.0 min)
+2026-11-06T17:34:59-05:00 [py 37112]   LEGACY|8 hsmm: selection start
+2026-11-06T17:38:28-05:00 [py 37112]   LEGACY|8 hsmm: selection done (3.5 min); features ['rv10_partial90__sadj'] params {'K': 3} baseline {'K': 3}; scoring start
+2026-11-06T17:38:31-05:00 [py 37112]   LEGACY|8 hsmm: scoring done (0.0 min)
+2026-11-06T17:38:31-05:00 [py 37112]   LEGACY|8 bocpd: selection start
+2026-11-06T17:38:40-05:00 [py 37112]   LEGACY|8 bocpd: selection done (0.1 min); features [] params {'lam': 12} baseline {'lam': 12}; scoring start
+2026-11-06T17:38:46-05:00 [py 37112]   LEGACY|8 bocpd: scoring done (0.1 min)
+2026-11-06T17:38:46-05:00 [py 37112] fold 10/34 LEGACY|9: start
+2026-11-06T17:38:46-05:00 [py 37112]   LEGACY|9 gaussian_hmm: selection start
+2026-11-06T17:39:27-05:00 [py 37112]   LEGACY|9 gaussian_hmm: selection done (0.7 min); features ['intrabar_range_log__sadj'] params {'K': 3} baseline {'K': 4}; scoring start
+2026-11-06T17:43:57-05:00 [py 37112]   LEGACY|9 gaussian_hmm: scoring done (4.5 min)
+2026-11-06T17:43:57-05:00 [py 37112]   LEGACY|9 student_t_hmm: selection start
+2026-11-06T17:44:48-05:00 [py 37112]   LEGACY|9 student_t_hmm: selection done (0.8 min); features [] params {'K': 4} baseline {'K': 4}; scoring start
+2026-11-06T17:44:50-05:00 [py 37112]   LEGACY|9 student_t_hmm: scoring done (0.0 min)
+2026-11-06T17:44:50-05:00 [py 37112]   LEGACY|9 hsmm: selection start
+2026-11-06T17:49:25-05:00 [py 37112]   LEGACY|9 hsmm: selection done (4.6 min); features ['rv10_partial90__sadj'] params {'K': 3} baseline {'K': 3}; scoring start
+2026-11-06T17:49:27-05:00 [py 37112]   LEGACY|9 hsmm: scoring done (0.0 min)
+2026-11-06T17:49:27-05:00 [py 37112]   LEGACY|9 bocpd: selection start
+2026-11-06T17:49:37-05:00 [py 37112]   LEGACY|9 bocpd: selection done (0.2 min); features [] params {'lam': 12} baseline {'lam': 12}; scoring start
+2026-11-06T17:49:43-05:00 [py 37112]   LEGACY|9 bocpd: scoring done (0.1 min)
+2026-11-06T17:49:43-05:00 [py 37112] fold 11/34 LEGACY|10: start
+2026-11-06T17:49:43-05:00 [py 37112]   LEGACY|10 gaussian_hmm: selection start
+2026-11-06T17:50:19-05:00 [py 37112]   LEGACY|10 gaussian_hmm: selection done (0.6 min); features ['rv10_partial90__sadj'] params {'K': 4} baseline {'K': 4}; scoring start
+2026-11-06T17:54:42-05:00 [py 37112]   LEGACY|10 gaussian_hmm: scoring done (4.4 min)
+2026-11-06T17:54:42-05:00 [py 37112]   LEGACY|10 student_t_hmm: selection start
+2026-11-06T17:56:10-05:00 [py 37112]   LEGACY|10 student_t_hmm: selection done (1.5 min); features ['rv10_partial90__sadj', 'intrabar_range_log__sadj'] params {'K': 4} baseline {'K': 4}; scoring start
+2026-11-06T17:56:12-05:00 [py 37112]   LEGACY|10 student_t_hmm: scoring done (0.0 min)
+2026-11-06T17:56:12-05:00 [py 37112]   LEGACY|10 hsmm: selection start
+2026-11-06T18:02:03-05:00 [py 37112]   LEGACY|10 hsmm: selection done (5.8 min); features ['rv10_partial90__sadj', 'intrabar_range_log__sadj'] params {'K': 3} baseline {'K': 3}; scoring start
+2026-11-06T18:02:06-05:00 [py 37112]   LEGACY|10 hsmm: scoring done (0.0 min)
+2026-11-06T18:02:06-05:00 [py 37112]   LEGACY|10 bocpd: selection start
+2026-11-06T18:02:15-05:00 [py 37112]   LEGACY|10 bocpd: selection done (0.1 min); features [] params {'lam': 12} baseline {'lam': 12}; scoring start
+2026-11-06T18:02:21-05:00 [py 37112]   LEGACY|10 bocpd: scoring done (0.1 min)
+2026-11-06T18:02:21-05:00 [py 37112] fold 12/34 LEGACY|11: start
+2026-11-06T18:02:21-05:00 [py 37112]   LEGACY|11 gaussian_hmm: selection start
+2026-11-06T18:02:53-05:00 [py 37112]   LEGACY|11 gaussian_hmm: selection done (0.5 min); features ['rv5_strict__sadj'] params {'K': 4} baseline {'K': 4}; scoring start
+2026-11-06T18:02:53-05:00 [py 37112]   LEGACY|11 gaussian_hmm: scoring done (0.0 min)
+2026-11-06T18:02:53-05:00 [py 37112]   LEGACY|11 student_t_hmm: selection start
+2026-11-06T18:04:02-05:00 [py 37112]   LEGACY|11 student_t_hmm: selection done (1.2 min); features ['downside5_strict__sadj'] params {'K': 3} baseline {'K': 3}; scoring start
+2026-11-06T18:04:02-05:00 [py 37112]   LEGACY|11 student_t_hmm: scoring done (0.0 min)
+2026-11-06T18:04:02-05:00 [py 37112]   LEGACY|11 hsmm: selection start
+2026-11-06T18:09:40-05:00 [py 37112]   LEGACY|11 hsmm: selection done (5.6 min); features ['rv10_partial90__sadj', 'momentum30_endpoint'] params {'K': 3} baseline {'K': 3}; scoring start
+2026-11-06T18:09:40-05:00 [py 37112]   LEGACY|11 hsmm: scoring done (0.0 min)
+2026-11-06T18:09:40-05:00 [py 37112]   LEGACY|11 bocpd: selection start
+2026-11-06T18:09:49-05:00 [py 37112]   LEGACY|11 bocpd: selection done (0.1 min); features [] params {'lam': 78} baseline {'lam': 78}; scoring start
+2026-11-06T18:09:50-05:00 [py 37112]   LEGACY|11 bocpd: scoring done (0.0 min)
+2026-11-06T18:09:50-05:00 [py 37112] fold 13/34 LEGACY|12: start
+2026-11-06T18:09:50-05:00 [py 37112]   LEGACY|12 gaussian_hmm: selection start
+2026-11-06T18:10:26-05:00 [py 37112]   LEGACY|12 gaussian_hmm: selection done (0.6 min); features ['rv10_partial90__sadj'] params {'K': 4} baseline {'K': 4}; scoring start
+2026-11-06T18:14:47-05:00 [py 37112]   LEGACY|12 gaussian_hmm: scoring done (4.3 min)
+2026-11-06T18:14:47-05:00 [py 37112]   LEGACY|12 student_t_hmm: selection start
+2026-11-06T18:16:03-05:00 [py 37112]   LEGACY|12 student_t_hmm: selection done (1.3 min); features ['rv5_strict__sadj'] params {'K': 4} baseline {'K': 3}; scoring start
+2026-11-06T18:16:05-05:00 [py 37112]   LEGACY|12 student_t_hmm: scoring done (0.0 min)
+2026-11-06T18:16:05-05:00 [py 37112]   LEGACY|12 hsmm: selection start
+2026-11-06T18:20:22-05:00 [py 37112]   LEGACY|12 hsmm: selection done (4.3 min); features ['rv10_partial90__sadj'] params {'K': 3} baseline {'K': 2}; scoring start
+2026-11-06T18:20:25-05:00 [py 37112]   LEGACY|12 hsmm: scoring done (0.0 min)
+2026-11-06T18:20:25-05:00 [py 37112]   LEGACY|12 bocpd: selection start
+2026-11-06T18:20:34-05:00 [py 37112]   LEGACY|12 bocpd: selection done (0.2 min); features [] params {'lam': 78} baseline {'lam': 78}; scoring start
+2026-11-06T18:20:41-05:00 [py 37112]   LEGACY|12 bocpd: scoring done (0.1 min)
+2026-11-06T18:20:41-05:00 [py 37112] fold 14/34 LEGACY|13: start
+2026-11-06T18:20:41-05:00 [py 37112]   LEGACY|13 gaussian_hmm: selection start
+2026-11-06T18:21:18-05:00 [py 37112]   LEGACY|13 gaussian_hmm: selection done (0.6 min); features ['rv10_partial90__sadj'] params {'K': 4} baseline {'K': 4}; scoring start
+2026-11-06T18:25:36-05:00 [py 37112]   LEGACY|13 gaussian_hmm: scoring done (4.3 min)
+2026-11-06T18:25:36-05:00 [py 37112]   LEGACY|13 student_t_hmm: selection start
+2026-11-06T18:26:53-05:00 [py 37112]   LEGACY|13 student_t_hmm: selection done (1.3 min); features ['intrabar_range_log__sadj'] params {'K': 4} baseline {'K': 3}; scoring start
+2026-11-06T18:26:56-05:00 [py 37112]   LEGACY|13 student_t_hmm: scoring done (0.0 min)
+2026-11-06T18:26:56-05:00 [py 37112]   LEGACY|13 hsmm: selection start
+2026-11-06T18:33:25-05:00 [py 37112]   LEGACY|13 hsmm: selection done (6.5 min); features ['rv10_partial90__sadj'] params {'K': 3} baseline {'K': 3}; scoring start
+2026-11-06T18:33:28-05:00 [py 37112]   LEGACY|13 hsmm: scoring done (0.0 min)
+2026-11-06T18:33:28-05:00 [py 37112]   LEGACY|13 bocpd: selection start
+2026-11-06T18:33:37-05:00 [py 37112]   LEGACY|13 bocpd: selection done (0.1 min); features [] params {'lam': 78} baseline {'lam': 78}; scoring start
+2026-11-06T18:33:44-05:00 [py 37112]   LEGACY|13 bocpd: scoring done (0.1 min)
+2026-11-06T18:33:44-05:00 [py 37112] fold 15/34 LEGACY|14: start
+2026-11-06T18:33:44-05:00 [py 37112]   LEGACY|14 gaussian_hmm: selection start
+2026-11-06T18:34:12-05:00 [py 37112]   LEGACY|14 gaussian_hmm: selection done (0.5 min); features ['rv10_partial90__sadj'] params {'K': 4} baseline {'K': 3}; scoring start
+2026-11-06T18:38:22-05:00 [py 37112]   LEGACY|14 gaussian_hmm: scoring done (4.2 min)
+2026-11-06T18:38:22-05:00 [py 37112]   LEGACY|14 student_t_hmm: selection start
+2026-11-06T18:39:27-05:00 [py 37112]   LEGACY|14 student_t_hmm: selection done (1.1 min); features ['rv10_partial90__sadj'] params {'K': 4} baseline {'K': 4}; scoring start
+2026-11-06T18:39:29-05:00 [py 37112]   LEGACY|14 student_t_hmm: scoring done (0.0 min)
+2026-11-06T18:39:29-05:00 [py 37112]   LEGACY|14 hsmm: selection start
+2026-11-06T18:43:57-05:00 [py 37112]   LEGACY|14 hsmm: selection done (4.5 min); features ['rv10_partial90__sadj'] params {'K': 3} baseline {'K': 3}; scoring start
+2026-11-06T18:44:00-05:00 [py 37112]   LEGACY|14 hsmm: scoring done (0.0 min)
+2026-11-06T18:44:00-05:00 [py 37112]   LEGACY|14 bocpd: selection start
+2026-11-06T18:44:09-05:00 [py 37112]   LEGACY|14 bocpd: selection done (0.2 min); features [] params {'lam': 12} baseline {'lam': 12}; scoring start
+2026-11-06T18:44:16-05:00 [py 37112]   LEGACY|14 bocpd: scoring done (0.1 min)
+2026-11-06T18:44:16-05:00 [py 37112] fold 16/34 LEGACY|15: start
+2026-11-06T18:44:16-05:00 [py 37112]   LEGACY|15 gaussian_hmm: selection start
+2026-11-06T18:44:55-05:00 [py 37112]   LEGACY|15 gaussian_hmm: selection done (0.6 min); features ['rv10_partial90__sadj'] params {'K': 4} baseline {'K': 4}; scoring start
+2026-11-06T18:49:26-05:00 [py 37112]   LEGACY|15 gaussian_hmm: scoring done (4.5 min)
+2026-11-06T18:49:26-05:00 [py 37112]   LEGACY|15 student_t_hmm: selection start
+2026-11-06T18:50:12-05:00 [py 37112]   LEGACY|15 student_t_hmm: selection done (0.8 min); features [] params {'K': 3} baseline {'K': 3}; scoring start
+2026-11-06T18:50:15-05:00 [py 37112]   LEGACY|15 student_t_hmm: scoring done (0.0 min)
+2026-11-06T18:50:15-05:00 [py 37112]   LEGACY|15 hsmm: selection start
+2026-11-06T18:54:38-05:00 [py 37112]   LEGACY|15 hsmm: selection done (4.4 min); features ['rv10_partial90__sadj'] params {'K': 3} baseline {'K': 3}; scoring start
+2026-11-06T18:54:41-05:00 [py 37112]   LEGACY|15 hsmm: scoring done (0.0 min)
+2026-11-06T18:54:41-05:00 [py 37112]   LEGACY|15 bocpd: selection start
+2026-11-06T18:54:51-05:00 [py 37112]   LEGACY|15 bocpd: selection done (0.2 min); features [] params {'lam': 12} baseline {'lam': 12}; scoring start
+2026-11-06T18:54:59-05:00 [py 37112]   LEGACY|15 bocpd: scoring done (0.1 min)
+2026-11-06T18:54:59-05:00 [py 37112] fold 17/34 LEGACY|16: start
+2026-11-06T18:54:59-05:00 [py 37112]   LEGACY|16 gaussian_hmm: selection start
+2026-11-06T18:55:36-05:00 [py 37112]   LEGACY|16 gaussian_hmm: selection done (0.6 min); features ['rv10_partial90__sadj'] params {'K': 4} baseline {'K': 4}; scoring start
+2026-11-06T18:59:52-05:00 [py 37112]   LEGACY|16 gaussian_hmm: scoring done (4.3 min)
+2026-11-06T18:59:52-05:00 [py 37112]   LEGACY|16 student_t_hmm: selection start
+2026-11-06T19:00:57-05:00 [py 37112]   LEGACY|16 student_t_hmm: selection done (1.1 min); features ['intrabar_range_log__sadj'] params {'K': 4} baseline {'K': 4}; scoring start
+2026-11-06T19:00:59-05:00 [py 37112]   LEGACY|16 student_t_hmm: scoring done (0.0 min)
+2026-11-06T19:00:59-05:00 [py 37112]   LEGACY|16 hsmm: selection start
+2026-11-06T19:06:26-05:00 [py 37112]   LEGACY|16 hsmm: selection done (5.4 min); features ['rv10_partial90__sadj'] params {'K': 3} baseline {'K': 3}; scoring start
+2026-11-06T19:06:29-05:00 [py 37112]   LEGACY|16 hsmm: scoring done (0.0 min)
+2026-11-06T19:06:29-05:00 [py 37112]   LEGACY|16 bocpd: selection start
+2026-11-06T19:06:38-05:00 [py 37112]   LEGACY|16 bocpd: selection done (0.2 min); features [] params {'lam': 12} baseline {'lam': 12}; scoring start
+2026-11-06T19:06:45-05:00 [py 37112]   LEGACY|16 bocpd: scoring done (0.1 min)
+2026-11-06T19:06:45-05:00 [py 37112] fold 18/34 LEGACY|17: start
+2026-11-06T19:06:45-05:00 [py 37112]   LEGACY|17 gaussian_hmm: selection start
+2026-11-06T19:07:10-05:00 [py 37112]   LEGACY|17 gaussian_hmm: selection done (0.4 min); features [] params {'K': 3} baseline {'K': 3}; scoring start
+2026-11-06T19:07:10-05:00 [py 37112]   LEGACY|17 gaussian_hmm: scoring done (0.0 min)
+2026-11-06T19:07:10-05:00 [py 37112]   LEGACY|17 student_t_hmm: selection start
+2026-11-06T19:07:45-05:00 [py 37112]   LEGACY|17 student_t_hmm: selection done (0.6 min); features [] params {'K': 2} baseline {'K': 2}; scoring start
+2026-11-06T19:07:45-05:00 [py 37112]   LEGACY|17 student_t_hmm: scoring done (0.0 min)
+2026-11-06T19:07:45-05:00 [py 37112]   LEGACY|17 hsmm: selection start
+2026-11-06T19:11:58-05:00 [py 37112]   LEGACY|17 hsmm: selection done (4.2 min); features ['downside5_strict__sadj'] params {'K': 2} baseline {'K': 2}; scoring start
+2026-11-06T19:11:58-05:00 [py 37112]   LEGACY|17 hsmm: scoring done (0.0 min)
+2026-11-06T19:11:58-05:00 [py 37112]   LEGACY|17 bocpd: selection start
+2026-11-06T19:12:07-05:00 [py 37112]   LEGACY|17 bocpd: selection done (0.1 min); features [] params {'lam': 78} baseline {'lam': 78}; scoring start
+2026-11-06T19:12:08-05:00 [py 37112]   LEGACY|17 bocpd: scoring done (0.0 min)
+2026-11-06T19:12:08-05:00 [py 37112] fold 19/34 LEGACY|18: start
+2026-11-06T19:12:08-05:00 [py 37112]   LEGACY|18 gaussian_hmm: selection start
+2026-11-06T19:12:40-05:00 [py 37112]   LEGACY|18 gaussian_hmm: selection done (0.5 min); features ['rv10_partial90__sadj'] params {'K': 4} baseline {'K': 4}; scoring start
+2026-11-06T19:12:41-05:00 [py 37112]   LEGACY|18 gaussian_hmm: scoring done (0.0 min)
+2026-11-06T19:12:41-05:00 [py 37112]   LEGACY|18 student_t_hmm: selection start
+2026-11-06T19:13:26-05:00 [py 37112]   LEGACY|18 student_t_hmm: selection done (0.8 min); features [] params {'K': 4} baseline {'K': 4}; scoring start
+2026-11-06T19:13:26-05:00 [py 37112]   LEGACY|18 student_t_hmm: scoring done (0.0 min)
+2026-11-06T19:13:26-05:00 [py 37112]   LEGACY|18 hsmm: selection start
+2026-11-06T19:19:24-05:00 [py 37112]   LEGACY|18 hsmm: selection done (6.0 min); features ['rv10_partial90__sadj'] params {'K': 3} baseline {'K': 3}; scoring start
+2026-11-06T19:19:24-05:00 [py 37112]   LEGACY|18 hsmm: scoring done (0.0 min)
+2026-11-06T19:19:24-05:00 [py 37112]   LEGACY|18 bocpd: selection start
+2026-11-06T19:19:33-05:00 [py 37112]   LEGACY|18 bocpd: selection done (0.1 min); features [] params {'lam': 78} baseline {'lam': 78}; scoring start
+2026-11-06T19:19:33-05:00 [py 37112]   LEGACY|18 bocpd: scoring done (0.0 min)
+2026-11-06T19:19:33-05:00 [py 37112] fold 20/34 LEGACY|19: start
+2026-11-06T19:19:33-05:00 [py 37112]   LEGACY|19 gaussian_hmm: selection start
+2026-11-06T19:20:16-05:00 [py 37112]   LEGACY|19 gaussian_hmm: selection done (0.7 min); features ['rv10_partial90__sadj', 'intrabar_range_log__sadj'] params {'K': 4} baseline {'K': 3}; scoring start
+2026-11-06T19:24:39-05:00 [py 37112]   LEGACY|19 gaussian_hmm: scoring done (4.4 min)
+2026-11-06T19:24:39-05:00 [py 37112]   LEGACY|19 student_t_hmm: selection start
+2026-11-06T19:26:36-05:00 [py 37112]   LEGACY|19 student_t_hmm: selection done (1.9 min); features ['rv10_partial90__sadj', 'relative_volume20'] params {'K': 4} baseline {'K': 2}; scoring start
+2026-11-06T19:26:38-05:00 [py 37112]   LEGACY|19 student_t_hmm: scoring done (0.0 min)
+2026-11-06T19:26:38-05:00 [py 37112]   LEGACY|19 hsmm: selection start
+2026-11-06T19:31:27-05:00 [py 37112]   LEGACY|19 hsmm: selection done (4.8 min); features ['rv10_partial90__sadj', 'intrabar_range_log__sadj'] params {'K': 3} baseline {'K': 3}; scoring start
+2026-11-06T19:31:30-05:00 [py 37112]   LEGACY|19 hsmm: scoring done (0.0 min)
+2026-11-06T19:31:30-05:00 [py 37112]   LEGACY|19 bocpd: selection start
+2026-11-06T19:31:39-05:00 [py 37112]   LEGACY|19 bocpd: selection done (0.1 min); features [] params {'lam': 78} baseline {'lam': 78}; scoring start
+2026-11-06T19:31:46-05:00 [py 37112]   LEGACY|19 bocpd: scoring done (0.1 min)
+2026-11-06T19:31:46-05:00 [py 37112] fold 21/34 LEGACY|20: start
+2026-11-06T19:31:46-05:00 [py 37112]   LEGACY|20 gaussian_hmm: selection start
+2026-11-06T19:32:40-05:00 [py 37112]   LEGACY|20 gaussian_hmm: selection done (0.9 min); features ['relative_volume20'] params {'K': 4} baseline {'K': 3}; scoring start
+2026-11-06T19:37:05-05:00 [py 37112]   LEGACY|20 gaussian_hmm: scoring done (4.4 min)
+2026-11-06T19:37:05-05:00 [py 37112]   LEGACY|20 student_t_hmm: selection start
+2026-11-06T19:38:22-05:00 [py 37112]   LEGACY|20 student_t_hmm: selection done (1.3 min); features ['relative_volume20'] params {'K': 3} baseline {'K': 4}; scoring start
+2026-11-06T19:38:25-05:00 [py 37112]   LEGACY|20 student_t_hmm: scoring done (0.0 min)
+2026-11-06T19:38:25-05:00 [py 37112]   LEGACY|20 hsmm: selection start
+2026-11-06T19:44:11-05:00 [py 37112]   LEGACY|20 hsmm: selection done (5.8 min); features ['relative_volume20', 'rv5_strict__sadj'] params {'K': 3} baseline {'K': 3}; scoring start
+2026-11-06T19:44:14-05:00 [py 37112]   LEGACY|20 hsmm: scoring done (0.0 min)
+2026-11-06T19:44:14-05:00 [py 37112]   LEGACY|20 bocpd: selection start
+2026-11-06T19:44:23-05:00 [py 37112]   LEGACY|20 bocpd: selection done (0.1 min); features [] params {'lam': 12} baseline {'lam': 12}; scoring start
+2026-11-06T19:44:29-05:00 [py 37112]   LEGACY|20 bocpd: scoring done (0.1 min)
+2026-11-06T19:44:29-05:00 [py 37112] fold 22/34 LEGACY|21: start
+2026-11-06T19:44:29-05:00 [py 37112]   LEGACY|21 gaussian_hmm: selection start
+2026-11-06T19:45:16-05:00 [py 37112]   LEGACY|21 gaussian_hmm: selection done (0.8 min); features ['rv10_partial90__sadj', 'relative_volume20'] params {'K': 4} baseline {'K': 4}; scoring start
+2026-11-06T19:49:34-05:00 [py 37112]   LEGACY|21 gaussian_hmm: scoring done (4.3 min)
+2026-11-06T19:49:34-05:00 [py 37112]   LEGACY|21 student_t_hmm: selection start
+2026-11-06T19:50:33-05:00 [py 37112]   LEGACY|21 student_t_hmm: selection done (1.0 min); features [] params {'K': 4} baseline {'K': 4}; scoring start
+2026-11-06T19:50:35-05:00 [py 37112]   LEGACY|21 student_t_hmm: scoring done (0.0 min)
+2026-11-06T19:50:35-05:00 [py 37112]   LEGACY|21 hsmm: selection start
+2026-11-06T19:55:51-05:00 [py 37112]   LEGACY|21 hsmm: selection done (5.3 min); features ['rv10_partial90__sadj', 'relative_volume20'] params {'K': 3} baseline {'K': 3}; scoring start
+2026-11-06T19:55:54-05:00 [py 37112]   LEGACY|21 hsmm: scoring done (0.0 min)
+2026-11-06T19:55:54-05:00 [py 37112]   LEGACY|21 bocpd: selection start
+2026-11-06T19:56:03-05:00 [py 37112]   LEGACY|21 bocpd: selection done (0.2 min); features [] params {'lam': 12} baseline {'lam': 12}; scoring start
+2026-11-06T19:56:10-05:00 [py 37112]   LEGACY|21 bocpd: scoring done (0.1 min)
+2026-11-06T19:56:10-05:00 [py 37112] fold 23/34 LEGACY|22: start
+2026-11-06T19:56:10-05:00 [py 37112]   LEGACY|22 gaussian_hmm: selection start
+2026-11-06T19:56:47-05:00 [py 37112]   LEGACY|22 gaussian_hmm: selection done (0.6 min); features ['rv10_partial90__sadj'] params {'K': 4} baseline {'K': 4}; scoring start
+2026-11-06T20:01:13-05:00 [py 37112]   LEGACY|22 gaussian_hmm: scoring done (4.4 min)
+2026-11-06T20:01:13-05:00 [py 37112]   LEGACY|22 student_t_hmm: selection start
+2026-11-06T20:02:27-05:00 [py 37112]   LEGACY|22 student_t_hmm: selection done (1.2 min); features ['rv10_partial90__sadj'] params {'K': 4} baseline {'K': 3}; scoring start
+2026-11-06T20:02:30-05:00 [py 37112]   LEGACY|22 student_t_hmm: scoring done (0.0 min)
+2026-11-06T20:02:30-05:00 [py 37112]   LEGACY|22 hsmm: selection start
+2026-11-06T20:06:16-05:00 [py 37112]   LEGACY|22 hsmm: selection done (3.8 min); features ['rv10_partial90__sadj'] params {'K': 3} baseline {'K': 3}; scoring start
+2026-11-06T20:06:19-05:00 [py 37112]   LEGACY|22 hsmm: scoring done (0.0 min)
+2026-11-06T20:06:19-05:00 [py 37112]   LEGACY|22 bocpd: selection start
+2026-11-06T20:06:28-05:00 [py 37112]   LEGACY|22 bocpd: selection done (0.2 min); features [] params {'lam': 12} baseline {'lam': 12}; scoring start
+2026-11-06T20:06:36-05:00 [py 37112]   LEGACY|22 bocpd: scoring done (0.1 min)
+2026-11-06T20:06:36-05:00 [py 37112] fold 24/34 LEGACY|23: start
+2026-11-06T20:06:36-05:00 [py 37112]   LEGACY|23 gaussian_hmm: selection start
+2026-11-06T20:07:00-05:00 [py 37112]   LEGACY|23 gaussian_hmm: selection done (0.4 min); features [] params {'K': 4} baseline {'K': 4}; scoring start
+2026-11-06T20:11:26-05:00 [py 37112]   LEGACY|23 gaussian_hmm: scoring done (4.4 min)
+2026-11-06T20:11:26-05:00 [py 37112]   LEGACY|23 student_t_hmm: selection start
+2026-11-06T20:11:58-05:00 [py 37112]   LEGACY|23 student_t_hmm: selection done (0.5 min); features [] params {'K': 4} baseline {'K': 4}; scoring start
+2026-11-06T20:12:01-05:00 [py 37112]   LEGACY|23 student_t_hmm: scoring done (0.0 min)
+2026-11-06T20:12:01-05:00 [py 37112]   LEGACY|23 hsmm: selection start
+2026-11-06T20:17:19-05:00 [py 37112]   LEGACY|23 hsmm: selection done (5.3 min); features ['rv10_partial90__sadj'] params {'K': 3} baseline {'K': 3}; scoring start
+2026-11-06T20:17:22-05:00 [py 37112]   LEGACY|23 hsmm: scoring done (0.0 min)
+2026-11-06T20:17:22-05:00 [py 37112]   LEGACY|23 bocpd: selection start
+2026-11-06T20:17:31-05:00 [py 37112]   LEGACY|23 bocpd: selection done (0.2 min); features [] params {'lam': 12} baseline {'lam': 12}; scoring start
+2026-11-06T20:17:38-05:00 [py 37112]   LEGACY|23 bocpd: scoring done (0.1 min)
+2026-11-06T20:17:38-05:00 [py 37112] fold 25/34 LEGACY|24: start
+2026-11-06T20:17:38-05:00 [py 37112]   LEGACY|24 gaussian_hmm: selection start
+2026-11-06T20:18:16-05:00 [py 37112]   LEGACY|24 gaussian_hmm: selection done (0.6 min); features ['rv10_partial90__sadj'] params {'K': 4} baseline {'K': 3}; scoring start
+2026-11-06T20:22:34-05:00 [py 37112]   LEGACY|24 gaussian_hmm: scoring done (4.3 min)
+2026-11-06T20:22:34-05:00 [py 37112]   LEGACY|24 student_t_hmm: selection start
+2026-11-06T20:23:53-05:00 [py 37112]   LEGACY|24 student_t_hmm: selection done (1.3 min); features ['intrabar_range_log__sadj'] params {'K': 4} baseline {'K': 4}; scoring start
+2026-11-06T20:23:56-05:00 [py 37112]   LEGACY|24 student_t_hmm: scoring done (0.0 min)
+2026-11-06T20:23:56-05:00 [py 37112]   LEGACY|24 hsmm: selection start
+2026-11-06T20:28:33-05:00 [py 37112]   LEGACY|24 hsmm: selection done (4.6 min); features ['rv10_partial90__sadj'] params {'K': 3} baseline {'K': 3}; scoring start
+2026-11-06T20:28:36-05:00 [py 37112]   LEGACY|24 hsmm: scoring done (0.0 min)
+2026-11-06T20:28:36-05:00 [py 37112]   LEGACY|24 bocpd: selection start
+2026-11-06T20:28:45-05:00 [py 37112]   LEGACY|24 bocpd: selection done (0.2 min); features [] params {'lam': 12} baseline {'lam': 12}; scoring start
+2026-11-06T20:28:52-05:00 [py 37112]   LEGACY|24 bocpd: scoring done (0.1 min)
+2026-11-06T20:28:52-05:00 [py 37112] fold 26/34 LEGACY|25: start
+2026-11-06T20:28:52-05:00 [py 37112]   LEGACY|25 gaussian_hmm: selection start
+2026-11-06T20:29:11-05:00 [py 37112]   LEGACY|25 gaussian_hmm: selection done (0.3 min); features [] params {'K': 3} baseline {'K': 3}; scoring start
+2026-11-06T20:33:33-05:00 [py 37112]   LEGACY|25 gaussian_hmm: scoring done (4.4 min)
+2026-11-06T20:33:33-05:00 [py 37112]   LEGACY|25 student_t_hmm: selection start
+2026-11-06T20:34:48-05:00 [py 37112]   LEGACY|25 student_t_hmm: selection done (1.3 min); features ['intrabar_range_log__sadj'] params {'K': 4} baseline {'K': 4}; scoring start
+2026-11-06T20:34:51-05:00 [py 37112]   LEGACY|25 student_t_hmm: scoring done (0.0 min)
+2026-11-06T20:34:51-05:00 [py 37112]   LEGACY|25 hsmm: selection start
+2026-11-06T20:38:41-05:00 [py 37112]   LEGACY|25 hsmm: selection done (3.8 min); features ['intrabar_range_log__sadj'] params {'K': 3} baseline {'K': 3}; scoring start
+2026-11-06T20:38:44-05:00 [py 37112]   LEGACY|25 hsmm: scoring done (0.0 min)
+2026-11-06T20:38:44-05:00 [py 37112]   LEGACY|25 bocpd: selection start
+2026-11-06T20:38:53-05:00 [py 37112]   LEGACY|25 bocpd: selection done (0.2 min); features [] params {'lam': 12} baseline {'lam': 12}; scoring start
+2026-11-06T20:39:00-05:00 [py 37112]   LEGACY|25 bocpd: scoring done (0.1 min)
+2026-11-06T20:39:00-05:00 [py 37112] fold 27/34 LEGACY|26: start
+2026-11-06T20:39:00-05:00 [py 37112]   LEGACY|26 gaussian_hmm: selection start
+2026-11-06T20:39:38-05:00 [py 37112]   LEGACY|26 gaussian_hmm: selection done (0.6 min); features ['rv10_partial90__sadj', 'relative_volume20'] params {'K': 4} baseline {'K': 4}; scoring start
+2026-11-06T20:43:57-05:00 [py 37112]   LEGACY|26 gaussian_hmm: scoring done (4.3 min)
+2026-11-06T20:43:57-05:00 [py 37112]   LEGACY|26 student_t_hmm: selection start
+2026-11-06T20:44:56-05:00 [py 37112]   LEGACY|26 student_t_hmm: selection done (1.0 min); features [] params {'K': 3} baseline {'K': 3}; scoring start
+2026-11-06T20:44:58-05:00 [py 37112]   LEGACY|26 student_t_hmm: scoring done (0.0 min)
+2026-11-06T20:44:58-05:00 [py 37112]   LEGACY|26 hsmm: selection start
+2026-11-06T20:51:52-05:00 [py 37112]   LEGACY|26 hsmm: selection done (6.9 min); features ['rv10_partial90__sadj', 'relative_volume20'] params {'K': 3} baseline {'K': 3}; scoring start
+2026-11-06T20:51:55-05:00 [py 37112]   LEGACY|26 hsmm: scoring done (0.0 min)
+2026-11-06T20:51:55-05:00 [py 37112]   LEGACY|26 bocpd: selection start
+2026-11-06T20:52:04-05:00 [py 37112]   LEGACY|26 bocpd: selection done (0.2 min); features [] params {'lam': 12} baseline {'lam': 12}; scoring start
+2026-11-06T20:52:11-05:00 [py 37112]   LEGACY|26 bocpd: scoring done (0.1 min)
+2026-11-06T20:52:11-05:00 [py 37112] fold 28/34 LEGACY|27: start
+2026-11-06T20:52:11-05:00 [py 37112]   LEGACY|27 gaussian_hmm: selection start
+2026-11-06T20:52:46-05:00 [py 37112]   LEGACY|27 gaussian_hmm: selection done (0.6 min); features ['rv10_partial90__sadj'] params {'K': 4} baseline {'K': 3}; scoring start
+2026-11-06T20:57:09-05:00 [py 37112]   LEGACY|27 gaussian_hmm: scoring done (4.4 min)
+2026-11-06T20:57:09-05:00 [py 37112]   LEGACY|27 student_t_hmm: selection start
+2026-11-06T20:57:51-05:00 [py 37112]   LEGACY|27 student_t_hmm: selection done (0.7 min); features [] params {'K': 4} baseline {'K': 4}; scoring start
+2026-11-06T20:57:53-05:00 [py 37112]   LEGACY|27 student_t_hmm: scoring done (0.0 min)
+2026-11-06T20:57:53-05:00 [py 37112]   LEGACY|27 hsmm: selection start
+2026-11-06T21:02:44-05:00 [py 37112]   LEGACY|27 hsmm: selection done (4.8 min); features ['rv10_partial90__sadj'] params {'K': 3} baseline {'K': 3}; scoring start
+2026-11-06T21:02:47-05:00 [py 37112]   LEGACY|27 hsmm: scoring done (0.0 min)
+2026-11-06T21:02:47-05:00 [py 37112]   LEGACY|27 bocpd: selection start
+2026-11-06T21:02:56-05:00 [py 37112]   LEGACY|27 bocpd: selection done (0.2 min); features [] params {'lam': 12} baseline {'lam': 12}; scoring start
+2026-11-06T21:03:03-05:00 [py 37112]   LEGACY|27 bocpd: scoring done (0.1 min)
+2026-11-06T21:03:03-05:00 [py 37112] fold 29/34 LEGACY|28: start
+2026-11-06T21:03:03-05:00 [py 37112]   LEGACY|28 gaussian_hmm: selection start
+2026-11-06T21:03:38-05:00 [py 37112]   LEGACY|28 gaussian_hmm: selection done (0.6 min); features ['intrabar_range_log__sadj', 'rv10_partial90__sadj'] params {'K': 3} baseline {'K': 3}; scoring start
+2026-11-06T21:08:06-05:00 [py 37112]   LEGACY|28 gaussian_hmm: scoring done (4.5 min)
+2026-11-06T21:08:06-05:00 [py 37112]   LEGACY|28 student_t_hmm: selection start
+2026-11-06T21:09:38-05:00 [py 37112]   LEGACY|28 student_t_hmm: selection done (1.5 min); features ['intrabar_range_log__sadj'] params {'K': 4} baseline {'K': 3}; scoring start
+2026-11-06T21:09:40-05:00 [py 37112]   LEGACY|28 student_t_hmm: scoring done (0.0 min)
+2026-11-06T21:09:40-05:00 [py 37112]   LEGACY|28 hsmm: selection start
+2026-11-06T21:14:26-05:00 [py 37112]   LEGACY|28 hsmm: selection done (4.8 min); features ['intrabar_range_log__sadj', 'rv10_partial90__sadj'] params {'K': 3} baseline {'K': 3}; scoring start
+2026-11-06T21:14:29-05:00 [py 37112]   LEGACY|28 hsmm: scoring done (0.0 min)
+2026-11-06T21:14:29-05:00 [py 37112]   LEGACY|28 bocpd: selection start
+2026-11-06T21:14:38-05:00 [py 37112]   LEGACY|28 bocpd: selection done (0.2 min); features [] params {'lam': 12} baseline {'lam': 12}; scoring start
+2026-11-06T21:14:45-05:00 [py 37112]   LEGACY|28 bocpd: scoring done (0.1 min)
+2026-11-06T21:14:45-05:00 [py 37112] fold 30/34 LEGACY|29: start
+2026-11-06T21:14:45-05:00 [py 37112]   LEGACY|29 gaussian_hmm: selection start
+2026-11-06T21:15:09-05:00 [py 37112]   LEGACY|29 gaussian_hmm: selection done (0.4 min); features ['rv10_partial90__sadj'] params {'K': 4} baseline {'K': 4}; scoring start
+2026-11-06T21:19:27-05:00 [py 37112]   LEGACY|29 gaussian_hmm: scoring done (4.3 min)
+2026-11-06T21:19:27-05:00 [py 37112]   LEGACY|29 student_t_hmm: selection start
+2026-11-06T21:20:28-05:00 [py 37112]   LEGACY|29 student_t_hmm: selection done (1.0 min); features ['rv10_partial90__sadj'] params {'K': 4} baseline {'K': 4}; scoring start
+2026-11-06T21:20:30-05:00 [py 37112]   LEGACY|29 student_t_hmm: scoring done (0.0 min)
+2026-11-06T21:20:30-05:00 [py 37112]   LEGACY|29 hsmm: selection start
+2026-11-06T21:24:12-05:00 [py 37112]   LEGACY|29 hsmm: selection done (3.7 min); features ['rv10_partial90__sadj'] params {'K': 3} baseline {'K': 3}; scoring start
+2026-11-06T21:24:15-05:00 [py 37112]   LEGACY|29 hsmm: scoring done (0.0 min)
+2026-11-06T21:24:15-05:00 [py 37112]   LEGACY|29 bocpd: selection start
+2026-11-06T21:24:24-05:00 [py 37112]   LEGACY|29 bocpd: selection done (0.1 min); features [] params {'lam': 12} baseline {'lam': 12}; scoring start
+2026-11-06T21:24:30-05:00 [py 37112]   LEGACY|29 bocpd: scoring done (0.1 min)
+2026-11-06T21:24:30-05:00 [py 37112] fold 31/34 RAW|0: start
+2026-11-06T21:24:30-05:00 [py 37112]   RAW|0 gaussian_hmm: selection start
+2026-11-06T21:25:09-05:00 [py 37112]   RAW|0 gaussian_hmm: selection done (0.7 min); features ['intrabar_range_log__sadj'] params {'K': 4} baseline {'K': 4}; scoring start
+2026-11-06T21:30:30-05:00 [py 37112]   RAW|0 gaussian_hmm: scoring done (5.3 min)
+2026-11-06T21:30:30-05:00 [py 37112]   RAW|0 student_t_hmm: selection start
+2026-11-06T21:31:55-05:00 [py 37112]   RAW|0 student_t_hmm: selection done (1.4 min); features ['intrabar_range_log__sadj'] params {'K': 3} baseline {'K': 4}; scoring start
+2026-11-06T21:31:58-05:00 [py 37112]   RAW|0 student_t_hmm: scoring done (0.0 min)
+2026-11-06T21:31:58-05:00 [py 37112]   RAW|0 hsmm: selection start
+2026-11-06T21:38:30-05:00 [py 37112]   RAW|0 hsmm: selection done (6.5 min); features ['intrabar_range_log__sadj'] params {'K': 3} baseline {'K': 3}; scoring start
+2026-11-06T21:38:33-05:00 [py 37112]   RAW|0 hsmm: scoring done (0.0 min)
+2026-11-06T21:38:33-05:00 [py 37112]   RAW|0 bocpd: selection start
+2026-11-06T21:38:42-05:00 [py 37112]   RAW|0 bocpd: selection done (0.2 min); features [] params {'lam': 12} baseline {'lam': 12}; scoring start
+2026-11-06T21:38:49-05:00 [py 37112]   RAW|0 bocpd: scoring done (0.1 min)
+2026-11-06T21:38:49-05:00 [py 37112] fold 32/34 RAW|1: start
+2026-11-06T21:38:49-05:00 [py 37112]   RAW|1 gaussian_hmm: selection start
+2026-11-06T21:39:28-05:00 [py 37112]   RAW|1 gaussian_hmm: selection done (0.6 min); features ['rv10_partial90__sadj'] params {'K': 4} baseline {'K': 4}; scoring start
+2026-11-06T21:44:50-05:00 [py 37112]   RAW|1 gaussian_hmm: scoring done (5.4 min)
+2026-11-06T21:44:50-05:00 [py 37112]   RAW|1 student_t_hmm: selection start
+2026-11-06T21:46:01-05:00 [py 37112]   RAW|1 student_t_hmm: selection done (1.2 min); features ['rv10_partial90__sadj'] params {'K': 4} baseline {'K': 4}; scoring start
+2026-11-06T21:46:03-05:00 [py 37112]   RAW|1 student_t_hmm: scoring done (0.0 min)
+2026-11-06T21:46:03-05:00 [py 37112]   RAW|1 hsmm: selection start
+2026-11-06T21:52:18-05:00 [py 37112]   RAW|1 hsmm: selection done (6.2 min); features ['rv10_partial90__sadj'] params {'K': 3} baseline {'K': 3}; scoring start
+2026-11-06T21:52:21-05:00 [py 37112]   RAW|1 hsmm: scoring done (0.0 min)
+2026-11-06T21:52:21-05:00 [py 37112]   RAW|1 bocpd: selection start
+2026-11-06T21:52:30-05:00 [py 37112]   RAW|1 bocpd: selection done (0.2 min); features [] params {'lam': 12} baseline {'lam': 12}; scoring start
+2026-11-06T21:52:37-05:00 [py 37112]   RAW|1 bocpd: scoring done (0.1 min)
+2026-11-06T21:52:37-05:00 [py 37112] fold 33/34 RAW|2: start
+2026-11-06T21:52:37-05:00 [py 37112]   RAW|2 gaussian_hmm: selection start
+2026-11-06T21:53:21-05:00 [py 37112]   RAW|2 gaussian_hmm: selection done (0.7 min); features ['rv10_partial90__sadj'] params {'K': 3} baseline {'K': 4}; scoring start
+2026-11-06T21:58:39-05:00 [py 37112]   RAW|2 gaussian_hmm: scoring done (5.3 min)
+2026-11-06T21:58:39-05:00 [py 37112]   RAW|2 student_t_hmm: selection start
+2026-11-06T21:59:27-05:00 [py 37112]   RAW|2 student_t_hmm: selection done (0.8 min); features [] params {'K': 4} baseline {'K': 4}; scoring start
+2026-11-06T21:59:29-05:00 [py 37112]   RAW|2 student_t_hmm: scoring done (0.0 min)
+2026-11-06T21:59:29-05:00 [py 37112]   RAW|2 hsmm: selection start
+2026-11-06T22:05:12-05:00 [py 37112]   RAW|2 hsmm: selection done (5.7 min); features ['rv10_partial90__sadj'] params {'K': 3} baseline {'K': 3}; scoring start
+2026-11-06T22:05:15-05:00 [py 37112]   RAW|2 hsmm: scoring done (0.0 min)
+2026-11-06T22:05:15-05:00 [py 37112]   RAW|2 bocpd: selection start
+2026-11-06T22:05:24-05:00 [py 37112]   RAW|2 bocpd: selection done (0.2 min); features [] params {'lam': 12} baseline {'lam': 12}; scoring start
+2026-11-06T22:05:31-05:00 [py 37112]   RAW|2 bocpd: scoring done (0.1 min)
+2026-11-06T22:05:31-05:00 [py 37112] fold 34/34 RAW|3: start
+2026-11-06T22:05:31-05:00 [py 37112]   RAW|3 gaussian_hmm: selection start
+2026-11-06T22:06:01-05:00 [py 37112]   RAW|3 gaussian_hmm: selection done (0.5 min); features ['rv10_partial90__sadj'] params {'K': 4} baseline {'K': 3}; scoring start
+2026-11-06T22:11:18-05:00 [py 37112]   RAW|3 gaussian_hmm: scoring done (5.3 min)
+2026-11-06T22:11:18-05:00 [py 37112]   RAW|3 student_t_hmm: selection start
+2026-11-06T22:12:45-05:00 [py 37112]   RAW|3 student_t_hmm: selection done (1.5 min); features ['rv10_partial90__sadj'] params {'K': 4} baseline {'K': 3}; scoring start
+2026-11-06T22:12:48-05:00 [py 37112]   RAW|3 student_t_hmm: scoring done (0.0 min)
+2026-11-06T22:12:48-05:00 [py 37112]   RAW|3 hsmm: selection start
+2026-11-06T22:18:22-05:00 [py 37112]   RAW|3 hsmm: selection done (5.6 min); features ['rv10_partial90__sadj'] params {'K': 3} baseline {'K': 3}; scoring start
+2026-11-06T22:18:25-05:00 [py 37112]   RAW|3 hsmm: scoring done (0.0 min)
+2026-11-06T22:18:25-05:00 [py 37112]   RAW|3 bocpd: selection start
+2026-11-06T22:18:44-05:00 [py 37112]   RAW|3 bocpd: selection done (0.3 min); features ['momentum30_endpoint'] params {'lam': 12} baseline {'lam': 12}; scoring start
+2026-11-06T22:18:54-05:00 [py 37112]   RAW|3 bocpd: scoring done (0.2 min)
+2026-11-06T22:18:55-05:00 [py 37112] main run: DONE in 6.39 h; checkpoint hits 0, misses 272; completion record verified (sha256 19812f9f619f029b..., results 814171c0813fd668...); H1(a) failures 0; no freeze, no era calibration
+2026-11-06T22:18:55-05:00 [ps1 36492] MR2 attempt 1: Python exited with code 0 after 383.6 min
+2026-11-06T22:18:55-05:00 [ps1 36492] MR2 DONE (results\main_run_2\run_complete.json written)
+2026-11-06T22:18:55-05:00 [ps1 36492] A17-style attempt 1 of 6: starting Python
+2026-11-06T22:19:01-05:00 [py 37396] A17 guards: protocol 15be2570a592279e..., main record verified (results 814171c0813fd668...), code a0323ed24d68e896, 272 units, 98 H1(c) events, no lock, registry ok
+2026-11-06T22:24:34-05:00 [py 37396] A17 fold 1/34 LEGACY|0 gaussian_hmm: exact match; H1(b) test pct 7.2; placebo gap 0.010525; 5.5 min
+2026-11-06T22:25:14-05:00 [py 37396] A17 fold 1/34 LEGACY|0 student_t_hmm: exact match; H1(b) test pct 5.8; placebo gap -0.01655; 0.7 min
+2026-11-06T22:26:14-05:00 [py 37396] A17 fold 1/34 LEGACY|0 hsmm: exact match; H1(b) test pct 11.1; placebo gap -0.013624999999999998; 1.0 min
+2026-11-06T22:26:23-05:00 [py 37396] A17 fold 1/34 LEGACY|0 bocpd: exact match; H1(b) test pct 0.0; placebo gap 0.0; 0.1 min
+2026-11-06T22:31:24-05:00 [py 37396] A17 fold 2/34 LEGACY|1 gaussian_hmm: exact match; H1(b) test pct 8.7; placebo gap -0.005125000000000001; 5.0 min
+2026-11-06T22:32:02-05:00 [py 37396] A17 fold 2/34 LEGACY|1 student_t_hmm: exact match; H1(b) test pct 3.2; placebo gap -0.004925000000000002; 0.6 min
+2026-11-06T22:34:32-05:00 [py 37396] A17 fold 2/34 LEGACY|1 hsmm: exact match; H1(b) test pct 9.4; placebo gap 0.03795000000000001; 2.5 min
+2026-11-06T22:34:41-05:00 [py 37396] A17 fold 2/34 LEGACY|1 bocpd: exact match; H1(b) test pct 0.0; placebo gap 0.0; 0.1 min
+2026-11-06T22:39:47-05:00 [py 37396] A17 fold 3/34 LEGACY|2 gaussian_hmm: exact match; H1(b) test pct 3.5; placebo gap -0.033975; 5.1 min
+2026-11-06T22:40:19-05:00 [py 37396] A17 fold 3/34 LEGACY|2 student_t_hmm: exact match; H1(b) test pct 3.5; placebo gap -0.060025; 0.5 min
+2026-11-06T22:42:47-05:00 [py 37396] A17 fold 3/34 LEGACY|2 hsmm: exact match; H1(b) test pct 7.2; placebo gap -0.04399999999999999; 2.5 min
+2026-11-06T22:42:56-05:00 [py 37396] A17 fold 3/34 LEGACY|2 bocpd: exact match; H1(b) test pct 0.0; placebo gap 0.0; 0.1 min
+2026-11-06T22:48:08-05:00 [py 37396] A17 fold 4/34 LEGACY|3 gaussian_hmm: exact match; H1(b) test pct 3.7; placebo gap 0.006650000000000007; 5.2 min
+2026-11-06T22:48:23-05:00 [py 37396] A17 fold 4/34 LEGACY|3 student_t_hmm: exact match; H1(b) test pct 3.7; placebo gap 0.020575000000000003; 0.3 min
+2026-11-06T22:49:05-05:00 [py 37396] A17 fold 4/34 LEGACY|3 hsmm: exact match; H1(b) test pct 9.6; placebo gap -0.00955; 0.7 min
+2026-11-06T22:49:13-05:00 [py 37396] A17 fold 4/34 LEGACY|3 bocpd: exact match; H1(b) test pct 0.0; placebo gap 0.0; 0.1 min
+2026-11-06T22:49:28-05:00 [py 37396] A17 fold 5/34 LEGACY|4 gaussian_hmm: exact match; H1(b) test pct 3.7; placebo gap None; 0.2 min
+2026-11-06T22:49:41-05:00 [py 37396] A17 fold 5/34 LEGACY|4 student_t_hmm: exact match; H1(b) test pct 0.0; placebo gap None; 0.2 min
+2026-11-06T22:51:33-05:00 [py 37396] A17 fold 5/34 LEGACY|4 hsmm: exact match; H1(b) test pct 11.4; placebo gap None; 1.9 min
+2026-11-06T22:51:34-05:00 [py 37396] A17 fold 5/34 LEGACY|4 bocpd: exact match; H1(b) test pct 0.0; placebo gap None; 0.0 min
+2026-11-06T22:56:58-05:00 [py 37396] A17 fold 6/34 LEGACY|5 gaussian_hmm: exact match; H1(b) test pct 4.7; placebo gap -0.049049999999999996; 5.4 min
+2026-11-06T22:57:24-05:00 [py 37396] A17 fold 6/34 LEGACY|5 student_t_hmm: exact match; H1(b) test pct 0.6; placebo gap 0.005825; 0.4 min
+2026-11-06T22:59:06-05:00 [py 37396] A17 fold 6/34 LEGACY|5 hsmm: exact match; H1(b) test pct 9.8; placebo gap -0.061274999999999996; 1.7 min
+2026-11-06T22:59:15-05:00 [py 37396] A17 fold 6/34 LEGACY|5 bocpd: exact match; H1(b) test pct 0.0; placebo gap 0.0; 0.1 min
+2026-11-06T23:04:45-05:00 [py 37396] A17 fold 7/34 LEGACY|6 gaussian_hmm: exact match; H1(b) test pct 9.6; placebo gap 0.004200000000000002; 5.5 min
+2026-11-06T23:05:00-05:00 [py 37396] A17 fold 7/34 LEGACY|6 student_t_hmm: exact match; H1(b) test pct 0.0; placebo gap 0.0; 0.3 min
+2026-11-06T23:06:49-05:00 [py 37396] A17 fold 7/34 LEGACY|6 hsmm: exact match; H1(b) test pct 17.1; placebo gap 0.016075; 1.8 min
+2026-11-06T23:06:57-05:00 [py 37396] A17 fold 7/34 LEGACY|6 bocpd: exact match; H1(b) test pct 0.0; placebo gap 0.0; 0.1 min
+2026-11-06T23:11:59-05:00 [py 37396] A17 fold 8/34 LEGACY|7 gaussian_hmm: exact match; H1(b) test pct 0.0; placebo gap 0.0; 5.0 min
+2026-11-06T23:12:54-05:00 [py 37396] A17 fold 8/34 LEGACY|7 student_t_hmm: exact match; H1(b) test pct 0.0; placebo gap 0.0; 0.9 min
+2026-11-06T23:14:35-05:00 [py 37396] A17 fold 8/34 LEGACY|7 hsmm: exact match; H1(b) test pct 20.2; placebo gap -0.03307500000000001; 1.7 min
+2026-11-06T23:14:44-05:00 [py 37396] A17 fold 8/34 LEGACY|7 bocpd: exact match; H1(b) test pct 0.0; placebo gap 0.0; 0.1 min
+2026-11-06T23:19:43-05:00 [py 37396] A17 fold 9/34 LEGACY|8 gaussian_hmm: exact match; H1(b) test pct 2.5; placebo gap -0.021325000000000004; 5.0 min
+2026-11-06T23:19:57-05:00 [py 37396] A17 fold 9/34 LEGACY|8 student_t_hmm: exact match; H1(b) test pct 0.0; placebo gap 0.0; 0.2 min
+2026-11-06T23:20:49-05:00 [py 37396] A17 fold 9/34 LEGACY|8 hsmm: exact match; H1(b) test pct 13.4; placebo gap -0.021575000000000004; 0.9 min
+2026-11-06T23:20:58-05:00 [py 37396] A17 fold 9/34 LEGACY|8 bocpd: exact match; H1(b) test pct 0.0; placebo gap 0.0; 0.1 min
+2026-11-06T23:26:17-05:00 [py 37396] A17 fold 10/34 LEGACY|9 gaussian_hmm: exact match; H1(b) test pct 8.2; placebo gap 0.005125000000000001; 5.3 min
+2026-11-06T23:26:30-05:00 [py 37396] A17 fold 10/34 LEGACY|9 student_t_hmm: exact match; H1(b) test pct 0.0; placebo gap 0.0; 0.2 min
+2026-11-06T23:27:54-05:00 [py 37396] A17 fold 10/34 LEGACY|9 hsmm: exact match; H1(b) test pct 10.1; placebo gap -0.023025000000000004; 1.4 min
+2026-11-06T23:28:03-05:00 [py 37396] A17 fold 10/34 LEGACY|9 bocpd: exact match; H1(b) test pct 0.0; placebo gap 0.0; 0.1 min
+2026-11-06T23:33:17-05:00 [py 37396] A17 fold 11/34 LEGACY|10 gaussian_hmm: exact match; H1(b) test pct 6.3; placebo gap -0.04069999999999999; 5.2 min
+2026-11-06T23:33:38-05:00 [py 37396] A17 fold 11/34 LEGACY|10 student_t_hmm: exact match; H1(b) test pct -3.5; placebo gap -0.020200000000000003; 0.3 min
+2026-11-06T23:35:43-05:00 [py 37396] A17 fold 11/34 LEGACY|10 hsmm: exact match; H1(b) test pct 8.2; placebo gap -0.005699999999999997; 2.1 min
+2026-11-06T23:35:51-05:00 [py 37396] A17 fold 11/34 LEGACY|10 bocpd: exact match; H1(b) test pct 0.0; placebo gap 0.0; 0.1 min
+2026-11-06T23:36:03-05:00 [py 37396] A17 fold 12/34 LEGACY|11 gaussian_hmm: exact match; H1(b) test pct 6.3; placebo gap None; 0.2 min
+2026-11-06T23:36:15-05:00 [py 37396] A17 fold 12/34 LEGACY|11 student_t_hmm: exact match; H1(b) test pct 5.5; placebo gap None; 0.2 min
+2026-11-06T23:37:48-05:00 [py 37396] A17 fold 12/34 LEGACY|11 hsmm: exact match; H1(b) test pct 7.0; placebo gap None; 1.5 min
+2026-11-06T23:37:49-05:00 [py 37396] A17 fold 12/34 LEGACY|11 bocpd: exact match; H1(b) test pct 0.0; placebo gap None; 0.0 min
+2026-11-06T23:42:58-05:00 [py 37396] A17 fold 13/34 LEGACY|12 gaussian_hmm: exact match; H1(b) test pct 31.0; placebo gap -0.030175; 5.1 min
+2026-11-06T23:43:15-05:00 [py 37396] A17 fold 13/34 LEGACY|12 student_t_hmm: exact match; H1(b) test pct 22.1; placebo gap 0.024049999999999995; 0.3 min
+2026-11-06T23:43:55-05:00 [py 37396] A17 fold 13/34 LEGACY|12 hsmm: exact match; H1(b) test pct 26.8; placebo gap -0.019900000000000008; 0.7 min
+2026-11-06T23:44:04-05:00 [py 37396] A17 fold 13/34 LEGACY|12 bocpd: exact match; H1(b) test pct 0.0; placebo gap 0.0; 0.1 min
+2026-11-06T23:49:09-05:00 [py 37396] A17 fold 14/34 LEGACY|13 gaussian_hmm: exact match; H1(b) test pct 5.9; placebo gap 0.010324999999999997; 5.1 min
+2026-11-06T23:49:28-05:00 [py 37396] A17 fold 14/34 LEGACY|13 student_t_hmm: exact match; H1(b) test pct 2.5; placebo gap 0.0034499999999999947; 0.3 min
+2026-11-06T23:51:54-05:00 [py 37396] A17 fold 14/34 LEGACY|13 hsmm: exact match; H1(b) test pct 13.1; placebo gap -0.0037750000000000006; 2.4 min
+2026-11-06T23:52:03-05:00 [py 37396] A17 fold 14/34 LEGACY|13 bocpd: exact match; H1(b) test pct 0.0; placebo gap 0.0; 0.1 min
+2026-11-06T23:56:56-05:00 [py 37396] A17 fold 15/34 LEGACY|14 gaussian_hmm: exact match; H1(b) test pct 8.6; placebo gap -2.5000000000004186e-05; 4.9 min
+2026-11-06T23:57:14-05:00 [py 37396] A17 fold 15/34 LEGACY|14 student_t_hmm: exact match; H1(b) test pct -4.1; placebo gap -0.013974999999999991; 0.3 min
+2026-11-06T23:58:54-05:00 [py 37396] A17 fold 15/34 LEGACY|14 hsmm: exact match; H1(b) test pct 12.4; placebo gap -0.006699999999999998; 1.7 min
+2026-11-06T23:59:03-05:00 [py 37396] A17 fold 15/34 LEGACY|14 bocpd: exact match; H1(b) test pct 0.0; placebo gap 0.0; 0.1 min
+2026-11-07T00:04:13-05:00 [py 37396] A17 fold 16/34 LEGACY|15 gaussian_hmm: exact match; H1(b) test pct 21.5; placebo gap -0.01185; 5.2 min
+2026-11-07T00:04:24-05:00 [py 37396] A17 fold 16/34 LEGACY|15 student_t_hmm: exact match; H1(b) test pct 0.0; placebo gap 0.0; 0.2 min
+2026-11-07T00:05:38-05:00 [py 37396] A17 fold 16/34 LEGACY|15 hsmm: exact match; H1(b) test pct 22.9; placebo gap -0.016849999999999997; 1.2 min
+2026-11-07T00:05:47-05:00 [py 37396] A17 fold 16/34 LEGACY|15 bocpd: exact match; H1(b) test pct 0.0; placebo gap 0.0; 0.1 min
+2026-11-07T00:10:45-05:00 [py 37396] A17 fold 17/34 LEGACY|16 gaussian_hmm: exact match; H1(b) test pct -2.3; placebo gap -0.016600000000000007; 5.0 min
+2026-11-07T00:11:02-05:00 [py 37396] A17 fold 17/34 LEGACY|16 student_t_hmm: exact match; H1(b) test pct -2.5; placebo gap -0.003650000000000004; 0.3 min
+2026-11-07T00:13:18-05:00 [py 37396] A17 fold 17/34 LEGACY|16 hsmm: exact match; H1(b) test pct 4.9; placebo gap 0.019725000000000003; 2.3 min
+2026-11-07T00:13:27-05:00 [py 37396] A17 fold 17/34 LEGACY|16 bocpd: exact match; H1(b) test pct 0.0; placebo gap 0.0; 0.1 min
+2026-11-07T00:13:33-05:00 [py 37396] A17 fold 18/34 LEGACY|17 gaussian_hmm: exact match; H1(b) test pct 0.0; placebo gap None; 0.1 min
+2026-11-07T00:13:38-05:00 [py 37396] A17 fold 18/34 LEGACY|17 student_t_hmm: exact match; H1(b) test pct 0.0; placebo gap None; 0.1 min
+2026-11-07T00:14:00-05:00 [py 37396] A17 fold 18/34 LEGACY|17 hsmm: exact match; H1(b) test pct -6.0; placebo gap None; 0.4 min
+2026-11-07T00:14:01-05:00 [py 37396] A17 fold 18/34 LEGACY|17 bocpd: exact match; H1(b) test pct 0.0; placebo gap None; 0.0 min
+2026-11-07T00:14:12-05:00 [py 37396] A17 fold 19/34 LEGACY|18 gaussian_hmm: exact match; H1(b) test pct 22.2; placebo gap None; 0.2 min
+2026-11-07T00:14:27-05:00 [py 37396] A17 fold 19/34 LEGACY|18 student_t_hmm: exact match; H1(b) test pct 0.0; placebo gap None; 0.2 min
+2026-11-07T00:16:36-05:00 [py 37396] A17 fold 19/34 LEGACY|18 hsmm: exact match; H1(b) test pct 20.0; placebo gap None; 2.1 min
+2026-11-07T00:16:37-05:00 [py 37396] A17 fold 19/34 LEGACY|18 bocpd: exact match; H1(b) test pct 0.0; placebo gap None; 0.0 min
+2026-11-07T00:21:44-05:00 [py 37396] A17 fold 20/34 LEGACY|19 gaussian_hmm: exact match; H1(b) test pct 4.8; placebo gap -0.0030000000000000027; 5.1 min
+2026-11-07T00:21:56-05:00 [py 37396] A17 fold 20/34 LEGACY|19 student_t_hmm: exact match; H1(b) test pct 3.2; placebo gap 0.009524999999999999; 0.2 min
+2026-11-07T00:22:53-05:00 [py 37396] A17 fold 20/34 LEGACY|19 hsmm: exact match; H1(b) test pct 8.9; placebo gap -0.02550000000000001; 1.0 min
+2026-11-07T00:23:02-05:00 [py 37396] A17 fold 20/34 LEGACY|19 bocpd: exact match; H1(b) test pct 0.0; placebo gap 0.0; 0.1 min
+2026-11-07T00:28:21-05:00 [py 37396] A17 fold 21/34 LEGACY|20 gaussian_hmm: exact match; H1(b) test pct 1.0; placebo gap 0.048000000000000015; 5.3 min
+2026-11-07T00:28:42-05:00 [py 37396] A17 fold 21/34 LEGACY|20 student_t_hmm: exact match; H1(b) test pct -3.8; placebo gap 0.02474999999999999; 0.4 min
+2026-11-07T00:30:04-05:00 [py 37396] A17 fold 21/34 LEGACY|20 hsmm: exact match; H1(b) test pct 10.8; placebo gap -0.008025000000000004; 1.4 min
+2026-11-07T00:30:12-05:00 [py 37396] A17 fold 21/34 LEGACY|20 bocpd: exact match; H1(b) test pct 0.0; placebo gap 0.0; 0.1 min
+2026-11-07T00:35:22-05:00 [py 37396] A17 fold 22/34 LEGACY|21 gaussian_hmm: exact match; H1(b) test pct 28.5; placebo gap 0.0072999999999999975; 5.2 min
+2026-11-07T00:35:46-05:00 [py 37396] A17 fold 22/34 LEGACY|21 student_t_hmm: exact match; H1(b) test pct 0.0; placebo gap 0.0; 0.4 min
+2026-11-07T00:37:01-05:00 [py 37396] A17 fold 22/34 LEGACY|21 hsmm: exact match; H1(b) test pct 24.5; placebo gap -0.020700000000000003; 1.3 min
+2026-11-07T00:37:10-05:00 [py 37396] A17 fold 22/34 LEGACY|21 bocpd: exact match; H1(b) test pct 0.0; placebo gap 0.0; 0.1 min
+2026-11-07T00:42:27-05:00 [py 37396] A17 fold 23/34 LEGACY|22 gaussian_hmm: exact match; H1(b) test pct 5.8; placebo gap 0.016675000000000002; 5.3 min
+2026-11-07T00:42:45-05:00 [py 37396] A17 fold 23/34 LEGACY|22 student_t_hmm: exact match; H1(b) test pct 0.8; placebo gap -0.0033000000000000043; 0.3 min
+2026-11-07T00:43:49-05:00 [py 37396] A17 fold 23/34 LEGACY|22 hsmm: exact match; H1(b) test pct 14.9; placebo gap 0.0009499999999999995; 1.1 min
+2026-11-07T00:43:57-05:00 [py 37396] A17 fold 23/34 LEGACY|22 bocpd: exact match; H1(b) test pct 0.0; placebo gap 0.0; 0.1 min
+2026-11-07T00:49:04-05:00 [py 37396] A17 fold 24/34 LEGACY|23 gaussian_hmm: exact match; H1(b) test pct 0.0; placebo gap 0.0; 5.1 min
+2026-11-07T00:49:16-05:00 [py 37396] A17 fold 24/34 LEGACY|23 student_t_hmm: exact match; H1(b) test pct 0.0; placebo gap 0.0; 0.2 min
+2026-11-07T00:51:18-05:00 [py 37396] A17 fold 24/34 LEGACY|23 hsmm: exact match; H1(b) test pct 19.3; placebo gap -0.003200000000000005; 2.0 min
+2026-11-07T00:51:27-05:00 [py 37396] A17 fold 24/34 LEGACY|23 bocpd: exact match; H1(b) test pct 0.0; placebo gap 0.0; 0.1 min
+2026-11-07T00:56:34-05:00 [py 37396] A17 fold 25/34 LEGACY|24 gaussian_hmm: exact match; H1(b) test pct 9.6; placebo gap 0.008674999999999997; 5.1 min
+2026-11-07T00:57:04-05:00 [py 37396] A17 fold 25/34 LEGACY|24 student_t_hmm: exact match; H1(b) test pct -1.6; placebo gap -0.0008250000000000063; 0.5 min
+2026-11-07T00:58:47-05:00 [py 37396] A17 fold 25/34 LEGACY|24 hsmm: exact match; H1(b) test pct 15.0; placebo gap 0.0012249999999999987; 1.7 min
+2026-11-07T00:58:56-05:00 [py 37396] A17 fold 25/34 LEGACY|24 bocpd: exact match; H1(b) test pct 0.0; placebo gap 0.0; 0.1 min
+2026-11-07T01:03:59-05:00 [py 37396] A17 fold 26/34 LEGACY|25 gaussian_hmm: exact match; H1(b) test pct 0.0; placebo gap 0.0; 5.1 min
+2026-11-07T01:04:27-05:00 [py 37396] A17 fold 26/34 LEGACY|25 student_t_hmm: exact match; H1(b) test pct -7.6; placebo gap 0.020175000000000002; 0.5 min
+2026-11-07T01:05:33-05:00 [py 37396] A17 fold 26/34 LEGACY|25 hsmm: exact match; H1(b) test pct -5.9; placebo gap 0.006425000000000004; 1.1 min
+2026-11-07T01:05:42-05:00 [py 37396] A17 fold 26/34 LEGACY|25 bocpd: exact match; H1(b) test pct 0.0; placebo gap 0.0; 0.1 min
+2026-11-07T01:10:43-05:00 [py 37396] A17 fold 27/34 LEGACY|26 gaussian_hmm: exact match; H1(b) test pct 2.9; placebo gap 0.0004250000000000087; 5.0 min
+2026-11-07T01:11:04-05:00 [py 37396] A17 fold 27/34 LEGACY|26 student_t_hmm: exact match; H1(b) test pct 0.0; placebo gap 0.0; 0.3 min
+2026-11-07T01:13:37-05:00 [py 37396] A17 fold 27/34 LEGACY|26 hsmm: exact match; H1(b) test pct 4.1; placebo gap 0.0055750000000000036; 2.5 min
+2026-11-07T01:13:45-05:00 [py 37396] A17 fold 27/34 LEGACY|26 bocpd: exact match; H1(b) test pct 0.0; placebo gap 0.0; 0.1 min
+2026-11-07T01:18:55-05:00 [py 37396] A17 fold 28/34 LEGACY|27 gaussian_hmm: exact match; H1(b) test pct 18.9; placebo gap -0.030625; 5.2 min
+2026-11-07T01:19:10-05:00 [py 37396] A17 fold 28/34 LEGACY|27 student_t_hmm: exact match; H1(b) test pct 0.0; placebo gap 0.0; 0.2 min
+2026-11-07T01:20:39-05:00 [py 37396] A17 fold 28/34 LEGACY|27 hsmm: exact match; H1(b) test pct 16.4; placebo gap -0.015400000000000004; 1.5 min
+2026-11-07T01:20:48-05:00 [py 37396] A17 fold 28/34 LEGACY|27 bocpd: exact match; H1(b) test pct 0.0; placebo gap 0.0; 0.1 min
+2026-11-07T01:25:58-05:00 [py 37396] A17 fold 29/34 LEGACY|28 gaussian_hmm: exact match; H1(b) test pct 12.5; placebo gap 0.006649999999999996; 5.2 min
+2026-11-07T01:26:22-05:00 [py 37396] A17 fold 29/34 LEGACY|28 student_t_hmm: exact match; H1(b) test pct 29.9; placebo gap 0.02127499999999999; 0.4 min
+2026-11-07T01:27:49-05:00 [py 37396] A17 fold 29/34 LEGACY|28 hsmm: exact match; H1(b) test pct 24.6; placebo gap 0.0005999999999999998; 1.5 min
+2026-11-07T01:27:58-05:00 [py 37396] A17 fold 29/34 LEGACY|28 bocpd: exact match; H1(b) test pct 0.0; placebo gap 0.0; 0.1 min
+2026-11-07T01:32:59-05:00 [py 37396] A17 fold 30/34 LEGACY|29 gaussian_hmm: exact match; H1(b) test pct 15.1; placebo gap -0.005150000000000002; 5.0 min
+2026-11-07T01:33:24-05:00 [py 37396] A17 fold 30/34 LEGACY|29 student_t_hmm: exact match; H1(b) test pct 4.6; placebo gap -0.0322; 0.4 min
+2026-11-07T01:34:25-05:00 [py 37396] A17 fold 30/34 LEGACY|29 hsmm: exact match; H1(b) test pct 16.0; placebo gap -0.02175; 1.0 min
+2026-11-07T01:34:34-05:00 [py 37396] A17 fold 30/34 LEGACY|29 bocpd: exact match; H1(b) test pct 0.0; placebo gap 0.0; 0.1 min
+2026-11-07T01:40:55-05:00 [py 37396] A17 fold 31/34 RAW|0 gaussian_hmm: exact match; H1(b) test pct 10.3; placebo gap -0.007224999999999999; 6.3 min
+2026-11-07T01:41:24-05:00 [py 37396] A17 fold 31/34 RAW|0 student_t_hmm: exact match; H1(b) test pct 5.1; placebo gap -0.010125000000000002; 0.5 min
+2026-11-07T01:43:53-05:00 [py 37396] A17 fold 31/34 RAW|0 hsmm: exact match; H1(b) test pct 6.9; placebo gap -0.013124999999999998; 2.5 min
+2026-11-07T01:44:02-05:00 [py 37396] A17 fold 31/34 RAW|0 bocpd: exact match; H1(b) test pct 0.0; placebo gap 0.0; 0.1 min
+2026-11-07T01:50:25-05:00 [py 37396] A17 fold 32/34 RAW|1 gaussian_hmm: exact match; H1(b) test pct 2.1; placebo gap 0.004025000000000001; 6.4 min
+2026-11-07T01:50:48-05:00 [py 37396] A17 fold 32/34 RAW|1 student_t_hmm: exact match; H1(b) test pct 2.1; placebo gap 0.011400000000000004; 0.4 min
+2026-11-07T01:53:01-05:00 [py 37396] A17 fold 32/34 RAW|1 hsmm: exact match; H1(b) test pct 9.6; placebo gap 0.00507500000000001; 2.2 min
+2026-11-07T01:53:10-05:00 [py 37396] A17 fold 32/34 RAW|1 bocpd: exact match; H1(b) test pct 0.0; placebo gap 0.0; 0.1 min
+2026-11-07T01:59:26-05:00 [py 37396] A17 fold 33/34 RAW|2 gaussian_hmm: exact match; H1(b) test pct 25.5; placebo gap -0.007574999999999998; 6.3 min
+2026-11-07T01:59:44-05:00 [py 37396] A17 fold 33/34 RAW|2 student_t_hmm: exact match; H1(b) test pct 0.0; placebo gap 0.0; 0.3 min
+2026-11-07T02:02:12-05:00 [py 37396] A17 fold 33/34 RAW|2 hsmm: exact match; H1(b) test pct 22.7; placebo gap -0.011200000000000005; 2.5 min
+2026-11-07T02:02:21-05:00 [py 37396] A17 fold 33/34 RAW|2 bocpd: exact match; H1(b) test pct 0.0; placebo gap 0.0; 0.1 min
+2026-11-07T02:08:29-05:00 [py 37396] A17 fold 34/34 RAW|3 gaussian_hmm: exact match; H1(b) test pct 16.9; placebo gap -0.0468; 6.1 min
+2026-11-07T02:08:46-05:00 [py 37396] A17 fold 34/34 RAW|3 student_t_hmm: exact match; H1(b) test pct 7.2; placebo gap -0.04337500000000001; 0.3 min
+2026-11-07T02:11:01-05:00 [py 37396] A17 fold 34/34 RAW|3 hsmm: exact match; H1(b) test pct 10.5; placebo gap -0.015725000000000003; 2.2 min
+2026-11-07T02:11:14-05:00 [py 37396] A17 fold 34/34 RAW|3 bocpd: exact match; H1(b) test pct 0.4; placebo gap 0.0158; 0.2 min
+2026-11-07T02:11:14-05:00 [py 37396] A17 DONE in 3.87 h: 136/136 units reproduced exactly; results/a17/a17_results.json written
+2026-11-07T02:11:14-05:00 [ps1 36492] A17-style attempt 1: Python exited with code 0 after 232.3 min
+2026-11-07T02:11:14-05:00 [ps1 36492] A17-style DONE (results\mr2\a17\a17_results.json written)
+2026-11-07T02:11:14-05:00 [ps1 36492] D7 attempt 1 of 6: starting Python
+2026-11-07T02:11:16-05:00 [py 9568] D7 guards: protocol 15be2570a592279e..., main record verified, canonical list, no lock, registry ok, A17 manifest 136 models
+2026-11-07T02:11:59-05:00 [py 9568] D7 fold 1/26 LEGACY|0: 14 days (0 skipped); 0.7 min
+2026-11-07T02:12:14-05:00 [py 9568] D7 fold 2/26 LEGACY|1: 8 days (0 skipped); 0.2 min
+2026-11-07T02:12:32-05:00 [py 9568] D7 fold 3/26 LEGACY|2: 10 days (0 skipped); 0.3 min
+2026-11-07T02:12:48-05:00 [py 9568] D7 fold 4/26 LEGACY|3: 8 days (0 skipped); 0.3 min
+2026-11-07T02:13:00-05:00 [py 9568] D7 fold 5/26 LEGACY|4: 6 days (0 skipped); 0.2 min
+2026-11-07T02:13:16-05:00 [py 9568] D7 fold 6/26 LEGACY|5: 8 days (0 skipped); 0.3 min
+2026-11-07T02:13:43-05:00 [py 9568] D7 fold 7/26 LEGACY|6: 12 days (0 skipped); 0.5 min
+2026-11-07T02:14:07-05:00 [py 9568] D7 fold 8/26 LEGACY|7: 11 days (0 skipped); 0.4 min
+2026-11-07T02:14:26-05:00 [py 9568] D7 fold 9/26 LEGACY|8: 9 days (0 skipped); 0.3 min
+2026-11-07T02:15:02-05:00 [py 9568] D7 fold 10/26 LEGACY|9: 16 days (0 skipped); 0.6 min
+2026-11-07T02:15:41-05:00 [py 9568] D7 fold 11/26 LEGACY|10: 18 days (0 skipped); 0.6 min
+2026-11-07T02:15:47-05:00 [py 9568] D7 fold 12/26 LEGACY|11: 3 days (0 skipped); 0.1 min
+2026-11-07T02:16:06-05:00 [py 9568] D7 fold 13/26 LEGACY|12: 9 days (0 skipped); 0.3 min
+2026-11-07T02:16:24-05:00 [py 9568] D7 fold 14/26 LEGACY|13: 8 days (0 skipped); 0.3 min
+2026-11-07T02:16:41-05:00 [py 9568] D7 fold 15/26 LEGACY|14: 9 days (0 skipped); 0.3 min
+2026-11-07T02:17:20-05:00 [py 9568] D7 fold 16/26 LEGACY|15: 18 days (0 skipped); 0.7 min
+2026-11-07T02:17:48-05:00 [py 9568] D7 fold 17/26 LEGACY|16: 14 days (0 skipped); 0.5 min
+2026-11-07T02:17:56-05:00 [py 9568] D7 fold 18/26 LEGACY|17: 4 days (0 skipped); 0.1 min
+2026-11-07T02:18:11-05:00 [py 9568] D7 fold 19/26 LEGACY|18: 7 days (0 skipped); 0.2 min
+2026-11-07T02:18:37-05:00 [py 9568] D7 fold 20/26 LEGACY|19: 12 days (0 skipped); 0.4 min
+2026-11-07T02:19:01-05:00 [py 9568] D7 fold 21/26 LEGACY|20: 11 days (0 skipped); 0.4 min
+2026-11-07T02:19:24-05:00 [py 9568] D7 fold 22/26 LEGACY|21: 11 days (0 skipped); 0.4 min
+2026-11-07T02:19:49-05:00 [py 9568] D7 fold 23/26 LEGACY|22: 11 days (1 skipped); 0.4 min
+2026-11-07T02:20:17-05:00 [py 9568] D7 fold 24/26 LEGACY|25: 13 days (0 skipped); 0.5 min
+2026-11-07T02:20:49-05:00 [py 9568] D7 fold 25/26 LEGACY|26: 15 days (0 skipped); 0.5 min
+2026-11-07T02:22:38-05:00 [py 9568] D7 fold 26/26 RAW|0: 40 days (0 skipped); 1.8 min
+2026-11-07T02:23:04-05:00 [py 9568] D7 DONE in 0.20 h; results/d7/d7_results.json written
+2026-11-07T02:23:04-05:00 [ps1 36492] D7 attempt 1: Python exited with code 0 after 11.8 min
+2026-11-07T02:23:04-05:00 [ps1 36492] D7 DONE (results\mr2\d7\d7_results.json written)
+2026-11-07T02:23:04-05:00 [ps1 36492] === MR2, A17-style phase and D7 DONE. No 5.12 freeze, no era calibration.

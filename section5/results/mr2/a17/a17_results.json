@@ -1,0 +1,3988 @@
+{
+ "h1c": {
+  "gaussian_hmm": {
+   "family": "gaussian_hmm",
+   "f3": {
+    "hit_rate": 0.6224489795918368,
+    "wilson95": [
+     0.5235658612643335,
+     0.7120945491778798
+    ],
+    "reference_alarm_rate": 0.04416783662617589
+   },
+   "base": {
+    "hit_rate": 0.37755102040816324,
+    "wilson95": [
+     0.2879054508221201,
+     0.4764341387356666
+    ],
+    "reference_alarm_rate": 0.034136077290542466
+   },
+   "paired": {
+    "n_events": 98,
+    "f3_only": 31,
+    "base_only": 7,
+    "both": 30,
+    "neither": 30,
+    "p_two_sided": 0.00011616700794547796,
+    "diff": 0.24489795918367352
+   },
+   "multiplicity": "none (secondary, outside the Holm families of A6 item 4)",
+   "events": [
+    {
+     "date": "2004-01-28",
+     "fold": "LEGACY|0",
+     "release_minute": 285,
+     "feature_hit": true,
+     "baseline_hit": false
+    },
+    {
+     "date": "2004-03-16",
+     "fold": "LEGACY|0",
+     "release_minute": 285,
+     "feature_hit": true,
+     "baseline_hit": false
+    },
+    {
+     "date": "2004-05-04",
+     "fold": "LEGACY|0",
+     "release_minute": 285,
+     "feature_hit": false,
+     "baseline_hit": true
+    },
+    {
+     "date": "2004-06-30",
+     "fold": "LEGACY|0",
+     "release_minute": 285,
+     "feature_hit": true,
+     "baseline_hit": false
+    },
+    {
+     "date": "2004-08-10",
+     "fold": "LEGACY|1",
+     "release_minute": 285,
+     "feature_hit": true,
+     "baseline_hit": false
+    },
+    {
+     "date": "2004-09-21",
+     "fold": "LEGACY|1",
+     "release_minute": 285,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2004-11-10",
+     "fold": "LEGACY|1",
+     "release_minute": 285,
+     "feature_hit": true,
+     "baseline_hit": false
+    },
+    {
+     "date": "2004-12-14",
+     "fold": "LEGACY|1",
+     "release_minute": 285,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2005-02-02",
+     "fold": "LEGACY|2",
+     "release_minute": 285,
+     "feature_hit": true,
+     "baseline_hit": false
+    },
+    {
+     "date": "2005-03-22",
+     "fold": "LEGACY|2",
+     "release_minute": 285,
+     "feature_hit": true,
+     "baseline_hit": true
+    },
+    {
+     "date": "2005-05-03",
+     "fold": "LEGACY|2",
+     "release_minute": 285,
+     "feature_hit": false,
+     "baseline_hit": true
+    },
+    {
+     "date": "2005-06-30",
+     "fold": "LEGACY|2",
+     "release_minute": 285,
+     "feature_hit": true,
+     "baseline_hit": true
+    },
+    {
+     "date": "2005-08-09",
+     "fold": "LEGACY|3",
+     "release_minute": 285,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2005-09-20",
+     "fold": "LEGACY|3",
+     "release_minute": 285,
+     "feature_hit": true,
+     "baseline_hit": true
+    },
+    {
+     "date": "2005-11-01",
+     "fold": "LEGACY|3",
+     "release_minute": 285,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2005-12-13",
+     "fold": "LEGACY|3",
+     "release_minute": 285,
+     "feature_hit": true,
+     "baseline_hit": true
+    },
+    {
+     "date": "2006-01-31",
+     "fold": "LEGACY|4",
+     "release_minute": 285,
+     "feature_hit": true,
+     "baseline_hit": false
+    },
+    {
+     "date": "2006-03-28",
+     "fold": "LEGACY|4",
+     "release_minute": 285,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2006-05-10",
+     "fold": "LEGACY|4",
+     "release_minute": 285,
+     "feature_hit": true,
+     "baseline_hit": false
+    },
+    {
+     "date": "2006-06-29",
+     "fold": "LEGACY|4",
+     "release_minute": 285,
+     "feature_hit": true,
+     "baseline_hit": false
+    },
+    {
+     "date": "2006-08-08",
+     "fold": "LEGACY|5",
+     "release_minute": 285,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2006-09-20",
+     "fold": "LEGACY|5",
+     "release_minute": 285,
+     "feature_hit": true,
+     "baseline_hit": true
+    },
+    {
+     "date": "2006-10-25",
+     "fold": "LEGACY|5",
+     "release_minute": 285,
+     "feature_hit": false,
+     "baseline_hit": true
+    },
+    {
+     "date": "2006-12-12",
+     "fold": "LEGACY|5",
+     "release_minute": 285,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2007-01-31",
+     "fold": "LEGACY|6",
+     "release_minute": 285,
+     "feature_hit": true,
+     "baseline_hit": false
+    },
+    {
+     "date": "2007-03-21",
+     "fold": "LEGACY|6",
+     "release_minute": 285,
+     "feature_hit": true,
+     "baseline_hit": false
+    },
+    {
+     "date": "2007-05-09",
+     "fold": "LEGACY|6",
+     "release_minute": 285,
+     "feature_hit": true,
+     "baseline_hit": true
+    },
+    {
+     "date": "2007-06-28",
+     "fold": "LEGACY|6",
+     "release_minute": 285,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2007-08-07",
+     "fold": "LEGACY|7",
+     "release_minute": 285,
+     "feature_hit": true,
+     "baseline_hit": true
+    },
+    {
+     "date": "2007-09-18",
+     "fold": "LEGACY|7",
+     "release_minute": 285,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2007-10-31",
+     "fold": "LEGACY|7",
+     "release_minute": 285,
+     "feature_hit": true,
+     "baseline_hit": true
+    },
+    {
+     "date": "2007-12-11",
+     "fold": "LEGACY|7",
+     "release_minute": 285,
+     "feature_hit": true,
+     "baseline_hit": true
+    },
+    {
+     "date": "2008-01-30",
+     "fold": "LEGACY|8",
+     "release_minute": 285,
+     "feature_hit": true,
+     "baseline_hit": true
+    },
+    {
+     "date": "2008-03-18",
+     "fold": "LEGACY|8",
+     "release_minute": 285,
+     "feature_hit": true,
+     "baseline_hit": true
+    },
+    {
+     "date": "2008-04-30",
+     "fold": "LEGACY|8",
+     "release_minute": 285,
+     "feature_hit": true,
+     "baseline_hit": true
+    },
+    {
+     "date": "2008-06-25",
+     "fold": "LEGACY|8",
+     "release_minute": 285,
+     "feature_hit": true,
+     "baseline_hit": false
+    },
+    {
+     "date": "2008-08-05",
+     "fold": "LEGACY|9",
+     "release_minute": 285,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2008-09-16",
+     "fold": "LEGACY|9",
+     "release_minute": 285,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2008-10-29",
+     "fold": "LEGACY|9",
+     "release_minute": 285,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2008-12-16",
+     "fold": "LEGACY|9",
+     "release_minute": 285,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2009-01-28",
+     "fold": "LEGACY|10",
+     "release_minute": 285,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2009-03-18",
+     "fold": "LEGACY|10",
+     "release_minute": 285,
+     "feature_hit": true,
+     "baseline_hit": true
+    },
+    {
+     "date": "2009-04-29",
+     "fold": "LEGACY|10",
+     "release_minute": 285,
+     "feature_hit": true,
+     "baseline_hit": false
+    },
+    {
+     "date": "2009-06-24",
+     "fold": "LEGACY|10",
+     "release_minute": 285,
+     "feature_hit": true,
+     "baseline_hit": false
+    },
+    {
+     "date": "2009-08-12",
+     "fold": "LEGACY|11",
+     "release_minute": 285,
+     "feature_hit": true,
+     "baseline_hit": true
+    },
+    {
+     "date": "2009-09-23",
+     "fold": "LEGACY|11",
+     "release_minute": 285,
+     "feature_hit": true,
+     "baseline_hit": true
+    },
+    {
+     "date": "2009-11-04",
+     "fold": "LEGACY|11",
+     "release_minute": 285,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2009-12-16",
+     "fold": "LEGACY|11",
+     "release_minute": 285,
+     "feature_hit": true,
+     "baseline_hit": true
+    },
+    {
+     "date": "2010-01-27",
+     "fold": "LEGACY|12",
+     "release_minute": 285,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2010-03-16",
+     "fold": "LEGACY|12",
+     "release_minute": 285,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2010-04-28",
+     "fold": "LEGACY|12",
+     "release_minute": 285,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2010-06-23",
+     "fold": "LEGACY|12",
+     "release_minute": 285,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2010-08-10",
+     "fold": "LEGACY|13",
+     "release_minute": 285,
+     "feature_hit": true,
+     "baseline_hit": false
+    },
+    {
+     "date": "2010-09-21",
+     "fold": "LEGACY|13",
+     "release_minute": 285,
+     "feature_hit": true,
+     "baseline_hit": false
+    },
+    {
+     "date": "2010-11-03",
+     "fold": "LEGACY|13",
+     "release_minute": 285,
+     "feature_hit": true,
+     "baseline_hit": false
+    },
+    {
+     "date": "2010-12-14",
+     "fold": "LEGACY|13",
+     "release_minute": 285,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2011-01-26",
+     "fold": "LEGACY|14",
+     "release_minute": 285,
+     "feature_hit": true,
+     "baseline_hit": false
+    },
+    {
+     "date": "2011-03-15",
+     "fold": "LEGACY|14",
+     "release_minute": 285,
+     "feature_hit": true,
+     "baseline_hit": false
+    },
+    {
+     "date": "2011-04-27",
+     "fold": "LEGACY|14",
+     "release_minute": 180,
+     "feature_hit": true,
+     "baseline_hit": false
+    },
+    {
+     "date": "2011-06-22",
+     "fold": "LEGACY|14",
+     "release_minute": 180,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2011-11-02",
+     "fold": "LEGACY|15",
+     "release_minute": 180,
+     "feature_hit": true,
+     "baseline_hit": false
+    },
+    {
+     "date": "2012-01-25",
+     "fold": "LEGACY|16",
+     "release_minute": 170,
+     "feature_hit": true,
+     "baseline_hit": false
+    },
+    {
+     "date": "2012-04-25",
+     "fold": "LEGACY|16",
+     "release_minute": 185,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2012-06-20",
+     "fold": "LEGACY|16",
+     "release_minute": 185,
+     "feature_hit": true,
+     "baseline_hit": true
+    },
+    {
+     "date": "2012-09-13",
+     "fold": "LEGACY|17",
+     "release_minute": 185,
+     "feature_hit": true,
+     "baseline_hit": true
+    },
+    {
+     "date": "2012-12-12",
+     "fold": "LEGACY|17",
+     "release_minute": 180,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2013-01-30",
+     "fold": "LEGACY|18",
+     "release_minute": 270,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2013-03-20",
+     "fold": "LEGACY|18",
+     "release_minute": 270,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2013-05-01",
+     "fold": "LEGACY|18",
+     "release_minute": 270,
+     "feature_hit": true,
+     "baseline_hit": false
+    },
+    {
+     "date": "2013-06-19",
+     "fold": "LEGACY|18",
+     "release_minute": 270,
+     "feature_hit": true,
+     "baseline_hit": true
+    },
+    {
+     "date": "2013-07-31",
+     "fold": "LEGACY|19",
+     "release_minute": 270,
+     "feature_hit": true,
+     "baseline_hit": false
+    },
+    {
+     "date": "2013-09-18",
+     "fold": "LEGACY|19",
+     "release_minute": 270,
+     "feature_hit": true,
+     "baseline_hit": true
+    },
+    {
+     "date": "2013-10-30",
+     "fold": "LEGACY|19",
+     "release_minute": 270,
+     "feature_hit": true,
+     "baseline_hit": true
+    },
+    {
+     "date": "2013-12-18",
+     "fold": "LEGACY|19",
+     "release_minute": 270,
+     "feature_hit": false,
+     "baseline_hit": true
+    },
+    {
+     "date": "2014-01-29",
+     "fold": "LEGACY|20",
+     "release_minute": 270,
+     "feature_hit": false,
+     "baseline_hit": true
+    },
+    {
+     "date": "2014-03-19",
+     "fold": "LEGACY|20",
+     "release_minute": 270,
+     "feature_hit": true,
+     "baseline_hit": false
+    },
+    {
+     "date": "2014-04-30",
+     "fold": "LEGACY|20",
+     "release_minute": 270,
+     "feature_hit": true,
+     "baseline_hit": false
+    },
+    {
+     "date": "2014-06-18",
+     "fold": "LEGACY|20",
+     "release_minute": 270,
+     "feature_hit": false,
+     "baseline_hit": true
+    },
+    {
+     "date": "2014-07-30",
+     "fold": "LEGACY|21",
+     "release_minute": 270,
+     "feature_hit": false,
+     "baseline_hit": true
+    },
+    {
+     "date": "2014-09-17",
+     "fold": "LEGACY|21",
+     "release_minute": 270,
+     "feature_hit": true,
+     "baseline_hit": true
+    },
+    {
+     "date": "2014-10-29",
+     "fold": "LEGACY|21",
+     "release_minute": 270,
+     "feature_hit": true,
+     "baseline_hit": true
+    },
+    {
+     "date": "2014-12-17",
+     "fold": "LEGACY|21",
+     "release_minute": 270,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2015-01-28",
+     "fold": "LEGACY|22",
+     "release_minute": 270,
+     "feature_hit": true,
+     "baseline_hit": false
+    },
+    {
+     "date": "2015-03-18",
+     "fold": "LEGACY|22",
+     "release_minute": 270,
+     "feature_hit": true,
+     "baseline_hit": true
+    },
+    {
+     "date": "2015-04-29",
+     "fold": "LEGACY|22",
+     "release_minute": 270,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2015-06-17",
+     "fold": "LEGACY|22",
+     "release_minute": 270,
+     "feature_hit": true,
+     "baseline_hit": true
+    },
+    {
+     "date": "2016-07-27",
+     "fold": "LEGACY|25",
+     "release_minute": 270,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2016-09-21",
+     "fold": "LEGACY|25",
+     "release_minute": 270,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2016-11-02",
+     "fold": "LEGACY|25",
+     "release_minute": 270,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2016-12-14",
+     "fold": "LEGACY|25",
+     "release_minute": 270,
+     "feature_hit": true,
+     "baseline_hit": true
+    },
+    {
+     "date": "2017-02-01",
+     "fold": "LEGACY|26",
+     "release_minute": 270,
+     "feature_hit": true,
+     "baseline_hit": false
+    },
+    {
+     "date": "2017-03-15",
+     "fold": "LEGACY|26",
+     "release_minute": 270,
+     "feature_hit": true,
+     "baseline_hit": true
+    },
+    {
+     "date": "2017-05-03",
+     "fold": "LEGACY|26",
+     "release_minute": 270,
+     "feature_hit": true,
+     "baseline_hit": false
+    },
+    {
+     "date": "2017-06-14",
+     "fold": "LEGACY|26",
+     "release_minute": 270,
+     "feature_hit": true,
+     "baseline_hit": false
+    },
+    {
+     "date": "2023-03-22",
+     "fold": "RAW|0",
+     "release_minute": 270,
+     "feature_hit": true,
+     "baseline_hit": true
+    },
+    {
+     "date": "2023-05-03",
+     "fold": "RAW|0",
+     "release_minute": 270,
+     "feature_hit": true,
+     "baseline_hit": false
+    },
+    {
+     "date": "2023-06-14",
+     "fold": "RAW|0",
+     "release_minute": 270,
+     "feature_hit": true,
+     "baseline_hit": true
+    },
+    {
+     "date": "2023-07-26",
+     "fold": "RAW|0",
+     "release_minute": 270,
+     "feature_hit": true,
+     "baseline_hit": true
+    }
+   ]
+  },
+  "student_t_hmm": {
+   "family": "student_t_hmm",
+   "f3": {
+    "hit_rate": 0.46938775510204084,
+    "wilson95": [
+     0.37360956868063505,
+     0.5674753287088117
+    ],
+    "reference_alarm_rate": 0.035199351982675486
+   },
+   "base": {
+    "hit_rate": 0.25510204081632654,
+    "wilson95": [
+     0.17917461350729108,
+     0.3495045656082824
+    ],
+    "reference_alarm_rate": 0.03660956404664058
+   },
+   "paired": {
+    "n_events": 98,
+    "f3_only": 24,
+    "base_only": 3,
+    "both": 22,
+    "neither": 49,
+    "p_two_sided": 4.9233436584472656e-05,
+    "diff": 0.2142857142857143
+   },
+   "multiplicity": "none (secondary, outside the Holm families of A6 item 4)",
+   "events": [
+    {
+     "date": "2004-01-28",
+     "fold": "LEGACY|0",
+     "release_minute": 285,
+     "feature_hit": true,
+     "baseline_hit": false
+    },
+    {
+     "date": "2004-03-16",
+     "fold": "LEGACY|0",
+     "release_minute": 285,
+     "feature_hit": true,
+     "baseline_hit": false
+    },
+    {
+     "date": "2004-05-04",
+     "fold": "LEGACY|0",
+     "release_minute": 285,
+     "feature_hit": true,
+     "baseline_hit": true
+    },
+    {
+     "date": "2004-06-30",
+     "fold": "LEGACY|0",
+     "release_minute": 285,
+     "feature_hit": true,
+     "baseline_hit": false
+    },
+    {
+     "date": "2004-08-10",
+     "fold": "LEGACY|1",
+     "release_minute": 285,
+     "feature_hit": true,
+     "baseline_hit": false
+    },
+    {
+     "date": "2004-09-21",
+     "fold": "LEGACY|1",
+     "release_minute": 285,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2004-11-10",
+     "fold": "LEGACY|1",
+     "release_minute": 285,
+     "feature_hit": true,
+     "baseline_hit": false
+    },
+    {
+     "date": "2004-12-14",
+     "fold": "LEGACY|1",
+     "release_minute": 285,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2005-02-02",
+     "fold": "LEGACY|2",
+     "release_minute": 285,
+     "feature_hit": true,
+     "baseline_hit": false
+    },
+    {
+     "date": "2005-03-22",
+     "fold": "LEGACY|2",
+     "release_minute": 285,
+     "feature_hit": true,
+     "baseline_hit": true
+    },
+    {
+     "date": "2005-05-03",
+     "fold": "LEGACY|2",
+     "release_minute": 285,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2005-06-30",
+     "fold": "LEGACY|2",
+     "release_minute": 285,
+     "feature_hit": true,
+     "baseline_hit": false
+    },
+    {
+     "date": "2005-08-09",
+     "fold": "LEGACY|3",
+     "release_minute": 285,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2005-09-20",
+     "fold": "LEGACY|3",
+     "release_minute": 285,
+     "feature_hit": true,
+     "baseline_hit": true
+    },
+    {
+     "date": "2005-11-01",
+     "fold": "LEGACY|3",
+     "release_minute": 285,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2005-12-13",
+     "fold": "LEGACY|3",
+     "release_minute": 285,
+     "feature_hit": true,
+     "baseline_hit": false
+    },
+    {
+     "date": "2006-01-31",
+     "fold": "LEGACY|4",
+     "release_minute": 285,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2006-03-28",
+     "fold": "LEGACY|4",
+     "release_minute": 285,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2006-05-10",
+     "fold": "LEGACY|4",
+     "release_minute": 285,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2006-06-29",
+     "fold": "LEGACY|4",
+     "release_minute": 285,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2006-08-08",
+     "fold": "LEGACY|5",
+     "release_minute": 285,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2006-09-20",
+     "fold": "LEGACY|5",
+     "release_minute": 285,
+     "feature_hit": true,
+     "baseline_hit": false
+    },
+    {
+     "date": "2006-10-25",
+     "fold": "LEGACY|5",
+     "release_minute": 285,
+     "feature_hit": true,
+     "baseline_hit": false
+    },
+    {
+     "date": "2006-12-12",
+     "fold": "LEGACY|5",
+     "release_minute": 285,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2007-01-31",
+     "fold": "LEGACY|6",
+     "release_minute": 285,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2007-03-21",
+     "fold": "LEGACY|6",
+     "release_minute": 285,
+     "feature_hit": true,
+     "baseline_hit": true
+    },
+    {
+     "date": "2007-05-09",
+     "fold": "LEGACY|6",
+     "release_minute": 285,
+     "feature_hit": true,
+     "baseline_hit": true
+    },
+    {
+     "date": "2007-06-28",
+     "fold": "LEGACY|6",
+     "release_minute": 285,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2007-08-07",
+     "fold": "LEGACY|7",
+     "release_minute": 285,
+     "feature_hit": true,
+     "baseline_hit": true
+    },
+    {
+     "date": "2007-09-18",
+     "fold": "LEGACY|7",
+     "release_minute": 285,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2007-10-31",
+     "fold": "LEGACY|7",
+     "release_minute": 285,
+     "feature_hit": true,
+     "baseline_hit": true
+    },
+    {
+     "date": "2007-12-11",
+     "fold": "LEGACY|7",
+     "release_minute": 285,
+     "feature_hit": true,
+     "baseline_hit": true
+    },
+    {
+     "date": "2008-01-30",
+     "fold": "LEGACY|8",
+     "release_minute": 285,
+     "feature_hit": true,
+     "baseline_hit": true
+    },
+    {
+     "date": "2008-03-18",
+     "fold": "LEGACY|8",
+     "release_minute": 285,
+     "feature_hit": true,
+     "baseline_hit": true
+    },
+    {
+     "date": "2008-04-30",
+     "fold": "LEGACY|8",
+     "release_minute": 285,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2008-06-25",
+     "fold": "LEGACY|8",
+     "release_minute": 285,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2008-08-05",
+     "fold": "LEGACY|9",
+     "release_minute": 285,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2008-09-16",
+     "fold": "LEGACY|9",
+     "release_minute": 285,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2008-10-29",
+     "fold": "LEGACY|9",
+     "release_minute": 285,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2008-12-16",
+     "fold": "LEGACY|9",
+     "release_minute": 285,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2009-01-28",
+     "fold": "LEGACY|10",
+     "release_minute": 285,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2009-03-18",
+     "fold": "LEGACY|10",
+     "release_minute": 285,
+     "feature_hit": true,
+     "baseline_hit": true
+    },
+    {
+     "date": "2009-04-29",
+     "fold": "LEGACY|10",
+     "release_minute": 285,
+     "feature_hit": true,
+     "baseline_hit": false
+    },
+    {
+     "date": "2009-06-24",
+     "fold": "LEGACY|10",
+     "release_minute": 285,
+     "feature_hit": true,
+     "baseline_hit": false
+    },
+    {
+     "date": "2009-08-12",
+     "fold": "LEGACY|11",
+     "release_minute": 285,
+     "feature_hit": false,
+     "baseline_hit": true
+    },
+    {
+     "date": "2009-09-23",
+     "fold": "LEGACY|11",
+     "release_minute": 285,
+     "feature_hit": false,
+     "baseline_hit": true
+    },
+    {
+     "date": "2009-11-04",
+     "fold": "LEGACY|11",
+     "release_minute": 285,
+     "feature_hit": true,
+     "baseline_hit": false
+    },
+    {
+     "date": "2009-12-16",
+     "fold": "LEGACY|11",
+     "release_minute": 285,
+     "feature_hit": true,
+     "baseline_hit": true
+    },
+    {
+     "date": "2010-01-27",
+     "fold": "LEGACY|12",
+     "release_minute": 285,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2010-03-16",
+     "fold": "LEGACY|12",
+     "release_minute": 285,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2010-04-28",
+     "fold": "LEGACY|12",
+     "release_minute": 285,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2010-06-23",
+     "fold": "LEGACY|12",
+     "release_minute": 285,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2010-08-10",
+     "fold": "LEGACY|13",
+     "release_minute": 285,
+     "feature_hit": true,
+     "baseline_hit": true
+    },
+    {
+     "date": "2010-09-21",
+     "fold": "LEGACY|13",
+     "release_minute": 285,
+     "feature_hit": true,
+     "baseline_hit": false
+    },
+    {
+     "date": "2010-11-03",
+     "fold": "LEGACY|13",
+     "release_minute": 285,
+     "feature_hit": true,
+     "baseline_hit": false
+    },
+    {
+     "date": "2010-12-14",
+     "fold": "LEGACY|13",
+     "release_minute": 285,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2011-01-26",
+     "fold": "LEGACY|14",
+     "release_minute": 285,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2011-03-15",
+     "fold": "LEGACY|14",
+     "release_minute": 285,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2011-04-27",
+     "fold": "LEGACY|14",
+     "release_minute": 180,
+     "feature_hit": true,
+     "baseline_hit": false
+    },
+    {
+     "date": "2011-06-22",
+     "fold": "LEGACY|14",
+     "release_minute": 180,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2011-11-02",
+     "fold": "LEGACY|15",
+     "release_minute": 180,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2012-01-25",
+     "fold": "LEGACY|16",
+     "release_minute": 170,
+     "feature_hit": true,
+     "baseline_hit": false
+    },
+    {
+     "date": "2012-04-25",
+     "fold": "LEGACY|16",
+     "release_minute": 185,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2012-06-20",
+     "fold": "LEGACY|16",
+     "release_minute": 185,
+     "feature_hit": true,
+     "baseline_hit": false
+    },
+    {
+     "date": "2012-09-13",
+     "fold": "LEGACY|17",
+     "release_minute": 185,
+     "feature_hit": true,
+     "baseline_hit": true
+    },
+    {
+     "date": "2012-12-12",
+     "fold": "LEGACY|17",
+     "release_minute": 180,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2013-01-30",
+     "fold": "LEGACY|18",
+     "release_minute": 270,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2013-03-20",
+     "fold": "LEGACY|18",
+     "release_minute": 270,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2013-05-01",
+     "fold": "LEGACY|18",
+     "release_minute": 270,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2013-06-19",
+     "fold": "LEGACY|18",
+     "release_minute": 270,
+     "feature_hit": true,
+     "baseline_hit": true
+    },
+    {
+     "date": "2013-07-31",
+     "fold": "LEGACY|19",
+     "release_minute": 270,
+     "feature_hit": true,
+     "baseline_hit": false
+    },
+    {
+     "date": "2013-09-18",
+     "fold": "LEGACY|19",
+     "release_minute": 270,
+     "feature_hit": true,
+     "baseline_hit": true
+    },
+    {
+     "date": "2013-10-30",
+     "fold": "LEGACY|19",
+     "release_minute": 270,
+     "feature_hit": true,
+     "baseline_hit": true
+    },
+    {
+     "date": "2013-12-18",
+     "fold": "LEGACY|19",
+     "release_minute": 270,
+     "feature_hit": false,
+     "baseline_hit": true
+    },
+    {
+     "date": "2014-01-29",
+     "fold": "LEGACY|20",
+     "release_minute": 270,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2014-03-19",
+     "fold": "LEGACY|20",
+     "release_minute": 270,
+     "feature_hit": true,
+     "baseline_hit": false
+    },
+    {
+     "date": "2014-04-30",
+     "fold": "LEGACY|20",
+     "release_minute": 270,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2014-06-18",
+     "fold": "LEGACY|20",
+     "release_minute": 270,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2014-07-30",
+     "fold": "LEGACY|21",
+     "release_minute": 270,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2014-09-17",
+     "fold": "LEGACY|21",
+     "release_minute": 270,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2014-10-29",
+     "fold": "LEGACY|21",
+     "release_minute": 270,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2014-12-17",
+     "fold": "LEGACY|21",
+     "release_minute": 270,
+     "feature_hit": true,
+     "baseline_hit": true
+    },
+    {
+     "date": "2015-01-28",
+     "fold": "LEGACY|22",
+     "release_minute": 270,
+     "feature_hit": true,
+     "baseline_hit": false
+    },
+    {
+     "date": "2015-03-18",
+     "fold": "LEGACY|22",
+     "release_minute": 270,
+     "feature_hit": true,
+     "baseline_hit": true
+    },
+    {
+     "date": "2015-04-29",
+     "fold": "LEGACY|22",
+     "release_minute": 270,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2015-06-17",
+     "fold": "LEGACY|22",
+     "release_minute": 270,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2016-07-27",
+     "fold": "LEGACY|25",
+     "release_minute": 270,
+     "feature_hit": true,
+     "baseline_hit": false
+    },
+    {
+     "date": "2016-09-21",
+     "fold": "LEGACY|25",
+     "release_minute": 270,
+     "feature_hit": true,
+     "baseline_hit": false
+    },
+    {
+     "date": "2016-11-02",
+     "fold": "LEGACY|25",
+     "release_minute": 270,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2016-12-14",
+     "fold": "LEGACY|25",
+     "release_minute": 270,
+     "feature_hit": true,
+     "baseline_hit": true
+    },
+    {
+     "date": "2017-02-01",
+     "fold": "LEGACY|26",
+     "release_minute": 270,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2017-03-15",
+     "fold": "LEGACY|26",
+     "release_minute": 270,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2017-05-03",
+     "fold": "LEGACY|26",
+     "release_minute": 270,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2017-06-14",
+     "fold": "LEGACY|26",
+     "release_minute": 270,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2023-03-22",
+     "fold": "RAW|0",
+     "release_minute": 270,
+     "feature_hit": true,
+     "baseline_hit": true
+    },
+    {
+     "date": "2023-05-03",
+     "fold": "RAW|0",
+     "release_minute": 270,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2023-06-14",
+     "fold": "RAW|0",
+     "release_minute": 270,
+     "feature_hit": true,
+     "baseline_hit": false
+    },
+    {
+     "date": "2023-07-26",
+     "fold": "RAW|0",
+     "release_minute": 270,
+     "feature_hit": true,
+     "baseline_hit": true
+    }
+   ]
+  },
+  "hsmm": {
+   "family": "hsmm",
+   "f3": {
+    "hit_rate": 0.6224489795918368,
+    "wilson95": [
+     0.5235658612643335,
+     0.7120945491778798
+    ],
+    "reference_alarm_rate": 0.03493414967029836
+   },
+   "base": {
+    "hit_rate": 0.35714285714285715,
+    "wilson95": [
+     0.2693153415441716,
+     0.455747512939913
+    ],
+    "reference_alarm_rate": 0.03589061284164749
+   },
+   "paired": {
+    "n_events": 98,
+    "f3_only": 32,
+    "base_only": 6,
+    "both": 29,
+    "neither": 31,
+    "p_two_sided": 2.4342560209333897e-05,
+    "diff": 0.2653061224489796
+   },
+   "multiplicity": "none (secondary, outside the Holm families of A6 item 4)",
+   "events": [
+    {
+     "date": "2004-01-28",
+     "fold": "LEGACY|0",
+     "release_minute": 285,
+     "feature_hit": true,
+     "baseline_hit": true
+    },
+    {
+     "date": "2004-03-16",
+     "fold": "LEGACY|0",
+     "release_minute": 285,
+     "feature_hit": true,
+     "baseline_hit": false
+    },
+    {
+     "date": "2004-05-04",
+     "fold": "LEGACY|0",
+     "release_minute": 285,
+     "feature_hit": true,
+     "baseline_hit": true
+    },
+    {
+     "date": "2004-06-30",
+     "fold": "LEGACY|0",
+     "release_minute": 285,
+     "feature_hit": true,
+     "baseline_hit": false
+    },
+    {
+     "date": "2004-08-10",
+     "fold": "LEGACY|1",
+     "release_minute": 285,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2004-09-21",
+     "fold": "LEGACY|1",
+     "release_minute": 285,
+     "feature_hit": true,
+     "baseline_hit": false
+    },
+    {
+     "date": "2004-11-10",
+     "fold": "LEGACY|1",
+     "release_minute": 285,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2004-12-14",
+     "fold": "LEGACY|1",
+     "release_minute": 285,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2005-02-02",
+     "fold": "LEGACY|2",
+     "release_minute": 285,
+     "feature_hit": true,
+     "baseline_hit": false
+    },
+    {
+     "date": "2005-03-22",
+     "fold": "LEGACY|2",
+     "release_minute": 285,
+     "feature_hit": true,
+     "baseline_hit": true
+    },
+    {
+     "date": "2005-05-03",
+     "fold": "LEGACY|2",
+     "release_minute": 285,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2005-06-30",
+     "fold": "LEGACY|2",
+     "release_minute": 285,
+     "feature_hit": true,
+     "baseline_hit": false
+    },
+    {
+     "date": "2005-08-09",
+     "fold": "LEGACY|3",
+     "release_minute": 285,
+     "feature_hit": true,
+     "baseline_hit": false
+    },
+    {
+     "date": "2005-09-20",
+     "fold": "LEGACY|3",
+     "release_minute": 285,
+     "feature_hit": true,
+     "baseline_hit": true
+    },
+    {
+     "date": "2005-11-01",
+     "fold": "LEGACY|3",
+     "release_minute": 285,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2005-12-13",
+     "fold": "LEGACY|3",
+     "release_minute": 285,
+     "feature_hit": true,
+     "baseline_hit": true
+    },
+    {
+     "date": "2006-01-31",
+     "fold": "LEGACY|4",
+     "release_minute": 285,
+     "feature_hit": true,
+     "baseline_hit": true
+    },
+    {
+     "date": "2006-03-28",
+     "fold": "LEGACY|4",
+     "release_minute": 285,
+     "feature_hit": true,
+     "baseline_hit": false
+    },
+    {
+     "date": "2006-05-10",
+     "fold": "LEGACY|4",
+     "release_minute": 285,
+     "feature_hit": true,
+     "baseline_hit": false
+    },
+    {
+     "date": "2006-06-29",
+     "fold": "LEGACY|4",
+     "release_minute": 285,
+     "feature_hit": true,
+     "baseline_hit": true
+    },
+    {
+     "date": "2006-08-08",
+     "fold": "LEGACY|5",
+     "release_minute": 285,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2006-09-20",
+     "fold": "LEGACY|5",
+     "release_minute": 285,
+     "feature_hit": true,
+     "baseline_hit": true
+    },
+    {
+     "date": "2006-10-25",
+     "fold": "LEGACY|5",
+     "release_minute": 285,
+     "feature_hit": true,
+     "baseline_hit": false
+    },
+    {
+     "date": "2006-12-12",
+     "fold": "LEGACY|5",
+     "release_minute": 285,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2007-01-31",
+     "fold": "LEGACY|6",
+     "release_minute": 285,
+     "feature_hit": true,
+     "baseline_hit": false
+    },
+    {
+     "date": "2007-03-21",
+     "fold": "LEGACY|6",
+     "release_minute": 285,
+     "feature_hit": true,
+     "baseline_hit": false
+    },
+    {
+     "date": "2007-05-09",
+     "fold": "LEGACY|6",
+     "release_minute": 285,
+     "feature_hit": true,
+     "baseline_hit": true
+    },
+    {
+     "date": "2007-06-28",
+     "fold": "LEGACY|6",
+     "release_minute": 285,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2007-08-07",
+     "fold": "LEGACY|7",
+     "release_minute": 285,
+     "feature_hit": true,
+     "baseline_hit": true
+    },
+    {
+     "date": "2007-09-18",
+     "fold": "LEGACY|7",
+     "release_minute": 285,
+     "feature_hit": true,
+     "baseline_hit": false
+    },
+    {
+     "date": "2007-10-31",
+     "fold": "LEGACY|7",
+     "release_minute": 285,
+     "feature_hit": true,
+     "baseline_hit": false
+    },
+    {
+     "date": "2007-12-11",
+     "fold": "LEGACY|7",
+     "release_minute": 285,
+     "feature_hit": true,
+     "baseline_hit": true
+    },
+    {
+     "date": "2008-01-30",
+     "fold": "LEGACY|8",
+     "release_minute": 285,
+     "feature_hit": true,
+     "baseline_hit": true
+    },
+    {
+     "date": "2008-03-18",
+     "fold": "LEGACY|8",
+     "release_minute": 285,
+     "feature_hit": true,
+     "baseline_hit": true
+    },
+    {
+     "date": "2008-04-30",
+     "fold": "LEGACY|8",
+     "release_minute": 285,
+     "feature_hit": false,
+     "baseline_hit": true
+    },
+    {
+     "date": "2008-06-25",
+     "fold": "LEGACY|8",
+     "release_minute": 285,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2008-08-05",
+     "fold": "LEGACY|9",
+     "release_minute": 285,
+     "feature_hit": true,
+     "baseline_hit": false
+    },
+    {
+     "date": "2008-09-16",
+     "fold": "LEGACY|9",
+     "release_minute": 285,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2008-10-29",
+     "fold": "LEGACY|9",
+     "release_minute": 285,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2008-12-16",
+     "fold": "LEGACY|9",
+     "release_minute": 285,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2009-01-28",
+     "fold": "LEGACY|10",
+     "release_minute": 285,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2009-03-18",
+     "fold": "LEGACY|10",
+     "release_minute": 285,
+     "feature_hit": true,
+     "baseline_hit": true
+    },
+    {
+     "date": "2009-04-29",
+     "fold": "LEGACY|10",
+     "release_minute": 285,
+     "feature_hit": true,
+     "baseline_hit": false
+    },
+    {
+     "date": "2009-06-24",
+     "fold": "LEGACY|10",
+     "release_minute": 285,
+     "feature_hit": true,
+     "baseline_hit": false
+    },
+    {
+     "date": "2009-08-12",
+     "fold": "LEGACY|11",
+     "release_minute": 285,
+     "feature_hit": false,
+     "baseline_hit": true
+    },
+    {
+     "date": "2009-09-23",
+     "fold": "LEGACY|11",
+     "release_minute": 285,
+     "feature_hit": true,
+     "baseline_hit": true
+    },
+    {
+     "date": "2009-11-04",
+     "fold": "LEGACY|11",
+     "release_minute": 285,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2009-12-16",
+     "fold": "LEGACY|11",
+     "release_minute": 285,
+     "feature_hit": false,
+     "baseline_hit": true
+    },
+    {
+     "date": "2010-01-27",
+     "fold": "LEGACY|12",
+     "release_minute": 285,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2010-03-16",
+     "fold": "LEGACY|12",
+     "release_minute": 285,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2010-04-28",
+     "fold": "LEGACY|12",
+     "release_minute": 285,
+     "feature_hit": true,
+     "baseline_hit": false
+    },
+    {
+     "date": "2010-06-23",
+     "fold": "LEGACY|12",
+     "release_minute": 285,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2010-08-10",
+     "fold": "LEGACY|13",
+     "release_minute": 285,
+     "feature_hit": true,
+     "baseline_hit": true
+    },
+    {
+     "date": "2010-09-21",
+     "fold": "LEGACY|13",
+     "release_minute": 285,
+     "feature_hit": true,
+     "baseline_hit": false
+    },
+    {
+     "date": "2010-11-03",
+     "fold": "LEGACY|13",
+     "release_minute": 285,
+     "feature_hit": true,
+     "baseline_hit": true
+    },
+    {
+     "date": "2010-12-14",
+     "fold": "LEGACY|13",
+     "release_minute": 285,
+     "feature_hit": true,
+     "baseline_hit": false
+    },
+    {
+     "date": "2011-01-26",
+     "fold": "LEGACY|14",
+     "release_minute": 285,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2011-03-15",
+     "fold": "LEGACY|14",
+     "release_minute": 285,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2011-04-27",
+     "fold": "LEGACY|14",
+     "release_minute": 180,
+     "feature_hit": true,
+     "baseline_hit": false
+    },
+    {
+     "date": "2011-06-22",
+     "fold": "LEGACY|14",
+     "release_minute": 180,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2011-11-02",
+     "fold": "LEGACY|15",
+     "release_minute": 180,
+     "feature_hit": true,
+     "baseline_hit": false
+    },
+    {
+     "date": "2012-01-25",
+     "fold": "LEGACY|16",
+     "release_minute": 170,
+     "feature_hit": true,
+     "baseline_hit": false
+    },
+    {
+     "date": "2012-04-25",
+     "fold": "LEGACY|16",
+     "release_minute": 185,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2012-06-20",
+     "fold": "LEGACY|16",
+     "release_minute": 185,
+     "feature_hit": true,
+     "baseline_hit": true
+    },
+    {
+     "date": "2012-09-13",
+     "fold": "LEGACY|17",
+     "release_minute": 185,
+     "feature_hit": true,
+     "baseline_hit": true
+    },
+    {
+     "date": "2012-12-12",
+     "fold": "LEGACY|17",
+     "release_minute": 180,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2013-01-30",
+     "fold": "LEGACY|18",
+     "release_minute": 270,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2013-03-20",
+     "fold": "LEGACY|18",
+     "release_minute": 270,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2013-05-01",
+     "fold": "LEGACY|18",
+     "release_minute": 270,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2013-06-19",
+     "fold": "LEGACY|18",
+     "release_minute": 270,
+     "feature_hit": true,
+     "baseline_hit": true
+    },
+    {
+     "date": "2013-07-31",
+     "fold": "LEGACY|19",
+     "release_minute": 270,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2013-09-18",
+     "fold": "LEGACY|19",
+     "release_minute": 270,
+     "feature_hit": true,
+     "baseline_hit": true
+    },
+    {
+     "date": "2013-10-30",
+     "fold": "LEGACY|19",
+     "release_minute": 270,
+     "feature_hit": false,
+     "baseline_hit": true
+    },
+    {
+     "date": "2013-12-18",
+     "fold": "LEGACY|19",
+     "release_minute": 270,
+     "feature_hit": false,
+     "baseline_hit": true
+    },
+    {
+     "date": "2014-01-29",
+     "fold": "LEGACY|20",
+     "release_minute": 270,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2014-03-19",
+     "fold": "LEGACY|20",
+     "release_minute": 270,
+     "feature_hit": true,
+     "baseline_hit": false
+    },
+    {
+     "date": "2014-04-30",
+     "fold": "LEGACY|20",
+     "release_minute": 270,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2014-06-18",
+     "fold": "LEGACY|20",
+     "release_minute": 270,
+     "feature_hit": true,
+     "baseline_hit": true
+    },
+    {
+     "date": "2014-07-30",
+     "fold": "LEGACY|21",
+     "release_minute": 270,
+     "feature_hit": true,
+     "baseline_hit": false
+    },
+    {
+     "date": "2014-09-17",
+     "fold": "LEGACY|21",
+     "release_minute": 270,
+     "feature_hit": true,
+     "baseline_hit": true
+    },
+    {
+     "date": "2014-10-29",
+     "fold": "LEGACY|21",
+     "release_minute": 270,
+     "feature_hit": true,
+     "baseline_hit": false
+    },
+    {
+     "date": "2014-12-17",
+     "fold": "LEGACY|21",
+     "release_minute": 270,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2015-01-28",
+     "fold": "LEGACY|22",
+     "release_minute": 270,
+     "feature_hit": true,
+     "baseline_hit": true
+    },
+    {
+     "date": "2015-03-18",
+     "fold": "LEGACY|22",
+     "release_minute": 270,
+     "feature_hit": true,
+     "baseline_hit": true
+    },
+    {
+     "date": "2015-04-29",
+     "fold": "LEGACY|22",
+     "release_minute": 270,
+     "feature_hit": true,
+     "baseline_hit": false
+    },
+    {
+     "date": "2015-06-17",
+     "fold": "LEGACY|22",
+     "release_minute": 270,
+     "feature_hit": false,
+     "baseline_hit": true
+    },
+    {
+     "date": "2016-07-27",
+     "fold": "LEGACY|25",
+     "release_minute": 270,
+     "feature_hit": true,
+     "baseline_hit": false
+    },
+    {
+     "date": "2016-09-21",
+     "fold": "LEGACY|25",
+     "release_minute": 270,
+     "feature_hit": true,
+     "baseline_hit": false
+    },
+    {
+     "date": "2016-11-02",
+     "fold": "LEGACY|25",
+     "release_minute": 270,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2016-12-14",
+     "fold": "LEGACY|25",
+     "release_minute": 270,
+     "feature_hit": true,
+     "baseline_hit": true
+    },
+    {
+     "date": "2017-02-01",
+     "fold": "LEGACY|26",
+     "release_minute": 270,
+     "feature_hit": true,
+     "baseline_hit": false
+    },
+    {
+     "date": "2017-03-15",
+     "fold": "LEGACY|26",
+     "release_minute": 270,
+     "feature_hit": true,
+     "baseline_hit": true
+    },
+    {
+     "date": "2017-05-03",
+     "fold": "LEGACY|26",
+     "release_minute": 270,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2017-06-14",
+     "fold": "LEGACY|26",
+     "release_minute": 270,
+     "feature_hit": true,
+     "baseline_hit": false
+    },
+    {
+     "date": "2023-03-22",
+     "fold": "RAW|0",
+     "release_minute": 270,
+     "feature_hit": true,
+     "baseline_hit": true
+    },
+    {
+     "date": "2023-05-03",
+     "fold": "RAW|0",
+     "release_minute": 270,
+     "feature_hit": true,
+     "baseline_hit": false
+    },
+    {
+     "date": "2023-06-14",
+     "fold": "RAW|0",
+     "release_minute": 270,
+     "feature_hit": true,
+     "baseline_hit": true
+    },
+    {
+     "date": "2023-07-26",
+     "fold": "RAW|0",
+     "release_minute": 270,
+     "feature_hit": true,
+     "baseline_hit": false
+    }
+   ]
+  },
+  "bocpd": {
+   "family": "bocpd",
+   "f3": {
+    "hit_rate": 0.3979591836734694,
+    "wilson95": [
+     0.30666585107893707,
+     0.49695047355255184
+    ],
+    "reference_alarm_rate": 0.07315673522156114
+   },
+   "base": {
+    "hit_rate": 0.3979591836734694,
+    "wilson95": [
+     0.30666585107893707,
+     0.49695047355255184
+    ],
+    "reference_alarm_rate": 0.07315673522156114
+   },
+   "paired": {
+    "n_events": 98,
+    "f3_only": 0,
+    "base_only": 0,
+    "both": 39,
+    "neither": 59,
+    "p_two_sided": 1.0,
+    "diff": 0.0
+   },
+   "multiplicity": "none (secondary, outside the Holm families of A6 item 4)",
+   "events": [
+    {
+     "date": "2004-01-28",
+     "fold": "LEGACY|0",
+     "release_minute": 285,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2004-03-16",
+     "fold": "LEGACY|0",
+     "release_minute": 285,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2004-05-04",
+     "fold": "LEGACY|0",
+     "release_minute": 285,
+     "feature_hit": true,
+     "baseline_hit": true
+    },
+    {
+     "date": "2004-06-30",
+     "fold": "LEGACY|0",
+     "release_minute": 285,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2004-08-10",
+     "fold": "LEGACY|1",
+     "release_minute": 285,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2004-09-21",
+     "fold": "LEGACY|1",
+     "release_minute": 285,
+     "feature_hit": true,
+     "baseline_hit": true
+    },
+    {
+     "date": "2004-11-10",
+     "fold": "LEGACY|1",
+     "release_minute": 285,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2004-12-14",
+     "fold": "LEGACY|1",
+     "release_minute": 285,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2005-02-02",
+     "fold": "LEGACY|2",
+     "release_minute": 285,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2005-03-22",
+     "fold": "LEGACY|2",
+     "release_minute": 285,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2005-05-03",
+     "fold": "LEGACY|2",
+     "release_minute": 285,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2005-06-30",
+     "fold": "LEGACY|2",
+     "release_minute": 285,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2005-08-09",
+     "fold": "LEGACY|3",
+     "release_minute": 285,
+     "feature_hit": true,
+     "baseline_hit": true
+    },
+    {
+     "date": "2005-09-20",
+     "fold": "LEGACY|3",
+     "release_minute": 285,
+     "feature_hit": true,
+     "baseline_hit": true
+    },
+    {
+     "date": "2005-11-01",
+     "fold": "LEGACY|3",
+     "release_minute": 285,
+     "feature_hit": true,
+     "baseline_hit": true
+    },
+    {
+     "date": "2005-12-13",
+     "fold": "LEGACY|3",
+     "release_minute": 285,
+     "feature_hit": true,
+     "baseline_hit": true
+    },
+    {
+     "date": "2006-01-31",
+     "fold": "LEGACY|4",
+     "release_minute": 285,
+     "feature_hit": true,
+     "baseline_hit": true
+    },
+    {
+     "date": "2006-03-28",
+     "fold": "LEGACY|4",
+     "release_minute": 285,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2006-05-10",
+     "fold": "LEGACY|4",
+     "release_minute": 285,
+     "feature_hit": true,
+     "baseline_hit": true
+    },
+    {
+     "date": "2006-06-29",
+     "fold": "LEGACY|4",
+     "release_minute": 285,
+     "feature_hit": true,
+     "baseline_hit": true
+    },
+    {
+     "date": "2006-08-08",
+     "fold": "LEGACY|5",
+     "release_minute": 285,
+     "feature_hit": true,
+     "baseline_hit": true
+    },
+    {
+     "date": "2006-09-20",
+     "fold": "LEGACY|5",
+     "release_minute": 285,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2006-10-25",
+     "fold": "LEGACY|5",
+     "release_minute": 285,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2006-12-12",
+     "fold": "LEGACY|5",
+     "release_minute": 285,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2007-01-31",
+     "fold": "LEGACY|6",
+     "release_minute": 285,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2007-03-21",
+     "fold": "LEGACY|6",
+     "release_minute": 285,
+     "feature_hit": true,
+     "baseline_hit": true
+    },
+    {
+     "date": "2007-05-09",
+     "fold": "LEGACY|6",
+     "release_minute": 285,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2007-06-28",
+     "fold": "LEGACY|6",
+     "release_minute": 285,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2007-08-07",
+     "fold": "LEGACY|7",
+     "release_minute": 285,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2007-09-18",
+     "fold": "LEGACY|7",
+     "release_minute": 285,
+     "feature_hit": true,
+     "baseline_hit": true
+    },
+    {
+     "date": "2007-10-31",
+     "fold": "LEGACY|7",
+     "release_minute": 285,
+     "feature_hit": true,
+     "baseline_hit": true
+    },
+    {
+     "date": "2007-12-11",
+     "fold": "LEGACY|7",
+     "release_minute": 285,
+     "feature_hit": true,
+     "baseline_hit": true
+    },
+    {
+     "date": "2008-01-30",
+     "fold": "LEGACY|8",
+     "release_minute": 285,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2008-03-18",
+     "fold": "LEGACY|8",
+     "release_minute": 285,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2008-04-30",
+     "fold": "LEGACY|8",
+     "release_minute": 285,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2008-06-25",
+     "fold": "LEGACY|8",
+     "release_minute": 285,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2008-08-05",
+     "fold": "LEGACY|9",
+     "release_minute": 285,
+     "feature_hit": true,
+     "baseline_hit": true
+    },
+    {
+     "date": "2008-09-16",
+     "fold": "LEGACY|9",
+     "release_minute": 285,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2008-10-29",
+     "fold": "LEGACY|9",
+     "release_minute": 285,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2008-12-16",
+     "fold": "LEGACY|9",
+     "release_minute": 285,
+     "feature_hit": true,
+     "baseline_hit": true
+    },
+    {
+     "date": "2009-01-28",
+     "fold": "LEGACY|10",
+     "release_minute": 285,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2009-03-18",
+     "fold": "LEGACY|10",
+     "release_minute": 285,
+     "feature_hit": true,
+     "baseline_hit": true
+    },
+    {
+     "date": "2009-04-29",
+     "fold": "LEGACY|10",
+     "release_minute": 285,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2009-06-24",
+     "fold": "LEGACY|10",
+     "release_minute": 285,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2009-08-12",
+     "fold": "LEGACY|11",
+     "release_minute": 285,
+     "feature_hit": true,
+     "baseline_hit": true
+    },
+    {
+     "date": "2009-09-23",
+     "fold": "LEGACY|11",
+     "release_minute": 285,
+     "feature_hit": true,
+     "baseline_hit": true
+    },
+    {
+     "date": "2009-11-04",
+     "fold": "LEGACY|11",
+     "release_minute": 285,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2009-12-16",
+     "fold": "LEGACY|11",
+     "release_minute": 285,
+     "feature_hit": true,
+     "baseline_hit": true
+    },
+    {
+     "date": "2010-01-27",
+     "fold": "LEGACY|12",
+     "release_minute": 285,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2010-03-16",
+     "fold": "LEGACY|12",
+     "release_minute": 285,
+     "feature_hit": true,
+     "baseline_hit": true
+    },
+    {
+     "date": "2010-04-28",
+     "fold": "LEGACY|12",
+     "release_minute": 285,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2010-06-23",
+     "fold": "LEGACY|12",
+     "release_minute": 285,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2010-08-10",
+     "fold": "LEGACY|13",
+     "release_minute": 285,
+     "feature_hit": true,
+     "baseline_hit": true
+    },
+    {
+     "date": "2010-09-21",
+     "fold": "LEGACY|13",
+     "release_minute": 285,
+     "feature_hit": true,
+     "baseline_hit": true
+    },
+    {
+     "date": "2010-11-03",
+     "fold": "LEGACY|13",
+     "release_minute": 285,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2010-12-14",
+     "fold": "LEGACY|13",
+     "release_minute": 285,
+     "feature_hit": true,
+     "baseline_hit": true
+    },
+    {
+     "date": "2011-01-26",
+     "fold": "LEGACY|14",
+     "release_minute": 285,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2011-03-15",
+     "fold": "LEGACY|14",
+     "release_minute": 285,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2011-04-27",
+     "fold": "LEGACY|14",
+     "release_minute": 180,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2011-06-22",
+     "fold": "LEGACY|14",
+     "release_minute": 180,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2011-11-02",
+     "fold": "LEGACY|15",
+     "release_minute": 180,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2012-01-25",
+     "fold": "LEGACY|16",
+     "release_minute": 170,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2012-04-25",
+     "fold": "LEGACY|16",
+     "release_minute": 185,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2012-06-20",
+     "fold": "LEGACY|16",
+     "release_minute": 185,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2012-09-13",
+     "fold": "LEGACY|17",
+     "release_minute": 185,
+     "feature_hit": true,
+     "baseline_hit": true
+    },
+    {
+     "date": "2012-12-12",
+     "fold": "LEGACY|17",
+     "release_minute": 180,
+     "feature_hit": true,
+     "baseline_hit": true
+    },
+    {
+     "date": "2013-01-30",
+     "fold": "LEGACY|18",
+     "release_minute": 270,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2013-03-20",
+     "fold": "LEGACY|18",
+     "release_minute": 270,
+     "feature_hit": true,
+     "baseline_hit": true
+    },
+    {
+     "date": "2013-05-01",
+     "fold": "LEGACY|18",
+     "release_minute": 270,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2013-06-19",
+     "fold": "LEGACY|18",
+     "release_minute": 270,
+     "feature_hit": true,
+     "baseline_hit": true
+    },
+    {
+     "date": "2013-07-31",
+     "fold": "LEGACY|19",
+     "release_minute": 270,
+     "feature_hit": true,
+     "baseline_hit": true
+    },
+    {
+     "date": "2013-09-18",
+     "fold": "LEGACY|19",
+     "release_minute": 270,
+     "feature_hit": true,
+     "baseline_hit": true
+    },
+    {
+     "date": "2013-10-30",
+     "fold": "LEGACY|19",
+     "release_minute": 270,
+     "feature_hit": true,
+     "baseline_hit": true
+    },
+    {
+     "date": "2013-12-18",
+     "fold": "LEGACY|19",
+     "release_minute": 270,
+     "feature_hit": true,
+     "baseline_hit": true
+    },
+    {
+     "date": "2014-01-29",
+     "fold": "LEGACY|20",
+     "release_minute": 270,
+     "feature_hit": true,
+     "baseline_hit": true
+    },
+    {
+     "date": "2014-03-19",
+     "fold": "LEGACY|20",
+     "release_minute": 270,
+     "feature_hit": true,
+     "baseline_hit": true
+    },
+    {
+     "date": "2014-04-30",
+     "fold": "LEGACY|20",
+     "release_minute": 270,
+     "feature_hit": true,
+     "baseline_hit": true
+    },
+    {
+     "date": "2014-06-18",
+     "fold": "LEGACY|20",
+     "release_minute": 270,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2014-07-30",
+     "fold": "LEGACY|21",
+     "release_minute": 270,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2014-09-17",
+     "fold": "LEGACY|21",
+     "release_minute": 270,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2014-10-29",
+     "fold": "LEGACY|21",
+     "release_minute": 270,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2014-12-17",
+     "fold": "LEGACY|21",
+     "release_minute": 270,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2015-01-28",
+     "fold": "LEGACY|22",
+     "release_minute": 270,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2015-03-18",
+     "fold": "LEGACY|22",
+     "release_minute": 270,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2015-04-29",
+     "fold": "LEGACY|22",
+     "release_minute": 270,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2015-06-17",
+     "fold": "LEGACY|22",
+     "release_minute": 270,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2016-07-27",
+     "fold": "LEGACY|25",
+     "release_minute": 270,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2016-09-21",
+     "fold": "LEGACY|25",
+     "release_minute": 270,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2016-11-02",
+     "fold": "LEGACY|25",
+     "release_minute": 270,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2016-12-14",
+     "fold": "LEGACY|25",
+     "release_minute": 270,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2017-02-01",
+     "fold": "LEGACY|26",
+     "release_minute": 270,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2017-03-15",
+     "fold": "LEGACY|26",
+     "release_minute": 270,
+     "feature_hit": true,
+     "baseline_hit": true
+    },
+    {
+     "date": "2017-05-03",
+     "fold": "LEGACY|26",
+     "release_minute": 270,
+     "feature_hit": true,
+     "baseline_hit": true
+    },
+    {
+     "date": "2017-06-14",
+     "fold": "LEGACY|26",
+     "release_minute": 270,
+     "feature_hit": true,
+     "baseline_hit": true
+    },
+    {
+     "date": "2023-03-22",
+     "fold": "RAW|0",
+     "release_minute": 270,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2023-05-03",
+     "fold": "RAW|0",
+     "release_minute": 270,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2023-06-14",
+     "fold": "RAW|0",
+     "release_minute": 270,
+     "feature_hit": false,
+     "baseline_hit": false
+    },
+    {
+     "date": "2023-07-26",
+     "fold": "RAW|0",
+     "release_minute": 270,
+     "feature_hit": true,
+     "baseline_hit": true
+    }
+   ]
+  }
+ },
+ "posthoc_r1_net_h1a": {
+  "gaussian_hmm": {
+   "label": "POST HOC",
+   "per_fold": {
+    "LEGACY|0": {
+     "a": 0.09814583333333332,
+     "gap": 0.010525,
+     "net": 0.08762083333333331
+    },
+    "LEGACY|1": {
+     "a": 0.08530729166666663,
+     "gap": -0.005125000000000001,
+     "net": 0.09043229166666664
+    },
+    "LEGACY|2": {
+     "a": 0.06392708333333336,
+     "gap": -0.033975,
+     "net": 0.09790208333333336
+    },
+    "LEGACY|3": {
+     "a": 0.16184374999999998,
+     "gap": 0.006650000000000007,
+     "net": 0.15519374999999996
+    },
+    "LEGACY|4": {
+     "a": null,
+     "gap": null,
+     "net": null
+    },
+    "LEGACY|5": {
+     "a": 0.07829166666666665,
+     "gap": -0.049049999999999996,
+     "net": 0.12734166666666663
+    },
+    "LEGACY|6": {
+     "a": 0.09153645833333333,
+     "gap": 0.004200000000000002,
+     "net": 0.08733645833333334
+    },
+    "LEGACY|7": {
+     "a": 0.0,
+     "gap": 0.0,
+     "net": 0.0
+    },
+    "LEGACY|8": {
+     "a": 0.09327604166666667,
+     "gap": -0.021325000000000004,
+     "net": 0.11460104166666668
+    },
+    "LEGACY|9": {
+     "a": 0.05832812500000001,
+     "gap": 0.005125000000000001,
+     "net": 0.053203125000000004
+    },
+    "LEGACY|10": {
+     "a": 0.14297916666666668,
+     "gap": -0.04069999999999999,
+     "net": 0.18367916666666667
+    },
+    "LEGACY|11": {
+     "a": null,
+     "gap": null,
+     "net": null
+    },
+    "LEGACY|12": {
+     "a": 0.2750625,
+     "gap": -0.030175,
+     "net": 0.3052375
+    },
+    "LEGACY|13": {
+     "a": 0.11853124999999995,
+     "gap": 0.010324999999999997,
+     "net": 0.10820624999999995
+    },
+    "LEGACY|14": {
+     "a": 0.1524895833333333,
+     "gap": -2.5000000000004186e-05,
+     "net": 0.1525145833333333
+    },
+    "LEGACY|15": {
+     "a": 0.04461979166666667,
+     "gap": -0.01185,
+     "net": 0.05646979166666667
+    },
+    "LEGACY|16": {
+     "a": 0.12589583333333337,
+     "gap": -0.016600000000000007,
+     "net": 0.14249583333333338
+    },
+    "LEGACY|17": {
+     "a": null,
+     "gap": null,
+     "net": null
+    },
+    "LEGACY|18": {
+     "a": null,
+     "gap": null,
+     "net": null
+    },
+    "LEGACY|19": {
+     "a": 0.17728645833333334,
+     "gap": -0.0030000000000000027,
+     "net": 0.18028645833333334
+    },
+    "LEGACY|20": {
+     "a": -0.0009687500000000043,
+     "gap": 0.048000000000000015,
+     "net": -0.04896875000000002
+    },
+    "LEGACY|21": {
+     "a": 0.17341666666666666,
+     "gap": 0.0072999999999999975,
+     "net": 0.16611666666666666
+    },
+    "LEGACY|22": {
+     "a": 0.1270520833333333,
+     "gap": 0.016675000000000002,
+     "net": 0.11037708333333329
+    },
+    "LEGACY|23": {
+     "a": 0.0,
+     "gap": 0.0,
+     "net": 0.0
+    },
+    "LEGACY|24": {
+     "a": 0.1846354166666666,
+     "gap": 0.008674999999999997,
+     "net": 0.17596041666666662
+    },
+    "LEGACY|25": {
+     "a": 0.0,
+     "gap": 0.0,
+     "net": 0.0
+    },
+    "LEGACY|26": {
+     "a": 0.1464270833333334,
+     "gap": 0.0004250000000000087,
+     "net": 0.1460020833333334
+    },
+    "LEGACY|27": {
+     "a": 0.08188020833333333,
+     "gap": -0.030625,
+     "net": 0.11250520833333333
+    },
+    "LEGACY|28": {
+     "a": 0.1754895833333333,
+     "gap": 0.006649999999999996,
+     "net": 0.16883958333333332
+    },
+    "LEGACY|29": {
+     "a": 0.09808333333333334,
+     "gap": -0.005150000000000002,
+     "net": 0.10323333333333334
+    },
+    "RAW|0": {
+     "a": 0.09328125000000001,
+     "gap": -0.007224999999999999,
+     "net": 0.10050625
+    },
+    "RAW|1": {
+     "a": 0.21174479166666674,
+     "gap": 0.004025000000000001,
+     "net": 0.20771979166666674
+    },
+    "RAW|2": {
+     "a": 0.17495312499999996,
+     "gap": -0.007574999999999998,
+     "net": 0.18252812499999996
+    },
+    "RAW|3": {
+     "a": 0.10354687500000005,
+     "gap": -0.0468,
+     "net": 0.15034687500000005
+    }
+   },
+   "confirmatory": {
+    "n_folds": 22,
+    "mean": 0.10984337121212119,
+    "p_block_bootstrap": 9.999000099990002e-05,
+    "p_wilcoxon": 5.167324782326882e-05,
+    "sign_consistency": 0.8636363636363636
+   },
+   "all_folds": {
+    "n_folds": 30,
+    "mean": 0.11725625,
+    "p_block_bootstrap": 9.999000099990002e-05,
+    "p_wilcoxon": 3.140542389116985e-06,
+    "sign_consistency": 0.8666666666666667
+   },
+   "mean_gap_confirmatory": -0.004992045454545453
+  },
+  "student_t_hmm": {
+   "label": "POST HOC",
+   "per_fold": {
+    "LEGACY|0": {
+     "a": 0.09568749999999998,
+     "gap": -0.01655,
+     "net": 0.11223749999999998
+    },
+    "LEGACY|1": {
+     "a": 0.07743750000000003,
+     "gap": -0.004925000000000002,
+     "net": 0.08236250000000003
+    },
+    "LEGACY|2": {
+     "a": 0.034052083333333344,
+     "gap": -0.060025,
+     "net": 0.09407708333333334
+    },
+    "LEGACY|3": {
+     "a": 0.1311354166666667,
+     "gap": 0.020575000000000003,
+     "net": 0.11056041666666669
+    },
+    "LEGACY|4": {
+     "a": null,
+     "gap": null,
+     "net": null
+    },
+    "LEGACY|5": {
+     "a": 0.08715104166666668,
+     "gap": 0.005825,
+     "net": 0.08132604166666668
+    },
+    "LEGACY|6": {
+     "a": 0.0,
+     "gap": 0.0,
+     "net": 0.0
+    },
+    "LEGACY|7": {
+     "a": 0.0,
+     "gap": 0.0,
+     "net": 0.0
+    },
+    "LEGACY|8": {
+     "a": 0.0,
+     "gap": 0.0,
+     "net": 0.0
+    },
+    "LEGACY|9": {
+     "a": 0.0,
+     "gap": 0.0,
+     "net": 0.0
+    },
+    "LEGACY|10": {
+     "a": 0.15224479166666668,
+     "gap": -0.020200000000000003,
+     "net": 0.17244479166666668
+    },
+    "LEGACY|11": {
+     "a": null,
+     "gap": null,
+     "net": null
+    },
+    "LEGACY|12": {
+     "a": 0.1245833333333333,
+     "gap": 0.024049999999999995,
+     "net": 0.10053333333333331
+    },
+    "LEGACY|13": {
+     "a": 0.13225000000000003,
+     "gap": 0.0034499999999999947,
+     "net": 0.12880000000000003
+    },
+    "LEGACY|14": {
+     "a": 0.11772395833333334,
+     "gap": -0.013974999999999991,
+     "net": 0.13169895833333334
+    },
+    "LEGACY|15": {
+     "a": 0.0,
+     "gap": 0.0,
+     "net": 0.0
+    },
+    "LEGACY|16": {
+     "a": 0.1128958333333333,
+     "gap": -0.003650000000000004,
+     "net": 0.1165458333333333
+    },
+    "LEGACY|17": {
+     "a": null,
+     "gap": null,
+     "net": null
+    },
+    "LEGACY|18": {
+     "a": null,
+     "gap": null,
+     "net": null
+    },
+    "LEGACY|19": {
+     "a": 0.12231770833333333,
+     "gap": 0.009524999999999999,
+     "net": 0.11279270833333332
+    },
+    "LEGACY|20": {
+     "a": -0.0001718750000000019,
+     "gap": 0.02474999999999999,
+     "net": -0.024921874999999993
+    },
+    "LEGACY|21": {
+     "a": 0.0,
+     "gap": 0.0,
+     "net": 0.0
+    },
+    "LEGACY|22": {
+     "a": 0.12140104166666667,
+     "gap": -0.0033000000000000043,
+     "net": 0.12470104166666668
+    },
+    "LEGACY|23": {
+     "a": 0.0,
+     "gap": 0.0,
+     "net": 0.0
+    },
+    "LEGACY|24": {
+     "a": 0.13848958333333333,
+     "gap": -0.0008250000000000063,
+     "net": 0.13931458333333335
+    },
+    "LEGACY|25": {
+     "a": 0.14225,
+     "gap": 0.020175000000000002,
+     "net": 0.12207499999999999
+    },
+    "LEGACY|26": {
+     "a": 0.0,
+     "gap": 0.0,
+     "net": 0.0
+    },
+    "LEGACY|27": {
+     "a": 0.0,
+     "gap": 0.0,
+     "net": 0.0
+    },
+    "LEGACY|28": {
+     "a": 0.19310937499999997,
+     "gap": 0.02127499999999999,
+     "net": 0.17183437499999998
+    },
+    "LEGACY|29": {
+     "a": 0.12598958333333332,
+     "gap": -0.0322,
+     "net": 0.15818958333333333
+    },
+    "RAW|0": {
+     "a": 0.048505208333333355,
+     "gap": -0.010125000000000002,
+     "net": 0.05863020833333336
+    },
+    "RAW|1": {
+     "a": 0.24709895833333326,
+     "gap": 0.011400000000000004,
+     "net": 0.23569895833333326
+    },
+    "RAW|2": {
+     "a": 0.0,
+     "gap": 0.0,
+     "net": 0.0
+    },
+    "RAW|3": {
+     "a": 0.07376041666666668,
+     "gap": -0.04337500000000001,
+     "net": 0.11713541666666669
+    }
+   },
+   "confirmatory": {
+    "n_folds": 22,
+    "mean": 0.06926652462121213,
+    "p_block_bootstrap": 9.999000099990002e-05,
+    "p_wilcoxon": 0.0004026381184834067,
+    "sign_consistency": 0.6363636363636364
+   },
+   "all_folds": {
+    "n_folds": 30,
+    "mean": 0.07820121527777778,
+    "p_block_bootstrap": 9.999000099990002e-05,
+    "p_wilcoxon": 5.167324782326882e-05,
+    "sign_consistency": 0.6333333333333333
+   },
+   "mean_gap_confirmatory": -0.00110909090909091
+  },
+  "hsmm": {
+   "label": "POST HOC",
+   "per_fold": {
+    "LEGACY|0": {
+     "a": 0.07768229166666668,
+     "gap": -0.013624999999999998,
+     "net": 0.09130729166666668
+    },
+    "LEGACY|1": {
+     "a": 0.03442708333333333,
+     "gap": 0.03795000000000001,
+     "net": -0.003522916666666681
+    },
+    "LEGACY|2": {
+     "a": 0.0439479166666667,
+     "gap": -0.04399999999999999,
+     "net": 0.08794791666666668
+    },
+    "LEGACY|3": {
+     "a": 0.1300364583333333,
+     "gap": -0.00955,
+     "net": 0.1395864583333333
+    },
+    "LEGACY|4": {
+     "a": null,
+     "gap": null,
+     "net": null
+    },
+    "LEGACY|5": {
+     "a": 0.059546875,
+     "gap": -0.061274999999999996,
+     "net": 0.120821875
+    },
+    "LEGACY|6": {
+     "a": 0.10586979166666668,
+     "gap": 0.016075,
+     "net": 0.08979479166666668
+    },
+    "LEGACY|7": {
+     "a": 0.102515625,
+     "gap": -0.03307500000000001,
+     "net": 0.13559062500000002
+    },
+    "LEGACY|8": {
+     "a": 0.12627083333333336,
+     "gap": -0.021575000000000004,
+     "net": 0.14784583333333337
+    },
+    "LEGACY|9": {
+     "a": 0.17934374999999997,
+     "gap": -0.023025000000000004,
+     "net": 0.20236875
+    },
+    "LEGACY|10": {
+     "a": 0.1968697916666667,
+     "gap": -0.005699999999999997,
+     "net": 0.20256979166666672
+    },
+    "LEGACY|11": {
+     "a": null,
+     "gap": null,
+     "net": null
+    },
+    "LEGACY|12": {
+     "a": 0.23128645833333333,
+     "gap": -0.019900000000000008,
+     "net": 0.25118645833333336
+    },
+    "LEGACY|13": {
+     "a": -0.015546875000000016,
+     "gap": -0.0037750000000000006,
+     "net": -0.011771875000000015
+    },
+    "LEGACY|14": {
+     "a": 0.11938541666666669,
+     "gap": -0.006699999999999998,
+     "net": 0.12608541666666667
+    },
+    "LEGACY|15": {
+     "a": 0.10240104166666666,
+     "gap": -0.016849999999999997,
+     "net": 0.11925104166666667
+    },
+    "LEGACY|16": {
+     "a": 0.16491145833333337,
+     "gap": 0.019725000000000003,
+     "net": 0.14518645833333338
+    },
+    "LEGACY|17": {
+     "a": null,
+     "gap": null,
+     "net": null
+    },
+    "LEGACY|18": {
+     "a": null,
+     "gap": null,
+     "net": null
+    },
+    "LEGACY|19": {
+     "a": 0.1134635416666667,
+     "gap": -0.02550000000000001,
+     "net": 0.1389635416666667
+    },
+    "LEGACY|20": {
+     "a": 0.08458333333333332,
+     "gap": -0.008025000000000004,
+     "net": 0.09260833333333332
+    },
+    "LEGACY|21": {
+     "a": 0.0895052083333334,
+     "gap": -0.020700000000000003,
+     "net": 0.11020520833333342
+    },
+    "LEGACY|22": {
+     "a": 0.14297916666666666,
+     "gap": 0.0009499999999999995,
+     "net": 0.14202916666666665
+    },
+    "LEGACY|23": {
+     "a": 0.20501562499999998,
+     "gap": -0.003200000000000005,
+     "net": 0.208215625
+    },
+    "LEGACY|24": {
+     "a": 0.14583854166666665,
+     "gap": 0.0012249999999999987,
+     "net": 0.14461354166666665
+    },
+    "LEGACY|25": {
+     "a": 0.16894791666666667,
+     "gap": 0.006425000000000004,
+     "net": 0.16252291666666666
+    },
+    "LEGACY|26": {
+     "a": 0.11293229166666666,
+     "gap": 0.0055750000000000036,
+     "net": 0.10735729166666666
+    },
+    "LEGACY|27": {
+     "a": 0.01828125,
+     "gap": -0.015400000000000004,
+     "net": 0.03368125
+    },
+    "LEGACY|28": {
+     "a": 0.16900000000000004,
+     "gap": 0.0005999999999999998,
+     "net": 0.16840000000000005
+    },
+    "LEGACY|29": {
+     "a": 0.11371354166666665,
+     "gap": -0.02175,
+     "net": 0.13546354166666666
+    },
+    "RAW|0": {
+     "a": 0.0648385416666667,
+     "gap": -0.013124999999999998,
+     "net": 0.07796354166666669
+    },
+    "RAW|1": {
+     "a": 0.14207812500000006,
+     "gap": 0.00507500000000001,
+     "net": 0.13700312500000006
+    },
+    "RAW|2": {
+     "a": 0.1447708333333333,
+     "gap": -0.011200000000000005,
+     "net": 0.1559708333333333
+    },
+    "RAW|3": {
+     "a": 0.16038541666666667,
+     "gap": -0.015725000000000003,
+     "net": 0.17611041666666666
+    }
+   },
+   "confirmatory": {
+    "n_folds": 22,
+    "mean": 0.12163172348484848,
+    "p_block_bootstrap": 9.999000099990002e-05,
+    "p_wilcoxon": 1.1920928955078125e-06,
+    "sign_consistency": 0.9090909090909091
+   },
+   "all_folds": {
+    "n_folds": 30,
+    "mean": 0.12784520833333335,
+    "p_block_bootstrap": 9.999000099990002e-05,
+    "p_wilcoxon": 4.6566128730773926e-09,
+    "sign_consistency": 0.9333333333333333
+   },
+   "mean_gap_confirmatory": -0.010895454545454543
+  },
+  "bocpd": {
+   "label": "POST HOC",
+   "per_fold": {
+    "LEGACY|0": {
+     "a": 0.0,
+     "gap": 0.0,
+     "net": 0.0
+    },
+    "LEGACY|1": {
+     "a": 0.0,
+     "gap": 0.0,
+     "net": 0.0
+    },
+    "LEGACY|2": {
+     "a": 0.0,
+     "gap": 0.0,
+     "net": 0.0
+    },
+    "LEGACY|3": {
+     "a": 0.0,
+     "gap": 0.0,
+     "net": 0.0
+    },
+    "LEGACY|4": {
+     "a": null,
+     "gap": null,
+     "net": null
+    },
+    "LEGACY|5": {
+     "a": 0.0,
+     "gap": 0.0,
+     "net": 0.0
+    },
+    "LEGACY|6": {
+     "a": 0.0,
+     "gap": 0.0,
+     "net": 0.0
+    },
+    "LEGACY|7": {
+     "a": 0.0,
+     "gap": 0.0,
+     "net": 0.0
+    },
+    "LEGACY|8": {
+     "a": 0.0,
+     "gap": 0.0,
+     "net": 0.0
+    },
+    "LEGACY|9": {
+     "a": 0.0,
+     "gap": 0.0,
+     "net": 0.0
+    },
+    "LEGACY|10": {
+     "a": 0.0,
+     "gap": 0.0,
+     "net": 0.0
+    },
+    "LEGACY|11": {
+     "a": null,
+     "gap": null,
+     "net": null
+    },
+    "LEGACY|12": {
+     "a": 0.0,
+     "gap": 0.0,
+     "net": 0.0
+    },
+    "LEGACY|13": {
+     "a": 0.0,
+     "gap": 0.0,
+     "net": 0.0
+    },
+    "LEGACY|14": {
+     "a": 0.0,
+     "gap": 0.0,
+     "net": 0.0
+    },
+    "LEGACY|15": {
+     "a": 0.0,
+     "gap": 0.0,
+     "net": 0.0
+    },
+    "LEGACY|16": {
+     "a": 0.0,
+     "gap": 0.0,
+     "net": 0.0
+    },
+    "LEGACY|17": {
+     "a": null,
+     "gap": null,
+     "net": null
+    },
+    "LEGACY|18": {
+     "a": null,
+     "gap": null,
+     "net": null
+    },
+    "LEGACY|19": {
+     "a": 0.0,
+     "gap": 0.0,
+     "net": 0.0
+    },
+    "LEGACY|20": {
+     "a": 0.0,
+     "gap": 0.0,
+     "net": 0.0
+    },
+    "LEGACY|21": {
+     "a": 0.0,
+     "gap": 0.0,
+     "net": 0.0
+    },
+    "LEGACY|22": {
+     "a": 0.0,
+     "gap": 0.0,
+     "net": 0.0
+    },
+    "LEGACY|23": {
+     "a": 0.0,
+     "gap": 0.0,
+     "net": 0.0
+    },
+    "LEGACY|24": {
+     "a": 0.0,
+     "gap": 0.0,
+     "net": 0.0
+    },
+    "LEGACY|25": {
+     "a": 0.0,
+     "gap": 0.0,
+     "net": 0.0
+    },
+    "LEGACY|26": {
+     "a": 0.0,
+     "gap": 0.0,
+     "net": 0.0
+    },
+    "LEGACY|27": {
+     "a": 0.0,
+     "gap": 0.0,
+     "net": 0.0
+    },
+    "LEGACY|28": {
+     "a": 0.0,
+     "gap": 0.0,
+     "net": 0.0
+    },
+    "LEGACY|29": {
+     "a": 0.0,
+     "gap": 0.0,
+     "net": 0.0
+    },
+    "RAW|0": {
+     "a": 0.0,
+     "gap": 0.0,
+     "net": 0.0
+    },
+    "RAW|1": {
+     "a": 0.0,
+     "gap": 0.0,
+     "net": 0.0
+    },
+    "RAW|2": {
+     "a": 0.0,
+     "gap": 0.0,
+     "net": 0.0
+    },
+    "RAW|3": {
+     "a": 0.00894270833333334,
+     "gap": 0.0158,
+     "net": -0.006857291666666661
+    }
+   },
+   "confirmatory": {
+    "n_folds": 22,
+    "mean": 0.0,
+    "p_block_bootstrap": 1.0,
+    "p_wilcoxon": NaN,
+    "sign_consistency": 0.0
+   },
+   "all_folds": {
+    "n_folds": 30,
+    "mean": -0.0002285763888888887,
+    "p_block_bootstrap": 0.958004199580042,
+    "p_wilcoxon": 0.8413447460685429,
+    "sign_consistency": 0.0
+   },
+   "mean_gap_confirmatory": 0.0
+  }
+ },
+ "qlike_test_pct": {
+  "gaussian_hmm": {
+   "confirmatory_median": 5.849761427139315,
+   "confirmatory_q25_q75": [
+    3.063866245084282,
+    8.635805190808782
+   ],
+   "confirmatory_min_max": [
+    -2.307443864238238,
+    30.989682674925028
+   ],
+   "confirmatory_pooled": 10.229298875777708,
+   "all_folds_median": 6.3187353887770294,
+   "per_fold": {
+    "LEGACY|0": 7.158201332894424,
+    "LEGACY|1": 8.659876208278485,
+    "LEGACY|2": 3.4616105901437204,
+    "LEGACY|3": 3.7326684071271297,
+    "LEGACY|4": 3.731956363122526,
+    "LEGACY|5": 4.72925413057801,
+    "LEGACY|6": 9.614915673179047,
+    "LEGACY|7": 0.0,
+    "LEGACY|8": 2.5243398923643894,
+    "LEGACY|9": 8.15808673859632,
+    "LEGACY|10": 6.321907217932514,
+    "LEGACY|11": 6.315563559621545,
+    "LEGACY|12": 30.989682674925028,
+    "LEGACY|13": 5.900516813174407,
+    "LEGACY|14": 8.563592138399668,
+    "LEGACY|15": 21.539821368187834,
+    "LEGACY|16": -2.307443864238238,
+    "LEGACY|17": 0.0,
+    "LEGACY|18": 22.21861215493335,
+    "LEGACY|19": 4.810854086332741,
+    "LEGACY|20": 0.9832109826804415,
+    "LEGACY|21": 28.493272061194766,
+    "LEGACY|22": 5.799006041104223,
+    "LEGACY|23": 0.0,
+    "LEGACY|24": 9.616087426524354,
+    "LEGACY|25": 0.0,
+    "LEGACY|26": 2.931284796731136,
+    "LEGACY|27": 18.91610937729932,
+    "LEGACY|28": 12.540288252308228,
+    "LEGACY|29": 15.10114126234585,
+    "RAW|0": 10.342197846832171,
+    "RAW|1": 2.0507271749096194,
+    "RAW|2": 25.458399116496096,
+    "RAW|3": 16.94237554763249
+   }
+  },
+  "student_t_hmm": {
+   "confirmatory_median": 0.0,
+   "confirmatory_q25_q75": [
+    0.0,
+    3.2045454339442125
+   ],
+   "confirmatory_min_max": [
+    -7.646605606433984,
+    22.083144908035923
+   ],
+   "confirmatory_pooled": 2.187841691176269,
+   "all_folds_median": 0.0,
+   "per_fold": {
+    "LEGACY|0": 5.766789576798586,
+    "LEGACY|1": 3.20915922981774,
+    "LEGACY|2": 3.5322208843388316,
+    "LEGACY|3": 3.7037861304922663,
+    "LEGACY|4": 0.0,
+    "LEGACY|5": 0.6408272886651021,
+    "LEGACY|6": 0.0,
+    "LEGACY|7": 0.0,
+    "LEGACY|8": 0.0,
+    "LEGACY|9": 0.0,
+    "LEGACY|10": -3.4845450807300886,
+    "LEGACY|11": 5.45320643320029,
+    "LEGACY|12": 22.083144908035923,
+    "LEGACY|13": 2.4899554395175607,
+    "LEGACY|14": -4.083685525109703,
+    "LEGACY|15": 0.0,
+    "LEGACY|16": -2.5226929479100555,
+    "LEGACY|17": 0.0,
+    "LEGACY|18": 0.0,
+    "LEGACY|19": 3.190704046323629,
+    "LEGACY|20": -3.8350759410501674,
+    "LEGACY|21": 0.0,
+    "LEGACY|22": 0.7623883478571915,
+    "LEGACY|23": 0.0,
+    "LEGACY|24": -1.5558834584556955,
+    "LEGACY|25": -7.646605606433984,
+    "LEGACY|26": 0.0,
+    "LEGACY|27": 0.0,
+    "LEGACY|28": 29.936321614685458,
+    "LEGACY|29": 4.610381466821237,
+    "RAW|0": 5.143952530469013,
+    "RAW|1": 2.0767403805325353,
+    "RAW|2": 0.0,
+    "RAW|3": 7.208065459159265
+   }
+  },
+  "hsmm": {
+   "confirmatory_median": 10.472866409135932,
+   "confirmatory_q25_q75": [
+    7.449769226121661,
+    14.49704585264644
+   ],
+   "confirmatory_min_max": [
+    -6.035899439238016,
+    26.763091454415157
+   ],
+   "confirmatory_pooled": 13.056720924588996,
+   "all_folds_median": 11.214277689814221,
+   "per_fold": {
+    "LEGACY|0": 11.072883603633892,
+    "LEGACY|1": 9.365699053973946,
+    "LEGACY|2": 7.208295207298575,
+    "LEGACY|3": 9.552026960671215,
+    "LEGACY|4": 11.355671775994548,
+    "LEGACY|5": 9.829286113448658,
+    "LEGACY|6": 17.09552365201096,
+    "LEGACY|7": 20.214543361054286,
+    "LEGACY|8": 13.371989745079752,
+    "LEGACY|9": 10.110843047352187,
+    "LEGACY|10": 8.174191282590918,
+    "LEGACY|11": 6.950377253539,
+    "LEGACY|12": 26.763091454415157,
+    "LEGACY|13": 13.111619394689566,
+    "LEGACY|14": 12.424602212815525,
+    "LEGACY|15": 22.917337420103316,
+    "LEGACY|16": 4.893033853171893,
+    "LEGACY|17": -6.035899439238016,
+    "LEGACY|18": 19.971053639675535,
+    "LEGACY|19": 8.884768994412232,
+    "LEGACY|20": 10.834889770919679,
+    "LEGACY|21": 24.53485043323765,
+    "LEGACY|22": 14.87206455516867,
+    "LEGACY|23": 19.302047823717544,
+    "LEGACY|24": 14.95360415653147,
+    "LEGACY|25": -5.938288382391072,
+    "LEGACY|26": 4.1285681842285795,
+    "LEGACY|27": 16.420953433745215,
+    "LEGACY|28": 24.577659267770066,
+    "LEGACY|29": 16.04678201241246,
+    "RAW|0": 6.933689685987202,
+    "RAW|1": 9.611458238062745,
+    "RAW|2": 22.65039632522109,
+    "RAW|3": 10.534511889106515
+   }
+  },
+  "bocpd": {
+   "confirmatory_median": 0.0,
+   "confirmatory_q25_q75": [
+    0.0,
+    0.0
+   ],
+   "confirmatory_min_max": [
+    0.0,
+    0.0
+   ],
+   "confirmatory_pooled": 0.0,
+   "all_folds_median": 0.0,
+   "per_fold": {
+    "LEGACY|0": 0.0,
+    "LEGACY|1": 0.0,
+    "LEGACY|2": 0.0,
+    "LEGACY|3": 0.0,
+    "LEGACY|4": 0.0,
+    "LEGACY|5": 0.0,
+    "LEGACY|6": 0.0,
+    "LEGACY|7": 0.0,
+    "LEGACY|8": 0.0,
+    "LEGACY|9": 0.0,
+    "LEGACY|10": 0.0,
+    "LEGACY|11": 0.0,
+    "LEGACY|12": 0.0,
+    "LEGACY|13": 0.0,
+    "LEGACY|14": 0.0,
+    "LEGACY|15": 0.0,
+    "LEGACY|16": 0.0,
+    "LEGACY|17": 0.0,
+    "LEGACY|18": 0.0,
+    "LEGACY|19": 0.0,
+    "LEGACY|20": 0.0,
+    "LEGACY|21": 0.0,
+    "LEGACY|22": 0.0,
+    "LEGACY|23": 0.0,
+    "LEGACY|24": 0.0,
+    "LEGACY|25": 0.0,
+    "LEGACY|26": 0.0,
+    "LEGACY|27": 0.0,
+    "LEGACY|28": 0.0,
+    "LEGACY|29": 0.0,
+    "RAW|0": 0.0,
+    "RAW|1": 0.0,
+    "RAW|2": 0.0,
+    "RAW|3": 0.39753736027331005
+   }
+  }
+ },
+ "thresholds_flagged": {
+  "gaussian_hmm": [],
+  "student_t_hmm": [],
+  "hsmm": [],
+  "bocpd": [
+   "LEGACY|11:feature",
+   "LEGACY|11:baseline",
+   "LEGACY|13:feature",
+   "LEGACY|13:baseline"
+  ]
+ },
+ "tag": {
+  "a17_script": "c2f185c75b8c54fdb95f12edd77fb862f4d604a3aba050fac2cc71f634088ca3",
+  "common": "81eb453b8dce5c61306653a543a67df493280994f23c9f13cf5257a12a2a32b4",
+  "main_results": "814171c0813fd668a591f54af8e26a45127dc81d2899286c98dc057b647135d6"
+ },
+ "n_units": 136,
+ "all_exact": true,
+ "models_manifest": {
+  "LEGACY_0_bocpd.pkl": "fc6b38ca25f60177bd120d1ce9237e363d0976d61566dd061cd94160be119cc0",
+  "LEGACY_0_gaussian_hmm.pkl": "8117f8216dd332580fb4d99da38e09b0be1ed4944a98be46bae2ac40afbaa70b",
+  "LEGACY_0_hsmm.pkl": "3c07bec05ea55aec16325d1d9376d9c1fb74fadcea465f7bbadf2bacee34ea0e",
+  "LEGACY_0_student_t_hmm.pkl": "c2f22aa5523c34ab40e456a2263b6fdfc2143051ba18df271d18108a692dec15",
+  "LEGACY_10_bocpd.pkl": "c741faad86d5c8ad34e227f9358f307ab44ec4a6a90b276d1e51a8954f5a8d29",
+  "LEGACY_10_gaussian_hmm.pkl": "182ffb4527e7f3001153a650e3a49b5584582d36506963683b5de885f9bdf31f",
+  "LEGACY_10_hsmm.pkl": "78e8a6f9cb96d3520af65cafe7dd4df0cf7993f872644785b5bc87c40037d4e7",
+  "LEGACY_10_student_t_hmm.pkl": "dcae1e50e2c63774fd116c33da5d6c4fe7e63bb354ae15d539a55958b84ca181",
+  "LEGACY_11_bocpd.pkl": "0843ae755f1fdcf46d06f11833539e4bbf9804f894e252866d9454b8337006ff",
+  "LEGACY_11_gaussian_hmm.pkl": "2280c0fc3eea6c028c395e04dac5ef7d13acd541ff637df95f6440628815a28b",
+  "LEGACY_11_hsmm.pkl": "97fa521634a3e72d1047f4b58b4d71bba501b3a47d724d95a35f91cf2cc06c68",
+  "LEGACY_11_student_t_hmm.pkl": "584ce49c2514f410baf3f937c9d8804cc45ad5faad4a1d851b896f9c50107036",
+  "LEGACY_12_bocpd.pkl": "e9a10f3e7b1d7ed1d66d37ecd7bf5373dbb8e2117213c7a0dce3d5dea53ce2a1",
+  "LEGACY_12_gaussian_hmm.pkl": "bfa210529fcf0ec0ccd9ff1a81e2b5427826d228dff9d5edfc30d43c761f7405",
+  "LEGACY_12_hsmm.pkl": "c8cf580f5b6391907bf089c52dbefe2f45138c2ff4086ecd434067c751f232a7",
+  "LEGACY_12_student_t_hmm.pkl": "5d651ea70963c2545e9e60149e757704c0c5e9e448693c2f212a6473abc10300",
+  "LEGACY_13_bocpd.pkl": "11d1d41e4d111404a52ec8fc24705b6b5a6dcdd03787b50236302e64559af19a",
+  "LEGACY_13_gaussian_hmm.pkl": "744162580b528fdff09a99bb857fcfcbec06d07683ecead41ac846498e9ea97b",
+  "LEGACY_13_hsmm.pkl": "f2aaa5dbaf05bec9f35f135ab738a8344fda411eb7b1c58b7bafda028d552903",
+  "LEGACY_13_student_t_hmm.pkl": "3672ec681dc305c64811cc4f962fed61425e19dcf82f1151e234b9091318eb11",
+  "LEGACY_14_bocpd.pkl": "34bcb423c2966a715958b92e0e65c47b1b6d3809843c852bb63577e3cd3fe0bd",
+  "LEGACY_14_gaussian_hmm.pkl": "b9be9729109b039b3c5b4b5e6b4e5f8735499ece45a5e171640a1d0a6454a2d2",
+  "LEGACY_14_hsmm.pkl": "188acc7320d73709bc5a1c8fd1e7ea62dc812c7fe7826deccb33c6c0dcd2deb2",
+  "LEGACY_14_student_t_hmm.pkl": "9e5476e2a8b31cbf6717fd6f29275a9575a26139a6fe2c3315b0245ab1392176",
+  "LEGACY_15_bocpd.pkl": "37da9c36462c2ebad8f80f20d50b11b16080d117e9ce9d813f4de78bbfa6b0f2",
+  "LEGACY_15_gaussian_hmm.pkl": "bd5a456ebc3c21de73c39f2e8908fa9f6476b74ac97d785728c7a6fbe0ec4898",
+  "LEGACY_15_hsmm.pkl": "57a96700fc4e4895baa199ce09f564accb31c4490256f2d3435f6f57868321cc",
+  "LEGACY_15_student_t_hmm.pkl": "a11fdfd31c92dc8a7ba0ee9d7a807db33caacdded7f57940c1b603778beb8ecd",
+  "LEGACY_16_bocpd.pkl": "79b066b7d8169a7e677c7bca3c71514b86d2f9c5ba095e66223990589465b685",
+  "LEGACY_16_gaussian_hmm.pkl": "9634bbce59e97cca40b6129f9b105f281ed5389a154e209ced3a4f2bde9545d7",
+  "LEGACY_16_hsmm.pkl": "8ea4406fbff8c1ed511f5e1d1ef14d7fd38e4a62a9dca1afb34b9705fc4dd838",
+  "LEGACY_16_student_t_hmm.pkl": "8dcd78c014038bd5b146fb365fdc00184424f9e5d7eceb606ff009c32138881d",
+  "LEGACY_17_bocpd.pkl": "60dadb4733b44e259ced31d60d532e4a5f845837390845eeca6a6786bf5314cc",
+  "LEGACY_17_gaussian_hmm.pkl": "efce423b384317e88e699b09b841129f2bb3daaff8d2a244f9dcdc79c06a3424",
+  "LEGACY_17_hsmm.pkl": "4d6287f69cc192180bcd9a551bf4f206e71395cfd80cd5226f53a387f27fbbed",
+  "LEGACY_17_student_t_hmm.pkl": "19603d34eb7cc1377557b060cb6f37499dab9fe3d0ea6c9c880956c5d6969c95",
+  "LEGACY_18_bocpd.pkl": "fd27b469c63f53528e9457e0c34018892346ba92c237068041377d1143397c8b",
+  "LEGACY_18_gaussian_hmm.pkl": "7ffc54a777e107facc08e2902c8661486a4bcc63b1b843c153f73bbd8897312e",
+  "LEGACY_18_hsmm.pkl": "a6eedfaeb226240b93bccb9febeb6d3ef68a5ec7822e49dd43dece533bb7b649",
+  "LEGACY_18_student_t_hmm.pkl": "cb747141439480a66c9401c5c33801b2e0164635d8618847711b8f3475b17dcf",
+  "LEGACY_19_bocpd.pkl": "77cfecf0f0f935a92a043c2cf55a20116248475157ab103f48370c716cf40884",
+  "LEGACY_19_gaussian_hmm.pkl": "0ee17517909c0e5834d56e09bb17f30915f3f549176003bdbbd1956326c3780e",
+  "LEGACY_19_hsmm.pkl": "3e20747e654bad9fc664e6b8147256ab2a1ae541c17f559dca111b3fec4ccc7c",
+  "LEGACY_19_student_t_hmm.pkl": "1df39a915207bddd228ebf5f64de0b5814a190f6ed2a37a6d9b2a012ba6166f5",
+  "LEGACY_1_bocpd.pkl": "743fd5bef85ed9048fb145500e50c0eb9a30b22800c7d566647586909ea3283c",
+  "LEGACY_1_gaussian_hmm.pkl": "dc1605dba4e2c7861f8a1ca93a6f30a1b53e151bba55a0f56498969e465fb29d",
+  "LEGACY_1_hsmm.pkl": "bc92bb21c61d6772ce618c572916031dfec11fa91abeb1e48452bb240da320a2",
+  "LEGACY_1_student_t_hmm.pkl": "dc453c2924b65e2f22492bcfc6df1e2488d8026c40c29365885f42e6ba2655a7",
+  "LEGACY_20_bocpd.pkl": "9f6fe45f7d1b3c3dafcb151968499b94e61580c9200dcc6dfdd284e8020f4684",
+  "LEGACY_20_gaussian_hmm.pkl": "66de4a491c0cc36be08cea2b3641d7b8c19bb8205bcdd9039130239f4701217a",
+  "LEGACY_20_hsmm.pkl": "3ad465331c00376690192a35263694472ef7db2666c8c7720e85669fa4164a6f",
+  "LEGACY_20_student_t_hmm.pkl": "da440e465ac27aeae13fc7ac9ff6344497c15589d08bff34ae27649b8dc9d528",
+  "LEGACY_21_bocpd.pkl": "00fd392dc334c07640a4f073f16f257ffe4e911258a290453028a1826fd40126",
+  "LEGACY_21_gaussian_hmm.pkl": "50dca32964568568273976cd4c4c0bb8cf1fcde724f00f90a690c2c2ee360845",
+  "LEGACY_21_hsmm.pkl": "0b9105963c96a9604a924e093180b1dc8421ed82d7dbaebfd4e0b703a3dcacde",
+  "LEGACY_21_student_t_hmm.pkl": "694e350c8822851f99cc2a586612751cd21f038133f91449e41981a2b2e019e3",
+  "LEGACY_22_bocpd.pkl": "3cf5e16b56bf8e00a05d2772601fed35035e42444aad3ee65b0afedfbd436f57",
+  "LEGACY_22_gaussian_hmm.pkl": "4436cbe292d803aca0859abb1d48f8844c76e048fc13edd5861d86b31fdc91c5",
+  "LEGACY_22_hsmm.pkl": "3c96d295def2d2de525e8871cbae9d762722dda96357123742090d849ddb5934",
+  "LEGACY_22_student_t_hmm.pkl": "bb04355d053724265220657a90372553158c2c30a0557f4e1f5befe61549f7ff",
+  "LEGACY_23_bocpd.pkl": "9ee8ba352202d08a3c12f7851e9f1265d284f46ff631d280029e9040047edf29",
+  "LEGACY_23_gaussian_hmm.pkl": "c800d4ee9cb2a22bdd18fbef8b9c77bcc213769bbf43249cc259bd4c3bdcfa47",
+  "LEGACY_23_hsmm.pkl": "9605e5244a1802c265a24e884b03cce3019d5d6fc2a4f3f18094d18c486cc389",
+  "LEGACY_23_student_t_hmm.pkl": "38872effa4dcd4a57b81cd033a7ab3954b31d8090a1a06e9528e0334403d8963",
+  "LEGACY_24_bocpd.pkl": "6b61cd57dc501939607980c0928b2487f486987cffa2319667434a3129bd3e0d",
+  "LEGACY_24_gaussian_hmm.pkl": "46053eca24c03cf72565ad2c2e2680fe9d3edb6115859af5cdae123a58311312",
+  "LEGACY_24_hsmm.pkl": "75a26f22f667c27b75240e865bda642bab563def5901d6189c465f9febffbab3",
+  "LEGACY_24_student_t_hmm.pkl": "3b64cca38881fcf709ccc3c79986c5c2027bcb29ba828c9237f253a6fe628e63",
+  "LEGACY_25_bocpd.pkl": "ddf6b7a352cfd243c64161013d9b3fb5fab30ab56b68c07f45f82399a38f896c",
+  "LEGACY_25_gaussian_hmm.pkl": "5591ee0e81368ee5b3d0635b637f37cfb709da8cdccf1a6485fd4e3dda96b0a2",
+  "LEGACY_25_hsmm.pkl": "f496de723339cd9df58f148dbe7e7efe2bb60d85ce99f8a289b3c3eb48b00b8b",
+  "LEGACY_25_student_t_hmm.pkl": "71f725e2755a0da367a88fa7ef38ff4fea4de5ed8a85a5b98f617f20bfc62da5",
+  "LEGACY_26_bocpd.pkl": "d68a497877639021e94697ba204a08db0c3efb4e529dfb48ce7f1938a04cf95b",
+  "LEGACY_26_gaussian_hmm.pkl": "36cdf22af72ecfce222f893ae2016833eb80c9023edd841320a23074ff80afe7",
+  "LEGACY_26_hsmm.pkl": "21cc508aacde0b47b86eb7b5654864ec8485725b688c85792051bf6c06901254",
+  "LEGACY_26_student_t_hmm.pkl": "f71100d7e1df9762f83250581f72dc3db6748fc61f06abc5e059b41ab2f2abcc",
+  "LEGACY_27_bocpd.pkl": "3b2361a08db1925212f2804e3104a068550ead8e30c4fef03e55f2dd73118000",
+  "LEGACY_27_gaussian_hmm.pkl": "dcc7d378c9a8aafaa7d2a15050efe81778cd37f7483511ecd4328787acaa6711",
+  "LEGACY_27_hsmm.pkl": "056ea0fcb3293fef436bc809a620247239c8191cabcd8b1af63e0a1d8160f102",
+  "LEGACY_27_student_t_hmm.pkl": "aff67369aa90d9d18d2d181a0bff12ca1377183a64dd14f1cf61cd7c51b95317",
+  "LEGACY_28_bocpd.pkl": "88f1492516f79528401b1300eea254802b089b75cff676f08022a5d3d95c4be3",
+  "LEGACY_28_gaussian_hmm.pkl": "219d01172940050087b41cd7ab4c38407c9ce0a3f01d1b371989a91a261f3d1d",
+  "LEGACY_28_hsmm.pkl": "3dd9c3632e8cd9693753e1316e82741ea8e3b888228505d922e104c061054c56",
+  "LEGACY_28_student_t_hmm.pkl": "7f47a01611560d54503916bfc266f48b6d481f6357a2a54f46735ec9b769ed98",
+  "LEGACY_29_bocpd.pkl": "6cf6f797f1306254ef4473461e2adc70e07a74b727ecbf0e640d62c1fc541ddb",
+  "LEGACY_29_gaussian_hmm.pkl": "ccaf5209509c4fc6d24ef01526d7d08c10405079f4e1b40d8c53129823a4433c",
+  "LEGACY_29_hsmm.pkl": "ecf133bf43be6267ece6ed11cb392e8b58625dbf00c3f9b0b8ef40b92e13945c",
+  "LEGACY_29_student_t_hmm.pkl": "9115d3c7430e005a8f8a54b18d028364985ae03597d19804aa5e3fbb4df1d8dc",
+  "LEGACY_2_bocpd.pkl": "39f111f8131e297d0ade3ad09c213f0a1fbea43e69dfb2aad061b5fc92860b99",
+  "LEGACY_2_gaussian_hmm.pkl": "025eb019e6b951781f91bbc2f10ea665f7f26d2b170df11c9416968bb9c879f2",
+  "LEGACY_2_hsmm.pkl": "79dd3b061fb3fc589cc18c7db7bd7cef95435900b148e7aad2e626d35700acf0",
+  "LEGACY_2_student_t_hmm.pkl": "83c7b5b18fe5325f1c57f6bd2f611fe74a89ce351d58e76b729b5683a5a80895",
+  "LEGACY_3_bocpd.pkl": "c905cb51fc02fe2a77318861eb3052812f167cf43aeca352cffe7c174794a7ba",
+  "LEGACY_3_gaussian_hmm.pkl": "20eed1b73fa8a5f1192e2247ca940ec20fcd4d83733d3a9e75ec49089e85db8b",
+  "LEGACY_3_hsmm.pkl": "710de29bffcb69629aa1ad6c5ecb0bbfd176e2d4f7415499188fba01f37ec114",
+  "LEGACY_3_student_t_hmm.pkl": "16c3f1ea1f97cf7b44cd3979ca798147b5ba64658762c393daf91675e1100cad",
+  "LEGACY_4_bocpd.pkl": "e1a047b6f07fc6ee1ee9063afdc57315ce5d88d59611bb6eb84bf1c349e9b355",
+  "LEGACY_4_gaussian_hmm.pkl": "8a0ffc75b6de2ca8ae5ad69eb7c46df7e736b2df88cf0b6ce9a7385bbe29c423",
+  "LEGACY_4_hsmm.pkl": "28b0119da9b211b7ab334039d647bbd00e1f719015ae4e15e532d96bf3674b72",
+  "LEGACY_4_student_t_hmm.pkl": "121f84fc1ccc800492667d8fd1d933a7ebc3bbe7551c36ea0f3e3b93e32e02fb",
+  "LEGACY_5_bocpd.pkl": "6b253258232fc4d3cec9fb39722e1eb58034b36392f283d61aa5a39fbea82dea",
+  "LEGACY_5_gaussian_hmm.pkl": "bad4b2c2ed19f082a108dfeb732a5ee5ce8e9dcad288aae7db6c835560659caf",
+  "LEGACY_5_hsmm.pkl": "7e88bd863399ec8065c4627c18fc1425e26014ad85c0d40e5c89eb683870e61b",
+  "LEGACY_5_student_t_hmm.pkl": "22751a4c3775689aa9bd05d5c44a619e18d7e6785331cd9cefb0b27fceb308fe",
+  "LEGACY_6_bocpd.pkl": "d593975c46fdff949715f2e3b7bf74466aaa7a82216dcb77276e3b740c1a0e62",
+  "LEGACY_6_gaussian_hmm.pkl": "f92bab7e53d47dda36c9ea2bbcd910572d0fc76856aa2e760d857dbd721b3bf0",
+  "LEGACY_6_hsmm.pkl": "17b0d7848330528896a0dcd4cfc0afde64bbd876e23d7620e079fbd62174b1da",
+  "LEGACY_6_student_t_hmm.pkl": "854a5a2080112579e7da96b2d67a967dcfe9dabbf101c7aea6885aa96c69fd74",
+  "LEGACY_7_bocpd.pkl": "ec3d584ffdf73eaaa9247090b18e6fb858ebd7c8842e335392bc7a64925c7b99",
+  "LEGACY_7_gaussian_hmm.pkl": "237821557e38638881f72b698cdf192472438ef75d1a497c815866e6659c4109",
+  "LEGACY_7_hsmm.pkl": "67f794e34b4bcaa81a0ada76d6ea16c262e5aaa9613ae0e31063c81d50e70f86",
+  "LEGACY_7_student_t_hmm.pkl": "361dd6423e694d4b31759107b44241c5760444bab497df49c1c691688cad0831",
+  "LEGACY_8_bocpd.pkl": "0b87a5c98fe35a13fe8275ece4e96c522bedfc18acc152de54e860c3b5f47915",
+  "LEGACY_8_gaussian_hmm.pkl": "d1f2afda2848ea4dbb54c9863fde973b9b8905d29a3d8c6c3aace1d81ee39d5d",
+  "LEGACY_8_hsmm.pkl": "60acae1f3cffa380b1570ad2b23cfc14b933747b82e9a42c42ac84f33d078d52",
+  "LEGACY_8_student_t_hmm.pkl": "b4a891811c7951865a64278eaa5bec3055456a771922f4b8abe760f05e25c930",
+  "LEGACY_9_bocpd.pkl": "6fa8750247d52d1cb87f3404766d61fd08358dba04929bbb5201f5e2a8606c72",
+  "LEGACY_9_gaussian_hmm.pkl": "2ada6daaa1e93692f0ba7e4ef0fcb1a61fd51269d1054f6765c0669f91407844",
+  "LEGACY_9_hsmm.pkl": "1d3e6865a1f2ce82f1d586c5890b9ccf7e2caa4ea9c9fc149f745a5fe9f54ff1",
+  "LEGACY_9_student_t_hmm.pkl": "6ef4b0e3cb392466a96f0eecc1efc86ab45d0d474dfd96e5a8c267931449a864",
+  "RAW_0_bocpd.pkl": "3e8635303488f651183445540c760b71dd2f1abedf836d6406e2660b202ac260",
+  "RAW_0_gaussian_hmm.pkl": "8e4313f53aec5b8e9d0222dc45e4d9f5c6b7804caaa97c35dd4c81402103ea78",
+  "RAW_0_hsmm.pkl": "c4b2f2bf9724464f39d5c9a2bd7ae3f7af79b242a5edac9eef61599839e73076",
+  "RAW_0_student_t_hmm.pkl": "fec10034280ce36868ed8f27ba0130bcd8298f3a06d4fb4eca252c89d9a11fbc",
+  "RAW_1_bocpd.pkl": "b672257d5372cf6d024d4055593cfcb85617cfe662004232e9a6e69b862d8ec5",
+  "RAW_1_gaussian_hmm.pkl": "d1c88a5b86a10ed6d3e83f67e49e2e424879a9c4d9df62232b842333ff4ac4fc",
+  "RAW_1_hsmm.pkl": "a5b6551787c15ba5ec780031988c86fc48ead6dbd5eba9e5ccbce5e5b4368109",
+  "RAW_1_student_t_hmm.pkl": "4b783be1d92de53397ce5315c7007d6d9e9a4172a1ce61c8d48b090272be8d68",
+  "RAW_2_bocpd.pkl": "928a65f57e9b7ebba9b4d4171ef335673ade8c8185b864090a2b92987972c8cb",
+  "RAW_2_gaussian_hmm.pkl": "0d18c7e757bcbb37755c4a9821ae5cc54c01d774d6e774ba34617c997be4d27a",
+  "RAW_2_hsmm.pkl": "87c085a7a52b17e4b791a0ba8b44d9e00df31bb7f32a41c704ba358724296e56",
+  "RAW_2_student_t_hmm.pkl": "aa8be7406cf53dfe3951e9f732921272daf1e5f592fd43bbfd8f767aea41f020",
+  "RAW_3_bocpd.pkl": "0bb4eb95bb40a3975c75e65177b6e615ca020ab072ff5b27f042937ca86c4c8c",
+  "RAW_3_gaussian_hmm.pkl": "eecf6bdfb582fe7465ad052c54b5d52114dcf0a1341adc79820072a1a3f60796",
+  "RAW_3_hsmm.pkl": "6711acf2a0825170afc371b6f359b17943690807b22e04459cc8cbfbada78c23",
+  "RAW_3_student_t_hmm.pkl": "bb64b96fb51e19b795c07a43813f489ee1ac1279bdaa1155fffa667cccdfb35c"
+ }
+}

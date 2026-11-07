@@ -1,0 +1,1 @@
+{"key": "score|main|budget=None|RAW|3|gaussian_hmm", "version": "bbc114924f8edf6b", "value": {"a": 0.10354687500000005, "a_skipped": null, "a_failed": null, "b": 0.05343532979210819, "b_skipped": null, "b_n": 4380, "b_dm_stat": 3.2577354979238087, "val_qlike": 0.20672908026758918, "flagged_fit": false}}
