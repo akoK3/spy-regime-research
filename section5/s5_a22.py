@@ -299,10 +299,23 @@ def a18_analyse(summ):
     return out
 
 
+def a20_inputs_check(db, fold):
+    """A22 rule 2a (user request before launch): the A18 backend sees exactly the A20 pool (13 columns; scale-type stems only as __sadj) and the deseasonalised QLIKE target
+    (validation targets = 60 x mean deseasonalised 1-min variance: order 10^2 because the slot baseline is a median of r^2; bound 10-1000 as the MR2 preflight; a raw target would be ~1e-4)."""
+    import s5_lib as L
+    c = db.c; want = L.a20_pool(L.pools()[0]); bad = [x for x in c["cols"] if L.stem_of(x) in L.SCALE_STEMS and not x.endswith("__sadj")]
+    if c["cols"] != want or len(c["cols"]) != 13 or bad: raise RuntimeError(f"A18 inputs at {fold} are not the A20 pool: {c['cols']} (non-__sadj scale columns {bad})")
+    tg = np.concatenate([q["tgt"] for q in db.sequences("val", ())]); tg = tg[np.isfinite(tg)]
+    if not (len(tg) > 1000 and 10 < np.median(tg) < 1000): raise RuntimeError(f"A18 QLIKE target at {fold} is not deseasonalised (median {np.median(tg) if len(tg) else 'none'})")
+    return dict(cols=list(c["cols"]), n_cols=len(c["cols"]), target_median=float(np.median(tg)), n_target=int(len(tg)))
+
+
 def phase_a18(ph, out_dir):
     import s5_a18 as A18, s5_run as RUN, s5_a17_a18_common as CM
     CM.LOG = LOG; t0 = time.time(); log(f"A22 A18 rerun start (kind {A18.KIND}; resumes from {A18OUT / 'run' / 'ckpt'})")
-    summ = RUN.run_all(A18.Logged(A18.A18Main(ph)), A18OUT / "run"); res = a18_analyse(summ)
+    b = A18.A18Main(ph); folds = b.folds(); chk = {}
+    for f in (folds[0], [x for x in folds if x.startswith("RAW|")][0]): chk[f] = a20_inputs_check(b._b(f), f); log(f"A22 A18 inputs {f}: {chk[f]['n_cols']} columns (A20 pool, __sadj scale inputs), validation target median {chk[f]['target_median']:.1f} (deseasonalised)")
+    summ = RUN.run_all(A18.Logged(b), A18OUT / "run"); res = a18_analyse(summ); res["a20_inputs_check"] = chk
     res.update(kind=A18.KIND, completion_record=summ["completion_record"], a22=file_sha(ROOT / "AMENDMENT_A22.md"), hours=(time.time() - t0) / 3600); write_json(A18OUT / "a18_results.json", res)
     log("A22 A18 rerun DONE: confirmatory Holm " + ", ".join(f"{f.split('_')[0]} p_iu {res['h1'][f]['confirmatory']['p_iu']:.4f} {'R' if res['h1'][f]['confirmatory']['holm']['reject'] else '-'}" for f in FAMILIES)); return res
 
@@ -552,9 +565,11 @@ def preflight(token, which):
             phase_thresholds(ph, PRE, folds=[fold], backend=One(db))
             if era == "LEGACY": phase_delay(ph, PRE, folds=[fold], backend=One(db))
             log(f"A22 preflight thresholds{' + delay' if era == 'LEGACY' else ''} {fold}: reproduced MR2 exactly; {(time.time() - t1) / 60:.1f} min"); del db; gc.collect()
-    if which in ("all", "a18"):
+    if which in ("all", "a18", "a18inputs"):
         for fold in CONTAMINATED:
-            era, n = fold.split("|"); db = A18.A18Fold(era, int(n)); t1 = time.time()
+            era, n = fold.split("|"); db = A18.A18Fold(era, int(n)); t1 = time.time(); ic = a20_inputs_check(db, fold); write_json(PRE / f"a18_inputs_{fkey(fold)}.json", ic)
+            log(f"A22 preflight A18 inputs {fold}: {ic['n_cols']} columns = A20 pool ({', '.join(ic['cols'])}); validation target median {ic['target_median']:.1f} over {ic['n_target']} bars (deseasonalised)")
+            if which == "a18inputs": del db; gc.collect(); continue
             for fam in FAMILIES:
                 st = RUN.select_fold(One(db), fold, fam); sc = RUN.score_fold(One(db), fold, fam, st)
                 if sc["b"] is None: raise RuntimeError(f"A18 preflight {fold} {fam}: H1(b) not evaluable")
@@ -619,9 +634,9 @@ DONE_FILES = dict(power="results/a22/power.json", d8c="results/d8/d8c_results.js
 
 
 def main():
-    if len(sys.argv) < 3 or sys.argv[2] not in PHASES + ("all", "cheap"): print(__doc__); return EXIT_GUARD
+    if len(sys.argv) < 3 or sys.argv[2] not in PHASES + ("all", "cheap", "a18inputs"): print(__doc__); return EXIT_GUARD
     token, phase, check = sys.argv[1], sys.argv[2], "--check" in sys.argv[3:]
-    if not check and phase in ("all", "cheap"): print("'all' and 'cheap' are preflight groups (--check)"); return EXIT_GUARD
+    if not check and phase in ("all", "cheap", "a18inputs"): print("'all' and 'cheap' are preflight groups (--check)"); return EXIT_GUARD
     import s5_d7 as D
     guard_errors = (PermissionError, RuntimeError, AssertionError) if check else (PermissionError,)
     try:

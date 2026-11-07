@@ -1,0 +1,20 @@
+{
+ "cols": [
+  "return_1m",
+  "relative_volume20",
+  "momentum5_endpoint",
+  "momentum10_endpoint",
+  "momentum15_endpoint",
+  "momentum30_endpoint",
+  "close_location_proxy",
+  "abs_return_1m__sadj",
+  "intrabar_range_log__sadj",
+  "rv5_strict__sadj",
+  "downside5_strict__sadj",
+  "downside10_strict__sadj",
+  "rv10_partial90__sadj"
+ ],
+ "n_cols": 13,
+ "target_median": 216.56334722700288,
+ "n_target": 3792
+}
