@@ -18,3 +18,6 @@
 2026-11-07T02:52:55-05:00 [py 29864] A21 preflight PASSED in 18.1 min (written to results/step2_preflight/)
 2026-11-07T02:52:55-05:00 [ps1 34008] A21 preflight attempt 1: Python exited with code 0 after 18.1 min
 2026-11-07T02:52:55-05:00 [ps1 34008] === preflight passed; nothing was started
+2026-11-07T02:53:16-05:00 [ps1 37404] === run_a21_overnight.ps1 start: D7 (A21) -> Step 2 liquidity; protocol 15be2570a592279e...; max retries 5 per phase
+2026-11-07T02:53:16-05:00 [ps1 37404] D7 (A21) attempt 1 of 6: starting Python
+2026-11-07T02:53:18-05:00 [py 3764] D7 guards: protocol 15be2570a592279e..., main record verified, canonical list, no lock, registry ok, A17 manifest 136 models
