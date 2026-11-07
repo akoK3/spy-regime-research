@@ -337,3 +337,9 @@
 /section5/results/step2_liquidity/models/
 !/section5/results/step2_preflight/
 /section5/results/step2_preflight/models/
+!AMENDMENT_A22.md
+!AMENDMENT_A22.sha256
+!/section5/results/a22/
+/section5/results/a22/models/
+!/section5/results/a22_preflight/
+/section5/results/a22_preflight/models/
