@@ -330,3 +330,10 @@
 /section5/results/mr2/a17/models/
 /section5/results/mr2_preflight/models/
 !/section5/results/mr2_preflight/
+!AMENDMENT_A21.md
+!AMENDMENT_A21.sha256
+!OVERNIGHT_STATUS.md
+!/section5/results/step2_liquidity/
+/section5/results/step2_liquidity/models/
+!/section5/results/step2_preflight/
+/section5/results/step2_preflight/models/
