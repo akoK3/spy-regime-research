@@ -1,0 +1,19 @@
+2026-11-07T11:27:55-05:00 [py 26008] A22 era LEGACY (25 confirmatory folds): gaussian a +0.1054 (p 0.000) b +0.0258 holm R; student a +0.0691 (p 0.000) b +0.0048 holm -; hsmm a +0.1129 (p 0.000) b +0.0350 holm R; bocpd a +0.0000 (p 1.000) b +0.0000 holm -
+2026-11-07T11:27:55-05:00 [py 26008] A22 era RAW (1 confirmatory folds): gaussian a +0.0933 (p nan) b +0.0214 holm -; student a +0.0485 (p nan) b +0.0104 holm -; hsmm a +0.0648 (p nan) b +0.0144 holm -; bocpd a +0.0000 (p nan) b +0.0000 holm -
+2026-11-07T11:27:55-05:00 [py 26008] A22 flagged fits: {'gaussian_hmm': 0, 'student_t_hmm': 0, 'hsmm': 0, 'bocpd': 0}
+----------------------------------------------------------------------
+Ran 10 tests in 1.025s
+
+OK
+2026-11-07T11:27:55-05:00 [py 26008] A22 preflight [a18]: protocol 15be2570a592279e... FROZEN, MR2 record, canonical list, no lock, registry ok, A22 sidecar ok; 10 A22 unit tests pass
+2026-11-07T11:35:34-05:00 [py 26008] A22 preflight A18 RAW|3 gaussian_hmm: features [] params {'K': 4} baseline {'K': 4}; H1(a) 0.0, H1(b) +0.0000
+2026-11-07T11:37:01-05:00 [py 26008] A22 preflight A18 RAW|3 student_t_hmm: features [] params {'K': 4} baseline {'K': 4}; H1(a) 0.0, H1(b) +0.0000
+2026-11-07T11:42:20-05:00 [py 26008] A22 preflight A18 RAW|3 hsmm: features [] params {'K': 3} baseline {'K': 3}; H1(a) 0.0, H1(b) +0.0000
+2026-11-07T11:42:32-05:00 [py 26008] A22 preflight A18 RAW|3 bocpd: features [] params {'lam': 78} baseline {'lam': 78}; H1(a) 0.0, H1(b) +0.0000
+2026-11-07T11:42:32-05:00 [py 26008] A22 preflight A18 RAW|3: 14.6 min
+2026-11-07T11:48:59-05:00 [py 26008] A22 preflight A18 LEGACY|29 gaussian_hmm: features [] params {'K': 4} baseline {'K': 4}; H1(a) 0.0, H1(b) +0.0000
+2026-11-07T11:49:43-05:00 [py 26008] A22 preflight A18 LEGACY|29 student_t_hmm: features [] params {'K': 3} baseline {'K': 3}; H1(a) 0.0, H1(b) +0.0000
+2026-11-07T11:52:20-05:00 [py 26008] A22 preflight A18 LEGACY|29 hsmm: features [] params {'K': 3} baseline {'K': 3}; H1(a) 0.0, H1(b) +0.0000
+2026-11-07T11:52:33-05:00 [py 26008] A22 preflight A18 LEGACY|29 bocpd: features [] params {'lam': 78} baseline {'lam': 78}; H1(a) 0.0, H1(b) +0.0000
+2026-11-07T11:52:33-05:00 [py 26008] A22 preflight A18 LEGACY|29: 10.0 min
+2026-11-07T11:52:33-05:00 [py 26008] A22 preflight [a18] PASSED in 24.7 min (written to results/a22_preflight/)

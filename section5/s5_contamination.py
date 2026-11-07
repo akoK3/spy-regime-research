@@ -28,7 +28,9 @@ REGISTRY = {
     "s5_a17.py": "POST_MAIN_RUN", "s5_a18.py": "POST_MAIN_RUN", "s5_tests_a17_a18.py": "LIBRARY",      # A17 rule 6
     "s5_mr2.py": "MAIN_RUN",      # A20 rule 5: MR2 and its A17-style / D7 phases (preflight on the contaminated RAW 3 and LEGACY 29 only)
     "s5_d7_diag_raw3.py": RAW3,      # D7 diagnostic on the contaminated RAW 3 fold only (already excluded)
-    "s5_step2.py": "POST_MAIN_RUN", "s5_tests_step2.py": "LIBRARY",      # A21 rule 3f: Step 2 for liquidity (preflight on RAW 3 and LEGACY 29 only)
+    "s5_step2.py": "POST_MAIN_RUN", "s5_tests_step2.py": "LIBRARY",
+    "s5_a22.py": "POST_MAIN_RUN", "s5_tests_a22.py": "LIBRARY",      # A22: 5.11 power, 5.10 robustness on MR2, A18 rerun on A20 inputs (preflight on RAW 3 and LEGACY 29 only)
+    "s5_d8c.py": "DESCRIPTIVE",      # A22 rule 1: D8c overlap breakdown, same status as D8      # A21 rule 3f: Step 2 for liquidity (preflight on RAW 3 and LEGACY 29 only)
     "s5_d7.py": "POST_MAIN_RUN", "s5_tests_d7.py": "LIBRARY",      # A19 rule 2h: test segments already scored by the main run
     "s5_d8b.py": "DESCRIPTIVE",      # A19.1: D8 sensitivity, same status as D8
     "s5_d8.py": "DESCRIPTIVE",      # A19 rule 1g: no detector, no model, no outcome; validation sessions already used by the main run

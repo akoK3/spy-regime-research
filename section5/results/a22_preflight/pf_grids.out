@@ -1,0 +1,38 @@
+2026-11-07T11:27:55-05:00 [py 25712] A22 era LEGACY (25 confirmatory folds): gaussian a +0.1054 (p 0.000) b +0.0258 holm R; student a +0.0691 (p 0.000) b +0.0048 holm -; hsmm a +0.1129 (p 0.000) b +0.0350 holm R; bocpd a +0.0000 (p 1.000) b +0.0000 holm -
+2026-11-07T11:27:55-05:00 [py 25712] A22 era RAW (1 confirmatory folds): gaussian a +0.0933 (p nan) b +0.0214 holm -; student a +0.0485 (p nan) b +0.0104 holm -; hsmm a +0.0648 (p nan) b +0.0144 holm -; bocpd a +0.0000 (p nan) b +0.0000 holm -
+2026-11-07T11:27:55-05:00 [py 25712] A22 flagged fits: {'gaussian_hmm': 0, 'student_t_hmm': 0, 'hsmm': 0, 'bocpd': 0}
+----------------------------------------------------------------------
+Ran 10 tests in 1.041s
+
+OK
+2026-11-07T11:27:55-05:00 [py 25712] A22 preflight [grids]: protocol 15be2570a592279e... FROZEN, MR2 record, canonical list, no lock, registry ok, A22 sidecar ok; 10 A22 unit tests pass
+2026-11-07T11:35:22-05:00 [py 25712] A22 preflight grid 5 RAW|3 gaussian_hmm: H1(a) 0.08740104166666673, H1(b) +0.0482
+2026-11-07T11:36:08-05:00 [py 25712] A22 preflight grid 5 RAW|3 student_t_hmm: H1(a) 0.05573958333333337, H1(b) +0.0245
+2026-11-07T11:38:52-05:00 [py 25712] A22 preflight grid 5 RAW|3 hsmm: H1(a) 0.16038541666666667, H1(b) +0.0327 (= MR2 exactly)
+2026-11-07T11:39:02-05:00 [py 25712] A22 preflight grid 5 RAW|3 bocpd: H1(a) 0.0, H1(b) +0.0000
+2026-11-07T11:39:02-05:00 [py 25712] A22 preflight grid 5 RAW|3: 11.0 min
+2026-11-07T11:45:24-05:00 [py 25712] A22 preflight grid 5 LEGACY|29 gaussian_hmm: H1(a) 0.09808333333333334, H1(b) +0.0423 (= MR2 exactly)
+2026-11-07T11:45:55-05:00 [py 25712] A22 preflight grid 5 LEGACY|29 student_t_hmm: H1(a) 0.12598958333333332, H1(b) +0.0117 (= MR2 exactly)
+2026-11-07T11:47:09-05:00 [py 25712] A22 preflight grid 5 LEGACY|29 hsmm: H1(a) 0.11371354166666665, H1(b) +0.0488 (= MR2 exactly)
+2026-11-07T11:47:17-05:00 [py 25712] A22 preflight grid 5 LEGACY|29 bocpd: H1(a) 0.0, H1(b) +0.0000 (= MR2 exactly)
+2026-11-07T11:47:17-05:00 [py 25712] A22 preflight grid 5 LEGACY|29: 8.0 min
+2026-11-07T11:54:29-05:00 [py 25712] A22 preflight grid 15 RAW|3 gaussian_hmm: H1(a) 0.08985937499999999, H1(b) +0.0945
+2026-11-07T11:54:37-05:00 [py 25712] A22 preflight grid 15 RAW|3 student_t_hmm: H1(a) 0.03948958333333335, H1(b) +0.0852
+2026-11-07T11:55:04-05:00 [py 25712] A22 preflight grid 15 RAW|3 hsmm: H1(a) 0.09257291666666666, H1(b) +0.0931
+2026-11-07T11:55:07-05:00 [py 25712] A22 preflight grid 15 RAW|3 bocpd: H1(a) 0.0, H1(b) +0.0000
+2026-11-07T11:55:07-05:00 [py 25712] A22 preflight grid 15 RAW|3: 7.8 min
+2026-11-07T12:00:44-05:00 [py 25712] A22 preflight grid 15 LEGACY|29 gaussian_hmm: H1(a) 0.08713020833333332, H1(b) +0.1024
+2026-11-07T12:00:57-05:00 [py 25712] A22 preflight grid 15 LEGACY|29 student_t_hmm: H1(a) 0.04110416666666668, H1(b) +0.0926
+2026-11-07T12:01:12-05:00 [py 25712] A22 preflight grid 15 LEGACY|29 hsmm: H1(a) 0.069703125, H1(b) +0.0958
+2026-11-07T12:01:16-05:00 [py 25712] A22 preflight grid 15 LEGACY|29 bocpd: H1(a) 0.0, H1(b) +0.0000
+2026-11-07T12:01:16-05:00 [py 25712] A22 preflight grid 15 LEGACY|29: 5.9 min
+2026-11-07T12:08:52-05:00 [py 25712] A22 preflight grid 1 RAW|3 gaussian_hmm: H1(a) 0.046739583333333334, H1(b) +0.0218
+2026-11-07T12:11:00-05:00 [py 25712] A22 preflight grid 1 RAW|3 student_t_hmm: H1(a) 0.04579166666666676, H1(b) -0.0097
+2026-11-07T12:11:41-05:00 [py 25712] A22 preflight grid 1 RAW|3 bocpd: H1(a) 0.0, H1(b) +0.0000
+2026-11-07T12:11:41-05:00 [py 25712] A22 preflight grid 1 RAW|3: 10.3 min
+2026-11-07T12:19:52-05:00 [py 25712] A22 preflight grid 1 LEGACY|29 gaussian_hmm: H1(a) -0.095640625, H1(b) +0.0172
+2026-11-07T12:22:03-05:00 [py 25712] A22 preflight grid 1 LEGACY|29 student_t_hmm: H1(a) -0.00289062499999998, H1(b) -0.0331
+2026-11-07T12:22:51-05:00 [py 25712] A22 preflight grid 1 LEGACY|29 bocpd: H1(a) 0.0, H1(b) +0.0000
+2026-11-07T12:22:51-05:00 [py 25712] A22 preflight grid 1 LEGACY|29: 10.7 min
+2026-11-07T12:23:16-05:00 [py 25712] A22 preflight 1-min HSMM: 6.0 s per EM iteration x 184 iterations x 3 starts x 2 models x 26 folds = 47.7 h -> NOT RUN (limit 24.0 h)
+2026-11-07T12:23:16-05:00 [py 25712] A22 preflight [grids] PASSED in 55.4 min (written to results/a22_preflight/)

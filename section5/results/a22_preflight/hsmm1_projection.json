@@ -1,0 +1,11 @@
+{
+ "seconds_per_iteration": 6.003087520599365,
+ "per_fold_seconds": [
+  6.398944854736328,
+  5.607230186462402
+ ],
+ "mean_iterations_per_start_5min": 183.55392156862746,
+ "projected_hours_26_folds": 47.74857775678043,
+ "limit_hours": 24.0,
+ "run": false
+}

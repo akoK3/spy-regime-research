@@ -1,0 +1,23 @@
+2026-11-07T11:27:55-05:00 [py 31308] A22 era LEGACY (25 confirmatory folds): gaussian a +0.1054 (p 0.000) b +0.0258 holm R; student a +0.0691 (p 0.000) b +0.0048 holm -; hsmm a +0.1129 (p 0.000) b +0.0350 holm R; bocpd a +0.0000 (p 1.000) b +0.0000 holm -
+2026-11-07T11:27:55-05:00 [py 31308] A22 era RAW (1 confirmatory folds): gaussian a +0.0933 (p nan) b +0.0214 holm -; student a +0.0485 (p nan) b +0.0104 holm -; hsmm a +0.0648 (p nan) b +0.0144 holm -; bocpd a +0.0000 (p nan) b +0.0000 holm -
+2026-11-07T11:27:55-05:00 [py 31308] A22 flagged fits: {'gaussian_hmm': 0, 'student_t_hmm': 0, 'hsmm': 0, 'bocpd': 0}
+----------------------------------------------------------------------
+Ran 10 tests in 1.041s
+
+OK
+2026-11-07T11:27:55-05:00 [py 31308] A22 preflight [cheap]: protocol 15be2570a592279e... FROZEN, MR2 record, canonical list, no lock, registry ok, A22 sidecar ok; 10 A22 unit tests pass
+2026-11-07T11:27:57-05:00 [py 31308] A22 power gaussian_hmm: H1(a) mean +0.1049 MDE(.05/3) 0.039490892180634986; H1(b) mean +0.0256 MDE(.05/3) 0.025308093098158537
+2026-11-07T11:27:59-05:00 [py 31308] A22 power student_t_hmm: H1(a) mean +0.0682 MDE(.05/3) 0.035613653228130794; H1(b) mean +0.0050 MDE(.05/3) 0.012728181863503127
+2026-11-07T11:28:01-05:00 [py 31308] A22 power hsmm: H1(a) mean +0.1107 MDE(.05/3) 0.034159765516179996; H1(b) mean +0.0342 MDE(.05/3) 0.022158007926735182
+2026-11-07T11:28:01-05:00 [py 31308] A22 power bocpd: H1(a) mean +0.0000 MDE(.05/3) None; H1(b) mean +0.0000 MDE(.05/3) None
+2026-11-07T11:28:02-05:00 [py 31308] A22 power D7 MDE (feature models): gaussian 0.12, student 0.12, hsmm 0.12, bocpd 0.12; Step 2 D7: gaussian 0.13, student 0.12, hsmm 0.13, bocpd 0.12
+2026-11-07T11:28:03-05:00 [py 31308] A22 era LEGACY (25 confirmatory folds): gaussian a +0.1054 (p 0.000) b +0.0258 holm R; student a +0.0691 (p 0.000) b +0.0048 holm -; hsmm a +0.1129 (p 0.000) b +0.0350 holm R; bocpd a +0.0000 (p 1.000) b +0.0000 holm -
+2026-11-07T11:28:03-05:00 [py 31308] A22 era RAW (1 confirmatory folds): gaussian a +0.0933 (p nan) b +0.0214 holm -; student a +0.0485 (p nan) b +0.0104 holm -; hsmm a +0.0648 (p nan) b +0.0144 holm -; bocpd a +0.0000 (p nan) b +0.0000 holm -
+2026-11-07T11:28:03-05:00 [py 31308] A22 flagged fits: {'gaussian_hmm': 0, 'student_t_hmm': 0, 'hsmm': 0, 'bocpd': 0}
+2026-11-07T11:28:11-05:00 [py 31308] A22 preflight D8c (RAW era): primary (share of windows with any large vol/liq/jump change): {'volatility_only': 0.455, 'liquidity_only': 0.142, 'jumps_only': 0.164} combined 0.239
+2026-11-07T11:28:30-05:00 [py 31308] A22 thresholds 1/1 RAW|3: 0.20 reproduced exactly; gaussian 15.73/14.74/12.99, student 14.07/12.03/10.44, hsmm 12.48/10.82/9.74, bocpd 31.24/27.23/27.23; 0.3 min
+2026-11-07T11:28:30-05:00 [py 31308] A22 preflight thresholds RAW|3: reproduced MR2 exactly; 0.3 min
+2026-11-07T11:29:01-05:00 [py 31308] A22 thresholds 1/1 LEGACY|29: 0.20 reproduced exactly; gaussian 14.52/11.69/10.58, student 11.42/10.49/9.90, hsmm 11.20/7.96/6.83, bocpd 53.15/46.05/46.05; 0.5 min
+2026-11-07T11:35:18-05:00 [py 31308] A22 delay 1/1 LEGACY|29: delta 0 reproduced exactly; H1(a) 0/5/10 gaussian +0.098/+0.096/+0.093, student +0.126/+0.125/+0.122, hsmm +0.114/+0.116/+0.115, bocpd +0.000/+0.000/+0.000; 6.3 min
+2026-11-07T11:35:18-05:00 [py 31308] A22 preflight thresholds + delay LEGACY|29: reproduced MR2 exactly; 6.8 min
+2026-11-07T11:35:18-05:00 [py 31308] A22 preflight [cheap] PASSED in 7.4 min (written to results/a22_preflight/)

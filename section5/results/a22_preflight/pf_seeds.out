@@ -1,0 +1,19 @@
+2026-11-07T11:35:32-05:00 [py 36300] A22 era LEGACY (25 confirmatory folds): gaussian a +0.1054 (p 0.000) b +0.0258 holm R; student a +0.0691 (p 0.000) b +0.0048 holm -; hsmm a +0.1129 (p 0.000) b +0.0350 holm R; bocpd a +0.0000 (p 1.000) b +0.0000 holm -
+2026-11-07T11:35:32-05:00 [py 36300] A22 era RAW (1 confirmatory folds): gaussian a +0.0933 (p nan) b +0.0214 holm -; student a +0.0485 (p nan) b +0.0104 holm -; hsmm a +0.0648 (p nan) b +0.0144 holm -; bocpd a +0.0000 (p nan) b +0.0000 holm -
+2026-11-07T11:35:32-05:00 [py 36300] A22 flagged fits: {'gaussian_hmm': 0, 'student_t_hmm': 0, 'hsmm': 0, 'bocpd': 0}
+----------------------------------------------------------------------
+Ran 10 tests in 0.911s
+
+OK
+2026-11-07T11:35:33-05:00 [py 36300] A22 preflight [seeds]: protocol 15be2570a592279e... FROZEN, MR2 record, canonical list, no lock, registry ok, A22 sidecar ok; 10 A22 unit tests pass
+2026-11-07T11:43:02-05:00 [py 36300] A22 preflight seed 1 RAW|3 gaussian_hmm: H1(a) 0.10320833333333337 (MR2 0.10354687500000005), H1(b) +0.0537 (MR2 +0.0534)
+2026-11-07T11:43:21-05:00 [py 36300] A22 preflight seed 1 RAW|3 student_t_hmm: H1(a) 0.07265625 (MR2 0.07376041666666668), H1(b) +0.0201 (MR2 +0.0204)
+2026-11-07T11:46:00-05:00 [py 36300] A22 preflight seed 1 RAW|3 hsmm: H1(a) 0.141078125 (MR2 0.16038541666666667), H1(b) +0.0327 (MR2 +0.0327)
+2026-11-07T11:46:13-05:00 [py 36300] A22 preflight seed 1 RAW|3 bocpd: H1(a) 0.007380208333333329 (MR2 0.00894270833333334), H1(b) +0.0017 (MR2 +0.0017)
+2026-11-07T11:53:28-05:00 [py 36300] A22 preflight seeds RAW|3: seed backend at 0/4242 reproduces MR2 exactly; 17.8 min
+2026-11-07T11:59:23-05:00 [py 36300] A22 preflight seed 1 LEGACY|29 gaussian_hmm: H1(a) 0.10698437500000009 (MR2 0.09808333333333334), H1(b) +0.0418 (MR2 +0.0423)
+2026-11-07T11:59:50-05:00 [py 36300] A22 preflight seed 1 LEGACY|29 student_t_hmm: H1(a) 0.1155729166666667 (MR2 0.12598958333333332), H1(b) +0.0121 (MR2 +0.0117)
+2026-11-07T12:00:59-05:00 [py 36300] A22 preflight seed 1 LEGACY|29 hsmm: H1(a) 0.10888541666666665 (MR2 0.11371354166666665), H1(b) +0.0494 (MR2 +0.0488)
+2026-11-07T12:01:07-05:00 [py 36300] A22 preflight seed 1 LEGACY|29 bocpd: H1(a) 0.0 (MR2 0.0), H1(b) +0.0000 (MR2 +0.0000)
+2026-11-07T12:05:46-05:00 [py 36300] A22 preflight seeds LEGACY|29: seed backend at 0/4242 reproduces MR2 exactly; 12.0 min
+2026-11-07T12:05:46-05:00 [py 36300] A22 preflight [seeds] PASSED in 30.2 min (written to results/a22_preflight/)

@@ -1,0 +1,14 @@
+2026-11-07T11:27:55-05:00 [py 30388] A22 era LEGACY (25 confirmatory folds): gaussian a +0.1054 (p 0.000) b +0.0258 holm R; student a +0.0691 (p 0.000) b +0.0048 holm -; hsmm a +0.1129 (p 0.000) b +0.0350 holm R; bocpd a +0.0000 (p 1.000) b +0.0000 holm -
+2026-11-07T11:27:55-05:00 [py 30388] A22 era RAW (1 confirmatory folds): gaussian a +0.0933 (p nan) b +0.0214 holm -; student a +0.0485 (p nan) b +0.0104 holm -; hsmm a +0.0648 (p nan) b +0.0144 holm -; bocpd a +0.0000 (p nan) b +0.0000 holm -
+2026-11-07T11:27:55-05:00 [py 30388] A22 flagged fits: {'gaussian_hmm': 0, 'student_t_hmm': 0, 'hsmm': 0, 'bocpd': 0}
+----------------------------------------------------------------------
+Ran 10 tests in 1.031s
+
+OK
+2026-11-07T11:27:55-05:00 [py 30388] A22 preflight [raw80]: protocol 15be2570a592279e... FROZEN, MR2 record, canonical list, no lock, registry ok, A22 sidecar ok; 10 A22 unit tests pass
+2026-11-07T11:48:20-05:00 [py 30388] A22 preflight RAW pool RAW|3 gaussian_hmm: 68 candidates; features ['rv60_partial90__sadj', 'rv60_sampled5_exact__sadj', 'downside15_partial90__sadj'] params {'K': 4}; H1(a) 0.11852083333333331, H1(b) +0.0594 (MR2 +0.0534)
+2026-11-07T11:55:36-05:00 [py 30388] A22 preflight RAW pool RAW|3 student_t_hmm: 68 candidates; features ['rv60_partial90__sadj', 'rv60_sampled5_exact__sadj', 'rv15_partial90__sadj'] params {'K': 4}; H1(a) 0.1630416666666667, H1(b) +0.0212 (MR2 +0.0204)
+2026-11-07T12:57:50-05:00 [py 30388] A22 preflight RAW pool RAW|3 hsmm: 68 candidates; features ['rv60_partial90__sadj', 'rv60_sampled5_exact__sadj', 'downside15_partial90__sadj'] params {'K': 3}; H1(a) 0.11705208333333326, H1(b) +0.0400 (MR2 +0.0327)
+2026-11-07T13:00:21-05:00 [py 30388] A22 preflight RAW pool RAW|3 bocpd: 68 candidates; features ['jump_variation_60'] params {'lam': 12}; H1(a) 0.042958333333333334, H1(b) +0.0021 (MR2 +0.0017)
+2026-11-07T13:00:21-05:00 [py 30388] A22 preflight RAW pool: 92.4 min
+2026-11-07T13:00:21-05:00 [py 30388] A22 preflight [raw80] PASSED in 92.5 min (written to results/a22_preflight/)
