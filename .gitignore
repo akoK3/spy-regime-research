@@ -351,3 +351,13 @@
 !/section5/results/d7_nan_diag/
 !/section5/results/posthoc_grid_pauc/
 !/section5/results/o9/
+!AMENDMENT_A25.md
+!AMENDMENT_A25.sha256
+!SECTION5_DISCLOSED_LIMITATIONS.md
+!/section5/results/a23/
+/section5/results/a23/models/
+!/section5/results/a23_preflight/
+/section5/results/a23_preflight/models/
+!/section5/results/a24/
+!/section5/results/a25/
+!/section5/results/a24_preflight/

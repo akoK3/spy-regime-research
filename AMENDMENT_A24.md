@@ -1,6 +1,6 @@
 # Amendment A24 (LEGACY clock -1/0/+1 minute sensitivity; ledger open item 5)
 
-Dated 2026-11-08T22:30:00+00:00 UTC (2026-11-08T17:30:00-05:00 New York). Status: DRAFT, pending the user's approval; becomes ADOPTED only when the user approves and it is committed with its hash sidecar and the status line changed. Written before any code it governs and before any of its results exist. Numbered A24 because the user named the combined volume model A23; this amendment is the earlier item (4) of the Section 5 close-out and runs before the freeze. Disclosed: MR2, its A17-style phase, D7 (A21), Step 2 and all A22 results, including the A22 LEGACY delay +5/+10 min, have been seen. Facts only.
+Dated 2026-11-08T22:30:00+00:00 UTC (2026-11-08T17:30:00-05:00 New York). Status: ADOPTED 2026-11-08T23:05:00+00:00 UTC (user approval "A24: approved"; the draft, sidecar bdf1f0cb..., committed in 5e85e8e, is unchanged apart from this status line). Written before any code it governs and before any of its results exist. Numbered A24 because the user named the combined volume model A23; this amendment is the earlier item (4) of the Section 5 close-out and runs before the freeze. Disclosed: MR2, its A17-style phase, D7 (A21), Step 2 and all A22 results, including the A22 LEGACY delay +5/+10 min, have been seen. Facts only.
 
 ## Evidence cited
 

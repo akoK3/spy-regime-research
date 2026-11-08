@@ -36,7 +36,7 @@ def preflight(token):
         era, n = fold.split("|"); db = BK.DataBackend(era, int(n)); c = db.c
         assert c["cols"] == L.a20_pool(L.pools()[0]) and len(c["cols"]) == 13, f"pool is not the A20 pool: {c['cols']}"
         tg = np.concatenate([q["tgt"] for q in db.sequences("val", ())]); tg = tg[np.isfinite(tg)]
-        assert len(tg) > 1000 and 10 < np.median(tg) < 1000, f"QLIKE target is not deseasonalised (median {np.median(tg)})"                # deseasonalised: about 60; raw: about 1e-4
+        assert len(tg) > 1000 and 10 < np.median(tg) < 1000, f"QLIKE target is not deseasonalised (median {np.median(tg)})"                # deseasonalised: medians 130-220 observed (60 x mean r^2 / slot median); raw: about 1e-4 (O9 L8)
         log(f"MR2 preflight {fold}: pool 13 (A20), validation QLIKE target median {np.median(tg):.1f} (deseasonalised; raw would be ~1e-4)")
         class One:
             kind = "check"

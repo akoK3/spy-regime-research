@@ -1,0 +1,1131 @@
+{
+ "label": "A24 LEGACY clock -1/0/+1 min: H1(c) (AMENDMENT_A24.md)",
+ "generated": "2026-11-08T23:02:59.280778+00:00",
+ "amendment_sha256": "45ff565e8ca78abf8756379250dbc66586eb101a0aca342055207347db951651",
+ "invariant": "H1(a), H1(b), D7, D8 and A7 thresholds are invariant to a common LEGACY clock offset (rule 1a); not recomputed",
+ "targets": {
+  "0.15": {
+   "-1": {
+    "gaussian_hmm": {
+     "family": "gaussian_hmm",
+     "f3": {
+      "hit_rate": 0.6122448979591837,
+      "wilson95": [
+       0.513286724952775,
+       0.702735317952587
+      ],
+      "reference_alarm_rate": 0.02761315583537692
+     },
+     "base": {
+      "hit_rate": 0.336734693877551,
+      "wilson95": [
+       0.2509013445283486,
+       0.43488477488203364
+      ],
+      "reference_alarm_rate": 0.023780195010890678
+     },
+     "paired": {
+      "n_events": 98,
+      "f3_only": 32,
+      "base_only": 5,
+      "both": 28,
+      "neither": 33,
+      "p_two_sided": 7.427530363202095e-06,
+      "diff": 0.2755102040816327
+     },
+     "multiplicity": "none (secondary, outside the Holm families of A6 item 4)"
+    },
+    "student_t_hmm": {
+     "family": "student_t_hmm",
+     "f3": {
+      "hit_rate": 0.4387755102040816,
+      "wilson95": [
+       0.34467981510339346,
+       0.5374899796754999
+      ],
+      "reference_alarm_rate": 0.022381068588110727
+     },
+     "base": {
+      "hit_rate": 0.21428571428571427,
+      "wilson95": [
+       0.14464543404168767,
+       0.30548027492648133
+      ],
+      "reference_alarm_rate": 0.027801663597083456
+     },
+     "paired": {
+      "n_events": 98,
+      "f3_only": 25,
+      "base_only": 3,
+      "both": 18,
+      "neither": 52,
+      "p_two_sided": 2.744048833847046e-05,
+      "diff": 0.22448979591836735
+     },
+     "multiplicity": "none (secondary, outside the Holm families of A6 item 4)"
+    },
+    "hsmm": {
+     "family": "hsmm",
+     "f3": {
+      "hit_rate": 0.5714285714285714,
+      "wilson95": [
+       0.4725843622324218,
+       0.6648842105255358
+      ],
+      "reference_alarm_rate": 0.02195454390857976
+     },
+     "base": {
+      "hit_rate": 0.2755102040816326,
+      "wilson95": [
+       0.19679552555658908,
+       0.3711603886326865
+      ],
+      "reference_alarm_rate": 0.02334492342910964
+     },
+     "paired": {
+      "n_events": 98,
+      "f3_only": 35,
+      "base_only": 6,
+      "both": 21,
+      "neither": 36,
+      "p_two_sided": 4.873598300036974e-06,
+      "diff": 0.29591836734693877
+     },
+     "multiplicity": "none (secondary, outside the Holm families of A6 item 4)"
+    },
+    "bocpd": {
+     "family": "bocpd",
+     "f3": {
+      "hit_rate": 0.2857142857142857,
+      "wilson95": [
+       0.2056876077130898,
+       0.381906674013037
+      ],
+      "reference_alarm_rate": 0.050138003919516526
+     },
+     "base": {
+      "hit_rate": 0.2857142857142857,
+      "wilson95": [
+       0.2056876077130898,
+       0.381906674013037
+      ],
+      "reference_alarm_rate": 0.050138003919516526
+     },
+     "paired": {
+      "n_events": 98,
+      "f3_only": 0,
+      "base_only": 0,
+      "both": 28,
+      "neither": 70,
+      "p_two_sided": 1.0,
+      "diff": 0.0
+     },
+     "multiplicity": "none (secondary, outside the Holm families of A6 item 4)"
+    }
+   },
+   "0": {
+    "gaussian_hmm": {
+     "family": "gaussian_hmm",
+     "f3": {
+      "hit_rate": 0.6122448979591837,
+      "wilson95": [
+       0.513286724952775,
+       0.702735317952587
+      ],
+      "reference_alarm_rate": 0.03223333724127262
+     },
+     "base": {
+      "hit_rate": 0.336734693877551,
+      "wilson95": [
+       0.2509013445283486,
+       0.43488477488203364
+      ],
+      "reference_alarm_rate": 0.02569891121532117
+     },
+     "paired": {
+      "n_events": 98,
+      "f3_only": 32,
+      "base_only": 5,
+      "both": 28,
+      "neither": 33,
+      "p_two_sided": 7.427530363202095e-06,
+      "diff": 0.2755102040816327
+     },
+     "multiplicity": "none (secondary, outside the Holm families of A6 item 4)"
+    },
+    "student_t_hmm": {
+     "family": "student_t_hmm",
+     "f3": {
+      "hit_rate": 0.4387755102040816,
+      "wilson95": [
+       0.34467981510339346,
+       0.5374899796754999
+      ],
+      "reference_alarm_rate": 0.02447273532868788
+     },
+     "base": {
+      "hit_rate": 0.21428571428571427,
+      "wilson95": [
+       0.14464543404168767,
+       0.30548027492648133
+      ],
+      "reference_alarm_rate": 0.02910914008615801
+     },
+     "paired": {
+      "n_events": 98,
+      "f3_only": 25,
+      "base_only": 3,
+      "both": 18,
+      "neither": 52,
+      "p_two_sided": 2.744048833847046e-05,
+      "diff": 0.22448979591836735
+     },
+     "multiplicity": "none (secondary, outside the Holm families of A6 item 4)"
+    },
+    "hsmm": {
+     "family": "hsmm",
+     "f3": {
+      "hit_rate": 0.5714285714285714,
+      "wilson95": [
+       0.4725843622324218,
+       0.6648842105255358
+      ],
+      "reference_alarm_rate": 0.02622586782276082
+     },
+     "base": {
+      "hit_rate": 0.2755102040816326,
+      "wilson95": [
+       0.19679552555658908,
+       0.3711603886326865
+      ],
+      "reference_alarm_rate": 0.025961354616969405
+     },
+     "paired": {
+      "n_events": 98,
+      "f3_only": 35,
+      "base_only": 6,
+      "both": 21,
+      "neither": 36,
+      "p_two_sided": 4.873598300036974e-06,
+      "diff": 0.29591836734693877
+     },
+     "multiplicity": "none (secondary, outside the Holm families of A6 item 4)"
+    },
+    "bocpd": {
+     "family": "bocpd",
+     "f3": {
+      "hit_rate": 0.2857142857142857,
+      "wilson95": [
+       0.2056876077130898,
+       0.381906674013037
+      ],
+      "reference_alarm_rate": 0.051184576394660425
+     },
+     "base": {
+      "hit_rate": 0.2857142857142857,
+      "wilson95": [
+       0.2056876077130898,
+       0.381906674013037
+      ],
+      "reference_alarm_rate": 0.051184576394660425
+     },
+     "paired": {
+      "n_events": 98,
+      "f3_only": 0,
+      "base_only": 0,
+      "both": 28,
+      "neither": 70,
+      "p_two_sided": 1.0,
+      "diff": 0.0
+     },
+     "multiplicity": "none (secondary, outside the Holm families of A6 item 4)"
+    }
+   },
+   "1": {
+    "gaussian_hmm": {
+     "family": "gaussian_hmm",
+     "f3": {
+      "hit_rate": 0.6122448979591837,
+      "wilson95": [
+       0.513286724952775,
+       0.702735317952587
+      ],
+      "reference_alarm_rate": 0.029708542633543143
+     },
+     "base": {
+      "hit_rate": 0.3163265306122449,
+      "wilson95": [
+       0.23267060070281587,
+       0.4138387836338643
+      ],
+      "reference_alarm_rate": 0.02386887517159965
+     },
+     "paired": {
+      "n_events": 98,
+      "f3_only": 33,
+      "base_only": 4,
+      "both": 27,
+      "neither": 34,
+      "p_two_sided": 1.0843941709026694e-06,
+      "diff": 0.29591836734693877
+     },
+     "multiplicity": "none (secondary, outside the Holm families of A6 item 4)"
+    },
+    "student_t_hmm": {
+     "family": "student_t_hmm",
+     "f3": {
+      "hit_rate": 0.4387755102040816,
+      "wilson95": [
+       0.34467981510339346,
+       0.5374899796754999
+      ],
+      "reference_alarm_rate": 0.022207366525178397
+     },
+     "base": {
+      "hit_rate": 0.20408163265306123,
+      "wilson95": [
+       0.13617701094343557,
+       0.29431033048788235
+      ],
+      "reference_alarm_rate": 0.027627961534151122
+     },
+     "paired": {
+      "n_events": 98,
+      "f3_only": 26,
+      "base_only": 3,
+      "both": 17,
+      "neither": 52,
+      "p_two_sided": 1.5236437320709229e-05,
+      "diff": 0.2346938775510204
+     },
+     "multiplicity": "none (secondary, outside the Holm families of A6 item 4)"
+    },
+    "hsmm": {
+     "family": "hsmm",
+     "f3": {
+      "hit_rate": 0.5714285714285714,
+      "wilson95": [
+       0.4725843622324218,
+       0.6648842105255358
+      ],
+      "reference_alarm_rate": 0.02456953384197163
+     },
+     "base": {
+      "hit_rate": 0.2755102040816326,
+      "wilson95": [
+       0.19679552555658908,
+       0.3711603886326865
+      ],
+      "reference_alarm_rate": 0.02448017606496252
+     },
+     "paired": {
+      "n_events": 98,
+      "f3_only": 35,
+      "base_only": 6,
+      "both": 21,
+      "neither": 36,
+      "p_two_sided": 4.873598300036974e-06,
+      "diff": 0.29591836734693877
+     },
+     "multiplicity": "none (secondary, outside the Holm families of A6 item 4)"
+    },
+    "bocpd": {
+     "family": "bocpd",
+     "f3": {
+      "hit_rate": 0.2857142857142857,
+      "wilson95": [
+       0.2056876077130898,
+       0.381906674013037
+      ],
+      "reference_alarm_rate": 0.044819392958648646
+     },
+     "base": {
+      "hit_rate": 0.2857142857142857,
+      "wilson95": [
+       0.2056876077130898,
+       0.381906674013037
+      ],
+      "reference_alarm_rate": 0.044819392958648646
+     },
+     "paired": {
+      "n_events": 98,
+      "f3_only": 0,
+      "base_only": 0,
+      "both": 28,
+      "neither": 70,
+      "p_two_sided": 1.0,
+      "diff": 0.0
+     },
+     "multiplicity": "none (secondary, outside the Holm families of A6 item 4)"
+    }
+   },
+   "changed_events": {
+    "-1": {
+     "gaussian_hmm": {},
+     "student_t_hmm": {},
+     "hsmm": {},
+     "bocpd": {}
+    },
+    "1": {
+     "gaussian_hmm": {
+      "baseline lost": 2
+     },
+     "student_t_hmm": {
+      "baseline lost": 1
+     },
+     "hsmm": {},
+     "bocpd": {}
+    }
+   }
+  },
+  "0.20": {
+   "-1": {
+    "gaussian_hmm": {
+     "family": "gaussian_hmm",
+     "f3": {
+      "hit_rate": 0.6224489795918368,
+      "wilson95": [
+       0.5235658612643335,
+       0.7120945491778798
+      ],
+      "reference_alarm_rate": 0.03684474876434711
+     },
+     "base": {
+      "hit_rate": 0.37755102040816324,
+      "wilson95": [
+       0.2879054508221201,
+       0.4764341387356666
+      ],
+      "reference_alarm_rate": 0.031170788610968073
+     },
+     "paired": {
+      "n_events": 98,
+      "f3_only": 31,
+      "base_only": 7,
+      "both": 30,
+      "neither": 30,
+      "p_two_sided": 0.00011616700794547796,
+      "diff": 0.24489795918367352
+     },
+     "multiplicity": "none (secondary, outside the Holm families of A6 item 4)"
+    },
+    "student_t_hmm": {
+     "family": "student_t_hmm",
+     "f3": {
+      "hit_rate": 0.46938775510204084,
+      "wilson95": [
+       0.37360956868063505,
+       0.5674753287088117
+      ],
+      "reference_alarm_rate": 0.03153782652938247
+     },
+     "base": {
+      "hit_rate": 0.25510204081632654,
+      "wilson95": [
+       0.17917461350729108,
+       0.3495045656082824
+      ],
+      "reference_alarm_rate": 0.03538856282563936
+     },
+     "paired": {
+      "n_events": 98,
+      "f3_only": 24,
+      "base_only": 3,
+      "both": 22,
+      "neither": 49,
+      "p_two_sided": 4.9233436584472656e-05,
+      "diff": 0.2142857142857143
+     },
+     "multiplicity": "none (secondary, outside the Holm families of A6 item 4)"
+    },
+    "hsmm": {
+     "family": "hsmm",
+     "f3": {
+      "hit_rate": 0.6224489795918368,
+      "wilson95": [
+       0.5235658612643335,
+       0.7120945491778798
+      ],
+      "reference_alarm_rate": 0.029352429802864215
+     },
+     "base": {
+      "hit_rate": 0.35714285714285715,
+      "wilson95": [
+       0.2693153415441716,
+       0.455747512939913
+      ],
+      "reference_alarm_rate": 0.03266586140261033
+     },
+     "paired": {
+      "n_events": 98,
+      "f3_only": 32,
+      "base_only": 6,
+      "both": 29,
+      "neither": 31,
+      "p_two_sided": 2.4342560209333897e-05,
+      "diff": 0.2653061224489796
+     },
+     "multiplicity": "none (secondary, outside the Holm families of A6 item 4)"
+    },
+    "bocpd": {
+     "family": "bocpd",
+     "f3": {
+      "hit_rate": 0.3979591836734694,
+      "wilson95": [
+       0.30666585107893707,
+       0.49695047355255184
+      ],
+      "reference_alarm_rate": 0.07141244776298797
+     },
+     "base": {
+      "hit_rate": 0.3979591836734694,
+      "wilson95": [
+       0.30666585107893707,
+       0.49695047355255184
+      ],
+      "reference_alarm_rate": 0.07141244776298797
+     },
+     "paired": {
+      "n_events": 98,
+      "f3_only": 0,
+      "base_only": 0,
+      "both": 39,
+      "neither": 59,
+      "p_two_sided": 1.0,
+      "diff": 0.0
+     },
+     "multiplicity": "none (secondary, outside the Holm families of A6 item 4)"
+    }
+   },
+   "0": {
+    "gaussian_hmm": {
+     "family": "gaussian_hmm",
+     "f3": {
+      "hit_rate": 0.6224489795918368,
+      "wilson95": [
+       0.5235658612643335,
+       0.7120945491778798
+      ],
+      "reference_alarm_rate": 0.04416783662617589
+     },
+     "base": {
+      "hit_rate": 0.37755102040816324,
+      "wilson95": [
+       0.2879054508221201,
+       0.4764341387356666
+      ],
+      "reference_alarm_rate": 0.034136077290542466
+     },
+     "paired": {
+      "n_events": 98,
+      "f3_only": 31,
+      "base_only": 7,
+      "both": 30,
+      "neither": 30,
+      "p_two_sided": 0.00011616700794547796,
+      "diff": 0.24489795918367352
+     },
+     "multiplicity": "none (secondary, outside the Holm families of A6 item 4)"
+    },
+    "student_t_hmm": {
+     "family": "student_t_hmm",
+     "f3": {
+      "hit_rate": 0.46938775510204084,
+      "wilson95": [
+       0.37360956868063505,
+       0.5674753287088117
+      ],
+      "reference_alarm_rate": 0.035199351982675486
+     },
+     "base": {
+      "hit_rate": 0.25510204081632654,
+      "wilson95": [
+       0.17917461350729108,
+       0.3495045656082824
+      ],
+      "reference_alarm_rate": 0.03660956404664058
+     },
+     "paired": {
+      "n_events": 98,
+      "f3_only": 24,
+      "base_only": 3,
+      "both": 22,
+      "neither": 49,
+      "p_two_sided": 4.9233436584472656e-05,
+      "diff": 0.2142857142857143
+     },
+     "multiplicity": "none (secondary, outside the Holm families of A6 item 4)"
+    },
+    "hsmm": {
+     "family": "hsmm",
+     "f3": {
+      "hit_rate": 0.6224489795918368,
+      "wilson95": [
+       0.5235658612643335,
+       0.7120945491778798
+      ],
+      "reference_alarm_rate": 0.03493414967029836
+     },
+     "base": {
+      "hit_rate": 0.35714285714285715,
+      "wilson95": [
+       0.2693153415441716,
+       0.455747512939913
+      ],
+      "reference_alarm_rate": 0.03589061284164749
+     },
+     "paired": {
+      "n_events": 98,
+      "f3_only": 32,
+      "base_only": 6,
+      "both": 29,
+      "neither": 31,
+      "p_two_sided": 2.4342560209333897e-05,
+      "diff": 0.2653061224489796
+     },
+     "multiplicity": "none (secondary, outside the Holm families of A6 item 4)"
+    },
+    "bocpd": {
+     "family": "bocpd",
+     "f3": {
+      "hit_rate": 0.3979591836734694,
+      "wilson95": [
+       0.30666585107893707,
+       0.49695047355255184
+      ],
+      "reference_alarm_rate": 0.07315673522156114
+     },
+     "base": {
+      "hit_rate": 0.3979591836734694,
+      "wilson95": [
+       0.30666585107893707,
+       0.49695047355255184
+      ],
+      "reference_alarm_rate": 0.07315673522156114
+     },
+     "paired": {
+      "n_events": 98,
+      "f3_only": 0,
+      "base_only": 0,
+      "both": 39,
+      "neither": 59,
+      "p_two_sided": 1.0,
+      "diff": 0.0
+     },
+     "multiplicity": "none (secondary, outside the Holm families of A6 item 4)"
+    }
+   },
+   "1": {
+    "gaussian_hmm": {
+     "family": "gaussian_hmm",
+     "f3": {
+      "hit_rate": 0.6224489795918368,
+      "wilson95": [
+       0.5235658612643335,
+       0.7120945491778798
+      ],
+      "reference_alarm_rate": 0.04120843594158344
+     },
+     "base": {
+      "hit_rate": 0.3469387755102041,
+      "wilson95": [
+       0.26008591606144965,
+       0.4453385708857838
+      ],
+      "reference_alarm_rate": 0.03169700642410065
+     },
+     "paired": {
+      "n_events": 98,
+      "f3_only": 32,
+      "base_only": 5,
+      "both": 29,
+      "neither": 32,
+      "p_two_sided": 7.427530363202095e-06,
+      "diff": 0.2755102040816327
+     },
+     "multiplicity": "none (secondary, outside the Holm families of A6 item 4)"
+    },
+    "student_t_hmm": {
+     "family": "student_t_hmm",
+     "f3": {
+      "hit_rate": 0.46938775510204084,
+      "wilson95": [
+       0.37360956868063505,
+       0.5674753287088117
+      ],
+      "reference_alarm_rate": 0.03171298195816478
+     },
+     "base": {
+      "hit_rate": 0.24489795918367346,
+      "wilson95": [
+       0.1704497011087401,
+       0.33859111046998225
+      ],
+      "reference_alarm_rate": 0.034081813019489794
+     },
+     "paired": {
+      "n_events": 98,
+      "f3_only": 25,
+      "base_only": 3,
+      "both": 21,
+      "neither": 49,
+      "p_two_sided": 2.744048833847046e-05,
+      "diff": 0.22448979591836737
+     },
+     "multiplicity": "none (secondary, outside the Holm families of A6 item 4)"
+    },
+    "hsmm": {
+     "family": "hsmm",
+     "f3": {
+      "hit_rate": 0.6224489795918368,
+      "wilson95": [
+       0.5235658612643335,
+       0.7120945491778798
+      ],
+      "reference_alarm_rate": 0.03275452945193723
+     },
+     "base": {
+      "hit_rate": 0.35714285714285715,
+      "wilson95": [
+       0.2693153415441716,
+       0.455747512939913
+      ],
+      "reference_alarm_rate": 0.03440943428964061
+     },
+     "paired": {
+      "n_events": 98,
+      "f3_only": 32,
+      "base_only": 6,
+      "both": 29,
+      "neither": 31,
+      "p_two_sided": 2.4342560209333897e-05,
+      "diff": 0.2653061224489796
+     },
+     "multiplicity": "none (secondary, outside the Holm families of A6 item 4)"
+    },
+    "bocpd": {
+     "family": "bocpd",
+     "f3": {
+      "hit_rate": 0.3979591836734694,
+      "wilson95": [
+       0.30666585107893707,
+       0.49695047355255184
+      ],
+      "reference_alarm_rate": 0.06609383680212011
+     },
+     "base": {
+      "hit_rate": 0.3979591836734694,
+      "wilson95": [
+       0.30666585107893707,
+       0.49695047355255184
+      ],
+      "reference_alarm_rate": 0.06609383680212011
+     },
+     "paired": {
+      "n_events": 98,
+      "f3_only": 0,
+      "base_only": 0,
+      "both": 39,
+      "neither": 59,
+      "p_two_sided": 1.0,
+      "diff": 0.0
+     },
+     "multiplicity": "none (secondary, outside the Holm families of A6 item 4)"
+    }
+   },
+   "changed_events": {
+    "-1": {
+     "gaussian_hmm": {},
+     "student_t_hmm": {},
+     "hsmm": {},
+     "bocpd": {}
+    },
+    "1": {
+     "gaussian_hmm": {
+      "baseline lost": 3
+     },
+     "student_t_hmm": {
+      "baseline lost": 1
+     },
+     "hsmm": {},
+     "bocpd": {}
+    }
+   }
+  },
+  "0.25": {
+   "-1": {
+    "gaussian_hmm": {
+     "family": "gaussian_hmm",
+     "f3": {
+      "hit_rate": 0.673469387755102,
+      "wilson95": [
+       0.5756148102693412,
+       0.7582374378571275
+      ],
+      "reference_alarm_rate": 0.04747610691386506
+     },
+     "base": {
+      "hit_rate": 0.40816326530612246,
+      "wilson95": [
+       0.3161084073241572,
+       0.5071462848441829
+      ],
+      "reference_alarm_rate": 0.038835342915958214
+     },
+     "paired": {
+      "n_events": 98,
+      "f3_only": 31,
+      "base_only": 5,
+      "both": 35,
+      "neither": 27,
+      "p_two_sided": 1.2913485988974571e-05,
+      "diff": 0.26530612244897955
+     },
+     "multiplicity": "none (secondary, outside the Holm families of A6 item 4)"
+    },
+    "student_t_hmm": {
+     "family": "student_t_hmm",
+     "f3": {
+      "hit_rate": 0.5,
+      "wilson95": [
+       0.40289182488804576,
+       0.5971081751119542
+      ],
+      "reference_alarm_rate": 0.042084902192080664
+     },
+     "base": {
+      "hit_rate": 0.2755102040816326,
+      "wilson95": [
+       0.19679552555658908,
+       0.3711603886326865
+      ],
+      "reference_alarm_rate": 0.039999148290346134
+     },
+     "paired": {
+      "n_events": 98,
+      "f3_only": 25,
+      "base_only": 3,
+      "both": 24,
+      "neither": 46,
+      "p_two_sided": 2.744048833847046e-05,
+      "diff": 0.22448979591836737
+     },
+     "multiplicity": "none (secondary, outside the Holm families of A6 item 4)"
+    },
+    "hsmm": {
+     "family": "hsmm",
+     "f3": {
+      "hit_rate": 0.673469387755102,
+      "wilson95": [
+       0.5756148102693412,
+       0.7582374378571275
+      ],
+      "reference_alarm_rate": 0.035098354546388
+     },
+     "base": {
+      "hit_rate": 0.40816326530612246,
+      "wilson95": [
+       0.3161084073241572,
+       0.5071462848441829
+      ],
+      "reference_alarm_rate": 0.03937336094181884
+     },
+     "paired": {
+      "n_events": 98,
+      "f3_only": 32,
+      "base_only": 6,
+      "both": 34,
+      "neither": 26,
+      "p_two_sided": 2.4342560209333897e-05,
+      "diff": 0.26530612244897955
+     },
+     "multiplicity": "none (secondary, outside the Holm families of A6 item 4)"
+    },
+    "bocpd": {
+     "family": "bocpd",
+     "f3": {
+      "hit_rate": 0.47959183673469385,
+      "wilson95": [
+       0.3833313271862393,
+       0.5773919377400585
+      ],
+      "reference_alarm_rate": 0.09286718350343798
+     },
+     "base": {
+      "hit_rate": 0.47959183673469385,
+      "wilson95": [
+       0.3833313271862393,
+       0.5773919377400585
+      ],
+      "reference_alarm_rate": 0.09286718350343798
+     },
+     "paired": {
+      "n_events": 98,
+      "f3_only": 0,
+      "base_only": 0,
+      "both": 47,
+      "neither": 51,
+      "p_two_sided": 1.0,
+      "diff": 0.0
+     },
+     "multiplicity": "none (secondary, outside the Holm families of A6 item 4)"
+    }
+   },
+   "0": {
+    "gaussian_hmm": {
+     "family": "gaussian_hmm",
+     "f3": {
+      "hit_rate": 0.673469387755102,
+      "wilson95": [
+       0.5756148102693412,
+       0.7582374378571275
+      ],
+      "reference_alarm_rate": 0.05462476602983653
+     },
+     "base": {
+      "hit_rate": 0.40816326530612246,
+      "wilson95": [
+       0.3161084073241572,
+       0.5071462848441829
+      ],
+      "reference_alarm_rate": 0.042235964355320565
+     },
+     "paired": {
+      "n_events": 98,
+      "f3_only": 31,
+      "base_only": 5,
+      "both": 35,
+      "neither": 27,
+      "p_two_sided": 1.2913485988974571e-05,
+      "diff": 0.26530612244897955
+     },
+     "multiplicity": "none (secondary, outside the Holm families of A6 item 4)"
+    },
+    "student_t_hmm": {
+     "family": "student_t_hmm",
+     "f3": {
+      "hit_rate": 0.5,
+      "wilson95": [
+       0.40289182488804576,
+       0.5971081751119542
+      ],
+      "reference_alarm_rate": 0.04766514384980416
+     },
+     "base": {
+      "hit_rate": 0.2755102040816326,
+      "wilson95": [
+       0.19679552555658908,
+       0.3711603886326865
+      ],
+      "reference_alarm_rate": 0.042790008224063196
+     },
+     "paired": {
+      "n_events": 98,
+      "f3_only": 25,
+      "base_only": 3,
+      "both": 24,
+      "neither": 46,
+      "p_two_sided": 2.744048833847046e-05,
+      "diff": 0.22448979591836737
+     },
+     "multiplicity": "none (secondary, outside the Holm families of A6 item 4)"
+    },
+    "hsmm": {
+     "family": "hsmm",
+     "f3": {
+      "hit_rate": 0.673469387755102,
+      "wilson95": [
+       0.5756148102693412,
+       0.7582374378571275
+      ],
+      "reference_alarm_rate": 0.041377789397251424
+     },
+     "base": {
+      "hit_rate": 0.40816326530612246,
+      "wilson95": [
+       0.3161084073241572,
+       0.5071462848441829
+      ],
+      "reference_alarm_rate": 0.04268750711310785
+     },
+     "paired": {
+      "n_events": 98,
+      "f3_only": 32,
+      "base_only": 6,
+      "both": 34,
+      "neither": 26,
+      "p_two_sided": 2.4342560209333897e-05,
+      "diff": 0.26530612244897955
+     },
+     "multiplicity": "none (secondary, outside the Holm families of A6 item 4)"
+    },
+    "bocpd": {
+     "family": "bocpd",
+     "f3": {
+      "hit_rate": 0.47959183673469385,
+      "wilson95": [
+       0.3833313271862393,
+       0.5773919377400585
+      ],
+      "reference_alarm_rate": 0.0970534734040136
+     },
+     "base": {
+      "hit_rate": 0.47959183673469385,
+      "wilson95": [
+       0.3833313271862393,
+       0.5773919377400585
+      ],
+      "reference_alarm_rate": 0.0970534734040136
+     },
+     "paired": {
+      "n_events": 98,
+      "f3_only": 0,
+      "base_only": 0,
+      "both": 47,
+      "neither": 51,
+      "p_two_sided": 1.0,
+      "diff": 0.0
+     },
+     "multiplicity": "none (secondary, outside the Holm families of A6 item 4)"
+    }
+   },
+   "1": {
+    "gaussian_hmm": {
+     "family": "gaussian_hmm",
+     "f3": {
+      "hit_rate": 0.673469387755102,
+      "wilson95": [
+       0.5756148102693412,
+       0.7582374378571275
+      ],
+      "reference_alarm_rate": 0.05123075926838109
+     },
+     "base": {
+      "hit_rate": 0.3877551020408163,
+      "wilson95": [
+       0.29726468204741285,
+       0.48671327504722495
+      ],
+      "reference_alarm_rate": 0.039536716157873096
+     },
+     "paired": {
+      "n_events": 98,
+      "f3_only": 32,
+      "base_only": 4,
+      "both": 34,
+      "neither": 28,
+      "p_two_sided": 1.941574737429619e-06,
+      "diff": 0.2857142857142857
+     },
+     "multiplicity": "none (secondary, outside the Holm families of A6 item 4)"
+    },
+    "student_t_hmm": {
+     "family": "student_t_hmm",
+     "f3": {
+      "hit_rate": 0.5,
+      "wilson95": [
+       0.40289182488804576,
+       0.5971081751119542
+      ],
+      "reference_alarm_rate": 0.04356901231964816
+     },
+     "base": {
+      "hit_rate": 0.2653061224489796,
+      "wilson95": [
+       0.18795724120441676,
+       0.36036030544800784
+      ],
+      "reference_alarm_rate": 0.03939011346762584
+     },
+     "paired": {
+      "n_events": 98,
+      "f3_only": 26,
+      "base_only": 3,
+      "both": 23,
+      "neither": 46,
+      "p_two_sided": 1.5236437320709229e-05,
+      "diff": 0.2346938775510204
+     },
+     "multiplicity": "none (secondary, outside the Holm families of A6 item 4)"
+    },
+    "hsmm": {
+     "family": "hsmm",
+     "f3": {
+      "hit_rate": 0.673469387755102,
+      "wilson95": [
+       0.5756148102693412,
+       0.7582374378571275
+      ],
+      "reference_alarm_rate": 0.03780346589495673
+     },
+     "base": {
+      "hit_rate": 0.40816326530612246,
+      "wilson95": [
+       0.3161084073241572,
+       0.5071462848441829
+      ],
+      "reference_alarm_rate": 0.04068596178770758
+     },
+     "paired": {
+      "n_events": 98,
+      "f3_only": 32,
+      "base_only": 6,
+      "both": 34,
+      "neither": 26,
+      "p_two_sided": 2.4342560209333897e-05,
+      "diff": 0.26530612244897955
+     },
+     "multiplicity": "none (secondary, outside the Holm families of A6 item 4)"
+    },
+    "bocpd": {
+     "family": "bocpd",
+     "f3": {
+      "hit_rate": 0.47959183673469385,
+      "wilson95": [
+       0.3833313271862393,
+       0.5773919377400585
+      ],
+      "reference_alarm_rate": 0.08999057498457255
+     },
+     "base": {
+      "hit_rate": 0.47959183673469385,
+      "wilson95": [
+       0.3833313271862393,
+       0.5773919377400585
+      ],
+      "reference_alarm_rate": 0.08999057498457255
+     },
+     "paired": {
+      "n_events": 98,
+      "f3_only": 0,
+      "base_only": 0,
+      "both": 47,
+      "neither": 51,
+      "p_two_sided": 1.0,
+      "diff": 0.0
+     },
+     "multiplicity": "none (secondary, outside the Holm families of A6 item 4)"
+    }
+   },
+   "changed_events": {
+    "-1": {
+     "gaussian_hmm": {},
+     "student_t_hmm": {},
+     "hsmm": {},
+     "bocpd": {}
+    },
+    "1": {
+     "gaussian_hmm": {
+      "baseline lost": 2
+     },
+     "student_t_hmm": {
+      "baseline lost": 1
+     },
+     "hsmm": {},
+     "bocpd": {}
+    }
+   }
+  }
+ },
+ "reproduces_at_0": true
+}

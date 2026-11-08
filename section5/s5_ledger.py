@@ -16,6 +16,8 @@ def date_of(f):
     t = (ROOT / f).read_text(encoding="utf-8", errors="ignore")[:3000] if f.endswith((".md", ".json")) else ""
     m = re.search(r"(?:Dated|Written|Generated|created_utc\"?:?)\s*\"?(\d{4}-\d\d-\d\dT[\d:.]+(?:[+-]\d\d:\d\d|Z)?)", t)
     if m: return datetime.datetime.fromisoformat(m.group(1).replace("Z", "+00:00")).astimezone(datetime.timezone.utc).strftime("%Y-%m-%d %H:%M:%SZ")
+    if subprocess.run(["git", "status", "--porcelain", "--", f], cwd=ROOT, capture_output=True, text=True).stdout.strip():      # O9 L9: uncommitted file -> its own mtime, not the last commit
+        return datetime.datetime.fromtimestamp((ROOT / f).stat().st_mtime, datetime.timezone.utc).strftime("%Y-%m-%d %H:%M:%SZ")
     o = subprocess.run(["git", "log", "-1", "--format=%aI", "--", f], cwd=ROOT, capture_output=True, text=True).stdout.strip()
     return datetime.datetime.fromisoformat(o).astimezone(datetime.timezone.utc).strftime("%Y-%m-%d %H:%M:%SZ") if o else datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%d %H:%M:%SZ")
 

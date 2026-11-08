@@ -1,0 +1,4 @@
+2026-11-08T18:02:52-05:00 [py 35116] A24 preflight: 2 unit tests pass; LEGACY 29 stored alarms read (270); no eligible events on contaminated folds
+2026-11-08T18:03:01-05:00 [py 40736] A24 clock target 0.15: H1(c) diff (feature - baseline) at -1/0/+1: gaussian +0.276/+0.276/+0.296; student +0.224/+0.224/+0.235; hsmm +0.296/+0.296/+0.296; bocpd +0.000/+0.000/+0.000
+2026-11-08T18:03:01-05:00 [py 40736] A24 clock target 0.20: H1(c) diff (feature - baseline) at -1/0/+1: gaussian +0.245/+0.245/+0.276; student +0.214/+0.214/+0.224; hsmm +0.265/+0.265/+0.265; bocpd +0.000/+0.000/+0.000
+2026-11-08T18:03:01-05:00 [py 40736] A24 clock target 0.25: H1(c) diff (feature - baseline) at -1/0/+1: gaussian +0.265/+0.265/+0.286; student +0.224/+0.224/+0.235; hsmm +0.265/+0.265/+0.265; bocpd +0.000/+0.000/+0.000

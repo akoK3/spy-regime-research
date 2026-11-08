@@ -1,0 +1,166 @@
+{
+ "label": "5.11 power with observed fold counts (O9 L1); supersedes the H1(a) MDE of power.json for interpretation",
+ "generated": "2026-11-08T23:02:05.263724+00:00",
+ "h1": {
+  "gaussian_hmm": {
+   "H1a": {
+    "n_folds": 22,
+    "mean": 0.10485132575757575,
+    "sd": 0.06581815363439164,
+    "alpha_holm_first_0.0167": {
+     "mde_in_sd": 0.6,
+     "mde": 0.039490892180634986,
+     "power": 0.8125,
+     "observed_over_mde": 2.6550761445949638,
+     "a22_mde_n26": 0.039490892180634986
+    },
+    "alpha_0.05": {
+     "mde_in_sd": 0.6,
+     "mde": 0.039490892180634986,
+     "power": 0.9,
+     "observed_over_mde": 2.6550761445949638,
+     "a22_mde_n26": 0.03290907681719582
+    }
+   },
+   "H1b": {
+    "n_folds": 26,
+    "mean": 0.02564376146221938,
+    "sd": 0.04218015516359756,
+    "alpha_holm_first_0.0167": {
+     "mde_in_sd": 0.6,
+     "mde": 0.025308093098158537,
+     "power": 0.8375,
+     "observed_over_mde": 1.0132632815423483,
+     "a22_mde_n26": 0.025308093098158537
+    },
+    "alpha_0.05": {
+     "mde_in_sd": 0.5,
+     "mde": 0.02109007758179878,
+     "power": 0.83,
+     "observed_over_mde": 1.215915937850818,
+     "a22_mde_n26": 0.02109007758179878
+    }
+   }
+  },
+  "student_t_hmm": {
+   "H1a": {
+    "n_folds": 22,
+    "mean": 0.06815743371212121,
+    "sd": 0.05935608871355133,
+    "alpha_holm_first_0.0167": {
+     "mde_in_sd": 0.6,
+     "mde": 0.035613653228130794,
+     "power": 0.8125,
+     "observed_over_mde": 1.9138006785073225,
+     "a22_mde_n26": 0.035613653228130794
+    },
+    "alpha_0.05": {
+     "mde_in_sd": 0.6,
+     "mde": 0.035613653228130794,
+     "power": 0.9,
+     "observed_over_mde": 1.9138006785073225,
+     "a22_mde_n26": 0.029678044356775665
+    }
+   },
+   "H1b": {
+    "n_folds": 26,
+    "mean": 0.00499371143899663,
+    "sd": 0.021213636439171877,
+    "alpha_holm_first_0.0167": {
+     "mde_in_sd": 0.6,
+     "mde": 0.012728181863503127,
+     "power": 0.8375,
+     "observed_over_mde": 0.39233501630862394,
+     "a22_mde_n26": 0.012728181863503127
+    },
+    "alpha_0.05": {
+     "mde_in_sd": 0.5,
+     "mde": 0.010606818219585938,
+     "power": 0.83,
+     "observed_over_mde": 0.47080201957034873,
+     "a22_mde_n26": 0.010606818219585938
+    }
+   }
+  },
+  "hsmm": {
+   "H1a": {
+    "n_folds": 22,
+    "mean": 0.11073626893939395,
+    "sd": 0.056932942526966665,
+    "alpha_holm_first_0.0167": {
+     "mde_in_sd": 0.6,
+     "mde": 0.034159765516179996,
+     "power": 0.8125,
+     "observed_over_mde": 3.2417163076527267,
+     "a22_mde_n26": 0.034159765516179996
+    },
+    "alpha_0.05": {
+     "mde_in_sd": 0.6,
+     "mde": 0.034159765516179996,
+     "power": 0.9,
+     "observed_over_mde": 3.2417163076527267,
+     "a22_mde_n26": 0.028466471263483333
+    }
+   },
+   "H1b": {
+    "n_folds": 26,
+    "mean": 0.034192498900670644,
+    "sd": 0.036930013211225306,
+    "alpha_holm_first_0.0167": {
+     "mde_in_sd": 0.6,
+     "mde": 0.022158007926735182,
+     "power": 0.8375,
+     "observed_over_mde": 1.543121521290504,
+     "a22_mde_n26": 0.022158007926735182
+    },
+    "alpha_0.05": {
+     "mde_in_sd": 0.5,
+     "mde": 0.018465006605612653,
+     "power": 0.83,
+     "observed_over_mde": 1.8517458255486048,
+     "a22_mde_n26": 0.018465006605612653
+    }
+   }
+  },
+  "bocpd": {
+   "H1a": {
+    "n_folds": 22,
+    "mean": 0.0,
+    "sd": 0.0,
+    "alpha_holm_first_0.0167": {
+     "mde_in_sd": null,
+     "mde": null,
+     "power": null,
+     "observed_over_mde": null,
+     "a22_mde_n26": null
+    },
+    "alpha_0.05": {
+     "mde_in_sd": null,
+     "mde": null,
+     "power": null,
+     "observed_over_mde": null,
+     "a22_mde_n26": null
+    }
+   },
+   "H1b": {
+    "n_folds": 26,
+    "mean": 0.0,
+    "sd": 0.0,
+    "alpha_holm_first_0.0167": {
+     "mde_in_sd": null,
+     "mde": null,
+     "power": null,
+     "observed_over_mde": null,
+     "a22_mde_n26": null
+    },
+    "alpha_0.05": {
+     "mde_in_sd": null,
+     "mde": null,
+     "power": null,
+     "observed_over_mde": null,
+     "a22_mde_n26": null
+    }
+   }
+  }
+ }
+}

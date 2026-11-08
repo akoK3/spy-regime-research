@@ -1,0 +1,5 @@
+{
+ "tests": 2,
+ "legacy29_alarms": 270,
+ "note": "LEGACY 29 has no eligible H1(c) event (contaminated); stored alarms read and shifted only"
+}

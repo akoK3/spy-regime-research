@@ -217,7 +217,7 @@ def main():
         ph, man = guards(token)
     except (PermissionError, RuntimeError, AssertionError) as e: log(f"D7 REFUSED (not retryable): {type(e).__name__}: {e}"); return EXIT_GUARD
     import s5_main as MB, s5_guard as G
-    tag = dict(d7_script=file_sha(__file__), a17_results=file_sha(A17 / "a17_results.json")); CK.mkdir(parents=True, exist_ok=True)
+    tag = dict(d7_script=file_sha(__file__), a17_results=file_sha(A17 / "a17_results.json"), code_version=G.code_version(), protocol=ph); CK.mkdir(parents=True, exist_ok=True)      # O9 L3: code version and protocol in the tag
     keep_awake(True); t0 = time.time(); b = MB.MainBackend(ph); excluded, _ = G.excluded_folds(); folds = [f for f in b.folds() if f not in excluded]
     try:
         units = []
