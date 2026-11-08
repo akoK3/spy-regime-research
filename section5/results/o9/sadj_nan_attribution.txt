@@ -1,0 +1,10 @@
+LEGACY rv10_partial90__sadj sadj NaN 0.1514 base NaN 0.1490 base finite & sadj NaN 0.0024 base==0 0.0001
+LEGACY rv5_strict__sadj sadj NaN 0.1072 base NaN 0.1047 base finite & sadj NaN 0.0025 base==0 0.0022
+LEGACY abs_return_1m__sadj sadj NaN 0.0494 base NaN 0.0442 base finite & sadj NaN 0.0052 base==0 0.1575
+LEGACY intrabar_range_log__sadj sadj NaN 0.0328 base NaN 0.0303 base finite & sadj NaN 0.0025 base==0 0.0062
+RAW rv10_partial90__sadj sadj NaN 0.0432 base NaN 0.0293 base finite & sadj NaN 0.0139 base==0 0.0000
+RAW rv5_strict__sadj sadj NaN 0.0300 base NaN 0.0159 base finite & sadj NaN 0.0140 base==0 0.0000
+RAW abs_return_1m__sadj sadj NaN 0.0162 base NaN 0.0020 base finite & sadj NaN 0.0142 base==0 0.0244
+RAW intrabar_range_log__sadj sadj NaN 0.0159 base NaN 0.0017 base finite & sadj NaN 0.0142 base==0 0.0025
+
+[exited with code 0]

@@ -30,6 +30,8 @@ REGISTRY = {
     "s5_d7_diag_raw3.py": RAW3,      # D7 diagnostic on the contaminated RAW 3 fold only (already excluded)
     "s5_step2.py": "POST_MAIN_RUN", "s5_tests_step2.py": "LIBRARY",
     "s5_a22.py": "POST_MAIN_RUN", "s5_tests_a22.py": "LIBRARY",      # A22: 5.11 power, 5.10 robustness on MR2, A18 rerun on A20 inputs (preflight on RAW 3 and LEGACY 29 only)
+    "s5_posthoc_grid_pauc.py": "POST_MAIN_RUN",      # post hoc, descriptive: absolute H1(a) pAUC feature and baseline, 1-min vs 5-min (A22 3g setups)
+    "s5_d7_nan_diag.py": "LABEL_FREE",      # post hoc: why D7 (A21) found undefined variance ratios on 47 LEGACY days; no detector, no outcome
     "s5_d8c.py": "DESCRIPTIVE",      # A22 rule 1: D8c overlap breakdown, same status as D8      # A21 rule 3f: Step 2 for liquidity (preflight on RAW 3 and LEGACY 29 only)
     "s5_d7.py": "POST_MAIN_RUN", "s5_tests_d7.py": "LIBRARY",      # A19 rule 2h: test segments already scored by the main run
     "s5_d8b.py": "DESCRIPTIVE",      # A19.1: D8 sensitivity, same status as D8

@@ -343,3 +343,11 @@
 /section5/results/a22/models/
 !/section5/results/a22_preflight/
 /section5/results/a22_preflight/models/
+!O9_AUDIT.md
+!AMENDMENT_A23.md
+!AMENDMENT_A23.sha256
+!AMENDMENT_A24.md
+!AMENDMENT_A24.sha256
+!/section5/results/d7_nan_diag/
+!/section5/results/posthoc_grid_pauc/
+!/section5/results/o9/

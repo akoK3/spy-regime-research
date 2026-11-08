@@ -1,0 +1,9 @@
+import sys; sys.path.insert(0,'.'); sys.path.insert(0,'..')
+import numpy as np, s5_lib as L
+cols=['rv10_partial90__sadj','rv5_strict__sadj','abs_return_1m__sadj','intrabar_range_log__sadj']; bases=[c[:-6] for c in cols]
+for era in ('LEGACY','RAW'):
+    d=L.load_era(era, cols); f=L.compute_features(d, bases)
+    g=np.concatenate([d['first'][i]+L.grid_slots(int(d['end'][i]-d['first'][i])) for i in range(len(d['first']))])
+    for c,b in zip(cols,bases):
+        s=d['features'][c][g]; x=np.asarray(f[b],float)[g]
+        print(era,c,'sadj NaN %.4f'%np.mean(~np.isfinite(s)),'base NaN %.4f'%np.mean(~np.isfinite(x)),'base finite & sadj NaN %.4f'%np.mean(np.isfinite(x)&~np.isfinite(s)),'base==0 %.4f'%np.mean(x==0))
