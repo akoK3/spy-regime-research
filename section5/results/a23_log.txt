@@ -1,0 +1,20 @@
+2026-11-08T18:04:48-05:00 [py 22988] A23 preflight: 3 unit tests pass
+2026-11-08T18:04:49-05:00 [py 22988] A23 start: 2 folds x 4 families, inputs ('rv10_partial90__sadj', 'relative_volume20') forced; tag 381ebbe826a0
+2026-11-08T18:10:34-05:00 [py 22988] A23 1/2 RAW|3 gaussian_hmm: K/lam {'K': 4} (MR2 ['rv10_partial90__sadj'] {'K': 4}); H1(a) 0.10199479166666668 (MR2 0.10354687500000005), H1(b) +0.0543 (MR2 +0.0534); liquidity QLIKE b 0.004304497266274618; thr 15.08; 5.8 min
+2026-11-08T18:11:24-05:00 [py 22988] A23 1/2 RAW|3 student_t_hmm: K/lam {'K': 4} (MR2 ['rv10_partial90__sadj'] {'K': 4}); H1(a) 0.06736979166666669 (MR2 0.07376041666666668), H1(b) +0.0219 (MR2 +0.0204); liquidity QLIKE b 0.002762070860625007; thr 12.01; 0.8 min
+2026-11-08T18:13:56-05:00 [py 22988] A23 1/2 RAW|3 hsmm: K/lam {'K': 3} (MR2 ['rv10_partial90__sadj'] {'K': 3}); H1(a) 0.13895312499999996 (MR2 0.16038541666666667), H1(b) +0.0320 (MR2 +0.0327); liquidity QLIKE b 0.0020272140375466458; thr 11.71; 2.5 min
+2026-11-08T18:14:14-05:00 [py 22988] A23 REPRODUCTION MISMATCH (stop): RAW|3 bocpd: baseline test QLIKE mean 0.4313038632288681 != MR2 0.4364240467450455
+2026-11-08T18:14:55-05:00 [py 31380] A23 preflight: 3 unit tests pass
+2026-11-08T18:14:57-05:00 [py 31380] A23 start: 2 folds x 4 families, inputs ('rv10_partial90__sadj', 'relative_volume20') forced; tag 28541473e0ac
+2026-11-08T18:20:46-05:00 [py 31380] A23 1/2 RAW|3 gaussian_hmm: K/lam {'K': 4} (MR2 ['rv10_partial90__sadj'] {'K': 4}); H1(a) 0.10199479166666668 (MR2 0.10354687500000005), H1(b) +0.0543 (MR2 +0.0534); liquidity QLIKE b 0.004304497266274618; thr 15.08; 5.8 min
+2026-11-08T18:21:38-05:00 [py 31380] A23 1/2 RAW|3 student_t_hmm: K/lam {'K': 4} (MR2 ['rv10_partial90__sadj'] {'K': 4}); H1(a) 0.06736979166666669 (MR2 0.07376041666666668), H1(b) +0.0219 (MR2 +0.0204); liquidity QLIKE b 0.002762070860625007; thr 12.01; 0.9 min
+2026-11-08T18:24:24-05:00 [py 31380] A23 1/2 RAW|3 hsmm: K/lam {'K': 3} (MR2 ['rv10_partial90__sadj'] {'K': 3}); H1(a) 0.13895312499999996 (MR2 0.16038541666666667), H1(b) +0.0320 (MR2 +0.0327); liquidity QLIKE b 0.0020272140375466458; thr 11.71; 2.8 min
+2026-11-08T18:24:45-05:00 [py 31380] A23 1/2 RAW|3 bocpd: K/lam {'lam': 12} (MR2 ['momentum30_endpoint'] {'lam': 12}); H1(a) 0.023354166666666676 (MR2 0.00894270833333334), H1(b) -0.0012 (MR2 +0.0017); liquidity QLIKE b 0.000138431055983948; thr 41.12; 0.3 min
+2026-11-08T18:25:34-05:00 [py 31380] A23 D7 RAW|3: 18 days (0 skipped); 0.8 min
+2026-11-08T18:31:00-05:00 [py 31380] A23 2/2 LEGACY|29 gaussian_hmm: K/lam {'K': 4} (MR2 ['rv10_partial90__sadj'] {'K': 4}); H1(a) 0.07353645833333326 (MR2 0.09808333333333334), H1(b) +0.0457 (MR2 +0.0423); liquidity QLIKE b 0.010578768325318538; thr 11.69; 5.4 min
+2026-11-08T18:31:33-05:00 [py 31380] A23 2/2 LEGACY|29 student_t_hmm: K/lam {'K': 4} (MR2 ['rv10_partial90__sadj'] {'K': 4}); H1(a) 0.05542187500000008 (MR2 0.12598958333333332), H1(b) +0.0204 (MR2 +0.0117); liquidity QLIKE b 0.00755929700567512; thr 10.21; 0.5 min
+2026-11-08T18:33:01-05:00 [py 31380] A23 2/2 LEGACY|29 hsmm: K/lam {'K': 3} (MR2 ['rv10_partial90__sadj'] {'K': 3}); H1(a) 0.08472916666666665 (MR2 0.11371354166666665), H1(b) +0.0486 (MR2 +0.0488); liquidity QLIKE b 0.010737691321617282; thr 8.15; 1.5 min
+2026-11-08T18:33:21-05:00 [py 31380] A23 2/2 LEGACY|29 bocpd: K/lam {'lam': 39} (MR2 [] {'lam': 12}); H1(a) 0.05691145833333336 (MR2 0.0), H1(b) -0.0025 (MR2 +0.0000); liquidity QLIKE b -0.0003464922374346868; thr 33.09; 0.3 min
+2026-11-08T18:33:46-05:00 [py 31380] A23 D7 LEGACY|29: 11 days (0 skipped); 0.4 min
+2026-11-08T18:33:49-05:00 [py 31380] A23 preflight D7 pooled (29 days): liquidity x2 gain (feature) gaussian +0.00, student +0.00, hsmm +0.03, bocpd +0.07; pc x3 gaussian +0.25, student +0.18, hsmm +0.27, bocpd +0.18
+2026-11-08T18:33:49-05:00 [py 31380] A23 preflight PASSED (written to results/a23_preflight/)
