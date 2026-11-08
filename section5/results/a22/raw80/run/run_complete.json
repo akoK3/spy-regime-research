@@ -1,0 +1,22 @@
+{
+ "kind": "section5_run_complete",
+ "created_utc": "2026-11-08T12:19:49.199836+00:00",
+ "backend": "a22_raw80",
+ "folds": [
+  "RAW|0",
+  "RAW|1",
+  "RAW|2",
+  "RAW|3"
+ ],
+ "families": [
+  "gaussian_hmm",
+  "student_t_hmm",
+  "hsmm",
+  "bocpd"
+ ],
+ "code_version": "a0323ed24d68e896",
+ "checkpoint_version": "bbc114924f8edf6b",
+ "protocol_sha256": "15be2570a592279e71f3f76fbe62113b4c3263a9d9e4715eaf4d61294eaf4df3",
+ "contamination_sha256": "f6d67a57ca30184bc6f2f00f5a4e3aafa0d8808a6e90784def110cdaf19d067b",
+ "results_sha256": "884cbc560a7e62607196f8966a0afa543d3aacc97b1d8817374609274b6d48ff"
+}

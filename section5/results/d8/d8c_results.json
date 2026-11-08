@@ -1,0 +1,1090 @@
+{
+ "label": "D8c descriptive overlap breakdown (AMENDMENT_A22.md rule 1); no detector, no model, no outcome",
+ "generated": "2026-11-07T18:14:25.979226+00:00",
+ "amendment_sha256": "3ce7b683a1369659b14b22c068bcc25c6a7b14a7a6b15758946c7050f8a15217",
+ "d8_script_sha256": "986f33aa1a03a992900591a2dff8ef1220ff9647ea54317b55abd15507584dc3",
+ "thresholds": {
+  "volatility": [
+   0.5,
+   2.0
+  ],
+  "d8": {
+   "trend": 3.64,
+   "momentum": 0.47,
+   "vol_hi": 2.0,
+   "vol_lo": 0.5,
+   "jump": 1
+  }
+ },
+ "eras": {
+  "LEGACY": {
+   "folds": 30,
+   "validation_sessions": 1740,
+   "sessions_used": 467,
+   "primary": {
+    "n_windows": 25658,
+    "n_any_large": 6794,
+    "share_any_large": 0.2647907085509393,
+    "single": {
+     "volatility_only": {
+      "n": 3779,
+      "share_of_any": 0.5562260818369149
+     },
+     "liquidity_only": {
+      "n": 748,
+      "share_of_any": 0.11009714453929938
+     },
+     "jumps_only": {
+      "n": 809,
+      "share_of_any": 0.11907565498969679
+     }
+    },
+    "combined": {
+     "n": 1458,
+     "share_of_any": 0.2146011186340889
+    },
+    "combined_patterns": {
+     "volatility+liquidity": {
+      "n": 645,
+      "share_of_any": 0.0949367088607595
+     },
+     "volatility+jumps": {
+      "n": 485,
+      "share_of_any": 0.07138651751545481
+     },
+     "liquidity+jumps": {
+      "n": 93,
+      "share_of_any": 0.013688548719458345
+     },
+     "volatility+liquidity+jumps": {
+      "n": 235,
+      "share_of_any": 0.03458934353841625
+     }
+    },
+    "all_patterns": {
+     "volatility": {
+      "n": 3779,
+      "share_of_any": 0.5562260818369149
+     },
+     "liquidity": {
+      "n": 748,
+      "share_of_any": 0.11009714453929938
+     },
+     "jumps": {
+      "n": 809,
+      "share_of_any": 0.11907565498969679
+     },
+     "volatility+liquidity": {
+      "n": 645,
+      "share_of_any": 0.0949367088607595
+     },
+     "volatility+jumps": {
+      "n": 485,
+      "share_of_any": 0.07138651751545481
+     },
+     "liquidity+jumps": {
+      "n": 93,
+      "share_of_any": 0.013688548719458345
+     },
+     "volatility+liquidity+jumps": {
+      "n": 235,
+      "share_of_any": 0.03458934353841625
+     }
+    }
+   },
+   "secondary_5_types": {
+    "n_windows": 25658,
+    "n_any_large": 7095,
+    "share_any_large": 0.2765219424740822,
+    "single": {
+     "volatility_only": {
+      "n": 3707,
+      "share_of_any": 0.5224806201550387
+     },
+     "liquidity_only": {
+      "n": 733,
+      "share_of_any": 0.10331219168428471
+     },
+     "jumps_only": {
+      "n": 797,
+      "share_of_any": 0.11233262861169838
+     },
+     "trend_only": {
+      "n": 92,
+      "share_of_any": 0.012966878083157152
+     },
+     "momentum_only": {
+      "n": 209,
+      "share_of_any": 0.02945736434108527
+     }
+    },
+    "combined": {
+     "n": 1557,
+     "share_of_any": 0.21945031712473573
+    },
+    "combined_patterns": {
+     "volatility+liquidity": {
+      "n": 630,
+      "share_of_any": 0.08879492600422834
+     },
+     "volatility+jumps": {
+      "n": 457,
+      "share_of_any": 0.06441155743481325
+     },
+     "volatility+trend": {
+      "n": 12,
+      "share_of_any": 0.0016913319238900633
+     },
+     "volatility+momentum": {
+      "n": 60,
+      "share_of_any": 0.008456659619450317
+     },
+     "liquidity+jumps": {
+      "n": 88,
+      "share_of_any": 0.012403100775193798
+     },
+     "liquidity+trend": {
+      "n": 2,
+      "share_of_any": 0.00028188865398167724
+     },
+     "liquidity+momentum": {
+      "n": 13,
+      "share_of_any": 0.001832276250880902
+     },
+     "jumps+trend": {
+      "n": 5,
+      "share_of_any": 0.0007047216349541931
+     },
+     "jumps+momentum": {
+      "n": 7,
+      "share_of_any": 0.0009866102889358704
+     },
+     "trend+momentum": {
+      "n": 0,
+      "share_of_any": 0.0
+     },
+     "volatility+liquidity+jumps": {
+      "n": 227,
+      "share_of_any": 0.03199436222692037
+     },
+     "volatility+liquidity+trend": {
+      "n": 1,
+      "share_of_any": 0.00014094432699083862
+     },
+     "volatility+liquidity+momentum": {
+      "n": 14,
+      "share_of_any": 0.001973220577871741
+     },
+     "volatility+jumps+trend": {
+      "n": 6,
+      "share_of_any": 0.0008456659619450317
+     },
+     "volatility+jumps+momentum": {
+      "n": 22,
+      "share_of_any": 0.0031007751937984496
+     },
+     "volatility+trend+momentum": {
+      "n": 0,
+      "share_of_any": 0.0
+     },
+     "liquidity+jumps+trend": {
+      "n": 1,
+      "share_of_any": 0.00014094432699083862
+     },
+     "liquidity+jumps+momentum": {
+      "n": 4,
+      "share_of_any": 0.0005637773079633545
+     },
+     "liquidity+trend+momentum": {
+      "n": 0,
+      "share_of_any": 0.0
+     },
+     "jumps+trend+momentum": {
+      "n": 0,
+      "share_of_any": 0.0
+     },
+     "volatility+liquidity+jumps+trend": {
+      "n": 0,
+      "share_of_any": 0.0
+     },
+     "volatility+liquidity+jumps+momentum": {
+      "n": 8,
+      "share_of_any": 0.001127554615926709
+     },
+     "volatility+liquidity+trend+momentum": {
+      "n": 0,
+      "share_of_any": 0.0
+     },
+     "volatility+jumps+trend+momentum": {
+      "n": 0,
+      "share_of_any": 0.0
+     },
+     "liquidity+jumps+trend+momentum": {
+      "n": 0,
+      "share_of_any": 0.0
+     },
+     "volatility+liquidity+jumps+trend+momentum": {
+      "n": 0,
+      "share_of_any": 0.0
+     }
+    },
+    "all_patterns": {
+     "volatility": {
+      "n": 3707,
+      "share_of_any": 0.5224806201550387
+     },
+     "liquidity": {
+      "n": 733,
+      "share_of_any": 0.10331219168428471
+     },
+     "jumps": {
+      "n": 797,
+      "share_of_any": 0.11233262861169838
+     },
+     "trend": {
+      "n": 92,
+      "share_of_any": 0.012966878083157152
+     },
+     "momentum": {
+      "n": 209,
+      "share_of_any": 0.02945736434108527
+     },
+     "volatility+liquidity": {
+      "n": 630,
+      "share_of_any": 0.08879492600422834
+     },
+     "volatility+jumps": {
+      "n": 457,
+      "share_of_any": 0.06441155743481325
+     },
+     "volatility+trend": {
+      "n": 12,
+      "share_of_any": 0.0016913319238900633
+     },
+     "volatility+momentum": {
+      "n": 60,
+      "share_of_any": 0.008456659619450317
+     },
+     "liquidity+jumps": {
+      "n": 88,
+      "share_of_any": 0.012403100775193798
+     },
+     "liquidity+trend": {
+      "n": 2,
+      "share_of_any": 0.00028188865398167724
+     },
+     "liquidity+momentum": {
+      "n": 13,
+      "share_of_any": 0.001832276250880902
+     },
+     "jumps+trend": {
+      "n": 5,
+      "share_of_any": 0.0007047216349541931
+     },
+     "jumps+momentum": {
+      "n": 7,
+      "share_of_any": 0.0009866102889358704
+     },
+     "trend+momentum": {
+      "n": 0,
+      "share_of_any": 0.0
+     },
+     "volatility+liquidity+jumps": {
+      "n": 227,
+      "share_of_any": 0.03199436222692037
+     },
+     "volatility+liquidity+trend": {
+      "n": 1,
+      "share_of_any": 0.00014094432699083862
+     },
+     "volatility+liquidity+momentum": {
+      "n": 14,
+      "share_of_any": 0.001973220577871741
+     },
+     "volatility+jumps+trend": {
+      "n": 6,
+      "share_of_any": 0.0008456659619450317
+     },
+     "volatility+jumps+momentum": {
+      "n": 22,
+      "share_of_any": 0.0031007751937984496
+     },
+     "volatility+trend+momentum": {
+      "n": 0,
+      "share_of_any": 0.0
+     },
+     "liquidity+jumps+trend": {
+      "n": 1,
+      "share_of_any": 0.00014094432699083862
+     },
+     "liquidity+jumps+momentum": {
+      "n": 4,
+      "share_of_any": 0.0005637773079633545
+     },
+     "liquidity+trend+momentum": {
+      "n": 0,
+      "share_of_any": 0.0
+     },
+     "jumps+trend+momentum": {
+      "n": 0,
+      "share_of_any": 0.0
+     },
+     "volatility+liquidity+jumps+trend": {
+      "n": 0,
+      "share_of_any": 0.0
+     },
+     "volatility+liquidity+jumps+momentum": {
+      "n": 8,
+      "share_of_any": 0.001127554615926709
+     },
+     "volatility+liquidity+trend+momentum": {
+      "n": 0,
+      "share_of_any": 0.0
+     },
+     "volatility+jumps+trend+momentum": {
+      "n": 0,
+      "share_of_any": 0.0
+     },
+     "liquidity+jumps+trend+momentum": {
+      "n": 0,
+      "share_of_any": 0.0
+     },
+     "volatility+liquidity+jumps+trend+momentum": {
+      "n": 0,
+      "share_of_any": 0.0
+     }
+    },
+    "nonvol_large_without_large_volatility": {
+     "n": 1951,
+     "share_of_nonvol_large": 0.5758559622195986
+    },
+    "per_type_without_large_volatility": {
+     "liquidity": 0.4886693782684486,
+     "jumps": 0.5561035758323057,
+     "trend": 0.8403361344537815,
+     "momentum": 0.6913946587537092
+    }
+   },
+   "large_shares": {
+    "volatility": 0.2004832800685946,
+    "liquidity": 0.06707459661703952,
+    "jumps": 0.06321615090809884,
+    "trend": 0.004637929690544859,
+    "momentum": 0.0131343050900304
+   },
+   "sessions": 467
+  },
+  "RAW": {
+   "folds": 4,
+   "validation_sessions": 232,
+   "sessions_used": 230,
+   "primary": {
+    "n_windows": 12650,
+    "n_any_large": 3261,
+    "share_any_large": 0.25778656126482213,
+    "single": {
+     "volatility_only": {
+      "n": 1484,
+      "share_of_any": 0.4550751303281202
+     },
+     "liquidity_only": {
+      "n": 464,
+      "share_of_any": 0.14228764182766024
+     },
+     "jumps_only": {
+      "n": 535,
+      "share_of_any": 0.16406010426249618
+     }
+    },
+    "combined": {
+     "n": 778,
+     "share_of_any": 0.2385771235817234
+    },
+    "combined_patterns": {
+     "volatility+liquidity": {
+      "n": 148,
+      "share_of_any": 0.04538485127261576
+     },
+     "volatility+jumps": {
+      "n": 503,
+      "share_of_any": 0.15424716344679545
+     },
+     "liquidity+jumps": {
+      "n": 40,
+      "share_of_any": 0.012266176019625881
+     },
+     "volatility+liquidity+jumps": {
+      "n": 87,
+      "share_of_any": 0.02667893284268629
+     }
+    },
+    "all_patterns": {
+     "volatility": {
+      "n": 1484,
+      "share_of_any": 0.4550751303281202
+     },
+     "liquidity": {
+      "n": 464,
+      "share_of_any": 0.14228764182766024
+     },
+     "jumps": {
+      "n": 535,
+      "share_of_any": 0.16406010426249618
+     },
+     "volatility+liquidity": {
+      "n": 148,
+      "share_of_any": 0.04538485127261576
+     },
+     "volatility+jumps": {
+      "n": 503,
+      "share_of_any": 0.15424716344679545
+     },
+     "liquidity+jumps": {
+      "n": 40,
+      "share_of_any": 0.012266176019625881
+     },
+     "volatility+liquidity+jumps": {
+      "n": 87,
+      "share_of_any": 0.02667893284268629
+     }
+    }
+   },
+   "secondary_5_types": {
+    "n_windows": 12650,
+    "n_any_large": 3402,
+    "share_any_large": 0.26893280632411065,
+    "single": {
+     "volatility_only": {
+      "n": 1450,
+      "share_of_any": 0.4262198706643151
+     },
+     "liquidity_only": {
+      "n": 461,
+      "share_of_any": 0.1355085243974133
+     },
+     "jumps_only": {
+      "n": 522,
+      "share_of_any": 0.15343915343915343
+     },
+     "trend_only": {
+      "n": 52,
+      "share_of_any": 0.015285126396237508
+     },
+     "momentum_only": {
+      "n": 89,
+      "share_of_any": 0.026161081716637273
+     }
+    },
+    "combined": {
+     "n": 828,
+     "share_of_any": 0.24338624338624337
+    },
+    "combined_patterns": {
+     "volatility+liquidity": {
+      "n": 140,
+      "share_of_any": 0.0411522633744856
+     },
+     "volatility+jumps": {
+      "n": 485,
+      "share_of_any": 0.14256319811875368
+     },
+     "volatility+trend": {
+      "n": 13,
+      "share_of_any": 0.003821281599059377
+     },
+     "volatility+momentum": {
+      "n": 21,
+      "share_of_any": 0.006172839506172839
+     },
+     "liquidity+jumps": {
+      "n": 40,
+      "share_of_any": 0.011757789535567314
+     },
+     "liquidity+trend": {
+      "n": 1,
+      "share_of_any": 0.00029394473838918284
+     },
+     "liquidity+momentum": {
+      "n": 2,
+      "share_of_any": 0.0005878894767783657
+     },
+     "jumps+trend": {
+      "n": 7,
+      "share_of_any": 0.00205761316872428
+     },
+     "jumps+momentum": {
+      "n": 6,
+      "share_of_any": 0.001763668430335097
+     },
+     "trend+momentum": {
+      "n": 0,
+      "share_of_any": 0.0
+     },
+     "volatility+liquidity+jumps": {
+      "n": 85,
+      "share_of_any": 0.02498530276308054
+     },
+     "volatility+liquidity+trend": {
+      "n": 4,
+      "share_of_any": 0.0011757789535567313
+     },
+     "volatility+liquidity+momentum": {
+      "n": 4,
+      "share_of_any": 0.0011757789535567313
+     },
+     "volatility+jumps+trend": {
+      "n": 8,
+      "share_of_any": 0.0023515579071134627
+     },
+     "volatility+jumps+momentum": {
+      "n": 10,
+      "share_of_any": 0.0029394473838918285
+     },
+     "volatility+trend+momentum": {
+      "n": 0,
+      "share_of_any": 0.0
+     },
+     "liquidity+jumps+trend": {
+      "n": 0,
+      "share_of_any": 0.0
+     },
+     "liquidity+jumps+momentum": {
+      "n": 0,
+      "share_of_any": 0.0
+     },
+     "liquidity+trend+momentum": {
+      "n": 0,
+      "share_of_any": 0.0
+     },
+     "jumps+trend+momentum": {
+      "n": 0,
+      "share_of_any": 0.0
+     },
+     "volatility+liquidity+jumps+trend": {
+      "n": 1,
+      "share_of_any": 0.00029394473838918284
+     },
+     "volatility+liquidity+jumps+momentum": {
+      "n": 1,
+      "share_of_any": 0.00029394473838918284
+     },
+     "volatility+liquidity+trend+momentum": {
+      "n": 0,
+      "share_of_any": 0.0
+     },
+     "volatility+jumps+trend+momentum": {
+      "n": 0,
+      "share_of_any": 0.0
+     },
+     "liquidity+jumps+trend+momentum": {
+      "n": 0,
+      "share_of_any": 0.0
+     },
+     "volatility+liquidity+jumps+trend+momentum": {
+      "n": 0,
+      "share_of_any": 0.0
+     }
+    },
+    "all_patterns": {
+     "volatility": {
+      "n": 1450,
+      "share_of_any": 0.4262198706643151
+     },
+     "liquidity": {
+      "n": 461,
+      "share_of_any": 0.1355085243974133
+     },
+     "jumps": {
+      "n": 522,
+      "share_of_any": 0.15343915343915343
+     },
+     "trend": {
+      "n": 52,
+      "share_of_any": 0.015285126396237508
+     },
+     "momentum": {
+      "n": 89,
+      "share_of_any": 0.026161081716637273
+     },
+     "volatility+liquidity": {
+      "n": 140,
+      "share_of_any": 0.0411522633744856
+     },
+     "volatility+jumps": {
+      "n": 485,
+      "share_of_any": 0.14256319811875368
+     },
+     "volatility+trend": {
+      "n": 13,
+      "share_of_any": 0.003821281599059377
+     },
+     "volatility+momentum": {
+      "n": 21,
+      "share_of_any": 0.006172839506172839
+     },
+     "liquidity+jumps": {
+      "n": 40,
+      "share_of_any": 0.011757789535567314
+     },
+     "liquidity+trend": {
+      "n": 1,
+      "share_of_any": 0.00029394473838918284
+     },
+     "liquidity+momentum": {
+      "n": 2,
+      "share_of_any": 0.0005878894767783657
+     },
+     "jumps+trend": {
+      "n": 7,
+      "share_of_any": 0.00205761316872428
+     },
+     "jumps+momentum": {
+      "n": 6,
+      "share_of_any": 0.001763668430335097
+     },
+     "trend+momentum": {
+      "n": 0,
+      "share_of_any": 0.0
+     },
+     "volatility+liquidity+jumps": {
+      "n": 85,
+      "share_of_any": 0.02498530276308054
+     },
+     "volatility+liquidity+trend": {
+      "n": 4,
+      "share_of_any": 0.0011757789535567313
+     },
+     "volatility+liquidity+momentum": {
+      "n": 4,
+      "share_of_any": 0.0011757789535567313
+     },
+     "volatility+jumps+trend": {
+      "n": 8,
+      "share_of_any": 0.0023515579071134627
+     },
+     "volatility+jumps+momentum": {
+      "n": 10,
+      "share_of_any": 0.0029394473838918285
+     },
+     "volatility+trend+momentum": {
+      "n": 0,
+      "share_of_any": 0.0
+     },
+     "liquidity+jumps+trend": {
+      "n": 0,
+      "share_of_any": 0.0
+     },
+     "liquidity+jumps+momentum": {
+      "n": 0,
+      "share_of_any": 0.0
+     },
+     "liquidity+trend+momentum": {
+      "n": 0,
+      "share_of_any": 0.0
+     },
+     "jumps+trend+momentum": {
+      "n": 0,
+      "share_of_any": 0.0
+     },
+     "volatility+liquidity+jumps+trend": {
+      "n": 1,
+      "share_of_any": 0.00029394473838918284
+     },
+     "volatility+liquidity+jumps+momentum": {
+      "n": 1,
+      "share_of_any": 0.00029394473838918284
+     },
+     "volatility+liquidity+trend+momentum": {
+      "n": 0,
+      "share_of_any": 0.0
+     },
+     "volatility+jumps+trend+momentum": {
+      "n": 0,
+      "share_of_any": 0.0
+     },
+     "liquidity+jumps+trend+momentum": {
+      "n": 0,
+      "share_of_any": 0.0
+     },
+     "volatility+liquidity+jumps+trend+momentum": {
+      "n": 0,
+      "share_of_any": 0.0
+     }
+    },
+    "nonvol_large_without_large_volatility": {
+     "n": 1180,
+     "share_of_nonvol_large": 0.6045081967213115
+    },
+    "per_type_without_large_volatility": {
+     "liquidity": 0.6820027063599459,
+     "jumps": 0.49356223175965663,
+     "trend": 0.6976744186046512,
+     "momentum": 0.7293233082706767
+    }
+   },
+   "large_shares": {
+    "volatility": 0.17565217391304347,
+    "liquidity": 0.05841897233201581,
+    "jumps": 0.09209486166007905,
+    "trend": 0.006798418972332016,
+    "momentum": 0.010513833992094861
+   },
+   "sessions": 230
+  }
+ },
+ "pooled": {
+  "primary": {
+   "n_windows": 38308,
+   "n_any_large": 10055,
+   "share_any_large": 0.2624778114232014,
+   "single": {
+    "volatility_only": {
+     "n": 5263,
+     "share_of_any": 0.5234211834908006
+    },
+    "liquidity_only": {
+     "n": 1212,
+     "share_of_any": 0.12053704624564893
+    },
+    "jumps_only": {
+     "n": 1344,
+     "share_of_any": 0.1336648433615117
+    }
+   },
+   "combined": {
+    "n": 2236,
+    "share_of_any": 0.22237692690203878
+   },
+   "combined_patterns": {
+    "volatility+liquidity": {
+     "n": 793,
+     "share_of_any": 0.07886623570363004
+    },
+    "volatility+jumps": {
+     "n": 988,
+     "share_of_any": 0.09825957235206365
+    },
+    "liquidity+jumps": {
+     "n": 133,
+     "share_of_any": 0.01322725012431626
+    },
+    "volatility+liquidity+jumps": {
+     "n": 322,
+     "share_of_any": 0.03202386872202884
+    }
+   },
+   "all_patterns": {
+    "volatility": {
+     "n": 5263,
+     "share_of_any": 0.5234211834908006
+    },
+    "liquidity": {
+     "n": 1212,
+     "share_of_any": 0.12053704624564893
+    },
+    "jumps": {
+     "n": 1344,
+     "share_of_any": 0.1336648433615117
+    },
+    "volatility+liquidity": {
+     "n": 793,
+     "share_of_any": 0.07886623570363004
+    },
+    "volatility+jumps": {
+     "n": 988,
+     "share_of_any": 0.09825957235206365
+    },
+    "liquidity+jumps": {
+     "n": 133,
+     "share_of_any": 0.01322725012431626
+    },
+    "volatility+liquidity+jumps": {
+     "n": 322,
+     "share_of_any": 0.03202386872202884
+    }
+   }
+  },
+  "secondary_5_types": {
+   "n_windows": 38308,
+   "n_any_large": 10497,
+   "share_any_large": 0.274015871358463,
+   "single": {
+    "volatility_only": {
+     "n": 5157,
+     "share_of_any": 0.49128322377822237
+    },
+    "liquidity_only": {
+     "n": 1194,
+     "share_of_any": 0.1137467847956559
+    },
+    "jumps_only": {
+     "n": 1319,
+     "share_of_any": 0.12565494903305707
+    },
+    "trend_only": {
+     "n": 144,
+     "share_of_any": 0.01371820520148614
+    },
+    "momentum_only": {
+     "n": 298,
+     "share_of_any": 0.028389063541964372
+    }
+   },
+   "combined": {
+    "n": 2385,
+    "share_of_any": 0.22720777364961417
+   },
+   "combined_patterns": {
+    "volatility+liquidity": {
+     "n": 770,
+     "share_of_any": 0.07335429170239116
+    },
+    "volatility+jumps": {
+     "n": 942,
+     "share_of_any": 0.08973992569305515
+    },
+    "volatility+trend": {
+     "n": 25,
+     "share_of_any": 0.0023816328474802325
+    },
+    "volatility+momentum": {
+     "n": 81,
+     "share_of_any": 0.007716490425835953
+    },
+    "liquidity+jumps": {
+     "n": 128,
+     "share_of_any": 0.01219396017909879
+    },
+    "liquidity+trend": {
+     "n": 3,
+     "share_of_any": 0.0002857959416976279
+    },
+    "liquidity+momentum": {
+     "n": 15,
+     "share_of_any": 0.0014289797084881394
+    },
+    "jumps+trend": {
+     "n": 12,
+     "share_of_any": 0.0011431837667905116
+    },
+    "jumps+momentum": {
+     "n": 13,
+     "share_of_any": 0.001238449080689721
+    },
+    "trend+momentum": {
+     "n": 0,
+     "share_of_any": 0.0
+    },
+    "volatility+liquidity+jumps": {
+     "n": 312,
+     "share_of_any": 0.029722777936553302
+    },
+    "volatility+liquidity+trend": {
+     "n": 5,
+     "share_of_any": 0.00047632656949604646
+    },
+    "volatility+liquidity+momentum": {
+     "n": 18,
+     "share_of_any": 0.0017147756501857674
+    },
+    "volatility+jumps+trend": {
+     "n": 14,
+     "share_of_any": 0.0013337143945889303
+    },
+    "volatility+jumps+momentum": {
+     "n": 32,
+     "share_of_any": 0.0030484900447746975
+    },
+    "volatility+trend+momentum": {
+     "n": 0,
+     "share_of_any": 0.0
+    },
+    "liquidity+jumps+trend": {
+     "n": 1,
+     "share_of_any": 9.52653138992093e-05
+    },
+    "liquidity+jumps+momentum": {
+     "n": 4,
+     "share_of_any": 0.0003810612555968372
+    },
+    "liquidity+trend+momentum": {
+     "n": 0,
+     "share_of_any": 0.0
+    },
+    "jumps+trend+momentum": {
+     "n": 0,
+     "share_of_any": 0.0
+    },
+    "volatility+liquidity+jumps+trend": {
+     "n": 1,
+     "share_of_any": 9.52653138992093e-05
+    },
+    "volatility+liquidity+jumps+momentum": {
+     "n": 9,
+     "share_of_any": 0.0008573878250928837
+    },
+    "volatility+liquidity+trend+momentum": {
+     "n": 0,
+     "share_of_any": 0.0
+    },
+    "volatility+jumps+trend+momentum": {
+     "n": 0,
+     "share_of_any": 0.0
+    },
+    "liquidity+jumps+trend+momentum": {
+     "n": 0,
+     "share_of_any": 0.0
+    },
+    "volatility+liquidity+jumps+trend+momentum": {
+     "n": 0,
+     "share_of_any": 0.0
+    }
+   },
+   "all_patterns": {
+    "volatility": {
+     "n": 5157,
+     "share_of_any": 0.49128322377822237
+    },
+    "liquidity": {
+     "n": 1194,
+     "share_of_any": 0.1137467847956559
+    },
+    "jumps": {
+     "n": 1319,
+     "share_of_any": 0.12565494903305707
+    },
+    "trend": {
+     "n": 144,
+     "share_of_any": 0.01371820520148614
+    },
+    "momentum": {
+     "n": 298,
+     "share_of_any": 0.028389063541964372
+    },
+    "volatility+liquidity": {
+     "n": 770,
+     "share_of_any": 0.07335429170239116
+    },
+    "volatility+jumps": {
+     "n": 942,
+     "share_of_any": 0.08973992569305515
+    },
+    "volatility+trend": {
+     "n": 25,
+     "share_of_any": 0.0023816328474802325
+    },
+    "volatility+momentum": {
+     "n": 81,
+     "share_of_any": 0.007716490425835953
+    },
+    "liquidity+jumps": {
+     "n": 128,
+     "share_of_any": 0.01219396017909879
+    },
+    "liquidity+trend": {
+     "n": 3,
+     "share_of_any": 0.0002857959416976279
+    },
+    "liquidity+momentum": {
+     "n": 15,
+     "share_of_any": 0.0014289797084881394
+    },
+    "jumps+trend": {
+     "n": 12,
+     "share_of_any": 0.0011431837667905116
+    },
+    "jumps+momentum": {
+     "n": 13,
+     "share_of_any": 0.001238449080689721
+    },
+    "trend+momentum": {
+     "n": 0,
+     "share_of_any": 0.0
+    },
+    "volatility+liquidity+jumps": {
+     "n": 312,
+     "share_of_any": 0.029722777936553302
+    },
+    "volatility+liquidity+trend": {
+     "n": 5,
+     "share_of_any": 0.00047632656949604646
+    },
+    "volatility+liquidity+momentum": {
+     "n": 18,
+     "share_of_any": 0.0017147756501857674
+    },
+    "volatility+jumps+trend": {
+     "n": 14,
+     "share_of_any": 0.0013337143945889303
+    },
+    "volatility+jumps+momentum": {
+     "n": 32,
+     "share_of_any": 0.0030484900447746975
+    },
+    "volatility+trend+momentum": {
+     "n": 0,
+     "share_of_any": 0.0
+    },
+    "liquidity+jumps+trend": {
+     "n": 1,
+     "share_of_any": 9.52653138992093e-05
+    },
+    "liquidity+jumps+momentum": {
+     "n": 4,
+     "share_of_any": 0.0003810612555968372
+    },
+    "liquidity+trend+momentum": {
+     "n": 0,
+     "share_of_any": 0.0
+    },
+    "jumps+trend+momentum": {
+     "n": 0,
+     "share_of_any": 0.0
+    },
+    "volatility+liquidity+jumps+trend": {
+     "n": 1,
+     "share_of_any": 9.52653138992093e-05
+    },
+    "volatility+liquidity+jumps+momentum": {
+     "n": 9,
+     "share_of_any": 0.0008573878250928837
+    },
+    "volatility+liquidity+trend+momentum": {
+     "n": 0,
+     "share_of_any": 0.0
+    },
+    "volatility+jumps+trend+momentum": {
+     "n": 0,
+     "share_of_any": 0.0
+    },
+    "liquidity+jumps+trend+momentum": {
+     "n": 0,
+     "share_of_any": 0.0
+    },
+    "volatility+liquidity+jumps+trend+momentum": {
+     "n": 0,
+     "share_of_any": 0.0
+    }
+   },
+   "nonvol_large_without_large_volatility": {
+    "n": 3131,
+    "share_of_nonvol_large": 0.5863295880149813
+   },
+   "per_type_without_large_volatility": {
+    "liquidity": 0.5467479674796748,
+    "jumps": 0.5299605310369573,
+    "trend": 0.7804878048780488,
+    "momentum": 0.7021276595744681
+   }
+  },
+  "large_shares": {
+   "volatility": 0.19228359611569384,
+   "liquidity": 0.06421635167589015,
+   "jumps": 0.07275242769134384,
+   "trend": 0.005351362639657513,
+   "momentum": 0.012268977759214785
+  },
+  "sessions": 697
+ },
+ "seconds": 22.9
+}

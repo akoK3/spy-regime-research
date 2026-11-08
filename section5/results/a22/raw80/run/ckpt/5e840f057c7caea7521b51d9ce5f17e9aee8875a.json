@@ -1,0 +1,1 @@
+{"key": "score|a22_raw80|budget=None|RAW|0|hsmm", "version": "bbc114924f8edf6b", "value": {"a": 0.0648385416666667, "a_skipped": null, "a_failed": null, "b": 0.014372711604138139, "b_skipped": null, "b_n": 7950, "b_dm_stat": 1.8188661717133874, "val_qlike": 0.21120928361659072, "flagged_fit": false}}

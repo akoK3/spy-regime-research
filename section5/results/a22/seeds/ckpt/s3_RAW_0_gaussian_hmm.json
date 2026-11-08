@@ -1,0 +1,23 @@
+{
+ "seed": 3,
+ "fold": "RAW|0",
+ "family": "gaussian_hmm",
+ "score": {
+  "a": 0.07084895833333332,
+  "a_skipped": null,
+  "a_failed": null,
+  "b": 0.017311893050859145,
+  "b_skipped": null,
+  "b_n": 7950,
+  "b_dm_stat": 1.6811763335066012,
+  "val_qlike": 0.2006424793902032,
+  "flagged_fit": false
+ },
+ "tag": {
+  "a22_script": "b65494aa1b7cc9fbbb6c7ba3136e9552484a8a82b06c269d33c72477021ee1ba",
+  "a22": "3ce7b683a1369659b14b22c068bcc25c6a7b14a7a6b15758946c7050f8a15217",
+  "code_version": "a0323ed24d68e896",
+  "protocol": "15be2570a592279e71f3f76fbe62113b4c3263a9d9e4715eaf4d61294eaf4df3",
+  "phase": "seeds"
+ }
+}

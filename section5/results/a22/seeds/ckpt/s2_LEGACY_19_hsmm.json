@@ -1,0 +1,23 @@
+{
+ "seed": 2,
+ "fold": "LEGACY|19",
+ "family": "hsmm",
+ "score": {
+  "a": 0.11670312500000007,
+  "a_skipped": null,
+  "a_failed": null,
+  "b": 0.029088460906229352,
+  "b_skipped": null,
+  "b_n": 7273,
+  "b_dm_stat": 3.7699528454669466,
+  "val_qlike": 0.2232386097229669,
+  "flagged_fit": false
+ },
+ "tag": {
+  "a22_script": "b65494aa1b7cc9fbbb6c7ba3136e9552484a8a82b06c269d33c72477021ee1ba",
+  "a22": "3ce7b683a1369659b14b22c068bcc25c6a7b14a7a6b15758946c7050f8a15217",
+  "code_version": "a0323ed24d68e896",
+  "protocol": "15be2570a592279e71f3f76fbe62113b4c3263a9d9e4715eaf4d61294eaf4df3",
+  "phase": "seeds"
+ }
+}

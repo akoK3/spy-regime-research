@@ -84,3 +84,480 @@
 2026-11-07T13:10:00-05:00 [py 492] A22 preflight A18 inputs RAW|3: 13 columns = A20 pool (return_1m, relative_volume20, momentum5_endpoint, momentum10_endpoint, momentum15_endpoint, momentum30_endpoint, close_location_proxy, abs_return_1m__sadj, intrabar_range_log__sadj, rv5_strict__sadj, downside5_strict__sadj, downside10_strict__sadj, rv10_partial90__sadj); validation target median 216.6 over 3792 bars (deseasonalised)
 2026-11-07T13:10:13-05:00 [py 492] A22 preflight A18 inputs LEGACY|29: 13 columns = A20 pool (return_1m, relative_volume20, momentum5_endpoint, momentum10_endpoint, momentum15_endpoint, momentum30_endpoint, close_location_proxy, abs_return_1m__sadj, intrabar_range_log__sadj, rv5_strict__sadj, downside5_strict__sadj, downside10_strict__sadj, rv10_partial90__sadj); validation target median 131.9 over 3654 bars (deseasonalised)
 2026-11-07T13:10:13-05:00 [py 492] A22 preflight [a18inputs] PASSED in 0.3 min (written to results/a22_preflight/)
+2026-11-07T13:14:15-05:00 [ps1 23884] === run_a22_overnight.ps1 start: phases power -> d8c -> era_flagged -> thresholds -> delay -> a18 -> seeds -> raw80 -> grids -> grid1 -> grid1_hsmm; protocol 15be2570a592279e...; max retries 5 per phase
+2026-11-07T13:14:15-05:00 [ps1 23884] A22 power attempt 1 of 6: starting Python
+2026-11-07T13:14:16-05:00 [py 19908] A22 phase power start
+2026-11-07T13:14:18-05:00 [py 19908] A22 power gaussian_hmm: H1(a) mean +0.1049 MDE(.05/3) 0.039490892180634986; H1(b) mean +0.0256 MDE(.05/3) 0.025308093098158537
+2026-11-07T13:14:20-05:00 [py 19908] A22 power student_t_hmm: H1(a) mean +0.0682 MDE(.05/3) 0.035613653228130794; H1(b) mean +0.0050 MDE(.05/3) 0.012728181863503127
+2026-11-07T13:14:21-05:00 [py 19908] A22 power hsmm: H1(a) mean +0.1107 MDE(.05/3) 0.034159765516179996; H1(b) mean +0.0342 MDE(.05/3) 0.022158007926735182
+2026-11-07T13:14:21-05:00 [py 19908] A22 power bocpd: H1(a) mean +0.0000 MDE(.05/3) None; H1(b) mean +0.0000 MDE(.05/3) None
+2026-11-07T13:14:22-05:00 [py 19908] A22 power D7 MDE (feature models): gaussian 0.12, student 0.12, hsmm 0.12, bocpd 0.12; Step 2 D7: gaussian 0.13, student 0.12, hsmm 0.13, bocpd 0.12
+2026-11-07T13:14:22-05:00 [py 19908] A22 phase power DONE in 0.00 h; no freeze, no era calibration
+2026-11-07T13:14:23-05:00 [ps1 23884] A22 power attempt 1: Python exited with code 0 after 0.1 min
+2026-11-07T13:14:23-05:00 [ps1 23884] A22 power DONE (results\a22\power.json written)
+2026-11-07T13:14:23-05:00 [ps1 23884] A22 d8c attempt 1 of 6: starting Python
+2026-11-07T13:14:24-05:00 [py 22752] A22 phase d8c start
+2026-11-07T13:14:49-05:00 [py 22752] A22 phase d8c DONE in 0.01 h; no freeze, no era calibration
+2026-11-07T13:14:49-05:00 [ps1 23884] A22 d8c attempt 1: Python exited with code 0 after 0.4 min
+2026-11-07T13:14:49-05:00 [ps1 23884] A22 d8c DONE (results\d8\d8c_results.json written)
+2026-11-07T13:14:49-05:00 [ps1 23884] A22 era_flagged attempt 1 of 6: starting Python
+2026-11-07T13:14:50-05:00 [py 36524] A22 phase era_flagged start
+2026-11-07T13:14:51-05:00 [py 36524] A22 era LEGACY (25 confirmatory folds): gaussian a +0.1054 (p 0.000) b +0.0258 holm R; student a +0.0691 (p 0.000) b +0.0048 holm -; hsmm a +0.1129 (p 0.000) b +0.0350 holm R; bocpd a +0.0000 (p 1.000) b +0.0000 holm -
+2026-11-07T13:14:51-05:00 [py 36524] A22 era RAW (1 confirmatory folds): gaussian a +0.0933 (p nan) b +0.0214 holm -; student a +0.0485 (p nan) b +0.0104 holm -; hsmm a +0.0648 (p nan) b +0.0144 holm -; bocpd a +0.0000 (p nan) b +0.0000 holm -
+2026-11-07T13:14:51-05:00 [py 36524] A22 flagged fits: {'gaussian_hmm': 0, 'student_t_hmm': 0, 'hsmm': 0, 'bocpd': 0}
+2026-11-07T13:14:51-05:00 [py 36524] A22 phase era_flagged DONE in 0.00 h; no freeze, no era calibration
+2026-11-07T13:14:51-05:00 [ps1 23884] A22 era_flagged attempt 1: Python exited with code 0 after 0 min
+2026-11-07T13:14:51-05:00 [ps1 23884] A22 era_flagged DONE (results\a22\era_flagged.json written)
+2026-11-07T13:14:51-05:00 [ps1 23884] A22 thresholds attempt 1 of 6: starting Python
+2026-11-07T13:14:52-05:00 [py 35408] A22 phase thresholds start
+2026-11-07T13:15:18-05:00 [py 35408] A22 thresholds 1/26 LEGACY|0: 0.20 reproduced exactly; gaussian 14.91/13.24/12.26, student 12.23/10.29/9.49, hsmm 13.10/10.77/10.56, bocpd 60.25/55.00/51.30; 0.4 min
+2026-11-07T13:15:28-05:00 [py 35408] A22 thresholds 2/26 LEGACY|1: 0.20 reproduced exactly; gaussian 24.75/17.54/15.10, student 13.70/12.49/11.07, hsmm 19.73/18.30/14.06, bocpd 58.09/56.24/54.08; 0.2 min
+2026-11-07T13:15:39-05:00 [py 35408] A22 thresholds 3/26 LEGACY|2: 0.20 reproduced exactly; gaussian 25.50/20.85/12.09, student 15.86/13.34/10.32, hsmm 14.82/11.96/11.44, bocpd 60.25/55.00/53.15; 0.2 min
+2026-11-07T13:15:49-05:00 [py 35408] A22 thresholds 4/26 LEGACY|3: 0.20 reproduced exactly; gaussian 19.68/13.07/12.07, student 11.98/11.04/10.52, hsmm 14.81/9.78/8.82, bocpd 45.13/44.20/41.12; 0.2 min
+2026-11-07T13:16:01-05:00 [py 35408] A22 thresholds 5/26 LEGACY|4: 0.20 reproduced exactly; gaussian 21.36/15.62/13.56, student 3.36/3.07/2.79, hsmm 12.59/11.55/10.16, bocpd 49.14/46.05/45.13; 0.2 min
+2026-11-07T13:16:12-05:00 [py 35408] A22 thresholds 6/26 LEGACY|5: 0.20 reproduced exactly; gaussian 27.05/24.14/19.33, student 15.66/12.49/10.91, hsmm 25.30/16.10/11.65, bocpd 64.26/56.24/50.07; 0.2 min
+2026-11-07T13:16:23-05:00 [py 35408] A22 thresholds 7/26 LEGACY|6: 0.20 reproduced exactly; gaussian 20.04/15.03/12.91, student 3.76/3.61/3.55, hsmm 11.91/10.53/8.99, bocpd 50.07/46.05/43.28; 0.2 min
+2026-11-07T13:16:33-05:00 [py 35408] A22 thresholds 8/26 LEGACY|7: 0.20 reproduced exactly; gaussian 5.67/4.84/3.79, student 3.86/3.39/3.24, hsmm 20.77/13.84/12.14, bocpd 58.09/50.07/48.21; 0.2 min
+2026-11-07T13:16:45-05:00 [py 35408] A22 thresholds 9/26 LEGACY|8: 0.20 reproduced exactly; gaussian 18.81/12.78/10.56, student 3.92/3.90/3.89, hsmm 12.93/10.28/8.04, bocpd 61.18/56.24/50.07; 0.2 min
+2026-11-07T13:16:56-05:00 [py 35408] A22 thresholds 10/26 LEGACY|9: 0.20 reproduced exactly; gaussian 9.91/8.24/7.58, student 5.62/5.46/5.14, hsmm 8.53/7.19/6.95, bocpd 61.18/53.15/52.23; 0.2 min
+2026-11-07T13:17:07-05:00 [py 35408] A22 thresholds 11/26 LEGACY|10: 0.20 reproduced exactly; gaussian 9.59/8.42/8.24, student 8.30/8.00/7.54, hsmm 7.87/7.08/6.39, bocpd 50.07/49.14/39.27; 0.2 min
+2026-11-07T13:17:17-05:00 [py 35408] A22 thresholds 12/26 LEGACY|11: 0.20 reproduced exactly; gaussian 6.57/5.70/5.57, student 6.08/6.00/5.27, hsmm 8.14/7.86/7.49, bocpd 1.00/1.00/1.00; 0.2 min
+2026-11-07T13:17:28-05:00 [py 35408] A22 thresholds 13/26 LEGACY|12: 0.20 reproduced exactly; gaussian 14.37/14.23/13.49, student 12.71/10.63/9.05, hsmm 12.03/10.77/9.93, bocpd 44.20/30.01/18.28; 0.2 min
+2026-11-07T13:17:39-05:00 [py 35408] A22 thresholds 14/26 LEGACY|13: 0.20 reproduced exactly; gaussian 15.07/14.46/12.42, student 7.09/5.85/5.42, hsmm 15.04/11.43/9.45, bocpd 1.00/1.00/1.00; 0.2 min
+2026-11-07T13:17:50-05:00 [py 35408] A22 thresholds 15/26 LEGACY|14: 0.20 reproduced exactly; gaussian 28.20/17.35/13.68, student 18.38/12.93/10.57, hsmm 11.81/10.30/9.51, bocpd 63.03/54.08/53.15; 0.2 min
+2026-11-07T13:18:01-05:00 [py 35408] A22 thresholds 16/26 LEGACY|15: 0.20 reproduced exactly; gaussian 27.70/22.67/17.49, student 3.82/3.73/3.71, hsmm 25.06/12.79/9.96, bocpd 53.15/50.07/46.05; 0.2 min
+2026-11-07T13:18:11-05:00 [py 35408] A22 thresholds 17/26 LEGACY|16: 0.20 reproduced exactly; gaussian 11.79/10.38/9.47, student 5.45/5.36/5.27, hsmm 11.11/10.99/9.96, bocpd 54.08/49.14/45.13; 0.2 min
+2026-11-07T13:18:22-05:00 [py 35408] A22 thresholds 18/26 LEGACY|17: 0.20 reproduced exactly; gaussian 4.67/3.81/3.49, student 4.06/3.45/3.26, hsmm 5.11/4.52/4.03, bocpd 26.30/18.28/1.00; 0.2 min
+2026-11-07T13:18:35-05:00 [py 35408] A22 thresholds 19/26 LEGACY|18: 0.20 reproduced exactly; gaussian 28.30/26.35/17.50, student 3.65/3.55/3.27, hsmm 18.57/13.42/10.99, bocpd 26.30/16.12/1.00; 0.2 min
+2026-11-07T13:18:47-05:00 [py 35408] A22 thresholds 20/26 LEGACY|19: 0.20 reproduced exactly; gaussian 14.31/13.44/12.70, student 13.45/12.25/10.03, hsmm 11.59/10.68/10.27, bocpd 31.24/29.08/28.16; 0.2 min
+2026-11-07T13:19:00-05:00 [py 35408] A22 thresholds 21/26 LEGACY|20: 0.20 reproduced exactly; gaussian 5.73/4.87/4.51, student 4.90/4.47/4.40, hsmm 21.47/12.25/9.61, bocpd 53.15/52.23/49.14; 0.2 min
+2026-11-07T13:19:11-05:00 [py 35408] A22 thresholds 22/26 LEGACY|21: 0.20 reproduced exactly; gaussian 15.81/13.35/12.67, student 4.52/4.47/4.27, hsmm 12.43/10.36/9.89, bocpd 53.15/52.23/42.04; 0.2 min
+2026-11-07T13:19:22-05:00 [py 35408] A22 thresholds 23/26 LEGACY|22: 0.20 reproduced exactly; gaussian 25.96/14.45/11.06, student 15.01/11.03/10.28, hsmm 17.30/13.12/9.52, bocpd 53.15/52.23/47.29; 0.2 min
+2026-11-07T13:19:34-05:00 [py 35408] A22 thresholds 24/26 LEGACY|25: 0.20 reproduced exactly; gaussian 5.04/4.73/4.38, student 8.28/7.92/7.35, hsmm 10.30/8.66/6.96, bocpd 62.10/57.16/53.15; 0.2 min
+2026-11-07T13:19:46-05:00 [py 35408] A22 thresholds 25/26 LEGACY|26: 0.20 reproduced exactly; gaussian 16.83/13.27/11.00, student 5.32/5.04/4.75, hsmm 12.68/10.55/9.95, bocpd 53.15/51.30/49.14; 0.2 min
+2026-11-07T13:20:05-05:00 [py 35408] A22 thresholds 26/26 RAW|0: 0.20 reproduced exactly; gaussian 10.66/7.93/6.87, student 8.85/8.48/7.54, hsmm 16.83/12.21/10.37, bocpd 55.00/53.15/49.14; 0.3 min
+2026-11-07T13:20:05-05:00 [py 35408] A22 thresholds target 0.15: H1(c) hit f/b gaussian 0.61/0.34 (p 0.00), student 0.44/0.21 (p 0.00), hsmm 0.57/0.28 (p 0.00), bocpd 0.29/0.29 (p 1.00); median test rate (feature) 0.149, 0.149, 0.140, 0.149
+2026-11-07T13:20:06-05:00 [py 35408] A22 thresholds target 0.20: H1(c) hit f/b gaussian 0.62/0.38 (p 0.00), student 0.47/0.26 (p 0.00), hsmm 0.62/0.36 (p 0.00), bocpd 0.40/0.40 (p 1.00); median test rate (feature) 0.227, 0.211, 0.190, 0.198
+2026-11-07T13:20:06-05:00 [py 35408] A22 thresholds target 0.25: H1(c) hit f/b gaussian 0.67/0.41 (p 0.00), student 0.50/0.28 (p 0.00), hsmm 0.67/0.41 (p 0.00), bocpd 0.48/0.48 (p 1.00); median test rate (feature) 0.273, 0.264, 0.227, 0.231
+2026-11-07T13:20:06-05:00 [py 35408] A22 phase thresholds DONE in 0.09 h; no freeze, no era calibration
+2026-11-07T13:20:06-05:00 [ps1 23884] A22 thresholds attempt 1: Python exited with code 0 after 5.3 min
+2026-11-07T13:20:06-05:00 [ps1 23884] A22 thresholds DONE (results\a22\thresholds.json written)
+2026-11-07T13:20:06-05:00 [ps1 23884] A22 delay attempt 1 of 6: starting Python
+2026-11-07T13:20:07-05:00 [py 20788] A22 phase delay start
+2026-11-07T13:25:50-05:00 [py 20788] A22 delay 1/25 LEGACY|0: delta 0 reproduced exactly; H1(a) 0/5/10 gaussian +0.098/+0.104/+0.101, student +0.096/+0.096/+0.090, hsmm +0.078/+0.082/+0.077, bocpd +0.000/+0.000/+0.000; 5.7 min
+2026-11-07T13:31:03-05:00 [py 20788] A22 delay 2/25 LEGACY|1: delta 0 reproduced exactly; H1(a) 0/5/10 gaussian +0.085/+0.095/+0.092, student +0.077/+0.088/+0.093, hsmm +0.034/+0.043/+0.049, bocpd +0.000/+0.000/+0.000; 5.2 min
+2026-11-07T13:36:51-05:00 [py 20788] A22 delay 3/25 LEGACY|2: delta 0 reproduced exactly; H1(a) 0/5/10 gaussian +0.064/+0.065/+0.063, student +0.034/+0.031/+0.027, hsmm +0.044/+0.048/+0.043, bocpd +0.000/+0.000/+0.000; 5.8 min
+2026-11-07T13:43:13-05:00 [py 20788] A22 delay 4/25 LEGACY|3: delta 0 reproduced exactly; H1(a) 0/5/10 gaussian +0.162/+0.163/+0.154, student +0.131/+0.136/+0.133, hsmm +0.130/+0.125/+0.117, bocpd +0.000/+0.000/+0.000; 6.4 min
+2026-11-07T13:43:13-05:00 [py 20788] A22 delay 5/25 LEGACY|4: delta 0 reproduced exactly; H1(a) 0/5/10 gaussian NA/NA/NA, student NA/NA/NA, hsmm NA/NA/NA, bocpd NA/NA/NA; 0.0 min
+2026-11-07T13:48:56-05:00 [py 20788] A22 delay 6/25 LEGACY|5: delta 0 reproduced exactly; H1(a) 0/5/10 gaussian +0.078/+0.088/+0.092, student +0.087/+0.096/+0.100, hsmm +0.060/+0.069/+0.075, bocpd +0.000/+0.000/+0.000; 5.7 min
+2026-11-07T13:54:39-05:00 [py 20788] A22 delay 7/25 LEGACY|6: delta 0 reproduced exactly; H1(a) 0/5/10 gaussian +0.092/+0.084/+0.086, student +0.000/+0.000/+0.000, hsmm +0.106/+0.096/+0.100, bocpd +0.000/+0.000/+0.000; 5.7 min
+2026-11-07T13:59:21-05:00 [py 20788] A22 delay 8/25 LEGACY|7: delta 0 reproduced exactly; H1(a) 0/5/10 gaussian +0.000/+0.000/+0.000, student +0.000/+0.000/+0.000, hsmm +0.103/+0.107/+0.111, bocpd +0.000/+0.000/+0.000; 4.7 min
+2026-11-07T14:03:54-05:00 [py 20788] A22 delay 9/25 LEGACY|8: delta 0 reproduced exactly; H1(a) 0/5/10 gaussian +0.093/+0.100/+0.103, student +0.000/+0.000/+0.000, hsmm +0.126/+0.128/+0.121, bocpd +0.000/+0.000/+0.000; 4.6 min
+2026-11-07T14:08:43-05:00 [py 20788] A22 delay 10/25 LEGACY|9: delta 0 reproduced exactly; H1(a) 0/5/10 gaussian +0.058/+0.062/+0.067, student +0.000/+0.000/+0.000, hsmm +0.179/+0.175/+0.170, bocpd +0.000/+0.000/+0.000; 4.8 min
+2026-11-07T14:13:24-05:00 [py 20788] A22 delay 11/25 LEGACY|10: delta 0 reproduced exactly; H1(a) 0/5/10 gaussian +0.143/+0.145/+0.144, student +0.152/+0.163/+0.174, hsmm +0.197/+0.207/+0.203, bocpd +0.000/+0.000/+0.000; 4.7 min
+2026-11-07T14:13:24-05:00 [py 20788] A22 delay 12/25 LEGACY|11: delta 0 reproduced exactly; H1(a) 0/5/10 gaussian NA/NA/NA, student NA/NA/NA, hsmm NA/NA/NA, bocpd NA/NA/NA; 0.0 min
+2026-11-07T14:18:02-05:00 [py 20788] A22 delay 13/25 LEGACY|12: delta 0 reproduced exactly; H1(a) 0/5/10 gaussian +0.275/+0.262/+0.254, student +0.125/+0.126/+0.122, hsmm +0.231/+0.224/+0.218, bocpd +0.000/+0.000/+0.000; 4.6 min
+2026-11-07T14:22:37-05:00 [py 20788] A22 delay 14/25 LEGACY|13: delta 0 reproduced exactly; H1(a) 0/5/10 gaussian +0.119/+0.137/+0.158, student +0.132/+0.148/+0.156, hsmm -0.016/+0.005/+0.019, bocpd +0.000/+0.000/+0.000; 4.6 min
+2026-11-07T14:27:05-05:00 [py 20788] A22 delay 15/25 LEGACY|14: delta 0 reproduced exactly; H1(a) 0/5/10 gaussian +0.152/+0.147/+0.142, student +0.118/+0.119/+0.120, hsmm +0.119/+0.118/+0.123, bocpd +0.000/+0.000/+0.000; 4.5 min
+2026-11-07T14:31:49-05:00 [py 20788] A22 delay 16/25 LEGACY|15: delta 0 reproduced exactly; H1(a) 0/5/10 gaussian +0.045/+0.048/+0.048, student +0.000/+0.000/+0.000, hsmm +0.102/+0.097/+0.096, bocpd +0.000/+0.000/+0.000; 4.7 min
+2026-11-07T14:36:20-05:00 [py 20788] A22 delay 17/25 LEGACY|16: delta 0 reproduced exactly; H1(a) 0/5/10 gaussian +0.126/+0.132/+0.130, student +0.113/+0.115/+0.119, hsmm +0.165/+0.175/+0.175, bocpd +0.000/+0.000/+0.000; 4.5 min
+2026-11-07T14:36:21-05:00 [py 20788] A22 delay 18/25 LEGACY|17: delta 0 reproduced exactly; H1(a) 0/5/10 gaussian NA/NA/NA, student NA/NA/NA, hsmm NA/NA/NA, bocpd NA/NA/NA; 0.0 min
+2026-11-07T14:36:21-05:00 [py 20788] A22 delay 19/25 LEGACY|18: delta 0 reproduced exactly; H1(a) 0/5/10 gaussian NA/NA/NA, student NA/NA/NA, hsmm NA/NA/NA, bocpd NA/NA/NA; 0.0 min
+2026-11-07T14:41:04-05:00 [py 20788] A22 delay 20/25 LEGACY|19: delta 0 reproduced exactly; H1(a) 0/5/10 gaussian +0.177/+0.183/+0.182, student +0.122/+0.130/+0.133, hsmm +0.113/+0.107/+0.108, bocpd +0.000/+0.000/+0.000; 4.7 min
+2026-11-07T14:45:52-05:00 [py 20788] A22 delay 21/25 LEGACY|20: delta 0 reproduced exactly; H1(a) 0/5/10 gaussian -0.001/-0.000/-0.000, student -0.000/-0.001/-0.003, hsmm +0.085/+0.089/+0.091, bocpd +0.000/+0.000/+0.000; 4.8 min
+2026-11-07T14:50:31-05:00 [py 20788] A22 delay 22/25 LEGACY|21: delta 0 reproduced exactly; H1(a) 0/5/10 gaussian +0.173/+0.173/+0.173, student +0.000/+0.000/+0.000, hsmm +0.090/+0.092/+0.089, bocpd +0.000/+0.000/+0.000; 4.7 min
+2026-11-07T14:55:17-05:00 [py 20788] A22 delay 23/25 LEGACY|22: delta 0 reproduced exactly; H1(a) 0/5/10 gaussian +0.127/+0.131/+0.138, student +0.121/+0.128/+0.129, hsmm +0.143/+0.139/+0.141, bocpd +0.000/+0.000/+0.000; 4.8 min
+2026-11-07T14:59:58-05:00 [py 20788] A22 delay 24/25 LEGACY|25: delta 0 reproduced exactly; H1(a) 0/5/10 gaussian +0.000/+0.000/+0.000, student +0.142/+0.145/+0.145, hsmm +0.169/+0.180/+0.181, bocpd +0.000/+0.000/+0.000; 4.7 min
+2026-11-07T15:04:35-05:00 [py 20788] A22 delay 25/25 LEGACY|26: delta 0 reproduced exactly; H1(a) 0/5/10 gaussian +0.146/+0.151/+0.150, student +0.000/+0.000/+0.000, hsmm +0.113/+0.118/+0.113, bocpd +0.000/+0.000/+0.000; 4.6 min
+2026-11-07T15:04:35-05:00 [py 20788] A22 delay +0 min: gaussian a +0.1049 (p 0.000) b +0.0256 holm R; student a +0.0682 (p 0.000) b +0.0050 holm -; hsmm a +0.1107 (p 0.000) b +0.0342 holm R; bocpd a +0.0000 (p 1.000) b +0.0000 holm -
+2026-11-07T15:04:36-05:00 [py 20788] A22 delay +5 min: gaussian a +0.1075 (p 0.000) b +0.0256 holm R; student a +0.0713 (p 0.000) b +0.0050 holm -; hsmm a +0.1131 (p 0.000) b +0.0342 holm R; bocpd a +0.0000 (p 1.000) b +0.0000 holm -
+2026-11-07T15:04:36-05:00 [py 20788] A22 delay +10 min: gaussian a +0.1077 (p 0.000) b +0.0256 holm R; student a +0.0721 (p 0.000) b +0.0050 holm -; hsmm a +0.1130 (p 0.000) b +0.0342 holm R; bocpd a +0.0000 (p 1.000) b +0.0000 holm -
+2026-11-07T15:04:36-05:00 [py 20788] A22 phase delay DONE in 1.74 h; no freeze, no era calibration
+2026-11-07T15:04:36-05:00 [ps1 23884] A22 delay attempt 1: Python exited with code 0 after 104.5 min
+2026-11-07T15:04:36-05:00 [ps1 23884] A22 delay DONE (results\a22\delay.json written)
+2026-11-07T15:04:36-05:00 [ps1 23884] A22 a18 attempt 1 of 6: starting Python
+2026-11-07T15:04:37-05:00 [py 40728] A22 phase a18 start
+2026-11-07T15:04:39-05:00 [py 40728] A22 A18 rerun start (kind a18-580bb98e81eb453b; resumes from C:\Users\kakij\Downloads\section5\results\mr2\a18\run\ckpt)
+2026-11-07T15:04:51-05:00 [py 40728] A22 A18 inputs LEGACY|0: 13 columns (A20 pool, __sadj scale inputs), validation target median 183.1 (deseasonalised)
+2026-11-07T15:04:54-05:00 [py 40728] A22 A18 inputs RAW|0: 13 columns (A20 pool, __sadj scale inputs), validation target median 156.3 (deseasonalised)
+2026-11-07T15:04:55-05:00 [py 40728] A18 fold 1/34 LEGACY|0: start
+2026-11-07T15:10:00-05:00 [py 40728]   A18 LEGACY|0 gaussian_hmm: selection 0.8 min; features [] params {'K': 3} baseline {'K': 3}; scoring 4.3 min
+2026-11-07T15:11:10-05:00 [py 40728]   A18 LEGACY|0 student_t_hmm: selection 1.1 min; features [] params {'K': 4} baseline {'K': 4}; scoring 0.0 min
+2026-11-07T15:14:25-05:00 [py 40728]   A18 LEGACY|0 hsmm: selection 3.2 min; features [] params {'K': 2} baseline {'K': 2}; scoring 0.0 min
+2026-11-07T15:14:35-05:00 [py 40728]   A18 LEGACY|0 bocpd: selection 0.1 min; features [] params {'lam': 78} baseline {'lam': 78}; scoring 0.1 min
+2026-11-07T15:14:35-05:00 [py 40728] A18 fold 2/34 LEGACY|1: start
+2026-11-07T15:19:06-05:00 [py 40728]   A18 LEGACY|1 gaussian_hmm: selection 0.5 min; features [] params {'K': 4} baseline {'K': 4}; scoring 4.1 min
+2026-11-07T15:20:27-05:00 [py 40728]   A18 LEGACY|1 student_t_hmm: selection 1.3 min; features ['momentum5_endpoint'] params {'K': 4} baseline {'K': 2}; scoring 0.0 min
+2026-11-07T15:24:54-05:00 [py 40728]   A18 LEGACY|1 hsmm: selection 4.4 min; features [] params {'K': 3} baseline {'K': 3}; scoring 0.0 min
+2026-11-07T15:25:04-05:00 [py 40728]   A18 LEGACY|1 bocpd: selection 0.1 min; features [] params {'lam': 78} baseline {'lam': 78}; scoring 0.1 min
+2026-11-07T15:25:04-05:00 [py 40728] A18 fold 3/34 LEGACY|2: start
+2026-11-07T15:29:45-05:00 [py 40728]   A18 LEGACY|2 gaussian_hmm: selection 0.5 min; features [] params {'K': 4} baseline {'K': 4}; scoring 4.2 min
+2026-11-07T15:31:07-05:00 [py 40728]   A18 LEGACY|2 student_t_hmm: selection 1.3 min; features ['momentum5_endpoint'] params {'K': 4} baseline {'K': 4}; scoring 0.0 min
+2026-11-07T15:35:26-05:00 [py 40728]   A18 LEGACY|2 hsmm: selection 4.3 min; features [] params {'K': 3} baseline {'K': 3}; scoring 0.0 min
+2026-11-07T15:35:36-05:00 [py 40728]   A18 LEGACY|2 bocpd: selection 0.1 min; features [] params {'lam': 78} baseline {'lam': 78}; scoring 0.1 min
+2026-11-07T15:35:36-05:00 [py 40728] A18 fold 4/34 LEGACY|3: start
+2026-11-07T15:40:22-05:00 [py 40728]   A18 LEGACY|3 gaussian_hmm: selection 0.5 min; features [] params {'K': 4} baseline {'K': 4}; scoring 4.3 min
+2026-11-07T15:42:25-05:00 [py 40728]   A18 LEGACY|3 student_t_hmm: selection 2.0 min; features ['momentum5_endpoint', 'momentum30_endpoint'] params {'K': 4} baseline {'K': 3}; scoring 0.0 min
+2026-11-07T15:46:21-05:00 [py 40728]   A18 LEGACY|3 hsmm: selection 3.9 min; features [] params {'K': 3} baseline {'K': 3}; scoring 0.0 min
+2026-11-07T15:46:31-05:00 [py 40728]   A18 LEGACY|3 bocpd: selection 0.1 min; features [] params {'lam': 78} baseline {'lam': 78}; scoring 0.1 min
+2026-11-07T15:46:31-05:00 [py 40728] A18 fold 5/34 LEGACY|4: start
+2026-11-07T15:47:05-05:00 [py 40728]   A18 LEGACY|4 gaussian_hmm: selection 0.6 min; features [] params {'K': 4} baseline {'K': 4}; scoring 0.0 min
+2026-11-07T15:48:59-05:00 [py 40728]   A18 LEGACY|4 student_t_hmm: selection 1.9 min; features ['momentum5_endpoint'] params {'K': 3} baseline {'K': 4}; scoring 0.0 min
+2026-11-07T15:52:40-05:00 [py 40728]   A18 LEGACY|4 hsmm: selection 3.7 min; features [] params {'K': 3} baseline {'K': 3}; scoring 0.0 min
+2026-11-07T15:52:44-05:00 [py 40728]   A18 LEGACY|4 bocpd: selection 0.1 min; features [] params {'lam': 78} baseline {'lam': 78}; scoring 0.0 min
+2026-11-07T15:52:44-05:00 [py 40728] A18 fold 6/34 LEGACY|5: start
+2026-11-07T15:57:37-05:00 [py 40728]   A18 LEGACY|5 gaussian_hmm: selection 0.5 min; features [] params {'K': 4} baseline {'K': 4}; scoring 4.4 min
+2026-11-07T15:58:52-05:00 [py 40728]   A18 LEGACY|5 student_t_hmm: selection 1.2 min; features ['momentum5_endpoint'] params {'K': 4} baseline {'K': 3}; scoring 0.0 min
+2026-11-07T16:02:44-05:00 [py 40728]   A18 LEGACY|5 hsmm: selection 3.8 min; features [] params {'K': 2} baseline {'K': 2}; scoring 0.0 min
+2026-11-07T16:02:55-05:00 [py 40728]   A18 LEGACY|5 bocpd: selection 0.1 min; features [] params {'lam': 78} baseline {'lam': 78}; scoring 0.1 min
+2026-11-07T16:02:55-05:00 [py 40728] A18 fold 7/34 LEGACY|6: start
+2026-11-07T16:07:57-05:00 [py 40728]   A18 LEGACY|6 gaussian_hmm: selection 0.4 min; features [] params {'K': 4} baseline {'K': 4}; scoring 4.6 min
+2026-11-07T16:09:42-05:00 [py 40728]   A18 LEGACY|6 student_t_hmm: selection 1.7 min; features ['momentum5_endpoint'] params {'K': 4} baseline {'K': 3}; scoring 0.0 min
+2026-11-07T16:13:10-05:00 [py 40728]   A18 LEGACY|6 hsmm: selection 3.4 min; features [] params {'K': 3} baseline {'K': 3}; scoring 0.0 min
+2026-11-07T16:13:19-05:00 [py 40728]   A18 LEGACY|6 bocpd: selection 0.1 min; features [] params {'lam': 78} baseline {'lam': 78}; scoring 0.1 min
+2026-11-07T16:13:19-05:00 [py 40728] A18 fold 8/34 LEGACY|7: start
+2026-11-07T16:18:00-05:00 [py 40728]   A18 LEGACY|7 gaussian_hmm: selection 0.4 min; features [] params {'K': 4} baseline {'K': 4}; scoring 4.3 min
+2026-11-07T16:20:16-05:00 [py 40728]   A18 LEGACY|7 student_t_hmm: selection 2.2 min; features ['momentum5_endpoint', 'return_1m'] params {'K': 4} baseline {'K': 4}; scoring 0.0 min
+2026-11-07T16:23:39-05:00 [py 40728]   A18 LEGACY|7 hsmm: selection 3.3 min; features [] params {'K': 3} baseline {'K': 3}; scoring 0.0 min
+2026-11-07T16:23:49-05:00 [py 40728]   A18 LEGACY|7 bocpd: selection 0.1 min; features [] params {'lam': 78} baseline {'lam': 78}; scoring 0.1 min
+2026-11-07T16:23:49-05:00 [py 40728] A18 fold 9/34 LEGACY|8: start
+2026-11-07T16:28:25-05:00 [py 40728]   A18 LEGACY|8 gaussian_hmm: selection 0.4 min; features [] params {'K': 4} baseline {'K': 4}; scoring 4.2 min
+2026-11-07T16:29:09-05:00 [py 40728]   A18 LEGACY|8 student_t_hmm: selection 0.7 min; features [] params {'K': 3} baseline {'K': 3}; scoring 0.0 min
+2026-11-07T16:31:21-05:00 [py 40728]   A18 LEGACY|8 hsmm: selection 2.2 min; features [] params {'K': 3} baseline {'K': 3}; scoring 0.1 min
+2026-11-07T16:31:33-05:00 [py 40728]   A18 LEGACY|8 bocpd: selection 0.1 min; features [] params {'lam': 78} baseline {'lam': 78}; scoring 0.1 min
+2026-11-07T16:31:33-05:00 [py 40728] A18 fold 10/34 LEGACY|9: start
+2026-11-07T16:36:32-05:00 [py 40728]   A18 LEGACY|9 gaussian_hmm: selection 0.4 min; features [] params {'K': 4} baseline {'K': 4}; scoring 4.6 min
+2026-11-07T16:37:27-05:00 [py 40728]   A18 LEGACY|9 student_t_hmm: selection 0.9 min; features [] params {'K': 3} baseline {'K': 3}; scoring 0.0 min
+2026-11-07T16:40:47-05:00 [py 40728]   A18 LEGACY|9 hsmm: selection 3.3 min; features [] params {'K': 3} baseline {'K': 3}; scoring 0.0 min
+2026-11-07T16:40:57-05:00 [py 40728]   A18 LEGACY|9 bocpd: selection 0.1 min; features [] params {'lam': 78} baseline {'lam': 78}; scoring 0.1 min
+2026-11-07T16:40:57-05:00 [py 40728] A18 fold 11/34 LEGACY|10: start
+2026-11-07T16:45:53-05:00 [py 40728]   A18 LEGACY|10 gaussian_hmm: selection 0.6 min; features ['rv10_partial90__sadj'] params {'K': 4} baseline {'K': 4}; scoring 4.3 min
+2026-11-07T16:46:49-05:00 [py 40728]   A18 LEGACY|10 student_t_hmm: selection 0.9 min; features [] params {'K': 4} baseline {'K': 4}; scoring 0.0 min
+2026-11-07T16:50:50-05:00 [py 40728]   A18 LEGACY|10 hsmm: selection 4.0 min; features [] params {'K': 3} baseline {'K': 3}; scoring 0.0 min
+2026-11-07T16:51:00-05:00 [py 40728]   A18 LEGACY|10 bocpd: selection 0.1 min; features [] params {'lam': 78} baseline {'lam': 78}; scoring 0.1 min
+2026-11-07T16:51:00-05:00 [py 40728] A18 fold 12/34 LEGACY|11: start
+2026-11-07T16:51:19-05:00 [py 40728]   A18 LEGACY|11 gaussian_hmm: selection 0.3 min; features [] params {'K': 4} baseline {'K': 4}; scoring 0.0 min
+2026-11-07T16:52:00-05:00 [py 40728]   A18 LEGACY|11 student_t_hmm: selection 0.7 min; features [] params {'K': 4} baseline {'K': 4}; scoring 0.0 min
+2026-11-07T16:55:15-05:00 [py 40728]   A18 LEGACY|11 hsmm: selection 3.3 min; features [] params {'K': 2} baseline {'K': 2}; scoring 0.0 min
+2026-11-07T16:55:19-05:00 [py 40728]   A18 LEGACY|11 bocpd: selection 0.1 min; features [] params {'lam': 78} baseline {'lam': 78}; scoring 0.0 min
+2026-11-07T16:55:19-05:00 [py 40728] A18 fold 13/34 LEGACY|12: start
+2026-11-07T17:00:25-05:00 [py 40728]   A18 LEGACY|12 gaussian_hmm: selection 0.8 min; features ['rv5_strict__sadj'] params {'K': 4} baseline {'K': 4}; scoring 4.3 min
+2026-11-07T17:01:42-05:00 [py 40728]   A18 LEGACY|12 student_t_hmm: selection 1.3 min; features ['rv5_strict__sadj'] params {'K': 4} baseline {'K': 4}; scoring 0.0 min
+2026-11-07T17:06:32-05:00 [py 40728]   A18 LEGACY|12 hsmm: selection 4.8 min; features ['rv5_strict__sadj'] params {'K': 3} baseline {'K': 2}; scoring 0.0 min
+2026-11-07T17:06:42-05:00 [py 40728]   A18 LEGACY|12 bocpd: selection 0.1 min; features [] params {'lam': 78} baseline {'lam': 78}; scoring 0.1 min
+2026-11-07T17:06:42-05:00 [py 40728] A18 fold 14/34 LEGACY|13: start
+2026-11-07T17:11:21-05:00 [py 40728]   A18 LEGACY|13 gaussian_hmm: selection 0.4 min; features [] params {'K': 4} baseline {'K': 4}; scoring 4.2 min
+2026-11-07T17:12:03-05:00 [py 40728]   A18 LEGACY|13 student_t_hmm: selection 0.7 min; features [] params {'K': 3} baseline {'K': 3}; scoring 0.0 min
+2026-11-07T17:16:22-05:00 [py 40728]   A18 LEGACY|13 hsmm: selection 4.3 min; features [] params {'K': 3} baseline {'K': 3}; scoring 0.0 min
+2026-11-07T17:16:32-05:00 [py 40728]   A18 LEGACY|13 bocpd: selection 0.1 min; features [] params {'lam': 78} baseline {'lam': 78}; scoring 0.1 min
+2026-11-07T17:16:32-05:00 [py 40728] A18 fold 15/34 LEGACY|14: start
+2026-11-07T17:20:57-05:00 [py 40728]   A18 LEGACY|14 gaussian_hmm: selection 0.3 min; features [] params {'K': 4} baseline {'K': 4}; scoring 4.1 min
+2026-11-07T17:21:37-05:00 [py 40728]   A18 LEGACY|14 student_t_hmm: selection 0.6 min; features [] params {'K': 3} baseline {'K': 3}; scoring 0.0 min
+2026-11-07T17:24:39-05:00 [py 40728]   A18 LEGACY|14 hsmm: selection 3.0 min; features [] params {'K': 3} baseline {'K': 3}; scoring 0.0 min
+2026-11-07T17:24:49-05:00 [py 40728]   A18 LEGACY|14 bocpd: selection 0.1 min; features [] params {'lam': 78} baseline {'lam': 78}; scoring 0.1 min
+2026-11-07T17:24:49-05:00 [py 40728] A18 fold 16/34 LEGACY|15: start
+2026-11-07T17:29:38-05:00 [py 40728]   A18 LEGACY|15 gaussian_hmm: selection 0.5 min; features [] params {'K': 4} baseline {'K': 4}; scoring 4.3 min
+2026-11-07T17:30:25-05:00 [py 40728]   A18 LEGACY|15 student_t_hmm: selection 0.8 min; features [] params {'K': 4} baseline {'K': 4}; scoring 0.0 min
+2026-11-07T17:33:08-05:00 [py 40728]   A18 LEGACY|15 hsmm: selection 2.7 min; features [] params {'K': 2} baseline {'K': 2}; scoring 0.0 min
+2026-11-07T17:33:18-05:00 [py 40728]   A18 LEGACY|15 bocpd: selection 0.1 min; features [] params {'lam': 78} baseline {'lam': 78}; scoring 0.1 min
+2026-11-07T17:33:18-05:00 [py 40728] A18 fold 17/34 LEGACY|16: start
+2026-11-07T17:37:52-05:00 [py 40728]   A18 LEGACY|16 gaussian_hmm: selection 0.4 min; features [] params {'K': 4} baseline {'K': 4}; scoring 4.1 min
+2026-11-07T17:38:58-05:00 [py 40728]   A18 LEGACY|16 student_t_hmm: selection 1.1 min; features ['intrabar_range_log__sadj'] params {'K': 4} baseline {'K': 4}; scoring 0.0 min
+2026-11-07T17:42:58-05:00 [py 40728]   A18 LEGACY|16 hsmm: selection 4.0 min; features [] params {'K': 3} baseline {'K': 3}; scoring 0.0 min
+2026-11-07T17:43:08-05:00 [py 40728]   A18 LEGACY|16 bocpd: selection 0.1 min; features [] params {'lam': 78} baseline {'lam': 78}; scoring 0.1 min
+2026-11-07T17:43:08-05:00 [py 40728] A18 fold 18/34 LEGACY|17: start
+2026-11-07T17:43:33-05:00 [py 40728]   A18 LEGACY|17 gaussian_hmm: selection 0.4 min; features [] params {'K': 3} baseline {'K': 3}; scoring 0.0 min
+2026-11-07T17:44:08-05:00 [py 40728]   A18 LEGACY|17 student_t_hmm: selection 0.6 min; features [] params {'K': 4} baseline {'K': 4}; scoring 0.0 min
+2026-11-07T17:46:36-05:00 [py 40728]   A18 LEGACY|17 hsmm: selection 2.5 min; features [] params {'K': 2} baseline {'K': 2}; scoring 0.0 min
+2026-11-07T17:46:40-05:00 [py 40728]   A18 LEGACY|17 bocpd: selection 0.1 min; features [] params {'lam': 78} baseline {'lam': 78}; scoring 0.0 min
+2026-11-07T17:46:40-05:00 [py 40728] A18 fold 19/34 LEGACY|18: start
+2026-11-07T17:47:02-05:00 [py 40728]   A18 LEGACY|18 gaussian_hmm: selection 0.4 min; features [] params {'K': 4} baseline {'K': 4}; scoring 0.0 min
+2026-11-07T17:48:15-05:00 [py 40728]   A18 LEGACY|18 student_t_hmm: selection 1.2 min; features ['momentum5_endpoint'] params {'K': 3} baseline {'K': 4}; scoring 0.0 min
+2026-11-07T17:52:28-05:00 [py 40728]   A18 LEGACY|18 hsmm: selection 4.2 min; features [] params {'K': 3} baseline {'K': 3}; scoring 0.0 min
+2026-11-07T17:52:32-05:00 [py 40728]   A18 LEGACY|18 bocpd: selection 0.1 min; features [] params {'lam': 78} baseline {'lam': 78}; scoring 0.0 min
+2026-11-07T17:52:32-05:00 [py 40728] A18 fold 20/34 LEGACY|19: start
+2026-11-07T17:57:29-05:00 [py 40728]   A18 LEGACY|19 gaussian_hmm: selection 0.6 min; features ['rv10_partial90__sadj'] params {'K': 4} baseline {'K': 4}; scoring 4.3 min
+2026-11-07T17:58:49-05:00 [py 40728]   A18 LEGACY|19 student_t_hmm: selection 1.3 min; features [] params {'K': 4} baseline {'K': 4}; scoring 0.0 min
+2026-11-07T18:01:23-05:00 [py 40728]   A18 LEGACY|19 hsmm: selection 2.5 min; features [] params {'K': 3} baseline {'K': 3}; scoring 0.0 min
+2026-11-07T18:01:32-05:00 [py 40728]   A18 LEGACY|19 bocpd: selection 0.1 min; features [] params {'lam': 78} baseline {'lam': 78}; scoring 0.1 min
+2026-11-07T18:01:32-05:00 [py 40728] A18 fold 21/34 LEGACY|20: start
+2026-11-07T18:06:29-05:00 [py 40728]   A18 LEGACY|20 gaussian_hmm: selection 0.6 min; features [] params {'K': 4} baseline {'K': 4}; scoring 4.4 min
+2026-11-07T18:07:18-05:00 [py 40728]   A18 LEGACY|20 student_t_hmm: selection 0.8 min; features [] params {'K': 4} baseline {'K': 4}; scoring 0.0 min
+2026-11-07T18:10:45-05:00 [py 40728]   A18 LEGACY|20 hsmm: selection 3.4 min; features [] params {'K': 3} baseline {'K': 3}; scoring 0.0 min
+2026-11-07T18:10:55-05:00 [py 40728]   A18 LEGACY|20 bocpd: selection 0.1 min; features [] params {'lam': 78} baseline {'lam': 78}; scoring 0.1 min
+2026-11-07T18:10:55-05:00 [py 40728] A18 fold 22/34 LEGACY|21: start
+2026-11-07T18:15:36-05:00 [py 40728]   A18 LEGACY|21 gaussian_hmm: selection 0.4 min; features [] params {'K': 4} baseline {'K': 4}; scoring 4.3 min
+2026-11-07T18:16:39-05:00 [py 40728]   A18 LEGACY|21 student_t_hmm: selection 1.0 min; features [] params {'K': 4} baseline {'K': 4}; scoring 0.0 min
+2026-11-07T18:19:31-05:00 [py 40728]   A18 LEGACY|21 hsmm: selection 2.8 min; features [] params {'K': 3} baseline {'K': 3}; scoring 0.0 min
+2026-11-07T18:19:41-05:00 [py 40728]   A18 LEGACY|21 bocpd: selection 0.1 min; features [] params {'lam': 78} baseline {'lam': 78}; scoring 0.1 min
+2026-11-07T18:19:41-05:00 [py 40728] A18 fold 23/34 LEGACY|22: start
+2026-11-07T18:24:50-05:00 [py 40728]   A18 LEGACY|22 gaussian_hmm: selection 0.7 min; features ['rv5_strict__sadj'] params {'K': 4} baseline {'K': 4}; scoring 4.5 min
+2026-11-07T18:25:42-05:00 [py 40728]   A18 LEGACY|22 student_t_hmm: selection 0.8 min; features [] params {'K': 3} baseline {'K': 3}; scoring 0.0 min
+2026-11-07T18:29:51-05:00 [py 40728]   A18 LEGACY|22 hsmm: selection 4.1 min; features ['rv5_strict__sadj'] params {'K': 3} baseline {'K': 3}; scoring 0.0 min
+2026-11-07T18:30:01-05:00 [py 40728]   A18 LEGACY|22 bocpd: selection 0.1 min; features [] params {'lam': 78} baseline {'lam': 78}; scoring 0.1 min
+2026-11-07T18:30:01-05:00 [py 40728] A18 fold 24/34 LEGACY|23: start
+2026-11-07T18:34:45-05:00 [py 40728]   A18 LEGACY|23 gaussian_hmm: selection 0.4 min; features [] params {'K': 4} baseline {'K': 4}; scoring 4.3 min
+2026-11-07T18:35:20-05:00 [py 40728]   A18 LEGACY|23 student_t_hmm: selection 0.5 min; features [] params {'K': 3} baseline {'K': 3}; scoring 0.0 min
+2026-11-07T18:39:19-05:00 [py 40728]   A18 LEGACY|23 hsmm: selection 3.9 min; features [] params {'K': 3} baseline {'K': 3}; scoring 0.0 min
+2026-11-07T18:39:29-05:00 [py 40728]   A18 LEGACY|23 bocpd: selection 0.1 min; features [] params {'lam': 78} baseline {'lam': 78}; scoring 0.1 min
+2026-11-07T18:39:29-05:00 [py 40728] A18 fold 25/34 LEGACY|24: start
+2026-11-07T18:44:08-05:00 [py 40728]   A18 LEGACY|24 gaussian_hmm: selection 0.4 min; features [] params {'K': 4} baseline {'K': 4}; scoring 4.3 min
+2026-11-07T18:44:55-05:00 [py 40728]   A18 LEGACY|24 student_t_hmm: selection 0.7 min; features [] params {'K': 3} baseline {'K': 3}; scoring 0.0 min
+2026-11-07T18:48:16-05:00 [py 40728]   A18 LEGACY|24 hsmm: selection 3.3 min; features [] params {'K': 3} baseline {'K': 3}; scoring 0.0 min
+2026-11-07T18:48:26-05:00 [py 40728]   A18 LEGACY|24 bocpd: selection 0.1 min; features [] params {'lam': 78} baseline {'lam': 78}; scoring 0.1 min
+2026-11-07T18:48:26-05:00 [py 40728] A18 fold 26/34 LEGACY|25: start
+2026-11-07T18:53:03-05:00 [py 40728]   A18 LEGACY|25 gaussian_hmm: selection 0.3 min; features [] params {'K': 4} baseline {'K': 4}; scoring 4.3 min
+2026-11-07T18:53:46-05:00 [py 40728]   A18 LEGACY|25 student_t_hmm: selection 0.7 min; features [] params {'K': 4} baseline {'K': 4}; scoring 0.0 min
+2026-11-07T18:56:09-05:00 [py 40728]   A18 LEGACY|25 hsmm: selection 2.3 min; features [] params {'K': 3} baseline {'K': 3}; scoring 0.0 min
+2026-11-07T18:56:19-05:00 [py 40728]   A18 LEGACY|25 bocpd: selection 0.1 min; features [] params {'lam': 78} baseline {'lam': 78}; scoring 0.1 min
+2026-11-07T18:56:19-05:00 [py 40728] A18 fold 27/34 LEGACY|26: start
+2026-11-07T19:00:57-05:00 [py 40728]   A18 LEGACY|26 gaussian_hmm: selection 0.4 min; features [] params {'K': 4} baseline {'K': 4}; scoring 4.3 min
+2026-11-07T19:02:01-05:00 [py 40728]   A18 LEGACY|26 student_t_hmm: selection 1.0 min; features [] params {'K': 4} baseline {'K': 4}; scoring 0.0 min
+2026-11-07T19:06:45-05:00 [py 40728]   A18 LEGACY|26 hsmm: selection 4.7 min; features [] params {'K': 3} baseline {'K': 3}; scoring 0.0 min
+2026-11-07T19:06:56-05:00 [py 40728]   A18 LEGACY|26 bocpd: selection 0.1 min; features [] params {'lam': 78} baseline {'lam': 78}; scoring 0.1 min
+2026-11-07T19:06:56-05:00 [py 40728] A18 fold 28/34 LEGACY|27: start
+2026-11-07T19:11:38-05:00 [py 40728]   A18 LEGACY|27 gaussian_hmm: selection 0.4 min; features [] params {'K': 4} baseline {'K': 4}; scoring 4.3 min
+2026-11-07T19:12:23-05:00 [py 40728]   A18 LEGACY|27 student_t_hmm: selection 0.7 min; features [] params {'K': 4} baseline {'K': 4}; scoring 0.0 min
+2026-11-07T19:15:38-05:00 [py 40728]   A18 LEGACY|27 hsmm: selection 3.2 min; features [] params {'K': 3} baseline {'K': 3}; scoring 0.0 min
+2026-11-07T19:15:48-05:00 [py 40728]   A18 LEGACY|27 bocpd: selection 0.1 min; features [] params {'lam': 78} baseline {'lam': 78}; scoring 0.1 min
+2026-11-07T19:15:48-05:00 [py 40728] A18 fold 29/34 LEGACY|28: start
+2026-11-07T19:20:29-05:00 [py 40728]   A18 LEGACY|28 gaussian_hmm: selection 0.3 min; features [] params {'K': 4} baseline {'K': 4}; scoring 4.4 min
+2026-11-07T19:21:33-05:00 [py 40728]   A18 LEGACY|28 student_t_hmm: selection 1.0 min; features [] params {'K': 4} baseline {'K': 4}; scoring 0.0 min
+2026-11-07T19:24:15-05:00 [py 40728]   A18 LEGACY|28 hsmm: selection 2.7 min; features [] params {'K': 3} baseline {'K': 3}; scoring 0.0 min
+2026-11-07T19:24:25-05:00 [py 40728]   A18 LEGACY|28 bocpd: selection 0.1 min; features [] params {'lam': 78} baseline {'lam': 78}; scoring 0.1 min
+2026-11-07T19:24:25-05:00 [py 40728] A18 fold 30/34 LEGACY|29: start
+2026-11-07T19:28:53-05:00 [py 40728]   A18 LEGACY|29 gaussian_hmm: selection 0.2 min; features [] params {'K': 4} baseline {'K': 4}; scoring 4.3 min
+2026-11-07T19:29:25-05:00 [py 40728]   A18 LEGACY|29 student_t_hmm: selection 0.5 min; features [] params {'K': 3} baseline {'K': 3}; scoring 0.0 min
+2026-11-07T19:31:38-05:00 [py 40728]   A18 LEGACY|29 hsmm: selection 2.2 min; features [] params {'K': 3} baseline {'K': 3}; scoring 0.0 min
+2026-11-07T19:31:48-05:00 [py 40728]   A18 LEGACY|29 bocpd: selection 0.1 min; features [] params {'lam': 78} baseline {'lam': 78}; scoring 0.1 min
+2026-11-07T19:31:48-05:00 [py 40728] A18 fold 31/34 RAW|0: start
+2026-11-07T19:37:30-05:00 [py 40728]   A18 RAW|0 gaussian_hmm: selection 0.4 min; features [] params {'K': 4} baseline {'K': 4}; scoring 5.3 min
+2026-11-07T19:38:25-05:00 [py 40728]   A18 RAW|0 student_t_hmm: selection 0.9 min; features [] params {'K': 4} baseline {'K': 4}; scoring 0.0 min
+2026-11-07T19:42:58-05:00 [py 40728]   A18 RAW|0 hsmm: selection 4.5 min; features [] params {'K': 2} baseline {'K': 2}; scoring 0.0 min
+2026-11-07T19:43:08-05:00 [py 40728]   A18 RAW|0 bocpd: selection 0.1 min; features [] params {'lam': 78} baseline {'lam': 78}; scoring 0.1 min
+2026-11-07T19:43:08-05:00 [py 40728] A18 fold 32/34 RAW|1: start
+2026-11-07T19:48:54-05:00 [py 40728]   A18 RAW|1 gaussian_hmm: selection 0.5 min; features [] params {'K': 4} baseline {'K': 4}; scoring 5.3 min
+2026-11-07T19:49:40-05:00 [py 40728]   A18 RAW|1 student_t_hmm: selection 0.7 min; features [] params {'K': 4} baseline {'K': 4}; scoring 0.0 min
+2026-11-07T19:53:59-05:00 [py 40728]   A18 RAW|1 hsmm: selection 4.3 min; features [] params {'K': 3} baseline {'K': 3}; scoring 0.0 min
+2026-11-07T19:54:09-05:00 [py 40728]   A18 RAW|1 bocpd: selection 0.1 min; features [] params {'lam': 78} baseline {'lam': 78}; scoring 0.1 min
+2026-11-07T19:54:09-05:00 [py 40728] A18 fold 33/34 RAW|2: start
+2026-11-07T19:59:55-05:00 [py 40728]   A18 RAW|2 gaussian_hmm: selection 0.6 min; features [] params {'K': 4} baseline {'K': 4}; scoring 5.2 min
+2026-11-07T20:00:45-05:00 [py 40728]   A18 RAW|2 student_t_hmm: selection 0.8 min; features [] params {'K': 4} baseline {'K': 4}; scoring 0.0 min
+2026-11-07T20:05:19-05:00 [py 40728]   A18 RAW|2 hsmm: selection 4.5 min; features [] params {'K': 3} baseline {'K': 3}; scoring 0.0 min
+2026-11-07T20:05:29-05:00 [py 40728]   A18 RAW|2 bocpd: selection 0.1 min; features [] params {'lam': 78} baseline {'lam': 78}; scoring 0.1 min
+2026-11-07T20:05:29-05:00 [py 40728] A18 fold 34/34 RAW|3: start
+2026-11-07T20:11:02-05:00 [py 40728]   A18 RAW|3 gaussian_hmm: selection 0.3 min; features [] params {'K': 4} baseline {'K': 4}; scoring 5.2 min
+2026-11-07T20:12:03-05:00 [py 40728]   A18 RAW|3 student_t_hmm: selection 1.0 min; features [] params {'K': 4} baseline {'K': 4}; scoring 0.0 min
+2026-11-07T20:16:21-05:00 [py 40728]   A18 RAW|3 hsmm: selection 4.3 min; features [] params {'K': 3} baseline {'K': 3}; scoring 0.0 min
+2026-11-07T20:16:31-05:00 [py 40728]   A18 RAW|3 bocpd: selection 0.1 min; features [] params {'lam': 78} baseline {'lam': 78}; scoring 0.1 min
+2026-11-07T20:16:33-05:00 [py 40728] A22 A18 rerun DONE: confirmatory Holm gaussian p_iu 0.1279 -, student p_iu 0.8854 -, hsmm p_iu 0.1357 -, bocpd p_iu 1.0000 -
+2026-11-07T20:16:33-05:00 [py 40728] A22 phase a18 DONE in 5.20 h; no freeze, no era calibration
+2026-11-07T20:16:33-05:00 [ps1 23884] A22 a18 attempt 1: Python exited with code 0 after 312 min
+2026-11-07T20:16:33-05:00 [ps1 23884] A22 a18 DONE (results\mr2\a18\a18_results.json written)
+2026-11-07T20:16:33-05:00 [ps1 23884] A22 seeds attempt 1 of 6: starting Python
+2026-11-07T20:16:37-05:00 [py 39796] A22 phase seeds start
+2026-11-07T20:23:19-05:00 [py 39796] A22 seed 1 1/26 LEGACY|0: gaussian a 0.08603124999999995 b +0.0159, student a 0.05095833333333333 b +0.0120, hsmm a 0.06908333333333333 b +0.0258, bocpd a 0.0 b +0.0000; 6.5 min
+2026-11-07T20:30:16-05:00 [py 39796] A22 seed 1 2/26 LEGACY|1: gaussian a 0.10355729166666665 b +0.0058, student a 0.09827083333333336 b +0.0049, hsmm a 0.06838541666666664 b +0.0158, bocpd a 0.0 b +0.0000; 7.0 min
+2026-11-07T20:36:33-05:00 [py 39796] A22 seed 1 3/26 LEGACY|2: gaussian a 0.06383333333333335 b +0.0053, student a 0.06593750000000004 b +0.0055, hsmm a 0.05122916666666663 b +0.0117, bocpd a 0.0 b +0.0000; 6.3 min
+2026-11-07T20:42:00-05:00 [py 39796] A22 seed 1 4/26 LEGACY|3: gaussian a 0.14975 b +0.0059, student a 0.1335572916666667 b +0.0059, hsmm a 0.11474479166666665 b +0.0163, bocpd a 0.0 b +0.0000; 5.5 min
+2026-11-07T20:44:36-05:00 [py 39796] A22 seed 1 5/26 LEGACY|4: gaussian a None b +0.0079, student a None b +0.0000, hsmm a None b +0.0260, bocpd a None b +0.0000; 2.6 min
+2026-11-07T20:51:50-05:00 [py 39796] A22 seed 1 6/26 LEGACY|5: gaussian a 0.08512499999999995 b +0.0083, student a 0.1093541666666667 b +0.0010, hsmm a 0.06197916666666661 b +0.0186, bocpd a 0.0 b +0.0000; 7.2 min
+2026-11-07T20:58:24-05:00 [py 39796] A22 seed 1 7/26 LEGACY|6: gaussian a 0.08396874999999998 b +0.0261, student a 0.0 b +0.0000, hsmm a 0.07196354166666666 b +0.0558, bocpd a 0.0 b +0.0000; 6.6 min
+2026-11-07T21:05:36-05:00 [py 39796] A22 seed 1 8/26 LEGACY|7: gaussian a 0.0 b +0.0000, student a 0.0 b +0.0000, hsmm a 0.09781770833333336 b +0.0723, bocpd a 0.0 b +0.0000; 7.2 min
+2026-11-07T21:10:57-05:00 [py 39796] A22 seed 1 9/26 LEGACY|8: gaussian a 0.04647916666666667 b +0.0170, student a 0.0 b +0.0000, hsmm a 0.12247395833333331 b +0.0315, bocpd a 0.0 b +0.0000; 5.3 min
+2026-11-07T21:17:21-05:00 [py 39796] A22 seed 1 10/26 LEGACY|9: gaussian a 0.08637499999999998 b -0.0368, student a 0.0 b +0.0000, hsmm a 0.21154166666666677 b +0.0329, bocpd a 0.0 b +0.0000; 6.4 min
+2026-11-07T21:24:39-05:00 [py 39796] A22 seed 1 11/26 LEGACY|10: gaussian a 0.157375 b -0.0009, student a 0.14007291666666666 b -0.0055, hsmm a 0.19344270833333327 b +0.0155, bocpd a 0.0 b +0.0000; 7.3 min
+2026-11-07T21:27:16-05:00 [py 39796] A22 seed 1 12/26 LEGACY|11: gaussian a None b +0.0121, student a None b +0.0102, hsmm a None b +0.0010, bocpd a None b +0.0000; 2.6 min
+2026-11-07T21:32:54-05:00 [py 39796] A22 seed 1 13/26 LEGACY|12: gaussian a 0.23211458333333335 b +0.1779, student a 0.08382291666666666 b +0.1062, hsmm a 0.20747395833333332 b +0.1545, bocpd a 0.0 b +0.0000; 5.6 min
+2026-11-07T21:40:20-05:00 [py 39796] A22 seed 1 14/26 LEGACY|13: gaussian a 0.1477552083333334 b +0.0116, student a 0.17351562499999995 b +0.0051, hsmm a 0.041640625000000014 b +0.0303, bocpd a 0.0 b +0.0000; 7.4 min
+2026-11-07T21:45:57-05:00 [py 39796] A22 seed 1 15/26 LEGACY|14: gaussian a 0.13177604166666673 b +0.0172, student a 0.11097916666666668 b -0.0071, hsmm a 0.10450520833333332 b +0.0273, bocpd a 0.0 b +0.0000; 5.6 min
+2026-11-07T21:51:56-05:00 [py 39796] A22 seed 1 16/26 LEGACY|15: gaussian a 0.017958333333333326 b +0.0801, student a 0.0 b +0.0000, hsmm a 0.06922395833333336 b +0.0872, bocpd a 0.0 b +0.0000; 6.0 min
+2026-11-07T21:59:01-05:00 [py 39796] A22 seed 1 17/26 LEGACY|16: gaussian a 0.14385937499999996 b +0.0008, student a 0.07557291666666666 b -0.0057, hsmm a 0.19048437500000004 b +0.0087, bocpd a 0.0 b +0.0000; 7.1 min
+2026-11-07T21:59:35-05:00 [py 39796] A22 seed 1 18/26 LEGACY|17: gaussian a None b +0.0000, student a None b +0.0000, hsmm a None b -0.0146, bocpd a None b +0.0000; 0.6 min
+2026-11-07T22:02:16-05:00 [py 39796] A22 seed 1 19/26 LEGACY|18: gaussian a None b +0.0510, student a None b +0.0000, hsmm a None b +0.0486, bocpd a None b +0.0000; 2.7 min
+2026-11-07T22:08:19-05:00 [py 39796] A22 seed 1 20/26 LEGACY|19: gaussian a 0.174453125 b +0.0148, student a 0.1177604166666667 b +0.0099, hsmm a 0.097765625 b +0.0292, bocpd a 0.0 b +0.0000; 6.1 min
+2026-11-07T22:14:43-05:00 [py 39796] A22 seed 1 21/26 LEGACY|20: gaussian a 0.0002708333333333174 b +0.0021, student a 0.005630208333333338 b -0.0078, hsmm a 0.08592187500000004 b +0.0256, bocpd a 0.0 b +0.0000; 6.4 min
+2026-11-07T22:21:05-05:00 [py 39796] A22 seed 1 22/26 LEGACY|21: gaussian a 0.1686875 b +0.1194, student a 0.0 b +0.0000, hsmm a 0.06723958333333332 b +0.1111, bocpd a 0.0 b +0.0000; 6.4 min
+2026-11-07T22:27:11-05:00 [py 39796] A22 seed 1 23/26 LEGACY|22: gaussian a 0.17276562500000003 b +0.0135, student a 0.15441666666666662 b +0.0017, hsmm a 0.14268229166666666 b +0.0395, bocpd a 0.0 b +0.0000; 6.1 min
+2026-11-07T22:33:09-05:00 [py 39796] A22 seed 1 24/26 LEGACY|25: gaussian a 0.0 b +0.0000, student a 0.13619791666666672 b -0.0158, hsmm a 0.16362500000000002 b -0.0147, bocpd a 0.0 b +0.0000; 6.0 min
+2026-11-07T22:40:22-05:00 [py 39796] A22 seed 1 25/26 LEGACY|26: gaussian a 0.17247395833333334 b +0.0061, student a 0.0 b +0.0000, hsmm a 0.13526562499999994 b +0.0095, bocpd a 0.0 b +0.0000; 7.2 min
+2026-11-07T22:48:56-05:00 [py 39796] A22 seed 1 26/26 RAW|0: gaussian a 0.11304166666666669 b +0.0136, student a 0.07736979166666666 b +0.0148, hsmm a 0.08044791666666665 b +0.0146, bocpd a 0.0 b +0.0000; 8.6 min
+2026-11-07T22:55:13-05:00 [py 39796] A22 seed 2 1/26 LEGACY|0: gaussian a 0.07840625000000001 b +0.0159, student a 0.07922395833333332 b +0.0125, hsmm a 0.07463020833333339 b +0.0258, bocpd a 0.0 b +0.0000; 6.3 min
+2026-11-07T23:02:51-05:00 [py 39796] A22 seed 2 2/26 LEGACY|1: gaussian a 0.084796875 b +0.0142, student a 0.10204687500000001 b +0.0050, hsmm a 0.07613541666666673 b +0.0153, bocpd a 0.0 b +0.0000; 7.6 min
+2026-11-07T23:09:56-05:00 [py 39796] A22 seed 2 3/26 LEGACY|2: gaussian a 0.021437499999999998 b +0.0113, student a 0.0671145833333333 b +0.0065, hsmm a 0.048671874999999976 b +0.0117, bocpd a 0.0 b +0.0000; 7.1 min
+2026-11-07T23:15:29-05:00 [py 39796] A22 seed 2 4/26 LEGACY|3: gaussian a 0.18690625000000002 b +0.0058, student a 0.1586875 b +0.0059, hsmm a 0.12136979166666667 b +0.0163, bocpd a 0.0 b +0.0000; 5.6 min
+2026-11-07T23:18:07-05:00 [py 39796] A22 seed 2 5/26 LEGACY|4: gaussian a None b +0.0079, student a None b +0.0000, hsmm a None b +0.0260, bocpd a None b +0.0000; 2.6 min
+2026-11-07T23:25:53-05:00 [py 39796] A22 seed 2 6/26 LEGACY|5: gaussian a 0.10804166666666665 b +0.0083, student a 0.11140104166666673 b +0.0012, hsmm a 0.0826666666666667 b +0.0187, bocpd a 0.0 b +0.0000; 7.8 min
+2026-11-07T23:32:31-05:00 [py 39796] A22 seed 2 7/26 LEGACY|6: gaussian a 0.1140416666666667 b +0.0273, student a 0.0 b +0.0000, hsmm a 0.08647395833333332 b +0.0528, bocpd a 0.0 b +0.0000; 6.6 min
+2026-11-07T23:39:19-05:00 [py 39796] A22 seed 2 8/26 LEGACY|7: gaussian a 0.0 b +0.0000, student a 0.0 b +0.0000, hsmm a 0.11751562500000001 b +0.0724, bocpd a 0.0 b +0.0000; 6.8 min
+2026-11-07T23:44:47-05:00 [py 39796] A22 seed 2 9/26 LEGACY|8: gaussian a 0.097765625 b +0.0052, student a 0.0 b +0.0000, hsmm a 0.13726041666666666 b +0.0318, bocpd a 0.0 b +0.0000; 5.5 min
+2026-11-07T23:51:31-05:00 [py 39796] A22 seed 2 10/26 LEGACY|9: gaussian a 0.07461458333333332 b +0.0259, student a 0.0 b +0.0000, hsmm a 0.17994270833333334 b +0.0104, bocpd a 0.0 b +0.0000; 6.7 min
+2026-11-07T23:59:08-05:00 [py 39796] A22 seed 2 11/26 LEGACY|10: gaussian a 0.13323958333333336 b +0.0300, student a 0.151109375 b -0.0055, hsmm a 0.18074479166666665 b +0.0155, bocpd a 0.0 b +0.0000; 7.6 min
+2026-11-08T00:01:46-05:00 [py 39796] A22 seed 2 12/26 LEGACY|11: gaussian a None b +0.0121, student a None b +0.0104, hsmm a None b +0.0074, bocpd a None b +0.0000; 2.6 min
+2026-11-08T00:07:21-05:00 [py 39796] A22 seed 2 13/26 LEGACY|12: gaussian a 0.23564583333333333 b +0.1783, student a 0.10409895833333335 b +0.1066, hsmm a 0.19397916666666667 b +0.1545, bocpd a 0.0 b +0.0000; 5.6 min
+2026-11-08T00:14:54-05:00 [py 39796] A22 seed 2 14/26 LEGACY|13: gaussian a 0.1392239583333334 b +0.0125, student a 0.12675 b +0.0051, hsmm a 0.014822916666666658 b +0.0303, bocpd a 0.0 b +0.0000; 7.6 min
+2026-11-08T00:20:33-05:00 [py 39796] A22 seed 2 15/26 LEGACY|14: gaussian a 0.15722395833333336 b +0.0172, student a 0.14055208333333336 b -0.0071, hsmm a 0.1579583333333333 b +0.0273, bocpd a 0.0 b +0.0000; 5.6 min
+2026-11-08T00:26:40-05:00 [py 39796] A22 seed 2 16/26 LEGACY|15: gaussian a 0.035755208333333316 b +0.0803, student a 0.0 b +0.0000, hsmm a 0.10925520833333334 b +0.0872, bocpd a 0.0 b +0.0000; 6.1 min
+2026-11-08T00:33:52-05:00 [py 39796] A22 seed 2 17/26 LEGACY|16: gaussian a 0.12992708333333325 b +0.0008, student a 0.13843749999999996 b -0.0040, hsmm a 0.20404166666666662 b +0.0088, bocpd a 0.0 b +0.0000; 7.2 min
+2026-11-08T00:34:28-05:00 [py 39796] A22 seed 2 18/26 LEGACY|17: gaussian a None b +0.0000, student a None b +0.0000, hsmm a None b -0.0146, bocpd a None b +0.0000; 0.6 min
+2026-11-08T00:37:06-05:00 [py 39796] A22 seed 2 19/26 LEGACY|18: gaussian a None b +0.0225, student a None b +0.0000, hsmm a None b +0.0487, bocpd a None b +0.0000; 2.6 min
+2026-11-08T00:42:43-05:00 [py 39796] A22 seed 2 20/26 LEGACY|19: gaussian a 0.19088020833333327 b +0.0264, student a 0.13351562500000005 b +0.0099, hsmm a 0.11670312500000007 b +0.0291, bocpd a 0.0 b +0.0000; 5.6 min
+2026-11-08T00:49:10-05:00 [py 39796] A22 seed 2 21/26 LEGACY|20: gaussian a 0.0023281250000000003 b -0.0181, student a 0.004312499999999997 b -0.0078, hsmm a 0.0735208333333333 b +0.0259, bocpd a 0.0 b +0.0000; 6.5 min
+2026-11-08T00:55:27-05:00 [py 39796] A22 seed 2 22/26 LEGACY|21: gaussian a 0.1740833333333333 b +0.1312, student a 0.0 b +0.0000, hsmm a 0.08923958333333334 b +0.1177, bocpd a 0.0 b +0.0000; 6.3 min
+2026-11-08T01:01:37-05:00 [py 39796] A22 seed 2 23/26 LEGACY|22: gaussian a 0.11703124999999999 b +0.0137, student a 0.10811458333333338 b +0.0017, hsmm a 0.12968229166666667 b +0.0394, bocpd a 0.0 b +0.0000; 6.2 min
+2026-11-08T01:07:42-05:00 [py 39796] A22 seed 2 24/26 LEGACY|25: gaussian a 0.0 b +0.0000, student a 0.08782812499999999 b -0.0171, hsmm a 0.13059375 b -0.0148, bocpd a 0.0 b +0.0000; 6.1 min
+2026-11-08T01:15:14-05:00 [py 39796] A22 seed 2 25/26 LEGACY|26: gaussian a 0.13101041666666663 b -0.0022, student a 0.0 b +0.0000, hsmm a 0.11227083333333335 b +0.0094, bocpd a 0.0 b +0.0000; 7.5 min
+2026-11-08T01:23:57-05:00 [py 39796] A22 seed 2 26/26 RAW|0: gaussian a 0.07655729166666664 b +0.0169, student a 0.05438541666666666 b +0.0149, hsmm a 0.08007812500000003 b +0.0156, bocpd a 0.0 b +0.0000; 8.7 min
+2026-11-08T01:30:05-05:00 [py 39796] A22 seed 3 1/26 LEGACY|0: gaussian a 0.10303645833333336 b +0.0159, student a 0.06684895833333329 b +0.0127, hsmm a 0.06938020833333333 b +0.0256, bocpd a 0.0 b +0.0000; 6.1 min
+2026-11-08T01:37:26-05:00 [py 39796] A22 seed 3 2/26 LEGACY|1: gaussian a 0.07081250000000001 b +0.0142, student a 0.05775000000000005 b +0.0049, hsmm a 0.052062499999999984 b +0.0154, bocpd a 0.0 b +0.0000; 7.4 min
+2026-11-08T01:43:53-05:00 [py 39796] A22 seed 3 3/26 LEGACY|2: gaussian a 0.05710937499999999 b +0.0055, student a 0.04427083333333334 b +0.0065, hsmm a 0.041515625 b +0.0117, bocpd a 0.0 b +0.0000; 6.5 min
+2026-11-08T01:49:27-05:00 [py 39796] A22 seed 3 4/26 LEGACY|3: gaussian a 0.15504166666666663 b +0.0058, student a 0.13984895833333336 b +0.0059, hsmm a 0.11988541666666669 b +0.0163, bocpd a 0.0 b +0.0000; 5.6 min
+2026-11-08T01:52:12-05:00 [py 39796] A22 seed 3 5/26 LEGACY|4: gaussian a None b +0.0079, student a None b +0.0000, hsmm a None b +0.0261, bocpd a None b +0.0000; 2.8 min
+2026-11-08T01:59:29-05:00 [py 39796] A22 seed 3 6/26 LEGACY|5: gaussian a 0.04690624999999998 b +0.0083, student a 0.08158854166666671 b +0.0011, hsmm a 0.031078125000000012 b +0.0186, bocpd a 0.0 b +0.0000; 7.3 min
+2026-11-08T02:06:09-05:00 [py 39796] A22 seed 3 7/26 LEGACY|6: gaussian a 0.09693229166666667 b +0.0270, student a 0.0 b +0.0000, hsmm a 0.06941666666666667 b +0.0560, bocpd a 0.0 b +0.0000; 6.7 min
+2026-11-08T02:12:44-05:00 [py 39796] A22 seed 3 8/26 LEGACY|7: gaussian a 0.0 b +0.0000, student a 0.0 b +0.0000, hsmm a 0.09685416666666663 b +0.0724, bocpd a 0.0 b +0.0000; 6.6 min
+2026-11-08T02:18:14-05:00 [py 39796] A22 seed 3 9/26 LEGACY|8: gaussian a 0.08620833333333336 b +0.0049, student a 0.0 b +0.0000, hsmm a 0.11956770833333333 b +0.0317, bocpd a 0.0 b +0.0000; 5.5 min
+2026-11-08T02:24:36-05:00 [py 39796] A22 seed 3 10/26 LEGACY|9: gaussian a 0.10053125 b +0.0277, student a 0.0 b +0.0000, hsmm a 0.20073958333333333 b +0.0312, bocpd a 0.0 b +0.0000; 6.4 min
+2026-11-08T02:31:34-05:00 [py 39796] A22 seed 3 11/26 LEGACY|10: gaussian a 0.14656770833333338 b +0.0301, student a 0.15671875000000005 b -0.0055, hsmm a 0.19007812500000004 b +0.0155, bocpd a 0.0 b +0.0000; 7.0 min
+2026-11-08T02:34:08-05:00 [py 39796] A22 seed 3 12/26 LEGACY|11: gaussian a None b +0.0121, student a None b +0.0102, hsmm a None b +0.0005, bocpd a None b +0.0000; 2.6 min
+2026-11-08T02:39:42-05:00 [py 39796] A22 seed 3 13/26 LEGACY|12: gaussian a 0.24230208333333336 b +0.1785, student a 0.09125000000000003 b +0.1052, hsmm a 0.19952083333333331 b +0.1546, bocpd a 0.0 b +0.0000; 5.6 min
+2026-11-08T02:47:10-05:00 [py 39796] A22 seed 3 14/26 LEGACY|13: gaussian a 0.12169270833333337 b +0.0125, student a 0.1714375 b +0.0051, hsmm a -0.012385416666666704 b +0.0303, bocpd a 0.0 b +0.0000; 7.5 min
+2026-11-08T02:53:02-05:00 [py 39796] A22 seed 3 15/26 LEGACY|14: gaussian a 0.14444791666666662 b +0.0172, student a 0.14745833333333336 b -0.0072, hsmm a 0.13108854166666667 b +0.0272, bocpd a 0.0 b +0.0000; 5.9 min
+2026-11-08T02:59:06-05:00 [py 39796] A22 seed 3 16/26 LEGACY|15: gaussian a 0.04086979166666663 b +0.0755, student a 0.0 b +0.0000, hsmm a 0.15266145833333333 b +0.0868, bocpd a 0.0 b +0.0000; 6.1 min
+2026-11-08T03:06:21-05:00 [py 39796] A22 seed 3 17/26 LEGACY|16: gaussian a 0.13738020833333336 b +0.0008, student a 0.13784375000000001 b -0.0048, hsmm a 0.19671354166666669 b +0.0087, bocpd a 0.0 b +0.0000; 7.2 min
+2026-11-08T03:06:49-05:00 [py 39796] A22 seed 3 18/26 LEGACY|17: gaussian a None b +0.0000, student a None b +0.0000, hsmm a None b -0.0146, bocpd a None b +0.0000; 0.5 min
+2026-11-08T03:09:44-05:00 [py 39796] A22 seed 3 19/26 LEGACY|18: gaussian a None b +0.0225, student a None b +0.0000, hsmm a None b +0.0487, bocpd a None b +0.0000; 2.9 min
+2026-11-08T03:15:43-05:00 [py 39796] A22 seed 3 20/26 LEGACY|19: gaussian a 0.17114583333333336 b +0.0152, student a 0.11924999999999997 b +0.0099, hsmm a 0.11845312499999999 b +0.0293, bocpd a 0.0 b +0.0000; 6.0 min
+2026-11-08T03:22:01-05:00 [py 39796] A22 seed 3 21/26 LEGACY|20: gaussian a 0.02053645833333334 b +0.0074, student a 0.0030312499999999992 b -0.0078, hsmm a 0.09138541666666668 b +0.0256, bocpd a 0.0 b +0.0000; 6.3 min
+2026-11-08T03:28:08-05:00 [py 39796] A22 seed 3 22/26 LEGACY|21: gaussian a 0.2049479166666667 b +0.1207, student a 0.0 b +0.0000, hsmm a 0.08623437499999999 b +0.1099, bocpd a 0.0 b +0.0000; 6.1 min
+2026-11-08T03:34:23-05:00 [py 39796] A22 seed 3 23/26 LEGACY|22: gaussian a 0.140625 b +0.0135, student a 0.13530729166666666 b +0.0017, hsmm a 0.13907291666666668 b +0.0395, bocpd a 0.0 b +0.0000; 6.3 min
+2026-11-08T03:40:26-05:00 [py 39796] A22 seed 3 24/26 LEGACY|25: gaussian a 0.0 b +0.0000, student a 0.10969791666666667 b -0.0158, hsmm a 0.16646354166666663 b -0.0151, bocpd a 0.0 b +0.0000; 6.0 min
+2026-11-08T03:47:10-05:00 [py 39796] A22 seed 3 25/26 LEGACY|26: gaussian a 0.11960937499999995 b +0.0067, student a 0.0 b +0.0000, hsmm a 0.09292708333333337 b +0.0096, bocpd a 0.0 b +0.0000; 6.7 min
+2026-11-08T03:56:19-05:00 [py 39796] A22 seed 3 26/26 RAW|0: gaussian a 0.07084895833333332 b +0.0173, student a 0.024875000000000036 b +0.0091, hsmm a 0.05984375 b +0.0156, bocpd a 0.0 b +0.0000; 9.2 min
+2026-11-08T03:56:20-05:00 [py 39796] A22 seed 1: gaussian a +0.1063 (p 0.000) b +0.0221 holm R; student a +0.0697 (p 0.000) b +0.0052 holm -; hsmm a +0.1113 (p 0.000) b +0.0338 holm R; bocpd a +0.0000 (p 1.000) b +0.0000 holm -
+2026-11-08T03:56:20-05:00 [py 39796] A22 seed 2: gaussian a +0.1040 (p 0.000) b +0.0248 holm R; student a +0.0713 (p 0.000) b +0.0053 holm -; hsmm a +0.1144 (p 0.000) b +0.0334 holm R; bocpd a +0.0000 (p 1.000) b +0.0000 holm -
+2026-11-08T03:56:20-05:00 [py 39796] A22 seed 3: gaussian a +0.1035 (p 0.000) b +0.0249 holm R; student a +0.0676 (p 0.000) b +0.0050 holm -; hsmm a +0.1097 (p 0.000) b +0.0337 holm R; bocpd a +0.0000 (p 1.000) b +0.0000 holm -
+2026-11-08T03:56:20-05:00 [py 39796] A22 phase seeds DONE in 7.66 h; no freeze, no era calibration
+2026-11-08T03:56:20-05:00 [ps1 23884] A22 seeds attempt 1: Python exited with code 0 after 459.8 min
+2026-11-08T03:56:20-05:00 [ps1 23884] A22 seeds DONE (results\a22\seeds.json written)
+2026-11-08T03:56:20-05:00 [ps1 23884] A22 raw80 attempt 1 of 6: starting Python
+2026-11-08T03:56:21-05:00 [py 34560] A22 phase raw80 start
+2026-11-08T03:56:23-05:00 [py 34560] A22 RAW sensitivity pool (69 columns) start: RAW 0-3, 5.8 selection and scoring
+2026-11-08T04:05:28-05:00 [py 34560]   A22 raw80 RAW|0 gaussian_hmm: selection 1.7 min; features ['intrabar_range_log__sadj'] params {'K': 4} baseline {'K': 4}; scoring 7.4 min
+2026-11-08T04:09:41-05:00 [py 34560]   A22 raw80 RAW|0 student_t_hmm: selection 4.1 min; features ['intrabar_range_log__sadj'] params {'K': 3} baseline {'K': 4}; scoring 0.1 min
+2026-11-08T04:42:38-05:00 [py 34560]   A22 raw80 RAW|0 hsmm: selection 32.9 min; features ['intrabar_range_log__sadj'] params {'K': 3} baseline {'K': 3}; scoring 0.1 min
+2026-11-08T04:43:42-05:00 [py 34560]   A22 raw80 RAW|0 bocpd: selection 0.9 min; features [] params {'lam': 12} baseline {'lam': 12}; scoring 0.2 min
+2026-11-08T04:52:35-05:00 [py 34560]   A22 raw80 RAW|1 gaussian_hmm: selection 1.7 min; features ['rv10_partial90__sadj'] params {'K': 4} baseline {'K': 4}; scoring 7.2 min
+2026-11-08T04:56:18-05:00 [py 34560]   A22 raw80 RAW|1 student_t_hmm: selection 3.6 min; features ['rv10_partial90__sadj'] params {'K': 4} baseline {'K': 4}; scoring 0.1 min
+2026-11-08T05:22:42-05:00 [py 34560]   A22 raw80 RAW|1 hsmm: selection 26.3 min; features ['rv10_partial90__sadj'] params {'K': 3} baseline {'K': 3}; scoring 0.1 min
+2026-11-08T05:23:41-05:00 [py 34560]   A22 raw80 RAW|1 bocpd: selection 0.8 min; features [] params {'lam': 12} baseline {'lam': 12}; scoring 0.2 min
+2026-11-08T05:32:50-05:00 [py 34560]   A22 raw80 RAW|2 gaussian_hmm: selection 1.9 min; features ['rv10_partial90__sadj'] params {'K': 3} baseline {'K': 4}; scoring 7.3 min
+2026-11-08T05:35:03-05:00 [py 34560]   A22 raw80 RAW|2 student_t_hmm: selection 2.1 min; features [] params {'K': 4} baseline {'K': 4}; scoring 0.1 min
+2026-11-08T06:06:50-05:00 [py 34560]   A22 raw80 RAW|2 hsmm: selection 31.7 min; features ['rv10_partial90__sadj'] params {'K': 3} baseline {'K': 3}; scoring 0.1 min
+2026-11-08T06:07:51-05:00 [py 34560]   A22 raw80 RAW|2 bocpd: selection 0.9 min; features [] params {'lam': 12} baseline {'lam': 12}; scoring 0.2 min
+2026-11-08T06:17:47-05:00 [py 34560]   A22 raw80 RAW|3 gaussian_hmm: selection 2.6 min; features ['rv60_partial90__sadj', 'rv60_sampled5_exact__sadj', 'downside15_partial90__sadj'] params {'K': 4} baseline {'K': 3}; scoring 7.3 min
+2026-11-08T06:23:12-05:00 [py 34560]   A22 raw80 RAW|3 student_t_hmm: selection 5.4 min; features ['rv60_partial90__sadj', 'rv60_sampled5_exact__sadj', 'rv15_partial90__sadj'] params {'K': 4} baseline {'K': 3}; scoring 0.1 min
+2026-11-08T07:17:28-05:00 [py 34560]   A22 raw80 RAW|3 hsmm: selection 54.2 min; features ['rv60_partial90__sadj', 'rv60_sampled5_exact__sadj', 'downside15_partial90__sadj'] params {'K': 3} baseline {'K': 3}; scoring 0.1 min
+2026-11-08T07:19:49-05:00 [py 34560]   A22 raw80 RAW|3 bocpd: selection 2.1 min; features ['jump_variation_60'] params {'lam': 12} baseline {'lam': 12}; scoring 0.2 min
+2026-11-08T07:19:49-05:00 [py 34560] A22 RAW pool DONE: gaussian RAW|0: ['intrabar_range_log__sadj'] b +0.0214 (MR2 +0.0214), RAW|1: ['rv10_partial90__sadj'] b +0.0041 (MR2 +0.0041), RAW|2: ['rv10_partial90__sadj'] b +0.0816 (MR2 +0.0816), RAW|3: ['rv60_partial90__sadj', 'rv60_sampled5_exact__sadj', 'downside15_partial90__sadj'] b +0.0594 (MR2 +0.0534); student RAW|0: ['intrabar_range_log__sadj'] b +0.0104 (MR2 +0.0104), RAW|1: ['rv10_partial90__sadj'] b +0.0041 (MR2 +0.0041), RAW|2: [] b +0.0000 (MR2 +0.0000), RAW|3: ['rv60_partial90__sadj', 'rv60_sampled5_exact__sadj', 'rv15_partial90__sadj'] b +0.0212 (MR2 +0.0204); hsmm RAW|0: ['intrabar_range_log__sadj'] b +0.0144 (MR2 +0.0144), RAW|1: ['rv10_partial90__sadj'] b +0.0206 (MR2 +0.0206), RAW|2: ['rv10_partial90__sadj'] b +0.0694 (MR2 +0.0694), RAW|3: ['rv60_partial90__sadj', 'rv60_sampled5_exact__sadj', 'downside15_partial90__sadj'] b +0.0400 (MR2 +0.0327); bocpd RAW|0: [] b +0.0000 (MR2 +0.0000), RAW|1: [] b +0.0000 (MR2 +0.0000), RAW|2: [] b +0.0000 (MR2 +0.0000), RAW|3: ['jump_variation_60'] b +0.0021 (MR2 +0.0017)
+2026-11-08T07:19:49-05:00 [py 34560] A22 phase raw80 DONE in 3.39 h; no freeze, no era calibration
+2026-11-08T07:19:49-05:00 [ps1 23884] A22 raw80 attempt 1: Python exited with code 0 after 203.5 min
+2026-11-08T07:19:49-05:00 [ps1 23884] A22 raw80 DONE (results\a22\raw80.json written)
+2026-11-08T07:19:49-05:00 [ps1 23884] A22 grids attempt 1 of 6: starting Python
+2026-11-08T07:19:50-05:00 [py 15072] A22 phase grids start
+2026-11-08T07:26:20-05:00 [py 15072] A22 grid 5 min 1/26 LEGACY|0: gaussian a 0.1077395833333333 b 0.01908959287135739, student a 0.10811979166666669 b 0.009842550739569522, hsmm a 0.07768229166666668 b 0.025631102183441667, bocpd a 0.0 b 0.0; 6.5 min
+2026-11-08T07:33:45-05:00 [py 15072] A22 grid 5 min 2/26 LEGACY|1: gaussian a 0.08530729166666663 b 0.01411308091248717, student a 0.07743750000000003 b 0.004930642734024493, hsmm a 0.048500000000000015 b 0.014525624144168692, bocpd a 0.0 b 0.0; 7.4 min
+2026-11-08T07:41:13-05:00 [py 15072] A22 grid 5 min 3/26 LEGACY|2: gaussian a 0.07664583333333336 b 0.00477287880573346, student a 0.04751041666666664 b 0.0046335202415957455, hsmm a 0.03142187499999999 b 0.011197096475733526, bocpd a 0.0 b 0.0; 7.5 min
+2026-11-08T07:48:39-05:00 [py 15072] A22 grid 5 min 4/26 LEGACY|3: gaussian a 0.16378645833333333 b 0.015485635862230701, student a 0.18368750000000003 b 0.006889638930307057, hsmm a 0.14306249999999995 b 0.01619012771932779, bocpd a 0.0 b 0.0; 7.4 min
+2026-11-08T07:51:51-05:00 [py 15072] A22 grid 5 min 5/26 LEGACY|4: gaussian a None b 0.032718896364233224, student a None b 0.01417577239058107, hsmm a None b 0.02633604010641133, bocpd a None b 0.0; 3.2 min
+2026-11-08T07:58:34-05:00 [py 15072] A22 grid 5 min 6/26 LEGACY|5: gaussian a 0.14477083333333332 b 0.014601572579170219, student a 0.08715104166666668 b 0.0010812369396460408, hsmm a 0.059546875 b 0.01834207719173922, bocpd a 0.0 b 0.0; 6.7 min
+2026-11-08T08:06:01-05:00 [py 15072] A22 grid 5 min 7/26 LEGACY|6: gaussian a 0.12710416666666668 b 0.07402898422446025, student a 0.117890625 b 0.03569859061002062, hsmm a 0.10586979166666668 b 0.05301081868351459, bocpd a 0.0 b 0.0; 7.4 min
+2026-11-08T08:13:06-05:00 [py 15072] A22 grid 5 min 8/26 LEGACY|7: gaussian a 0.04476041666666669 b 0.10391383437381241, student a 0.07349479166666667 b 0.019480929444404216, hsmm a 0.102515625 b 0.07244474757299407, bocpd a 0.0 b 0.0; 7.1 min
+2026-11-08T08:18:37-05:00 [py 15072] A22 grid 5 min 9/26 LEGACY|8: gaussian a 0.09327604166666667 b 0.005225727785004991, student a 0.056046874999999996 b -0.0017811950393204767, hsmm a 0.12627083333333336 b 0.03186151966754158, bocpd a 0.0 b 0.0; 5.5 min
+2026-11-08T08:24:54-05:00 [py 15072] A22 grid 5 min 10/26 LEGACY|9: gaussian a 0.2017916666666667 b 0.04998807409162481, student a 0.19175 b -0.01260074600855593, hsmm a 0.17934374999999997 b 0.03158806340258907, bocpd a 0.0 b 0.0; 6.3 min
+2026-11-08T08:31:51-05:00 [py 15072] A22 grid 5 min 11/26 LEGACY|10: gaussian a 0.14297916666666668 b 0.011445108027787754, student a 0.16001041666666668 b -0.006290729865210232, hsmm a 0.19671874999999997 b 0.016921798284589673, bocpd a 0.0 b 0.0; 7.0 min
+2026-11-08T08:33:50-05:00 [py 15072] A22 grid 5 min 12/26 LEGACY|11: gaussian a None b 0.009398194247068864, student a None b -0.0015501554190637534, hsmm a None b 0.023240451608908225, bocpd a None b 0.0; 2.0 min
+2026-11-08T08:39:45-05:00 [py 15072] A22 grid 5 min 13/26 LEGACY|12: gaussian a 0.2750625 b 0.17748836102703253, student a 0.21605729166666665 b 0.0796664010980912, hsmm a 0.22902604166666668 b 0.1623156122551228, bocpd a 0.0 b 0.0; 5.9 min
+2026-11-08T08:46:53-05:00 [py 15072] A22 grid 5 min 14/26 LEGACY|13: gaussian a 0.11853124999999995 b 0.012546268812829636, student a 0.13543229166666662 b 0.006058193976799825, hsmm a -0.015546875000000016 b 0.03038884297934627, bocpd a 0.0 b 0.0; 7.1 min
+2026-11-08T08:53:04-05:00 [py 15072] A22 grid 5 min 15/26 LEGACY|14: gaussian a 0.15209374999999994 b 0.017344831579315684, student a 0.11772395833333334 b -0.007220985626073262, hsmm a 0.11938541666666669 b 0.026303752078237735, bocpd a 0.0 b 0.0; 6.2 min
+2026-11-08T08:59:09-05:00 [py 15072] A22 grid 5 min 16/26 LEGACY|15: gaussian a 0.04461979166666667 b 0.07776256585122215, student a 0.09931770833333328 b 0.018799405381678735, hsmm a 0.10240104166666666 b 0.0872226454371729, bocpd a 0.0 b 0.0; 6.1 min
+2026-11-08T09:06:05-05:00 [py 15072] A22 grid 5 min 17/26 LEGACY|16: gaussian a 0.12589583333333337 b -0.0037938261889290947, student a 0.11340624999999996 b -0.010025751172005659, hsmm a 0.16491145833333337 b 0.008748188348497304, bocpd a 0.0 b 0.0; 6.9 min
+2026-11-08T09:07:34-05:00 [py 15072] A22 grid 5 min 18/26 LEGACY|17: gaussian a None b -0.007863672819402312, student a None b -0.020126956960389297, hsmm a None b -0.008899863740503555, bocpd a None b 0.0; 1.5 min
+2026-11-08T09:10:10-05:00 [py 15072] A22 grid 5 min 19/26 LEGACY|18: gaussian a None b 0.055799946066601575, student a None b 0.008833114545756388, hsmm a None b 0.04880794161032603, bocpd a None b 0.0; 2.6 min
+2026-11-08T09:16:40-05:00 [py 15072] A22 grid 5 min 20/26 LEGACY|19: gaussian a 0.17 b 0.017435731228549134, student a 0.16278645833333327 b -0.0018255523258233763, hsmm a 0.15967187499999994 b 0.025240107371321374, bocpd a 0.0 b 0.0; 6.5 min
+2026-11-08T09:22:59-05:00 [py 15072] A22 grid 5 min 21/26 LEGACY|20: gaussian a 0.23169270833333333 b 0.004596564372681883, student a 0.2406614583333333 b -0.0002111572869574474, hsmm a 0.11014583333333328 b 0.03468990760430252, bocpd a 0.0 b 0.0; 6.3 min
+2026-11-08T09:29:15-05:00 [py 15072] A22 grid 5 min 22/26 LEGACY|21: gaussian a 0.14454166666666668 b 0.12218666662359917, student a 0.159796875 b 0.007806121786856135, hsmm a 0.09017187500000005 b 0.10089333476757778, bocpd a 0.0 b 0.0; 6.3 min
+2026-11-08T09:35:18-05:00 [py 15072] A22 grid 5 min 23/26 LEGACY|22: gaussian a 0.1270520833333333 b 0.013651285024264687, student a 0.12565624999999997 b 0.002276340583623193, hsmm a 0.14297916666666666 b 0.03958561081176604, bocpd a 0.0 b 0.0; 6.1 min
+2026-11-08T09:41:17-05:00 [py 15072] A22 grid 5 min 24/26 LEGACY|25: gaussian a 0.1490729166666667 b -0.006522802290214014, student a 0.15771354166666668 b -0.035635287204996036, hsmm a 0.134296875 b -0.012722985601439002, bocpd a 0.0 b 0.0; 6.0 min
+2026-11-08T09:48:40-05:00 [py 15072] A22 grid 5 min 25/26 LEGACY|26: gaussian a 0.18805729166666663 b 0.005017910946332499, student a 0.12583854166666664 b -0.0029728837774883055, hsmm a 0.1825677083333333 b 0.003788805483234542, bocpd a 0.0 b 0.0; 7.4 min
+2026-11-08T09:57:02-05:00 [py 15072] A22 grid 5 min 26/26 RAW|0: gaussian a 0.12007291666666672 b 0.027275368009287176, student a 0.13433854166666667 b 0.02211121766521687, hsmm a 0.16661979166666668 b 0.02473702000456432, bocpd a 0.0 b 0.0; 8.4 min
+2026-11-08T10:02:06-05:00 [py 15072] A22 grid 15 min 1/26 LEGACY|0: gaussian a 0.039640625 b 0.035729599856209326, student a 0.08384895833333333 b 0.03426038599638834, hsmm a 0.07942708333333334 b 0.03291258664520086, bocpd a 0.0 b 0.0; 5.1 min
+2026-11-08T10:06:38-05:00 [py 15072] A22 grid 15 min 2/26 LEGACY|1: gaussian a 0.12010416666666665 b 0.024382238717929078, student a 0.12964062499999998 b 0.016422424976467176, hsmm a 0.1471822916666667 b 0.019427065213250855, bocpd a 0.0 b 0.0; 4.5 min
+2026-11-08T10:11:29-05:00 [py 15072] A22 grid 15 min 3/26 LEGACY|2: gaussian a 0.15419791666666666 b 0.012204333473942286, student a 0.16241666666666665 b 0.013071009510454618, hsmm a 0.14258854166666668 b 0.015050623034329774, bocpd a 0.0 b 0.0; 4.8 min
+2026-11-08T10:16:17-05:00 [py 15072] A22 grid 15 min 4/26 LEGACY|3: gaussian a 0.09989583333333331 b 0.015553786736976383, student a 0.09764583333333332 b 0.01309680533506452, hsmm a 0.09841666666666665 b 0.01938697530658559, bocpd a 0.0 b 0.0; 4.8 min
+2026-11-08T10:16:48-05:00 [py 15072] A22 grid 15 min 5/26 LEGACY|4: gaussian a None b 0.03177525112347451, student a None b 0.03448438455886668, hsmm a None b 0.02927141444402967, bocpd a None b 0.0; 0.5 min
+2026-11-08T10:21:35-05:00 [py 15072] A22 grid 15 min 6/26 LEGACY|5: gaussian a 0.15186979166666667 b 0.02484754146686191, student a 0.16522916666666668 b 0.01799099085619746, hsmm a 0.170265625 b 0.022273528098568585, bocpd a 0.0 b 0.0; 4.8 min
+2026-11-08T10:26:48-05:00 [py 15072] A22 grid 15 min 7/26 LEGACY|6: gaussian a 0.09621354166666665 b 0.0798768929987903, student a 0.10533854166666667 b 0.06542121006332352, hsmm a 0.10151562500000001 b 0.0761062068203906, bocpd a 0.0 b 0.0; 5.2 min
+2026-11-08T10:31:31-05:00 [py 15072] A22 grid 15 min 8/26 LEGACY|7: gaussian a 0.17259374999999996 b 0.08120038106245625, student a 0.17481250000000004 b 0.0863595828883742, hsmm a 0.1376458333333333 b 0.11923862603586904, bocpd a 0.0 b 0.0; 4.7 min
+2026-11-08T10:36:09-05:00 [py 15072] A22 grid 15 min 9/26 LEGACY|8: gaussian a 0.07217187500000001 b 0.05112783487417058, student a 0.069109375 b 0.051316308288834434, hsmm a 0.09079687499999999 b 0.058639158130401964, bocpd a 0.0 b 0.0; 4.6 min
+2026-11-08T10:41:01-05:00 [py 15072] A22 grid 15 min 10/26 LEGACY|9: gaussian a 0.16534895833333332 b 0.09405410042032442, student a 0.14756250000000004 b 0.09561402339254937, hsmm a 0.11688020833333332 b 0.09129642357323592, bocpd a 0.0 b 0.0; 4.9 min
+2026-11-08T10:45:41-05:00 [py 15072] A22 grid 15 min 11/26 LEGACY|10: gaussian a 0.12771354166666665 b 0.05029770623557078, student a 0.07317708333333334 b 0.04909309461989997, hsmm a 0.10617708333333332 b 0.0646784996211473, bocpd a 0.0 b 0.0; 4.7 min
+2026-11-08T10:46:05-05:00 [py 15072] A22 grid 15 min 12/26 LEGACY|11: gaussian a None b 0.03696645018901715, student a None b 0.035287495699924176, hsmm a None b 0.039183491217126554, bocpd a None b 0.0; 0.4 min
+2026-11-08T10:51:05-05:00 [py 15072] A22 grid 15 min 13/26 LEGACY|12: gaussian a 0.11698437499999999 b 0.19510206464309493, student a 0.105828125 b 0.1916046087909679, hsmm a 0.11581770833333332 b 0.18493264723603853, bocpd a 0.0 b 0.0; 5.0 min
+2026-11-08T10:55:54-05:00 [py 15072] A22 grid 15 min 14/26 LEGACY|13: gaussian a 0.120328125 b 0.04014456925264359, student a 0.12169270833333334 b 0.03948132344345287, hsmm a 0.11575520833333332 b 0.04185268010266746, bocpd a 0.0 b 0.0; 4.8 min
+2026-11-08T11:00:29-05:00 [py 15072] A22 grid 15 min 15/26 LEGACY|14: gaussian a 0.1326875 b 0.04175419158716229, student a 0.12114062499999999 b 0.04393700490916452, hsmm a 0.17960416666666665 b 0.05052919948650514, bocpd a 0.0 b 0.0; 4.6 min
+2026-11-08T11:05:15-05:00 [py 15072] A22 grid 15 min 16/26 LEGACY|15: gaussian a 0.06729166666666667 b 0.10378059240012077, student a 0.10974479166666669 b 0.11953218721958342, hsmm a 0.10947916666666668 b 0.12519017186438425, bocpd a 0.0 b 0.0; 4.8 min
+2026-11-08T11:09:52-05:00 [py 15072] A22 grid 15 min 17/26 LEGACY|16: gaussian a 0.11933333333333333 b 0.035710283313711844, student a 0.07639583333333334 b 0.03064685482636398, hsmm a 0.09491666666666666 b 0.046573643035510315, bocpd a 0.0 b 0.0; 4.6 min
+2026-11-08T11:10:25-05:00 [py 15072] A22 grid 15 min 18/26 LEGACY|17: gaussian a None b 0.007711995569844643, student a None b 0.014885702936536266, hsmm a None b -0.0004616148974397327, bocpd a None b 0.0; 0.6 min
+2026-11-08T11:10:55-05:00 [py 15072] A22 grid 15 min 19/26 LEGACY|18: gaussian a None b 0.05510832822876385, student a None b 0.055226270449009435, hsmm a None b 0.07988329962035981, bocpd a None b 0.0; 0.5 min
+2026-11-08T11:15:40-05:00 [py 15072] A22 grid 15 min 20/26 LEGACY|19: gaussian a 0.17566666666666664 b 0.03529261696067021, student a 0.13959374999999996 b 0.033078479126229465, hsmm a 0.17543229166666668 b 0.032869313452473514, bocpd a 0.0 b 0.0; 4.8 min
+2026-11-08T11:20:28-05:00 [py 15072] A22 grid 15 min 21/26 LEGACY|20: gaussian a 0.08603645833333334 b 0.06363595363541236, student a 0.09271354166666666 b 0.05320319479734806, hsmm a 0.07468229166666666 b 0.07331553275850591, bocpd a 0.0 b 0.0; 4.8 min
+2026-11-08T11:25:18-05:00 [py 15072] A22 grid 15 min 22/26 LEGACY|21: gaussian a 0.10827604166666666 b 0.16443409834663364, student a 0.0919375 b 0.08678115081239951, hsmm a 0.08426041666666668 b 0.13389760977511145, bocpd a 0.0 b 0.0; 4.8 min
+2026-11-08T11:30:08-05:00 [py 15072] A22 grid 15 min 23/26 LEGACY|22: gaussian a 0.09077604166666667 b 0.0471805202389981, student a 0.08077604166666666 b 0.04819540113760579, hsmm a 0.12321354166666669 b 0.054128217775690934, bocpd a 0.0 b 0.0; 4.8 min
+2026-11-08T11:34:50-05:00 [py 15072] A22 grid 15 min 24/26 LEGACY|25: gaussian a 0.14878125000000003 b 0.036275527076517794, student a 0.09257812499999998 b 0.021608729092861323, hsmm a 0.0849375 b 0.042584008971499665, bocpd a 0.0 b 0.0; 4.7 min
+2026-11-08T11:39:50-05:00 [py 15072] A22 grid 15 min 25/26 LEGACY|26: gaussian a 0.1214375 b 0.02861069801283242, student a 0.07205729166666666 b 0.02181351931879738, hsmm a 0.13351041666666666 b 0.02092812683559528, bocpd a 0.0 b 0.0; 5.0 min
+2026-11-08T11:45:37-05:00 [py 15072] A22 grid 15 min 26/26 RAW|0: gaussian a 0.15477083333333336 b 0.05363709733629399, student a 0.11952083333333331 b 0.05549030224483037, hsmm a 0.1089375 b 0.047462613403268655, bocpd a 0.0 b 0.0; 5.8 min
+2026-11-08T11:45:38-05:00 [py 15072] A22 grid 5 min (5 = reference, 15): gaussian a +0.1379 (p 0.000) b +0.0334 (p 0.000); student a +0.1314 (p 0.000) b +0.0055 (p 0.068); hsmm a +0.1208 (p 0.000) b +0.0351 (p 0.000); bocpd a +0.0000 (p 1.000) b +0.0000 (p 1.000)
+2026-11-08T11:45:38-05:00 [py 15072] A22 grid 15 min (5 = reference, 15): gaussian a +0.1201 (p 0.000) b +0.0556 (p 0.000); student a +0.1106 (p 0.000) b +0.0511 (p 0.000); hsmm a +0.1178 (p 0.000) b +0.0585 (p 0.000); bocpd a +0.0000 (p 1.000) b +0.0000 (p 1.000)
+2026-11-08T11:45:38-05:00 [py 15072] A22 phase grids DONE in 4.43 h; no freeze, no era calibration
+2026-11-08T11:45:38-05:00 [ps1 23884] A22 grids attempt 1: Python exited with code 0 after 265.8 min
+2026-11-08T11:45:38-05:00 [ps1 23884] A22 grids DONE (results\a22\grids.json written)
+2026-11-08T11:45:38-05:00 [ps1 23884] A22 grid1 attempt 1 of 6: starting Python
+2026-11-08T11:45:41-05:00 [py 37360] A22 phase grid1 start
+2026-11-08T11:55:13-05:00 [py 37360] A22 grid 1 min 1/26 LEGACY|0: gaussian a -0.0055677083333333325 b 0.03129811408120464, student a -0.09129687500000003 b -0.0005901672672027347, bocpd a 0.0 b 0.0; 9.4 min
+2026-11-08T12:03:44-05:00 [py 37360] A22 grid 1 min 2/26 LEGACY|1: gaussian a 0.0059010416666666725 b 0.01815598858117229, student a 0.061119791666666645 b -0.003226417153995742, bocpd a 0.0 b 0.0; 8.5 min
+2026-11-08T12:12:12-05:00 [py 37360] A22 grid 1 min 3/26 LEGACY|2: gaussian a -0.09619791666666667 b 0.01693616144994925, student a 0.054203125000000005 b 0.0009757693058094763, bocpd a 0.0 b 0.0; 8.5 min
+2026-11-08T12:21:10-05:00 [py 37360] A22 grid 1 min 4/26 LEGACY|3: gaussian a 0.023041666666666655 b 0.021660972132831302, student a 0.20463541666666668 b 0.02584756036670144, bocpd a 0.0 b 0.0; 9.0 min
+2026-11-08T12:23:48-05:00 [py 37360] A22 grid 1 min 5/26 LEGACY|4: gaussian a None b 0.04067252334614069, student a None b 0.047834779327017046, bocpd a None b 0.0; 2.6 min
+2026-11-08T12:33:51-05:00 [py 37360] A22 grid 1 min 6/26 LEGACY|5: gaussian a -0.12846874999999996 b 0.02667420640681792, student a 0.11020833333333332 b 0.0296157400925329, bocpd a 0.0 b 0.0; 10.1 min
+2026-11-08T12:46:29-05:00 [py 37360] A22 grid 1 min 7/26 LEGACY|6: gaussian a -0.109375 b 0.07534119461229755, student a 0.118703125 b 0.056952519406375635, bocpd a 0.0 b 0.0; 12.6 min
+2026-11-08T13:07:27-05:00 [py 37360] A22 grid 1 min 8/26 LEGACY|7: gaussian a -0.03841145833333332 b 0.10046962612070526, student a 0.11871354166666664 b 0.07407962594637935, bocpd a 0.0 b 0.0; 21.0 min
+2026-11-08T13:15:57-05:00 [py 37360] A22 grid 1 min 9/26 LEGACY|8: gaussian a 0.008536458333333302 b 0.005049623075692122, student a 0.1069583333333333 b -0.021928715604971977, bocpd a 0.0 b 0.0; 8.5 min
+2026-11-08T13:24:33-05:00 [py 37360] A22 grid 1 min 10/26 LEGACY|9: gaussian a 0.014911458333333322 b -0.01353012232010875, student a -0.13472916666666668 b -0.055853488506755755, bocpd a 0.0 b 0.0; 8.6 min
+2026-11-08T13:33:09-05:00 [py 37360] A22 grid 1 min 11/26 LEGACY|10: gaussian a 0.024963541666666617 b -0.01441275901971234, student a 0.012145833333333328 b -0.031638771113196434, bocpd a 0.0 b 0.0; 8.6 min
+2026-11-08T13:35:58-05:00 [py 37360] A22 grid 1 min 12/26 LEGACY|11: gaussian a None b -0.014765504731019646, student a None b -0.038776701964087334, bocpd a None b 0.0; 2.8 min
+2026-11-08T13:44:48-05:00 [py 37360] A22 grid 1 min 13/26 LEGACY|12: gaussian a -0.005244791666666637 b 0.15400414515947736, student a 0.04374479166666667 b 0.048077740967249816, bocpd a 0.0 b 0.0; 8.8 min
+2026-11-08T13:53:06-05:00 [py 37360] A22 grid 1 min 14/26 LEGACY|13: gaussian a -0.15494791666666669 b 0.020002408522630244, student a -0.006645833333333295 b -0.011319420984682443, bocpd a 0.0 b 0.0; 8.3 min
+2026-11-08T14:00:55-05:00 [py 37360] A22 grid 1 min 15/26 LEGACY|14: gaussian a -0.037677083333333306 b 0.000994984751607475, student a 0.04941145833333335 b -0.031573411398549134, bocpd a 0.0 b 0.0; 7.8 min
+2026-11-08T14:10:57-05:00 [py 37360] A22 grid 1 min 16/26 LEGACY|15: gaussian a -0.1271145833333333 b 0.1310054930417579, student a -0.023635416666666673 b -0.01627282901379734, bocpd a 0.0 b 0.0; 10.0 min
+2026-11-08T14:21:13-05:00 [py 37360] A22 grid 1 min 17/26 LEGACY|16: gaussian a -0.11789583333333331 b -0.002966561746187535, student a -0.01879687499999999 b -0.028973431196072624, bocpd a 0.0 b 0.0; 10.3 min
+2026-11-08T14:25:00-05:00 [py 37360] A22 grid 1 min 18/26 LEGACY|17: gaussian a None b -0.01902149499098016, student a None b -0.031197111934395783, bocpd a None b 0.0; 3.8 min
+2026-11-08T14:29:59-05:00 [py 37360] A22 grid 1 min 19/26 LEGACY|18: gaussian a None b 0.06684705500578014, student a None b 0.0156599843479778, bocpd a None b 0.0; 5.0 min
+2026-11-08T14:39:50-05:00 [py 37360] A22 grid 1 min 20/26 LEGACY|19: gaussian a 0.019104166666666672 b 0.0440509027015189, student a -0.05370312500000002 b -0.020113409537946547, bocpd a 0.0 b 0.0; 9.9 min
+2026-11-08T14:49:03-05:00 [py 37360] A22 grid 1 min 21/26 LEGACY|20: gaussian a -0.16604687499999998 b 0.0438448732405029, student a 0.025052083333333336 b -0.020385668684664043, bocpd a 0.0 b 0.0; 9.2 min
+2026-11-08T15:03:10-05:00 [py 37360] A22 grid 1 min 22/26 LEGACY|21: gaussian a 0.01833333333333334 b 0.12937823523183706, student a 0.012083333333333363 b -0.020599565087930094, bocpd a 0.0 b 0.0; 14.1 min
+2026-11-08T15:11:40-05:00 [py 37360] A22 grid 1 min 23/26 LEGACY|22: gaussian a -0.09067187500000001 b 0.023348707279843173, student a -0.10782291666666667 b -0.021574751359036998, bocpd a 0.0 b 0.0; 8.5 min
+2026-11-08T15:19:47-05:00 [py 37360] A22 grid 1 min 24/26 LEGACY|25: gaussian a -0.04162499999999997 b -0.020870793444565827, student a -0.02486979166666667 b -0.058416740472415074, bocpd a 0.0 b 0.0; 8.1 min
+2026-11-08T15:28:26-05:00 [py 37360] A22 grid 1 min 25/26 LEGACY|26: gaussian a -0.02735416666666665 b -0.016831547970904776, student a 0.004322916666666704 b -0.04559042653874676, bocpd a 0.0 b 0.0; 8.7 min
+2026-11-08T15:37:42-05:00 [py 37360] A22 grid 1 min 26/26 RAW|0: gaussian a -0.1781666666666667 b -0.01470338592680373, student a -0.09540104166666666 b -0.026937379005281148, bocpd a 0.0 b 0.0; 9.3 min
+2026-11-08T15:37:42-05:00 [py 37360] A22 grid 1 min (1-min, no HSMM): gaussian a -0.0550 (p 1.000) b +0.0320 (p 0.000); student a +0.0166 (p 0.310) b -0.0072 (p 0.802); bocpd a +0.0000 (p 1.000) b +0.0000 (p 1.000)
+2026-11-08T15:37:42-05:00 [py 37360] A22 phase grid1 DONE in 3.87 h; no freeze, no era calibration
+2026-11-08T15:37:43-05:00 [ps1 23884] A22 grid1 attempt 1: Python exited with code 0 after 232.1 min
+2026-11-08T15:37:43-05:00 [ps1 23884] A22 grid1 DONE (results\a22\grids.json written)
+2026-11-08T15:37:43-05:00 [ps1 23884] A22 grid1_hsmm attempt 1 of 6: starting Python
+2026-11-08T15:37:44-05:00 [py 11656] A22 phase grid1_hsmm start
+2026-11-08T15:37:44-05:00 [py 11656] A22 1-min HSMM NOT RUN: projected 47.7 h > 24.0 h (rule 3h)
+2026-11-08T15:37:44-05:00 [py 11656] A22 phase grid1_hsmm DONE in 0.00 h; no freeze, no era calibration
+2026-11-08T15:37:44-05:00 [ps1 23884] A22 grid1_hsmm attempt 1: Python exited with code 0 after 0 min
+2026-11-08T15:37:44-05:00 [ps1 23884] A22 grid1_hsmm DONE (results\a22\grid1_hsmm.json written)
+2026-11-08T15:37:44-05:00 [ps1 23884] === A22 DONE (all phases). No 5.12 freeze, no era calibration.

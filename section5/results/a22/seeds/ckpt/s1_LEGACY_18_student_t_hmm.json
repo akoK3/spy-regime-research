@@ -1,0 +1,23 @@
+{
+ "seed": 1,
+ "fold": "LEGACY|18",
+ "family": "student_t_hmm",
+ "score": {
+  "a": null,
+  "a_skipped": "7 < 8 stable test days",
+  "a_failed": null,
+  "b": 0.0,
+  "b_skipped": null,
+  "b_n": 7550,
+  "b_dm_stat": 0.0,
+  "val_qlike": 0.2146448179365982,
+  "flagged_fit": false
+ },
+ "tag": {
+  "a22_script": "b65494aa1b7cc9fbbb6c7ba3136e9552484a8a82b06c269d33c72477021ee1ba",
+  "a22": "3ce7b683a1369659b14b22c068bcc25c6a7b14a7a6b15758946c7050f8a15217",
+  "code_version": "a0323ed24d68e896",
+  "protocol": "15be2570a592279e71f3f76fbe62113b4c3263a9d9e4715eaf4d61294eaf4df3",
+  "phase": "seeds"
+ }
+}
