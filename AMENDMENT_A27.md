@@ -1,6 +1,6 @@
 # Amendment A27 (confirmation-count sensitivity: 1, 2, 3, 4 consecutive updates; thresholds recalibrated to 0.2 alarms per session; saved models, no refit; main rule stays 3)
 
-Dated 2026-11-09T17:00:00+00:00 UTC (2026-11-09T12:00:00-05:00 New York). Status: DRAFT, pending the user's approval; becomes ADOPTED only when the user approves and it is committed with its hash sidecar, its ledger row and the status line changed. Written before any code it governs and before any of its results exist. Decided by the user on 2026-11-09. Disclosed: MR2, its A17-style phase, D7 (A21), Step 2, all A22 results (including the grid results and the M3 note on the update-counted event rule), A24, the O9 audit and the first A25 folds have been seen; A23 has not produced results. Facts only.
+Dated 2026-11-09T17:00:00+00:00 UTC (2026-11-09T12:00:00-05:00 New York). Status: ADOPTED 2026-11-09T19:22:10+00:00 UTC (user approval 2026-11-09: "A27 and A28 approved"; the final draft, sha256 79cd385a..., is unchanged apart from this status line). Written before any code it governs and before any of its results exist. Decided by the user on 2026-11-09. Disclosed: MR2, its A17-style phase, D7 (A21), Step 2, all A22 results (including the grid results and the M3 note on the update-counted event rule), A24, the O9 audit and the first A25 folds have been seen; A23 has not produced results. Facts only.
 
 ## Evidence cited
 
