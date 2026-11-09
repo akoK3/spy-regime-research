@@ -1,6 +1,6 @@
 # Amendment A25 (O9 finding M1: the A22 LEGACY delay scored by the data time each alarm used)
 
-Dated 2026-11-08T23:10:00+00:00 UTC (2026-11-08T18:10:00-05:00 New York). Status: DRAFT, pending the user's approval; becomes ADOPTED only when the user approves and it is committed with its hash sidecar and the status line changed. Written before any code it governs and before any of its results exist. Decided by the user after O9 (finding M1). Disclosed: the A22 delay results (H1(a) and H1(c) at +0/+5/+10 min) have been seen. Facts only.
+Dated 2026-11-08T23:10:00+00:00 UTC (2026-11-08T18:10:00-05:00 New York). Status: ADOPTED 2026-11-09T16:11:26+00:00 UTC (user approval given in another session, confirmed in this one: "A25 and A26 were approved in another session"; the draft, sidecar d11818ca..., committed in f03a505, is unchanged apart from this status line). Written before any code it governs and before any of its results exist. Decided by the user after O9 (finding M1). Disclosed: the A22 delay results (H1(a) and H1(c) at +0/+5/+10 min) have been seen. Facts only.
 
 ## Evidence cited
 
