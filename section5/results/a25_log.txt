@@ -1,0 +1,4 @@
+2026-11-09T11:13:11-05:00 [py 4320] A25 preflight: guards ok, A25 ADOPTED and sidecar ok; 5 unit tests pass
+2026-11-09T11:18:46-05:00 [py 4320] A25 delay 1/1 LEGACY|29: delta 0 reproduced exactly; H1(a) 0/5/10 gaussian +0.098/+0.099/+0.099, student +0.126/+0.128/+0.127, hsmm +0.114/+0.115/+0.116, bocpd +0.000/+0.000/+0.000; 5.6 min
+2026-11-09T11:18:46-05:00 [py 4320] A25 preflight PASSED: LEGACY|29 delta 0 reproduces MR2 exactly; 5.6 min
+2026-11-09T11:18:55-05:00 [py 41028] A25 H1(c) delta 0 reproduces MR2 exactly; diff (feature - baseline) at 0/5/10: gaussian +0.245/+0.276/+0.286; student +0.214/+0.224/+0.224; hsmm +0.265/+0.265/+0.276; bocpd +0.000/+0.000/+0.000

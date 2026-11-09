@@ -32,6 +32,7 @@ REGISTRY = {
     "s5_a22.py": "POST_MAIN_RUN", "s5_tests_a22.py": "LIBRARY",      # A22: 5.11 power, 5.10 robustness on MR2, A18 rerun on A20 inputs (preflight on RAW 3 and LEGACY 29 only)
     "s5_a23.py": "POST_MAIN_RUN", "s5_tests_a23.py": "LIBRARY",      # A23: EXPLORATORY combined rv10_partial90__sadj + relative_volume20 model (preflight on RAW 3 and LEGACY 29 only)
     "s5_a24_clock.py": "POST_MAIN_RUN", "s5_tests_a24.py": "LIBRARY",      # A24: LEGACY clock -1/0/+1 min, H1(c) from stored alarms
+    "s5_a25_delay.py": "POST_MAIN_RUN", "s5_tests_a25.py": "LIBRARY",      # A25: O9 M1 fix, LEGACY delay scored by data time used (preflight on LEGACY 29 only)
     "s5_power_observed_n.py": "POST_MAIN_RUN",      # O9 L1: H1(a) MDE with the observed 22 folds
     "s5_posthoc_grid_pauc.py": "POST_MAIN_RUN",      # post hoc, descriptive: absolute H1(a) pAUC feature and baseline, 1-min vs 5-min (A22 3g setups)
     "s5_d7_nan_diag.py": "LABEL_FREE",      # post hoc: why D7 (A21) found undefined variance ratios on 47 LEGACY days; no detector, no outcome
