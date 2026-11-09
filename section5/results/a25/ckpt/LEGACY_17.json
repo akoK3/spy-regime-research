@@ -1,0 +1,32 @@
+{
+ "fold": "LEGACY|17",
+ "effects": {
+  "gaussian_hmm": {
+   "0": null,
+   "5": null,
+   "10": null
+  },
+  "student_t_hmm": {
+   "0": null,
+   "5": null,
+   "10": null
+  },
+  "hsmm": {
+   "0": null,
+   "5": null,
+   "10": null
+  },
+  "bocpd": {
+   "0": null,
+   "5": null,
+   "10": null
+  }
+ },
+ "tag": {
+  "a25_script": "8eb05a2dc99d75444b938cf964b585ee7f6ed7f116f5b7373a5bc7051f6d11cc",
+  "a22_script": "b65494aa1b7cc9fbbb6c7ba3136e9552484a8a82b06c269d33c72477021ee1ba",
+  "a25": "c71d9ea0369739ee72b93e58199a1ef1fc5501fc352287bef624472bd82c1247",
+  "code_version": "a0323ed24d68e896",
+  "protocol": "15be2570a592279e71f3f76fbe62113b4c3263a9d9e4715eaf4d61294eaf4df3"
+ }
+}

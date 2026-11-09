@@ -1,0 +1,6 @@
+2026-11-09T11:22:52-05:00 [ps1 25804] A25 attempt 1 of 6
+2026-11-09T11:24:47-05:00 [ps1 14964] A25 attempt 1 of 6
+2026-11-09T11:35:57-05:00 [ps1 8628] A25 attempt 1 of 6
+2026-11-09T11:36:04-05:00 [ps1 31104] A25 attempt 1 of 6
+2026-11-09T13:42:24-05:00 [ps1 8628] A25 attempt 1: exit code 0 after 126.5 min
+2026-11-09T13:42:24-05:00 [ps1 8628] === A25 DONE (results\a25\delay_datatime.json written). No freeze, no era calibration.

@@ -1,0 +1,3 @@
+2026-11-09T11:18:55-05:00 [py 41028] A25 H1(c) delta 0 reproduces MR2 exactly; diff (feature - baseline) at 0/5/10: gaussian +0.245/+0.276/+0.286; student +0.214/+0.224/+0.224; hsmm +0.265/+0.265/+0.276; bocpd +0.000/+0.000/+0.000
+2026-11-09T11:22:55-05:00 [py 27028] A25 H1(c) delta 0 reproduces MR2 exactly; diff (feature - baseline) at 0/5/10: gaussian +0.245/+0.276/+0.286; student +0.214/+0.224/+0.224; hsmm +0.265/+0.265/+0.276; bocpd +0.000/+0.000/+0.000
+^C
