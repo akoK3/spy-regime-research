@@ -20,7 +20,7 @@ Dated 2026-11-09T17:00:00+00:00 UTC (2026-11-09T12:00:00-05:00 New York). Status
 
 ## Rule 2: outcomes and scope
 
-2a. Scope: the 26 confirmatory folds (LEGACY 0-22, 25, 26; RAW 0), 4 families.
+2a. Scope: development folds only, the 26 confirmatory folds (LEGACY 0-22, 25, 26; RAW 0), 4 families. No evaluation-period session is read.
 2b. Outcomes per r: H1(a) (the pAUC sweep with confirmation count r; null alarm axis from the same sweep), fold tests, IU and Holm as 5.9 / 5.11; H1(c) at the recalibrated 0.2 thresholds on the test segments (98 events, [release, release + 60 min], reference rates as A17); test alarm counts per session; time from first detection to confirmation. H1(b) does not depend on the event rule and is not recomputed.
 2c. Reproduction check: r = 3 must reproduce the MR2 H1(a) fold effects, the A17 thresholds, the stored test alarms and the A17-style H1(c) exactly, else stop (exit 4).
 
@@ -29,7 +29,7 @@ Dated 2026-11-09T17:00:00+00:00 UTC (2026-11-09T12:00:00-05:00 New York). Status
 3a. New code only: `section5/s5_a27_confirm.py` (registry POST_MAIN_RUN) and `section5/s5_tests_a27.py`; results `section5/results/a27/`. The confirmation count is passed to the existing sweep and detection functions as a parameter from the new code. No module in the code-version closure changes (code version `a0323ed24d68e896`). If r cannot be passed without such a change, work stops and the user decides.
 3b. Preflight on the contaminated RAW 3 and LEGACY 29 only: unit tests (r = 1 confirms on the first update above threshold; r = 4 needs four), the r = 3 reproduction, timing.
 3c. Runtime: one filtering pass of the saved models over validation, test and splice sessions per fold (as the A22 thresholds and delay phases); about 3-4 h for all four values of r, checkpointed per fold.
-3d. Runs before the 5.12 freeze. No protocol re-freeze, no 5.12 freeze, no era calibration.
+3d. A27 must finish before the 5.12 freeze: the freeze is not written while A27 is running or unfinished. No protocol re-freeze, no 5.12 freeze, no era calibration under this amendment.
 
 ## Governs
 
