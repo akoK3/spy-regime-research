@@ -1,1 +1,1 @@
-STOPPED: A28/A29/A30/A31 not all ADOPTED with matching sidecars; power and development run not started
+DONE

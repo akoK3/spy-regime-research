@@ -19,3 +19,18 @@
 2026-11-10T11:43:14-05:00 [ps1 8776] steps 1-2 skipped (-FromStep 5); A31 adoption is checked by the gate
 2026-11-10T11:43:14-05:00 [ps1 8776] step 3 gate (A28, A29, A30, A31 adopted): exit 0
 2026-11-10T11:43:14-05:00 [ps1 8776] step 4: waiting for the running power check, PIDs 45564, 50460
+2026-11-10T12:04:03-05:00 [ps1 8776] step 4 power gaussian_hmm: output present
+2026-11-10T12:04:03-05:00 [ps1 8776] step 4 power hsmm: output present
+2026-11-10T12:04:03-05:00 [ps1 8776] step 5 starts with 2 x 3 workers; memory at start: 5255 MB free of 16069 MB
+2026-11-10T12:09:04-05:00 [ps1 8776] step 5 memory after 5 min: 2641 MB free of 16069 MB
+2026-11-10T12:14:04-05:00 [ps1 8776] step 5 memory after 10 min: 2504 MB free of 16069 MB
+2026-11-10T12:19:04-05:00 [ps1 8776] step 5 memory after 15 min: 3802 MB free of 16069 MB
+2026-11-10T12:24:04-05:00 [ps1 8776] step 5 memory after 20 min: 3288 MB free of 16069 MB
+2026-11-10T12:29:05-05:00 [ps1 8776] step 5 memory after 25 min: 3318 MB free of 16069 MB
+2026-11-10T12:34:05-05:00 [ps1 8776] step 5 memory after 30 min: 2871 MB free of 16069 MB
+2026-11-10T14:55:29-05:00 [manual] dev run PAUSED at the user's request: 10 python processes of step 5 suspended (NtSuspendProcess); chain PID 8776 left waiting
+2026-11-10T15:15:23-05:00 [manual] dev run RESUMED at the user's request (NtResumeProcess on the 10 suspended processes)
+2026-11-10T15:55:53-05:00 [ps1 8776] step 5 development run hsmm: exit 0
+2026-11-10T15:55:53-05:00 [ps1 8776] step 5 development run gaussian_hmm: exit 0
+2026-11-10T15:55:53-05:00 [ps1 8776] step 5 development runs: 231.8 min
+2026-11-10T15:55:53-05:00 [ps1 8776] === CHAIN DONE. No freeze, no O8, no era calibration.

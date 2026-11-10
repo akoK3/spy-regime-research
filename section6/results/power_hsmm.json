@@ -1,0 +1,140 @@
+{
+ "detector": "hsmm",
+ "n_breaks": 549,
+ "n_h4a_units": 2480,
+ "n_weeks": 365,
+ "alpha_first_holm_step": 0.008333333333333333,
+ "sims": 200,
+ "nboot": 999,
+ "h4a_units": "A31 rule 2: every calm-state streak start (old_state 0), any outcome",
+ "note": "all development breaks, no burn-in: an upper bound on the sample",
+ "H3": {
+  "0.05": 0.09,
+  "0.1": 0.4,
+  "0.15": 0.855,
+  "0.2": 0.98,
+  "0.3": 1.0,
+  "0.4": 1.0,
+  "0.6": 1.0
+ },
+ "H4a": {
+  "0.5": {
+   "power": 0.0,
+   "mean_auc_gain": 0.0017509597847063416
+  },
+  "1.0": {
+   "power": 0.015,
+   "mean_auc_gain": 0.009084521364072473
+  },
+  "1.5": {
+   "power": 0.275,
+   "mean_auc_gain": 0.02052662774002732
+  },
+  "2.0": {
+   "power": 0.805,
+   "mean_auc_gain": 0.03484998916409217
+  },
+  "3.0": {
+   "power": 1.0,
+   "mean_auc_gain": 0.06688850578404
+  },
+  "4.0": {
+   "power": 1.0,
+   "mean_auc_gain": 0.10160634388104911
+  }
+ },
+ "H4b": {
+  "0.5": {
+   "power": 0.0,
+   "mean_auc_gain": -0.0013986853845585345
+  },
+  "1.0": {
+   "power": 0.005,
+   "mean_auc_gain": 0.008209265169944689
+  },
+  "1.5": {
+   "power": 0.005,
+   "mean_auc_gain": 0.01864479900633649
+  },
+  "2.0": {
+   "power": 0.025,
+   "mean_auc_gain": 0.032385526183259766
+  },
+  "3.0": {
+   "power": 0.095,
+   "mean_auc_gain": 0.06620608886539166
+  },
+  "4.0": {
+   "power": 0.585,
+   "mean_auc_gain": 0.10249567162053971
+  }
+ },
+ "mde": {
+  "H3_gamma_sd_units": 0.15,
+  "H4a_auc_gain": 0.03484998916409217,
+  "H4b_auc_gain": null
+ },
+ "generated": "2026-11-10T17:04:03.395808+00:00",
+ "breaks_sha256": "dc19c0d2d144292e66bb48d59d63739c5b4ba45f2606515674dfb50a4bf31e3f",
+ "assumptions": {
+  "week_sd": 0.3,
+  "base_rate": 0.3
+ },
+ "provenance": {
+  "code": {
+   "files": {
+    "section6/s6_adopt_a31.py": "fbb6a9a0569efd30fa2d3faea3c70ccbc4e5c57e9f6e6519df5e7fe5f3841b1c",
+    "section6/s6_check_synth.py": "85f02938cf99f9569e77682b3f9812d75087fe9359c8684a6a0267035a98d612",
+    "section6/s6_coverage.py": "3d6752fe76172e3a595c17bad2f16376b6df6640a115e7be21da7296051bd7c0",
+    "section6/s6_fingerprint.py": "4d1999c758ef6f07441b76199bf4eda82da39bf53c908a82f71f77612bac7bd2",
+    "section6/s6_lib.py": "3b51fbce08e1856df8c03a39fd5d4b4c34c94afbde7784876e2fd12061aca8b1",
+    "section6/s6_power.py": "f821a29d3f682152fd05751dbe6e211fb6e5654e7aff1d8462c106a6a0e97220",
+    "section6/s6_run.py": "27880e09d0e2d1bea1c39b93fcc52e869eb0c06c924dfeb0b369283bd1233aa8",
+    "section6/s6_synth_validation.py": "fbbc8598a8efec2d968153371aa70cd2d55887c7b1b43cb98d6430dfd39d65fc",
+    "section6/s6_tests.py": "852724428c55c6fbdc48152fa3375eb58bfdeb56099da595db13a2c7f229d819",
+    "section5/s5_eval_loader.py": "e82b01de0d29a59bef50045592c8175e9b8a61ad77e19c5942ee135dc3f93139",
+    "section5/s5_amendment_manifest.py": "5a11a5adb3f511c13f5a0bfb2d9d500c610442cd1375fef5062c837be55bbde5",
+    "section5/s5_break_export.py": "b2956c2d813465ea829bdb2b6131ead9866a0376df5f674affd8f56609287ec3"
+   },
+   "code_version": "a0323ed24d68e896"
+  },
+  "amendments": [
+   {
+    "amendment": "A28",
+    "file": "AMENDMENT_A28.md",
+    "present": true,
+    "status": "ADOPTED",
+    "sha256": "7c6bd4bdee8bd839b1ff4c2346d81f15fd2b6b29af7a0d4b5e11738d9b673ac2",
+    "sidecar_sha256": "7c6bd4bdee8bd839b1ff4c2346d81f15fd2b6b29af7a0d4b5e11738d9b673ac2",
+    "sidecar_matches": true
+   },
+   {
+    "amendment": "A29",
+    "file": "AMENDMENT_A29.md",
+    "present": true,
+    "status": "ADOPTED",
+    "sha256": "304f27252b29d27649eeb68a0507f127fe24a602cd9556f5d43687bf24822715",
+    "sidecar_sha256": "304f27252b29d27649eeb68a0507f127fe24a602cd9556f5d43687bf24822715",
+    "sidecar_matches": true
+   },
+   {
+    "amendment": "A30",
+    "file": "AMENDMENT_A30.md",
+    "present": true,
+    "status": "ADOPTED",
+    "sha256": "1c421aa7ced0c8748648e9fe5fc723fa14c606a67943001fc482372d3990b9da",
+    "sidecar_sha256": "1c421aa7ced0c8748648e9fe5fc723fa14c606a67943001fc482372d3990b9da",
+    "sidecar_matches": true
+   },
+   {
+    "amendment": "A31",
+    "file": "AMENDMENT_A31.md",
+    "present": true,
+    "status": "ADOPTED",
+    "sha256": "1efd5a1f338b31c6f7459c8d328c854450eed6800052d2be261f83d240ef036f",
+    "sidecar_sha256": "1efd5a1f338b31c6f7459c8d328c854450eed6800052d2be261f83d240ef036f",
+    "sidecar_matches": true
+   }
+  ]
+ }
+}
