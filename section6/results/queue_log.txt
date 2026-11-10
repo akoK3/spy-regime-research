@@ -3,3 +3,4 @@
 2026-11-09T22:57:44-05:00 [ps1 44664] finding-17 data-hash preflight: exit code 0
 2026-11-09T22:58:14-05:00 [ps1 44664] break export preflight (RAW 3 / LEGACY 29): exit code 0 after 0.5 min
 2026-11-09T22:59:06-05:00 [ps1 44664] break export: exit code 0 after 0.9 min
+2026-11-09T23:18:16-05:00 [manual] power runs stopped: they used the A28 in-sample H4 statistic; A29 rule 1f reruns power after adoption

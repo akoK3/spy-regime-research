@@ -4,7 +4,7 @@ detector: the confirmed calm-to-stressed breaks (after the 60-session burn-in is
 the fizzled calm-to-stressed runs, and their calendar-week / era structure. No asset outcome is read; outcomes are simulated:
   H3: y = gamma * break + u_week + e, u_week ~ N(0, 0.3^2), e ~ N(0, 1), 20 placebos per break on the same week structure; gamma in residual-SD units.
   H4: label ~ Bernoulli(logistic(a + b * C)), C = share of 4 assets beyond their placebo 90th percentile, simulated as Binomial(4, 0.1)/4 under no effect, base rate 0.3;
-      the AUC gain of adding C is the effect size reported for each b.
+      the AUC gain of adding C is the effect size reported for each b; under AMENDMENT_A29 rule 1 it is the out-of-fold gain (5 calendar-week folds within era).
 Each simulated data set is tested exactly as in s6_run (week-block bootstrap within era, centred, add-one) with NBOOT_POWER resamples. Power = share of data sets with p below
 the first Holm step (0.05 / 6). The minimum detectable effect is the smallest grid value with power >= 0.80. Assumptions (the 0.3 week SD, the 0.3 base rate) are this
 script's, stated here before any development result.  Usage: s6_power.py DETECTOR [--sims N] [--nboot N]   Output: section6/results/power_DETECTOR.json"""
@@ -34,7 +34,8 @@ def sim_h3(br, gamma, rng, nboot):
 def sim_h4(units, beta, rng, nboot):
     days = [d for d, _ in units]; eras = [e for _, e in units]; n = len(units)
     C = rng.binomial(4, 0.1, n) / 4; X = rng.normal(0, 1, (n, 2)); a = np.log(BASE / (1 - BASE)) - beta * C.mean(); y = (rng.random(n) < 1 / (1 + np.exp(-(a + beta * C + 0.3 * X[:, 0])))).astype(float)
-    g, p, _ = L.week_block_bootstrap(lambda ix: L.auc_gain(X[ix], C[ix], y[ix]), days, eras, nboot, int(rng.integers(1 << 30))); return p, g
+    folds = L.cv_folds(days, eras)
+    g, p, _ = L.week_block_bootstrap(lambda ix: L.auc_gain_cv(X[ix], C[ix], y[ix], folds[ix]), days, eras, nboot, int(rng.integers(1 << 30))); return p, g
 
 
 def main():

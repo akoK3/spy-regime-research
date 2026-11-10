@@ -1,6 +1,6 @@
 # Amendment A29 (Section 6: H4 AUC gain out of sample; H3/H4 interpretation rules)
 
-Dated 2026-11-10T04:12:35+00:00 UTC (2026-11-09T23:12:35-05:00 New York). Status: DRAFT, awaiting the user's approval. Written before its code. No Section 6 development result exists; the development run is held until A29 is adopted. Requested by the user on 2026-11-09 after the synthetic validation of the A28 code.
+Dated 2026-11-10T04:12:35+00:00 UTC (2026-11-09T23:12:35-05:00 New York). Status: DRAFT (revised 2026-11-10T04:19:00Z), awaiting the user's approval. First draft (sha256 in the ledger row of 2026-11-10 04:12:35Z) written before its code; this revision of rules 1b, 1c and 1g follows a diagnostic made during the rule 2 smoke test (below) and precedes the rule 2 run. No Section 6 development result exists; the development run is held until A29 is adopted. Requested by the user on 2026-11-09 after the synthetic validation of the A28 code.
 
 ## Evidence cited
 
@@ -22,13 +22,18 @@ Synthetic validation (A28 code; 200 replicates per null generator):
 1b. For each fold k, both logistic models of A28 4e are fitted on the units of the other four folds:
   - SPY's own information at t;
   - the same plus C(t).
-  Each is then evaluated on the units of fold k. The out-of-fold linear predictors of all units are pooled.
-1c. Statistic: the AUC of the pooled out-of-fold predictors with C, minus that without C. H0: gain <= 0, one-sided. Same logistic fit (Newton, ridge 1e-6) and AUC (midranks) as A28.
+  Each is then evaluated on the units of fold k.
+1c. Statistic: within each fold, the AUC of the model with C minus the AUC of the model without C; then the mean of the fold gains, weighted by the number of units per fold. A fold whose evaluation units hold one label class only is left out of the mean. H0: gain <= 0, one-sided. Same logistic fit (Newton, ridge 1e-6) and AUC (midranks) as A28.
+  - Not pooled: pooling out-of-fold predictors across folds mixes fold-specific intercepts, whose errors are anti-correlated with each fold's base rate (Forman and Scholz 2010, "Apples-to-apples in cross-validation studies", SIGKDD Explorations 12(1)). The first draft pooled.
 1d. p-value: the week-block bootstrap of A28 3c (within era, 9,999 resamples, centred, add-one).
   - Each resampled row keeps the fold of its original week, so copies of one week are never split between training and evaluation.
   - A resample in which a training set holds one label class only, or a fold is empty, gives NaN. NaN resamples count as not exceeding, as in A28.
 1e. Scope: H4a and H4b, and every H4 secondary, sensitivity and check: at S and at T + 15; the 5-day label; the 70th and 90th percentile labels; rules 7a, 7c, 7e and 7f; and the 7d null control. The in-sample gain is reported beside each test as descriptive only.
-1f. The A28 6d power check is rerun with this statistic before any development result.
+1f. The A28 6d power check is rerun with this statistic before any development result. The power run started 2026-11-09 22:59 NY with the A28 statistic was stopped at 23:17 NY before finishing; nothing from it is used.
+1g. Size reporting. The out-of-fold AUC of a near-uninformative model falls below 0.5: its slopes, fitted on the other folds, are anti-correlated with the held-out fold's own association. The model with C is protected when C dominates, so the out-of-fold gain can exceed the in-sample gain when SPY's own information is weak.
+  - Smoke test, planted H4 replicate 0, H4a: the SPY-only model's per-fold out-of-fold AUC was 0.32-0.49 (0.52 in sample). The gain was 0.256 out of fold against 0.160 in sample.
+  - The rule 1 statistic is the test. Each H4 result also reports, as descriptive: each model's out-of-fold AUC, and the in-sample gain.
+  - The size of an H4 effect is read from the out-of-fold AUC of the model with C, next to the SPY-only model's AUC, not from the gain alone.
 
 ## Rule 2: acceptance check before adoption (synthetic data only)
 

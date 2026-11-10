@@ -160,10 +160,48 @@ def logit_fit(X, y, ridge=1e-6, iters=50):
 
 
 def auc_gain(X, c, y):
-    """In-sample AUC of the logistic model on [X, c] minus that on X (A28 4e)."""
+    """In-sample AUC of the logistic model on [X, c] minus that on X (A28 4e; descriptive only under A29 1e)."""
     ok = np.isfinite(X).all(1) & np.isfinite(c) & np.isfinite(y)
     if ok.sum() < 10 or len(np.unique(y[ok])) < 2: return np.nan
     _, e0 = logit_fit(X[ok], y[ok]); _, e1 = logit_fit(np.column_stack([X[ok], c[ok]]), y[ok]); return auc(e1, y[ok]) - auc(e0, y[ok])
+
+
+K_FOLDS = 5
+
+
+def cv_folds(days, eras, k=K_FOLDS):
+    """A29 1a: within each era, the calendar weeks holding rows, in date order, split into k contiguous blocks of as equal a number of weeks as possible; fold j = block j
+    of every era. Returns an int array (fold of each row); every row of a week gets the same fold."""
+    f = np.empty(len(days), int); wk = [week_of(d) for d in days]
+    for e in sorted(set(eras)):
+        weeks = sorted({w for w, ee in zip(wk, eras) if ee == e}); m = {w: int(j * k // len(weeks)) for j, w in enumerate(weeks)}
+        for i, (w, ee) in enumerate(zip(wk, eras)):
+            if ee == e: f[i] = m[w]
+    return f
+
+
+def auc_gain_cv(X, c, y, folds, k=K_FOLDS, parts=False):
+    """A29 1b-1c: both logistic models fitted on the other folds and evaluated on each fold; AUC of the pooled out-of-fold linear predictors with c minus without c.
+    NaN when a fold is empty or a training set holds one label class only. parts=True: (gain, OOF AUC with c, OOF AUC without c), fold means (A29 1g)."""
+    X = np.asarray(X, float); c = np.asarray(c, float); y = np.asarray(y, float); folds = np.asarray(folds)
+    ok = np.isfinite(X).all(1) & np.isfinite(c) & np.isfinite(y); X, c, y, folds = X[ok], c[ok], y[ok], folds[ok]
+    nan = (np.nan, np.nan, np.nan) if parts else np.nan
+    if len(y) < 10 or len(np.unique(y)) < 2: return nan
+    Xc = np.column_stack([X, c]); a1s, a0s = [], []; e0 = np.empty(len(y)); e1 = np.empty(len(y)); d, wt = [], []
+    for j in range(k):
+        te = folds == j; tr = ~te
+        if not te.any() or len(np.unique(y[tr])) < 2: return nan
+        w0, _ = logit_fit(X[tr], y[tr]); w1, _ = logit_fit(Xc[tr], y[tr])
+        e0[te] = np.column_stack([np.ones(te.sum()), X[te]]) @ w0; e1[te] = np.column_stack([np.ones(te.sum()), Xc[te]]) @ w1
+        if POOL_OOF: continue
+        a1, a0 = auc(e1[te], y[te]), auc(e0[te], y[te])
+        if np.isfinite(a1) and np.isfinite(a0): d.append(a1 - a0); a1s.append(a1); a0s.append(a0); wt.append(te.sum())
+    if POOL_OOF: g = auc(e1, y) - auc(e0, y); return (g, auc(e1, y), auc(e0, y)) if parts else g
+    if not d: return nan
+    g = float(np.average(d, weights=wt)); return (g, float(np.average(a1s, weights=wt)), float(np.average(a0s, weights=wt))) if parts else g
+
+
+POOL_OOF = False      # A29 1c: AUC within each fold, mean weighted by units per fold. True = the first draft (pooled out-of-fold predictors), kept for the record
 
 
 # ---------- multiplicity

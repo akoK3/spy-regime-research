@@ -125,4 +125,26 @@ class TestFingerprint(unittest.TestCase):
         for p in HERE.glob("*.py"): self.assertIn(f"section6/{p.name}", cur["files"])
 
 
+class TestA29(unittest.TestCase):
+    def test_folds_contiguous_within_era(self):
+        days = [str(pd.Timestamp("2010-01-04") + pd.Timedelta(days=7 * k)).split()[0] for k in range(20)] * 2; eras = ["LEGACY"] * 20 + ["RAW"] * 20
+        f = L.cv_folds(days, eras); self.assertEqual(sorted(set(f)), list(range(5)))
+        self.assertTrue(all(np.diff(f[:20]) >= 0)); self.assertTrue(np.array_equal(f[:20], f[20:]))
+        d2 = ["2010-01-04", "2010-01-05", "2010-01-11"]; self.assertEqual(L.cv_folds(d2, ["LEGACY"] * 3, k=2)[0], L.cv_folds(d2, ["LEGACY"] * 3, k=2)[1])
+
+    def test_oof_gain_unbiased_under_null_and_detects_signal(self):
+        rng = np.random.default_rng(4); n = 600; days = [str(pd.Timestamp("2010-01-04") + pd.Timedelta(days=int(k))).split()[0] for k in np.sort(rng.integers(0, 2000, n))]
+        f = L.cv_folds(days, ["LEGACY"] * n); g_in, g_cv = [], []
+        for _ in range(30):
+            X = rng.normal(size=(n, 2)); c = rng.random(n); y = (rng.random(n) < 0.3).astype(float); g_in.append(L.auc_gain(X, c, y)); g_cv.append(L.auc_gain_cv(X, c, y, f))
+        self.assertGreater(np.mean(g_in), 0.0); self.assertLess(abs(np.mean(g_cv)), 0.01)
+        c = rng.random(n); y = (rng.random(n) < 0.1 + 0.5 * c).astype(float); g, a1, a0 = L.auc_gain_cv(rng.normal(size=(n, 2)), c, y, f, parts=True)
+        self.assertGreater(g, 0.1); self.assertAlmostEqual(g, a1 - a0, places=10)
+
+    def test_dev_run_held_until_a29_adopted(self):
+        a = (HERE.parent / "AMENDMENT_A29.md").read_text(encoding="utf-8")
+        if "Status: ADOPTED" not in a:
+            with self.assertRaises(SystemExit): R.a29_guard()
+
+
 if __name__ == "__main__": unittest.main()

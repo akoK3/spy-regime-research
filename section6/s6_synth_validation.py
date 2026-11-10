@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Section 6 synthetic validation (user request 2026-11-09, item 5). Synthetic data only: no panel, break file or asset outcome is read.
+"""Section 6 synthetic validation (user request 2026-11-09, item 5; rerun under AMENDMENT_A29 rule 2 with the out-of-fold H4 statistic: --tag a29). Synthetic data only: no panel, break file or asset outcome is read.
 Each replicate builds a synthetic LEGACY era (1,500 sessions from 2004) and RAW era (450 sessions from 2022) of one-minute returns for SPY and the four assets, synthetic
 detector runs, and passes them through the real Section 6 code: s6_run.build -> attach_placebos -> primary (the 6-test Holm family: H3 next-day per asset, H4a, H4b),
 with the week-block bootstrap of s6_lib. Nothing in s6_lib / s6_run is changed or monkey-patched.
@@ -21,7 +21,7 @@ both in one data set biases H3 by design; observed in the smoke test, H3 gamma c
   correctly; the covariate-only model's in-sample AUC and the SPY information in the real-break label are then the same in target and estimate. Also reported:
   AUC(oracle) - 0.5 (no covariates). H3 target = gamma_a times (1 - the share of placebo rows whose next session
   was also scaled), the attenuation from placebos sharing a scaled session.
-Output: section6/results/synth_validation.json.  Usage: s6_synth_validation.py [--null-reps N] [--effect-reps N] [--nboot N] [--workers N]"""
+Output: section6/results/synth_validation[_TAG].json (+ _reps[_TAG].jsonl).  Usage: s6_synth_validation.py [--null-reps N] [--effect-reps N] [--nboot N] [--workers N] [--tag TAG]"""
 import sys, json, time, datetime, hashlib
 from pathlib import Path
 import numpy as np, pandas as pd
@@ -84,13 +84,15 @@ def plant(E, rows, rng, scenario):
     return z, scaled
 
 
-def oracle_gain(zs, labels, f0, X, rng, draws=50):
-    """Target: s6_lib.auc_gain(X, oracle, y), oracle = 1 if z else a draw from F0 (the replicate's own non-planted C values); mean over draws. Also AUC(oracle) - 0.5."""
+def oracle_gain(zs, labels, f0, X, rng, draws=50, folds=None):
+    """Target: the H4 statistic of s6_run.h4_test (A29: out-of-fold auc_gain_cv on the same week folds; A28: in-sample auc_gain) of the oracle score, oracle = 1 if z else
+    a draw from F0 (the replicate's own non-planted C values); mean over draws. Also AUC(oracle) - 0.5."""
     zs = np.asarray(zs, bool); y = np.asarray(labels, float); f0 = np.asarray(f0, float); f0 = f0[np.isfinite(f0)]; X = np.asarray(X, float)
+    gain = (lambda c: L.auc_gain(X, c, y)) if folds is None else (lambda c: L.auc_gain_cv(X, c, y, folds))
     if len(f0) == 0 or len(np.unique(y)) < 2: return np.nan, np.nan
     if not zs.any(): return 0.0, 0.0
     o = [np.where(zs, 1.0, rng.choice(f0, len(zs))) for _ in range(draws)]
-    return float(np.nanmean([L.auc_gain(X, c, y) for c in o])), float(np.mean([L.auc(c, y) for c in o]) - 0.5)
+    return float(np.nanmean([gain(c) for c in o])), float(np.mean([L.auc(c, y) for c in o]) - 0.5)
 
 
 def replicate(args):
@@ -105,7 +107,7 @@ def replicate(args):
         u, c, al = R.build(E, [x for x in rows_all if x["era"] == era], sess); units += R.attach_placebos(u, c, al)
     for u in units: u["fed"] = False
     res, br, runs = R.primary(E_by, units, nboot, seed=rep)
-    out = dict(scenario=scenario, rep=rep, seconds=None, n_breaks=len(br), n_runs=len(runs), tests={k: dict(est=(v.get("gamma") if k.startswith("H3") else v.get("gain")), p=v.get("p"), p_holm=v.get("p_holm")) for k, v in res.items()})
+    out = dict(scenario=scenario, rep=rep, seconds=None, n_breaks=len(br), n_runs=len(runs), tests={k: dict(est=(v.get("gamma") if k.startswith("H3") else v.get("gain")), p=v.get("p"), p_holm=v.get("p_holm"), est_in_sample=v.get("gain_in_sample_descriptive")) for k, v in res.items()})
     if scenario.startswith("effect"):
         tg = {}
         for a in ASSETS:     # H3 attenuation: placebo rows whose next session was scaled
@@ -113,11 +115,11 @@ def replicate(args):
             share = float(np.mean([d in scaled_by[e][a] for e, d in pl])) if pl else np.nan; g = GAMMA[a] if scenario == "effect_h3" else 0.0; tg[f"H3_{a}"] = dict(planted=g, placebo_scaled_share=share, target=g * (1 - share))
         key = lambda u: (u["era"], u["day"], u["S"], u["kind"])
         for name, us, point, lab in (("H4a", runs, "S", lambda u: float(u["kind"] == "confirmed")), ("H4b", br, "T0", R.real_fn(E_by))):
-            zs, ys, cs, Xs = [], [], [], []
+            zs, ys, cs, Xs, ds, es = [], [], [], [], [], []
             for u in us:
                 l = lab(u); c = R.c_score(E_by, u, point); x = R.spy_info(E_by[u["era"]], u, point)
-                if np.isfinite(l) and np.isfinite(c) and np.isfinite(x).all(): zs.append(bool(zmap.get(key(u), False))); ys.append(l); cs.append(c); Xs.append(x)
-            f0 = [c for c, zz in zip(cs, zs) if not zz]; c1 = [c for c, zz in zip(cs, zs) if zz]; t, t0_ = oracle_gain(zs, ys, f0, Xs, rng)
+                if np.isfinite(l) and np.isfinite(c) and np.isfinite(x).all(): zs.append(bool(zmap.get(key(u), False))); ys.append(l); cs.append(c); Xs.append(x); ds.append(u["day"]); es.append(u["era"])
+            f0 = [c for c, zz in zip(cs, zs) if not zz]; c1 = [c for c, zz in zip(cs, zs) if zz]; t, t0_ = oracle_gain(zs, ys, f0, Xs, rng, folds=L.cv_folds(ds, es))
             tg[name] = dict(target=t, oracle_auc_minus_half=t0_, share_planted_with_C1=float(np.mean(np.isclose(c1, 1.0))) if c1 else None,
                             label_rate_planted=float(np.mean([y for y, zz in zip(ys, zs) if zz])) if c1 else None, label_rate_other=float(np.mean([y for y, zz in zip(ys, zs) if not zz])))
         out["targets"] = tg
@@ -131,7 +133,8 @@ def summarise(reps):
         for k in rr[0]["tests"]:
             ps = np.array([r["tests"][k]["p"] for r in rr if r["tests"][k]["p"] is not None], float); est = np.array([r["tests"][k]["est"] for r in rr if r["tests"][k]["est"] is not None], float)
             t = dict(n=len(ps), reject_raw_0_05=float(np.mean(ps <= 0.05)) if len(ps) else None, reject_holm_0_05=float(np.mean([r["tests"][k].get("p_holm") is not None and r["tests"][k]["p_holm"] <= 0.05 for r in rr])),
-                     mc_se=float(np.sqrt(0.05 * 0.95 / max(len(ps), 1))), est_mean=float(est.mean()) if len(est) else None, est_sd=float(est.std(ddof=1)) if len(est) > 1 else None)
+                     mc_se=float(np.sqrt(0.05 * 0.95 / max(len(ps), 1))), est_mean=float(est.mean()) if len(est) else None, est_sd=float(est.std(ddof=1)) if len(est) > 1 else None,
+                     est_in_sample_mean=float(np.nanmean([r["tests"][k]["est_in_sample"] for r in rr if r["tests"][k].get("est_in_sample") is not None])) if any(r["tests"][k].get("est_in_sample") is not None for r in rr) else None)
             if sc.startswith("effect"):
                 tg = np.array([r["targets"][k]["target"] for r in rr], float); t.update(target_mean=float(np.nanmean(tg)), bias=float(np.nanmean(est - tg[: len(est)])) if len(est) == len(tg) else None,
                                                                                         bias_se=float(np.nanstd(est - tg, ddof=1) / np.sqrt(len(est))) if len(est) == len(tg) and len(est) > 1 else None)
@@ -148,7 +151,8 @@ def main():
     arg = lambda k, dflt: int(sys.argv[sys.argv.index(k) + 1]) if k in sys.argv else dflt
     nnull, neff, nboot, workers = arg("--null-reps", 200), arg("--effect-reps", 40), arg("--nboot", 999), arg("--workers", 4)
     jobs = [(sc, i, nboot) for sc in ("indep", "vol") for i in range(nnull)] + [(sc, i, nboot) for sc in ("effect_h3", "effect_h4") for i in range(neff)]
-    out_p = HERE / "results" / "synth_validation.json"; out_p.parent.mkdir(exist_ok=True); part = HERE / "results" / "synth_validation_reps.jsonl"
+    tag = ("_" + sys.argv[sys.argv.index("--tag") + 1]) if "--tag" in sys.argv else ""
+    out_p = HERE / "results" / f"synth_validation{tag}.json"; out_p.parent.mkdir(exist_ok=True); part = HERE / "results" / f"synth_validation_reps{tag}.jsonl"
     done = {}
     if part.exists():
         for line in part.read_text(encoding="utf-8").splitlines():
@@ -160,7 +164,7 @@ def main():
             f.write(json.dumps(r) + "\n"); f.flush(); done[(r["scenario"], r["rep"])] = r
             if k % 10 == 0 or k == len(todo): print(f"{k}/{len(todo)} {time.time() - t0:.0f} s", flush=True)
     reps = [done[(j[0], j[1])] for j in jobs]
-    res = dict(label="Section 6 synthetic validation (synthetic data only; s6_run.primary unchanged)", generated=datetime.datetime.now(datetime.timezone.utc).isoformat(), nboot=nboot,
+    res = dict(label="Section 6 synthetic validation (synthetic data only; s6_run.primary as on disk; H4 statistic per AMENDMENT_A29 rule 1 when tagged a29)", generated=datetime.datetime.now(datetime.timezone.utc).isoformat(), nboot=nboot,
                planted=dict(gamma=GAMMA, q=Q, jump_sd=JUMP_SD, spy_next_day_factor=SPY_NEXT), code_sha256={p.name: hashlib.sha256(p.read_bytes()).hexdigest() for p in (HERE / "s6_lib.py", HERE / "s6_run.py", Path(__file__))},
                summary=summarise(reps))
     out_p.write_text(json.dumps(res, indent=1), encoding="utf-8"); print(json.dumps(res["summary"], indent=1)); return 0

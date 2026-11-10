@@ -1,11 +1,12 @@
 #!/usr/bin/env python3
-"""Section 6 analysis (AMENDMENT_A28): H3 (tripwire) and H4 (confirmation), co-primary; secondary analyses of rules 5c and 7. H2 is not computed here (rule 2: unchanged).
+"""Section 6 analysis (AMENDMENT_A28; H4 statistic and rule 3c diagnostic per AMENDMENT_A29): H3 (tripwire) and H4 (confirmation), co-primary; secondary analyses of rules 5c and 7. H2 is not computed here (rule 2: unchanged).
 Inputs: SPY break export (section5/results/breaks/: breaks.csv, sessions.json), the label-free coverage (section6/results/coverage/), the canonical panels through
 section5/s5_eval_loader (development: load_development; joint evaluation: load_eval with section6=True, i.e. after the freeze, the lock, the finding-17 preflight and the
 Section 6 fingerprint). Clock and windows: s6_lib (A28 1c, 4a). Every evaluation-period result carries the A26 label.
 Period "development": the test segments of the uncontaminated folds (the break export covers exactly these). Period "joint": refused until the 5.13 outputs exist.
 Usage: s6_run.py development DETECTOR [--nboot N]       DETECTOR = the A9 item 2 H2 primary detector chosen at the 5.12 freeze (rule 1b), or its H3/H4 fallback.
        s6_run.py joint DETECTOR FREEZE_PATH CONFIRM_TOKEN
+The development run refuses to start unless AMENDMENT_A29 is ADOPTED and equals its sidecar (A29 4b).
 Nothing here runs before the user says so; no freeze, no lock, no era calibration."""
 import sys, json, csv, hashlib, datetime
 from pathlib import Path
@@ -76,10 +77,12 @@ def attach_placebos(units, cand, alarms, seed=2028):
 
 
 # ---------- per-asset quantities (offset: LEGACY SPY-clock offset in minutes, rule 7e: asset windows are read at SPY time + offset)
-def h3_row(E, a, di, S, T, outcome, off=0):
+def h3_row(E, a, di, S, T, outcome, off=0, ph_end="T"):
+    """ph_end "T": prior-hour control over (T - 60, T] (A28 3b); "S": over (S - 60, S] (A29 3c, descriptive diagnostic)."""
     nxt = di + 1
     if not E.avail[a][di] or di < 1 or not E.avail[a][di - 1]: return None
-    r = E.R[a][di]; ph = L.safe_log(L.rv(r, T - 60 + off, T + off)[0]); pd_ = L.safe_log(L.rv(E.R[a][di - 1], 0, L.N_MIN)[0]); ret = L.cumret(r, S + off, T + off)[0]
+    e = T if ph_end == "T" else S
+    r = E.R[a][di]; ph = L.safe_log(L.rv(r, e - 60 + off, e + off)[0]); pd_ = L.safe_log(L.rv(E.R[a][di - 1], 0, L.N_MIN)[0]); ret = L.cumret(r, S + off, T + off)[0]
     if outcome == "next_day":
         if nxt >= len(E.days) or not E.avail[a][nxt]: return None
         y = L.safe_log(L.rv(E.R[a][nxt], 0, L.N_MIN)[0])
@@ -89,16 +92,17 @@ def h3_row(E, a, di, S, T, outcome, off=0):
     return dict(y=y, X=[ph, pd_, ret, abs(ret)])
 
 
-def h3_test(E_by, units, a, outcome="next_day", nboot=L.NBOOT, off=0, seed=0):
+def h3_test(E_by, units, a, outcome="next_day", nboot=L.NBOOT, off=0, seed=0, ph_end="T"):
     ys, Xs, bs, days, eras = [], [], [], [], []
     for u in units:
         E = E_by[u["era"]]; o = off if u["era"] == "LEGACY" else 0
         for b, (di, S, T) in [(1, (u["day_idx"], u["S"], u["T"]))] + [(0, (p["day_idx"], p["S"], p["T"])) for p in u["placebos"]]:
-            r = h3_row(E, a, di, S, T, outcome, o)
+            r = h3_row(E, a, di, S, T, outcome, o, ph_end)
             if r is None or not np.isfinite(r["y"]) or not np.isfinite(r["X"]).all(): continue
             ys.append(r["y"]); Xs.append(r["X"]); bs.append(b); days.append(E.days[di]); eras.append(u["era"])
     if not ys or sum(bs) < 5: return dict(n_breaks=int(sum(bs)), n_placebos=int(len(bs) - sum(bs)), gamma=None, p=None)
     y = np.array(ys); X = np.array(Xs); b = np.array(bs, float)
+    if nboot == 0: return dict(n_breaks=int(b.sum()), n_placebos=int(len(b) - b.sum()), gamma=L.ols_gamma(y, X, b), p=None, label="descriptive, not tested")
     g, p, nv = L.week_block_bootstrap(lambda ix: L.ols_gamma(y[ix], X[ix], b[ix]), days, eras, nboot, seed)
     return dict(n_breaks=int(b.sum()), n_placebos=int(len(b) - b.sum()), gamma=g, p=p, n_valid_resamples=nv)
 
@@ -130,9 +134,11 @@ def h4_test(E_by, units, point, label_fn, nboot=L.NBOOT, off=0, seed=0):
         if not np.isfinite(lab): continue
         E = E_by[u["era"]]; X.append(spy_info(E, u, point)); c.append(c_score(E_by, u, point, off)); y.append(lab); days.append(u["day"]); eras.append(u["era"])
     if len(y) < 10: return dict(n=len(y), gain=None, p=None)
-    X = np.array(X); c = np.array(c); y = np.array(y, float)
-    g, p, nv = L.week_block_bootstrap(lambda ix: L.auc_gain(X[ix], c[ix], y[ix]), days, eras, nboot, seed)
-    return dict(n=len(y), n_pos=int(np.nansum(y)), gain=g, p=p, n_valid_resamples=nv)
+    X = np.array(X); c = np.array(c); y = np.array(y, float); folds = L.cv_folds(days, eras)        # A29 1a: folds fixed on the original weeks; resampled rows keep them (1d)
+    g, p, nv = L.week_block_bootstrap(lambda ix: L.auc_gain_cv(X[ix], c[ix], y[ix], folds[ix]), days, eras, nboot, seed)
+    _, a1, a0 = L.auc_gain_cv(X, c, y, folds, parts=True)
+    return dict(n=len(y), n_pos=int(np.nansum(y)), gain=g, p=p, n_valid_resamples=nv, statistic="A29 out-of-fold AUC gain (5 week folds, per-fold AUC, weighted mean)",
+                oof_auc_with_C=a1, oof_auc_spy_only=a0, gain_in_sample_descriptive=L.auc_gain(X, c, y))      # A29 1g: descriptive
 
 
 def real_fn(E_by, pct=L.REAL_PCT, horizon=1): return lambda u: L.real_label(E_by[u["era"]].drv, u["day_idx"], pct, horizon)
@@ -244,6 +250,7 @@ def analyse(E_by, rows, sess, nboot, detector, all_rows=None, null_sets=200):
     if "LEGACY" in E_by: res["legacy_offsets"] = {str(o): primary(E_by, units, nboot, off=o)[0] for o in (-1, 1)}
     res["fed_split"] = dict(fed=primary(E_by, units, nboot, subset=lambda u: u.get("fed"))[0], non_fed=primary(E_by, units, nboot, subset=lambda u: not u.get("fed"))[0])
     res["curve"] = curve(E_by, br); res["taxonomy"] = taxonomy(E_by, br)
+    res["h3_prior_hour_before_S"] = {a: h3_test(E_by, br, a, "next_day", 0, ph_end="S") for a in ASSETS}      # A29 3c: descriptive, not tested
     if all_rows is not None:      # rule 7a: other detectors, and the alternative anchor T = 0 at S
         res["detector_dependence"] = {}
         for fam in FAMILIES:
@@ -269,10 +276,17 @@ def flatten_secondary(res):
         for k, v in items: yield k, v
 
 
+def a29_guard():
+    a = ROOT / "AMENDMENT_A29.md"; s = ROOT / "AMENDMENT_A29.sha256"
+    if not s.exists() or s.read_text().split()[0] != hashlib.sha256(a.read_bytes()).hexdigest() or "Status: ADOPTED" not in a.read_text(encoding="utf-8"):
+        raise SystemExit("A29 4b: the Section 6 run is held until AMENDMENT_A29.md is ADOPTED and equals its sidecar")
+
+
 def main():
     if len(sys.argv) < 3: print(__doc__); return 3
     period, det = sys.argv[1], sys.argv[2]
     if det not in FAMILIES[:3]: print("DETECTOR must be an H1 family (gaussian_hmm, student_t_hmm, hsmm)"); return 3
+    a29_guard()
     if period == "joint": print("joint evaluation: refused until the 5.12 freeze, the 5.13 outputs and the Section 6 fingerprint exist"); return 3
     nboot = int(sys.argv[sys.argv.index("--nboot") + 1]) if "--nboot" in sys.argv else L.NBOOT
     allrows = list(csv.DictReader(open(BREAKS / "breaks.csv", encoding="utf-8")))
