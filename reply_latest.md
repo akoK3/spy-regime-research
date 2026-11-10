@@ -1,3 +1,111 @@
+# H2 report, 2026-11-10 (A33 / A33.1 chain done 17:23 New York)
+
+## Bottom line
+
+**H2 (protocol 5.0 test, as pre-registered) is not rejected for any asset, with either detector.**
+- No detector rejects any asset under Holm, BOCPD and Student-t included.
+- The strongest result is gold drifting up after breaks: Gaussian +0.027% vs placebo +0.002%, raw p 0.037, Holm 0.15.
+- This is development (TRAIN-span) data only. No freeze, no O8, no era calibration.
+
+## Chain
+
+| Time (NY) | Step |
+|---|---|
+| 16:48 | First synthetic check (planted 0.05) failed: planted TLT rejected 75% < 80%. Kept on record |
+| 17:17 | A33.1 adopted (your decision): planted 0.08, criteria unchanged, disclosed as raised after the 75% |
+| 17:22 | Synthetic check **PASS 13/13**; gate A28-A33.1 passed |
+| 17:22 | Power done (0.5 min) |
+| 17:23 | H2 dev run done for Gaussian HMM and HSMM, about 70 s each, exit 0 |
+
+## Synthetic check (10,000 draws; 200 null / 40 planted)
+
+- **No effect:** rejection 4.5-7.5% (independent) and 4.5-5.5% (vol-clustered).
+  - These are the same numbers as the first run: same seeds, and the null does not depend on the planted size.
+- **Planted:** TLT 95%, HYG 97.5%, gold 97.5% rejected; USD (planted null) 5%.
+- **Planted bias:** within tolerance for every asset.
+  - The bias is identical to the first run, because an additive shift moves the estimate and the target equally.
+  - Targets: TLT 0.00144, HYG -0.00096, gold 0.00192.
+
+## Power (A33 G11, two-sided at 0.05/4, 10,000 draws)
+
+| | Gaussian (600 breaks) | HSMM (549 breaks) |
+|---|---|---|
+| Power at delta = 0.10 / 0.15 / 0.20 SD | 0.45 / 0.85 / 0.995 | 0.455 / 0.855 / 0.985 |
+| Minimum detectable shift | 0.15 SD of a break's 30-minute return | 0.15 SD |
+
+This is an upper bound: only 280-420 breaks per asset have the asset available.
+
+## H2 primary: (T, T+30], signed cumulative log return; Holm m = 4
+
+| Asset | Gaussian: n, break mean vs placebo mean, p (Holm) | HSMM: n, break vs placebo, p (Holm) |
+|---|---|---|
+| TLT | 397, +0.0036% vs +0.0024%, p 0.90 (1.00) | 335, -0.019% vs +0.001%, p 0.085 (0.27) |
+| HYG | 280, -0.0029% vs -0.0025%, p 0.95 (1.00) | 242, -0.011% vs -0.004%, p 0.46 (0.46) |
+| Gold | 418, **+0.027%** vs +0.002%, p **0.037** (0.15) | 364, **+0.025%** vs +0.002%, p 0.068 (0.27) |
+| USD | 13, -0.009% vs +0.001%, p 0.64 (1.00) | 12, -0.049% vs -0.005%, p 0.082 (0.27) |
+
+- Placebo pools average about 800-1,400 matched candidate times per break (65-70 for USD).
+- USD has only 12-13 breaks (2018 LEGACY only): not informative.
+
+## Secondary (BH over the horizons, stressed-to-calm and other detectors)
+
+- **Only one survives BH: TLT over (T - 30, T], for both detectors.**
+  - TLT rises before the confirmation: Gaussian +0.055% (p 0.0002, BH 0.006); HSMM +0.070% (p 0.0002, BH 0.006).
+  - This is the window between the streak start and confirmation: TLT moves up while SPY's break is still being confirmed.
+- **Other raw p < 0.05, not significant after BH:**
+  - HYG pre-30 down (p 0.004 / 0.036);
+  - gold +60 up (Gaussian, p 0.021);
+  - gold +5 and +15 up (HSMM, p 0.006 / 0.008).
+- **Gold is positive at every post-T horizon for both detectors** (+5 to +60).
+- **Detector dependence (S2):**
+  - gold's direction is positive for all four detectors (raw p 0.036-0.074);
+  - no Holm verdict on any detector, so the verdicts agree.
+
+## Exploratory (A33 rule 4): A32 deseasonalised |return|, specified after seeing the H3/H4/A30 results; uncorrected
+
+- **Breaks show larger absolute moves than placebos after T:**
+  - TLT +0.36 / +0.36 at +30 (Gaussian / HSMM; p 0.0004 / 0.0005);
+  - gold +0.53 / +0.73 (p 0.0001);
+  - similar at +5, +15 and +60.
+- **The pre-window (T - 30, T] is larger still:** about +1.0 for TLT and gold (descriptive).
+- **Read with care:**
+  - Breaks are, by construction, times when SPY moves into a high-volatility state. The placebos are matched on SPY volatility before S, not at T.
+  - So larger asset |returns| may reflect market-wide volatility at the break rather than an asset-specific response.
+  - The signed test (H2 primary) shows no consistent direction.
+- **HYG is thin here:** only 29-49 breaks have a defined deseasonaliser, likely because of HYG's many zero one-minute returns.
+
+## E1 footprint taxonomy (descriptive): thin
+
+- Only 56 (Gaussian) and 43 (HSMM) breaks are classifiable. 482-524 have no evaluable TLT or HYG move (HYG data), and 20-24 have a window past the close.
+
+| Category | Gaussian breaks vs placebos | HSMM breaks vs placebos |
+|---|---|---|
+| SPY-only | 55% vs 60% | 77% vs 61% |
+| Credit stress | 9% vs 7% | 7% vs 5% |
+| Flight to safety | 2% vs 0.4% | 2% vs 2% |
+| Dollar-driven | 0% vs 0% | 2% vs 1% |
+| Other | 34% vs 33% | 12% vs 31% |
+
+- No clear footprint beyond chance on this sample.
+
+## For your attention
+
+1. **The HYG and E1 data gap.** The primary H2 uses 242-280 HYG breaks, but E1 and the exploratory statistic use only 29-56. Both need HYG data in the placebo windows and in the prior 20 sessions. I can diagnose the cause, label-free, if you want.
+2. **The TLT pre-T rise** is the one secondary result that survives correction. It is consistent with the A30 lead-lag description (TLT often moves before S).
+
+## Files
+
+- `section6/results/`:
+  - `h2_50_synth_a33.json` / `h2_50_synth_check_a33.json` (first run, FAIL, kept);
+  - `h2_50_synth_a33p08.json` / `h2_50_synth_check_a33p08.json` (PASS);
+  - `h2_50_power_{gaussian_hmm,hsmm}.json`;
+  - `h2_development_{gaussian_hmm,hsmm}.json`;
+  - `h2_log.txt`.
+- Each is written once, with a sidecar and provenance (code hashes; A28-A33.1 manifest).
+- Code version a0323ed24d68e896 is unchanged.
+
+---
+
 # H2 report, 2026-11-10 (A33 chain stopped 16:48 New York)
 
 ## Bottom line
@@ -25,7 +133,8 @@
 2. Or rerun with the same planted size and 200 planted replicates, so the rejection rate is estimated precisely. If the true rate is about 0.77, it would fail again.
 3. Or accept the check as is (a deviation from rule 3c, with your approval).
 
-After your decision the chain reruns from the synthetic step with `powershell -NoProfile -ExecutionPolicy Bypass -File section6un_h2.ps1 -Tag <new tag>`. Synthetic is about 4 min; then power and the H2 dev run (Gaussian, HSMM; TRAIN only).
+After your decision the chain reruns from the synthetic step with `powershell -NoProfile -ExecutionPolicy Bypass -File section6
+un_h2.ps1 -Tag <new tag>`. Synthetic is about 4 min; then power and the H2 dev run (Gaussian, HSMM; TRAIN only).
 
 Files: `section6/results/h2_50_synth_a33.json`, `h2_50_synth_check_a33.json` (written once, sidecars), `h2_log.txt`.
 

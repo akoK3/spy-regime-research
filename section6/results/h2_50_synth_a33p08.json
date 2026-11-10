@@ -1,0 +1,205 @@
+{
+ "label": "A33 rule 3 synthetic check of the H2 primary test (protocol 5.0; synthetic data only)",
+ "draws": 10000,
+ "planted_c": {
+  "TLT": 0.08,
+  "HYG": -0.08,
+  "GOLD": 0.08,
+  "DOLLAR": 0.0
+ },
+ "summary": {
+  "effect": {
+   "n_reps": 40,
+   "mean_breaks": 280.7,
+   "tests": {
+    "H2_TLT": {
+     "n": 40,
+     "reject_raw_0_05": 0.95,
+     "reject_holm_0_05": 0.95,
+     "M_mean": 0.001437361907039701,
+     "target_mean": 0.0014399999999999999,
+     "bias": -2.6380929602988824e-06,
+     "bias_se": 5.687159862347269e-05
+    },
+    "H2_HYG": {
+     "n": 40,
+     "reject_raw_0_05": 0.975,
+     "reject_holm_0_05": 0.95,
+     "M_mean": -0.0009178882918638358,
+     "target_mean": -0.0009600000000000001,
+     "bias": 4.211170813616436e-05,
+     "bias_se": 3.8122749159691603e-05
+    },
+    "H2_GOLD": {
+     "n": 40,
+     "reject_raw_0_05": 0.975,
+     "reject_holm_0_05": 0.975,
+     "M_mean": 0.0020101022148377758,
+     "target_mean": 0.0019200000000000003,
+     "bias": 9.010221483777553e-05,
+     "bias_se": 7.237394814123192e-05
+    },
+    "H2_DOLLAR": {
+     "n": 40,
+     "reject_raw_0_05": 0.05,
+     "reject_holm_0_05": 0.05,
+     "M_mean": 3.93401745716775e-05,
+     "target_mean": 0.0,
+     "bias": 3.93401745716775e-05,
+     "bias_se": 4.6471679923742365e-05
+    }
+   },
+   "any_holm_reject": 1.0
+  },
+  "indep": {
+   "n_reps": 200,
+   "mean_breaks": 240.965,
+   "tests": {
+    "H2_TLT": {
+     "n": 200,
+     "reject_raw_0_05": 0.07,
+     "reject_holm_0_05": 0.01,
+     "M_mean": 2.083831673786573e-05
+    },
+    "H2_HYG": {
+     "n": 200,
+     "reject_raw_0_05": 0.075,
+     "reject_holm_0_05": 0.015,
+     "M_mean": -7.307190716801155e-06
+    },
+    "H2_GOLD": {
+     "n": 200,
+     "reject_raw_0_05": 0.045,
+     "reject_holm_0_05": 0.02,
+     "M_mean": 2.4663742449439304e-05
+    },
+    "H2_DOLLAR": {
+     "n": 200,
+     "reject_raw_0_05": 0.065,
+     "reject_holm_0_05": 0.015,
+     "M_mean": -8.268162664697258e-06
+    }
+   },
+   "any_holm_reject": 0.06
+  },
+  "vol": {
+   "n_reps": 200,
+   "mean_breaks": 284.98,
+   "tests": {
+    "H2_TLT": {
+     "n": 200,
+     "reject_raw_0_05": 0.055,
+     "reject_holm_0_05": 0.005,
+     "M_mean": 7.878479331596285e-06
+    },
+    "H2_HYG": {
+     "n": 200,
+     "reject_raw_0_05": 0.045,
+     "reject_holm_0_05": 0.005,
+     "M_mean": 1.0585682190588656e-05
+    },
+    "H2_GOLD": {
+     "n": 200,
+     "reject_raw_0_05": 0.05,
+     "reject_holm_0_05": 0.015,
+     "M_mean": -7.50061327894405e-05
+    },
+    "H2_DOLLAR": {
+     "n": 200,
+     "reject_raw_0_05": 0.055,
+     "reject_holm_0_05": 0.005,
+     "M_mean": 2.13613417607537e-05
+    }
+   },
+   "any_holm_reject": 0.025
+  }
+ },
+ "generated": "2026-11-10T22:22:01.734818+00:00",
+ "provenance": {
+  "code": {
+   "files": {
+    "section6/s6_adopt_a31.py": "fbb6a9a0569efd30fa2d3faea3c70ccbc4e5c57e9f6e6519df5e7fe5f3841b1c",
+    "section6/s6_check_synth.py": "85f02938cf99f9569e77682b3f9812d75087fe9359c8684a6a0267035a98d612",
+    "section6/s6_coverage.py": "3d6752fe76172e3a595c17bad2f16376b6df6640a115e7be21da7296051bd7c0",
+    "section6/s6_fingerprint.py": "4d1999c758ef6f07441b76199bf4eda82da39bf53c908a82f71f77612bac7bd2",
+    "section6/s6_h2.py": "09a48f4f9731d9434bba66ea058c266f94d6020d15e95f7624017b5496df7fb5",
+    "section6/s6_lib.py": "3b51fbce08e1856df8c03a39fd5d4b4c34c94afbde7784876e2fd12061aca8b1",
+    "section6/s6_posthoc_h3_ci.py": "c06fc0a86121fdfa4b3c3661b9a5f40a98c03b4a5c53807b0bf5de3c1ec13aa6",
+    "section6/s6_power.py": "f821a29d3f682152fd05751dbe6e211fb6e5654e7aff1d8462c106a6a0e97220",
+    "section6/s6_run.py": "27880e09d0e2d1bea1c39b93fcc52e869eb0c06c924dfeb0b369283bd1233aa8",
+    "section6/s6_synth_validation.py": "fbbc8598a8efec2d968153371aa70cd2d55887c7b1b43cb98d6430dfd39d65fc",
+    "section6/s6_tests.py": "852724428c55c6fbdc48152fa3375eb58bfdeb56099da595db13a2c7f229d819",
+    "section6/s6_tests_h2.py": "ad67eb05073b07fed117d98a1b16dcb6d3e5d495afdd0c1e3e1b5aa38153f498",
+    "section5/s5_eval_loader.py": "e82b01de0d29a59bef50045592c8175e9b8a61ad77e19c5942ee135dc3f93139",
+    "section5/s5_amendment_manifest.py": "5dd484087467565f3ab4f3c17c0e13f051d54ce5ff3cf665dcded66e8613c997",
+    "section5/s5_break_export.py": "b2956c2d813465ea829bdb2b6131ead9866a0376df5f674affd8f56609287ec3"
+   },
+   "code_version": "a0323ed24d68e896"
+  },
+  "amendments": [
+   {
+    "amendment": "A28",
+    "file": "AMENDMENT_A28.md",
+    "present": true,
+    "status": "ADOPTED",
+    "sha256": "7c6bd4bdee8bd839b1ff4c2346d81f15fd2b6b29af7a0d4b5e11738d9b673ac2",
+    "sidecar_sha256": "7c6bd4bdee8bd839b1ff4c2346d81f15fd2b6b29af7a0d4b5e11738d9b673ac2",
+    "sidecar_matches": true
+   },
+   {
+    "amendment": "A29",
+    "file": "AMENDMENT_A29.md",
+    "present": true,
+    "status": "ADOPTED",
+    "sha256": "304f27252b29d27649eeb68a0507f127fe24a602cd9556f5d43687bf24822715",
+    "sidecar_sha256": "304f27252b29d27649eeb68a0507f127fe24a602cd9556f5d43687bf24822715",
+    "sidecar_matches": true
+   },
+   {
+    "amendment": "A30",
+    "file": "AMENDMENT_A30.md",
+    "present": true,
+    "status": "ADOPTED",
+    "sha256": "1c421aa7ced0c8748648e9fe5fc723fa14c606a67943001fc482372d3990b9da",
+    "sidecar_sha256": "1c421aa7ced0c8748648e9fe5fc723fa14c606a67943001fc482372d3990b9da",
+    "sidecar_matches": true
+   },
+   {
+    "amendment": "A31",
+    "file": "AMENDMENT_A31.md",
+    "present": true,
+    "status": "ADOPTED",
+    "sha256": "1efd5a1f338b31c6f7459c8d328c854450eed6800052d2be261f83d240ef036f",
+    "sidecar_sha256": "1efd5a1f338b31c6f7459c8d328c854450eed6800052d2be261f83d240ef036f",
+    "sidecar_matches": true
+   },
+   {
+    "amendment": "A32",
+    "file": "AMENDMENT_A32.md",
+    "present": true,
+    "status": "ADOPTED",
+    "sha256": "7bc90d6004d080c9ab1d4660b19749a5ab010d617d114d0d992b28ebe166c857",
+    "sidecar_sha256": "7bc90d6004d080c9ab1d4660b19749a5ab010d617d114d0d992b28ebe166c857",
+    "sidecar_matches": true
+   },
+   {
+    "amendment": "A33",
+    "file": "AMENDMENT_A33.md",
+    "present": true,
+    "status": "ADOPTED",
+    "sha256": "f101adce416ed256499fe779f5c0152de4c26d6bfbd9324a7a2546ecf9506747",
+    "sidecar_sha256": "f101adce416ed256499fe779f5c0152de4c26d6bfbd9324a7a2546ecf9506747",
+    "sidecar_matches": true
+   },
+   {
+    "amendment": "A33_1",
+    "file": "AMENDMENT_A33_1.md",
+    "present": true,
+    "status": "ADOPTED",
+    "sha256": "c87e7aea319e3b121996d9893397a03f483038afee73223a17e4b1f75cdb355b",
+    "sidecar_sha256": "c87e7aea319e3b121996d9893397a03f483038afee73223a17e4b1f75cdb355b",
+    "sidecar_matches": true
+   }
+  ]
+ }
+}

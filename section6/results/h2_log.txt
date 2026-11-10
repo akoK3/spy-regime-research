@@ -6,3 +6,16 @@
 2026-11-10T16:48:29-05:00 [h2 2680] step 1 synthetic run: exit 0 after 3.8 min; 5519 MB free of 16069 MB
 2026-11-10T16:48:30-05:00 [h2 2680] step 1 acceptance (A33 rule 3): exit 1
 2026-11-10T16:48:30-05:00 [h2 2680] === H2 CHAIN STOPPED: A33 rule 3 synthetic check FAILED (see results\h2_check_a33.stdout.txt); power and development run not started
+2026-11-10T17:18:04-05:00 [h2 31628] chain starts; 5379 MB free of 16069 MB
+2026-11-10T17:18:05-05:00 [h2 31628] step 0 data-hash preflight: exit 0
+2026-11-10T17:22:02-05:00 [h2 31628] step 1 synthetic run: exit 0 after 3.9 min; 5276 MB free of 16069 MB
+2026-11-10T17:22:02-05:00 [h2 31628] step 1 acceptance (A33 rule 3): exit 0
+2026-11-10T17:22:02-05:00 [h2 31628] step 2 gate (A28-A33, A33.1 adopted): exit 0
+2026-11-10T17:22:33-05:00 [h2 31628] step 3 power hsmm: exit 0
+2026-11-10T17:22:35-05:00 [h2 31628] step 3 power gaussian_hmm: exit 0
+2026-11-10T17:22:35-05:00 [h2 31628] step 3 power: 0.5 min; 4617 MB free of 16069 MB
+2026-11-10T17:22:35-05:00 [h2 31628] step 4 H2 development run starts; memory 4626 MB free of 16069 MB
+2026-11-10T17:23:51-05:00 [h2 31628] step 4 H2 development run hsmm: exit 0
+2026-11-10T17:23:51-05:00 [h2 31628] step 4 H2 development run gaussian_hmm: exit 0
+2026-11-10T17:23:51-05:00 [h2 31628] step 4: 1.3 min; 5165 MB free of 16069 MB
+2026-11-10T17:23:51-05:00 [h2 31628] === H2 CHAIN DONE. No freeze, no O8, no era calibration.
