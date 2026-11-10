@@ -4,3 +4,4 @@
 2026-11-09T22:58:14-05:00 [ps1 44664] break export preflight (RAW 3 / LEGACY 29): exit code 0 after 0.5 min
 2026-11-09T22:59:06-05:00 [ps1 44664] break export: exit code 0 after 0.9 min
 2026-11-09T23:18:16-05:00 [manual] power runs stopped: they used the A28 in-sample H4 statistic; A29 rule 1f reruns power after adoption
+2026-11-10T00:35:42-05:00 [manual] synthetic 'fixes' run stopped at about 240/480 replicates: superseded by the A31 run (user message 2026-11-10); its partial reps file is kept, no summary written
