@@ -1,3 +1,80 @@
+# Report, 2026-11-10 evening: audit status refreshed, HYG data gap diagnosed, freeze manifest
+
+## Bottom line
+
+- **Both audit documents are refreshed and recopied to `project_upload`.**
+  - `COLD_AUDIT_STATUS.md` now lists every finding with its status and the fixing amendment or commit.
+  - `OPEN_AUDIT_FINDINGS.md` lists what is still open: 15 items, all Low except audit-1 #10. None affects a primary computation.
+- **The HYG data gap comes from the placebo rule, not the HYG data.**
+  - A31 placebos are matched on SPY only and drawn from earlier sessions. HYG coverage only starts in 2008-2010, so most HYG placebo windows fall in sessions with no HYG data.
+  - My earlier guess (HYG's many zero returns) was **wrong**.
+  - No test was changed.
+- **A32, A33 and A33.1 were already in the freeze manifest** (added when each was written).
+  - `freeze_ready()` now passes: all 14 amendments A21-A33.1 are ADOPTED with matching sidecars. That is a check only; no freeze was written.
+  - A test now pins them (`s5_tests_freeze_prep.py` 12/12).
+- No freeze, no O8, no era calibration.
+
+## 1. Audit status (snapshots of the A16 versions kept as `COLD_AUDIT_STATUS_v6_A16.md` and `OPEN_AUDIT_FINDINGS_v5_A16.md`)
+
+| Audit | Resolved | Disclosed | Open |
+|---|---|---|---|
+| Cold audit 1 (22) | 12 (new: #13 by A22 rule 3c; #17 by the data-hash preflight, commits 55cfc4e / 01ac960 / 9124c67) | 4 | 6: #10 Medium; #12, #16 (partly), #18, #20, #21 Low |
+| Cold audit 2 (21) | 16 (new: #14, cache stamp and Section 6 cache, commit 9124c67) | 0 | 5 Low: #10, #11, #12 (Section 5 only), #13 (partly), #15 |
+| O9 (12) | 5: M1 (A25), L1, L3, L8, L9 (commit f03a505) | 7: M2, M3, L2, L4-L7 (`SECTION5_DISCLOSED_LIMITATIONS.md`) | 0 |
+| Fable (17) | 11: M1-M4, L4-L6, L12 (commit 9124c67); M5, L1, L10 (A31); L5 (manifest through A33.1) | 2: L8 (in A29), L11 (A27 row) | 4 Low: L2, L3, L7, L9 |
+
+**Before any evaluation-period run:** Fable L3 (the A26 label must be attached to joint outputs) is the open item that matters.
+
+## 2. HYG data gap (label-free; `section6/s6_hyg_gap.py`, hashed before it ran; output `section6/results/hyg_gap/hyg_gap.json`)
+
+Counts only: no return comparison, no test, no H2 code change. TLT and gold are counted the same way for contrast.
+
+**Where breaks are lost** (Gaussian / HSMM; the 30-minute window after T):
+
+| | HYG | TLT | Gold |
+|---|---|---|---|
+| Breaks (A32 units, burn-in passed) | 600 / 549 | 600 / 549 | 600 / 549 |
+| Asset unavailable in the break's own session | 300 / 283 | 183 / 190 | 162 / 161 |
+| Window past the close | 20 / 24 | 20 / 24 | 20 / 24 |
+| Fewer than 10 earlier sessions with data | 22 / 18 | 6 / 8 | 1 / 1 |
+| **Fewer than 10 usable placebos** | **214 / 195** | 163 / 111 | 106 / 94 |
+| Used by the A32 statistic | 44 / 29 | 228 / 216 | 311 / 269 |
+| Placebo windows with the asset unavailable | **78% / 81%** | 61% / 62% | 51% / 51% |
+| Usable placebos per usable break (median, 10th-90th pct) | 6 (1-11) / 5 (1-10) | 10 (4-15) / 11 (5-16) | 13 (5-19) / 13 (5-19) |
+| E1 evaluable | 59 / 44 | 250 / 222 | 315 / 269 |
+
+**Cause.**
+- A31 / A28 1d placebos are drawn from **earlier sessions of the era**, matched on SPY alone, so they are not conditioned on the asset being available.
+- HYG coverage starts late: LEGACY 6 available sessions in 2008, 71 in 2009, 141 in 2010, then about 215-250 per year.
+- So for HYG breaks, most earlier-session placebos fall before HYG coverage, or on unavailable days. Only 5-6 usable placebos remain per break, below the 10 that E1 and the A32 statistic require.
+- The H2 primary (A33 G6) draws its pool from **all sessions of the era where the asset is available**, so it keeps 242-280 HYG breaks.
+
+**Not the cause.**
+- HYG's zero returns: no window had a flat median, and flat 30-minute windows are 0-2.5% by year.
+- Missing minutes: windows with no data are 0%.
+- HYG's share of exactly-zero one-minute returns is high (43-62% in LEGACY, 18-36% in RAW), but no exclusion rule was triggered by it.
+
+**Also affected, without a minimum to show it.** H3 uses the same placebos with no per-break minimum: HYG has 243 breaks with 1,523 placebos (6.3 per break; TLT 10.1, gold 12.9). The H3 HYG result was computed as specified, but rests on few placebos per break.
+
+**Options (your decision; nothing changed):**
+1. **Recommended:** an amendment for the **descriptive and exploratory parts only** (E1 and the A32 statistic). Draw each asset's placebos from sessions where that asset is available, with the same matching and causal rule. Recompute only those parts, labelled as changed after the diagnosis. Primary tests untouched.
+2. Lower the minimum of 10 placebos for E1 and A32. This keeps more breaks, but each reference is noisier.
+3. Leave as is and disclose: HYG E1 and A32 rest on 29-59 breaks, and H3 HYG on about 6 placebos per break.
+
+## 3. Freeze manifest
+
+`s5_amendment_manifest.AMENDMENTS` = A21-A31, A32, A33, A33_1.
+- `freeze_ready()` passes. It also checks that the required results exist. This is a readiness check only; nothing was frozen.
+- The Section 6 fingerprint (not yet written) covers every `section6/*.py`, including `s6_h2.py` and `s6_hyg_gap.py`.
+
+## Files
+
+- `COLD_AUDIT_STATUS.md`, `OPEN_AUDIT_FINDINGS.md` (+ sidecars, v6/v5 snapshots), copied to `project_upload/`.
+- `section6/s6_hyg_gap.py`; `section6/results/hyg_gap/hyg_gap.json`.
+- Ledger rows for each.
+
+---
+
 # H2 report, 2026-11-10 (A33 / A33.1 chain done 17:23 New York)
 
 ## Bottom line
