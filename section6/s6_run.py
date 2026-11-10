@@ -461,8 +461,10 @@ def provenance():
 
 
 def write_once(path, obj):
-    """Writes a result with a sha256 sidecar; refuses to overwrite an existing result (FABLE_AUDIT M3)."""
+    """Writes a result with a sha256 sidecar; refuses to overwrite an existing result (FABLE_AUDIT M3); refuses an evaluation-period result without the A26 label (A34 3a)."""
     path = Path(path)
+    if isinstance(obj, dict) and obj.get("period") not in (None, "development") and not (obj.get("a26_label") == LABEL_EVAL and obj.get("confirmatory") is False):
+        raise PermissionError(f"{path.name}: an evaluation-period result must carry a26_label = {LABEL_EVAL!r} and confirmatory = False (AMENDMENT_A34 rule 3a, A26 1d)")
     if path.exists(): raise SystemExit(f"{path} exists: Section 6 results are written once; move it aside with a ledger row to rerun")
     path.parent.mkdir(parents=True, exist_ok=True); path.write_text(json.dumps(obj, indent=1, default=float), encoding="utf-8")
     path.with_suffix(".sha256").write_text(f"{hashlib.sha256(path.read_bytes()).hexdigest()}  {path.name}\n", encoding="ascii"); return path

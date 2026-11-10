@@ -113,7 +113,7 @@ def decile_cuts(values):
 def decile(x, cuts): return None if cuts is None or not np.isfinite(x) else int(np.searchsorted(cuts, x, side="right"))
 
 
-def draw_placebos(unit, cand, alarms_by_day, n=N_PLACEBO, seed=0, rule="A31"):
+def draw_placebos(unit, cand, alarms_by_day, n=N_PLACEBO, seed=0, rule="A31", eligible=None):
     """unit: dict(day_idx, era, S, gap, vol) for one break or run; cand: dict of arrays (day_idx, era, S, vol) of every candidate time (SPY update times of sessions with
     detector output). Eligible: same era, session strictly before the unit's session, same 30-minute slot of S, same SPY prior-hour-RV decile with cut points from the
     candidates of sessions before the unit's session only, S + gap within the session, and (AMENDMENT_A31 rule 1) no confirmed alarm of that session with T_c in
@@ -124,6 +124,7 @@ def draw_placebos(unit, cand, alarms_by_day, n=N_PLACEBO, seed=0, rule="A31"):
     if dz is None: return np.array([], int)
     cd = np.searchsorted(cuts, cand["vol"], side="right")
     ok = before & ((cand["S"] - 1) // SLOT_MIN == slot_of(unit["S"])) & (cd == dz) & np.isfinite(cand["vol"]) & (cand["S"] + unit["gap"] <= N_MIN)
+    if eligible is not None: ok &= eligible      # AMENDMENT_A34 rule 1a: per-asset pool (asset available in the placebo session); applied after the SPY cut points
     idx = np.flatnonzero(ok)
     if len(idx) == 0: return idx
     if rule == "none": far = np.ones(len(idx), bool)      # no alarm condition (synthetic diagnostic of A31 rule 3 only)

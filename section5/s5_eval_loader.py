@@ -67,7 +67,8 @@ def _preflight():
 
 def eval_guard(era, freeze_path, confirm_token, section6=False):
     """No argument can relax a check (FABLE_AUDIT M1): the lock, the fingerprint, the panel paths and the preflight are module constants / functions; only tests patch them."""
-    import s5_freeze as FZ, s5_amendment_manifest as AM
+    import s5_freeze as FZ, s5_amendment_manifest as AM, s5_eval_label as EV
+    EV.ready()      # AMENDMENT_A34 rule 3b: the A26 label module is in place before any evaluation-period read
     fz = FZ.verify_freeze(freeze_path)
     if confirm_token != sha(freeze_path): raise PermissionError("confirm_token must be the sha256 of the freeze file")
     now = AM.freeze_ready()
