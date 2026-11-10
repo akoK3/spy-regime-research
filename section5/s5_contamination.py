@@ -40,7 +40,7 @@ REGISTRY = {
     # FABLE_AUDIT M4 (2026-11-10): Section 6 (AMENDMENT_A28 / A29). Development data only through s5_eval_loader.load_development; evaluation only through load_eval after the freeze.
     "section6/s6_lib.py": "LIBRARY", "section6/s6_run.py": "POST_MAIN_RUN", "section6/s6_coverage.py": "LABEL_FREE", "section6/s6_power.py": "LABEL_FREE",
     "section6/s6_synth_validation.py": "LIBRARY", "section6/s6_fingerprint.py": "LIBRARY", "section6/s6_tests.py": "LIBRARY",
-    "section6/s6_posthoc_h3_ci.py": "POST_MAIN_RUN",
+    "section6/s6_posthoc_h3_ci.py": "POST_MAIN_RUN", "section6/s6_h2.py": "POST_MAIN_RUN", "section6/s6_tests_h2.py": "LIBRARY",      # A32 (H2)
     "s5_power_observed_n.py": "POST_MAIN_RUN",      # O9 L1: H1(a) MDE with the observed 22 folds
     "s5_posthoc_grid_pauc.py": "POST_MAIN_RUN",      # post hoc, descriptive: absolute H1(a) pAUC feature and baseline, 1-min vs 5-min (A22 3g setups)
     "s5_d7_nan_diag.py": "LABEL_FREE",      # post hoc: why D7 (A21) found undefined variance ratios on 47 LEGACY days; no detector, no outcome
