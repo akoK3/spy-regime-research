@@ -81,7 +81,7 @@ Totals: resolved 5, disclosed 7, open 0.
 
 ## Fable audit (`FABLE_AUDIT.md`, sha256 `005129986659b5827f94bf491f4120ae19db3ec674d25d78b50974f2ecc7db57`; 2026-11-10; 0 High, 5 Medium, 12 Low)
 
-Totals: resolved 11, disclosed 2, open 4. Fixes without amendment are in commit 9124c67 (approved by the user as not needing an amendment); the rest by AMENDMENT_A31.
+Totals: resolved 12, disclosed 2, open 3. Fixes without amendment are in commit 9124c67 (approved by the user as not needing an amendment); the rest by AMENDMENT_A31.
 
 | # | Severity | Finding | Status | Evidence |
 |---|---|---|---|---|
@@ -92,7 +92,7 @@ Totals: resolved 11, disclosed 2, open 4. Fixes without amendment are in commit 
 | M5 | Medium | Placebos conditioned on SPY's future alarms; 7d null cannot detect it | **resolved** | AMENDMENT_A31 rule 1 (past alarms only) and rule 3 (placebo-filter null control, as revised by the user) (draft d1180ca, code ce307a7; adopted after the rule 4 check passed 29/29, commit e6eb407). |
 | L1 | Low | H4a placebo eligibility depends on the label | **resolved** | AMENDMENT_A31 rule 2b: gap-0 placebos for every H4a unit. |
 | L2 | Low | Matched sets split across bootstrap blocks | **open** | Section 6 H3/H4 unchanged. The A32 statistic (exploratory under A33) resamples breaks with their placebos; the H2 primary (A33) uses placebo draws, not a block bootstrap. |
-| L3 | Low | A26 rule 1d label never attached | **open** | No evaluation-period output exists yet; `s6_run` carries `LABEL_EVAL` but the joint path is refused. Must be attached before any evaluation-period result. |
+| L3 | Low | A26 rule 1d label never attached | **resolved** | AMENDMENT_A34 rule 3 (commit 37ae229): `s6_run.write_once` refuses any non-development result without `a26_label` and `confirmatory = False`; Section 5 5.13 goes through `s5_eval_label.run_confirmatory_labelled` (wraps run_fn; `verify_labelled`), and `s5_eval_loader.eval_guard` requires `s5_eval_label.ready()` before any evaluation-period read; unit-tested (`s6_tests_a34.py`). |
 | L4 | Low | `load_era` loads evaluation rows before refusing the joint period | **resolved** | Commit 9124c67: refused before any read; unit-tested. |
 | L5 | Low | A29 not in the freeze manifest | **resolved** | Commit 9124c67 (A29, A31); A30 (8205928), A32 (cde894d), A33 (8821487), A33.1 (1fdb5f7) added when written; `freeze_ready` refuses until all are adopted. |
 | L6 | Low | Finding-14 fix has no call site | **resolved** | Commit 9124c67 (see cold audit 2 #14). |

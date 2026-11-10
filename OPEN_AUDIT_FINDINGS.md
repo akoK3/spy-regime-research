@@ -16,7 +16,7 @@ Facts only. Resolved and disclosed findings are not repeated here.
 | Audit 1 | 6: 1 Medium (10), 5 Low (12, 16 partly, 18, 20, 21) | 13 (A22 rule 3c), 17 (data-hash preflight: commits 55cfc4e, 01ac960, 9124c67) |
 | Audit 2 | 5, all Low (10, 11, 12, 13 partly, 15) | 14 (cache stamp and Section 6 cache: commit 9124c67) |
 | O9 | 0 (M1, L1, L3, L8, L9 resolved; M2, M3, L2, L4-L7 disclosed in `SECTION5_DISCLOSED_LIMITATIONS.md`) | all, by A25 and commit f03a505 |
-| Fable | 4, all Low (L2, L3, L7, L9) | M1-M4, L4-L6, L12 (commit 9124c67); M5, L1, L10 (AMENDMENT_A31); L5 (manifest, through A33.1) |
+| Fable | 3, all Low (L2, L7, L9) | M1-M4, L4-L6, L12 (commit 9124c67); M5, L1, L10 (AMENDMENT_A31); L5 (manifest, through A34); L3 (AMENDMENT_A34 rule 3, commit 37ae229) |
 
 None of the open findings changes the primary H1 detection or QLIKE computation, or a Section 6 primary result as computed.
 
@@ -46,10 +46,9 @@ None of the open findings changes the primary H1 detection or QLIKE computation,
 | # | Severity | Finding | What it affects |
 |---|---|---|---|
 | L2 | Low | Section 6 H3/H4 matched sets are split across bootstrap blocks; placebo rows can be duplicated | H3/H4 p-values, which are week-block resamples of rows. Not changed. |
-| L3 | Low | The A26 rule 1d label is defined but never attached | Any evaluation-period output. None exists. The label must be attached before the joint run. |
 | L7 | Low | Ledger integrity relies on git; dates come from the file's own stamp | Record dating. Two stamp errors were found and corrected by ledger rows on 2026-11-10. |
 | L9 | Low | Rule 7c "FOMC days" are only the 98 H1(c)-eligible events | The Fed / non-Fed split in Section 6 (secondary) and A30 / E1 descriptions. |
 
 ## Also open, outside the audits (from the Section 6 development results)
 
-- **The HYG data gap.** E1 and the A32 statistic use far fewer HYG breaks than the H2 primary. Diagnosed on 2026-11-10, label-free: see `reply_latest.md` and `section6/results/hyg_gap/`.
+- **The HYG data gap** (not an audit finding). Diagnosed label-free on 2026-11-10 (`section6/results/hyg_gap/`). Addressed for E1 and the A32 statistic by AMENDMENT_A34 per-asset placebo pools (post-diagnosis), with an H3 per-asset-pool sensitivity (secondary). The H3 primary is unchanged and keeps HYG at about 6 placebos per break, which is disclosed.

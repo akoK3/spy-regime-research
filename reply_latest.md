@@ -1,3 +1,86 @@
+# Report, 2026-11-10 late: A34 (per-asset placebo pools; A26 label enforced in code)
+
+## Bottom line
+
+- **A34 is written, hashed before its code, and adopted.**
+  - E1 and the |return| statistic are recomputed with per-asset placebo pools: same matching, plus the asset available in the placebo session. Both are labelled post-diagnosis.
+  - The per-asset-pool H3 is added as a secondary sensitivity for all 4 assets.
+  - **The H3 primary is unchanged.** Nothing else was recomputed, and no earlier result file was touched.
+- **The HYG gap is closed for E1 and the |return| statistic.** HYG breaks used: 44 -> 234 (Gaussian), 29 -> 204 (HSMM). E1 classifiable breaks: 56 -> 271 and 43 -> 240.
+- **The H3 sensitivity agrees with the primary:** negative gamma for every asset and both detectors, no rejection.
+  - TLT gamma is smaller with per-asset pools: -0.112 vs -0.164 (Gaussian) and -0.119 vs -0.139 (HSMM). Gold barely moves.
+- **Fable L3 is enforced in code** (A34 rule 3). An evaluation-period output without the A26 label is now refused in Section 6 and in Section 5.
+- A34 is in the freeze manifest. All tests pass. Code version a0323ed24d68e896 is unchanged.
+- No freeze, no O8, no era calibration.
+
+## 1. A34 (`AMENDMENT_A34.md`, adopted 23:27Z; code commit 37ae229)
+
+- **Rule 1.** Per-asset pool = A31 matching (earlier session, 30-min slot of S, SPY decile with earlier cut points, past alarms only, T_p <= 390, 20 per break) **plus the asset available in the placebo session**.
+  - The cut points are unchanged.
+  - E1's chance reference uses a joint TLT-and-HYG pool.
+  - The default draw is unchanged; a test shows it is identical.
+- **Rule 2.** Recompute only E1, the A32 statistic (exploratory, uncorrected) and the H3 sensitivity (secondary, BH of 4, outside Holm), all labelled post-diagnosis.
+- **Rule 3 (Fable L3).**
+  - **Section 6:** `s6_run.write_once` refuses any non-development result unless it carries the A26 label and `confirmatory = false`. `s6_h2` and `s6_a34` write through it.
+  - **Section 5:** the 5.13 writer is in the frozen closure, so A34 adds `s5_eval_label.py` outside it.
+    - `run_confirmatory_labelled` wraps the caller's `run_fn`, so every per-era result is labelled before the closure writes it.
+    - `verify_labelled` refuses unlabelled evaluation files.
+    - `s5_eval_loader.eval_guard` now requires `s5_eval_label.ready()` before any evaluation-period read.
+  - **Tests** (`s6_tests_a34.py` 5/5): unlabelled refused, labelled accepted, the guard refuses without the module.
+- **Caveat:** "sanctioned entry" is a code path, not a lock. Calling `s5_freeze.run_confirmatory` directly would still write unlabelled files. `verify_labelled` would catch them afterwards, but nothing blocks the direct call, because the closure can't be edited.
+
+## 2. Recomputed development parts (`section6/results/a34_development_{gaussian_hmm,hsmm}.json`; about 1 min each)
+
+**Placebos per break with per-asset pools:**
+- the median is 20 for TLT, HYG and gold;
+- USD has none for most breaks (it has data only in 2018);
+- the 10th percentile is 0, for breaks before the asset's coverage.
+
+**H3 next-day sensitivity (secondary; one-sided; BH of 4)**
+
+| Asset | Gaussian: breaks / placebos, gamma, p (BH) | Primary gamma | HSMM: breaks / placebos, gamma, p (BH) | Primary gamma |
+|---|---|---|---|---|
+| TLT | 402 / 7,232, -0.112, 1.00 (1.00) | -0.164 | 339 / 6,249, -0.119, 1.00 (1.00) | -0.139 |
+| HYG | 243 / 4,088, -0.069, 0.94 (1.00) | -0.071 | 205 / 3,589, -0.072, 0.93 (1.00) | -0.043 |
+| Gold | 420 / 8,328, -0.170, 1.00 (1.00) | -0.185 | 373 / 7,404, -0.152, 1.00 (1.00) | -0.156 |
+| USD | 9 / 172, -0.033, 0.58 (1.00) | -0.282 | 11 / 193, -0.155, 0.72 (1.00) | -0.213 |
+
+- HYG now has about 17 placebos per break, against 6 in the primary. Its gamma is almost unchanged.
+- TLT's negative gamma shrinks by about a third (Gaussian), so part of the primary TLT gamma depends on which placebo sessions were available. The sign and conclusion are unchanged.
+
+**|return| statistic (exploratory; uncorrected; post-diagnosis): deseasonalised |return| breaks minus placebos, +30 min**
+
+| Asset | Gaussian: n, G, p | HSMM: n, G, p |
+|---|---|---|
+| TLT | 383, +0.29, 0.0001 | 321, +0.37, 0.0001 |
+| HYG | **234**, +0.24, 0.0012 | **204**, +0.36, 0.0003 |
+| Gold | 405, +0.57, 0.0001 | 349, +0.70, 0.0001 |
+| USD | 9, +1.55, 0.0006 | 10, +1.33, 0.030 |
+
+- The same pattern holds at +5, +15 and +60, and in the pre-30 window (descriptive, about +0.6 to +0.9).
+- The caveat stands: this may reflect market-wide volatility at the break.
+
+**E1 footprint (descriptive; post-diagnosis): breaks vs placebo shares**
+
+| Category | Gaussian (271 breaks / 5,310 placebos) | HSMM (240 / 4,707) |
+|---|---|---|
+| SPY-only | 60.2% vs 65.8% | 55.4% vs 65.8% |
+| Credit stress | 7.0% vs 5.4% | 8.8% vs 5.9% |
+| Flight to safety | 1.5% vs 0.9% | 0.4% vs 1.2% |
+| Dollar-driven | 0.4% vs 0.1% | 0.4% vs 0.1% |
+| Other | 31.0% vs 27.8% | 35.0% vs 27.0% |
+
+- Breaks are SPY-only less often than placebos, by 6-10 points. They show credit stress and "other" patterns more often.
+- Flight to safety stays rare. USD is almost never evaluable.
+
+## 3. Audit documents
+
+- `COLD_AUDIT_STATUS.md`: Fable L3 is marked resolved (A34 rule 3, commit 37ae229). Fable totals: 12 resolved / 2 disclosed / 3 open.
+- `OPEN_AUDIT_FINDINGS.md`: L3 is removed, and the HYG note is updated.
+- Both are recopied to `project_upload`, with A34 and the ledger.
+
+---
+
 # Report, 2026-11-10 evening: audit status refreshed, HYG data gap diagnosed, freeze manifest
 
 ## Bottom line

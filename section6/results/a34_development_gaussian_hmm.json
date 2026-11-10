@@ -1,0 +1,469 @@
+{
+ "detector": "gaussian_hmm",
+ "label": "AMENDMENT_A34 recomputed parts (post-diagnosis (AMENDMENT_A34; specified after the label-free HYG diagnosis); development data)",
+ "n_breaks": 600,
+ "placebos_per_break": {
+  "TLT": {
+   "p10": 0.0,
+   "p50": 20.0,
+   "p90": 20.0
+  },
+  "HYG": {
+   "p10": 0.0,
+   "p50": 20.0,
+   "p90": 20.0
+  },
+  "GOLD": {
+   "p10": 0.0,
+   "p50": 20.0,
+   "p90": 20.0
+  },
+  "DOLLAR": {
+   "p10": 0.0,
+   "p50": 0.0,
+   "p90": 0.0
+  }
+ },
+ "exploratory_a32": {
+  "label": "EXPLORATORY (A33 rule 4), uncorrected; per-asset placebo pools; post-diagnosis (AMENDMENT_A34; specified after the label-free HYG diagnosis)",
+  "tests": {
+   "X_TLT_h30": {
+    "n_breaks": 383,
+    "window": [
+     0,
+     30
+    ],
+    "mean_d_break": 1.142797295623129,
+    "mean_d_placebo": 0.850054044047024,
+    "G": 0.292743251576105,
+    "p": 0.0001,
+    "n_valid_resamples": 9999
+   },
+   "X_HYG_h30": {
+    "n_breaks": 234,
+    "window": [
+     0,
+     30
+    ],
+    "mean_d_break": 0.9301672085494586,
+    "mean_d_placebo": 0.6904985469445569,
+    "G": 0.23966866160490155,
+    "p": 0.0012,
+    "n_valid_resamples": 9999
+   },
+   "X_GOLD_h30": {
+    "n_breaks": 405,
+    "window": [
+     0,
+     30
+    ],
+    "mean_d_break": 1.3862541880842054,
+    "mean_d_placebo": 0.8199152589378782,
+    "G": 0.5663389291463271,
+    "p": 0.0001,
+    "n_valid_resamples": 9999
+   },
+   "X_DOLLAR_h30": {
+    "n_breaks": 9,
+    "window": [
+     0,
+     30
+    ],
+    "mean_d_break": 2.3025461780273577,
+    "mean_d_placebo": 0.757223129213548,
+    "G": 1.54532304881381,
+    "p": 0.0006,
+    "n_valid_resamples": 9999
+   },
+   "X_TLT_h5": {
+    "n_breaks": 392,
+    "window": [
+     0,
+     5
+    ],
+    "mean_d_break": 1.2868408458897829,
+    "mean_d_placebo": 0.8973964321707185,
+    "G": 0.3894444137190646,
+    "p": 0.0001,
+    "n_valid_resamples": 9999
+   },
+   "X_HYG_h5": {
+    "n_breaks": 237,
+    "window": [
+     0,
+     5
+    ],
+    "mean_d_break": 1.091232292047776,
+    "mean_d_placebo": 0.7711483086689443,
+    "G": 0.3200839833788318,
+    "p": 0.0002,
+    "n_valid_resamples": 9999
+   },
+   "X_GOLD_h5": {
+    "n_breaks": 419,
+    "window": [
+     0,
+     5
+    ],
+    "mean_d_break": 1.5955094094275646,
+    "mean_d_placebo": 0.9481360202396163,
+    "G": 0.6473733891879482,
+    "p": 0.0001,
+    "n_valid_resamples": 9999
+   },
+   "X_DOLLAR_h5": {
+    "n_breaks": 9,
+    "window": [
+     0,
+     5
+    ],
+    "mean_d_break": 2.196654979804427,
+    "mean_d_placebo": 0.7885677812965219,
+    "G": 1.4080871985079055,
+    "p": 0.0348,
+    "n_valid_resamples": 9999
+   },
+   "X_TLT_h15": {
+    "n_breaks": 388,
+    "window": [
+     0,
+     15
+    ],
+    "mean_d_break": 1.1643779630434723,
+    "mean_d_placebo": 0.8469862653500142,
+    "G": 0.3173916976934581,
+    "p": 0.0001,
+    "n_valid_resamples": 9999
+   },
+   "X_HYG_h15": {
+    "n_breaks": 240,
+    "window": [
+     0,
+     15
+    ],
+    "mean_d_break": 0.9702742853437127,
+    "mean_d_placebo": 0.7025418237911187,
+    "G": 0.26773246155259406,
+    "p": 0.0004,
+    "n_valid_resamples": 9999
+   },
+   "X_GOLD_h15": {
+    "n_breaks": 412,
+    "window": [
+     0,
+     15
+    ],
+    "mean_d_break": 1.458499356345544,
+    "mean_d_placebo": 0.8670357937544869,
+    "G": 0.5914635625910567,
+    "p": 0.0001,
+    "n_valid_resamples": 9999
+   },
+   "X_DOLLAR_h15": {
+    "n_breaks": 9,
+    "window": [
+     0,
+     15
+    ],
+    "mean_d_break": 1.2164214267993865,
+    "mean_d_placebo": 0.8313060898645941,
+    "G": 0.3851153369347927,
+    "p": 0.0886,
+    "n_valid_resamples": 9999
+   },
+   "X_TLT_h60": {
+    "n_breaks": 357,
+    "window": [
+     0,
+     60
+    ],
+    "mean_d_break": 1.0685995044226806,
+    "mean_d_placebo": 0.853946980977275,
+    "G": 0.21465252344540559,
+    "p": 0.0001,
+    "n_valid_resamples": 9999
+   },
+   "X_HYG_h60": {
+    "n_breaks": 216,
+    "window": [
+     0,
+     60
+    ],
+    "mean_d_break": 0.956199917630701,
+    "mean_d_placebo": 0.6957598429488512,
+    "G": 0.26044007468185,
+    "p": 0.0007,
+    "n_valid_resamples": 9999
+   },
+   "X_GOLD_h60": {
+    "n_breaks": 380,
+    "window": [
+     0,
+     60
+    ],
+    "mean_d_break": 1.310436837793466,
+    "mean_d_placebo": 0.805750999598699,
+    "G": 0.5046858381947671,
+    "p": 0.0001,
+    "n_valid_resamples": 9999
+   },
+   "X_DOLLAR_h60": {
+    "n_breaks": 8,
+    "window": [
+     0,
+     60
+    ],
+    "mean_d_break": 2.6768387558372124,
+    "mean_d_placebo": 0.6465106256146145,
+    "G": 2.030328130222598,
+    "p": 0.0048,
+    "n_valid_resamples": 9999
+   },
+   "X_TLT_pre30": {
+    "n_breaks": 399,
+    "window": [
+     -30,
+     0
+    ],
+    "mean_d_break": 1.7024667108107212,
+    "mean_d_placebo": 0.8366196178167001,
+    "G": 0.865847092994021,
+    "p": null,
+    "label": "descriptive, not tested"
+   },
+   "X_HYG_pre30": {
+    "n_breaks": 243,
+    "window": [
+     -30,
+     0
+    ],
+    "mean_d_break": 1.291302058482428,
+    "mean_d_placebo": 0.7084744066870098,
+    "G": 0.5828276517954183,
+    "p": null,
+    "label": "descriptive, not tested"
+   },
+   "X_GOLD_pre30": {
+    "n_breaks": 422,
+    "window": [
+     -30,
+     0
+    ],
+    "mean_d_break": 1.6948759997095233,
+    "mean_d_placebo": 0.8045680715036547,
+    "G": 0.8903079282058688,
+    "p": null,
+    "label": "descriptive, not tested"
+   },
+   "X_DOLLAR_pre30": {
+    "n_breaks": 9,
+    "window": [
+     -30,
+     0
+    ],
+    "mean_d_break": 2.877654951192211,
+    "mean_d_placebo": 0.8371922326516261,
+    "G": 2.040462718540585,
+    "p": null,
+    "label": "descriptive, not tested"
+   }
+  }
+ },
+ "h3_sensitivity": {
+  "label": "A34 2c H3 next-day with per-asset placebo pools: SECONDARY sensitivity, BH of 4, outside Holm; the H3 primary is unchanged; post-diagnosis (AMENDMENT_A34; specified after the label-free HYG diagnosis)",
+  "tests": {
+   "H3_TLT": {
+    "n_breaks": 402,
+    "n_placebos": 7232,
+    "gamma": -0.11201644518075268,
+    "p": 0.9999,
+    "n_valid_resamples": 9999,
+    "p_bh": 1.0
+   },
+   "H3_HYG": {
+    "n_breaks": 243,
+    "n_placebos": 4088,
+    "gamma": -0.06915815303335382,
+    "p": 0.9377,
+    "n_valid_resamples": 9999,
+    "p_bh": 1.0
+   },
+   "H3_GOLD": {
+    "n_breaks": 420,
+    "n_placebos": 8328,
+    "gamma": -0.17007454560117033,
+    "p": 1.0,
+    "n_valid_resamples": 9999,
+    "p_bh": 1.0
+   },
+   "H3_DOLLAR": {
+    "n_breaks": 9,
+    "n_placebos": 172,
+    "gamma": -0.033430745225885426,
+    "p": 0.5819,
+    "n_valid_resamples": 9997,
+    "p_bh": 1.0
+   }
+  }
+ },
+ "E1": {
+  "label": "A34 2b E1 footprint taxonomy with per-asset placebo pools (descriptive; post-diagnosis (AMENDMENT_A34; specified after the label-free HYG diagnosis))",
+  "window": [
+   0,
+   30
+  ],
+  "n_breaks": 271,
+  "n_placebos": 5310,
+  "skipped": {
+   "window_past_close": 20,
+   "tlt_or_hyg_not_evaluable": 309
+  },
+  "breaks": {
+   "flight_to_safety": {
+    "n": 4,
+    "share": 0.014760147601476014
+   },
+   "credit_stress": {
+    "n": 19,
+    "share": 0.07011070110701106
+   },
+   "dollar_driven": {
+    "n": 1,
+    "share": 0.0036900369003690036
+   },
+   "spy_only": {
+    "n": 163,
+    "share": 0.6014760147601476
+   },
+   "other": {
+    "n": 84,
+    "share": 0.30996309963099633
+   }
+  },
+  "placebos": {
+   "flight_to_safety": {
+    "n": 45,
+    "share": 0.00847457627118644
+   },
+   "credit_stress": {
+    "n": 289,
+    "share": 0.0544256120527307
+   },
+   "dollar_driven": {
+    "n": 3,
+    "share": 0.0005649717514124294
+   },
+   "spy_only": {
+    "n": 3495,
+    "share": 0.6581920903954802
+   },
+   "other": {
+    "n": 1478,
+    "share": 0.2783427495291902
+   }
+  }
+ },
+ "period": "development",
+ "nboot": 9999,
+ "seconds": 66.0,
+ "generated": "2026-11-10T23:31:13.256901+00:00",
+ "provenance": {
+  "code": {
+   "files": {
+    "section6/s6_a34.py": "88e3e3dbed77b5be4b5a4dcdc63f899c595af7101ba2bd05c96c68258c0c5c63",
+    "section6/s6_adopt_a31.py": "fbb6a9a0569efd30fa2d3faea3c70ccbc4e5c57e9f6e6519df5e7fe5f3841b1c",
+    "section6/s6_check_synth.py": "85f02938cf99f9569e77682b3f9812d75087fe9359c8684a6a0267035a98d612",
+    "section6/s6_coverage.py": "3d6752fe76172e3a595c17bad2f16376b6df6640a115e7be21da7296051bd7c0",
+    "section6/s6_fingerprint.py": "4d1999c758ef6f07441b76199bf4eda82da39bf53c908a82f71f77612bac7bd2",
+    "section6/s6_h2.py": "09a48f4f9731d9434bba66ea058c266f94d6020d15e95f7624017b5496df7fb5",
+    "section6/s6_hyg_gap.py": "cbd0ccf3ee17fddbfd70f4d1faad03b4f522257fde98dbc615becae18b9489d9",
+    "section6/s6_lib.py": "96d448d3a666bc36e5de1f1f2b94f157445ffa4e4c1b5ed8c27dbdf81599235d",
+    "section6/s6_posthoc_h3_ci.py": "c06fc0a86121fdfa4b3c3661b9a5f40a98c03b4a5c53807b0bf5de3c1ec13aa6",
+    "section6/s6_power.py": "f821a29d3f682152fd05751dbe6e211fb6e5654e7aff1d8462c106a6a0e97220",
+    "section6/s6_run.py": "e0c433588657deb2a0ee87810d9517f56a15e7b0db21786977e794531641ed83",
+    "section6/s6_synth_validation.py": "fbbc8598a8efec2d968153371aa70cd2d55887c7b1b43cb98d6430dfd39d65fc",
+    "section6/s6_tests.py": "852724428c55c6fbdc48152fa3375eb58bfdeb56099da595db13a2c7f229d819",
+    "section6/s6_tests_a34.py": "b5b43582b401137a12a0104f6ea325970ff94447e8d4fb49a68bd5ac3602419d",
+    "section6/s6_tests_h2.py": "ad67eb05073b07fed117d98a1b16dcb6d3e5d495afdd0c1e3e1b5aa38153f498",
+    "section5/s5_eval_loader.py": "e54ad268322bef4241b1d537765e90ba2cd5784e3c378e9b734e23383242c860",
+    "section5/s5_amendment_manifest.py": "0168d4a14c6c86ee591ac3d4bfd527b4e78b335ebe4ecb443d1b4a2c80f1673e",
+    "section5/s5_break_export.py": "b2956c2d813465ea829bdb2b6131ead9866a0376df5f674affd8f56609287ec3"
+   },
+   "code_version": "a0323ed24d68e896"
+  },
+  "amendments": [
+   {
+    "amendment": "A28",
+    "file": "AMENDMENT_A28.md",
+    "present": true,
+    "status": "ADOPTED",
+    "sha256": "7c6bd4bdee8bd839b1ff4c2346d81f15fd2b6b29af7a0d4b5e11738d9b673ac2",
+    "sidecar_sha256": "7c6bd4bdee8bd839b1ff4c2346d81f15fd2b6b29af7a0d4b5e11738d9b673ac2",
+    "sidecar_matches": true
+   },
+   {
+    "amendment": "A29",
+    "file": "AMENDMENT_A29.md",
+    "present": true,
+    "status": "ADOPTED",
+    "sha256": "304f27252b29d27649eeb68a0507f127fe24a602cd9556f5d43687bf24822715",
+    "sidecar_sha256": "304f27252b29d27649eeb68a0507f127fe24a602cd9556f5d43687bf24822715",
+    "sidecar_matches": true
+   },
+   {
+    "amendment": "A30",
+    "file": "AMENDMENT_A30.md",
+    "present": true,
+    "status": "ADOPTED",
+    "sha256": "1c421aa7ced0c8748648e9fe5fc723fa14c606a67943001fc482372d3990b9da",
+    "sidecar_sha256": "1c421aa7ced0c8748648e9fe5fc723fa14c606a67943001fc482372d3990b9da",
+    "sidecar_matches": true
+   },
+   {
+    "amendment": "A31",
+    "file": "AMENDMENT_A31.md",
+    "present": true,
+    "status": "ADOPTED",
+    "sha256": "1efd5a1f338b31c6f7459c8d328c854450eed6800052d2be261f83d240ef036f",
+    "sidecar_sha256": "1efd5a1f338b31c6f7459c8d328c854450eed6800052d2be261f83d240ef036f",
+    "sidecar_matches": true
+   },
+   {
+    "amendment": "A32",
+    "file": "AMENDMENT_A32.md",
+    "present": true,
+    "status": "ADOPTED",
+    "sha256": "7bc90d6004d080c9ab1d4660b19749a5ab010d617d114d0d992b28ebe166c857",
+    "sidecar_sha256": "7bc90d6004d080c9ab1d4660b19749a5ab010d617d114d0d992b28ebe166c857",
+    "sidecar_matches": true
+   },
+   {
+    "amendment": "A33",
+    "file": "AMENDMENT_A33.md",
+    "present": true,
+    "status": "ADOPTED",
+    "sha256": "f101adce416ed256499fe779f5c0152de4c26d6bfbd9324a7a2546ecf9506747",
+    "sidecar_sha256": "f101adce416ed256499fe779f5c0152de4c26d6bfbd9324a7a2546ecf9506747",
+    "sidecar_matches": true
+   },
+   {
+    "amendment": "A33_1",
+    "file": "AMENDMENT_A33_1.md",
+    "present": true,
+    "status": "ADOPTED",
+    "sha256": "c87e7aea319e3b121996d9893397a03f483038afee73223a17e4b1f75cdb355b",
+    "sidecar_sha256": "c87e7aea319e3b121996d9893397a03f483038afee73223a17e4b1f75cdb355b",
+    "sidecar_matches": true
+   },
+   {
+    "amendment": "A34",
+    "file": "AMENDMENT_A34.md",
+    "present": true,
+    "status": "ADOPTED",
+    "sha256": "a2c58b4560eba9320fd78564a5d7f39031c09f4825cca822d75c0d2ec9484faa",
+    "sidecar_sha256": "a2c58b4560eba9320fd78564a5d7f39031c09f4825cca822d75c0d2ec9484faa",
+    "sidecar_matches": true
+   }
+  ]
+ }
+}
