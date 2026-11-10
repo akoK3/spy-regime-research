@@ -1,3 +1,8 @@
 2026-11-10T16:37:28-05:00 [h2 11884] chain starts; 5468 MB free of 16069 MB
 2026-11-10T16:37:29-05:00 [h2 11884] step 0 data-hash preflight: exit 0
 2026-11-10T16:39:39-05:00 [manual] H2 chain STOPPED at the user's request during step 1 (synthetic run, A32); no power or development output exists; superseded by A33
+2026-11-10T16:44:40-05:00 [h2 2680] chain starts; 5523 MB free of 16069 MB
+2026-11-10T16:44:41-05:00 [h2 2680] step 0 data-hash preflight: exit 0
+2026-11-10T16:48:29-05:00 [h2 2680] step 1 synthetic run: exit 0 after 3.8 min; 5519 MB free of 16069 MB
+2026-11-10T16:48:30-05:00 [h2 2680] step 1 acceptance (A33 rule 3): exit 1
+2026-11-10T16:48:30-05:00 [h2 2680] === H2 CHAIN STOPPED: A33 rule 3 synthetic check FAILED (see results\h2_check_a33.stdout.txt); power and development run not started

@@ -1,0 +1,1 @@
+STOPPED: A33 rule 3 synthetic check FAILED (see results\h2_check_a33.stdout.txt); power and development run not started

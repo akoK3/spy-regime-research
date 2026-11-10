@@ -1,3 +1,36 @@
+# H2 report, 2026-11-10 (A33 chain stopped 16:48 New York)
+
+## Bottom line
+
+- **The H2 chain stopped at the synthetic check, as your rule requires.** 12 of 13 criteria pass. The one failure is planted TLT, rejected in 75% of replicates against the required 80%.
+- **Nothing was run on real data:** no H2 power and no H2 dev run, so no H2 output on real data exists.
+- **The earlier A32 chain** was stopped at 16:39 during its synthetic step, at your request. Its partial synthetic file was not opened.
+- No freeze, no O8, no era calibration.
+
+## A33 synthetic check (protocol 5.0 test; 10,000 draws; 200 null and 40 planted replicates)
+
+| Check | TLT | HYG | Gold | USD | Criterion |
+|---|---|---|---|---|---|
+| No effect, independent: rejection at 0.05 | 7.0% | 7.5% | 4.5% | 6.5% | <= 8.1%: pass |
+| No effect, vol-clustered: rejection at 0.05 | 5.5% | 4.5% | 5.0% | 5.5% | <= 8.1%: pass |
+| Planted: mean estimate minus target | -0.000003 (target 0.0009) | +0.00004 (target -0.0006) | +0.00009 (target 0.0012) | (planted null) | within max(2 SE, 10% of target): pass |
+| Planted: rejection at 0.05 | **75%: FAIL** | 65% | 80%: pass | 5% | TLT and gold >= 80% |
+
+- **Any Holm rejection:** 6.0% (independent) and 2.5% (vol-clustered) with no effect, and 85% with the planted effect.
+- **What the failure means:** the test is calibrated under the null, and it recovers the planted effect without bias. TLT's 75% reflects the effect size I chose in A33 rule 3b: a per-minute shift of 0.05 x the base SD, about 0.27 SD of a 30-minute return. With about 220 TLT breaks per replicate, that gives roughly 75-80% power. With 40 replicates the Monte Carlo SE of 75% is about 7 points. It is not a defect of the test, but it fails the criterion as written.
+
+## Decision for you
+
+1. **Recommended:** amend A33 rule 3b to a planted shift of c = 0.08 (TLT +, HYG -, gold +; USD 0), keeping every criterion, and rerun under a new tag. Disclosed: this is chosen after seeing the 75%.
+2. Or rerun with the same planted size and 200 planted replicates, so the rejection rate is estimated precisely. If the true rate is about 0.77, it would fail again.
+3. Or accept the check as is (a deviation from rule 3c, with your approval).
+
+After your decision the chain reruns from the synthetic step with `powershell -NoProfile -ExecutionPolicy Bypass -File section6un_h2.ps1 -Tag <new tag>`. Synthetic is about 4 min; then power and the H2 dev run (Gaussian, HSMM; TRAIN only).
+
+Files: `section6/results/h2_50_synth_a33.json`, `h2_50_synth_check_a33.json` (written once, sidecars), `h2_log.txt`.
+
+---
+
 # Report, 2026-11-10 (chain done 15:55 New York; addendum 16:40)
 
 ## Addendum 1: A29 3b intervals for H3 (post-hoc reporting only, at your request)
