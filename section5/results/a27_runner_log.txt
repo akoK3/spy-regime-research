@@ -1,0 +1,5 @@
+2026-11-09T21:06:28-05:00 [ps1 41780] finding-17 data-hash preflight: exit code 0
+2026-11-09T21:18:20-05:00 [ps1 41780] A27 preflight: exit code 0
+2026-11-09T21:18:20-05:00 [ps1 41780] A27 attempt 1 of 6
+2026-11-09T23:33:53-05:00 [ps1 41780] A27 attempt 1: exit code 0 after 135.6 min
+2026-11-09T23:33:53-05:00 [ps1 41780] === A27 DONE (results\a27\confirm_count.json written). No freeze, no era calibration.
