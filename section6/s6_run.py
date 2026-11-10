@@ -4,7 +4,7 @@ Inputs: SPY break export (section5/results/breaks/: breaks.csv, sessions.json), 
 section5/s5_eval_loader (development: load_development; joint evaluation: load_eval with section6=True, i.e. after the freeze, the lock, the finding-17 preflight and the
 Section 6 fingerprint). Clock and windows: s6_lib (A28 1c, 4a). Every evaluation-period result carries the A26 label.
 Period "development": the test segments of the uncontaminated folds (the break export covers exactly these). Period "joint": refused until the 5.13 outputs exist.
-Usage: s6_run.py development DETECTOR [--nboot N]       DETECTOR = the A9 item 2 H2 primary detector chosen at the 5.12 freeze (rule 1b), or its H3/H4 fallback.
+Usage: s6_run.py development DETECTOR [--nboot N] [--workers N]     DETECTOR = the A9 item 2 H2 primary detector chosen at the 5.12 freeze (rule 1b), or its H3/H4 fallback.
        s6_run.py joint DETECTOR FREEZE_PATH CONFIRM_TOKEN
 The development run refuses to start unless AMENDMENT_A29 is ADOPTED and equals its sidecar (A29 4b).
 Nothing here runs before the user says so; no freeze, no lock, no era calibration."""
@@ -69,17 +69,22 @@ def load_breaks(detector):
 def spy_vol(E, s, t): return L.safe_log(L.rv(E.R["SPY"][s], t - 60, t)[0])
 
 
+def is_calm_start(x): return str(x.get("old_state")) == "0"      # AMENDMENT_A31 2a: the detector's reference state at S is the lowest-variance state (HMM / HSMM)
+
+
 def build(E, rows, sess, anchor="T0"):
-    """Units of the era: confirmed and fizzled runs (all directions; the analyses filter), with day index, burn-in flag, gap, SPY vol at S. Candidates: SPY update times
-    (every 5 minutes) of the sessions with detector output. alarms_by_day: confirmed T_c of the detector (all directions)."""
+    """Units of the era, each with a role. role "break": every confirmed run (all directions; H3 / H4b filter calm-to-stressed), gap = T_c - S (anchor T0) or 0 (anchor S).
+    role "h4a" (AMENDMENT_A31 rule 2): every streak start S in a calm state, any outcome (confirmed, fizzle, open at close), gap 0, label afterward.
+    Candidates: SPY update times (every 5 minutes) of the sessions with detector output. alarms_by_day: confirmed T_c of the detector (all directions)."""
     days = sorted({d for f, v in sess.items() if f.startswith(E.era + "|") for d in v if d in E.ix}); units = []; alarms = {}
     for x in rows:
         if x["era"] != E.era or x["day"] not in E.ix: continue
         di = E.ix[x["day"]]
         if x["kind"] == "confirmed": alarms.setdefault(di, []).append(x["T0_min"])
-        if x["kind"] not in ("confirmed", "fizzle"): continue
-        gap = (x["T0_min"] - x["S_min"]) if (x["kind"] == "confirmed" and anchor == "T0") else 0
-        units.append(dict(x, day_idx=di, era=E.era, S=x["S_min"], gap=gap, T=x["S_min"] + gap, vol=spy_vol(E, di, x["S_min"]), burn_in_ok=di >= L.BURN_IN))
+        base = dict(x, day_idx=di, era=E.era, S=x["S_min"], vol=spy_vol(E, di, x["S_min"]), burn_in_ok=di >= L.BURN_IN)
+        if x["kind"] == "confirmed":
+            gap = (x["T0_min"] - x["S_min"]) if anchor == "T0" else 0; units.append(dict(base, role="break", gap=gap, T=x["S_min"] + gap))
+        if is_calm_start(x) and x["kind"] in ("confirmed", "fizzle", "open_at_close"): units.append(dict(base, role="h4a", gap=0, T=x["S_min"]))
     cd, cs = [], []
     for d in days:
         for s in range(L.STEP, L.N_MIN, L.STEP): cd.append(E.ix[d]); cs.append(s)
@@ -90,7 +95,7 @@ def build(E, rows, sess, anchor="T0"):
 
 def attach_placebos(units, cand, alarms, seed=2028):
     for k, u in enumerate(units):
-        h = int(hashlib.sha256(f"{seed}|{u['era']}|{u['day']}|{u['S']}|{u['kind']}".encode()).hexdigest()[:8], 16)
+        h = int(hashlib.sha256(f"{seed}|{u['era']}|{u['day']}|{u['S']}|{u['kind']}|{u.get('role')}".encode()).hexdigest()[:8], 16)
         ix = L.draw_placebos(u, cand, alarms, seed=h); u["placebos"] = [dict(day_idx=int(cand["day_idx"][i]), S=int(cand["S"][i]), gap=u["gap"], T=int(cand["S"][i]) + u["gap"]) for i in ix]
     return units
 
@@ -164,11 +169,17 @@ def real_fn(E_by, pct=L.REAL_PCT, horizon=1): return lambda u: L.real_label(E_by
 
 
 # ---------- the analyses
+def unit_lists(units, subset=None):
+    """(H3 / H4b breaks, H4a units), burn-in passed, optionally restricted by a SUBSETS key or a predicate."""
+    keep = SUBSETS[subset] if isinstance(subset, str) else ((lambda u: True) if subset is None else subset)
+    br = [u for u in units if u.get("role", "break") == "break" and u["kind"] == "confirmed" and u["direction"] == "calm_to_stressed" and u["burn_in_ok"] and keep(u)]
+    return br, [u for u in units if u.get("role") == "h4a" and u["burn_in_ok"] and keep(u)]
+
+
 def primary(E_by, units, nboot, off=0, seed=0, subset=None):
-    """The 6 primary tests (rule 5b): H3 next-day per asset (confirmed calm-to-stressed breaks), H4a (confirmed vs fizzled calm-to-stressed runs at S), H4b (real vs false at T = 0)."""
-    keep = (lambda u: True) if subset is None else subset
-    br = [u for u in units if u["kind"] == "confirmed" and u["direction"] == "calm_to_stressed" and u["burn_in_ok"] and keep(u)]
-    runs = [u for u in units if u["kind"] in ("confirmed", "fizzle") and u["direction"] == "calm_to_stressed" and u["burn_in_ok"] and keep(u)]
+    """The 6 primary tests (A28 5b): H3 next-day per asset (confirmed calm-to-stressed breaks), H4a (A31 rule 2: every calm-state streak start, label = confirms),
+    H4b (real vs false at T = 0). subset: None or a key of SUBSETS (picklable for the worker pool)."""
+    br, runs = unit_lists(units, subset)
     res = {f"H3_{a}": h3_test(E_by, br, a, "next_day", nboot, off, seed) for a in ASSETS}
     res["H4a"] = h4_test(E_by, runs, "S", lambda u: float(u["kind"] == "confirmed"), nboot, off, seed)
     res["H4b"] = h4_test(E_by, br, "T0", real_fn(E_by), nboot, off, seed)
@@ -177,6 +188,32 @@ def primary(E_by, units, nboot, off=0, seed=0, subset=None):
 
 
 PRIMARY = tuple(f"H3_{a}" for a in ASSETS) + ("H4a", "H4b")
+SUBSETS = {"y2007": lambda u: u["day"] >= Y2007, "fed": lambda u: bool(u.get("fed")), "non_fed": lambda u: not u.get("fed")}
+
+
+# ---------- worker pool (development run): workers hold E_by once; tasks are primary() calls and A28 7d null sets
+_W = {}
+
+
+def _winit(E_by, extra):
+    _W["E"] = E_by; _W.update(extra)
+
+
+def _wtask(t):
+    kind = t[0]
+    if kind == "primary":
+        _, units, nboot, off, seed, subset = t; return primary(_W["E"], units, nboot, off, seed, subset)[0]
+    if kind == "null":
+        _, s = t; return null_set(_W["E"], _W["units"], _W["cand_by"], _W["alarms_by"], _W["nboot"], s, _W["seed"])
+    raise ValueError(kind)
+
+
+def run_tasks(E_by, tasks, workers=1, extra=None):
+    """Runs tasks in order (workers <= 1) or in a spawn pool whose workers receive E_by once; results in task order."""
+    if workers <= 1:
+        _winit(E_by, extra or {}); return [_wtask(t) for t in tasks]
+    import multiprocessing as mp
+    with mp.get_context("spawn").Pool(workers, initializer=_winit, initargs=(E_by, extra or {})) as pool: return pool.map(_wtask, tasks, chunksize=1)
 
 
 def holm_family(res):
@@ -236,60 +273,95 @@ def taxonomy(E_by, br):
     return dict(order=list(ASSETS), legend="+/- moved beyond the placebo 90th percentile, 0 within, . unavailable", counts=dict(pat.most_common()))
 
 
-def sanity(E_by, br, units, cand_by, alarms_by, nboot, n_sets=200, seed=7):
-    """Rule 7d. (i) Fed breaks raise TLT rest-of-day RV above placebo (H3 rest-of-day, p < 0.05 passes). (ii) 200 sets of random times drawn like placebos replace the breaks
-    (same era, slot and SPY-vol decile as each break, sessions before it, away from alarms); the share of p <= 0.05 for each of the 6 primary tests must be <= 0.10."""
-    fed = [u for u in br if u.get("fed")]; pos = h3_test(E_by, fed, "TLT", "rest_of_day", nboot, 0, seed); rej = {k: 0 for k in [f"H3_{a}" for a in ASSETS] + ["H4a", "H4b"]}; n_done = 0
-    sd = lambda *k: int(hashlib.sha256("|".join(map(str, k)).encode()).hexdigest()[:8], 16)
-    for s in range(n_sets):
-        fake = []
-        for u in [x for x in units if x["burn_in_ok"] and x["direction"] == "calm_to_stressed"]:
-            c = cand_by[u["era"]]; ix = L.draw_placebos(u, c, alarms_by[u["era"]], n=1, seed=sd("null", s, u["day"], u["S"], u["kind"]))
-            if len(ix) == 0: continue
-            i = int(ix[0]); fake.append(dict(u, day_idx=int(c["day_idx"][i]), day=E_by[u["era"]].days[int(c["day_idx"][i])], S=int(c["S"][i]), T=int(c["S"][i]) + u["gap"], vol=float(c["vol"][i])))
-        for f in fake:
-            c = cand_by[f["era"]]; f["placebos"] = [dict(day_idx=int(c["day_idx"][i]), S=int(c["S"][i]), gap=f["gap"], T=int(c["S"][i]) + f["gap"]) for i in L.draw_placebos(f, c, alarms_by[f["era"]], seed=sd("nullpl", s, f["day"], f["S"]))]
-        res, _, _ = primary(E_by, fake, nboot, 0, seed + s); n_done += 1
-        for k in rej: rej[k] += int(res[k]["p"] is not None and res[k]["p"] <= 0.05)
-    rate = {k: v / max(n_done, 1) for k, v in rej.items()}
-    return dict(positive_control=dict(pos, passed=bool(pos["p"] is not None and pos["p"] < 0.05)), null_control=dict(n_sets=n_done, rejection_rate=rate, passed=all(v <= 0.10 for v in rate.values())))
+def null_set(E_by, units, cand_by, alarms_by, nboot, s, seed=7):
+    """One A28 7d(ii) null set: every unit (breaks and H4a units, burn-in passed) replaced by one time drawn like its placebos; placebos drawn for it by the rule in force.
+    Returns {test: rejected at 0.05}."""
+    sd = lambda *k: int(hashlib.sha256("|".join(map(str, k)).encode()).hexdigest()[:8], 16); fake = []
+    for u in [x for x in units if x["burn_in_ok"] and (x.get("role") == "h4a" or x["direction"] == "calm_to_stressed")]:
+        c = cand_by[u["era"]]; ix = L.draw_placebos(u, c, alarms_by[u["era"]], n=1, seed=sd("null", s, u["day"], u["S"], u["kind"], u.get("role")))
+        if len(ix) == 0: continue
+        i = int(ix[0]); fake.append(dict(u, day_idx=int(c["day_idx"][i]), day=E_by[u["era"]].days[int(c["day_idx"][i])], S=int(c["S"][i]), T=int(c["S"][i]) + u["gap"], vol=float(c["vol"][i])))
+    for f in fake:
+        c = cand_by[f["era"]]; f["placebos"] = [dict(day_idx=int(c["day_idx"][i]), S=int(c["S"][i]), gap=f["gap"], T=int(c["S"][i]) + f["gap"]) for i in L.draw_placebos(f, c, alarms_by[f["era"]], seed=sd("nullpl", s, f["day"], f["S"], f.get("role")))]
+    res, _, _ = primary(E_by, fake, nboot, 0, seed + s)
+    return {k: bool(res[k]["p"] is not None and res[k]["p"] <= 0.05) for k in PRIMARY}
+
+
+def sanity(E_by, br, units, cand_by, alarms_by, nboot, n_sets=200, seed=7, workers=1):
+    """A28 7d. (i) Fed breaks raise TLT rest-of-day RV above placebo (H3 rest-of-day, p < 0.05 passes). (ii) n_sets null sets (null_set); the share of p <= 0.05 for each
+    of the 6 primary tests must be <= 0.10."""
+    fed = [u for u in br if u.get("fed")]; pos = h3_test(E_by, fed, "TLT", "rest_of_day", nboot, 0, seed)
+    out = run_tasks(E_by, [("null", s) for s in range(n_sets)], workers, dict(units=units, cand_by=cand_by, alarms_by=alarms_by, nboot=nboot, seed=seed))
+    rate = {k: float(np.mean([o[k] for o in out])) if out else None for k in PRIMARY}
+    return dict(positive_control=dict(pos, passed=bool(pos["p"] is not None and pos["p"] < 0.05)), null_control=dict(n_sets=len(out), rejection_rate=rate, passed=bool(out) and all(v <= 0.10 for v in rate.values())))
+
+
+def placebo_filter_control(E_by, br, cand_by, nboot, seed=31, reference="random"):
+    """AMENDMENT_A31 rule 3: per asset, the H3 next-day regression (A28 3b controls) of filtered placebos (1) against 20 fully unfiltered random times per unit (0);
+    delta with its two-sided 95% basic week-block bootstrap interval; flagged when the interval excludes 0. A check: outside Holm and BH; never stops the run.
+    reference="matched_no_alarm_filter": the comparison set is drawn with the placebo matching but no alarm condition (synthetic diagnostic only, not A31)."""
+    out = {}; rnd = {}
+    for u in br:
+        h = int(hashlib.sha256(f"rand|{u['era']}|{u['day']}|{u['S']}".encode()).hexdigest()[:8], 16); c = cand_by[u["era"]]
+        ix = L.draw_random_times(u, c, seed=h) if reference == "random" else L.draw_placebos(u, c, {}, seed=h, rule="none")
+        rnd[id(u)] = [(int(c["day_idx"][i]), int(c["S"][i]), int(c["S"][i]) + u["gap"]) for i in ix]
+    for a in ASSETS:
+        ys, Xs, bs, days, eras = [], [], [], [], []
+        for u in br:
+            E = E_by[u["era"]]
+            for b, (di, S, T) in [(1, (p["day_idx"], p["S"], p["T"])) for p in u["placebos"]] + [(0, x) for x in rnd[id(u)]]:
+                r = h3_row(E, a, di, S, T, "next_day")
+                if r is None or not np.isfinite(r["y"]) or not np.isfinite(r["X"]).all(): continue
+                ys.append(r["y"]); Xs.append(r["X"]); bs.append(b); days.append(E.days[di]); eras.append(u["era"])
+        if sum(bs) < 5 or len(bs) - sum(bs) < 5: out[a] = dict(delta=None, ci95=None, flag=None, n_filtered=int(sum(bs)), n_random=int(len(bs) - sum(bs))); continue
+        y = np.array(ys); X = np.array(Xs); b = np.array(bs, float)
+        t, lo, hi, nv = L.week_block_ci(lambda ix: L.ols_gamma(y[ix], X[ix], b[ix]), days, eras, nboot, seed)
+        out[a] = dict(delta=t, ci95=[lo, hi], flag=bool(np.isfinite(lo) and (lo > 0 or hi < 0)), n_filtered=int(b.sum()), n_random=int(len(b) - b.sum()), n_valid_resamples=nv)
+    return dict(label="A31 rule 3 placebo-filter null control (check; outside Holm and BH)", by_asset=out, any_flag=any(bool(v.get("flag")) for v in out.values()))
 
 
 def counts(E_by, units):
     """Rule 6h: burn-in removals per era; breaks by number of available assets; (H3 sample sizes are in each test's n_breaks / n_placebos)."""
     out = {}
     for era, E in E_by.items():
-        br = [u for u in units if u["era"] == era and u["kind"] == "confirmed" and u["direction"] == "calm_to_stressed"]
+        br = [u for u in units if u["era"] == era and u.get("role", "break") == "break" and u["kind"] == "confirmed" and u["direction"] == "calm_to_stressed"]
+        h4 = [u for u in units if u["era"] == era and u.get("role") == "h4a"]
         nav = [int(sum(E.avail[a][u["day_idx"]] for a in ASSETS)) for u in br if u["burn_in_ok"]]
         out[era] = dict(confirmed_calm_to_stressed=len(br), removed_by_burn_in=sum(not u["burn_in_ok"] for u in br), by_n_available_assets={str(k): nav.count(k) for k in range(0, 5)},
-                        fizzled_calm_to_stressed=sum(1 for u in units if u["era"] == era and u["kind"] == "fizzle" and u["direction"] == "calm_to_stressed"),
+                        h4a_calm_streak_starts={k: sum(1 for u in h4 if u["kind"] == k and u["burn_in_ok"]) for k in ("confirmed", "fizzle", "open_at_close")},
+                        h4a_removed_by_burn_in=sum(not u["burn_in_ok"] for u in h4),
                         breaks_with_fewer_than_20_placebos=sum(1 for u in br if len(u.get("placebos", [])) < L.N_PLACEBO))
     return out
 
 
-def analyse(E_by, rows, sess, nboot, detector, all_rows=None, null_sets=200):
+def analyse(E_by, rows, sess, nboot, detector, all_rows=None, null_sets=200, workers=1):
     units, cand_by, alarms_by = [], {}, {}
     for era, E in E_by.items():
         u, c, al = build(E, rows, sess); units += attach_placebos(u, c, al); cand_by[era], alarms_by[era] = c, al
     fed_flags(units)
     res = dict(detector=detector, counts=counts(E_by, units))
-    res["primary"], br, runs = primary(E_by, units, nboot)
-    res["secondary"] = secondary(E_by, br, runs, units, nboot)
-    res["sens_2007"] = primary(E_by, units, nboot, subset=lambda u: u["day"] >= Y2007)[0]
-    if "LEGACY" in E_by: res["legacy_offsets"] = {str(o): primary(E_by, units, nboot, off=o)[0] for o in (-1, 1)}
-    res["fed_split"] = dict(fed=primary(E_by, units, nboot, subset=lambda u: u.get("fed"))[0], non_fed=primary(E_by, units, nboot, subset=lambda u: not u.get("fed"))[0])
-    res["curve"] = curve(E_by, br); res["taxonomy"] = taxonomy(E_by, br)
-    res["h3_prior_hour_before_S"] = {a: h3_test(E_by, br, a, "next_day", 0, ph_end="S") for a in ASSETS}      # A29 3c: descriptive, not tested
+    tasks = [("primary", units, nboot, 0, 0, None), ("primary", units, nboot, 0, 0, "y2007"), ("primary", units, nboot, 0, 0, "fed"), ("primary", units, nboot, 0, 0, "non_fed")]
+    if "LEGACY" in E_by: tasks += [("primary", units, nboot, o, 0, None) for o in (-1, 1)]
+    fams = []
     if all_rows is not None:      # rule 7a: other detectors, and the alternative anchor T = 0 at S
-        res["detector_dependence"] = {}
         for fam in FAMILIES:
             fr = [x for x in all_rows if x["family"] == fam]; uu = []
             for era, E in E_by.items(): u, c, al = build(E, fr, sess); uu += attach_placebos(u, c, al)
-            fed_flags(uu); res["detector_dependence"][fam] = primary(E_by, uu, nboot)[0]
+            fed_flags(uu); tasks.append(("primary", uu, nboot, 0, 0, None)); fams.append(fam)
         uu = []
         for era, E in E_by.items(): u, c, al = build(E, rows, sess, anchor="S"); uu += attach_placebos(u, c, al)
-        res["anchor_T0_at_S"] = primary(E_by, uu, nboot)[0]
-    res["sanity"] = sanity(E_by, br, units, cand_by, alarms_by, nboot, null_sets)
+        tasks.append(("primary", uu, nboot, 0, 0, None))
+    out = run_tasks(E_by, tasks, workers); k = 0
+    res["primary"] = out[k]; k += 1; res["sens_2007"] = out[k]; k += 1; res["fed_split"] = dict(fed=out[k], non_fed=out[k + 1]); k += 2
+    if "LEGACY" in E_by: res["legacy_offsets"] = {"-1": out[k], "1": out[k + 1]}; k += 2
+    if all_rows is not None:
+        res["detector_dependence"] = {f: out[k + j] for j, f in enumerate(fams)}; k += len(fams); res["anchor_T0_at_S"] = out[k]; k += 1
+    br, runs = unit_lists(units)
+    res["secondary"] = secondary(E_by, br, runs, units, nboot)
+    res["curve"] = curve(E_by, br); res["taxonomy"] = taxonomy(E_by, br)
+    res["h3_prior_hour_before_S"] = {a: h3_test(E_by, br, a, "next_day", 0, ph_end="S") for a in ASSETS}      # A29 3c: descriptive, not tested
+    res["placebo_filter_control"] = placebo_filter_control(E_by, br, cand_by, nboot)                          # A31 rule 3
+    res["sanity"] = sanity(E_by, br, units, cand_by, alarms_by, nboot, null_sets, workers=workers)
     sec = [(k, v["p"]) for k, v in flatten_secondary(res) if v.get("p") is not None and np.isfinite(v["p"])]
     adj = L.bh([p for _, p in sec]) if sec else []; res["secondary_bh"] = {k: dict(p=p, p_bh=float(a), label="secondary") for (k, p), a in zip(sec, adj)}
     return res
@@ -344,7 +416,8 @@ def main():
         for k in ("S_min", "T0_min", "end_min"): x[k] = int(x[k]) if x[k] not in ("", "None") else None
     rows = [x for x in allrows if x["family"] == det]; sess = json.loads((BREAKS / "sessions.json").read_text(encoding="utf-8"))
     E_by = {era: load_era(era, period) for era in ("LEGACY", "RAW")}
-    res = analyse(E_by, rows, sess, nboot, det, allrows)
+    workers = int(sys.argv[sys.argv.index("--workers") + 1]) if "--workers" in sys.argv else 1
+    res = analyse(E_by, rows, sess, nboot, det, allrows, workers=workers)
     res.update(period=period, generated=datetime.datetime.now(datetime.timezone.utc).isoformat(), nboot=nboot, provenance=provenance())
     p = write_once(OUT / f"s6_{period}_{det}.json", res); print(f"written {p}"); return 0
 

@@ -58,8 +58,10 @@ def gen_era(era, n, start, rng, scenario):
     else: p = np.minimum(0.3 * np.exp(H["SPY"] - H["SPY"].mean()), 0.9)
     rows = []
     for i in np.flatnonzero(rng.random(n) < p):
-        S = int(rng.integers(3, 67)) * 5; conf = rng.random() < 0.55; dirn = "calm_to_stressed" if rng.random() < 0.75 else "stressed_to_calm"
-        rows.append(dict(fold=f"{era}|0", era=era, family="synth", day=days[i], kind="confirmed" if conf else "fizzle", S_min=S, T0_min=S + 10 if conf else None, end_min=S + 5, direction=dirn))
+        S = int(rng.integers(3, 67)) * 5; u_ = rng.random(); kind = "confirmed" if u_ < 0.55 else ("open_at_close" if u_ > 0.95 else "fizzle")
+        dirn = "calm_to_stressed" if rng.random() < 0.75 else "stressed_to_calm"      # old_state 0 (calm) for calm-to-stressed streaks (A31 rule 2a)
+        rows.append(dict(fold=f"{era}|0", era=era, family="synth", day=days[i], kind=kind, S_min=S, T0_min=S + 10 if kind == "confirmed" else None, end_min=S + 5, direction=dirn,
+                         old_state="0" if dirn == "calm_to_stressed" else "1"))
     return days, R_, avail, rows
 
 
@@ -98,13 +100,13 @@ def oracle_gain(zs, labels, f0, X, rng, draws=50, folds=None):
 def replicate(args):
     scenario, rep, nboot = args; t0 = time.time()
     seed = int(hashlib.sha256(f"synth|{scenario}|{rep}".encode()).hexdigest()[:8], 16); rng = np.random.default_rng(seed)
-    E_by, rows_all, sess, zmap, scaled_by = {}, [], {}, {}, {}
+    E_by, rows_all, sess, zmap, scaled_by, cand_by = {}, [], {}, {}, {}, {}
     for era, n, start in (("LEGACY", 1500, "2004-01-02"), ("RAW", 450, "2022-03-07")):
         days, R_, avail, rows = gen_era(era, n, start, rng, scenario); E = SynthEra(era, days, R_, avail)
         z, sc = plant(E, rows, rng, scenario); zmap.update(z); scaled_by[era] = sc; E_by[era] = E; rows_all += rows; sess[f"{era}|0"] = days
     units = []
     for era, E in E_by.items():
-        u, c, al = R.build(E, [x for x in rows_all if x["era"] == era], sess); units += R.attach_placebos(u, c, al)
+        u, c, al = R.build(E, [x for x in rows_all if x["era"] == era], sess); units += R.attach_placebos(u, c, al); cand_by[era] = c
     for u in units: u["fed"] = False
     res, br, runs = R.primary(E_by, units, nboot, seed=rep)
     out = dict(scenario=scenario, rep=rep, seconds=None, n_breaks=len(br), n_runs=len(runs), tests={k: dict(est=(v.get("gamma") if k.startswith("H3") else v.get("gain")), p=v.get("p"), p_holm=v.get("p_holm"), est_in_sample=v.get("gain_in_sample_descriptive")) for k, v in res.items()})
@@ -123,6 +125,10 @@ def replicate(args):
             tg[name] = dict(target=t, oracle_auc_minus_half=t0_, share_planted_with_C1=float(np.mean(np.isclose(c1, 1.0))) if c1 else None,
                             label_rate_planted=float(np.mean([y for y, zz in zip(ys, zs) if zz])) if c1 else None, label_rate_other=float(np.mean([y for y, zz in zip(ys, zs) if not zz])))
         out["targets"] = tg
+    fc = R.placebo_filter_control(E_by, br, cand_by, nboot)      # A31 rule 3
+    out["filter_control"] = {a: dict(flag=v.get("flag"), delta=v.get("delta")) for a, v in fc["by_asset"].items()}
+    fm = R.placebo_filter_control(E_by, br, cand_by, nboot, reference="matched_no_alarm_filter")      # diagnostic: isolates the alarm condition
+    out["filter_control_matched"] = {a: dict(flag=v.get("flag"), delta=v.get("delta")) for a, v in fm["by_asset"].items()}
     out["seconds"] = round(time.time() - t0, 1); return out
 
 
@@ -142,6 +148,10 @@ def summarise(reps):
                     v = [r["targets"][k].get(extra) for r in rr if r["targets"][k].get(extra) is not None]
                     if v: t[extra] = float(np.mean(v))
             d["tests"][k] = t
+        d["filter_control_flag_rate"] = {a: float(np.mean([bool(r["filter_control"][a]["flag"]) for r in rr if "filter_control" in r])) for a in R.ASSETS}
+        d["filter_control_matched_flag_rate"] = {a: float(np.mean([bool(r["filter_control_matched"][a]["flag"]) for r in rr if "filter_control_matched" in r])) for a in R.ASSETS}
+        d["filter_control_matched_mean_delta"] = {a: float(np.nanmean([r["filter_control_matched"][a]["delta"] if r["filter_control_matched"][a]["delta"] is not None else np.nan for r in rr if "filter_control_matched" in r])) for a in R.ASSETS}
+        d["filter_control_mean_delta"] = {a: float(np.nanmean([r["filter_control"][a]["delta"] if r["filter_control"][a]["delta"] is not None else np.nan for r in rr if "filter_control" in r])) for a in R.ASSETS}
         d["family_wise_any_holm_reject"] = float(np.mean([any(r["tests"][k].get("p_holm") is not None and r["tests"][k]["p_holm"] <= 0.05 for k in r["tests"]) for r in rr]))
         s[sc] = d
     return s

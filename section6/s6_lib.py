@@ -56,6 +56,18 @@ def week_block_bootstrap(stat_fn, days, eras, nboot=NBOOT, seed=0):
     return t, (1 + exceed) / (nboot + 1), nv
 
 
+def week_block_ci(stat_fn, days, eras, nboot=NBOOT, seed=0, level=0.95):
+    """Two-sided basic bootstrap interval (2T - q_hi, 2T - q_lo) from the same within-era week-block resampling as week_block_bootstrap (AMENDMENT_A31 rule 3c)."""
+    blocks = week_blocks(days, eras); t = float(stat_fn(np.arange(len(days))))
+    if not np.isfinite(t): return t, np.nan, np.nan, 0
+    rng = np.random.default_rng(seed); vals = []
+    for _ in range(nboot):
+        v = stat_fn(np.concatenate([np.concatenate([bl[j] for j in rng.integers(0, len(bl), len(bl))]) for e, bl in sorted(blocks.items())]))
+        if np.isfinite(v): vals.append(v)
+    if not vals: return t, np.nan, np.nan, 0
+    lo, hi = np.percentile(vals, [100 * (1 - level) / 2, 100 * (1 + level) / 2]); return t, float(2 * t - hi), float(2 * t - lo), len(vals)
+
+
 # ---------- realised volatility on the availability clock
 def rv(ret, lo, hi):
     """Sum of squared returns available in (lo, hi] (indices i with lo < i + 1 <= hi), NaN-skipping; (rv, n_used)."""
@@ -101,10 +113,11 @@ def decile_cuts(values):
 def decile(x, cuts): return None if cuts is None or not np.isfinite(x) else int(np.searchsorted(cuts, x, side="right"))
 
 
-def draw_placebos(unit, cand, alarms_by_day, n=N_PLACEBO, seed=0):
+def draw_placebos(unit, cand, alarms_by_day, n=N_PLACEBO, seed=0, rule="A31"):
     """unit: dict(day_idx, era, S, gap, vol) for one break or run; cand: dict of arrays (day_idx, era, S, vol) of every candidate time (SPY update times of sessions with
     detector output). Eligible: same era, session strictly before the unit's session, same 30-minute slot of S, same SPY prior-hour-RV decile with cut points from the
-    candidates of sessions before the unit's session only, S + gap within the session, and more than 60 minutes from every confirmed alarm (T_c) of that session.
+    candidates of sessions before the unit's session only, S + gap within the session, and (AMENDMENT_A31 rule 1) no confirmed alarm of that session with T_c in
+    [T_p - 60, T_p), T_p = S + gap: only alarms BEFORE the placebo time are used, never later ones. rule="A28" keeps the superseded two-sided filter for the record.
     Returns up to n candidate indices (fewer only if fewer are eligible), drawn without replacement with a seed fixed per unit."""
     before = (cand["era"] == unit["era"]) & (cand["day_idx"] < unit["day_idx"])
     cuts = decile_cuts(cand["vol"][before]); dz = decile(unit["vol"], cuts)
@@ -113,9 +126,18 @@ def draw_placebos(unit, cand, alarms_by_day, n=N_PLACEBO, seed=0):
     ok = before & ((cand["S"] - 1) // SLOT_MIN == slot_of(unit["S"])) & (cd == dz) & np.isfinite(cand["vol"]) & (cand["S"] + unit["gap"] <= N_MIN)
     idx = np.flatnonzero(ok)
     if len(idx) == 0: return idx
-    far = np.array([all(abs(cand["S"][i] - a) > MIN_GAP_ALARM and abs(cand["S"][i] + unit["gap"] - a) > MIN_GAP_ALARM for a in alarms_by_day.get(int(cand["day_idx"][i]), ())) for i in idx], bool)
+    if rule == "none": far = np.ones(len(idx), bool)      # no alarm condition (synthetic diagnostic of A31 rule 3 only)
+    elif rule == "A28": far = np.array([all(abs(cand["S"][i] - a) > MIN_GAP_ALARM and abs(cand["S"][i] + unit["gap"] - a) > MIN_GAP_ALARM for a in alarms_by_day.get(int(cand["day_idx"][i]), ())) for i in idx], bool)
+    else: far = np.array([not any(cand["S"][i] + unit["gap"] - MIN_GAP_ALARM <= a < cand["S"][i] + unit["gap"] for a in alarms_by_day.get(int(cand["day_idx"][i]), ())) for i in idx], bool)
     idx = idx[far]; rng = np.random.default_rng(seed)
     return np.sort(rng.choice(idx, size=min(n, len(idx)), replace=False)) if len(idx) else idx
+
+
+def draw_random_times(unit, cand, n=N_PLACEBO, seed=0):
+    """AMENDMENT_A31 rule 3a(ii): fully unfiltered random times: SPY update times drawn uniformly from the same era's sessions before the unit's session, with
+    S + gap <= 390; no slot, decile or alarm condition."""
+    ok = (cand["era"] == unit["era"]) & (cand["day_idx"] < unit["day_idx"]) & (cand["S"] + unit["gap"] <= N_MIN); idx = np.flatnonzero(ok)
+    return np.sort(np.random.default_rng(seed).choice(idx, size=min(n, len(idx)), replace=False)) if len(idx) else idx
 
 
 # ---------- confirmation score (A28 4a)

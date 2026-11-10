@@ -188,4 +188,33 @@ class TestAuditFixes(unittest.TestCase):
             finally: EL.PANELS, EL.load_development, R.COVER, R.HERE = saved
 
 
+class TestA31(unittest.TestCase):
+    """AMENDMENT_A31: rule 1 (past alarms only), rule 2 (H4a = every calm-state streak start, gap 0, label afterward), rule 3 (control helpers)."""
+    def test_placebo_exclusion_uses_past_alarms_only(self):
+        cand = cand_grid(30, lambda a, b: 0.0); u = dict(day_idx=25, era="LEGACY", S=100, gap=10, vol=0.0)
+        before = L.draw_placebos(u, cand, {5: [80]}, n=10_000, seed=1); after = L.draw_placebos(u, cand, {5: [130]}, n=10_000, seed=1)
+        S5 = {int(cand["S"][i]) for i in before if cand["day_idx"][i] == 5}; A5 = {int(cand["S"][i]) for i in after if cand["day_idx"][i] == 5}
+        slot = {95, 100, 105, 110, 115, 120}                                      # S in the 30-minute slot of 100 on the 5-minute grid
+        self.assertEqual(S5, set())                                                # alarm at 80: T_p = S + 10 in (80, 140] -> every slot time excluded
+        self.assertEqual(A5, slot)                                                 # alarm at 130, after many T_p: never used (only past alarms count)
+        self.assertEqual({int(cand["S"][i]) for i in L.draw_placebos(u, cand, {5: [118]}, n=10_000, seed=1) if cand["day_idx"][i] == 5}, {95, 100, 105})   # 118 < T_p only for S >= 110
+        self.assertEqual(len(L.draw_placebos(u, cand, {5: [80]}, n=10_000, seed=1, rule="A28")) < len(after), True)
+
+    def test_h4a_units_any_outcome_gap0(self):
+        E = FakeEra(); rows = [dict(era="LEGACY", day=E.days[70], kind=k, S_min=100, T0_min=110 if k == "confirmed" else None, end_min=105, direction="calm_to_stressed", old_state=o, family="x", fold="LEGACY|0")
+                               for k, o in (("confirmed", "0"), ("fizzle", "0"), ("open_at_close", "0"), ("fizzle", "1"))]
+        units, cand, al = R.build(E, rows, {"LEGACY|0": E.days}); h4 = [u for u in units if u["role"] == "h4a"]; br = [u for u in units if u["role"] == "break"]
+        self.assertEqual(sorted(u["kind"] for u in h4), ["confirmed", "fizzle", "open_at_close"]); self.assertTrue(all(u["gap"] == 0 for u in h4))
+        self.assertEqual(len(br), 1); self.assertEqual(br[0]["gap"], 10)
+        R.attach_placebos(units, cand, al); b, r = R.unit_lists(units); self.assertEqual(len(r), 3); self.assertEqual(len(b), 1)
+        p0 = [x for x in h4 if x["kind"] == "confirmed"][0]["placebos"]; p1 = [x for x in h4 if x["kind"] == "fizzle"][0]["placebos"]
+        self.assertTrue(all(x["gap"] == 0 for x in p0 + p1))
+
+    def test_ci_and_random_times(self):
+        rng = np.random.default_rng(5); days = [str(pd.Timestamp("2010-01-04") + pd.Timedelta(days=int(k))).split()[0] for k in range(300)]; x = rng.normal(1.0, 1, 300)
+        t, lo, hi, nv = L.week_block_ci(lambda ix: x[ix].mean(), days, ["LEGACY"] * 300, 499, 1); self.assertTrue(lo < t < hi); self.assertGreater(lo, 0.5); self.assertEqual(nv, 499)
+        cand = cand_grid(30, lambda a, b: float(a)); ix = L.draw_random_times(dict(day_idx=20, era="LEGACY", S=100, gap=10), cand, seed=2)
+        self.assertEqual(len(ix), 20); self.assertTrue(all(cand["day_idx"][i] < 20 and cand["S"][i] + 10 <= 390 for i in ix))
+
+
 if __name__ == "__main__": unittest.main()
