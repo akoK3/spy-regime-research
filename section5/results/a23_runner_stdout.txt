@@ -1,0 +1,10 @@
+2026-11-09T11:09:44-05:00 [ps1 39872] A23 attempt 1 of 6
+2026-11-09T11:09:55-05:00 [py 35332] A23 start: 34 folds x 4 families, inputs ('rv10_partial90__sadj', 'relative_volume20') forced; tag 28541473e0ac
+2026-11-09T11:15:49-05:00 [py 35332] A23 1/34 LEGACY|0 gaussian_hmm: K/lam {'K': 4} (MR2 ['rv10_partial90__sadj'] {'K': 4}); H1(a) 0.08680208333333334 (MR2 0.09814583333333332), H1(b) +0.0163 (MR2 +0.0159); liquidity QLIKE b 0.007293517298069485; thr 13.84; 5.7 min
+2026-11-09T11:16:49-05:00 [py 35332] A23 1/34 LEGACY|0 student_t_hmm: K/lam {'K': 4} (MR2 ['rv10_partial90__sadj', 'intrabar_range_log__sadj'] {'K': 4}); H1(a) 0.045671875 (MR2 0.09568749999999998), H1(b) +0.0103 (MR2 +0.0124); liquidity QLIKE b 0.004696461133922164; thr 10.08; 1.0 min
+2026-11-09T11:18:19-05:00 [py 35332] A23 1/34 LEGACY|0 hsmm: K/lam {'K': 3} (MR2 ['rv10_partial90__sadj'] {'K': 3}); H1(a) 0.05285416666666665 (MR2 0.07768229166666668), H1(b) +0.0265 (MR2 +0.0256); liquidity QLIKE b 0.011867140337197407; thr 11.56; 1.5 min
+2026-11-09T11:18:40-05:00 [py 35332] A23 1/34 LEGACY|0 bocpd: K/lam {'lam': 78} (MR2 [] {'lam': 12}); H1(a) 0.034609375 (MR2 0.0), H1(b) +0.0007 (MR2 +0.0000); liquidity QLIKE b 0.0010041519314913927; thr 40.19; 0.4 min
+2026-11-09T11:19:01-05:00 [py 35332] A23 D7 LEGACY|0: 9 days (5 skipped); 0.3 min
+2026-11-09T11:22:52-05:00 [ps1 40344] A23 attempt 1 of 6
+2026-11-09T11:22:54-05:00 [py 36440] A23 start: 34 folds x 4 families, inputs ('rv10_partial90__sadj', 'relative_volume20') forced; tag 28541473e0ac
+^C

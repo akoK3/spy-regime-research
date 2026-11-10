@@ -370,3 +370,15 @@
 !AMENDMENT_A27.sha256
 !AMENDMENT_A28.md
 !AMENDMENT_A28.sha256
+!/section5/results/a27/
+!/section5/results/a27_preflight/
+!/section5/results/breaks/
+!/section5/results/breaks_preflight/
+!/section6/
+/section6/*
+!/section6/*.py
+!/section6/results/
+/section6/results/*
+!/section6/results/*.json
+!/section6/results/*.sha256
+!/section6/results/coverage/

@@ -1,0 +1,10 @@
+2026-11-08T18:34:13-05:00 [ps1 41848] waiting for the post-hoc grid pAUC run to stop (its stdout file gets a final 'rc=' line from the retry loop)
+2026-11-08T23:52:39-05:00 [ps1 41848] post-hoc grid pAUC run has stopped; starting A23
+2026-11-09T11:09:44-05:00 [ps1 39872] A23 attempt 1 of 6
+2026-11-09T11:22:52-05:00 [ps1 40344] A23 attempt 1 of 6
+2026-11-09T11:24:47-05:00 [ps1 8960] A23 attempt 1 of 6
+2026-11-09T11:35:56-05:00 [ps1 2632] A23 attempt 1 of 6
+2026-11-09T11:36:02-05:00 [ps1 6168] A23 attempt 1 of 6
+2026-11-09T19:11:31-05:00 [ps1 46488] A23 attempt 1 of 6
+2026-11-09T21:05:26-05:00 [ps1 46488] A23 attempt 1: exit code 0 after 113.9 min
+2026-11-09T21:05:26-05:00 [ps1 46488] === A23 DONE (results\a23\a23_results.json written). No freeze, no era calibration.
