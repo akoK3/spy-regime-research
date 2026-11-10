@@ -1,4 +1,46 @@
-# Report, 2026-11-10 (chain done 15:55 New York)
+# Report, 2026-11-10 (chain done 15:55 New York; addendum 16:40)
+
+## Addendum 1: A29 3b intervals for H3 (post-hoc reporting only, at your request)
+
+These are two-sided 95% basic week-block intervals, computed within era with 9,999 resamples and seed 0, as in the primary H3 test.
+- They come from `section6/s6_posthoc_h3_ci.py`, which was hashed in the ledger before it ran.
+- The script rebuilds the H3 rows exactly. Each rebuilt gamma equals the stored dev-run gamma, and so does each n.
+- No test was changed. The p-values, Holm and BH results stand as written.
+
+| | Gaussian HMM | HSMM |
+|---|---|---|
+| H3 TLT | gamma -0.164 [-0.220, -0.107] (402 breaks) | -0.139 [-0.206, -0.070] (339) |
+| H3 gold | -0.185 [-0.242, -0.129] (420) | -0.156 [-0.223, -0.089] (373) |
+
+- **All four intervals lie wholly below 0.** Under A29 3b this is reported as a **transient cross-asset response**: same-day TLT and gold moves that the next day does not continue beyond the prior-hour control. It is not a calming effect.
+- Read with H4 (A29 3b), H4 shows no confirmation gain.
+- **Gaussian TLT caveat:** the placebo-filter control flagged TLT, with delta +0.030 [+0.008, +0.052]. Even shifting gamma by that amount leaves the interval below 0: the upper end goes from -0.107 to about -0.08.
+- Output: `section6/results/posthoc/h3_ci_a29_3b.json`, written once, with a sidecar.
+
+## Addendum 2: H2 was not run, and is not yet runnable
+
+**Why it is not in the report:**
+- **Out of scope by design.** A28 rule 2 says "H2 unchanged". `s6_run.py` states "H2 is not computed here". The dev run approved in the ledger (2026-11-10 03:42Z) covers H3 and H4 only.
+- **It belongs to the final evaluation.** H2 is a primary hypothesis of protocol 5.0, with its own Holm family across the 4 assets (5.11). It is run with the **H2 primary detector chosen at the 5.12 freeze** (A9 item 2) at the 5.13 era-level thresholds, and A26 labels that evaluation-period run.
+- **No H2 code exists.** The cold audit lists "All of H2, S1, S2, E1, E2 and D1" as not implemented. Nothing has been written since.
+
+**What is needed before the freeze:**
+1. **An H2 amendment fixing what 5.0 leaves open**, decided by you before any code. Only the 30-minute slot is fixed so far (ledger 03:42Z).
+   - **Test statistic:** how breaks are aggregated (for example, the mean cumulative return over breaks against the 10,000-draw placebo distribution of that mean), sidedness, and the p-value rule.
+   - **Horizons:** which one is primary. 5.0 names T to T+30 as the primary window and lists -30 and +5/15/30/60 min; the status of the others needs fixing.
+   - **Placebo draws:** A28 1d says H2 keeps its pre-registered placebo distribution exactly, so the before-the-break and past-alarm rules do not apply. Eligibility still needs fixing:
+     - the pool: which sessions are eligible, and whether later sessions may be used;
+     - alarm proximity;
+     - whether a placebo may cross the close.
+   - **T and the asset clock:** T = T_c, and the LEGACY offset.
+   - **S1, S2, E1, E2:** operational definitions. E2 (overnight gaps) needs its own data definition.
+2. **Code, unit tests, a synthetic check and a power check**, as done for H3 and H4.
+3. **The H2 code in place before the freeze and the Section 6 fingerprint.** It has to be hashed with the rest of the Section 6 code before any evaluation output exists, so it cannot adapt to results.
+4. **Optional:** a TRAIN-only development run of H2 on Gaussian and HSMM, as for H3 and H4. This needs your approval.
+
+Until then the freeze manifest is ready on A21-A31, but H2 cannot run after the freeze.
+
+**Decision for you:** may I draft the H2 amendment (items in 1) for your approval?
 
 ## Bottom line
 
@@ -128,7 +170,7 @@ H4b is underpowered: a null H4b result says little.
 
 ## Decisions for you
 
-1. **A29 3b interval for H3** (TLT, gold, both detectors): may I compute it post hoc, as reporting only? Without it the negative H3 cannot be labelled a "transient cross-asset response" under 3b.
+1. **A29 3b interval for H3:** done; see Addendum 1.
 2. **The Gaussian failures stand as written:**
    - the null-set check (H4b 10.5%);
    - the TLT flag.
