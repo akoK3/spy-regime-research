@@ -1,0 +1,367 @@
+{
+ "tag": {
+  "script": "b2956c2d813465ea829bdb2b6131ead9866a0376df5f674affd8f56609287ec3",
+  "code_version": "a0323ed24d68e896",
+  "protocol": "15be2570a592279e71f3f76fbe62113b4c3263a9d9e4715eaf4d61294eaf4df3",
+  "a17_results": "9c8d29f150f9668701bba0080458b9291740e17c404c8dd164f7cc196beb07d4"
+ },
+ "folds": [
+  "LEGACY|0",
+  "LEGACY|1",
+  "LEGACY|2",
+  "LEGACY|3",
+  "LEGACY|4",
+  "LEGACY|5",
+  "LEGACY|6",
+  "LEGACY|7",
+  "LEGACY|8",
+  "LEGACY|9",
+  "LEGACY|10",
+  "LEGACY|11",
+  "LEGACY|12",
+  "LEGACY|13",
+  "LEGACY|14",
+  "LEGACY|15",
+  "LEGACY|16",
+  "LEGACY|17",
+  "LEGACY|18",
+  "LEGACY|19",
+  "LEGACY|20",
+  "LEGACY|21",
+  "LEGACY|22",
+  "LEGACY|25",
+  "LEGACY|26",
+  "RAW|0"
+ ],
+ "counts": [
+  {
+   "era": "LEGACY",
+   "family": "bocpd",
+   "kind": "confirmed",
+   "direction": "calm_to_stressed",
+   "n": 409,
+   "n_weeks": 292
+  },
+  {
+   "era": "LEGACY",
+   "family": "bocpd",
+   "kind": "confirmed",
+   "direction": "stressed_to_calm",
+   "n": 162,
+   "n_weeks": 137
+  },
+  {
+   "era": "LEGACY",
+   "family": "bocpd",
+   "kind": "fizzle",
+   "direction": "calm_to_stressed",
+   "n": 750,
+   "n_weeks": 385
+  },
+  {
+   "era": "LEGACY",
+   "family": "bocpd",
+   "kind": "fizzle",
+   "direction": "stressed_to_calm",
+   "n": 232,
+   "n_weeks": 153
+  },
+  {
+   "era": "LEGACY",
+   "family": "bocpd",
+   "kind": "open_at_close",
+   "direction": "calm_to_stressed",
+   "n": 83,
+   "n_weeks": 78
+  },
+  {
+   "era": "LEGACY",
+   "family": "bocpd",
+   "kind": "open_at_close",
+   "direction": "stressed_to_calm",
+   "n": 47,
+   "n_weeks": 44
+  },
+  {
+   "era": "LEGACY",
+   "family": "gaussian_hmm",
+   "kind": "confirmed",
+   "direction": "calm_to_stressed",
+   "n": 586,
+   "n_weeks": 382
+  },
+  {
+   "era": "LEGACY",
+   "family": "gaussian_hmm",
+   "kind": "confirmed",
+   "direction": "stressed_to_calm",
+   "n": 120,
+   "n_weeks": 92
+  },
+  {
+   "era": "LEGACY",
+   "family": "gaussian_hmm",
+   "kind": "fizzle",
+   "direction": "calm_to_stressed",
+   "n": 2934,
+   "n_weeks": 576
+  },
+  {
+   "era": "LEGACY",
+   "family": "gaussian_hmm",
+   "kind": "fizzle",
+   "direction": "stressed_to_calm",
+   "n": 936,
+   "n_weeks": 196
+  },
+  {
+   "era": "LEGACY",
+   "family": "gaussian_hmm",
+   "kind": "open_at_close",
+   "direction": "calm_to_stressed",
+   "n": 56,
+   "n_weeks": 53
+  },
+  {
+   "era": "LEGACY",
+   "family": "gaussian_hmm",
+   "kind": "open_at_close",
+   "direction": "stressed_to_calm",
+   "n": 23,
+   "n_weeks": 22
+  },
+  {
+   "era": "LEGACY",
+   "family": "hsmm",
+   "kind": "confirmed",
+   "direction": "calm_to_stressed",
+   "n": 536,
+   "n_weeks": 354
+  },
+  {
+   "era": "LEGACY",
+   "family": "hsmm",
+   "kind": "confirmed",
+   "direction": "stressed_to_calm",
+   "n": 88,
+   "n_weeks": 69
+  },
+  {
+   "era": "LEGACY",
+   "family": "hsmm",
+   "kind": "fizzle",
+   "direction": "calm_to_stressed",
+   "n": 3062,
+   "n_weeks": 577
+  },
+  {
+   "era": "LEGACY",
+   "family": "hsmm",
+   "kind": "fizzle",
+   "direction": "stressed_to_calm",
+   "n": 655,
+   "n_weeks": 195
+  },
+  {
+   "era": "LEGACY",
+   "family": "hsmm",
+   "kind": "open_at_close",
+   "direction": "calm_to_stressed",
+   "n": 49,
+   "n_weeks": 49
+  },
+  {
+   "era": "LEGACY",
+   "family": "hsmm",
+   "kind": "open_at_close",
+   "direction": "stressed_to_calm",
+   "n": 10,
+   "n_weeks": 10
+  },
+  {
+   "era": "LEGACY",
+   "family": "student_t_hmm",
+   "kind": "confirmed",
+   "direction": "calm_to_stressed",
+   "n": 493,
+   "n_weeks": 327
+  },
+  {
+   "era": "LEGACY",
+   "family": "student_t_hmm",
+   "kind": "confirmed",
+   "direction": "stressed_to_calm",
+   "n": 185,
+   "n_weeks": 135
+  },
+  {
+   "era": "LEGACY",
+   "family": "student_t_hmm",
+   "kind": "fizzle",
+   "direction": "calm_to_stressed",
+   "n": 2197,
+   "n_weeks": 470
+  },
+  {
+   "era": "LEGACY",
+   "family": "student_t_hmm",
+   "kind": "fizzle",
+   "direction": "stressed_to_calm",
+   "n": 781,
+   "n_weeks": 207
+  },
+  {
+   "era": "LEGACY",
+   "family": "student_t_hmm",
+   "kind": "open_at_close",
+   "direction": "calm_to_stressed",
+   "n": 35,
+   "n_weeks": 33
+  },
+  {
+   "era": "LEGACY",
+   "family": "student_t_hmm",
+   "kind": "open_at_close",
+   "direction": "stressed_to_calm",
+   "n": 14,
+   "n_weeks": 14
+  },
+  {
+   "era": "RAW",
+   "family": "bocpd",
+   "kind": "confirmed",
+   "direction": "calm_to_stressed",
+   "n": 17,
+   "n_weeks": 13
+  },
+  {
+   "era": "RAW",
+   "family": "bocpd",
+   "kind": "confirmed",
+   "direction": "stressed_to_calm",
+   "n": 9,
+   "n_weeks": 8
+  },
+  {
+   "era": "RAW",
+   "family": "bocpd",
+   "kind": "fizzle",
+   "direction": "calm_to_stressed",
+   "n": 14,
+   "n_weeks": 10
+  },
+  {
+   "era": "RAW",
+   "family": "bocpd",
+   "kind": "fizzle",
+   "direction": "stressed_to_calm",
+   "n": 4,
+   "n_weeks": 3
+  },
+  {
+   "era": "RAW",
+   "family": "bocpd",
+   "kind": "open_at_close",
+   "direction": "calm_to_stressed",
+   "n": 3,
+   "n_weeks": 3
+  },
+  {
+   "era": "RAW",
+   "family": "gaussian_hmm",
+   "kind": "confirmed",
+   "direction": "calm_to_stressed",
+   "n": 14,
+   "n_weeks": 12
+  },
+  {
+   "era": "RAW",
+   "family": "gaussian_hmm",
+   "kind": "confirmed",
+   "direction": "stressed_to_calm",
+   "n": 2,
+   "n_weeks": 2
+  },
+  {
+   "era": "RAW",
+   "family": "gaussian_hmm",
+   "kind": "fizzle",
+   "direction": "calm_to_stressed",
+   "n": 311,
+   "n_weeks": 26
+  },
+  {
+   "era": "RAW",
+   "family": "gaussian_hmm",
+   "kind": "fizzle",
+   "direction": "stressed_to_calm",
+   "n": 4,
+   "n_weeks": 2
+  },
+  {
+   "era": "RAW",
+   "family": "gaussian_hmm",
+   "kind": "open_at_close",
+   "direction": "calm_to_stressed",
+   "n": 4,
+   "n_weeks": 4
+  },
+  {
+   "era": "RAW",
+   "family": "hsmm",
+   "kind": "confirmed",
+   "direction": "calm_to_stressed",
+   "n": 13,
+   "n_weeks": 11
+  },
+  {
+   "era": "RAW",
+   "family": "hsmm",
+   "kind": "fizzle",
+   "direction": "calm_to_stressed",
+   "n": 223,
+   "n_weeks": 25
+  },
+  {
+   "era": "RAW",
+   "family": "hsmm",
+   "kind": "open_at_close",
+   "direction": "calm_to_stressed",
+   "n": 4,
+   "n_weeks": 3
+  },
+  {
+   "era": "RAW",
+   "family": "student_t_hmm",
+   "kind": "confirmed",
+   "direction": "calm_to_stressed",
+   "n": 14,
+   "n_weeks": 10
+  },
+  {
+   "era": "RAW",
+   "family": "student_t_hmm",
+   "kind": "fizzle",
+   "direction": "calm_to_stressed",
+   "n": 117,
+   "n_weeks": 24
+  },
+  {
+   "era": "RAW",
+   "family": "student_t_hmm",
+   "kind": "fizzle",
+   "direction": "stressed_to_calm",
+   "n": 2,
+   "n_weeks": 2
+  },
+  {
+   "era": "RAW",
+   "family": "student_t_hmm",
+   "kind": "open_at_close",
+   "direction": "calm_to_stressed",
+   "n": 1,
+   "n_weeks": 1
+  }
+ ],
+ "generated": "2026-11-10T03:59:06.228759+00:00"
+}

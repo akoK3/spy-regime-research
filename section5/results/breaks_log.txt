@@ -1,0 +1,31 @@
+2026-11-09T22:57:53-05:00 [py 48460] breaks 1/1 RAW|3: 89 confirmed (= MR2 alarm records), 242 fizzles, 3 open at close; 0.1 min
+2026-11-09T22:57:53-05:00 [py 48460] breaks DONE: 334 runs over 1 folds -> C:\Users\kakij\Downloads\section5\results\breaks_preflight\RAW_3\breaks.csv
+2026-11-09T22:58:14-05:00 [py 48460] breaks 1/1 LEGACY|29: 129 confirmed (= MR2 alarm records), 346 fizzles, 16 open at close; 0.3 min
+2026-11-09T22:58:14-05:00 [py 48460] breaks DONE: 491 runs over 1 folds -> C:\Users\kakij\Downloads\section5\results\breaks_preflight\LEGACY_29\breaks.csv
+2026-11-09T22:58:38-05:00 [py 47228] breaks 1/26 LEGACY|0: 139 confirmed (= MR2 alarm records), 666 fizzles, 10 open at close; 0.3 min
+2026-11-09T22:58:39-05:00 [py 47228] breaks 2/26 LEGACY|1: 82 confirmed (= MR2 alarm records), 366 fizzles, 13 open at close; 0.0 min
+2026-11-09T22:58:40-05:00 [py 47228] breaks 3/26 LEGACY|2: 92 confirmed (= MR2 alarm records), 423 fizzles, 5 open at close; 0.0 min
+2026-11-09T22:58:41-05:00 [py 47228] breaks 4/26 LEGACY|3: 116 confirmed (= MR2 alarm records), 417 fizzles, 9 open at close; 0.0 min
+2026-11-09T22:58:42-05:00 [py 47228] breaks 5/26 LEGACY|4: 118 confirmed (= MR2 alarm records), 366 fizzles, 11 open at close; 0.0 min
+2026-11-09T22:58:43-05:00 [py 47228] breaks 6/26 LEGACY|5: 59 confirmed (= MR2 alarm records), 274 fizzles, 7 open at close; 0.0 min
+2026-11-09T22:58:44-05:00 [py 47228] breaks 7/26 LEGACY|6: 110 confirmed (= MR2 alarm records), 313 fizzles, 10 open at close; 0.0 min
+2026-11-09T22:58:45-05:00 [py 47228] breaks 8/26 LEGACY|7: 80 confirmed (= MR2 alarm records), 376 fizzles, 10 open at close; 0.0 min
+2026-11-09T22:58:46-05:00 [py 47228] breaks 9/26 LEGACY|8: 79 confirmed (= MR2 alarm records), 265 fizzles, 16 open at close; 0.0 min
+2026-11-09T22:58:47-05:00 [py 47228] breaks 10/26 LEGACY|9: 79 confirmed (= MR2 alarm records), 369 fizzles, 12 open at close; 0.0 min
+2026-11-09T22:58:48-05:00 [py 47228] breaks 11/26 LEGACY|10: 177 confirmed (= MR2 alarm records), 669 fizzles, 13 open at close; 0.0 min
+2026-11-09T22:58:49-05:00 [py 47228] breaks 12/26 LEGACY|11: 150 confirmed (= MR2 alarm records), 1009 fizzles, 27 open at close; 0.0 min
+2026-11-09T22:58:50-05:00 [py 47228] breaks 13/26 LEGACY|12: 67 confirmed (= MR2 alarm records), 471 fizzles, 12 open at close; 0.0 min
+2026-11-09T22:58:51-05:00 [py 47228] breaks 14/26 LEGACY|13: 100 confirmed (= MR2 alarm records), 497 fizzles, 5 open at close; 0.0 min
+2026-11-09T22:58:51-05:00 [py 47228] breaks 15/26 LEGACY|14: 105 confirmed (= MR2 alarm records), 300 fizzles, 6 open at close; 0.0 min
+2026-11-09T22:58:52-05:00 [py 47228] breaks 16/26 LEGACY|15: 94 confirmed (= MR2 alarm records), 233 fizzles, 20 open at close; 0.0 min
+2026-11-09T22:58:53-05:00 [py 47228] breaks 17/26 LEGACY|16: 122 confirmed (= MR2 alarm records), 678 fizzles, 17 open at close; 0.0 min
+2026-11-09T22:58:54-05:00 [py 47228] breaks 18/26 LEGACY|17: 120 confirmed (= MR2 alarm records), 762 fizzles, 22 open at close; 0.0 min
+2026-11-09T22:58:55-05:00 [py 47228] breaks 19/26 LEGACY|18: 96 confirmed (= MR2 alarm records), 295 fizzles, 8 open at close; 0.0 min
+2026-11-09T22:58:56-05:00 [py 47228] breaks 20/26 LEGACY|19: 103 confirmed (= MR2 alarm records), 475 fizzles, 14 open at close; 0.0 min
+2026-11-09T22:58:57-05:00 [py 47228] breaks 21/26 LEGACY|20: 80 confirmed (= MR2 alarm records), 642 fizzles, 12 open at close; 0.0 min
+2026-11-09T22:58:58-05:00 [py 47228] breaks 22/26 LEGACY|21: 128 confirmed (= MR2 alarm records), 370 fizzles, 8 open at close; 0.0 min
+2026-11-09T22:58:59-05:00 [py 47228] breaks 23/26 LEGACY|22: 95 confirmed (= MR2 alarm records), 290 fizzles, 12 open at close; 0.0 min
+2026-11-09T22:59:00-05:00 [py 47228] breaks 24/26 LEGACY|25: 84 confirmed (= MR2 alarm records), 586 fizzles, 22 open at close; 0.0 min
+2026-11-09T22:59:00-05:00 [py 47228] breaks 25/26 LEGACY|26: 104 confirmed (= MR2 alarm records), 435 fizzles, 16 open at close; 0.0 min
+2026-11-09T22:59:06-05:00 [py 47228] breaks 26/26 RAW|0: 69 confirmed (= MR2 alarm records), 675 fizzles, 12 open at close; 0.1 min
+2026-11-09T22:59:06-05:00 [py 47228] breaks DONE: 15199 runs over 26 folds -> C:\Users\kakij\Downloads\section5\results\breaks\breaks.csv

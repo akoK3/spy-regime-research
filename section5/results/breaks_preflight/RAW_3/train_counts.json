@@ -1,0 +1,158 @@
+{
+ "tag": {
+  "script": "b2956c2d813465ea829bdb2b6131ead9866a0376df5f674affd8f56609287ec3",
+  "code_version": "a0323ed24d68e896",
+  "protocol": "15be2570a592279e71f3f76fbe62113b4c3263a9d9e4715eaf4d61294eaf4df3",
+  "a17_results": "9c8d29f150f9668701bba0080458b9291740e17c404c8dd164f7cc196beb07d4"
+ },
+ "folds": [
+  "RAW|3"
+ ],
+ "counts": [
+  {
+   "era": "RAW",
+   "family": "bocpd",
+   "kind": "confirmed",
+   "direction": "calm_to_stressed",
+   "n": 15,
+   "n_weeks": 10
+  },
+  {
+   "era": "RAW",
+   "family": "bocpd",
+   "kind": "confirmed",
+   "direction": "stressed_to_calm",
+   "n": 10,
+   "n_weeks": 8
+  },
+  {
+   "era": "RAW",
+   "family": "bocpd",
+   "kind": "fizzle",
+   "direction": "calm_to_stressed",
+   "n": 15,
+   "n_weeks": 9
+  },
+  {
+   "era": "RAW",
+   "family": "bocpd",
+   "kind": "fizzle",
+   "direction": "stressed_to_calm",
+   "n": 4,
+   "n_weeks": 2
+  },
+  {
+   "era": "RAW",
+   "family": "bocpd",
+   "kind": "open_at_close",
+   "direction": "calm_to_stressed",
+   "n": 2,
+   "n_weeks": 2
+  },
+  {
+   "era": "RAW",
+   "family": "bocpd",
+   "kind": "open_at_close",
+   "direction": "stressed_to_calm",
+   "n": 1,
+   "n_weeks": 1
+  },
+  {
+   "era": "RAW",
+   "family": "gaussian_hmm",
+   "kind": "confirmed",
+   "direction": "calm_to_stressed",
+   "n": 12,
+   "n_weeks": 9
+  },
+  {
+   "era": "RAW",
+   "family": "gaussian_hmm",
+   "kind": "confirmed",
+   "direction": "stressed_to_calm",
+   "n": 9,
+   "n_weeks": 6
+  },
+  {
+   "era": "RAW",
+   "family": "gaussian_hmm",
+   "kind": "fizzle",
+   "direction": "calm_to_stressed",
+   "n": 29,
+   "n_weeks": 9
+  },
+  {
+   "era": "RAW",
+   "family": "gaussian_hmm",
+   "kind": "fizzle",
+   "direction": "stressed_to_calm",
+   "n": 40,
+   "n_weeks": 11
+  },
+  {
+   "era": "RAW",
+   "family": "hsmm",
+   "kind": "confirmed",
+   "direction": "calm_to_stressed",
+   "n": 9,
+   "n_weeks": 9
+  },
+  {
+   "era": "RAW",
+   "family": "hsmm",
+   "kind": "confirmed",
+   "direction": "stressed_to_calm",
+   "n": 7,
+   "n_weeks": 5
+  },
+  {
+   "era": "RAW",
+   "family": "hsmm",
+   "kind": "fizzle",
+   "direction": "calm_to_stressed",
+   "n": 48,
+   "n_weeks": 11
+  },
+  {
+   "era": "RAW",
+   "family": "hsmm",
+   "kind": "fizzle",
+   "direction": "stressed_to_calm",
+   "n": 58,
+   "n_weeks": 13
+  },
+  {
+   "era": "RAW",
+   "family": "student_t_hmm",
+   "kind": "confirmed",
+   "direction": "calm_to_stressed",
+   "n": 15,
+   "n_weeks": 10
+  },
+  {
+   "era": "RAW",
+   "family": "student_t_hmm",
+   "kind": "confirmed",
+   "direction": "stressed_to_calm",
+   "n": 12,
+   "n_weeks": 7
+  },
+  {
+   "era": "RAW",
+   "family": "student_t_hmm",
+   "kind": "fizzle",
+   "direction": "calm_to_stressed",
+   "n": 22,
+   "n_weeks": 8
+  },
+  {
+   "era": "RAW",
+   "family": "student_t_hmm",
+   "kind": "fizzle",
+   "direction": "stressed_to_calm",
+   "n": 26,
+   "n_weeks": 10
+  }
+ ],
+ "generated": "2026-11-10T03:57:53.223240+00:00"
+}

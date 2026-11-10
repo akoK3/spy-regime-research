@@ -1,0 +1,100 @@
+{
+ "label": "Data hash preflight (audit-1 finding 17)",
+ "checked_utc": "2026-11-10T03:57:44.562537+00:00",
+ "script_sha256": "a451ed472f0ad6a3c39cb8bd328396c608288383cf97ff866b4d5c2c30bf0b9c",
+ "frozen_protocol_sha256": "3d6f0c96fce1c05f8e94d1a8c6e6b14a5b5b1c9f013e6a95dd1e96498cbfff8b",
+ "section5_protocol_sha256": "15be2570a592279e71f3f76fbe62113b4c3263a9d9e4715eaf4d61294eaf4df3",
+ "verdict": "PASS",
+ "files": [
+  {
+   "group": "A market data",
+   "file": "LEGACY_panel:canonical_panel_LEGACY_1m.csv.gz",
+   "path": "C:\\Users\\kakij\\Downloads\\section3_10_alignment_results\\canonical_panel_LEGACY_1m.csv.gz",
+   "recorded": "b5967d9691c547a3b8a277f97fe2a95e1b1c4a49e4d6476c008a08076ce098df",
+   "actual": "b5967d9691c547a3b8a277f97fe2a95e1b1c4a49e4d6476c008a08076ce098df",
+   "status": "OK",
+   "record": "frozen 4.3.0 v2 = Section 3 manifest"
+  },
+  {
+   "group": "A market data",
+   "file": "LEGACY_etf:etf_observed_SPY_LEGACY.csv.gz",
+   "path": "C:\\Users\\kakij\\Downloads\\section3_4_etf_results\\etf_observed_SPY_LEGACY.csv.gz",
+   "recorded": "7cd10dfb3e5896b9574a53f35914ce43053705cff9c5ef7029ccb2b88a6c83f7",
+   "actual": "7cd10dfb3e5896b9574a53f35914ce43053705cff9c5ef7029ccb2b88a6c83f7",
+   "status": "OK",
+   "record": "frozen 4.3.0 v2"
+  },
+  {
+   "group": "A market data",
+   "file": "RAW_panel:canonical_panel_RAW_1m.csv.gz",
+   "path": "C:\\Users\\kakij\\Downloads\\section3_10_alignment_results\\canonical_panel_RAW_1m.csv.gz",
+   "recorded": "f1b1c498dc76c7ef11e53a31fec655abacaf6458d8f3b9dd1827f9dd8ec91184",
+   "actual": "f1b1c498dc76c7ef11e53a31fec655abacaf6458d8f3b9dd1827f9dd8ec91184",
+   "status": "OK",
+   "record": "frozen 4.3.0 v2 = Section 3 manifest"
+  },
+  {
+   "group": "A market data",
+   "file": "RAW_etf:etf_observed_SPY_RAW.csv.gz",
+   "path": "C:\\Users\\kakij\\Downloads\\section3_4_etf_results\\etf_observed_SPY_RAW.csv.gz",
+   "recorded": "6c37b2798d3cc5740d71de94c34343d315fa274b95e50a5a7df081c1b7a5928d",
+   "actual": "6c37b2798d3cc5740d71de94c34343d315fa274b95e50a5a7df081c1b7a5928d",
+   "status": "OK",
+   "record": "frozen 4.3.0 v2"
+  },
+  {
+   "group": "B cited inputs",
+   "file": "section431_step3_all_in_one_results/a4_sec4_3_9_frozen_matrix_v2.csv",
+   "path": "C:\\Users\\kakij\\Downloads\\section431_step3_all_in_one_results\\a4_sec4_3_9_frozen_matrix_v2.csv",
+   "recorded": "9378f93f79e358f98d9dcad3992c269cb9a823a15bf28e8a21dbe319763ebe86",
+   "actual": "9378f93f79e358f98d9dcad3992c269cb9a823a15bf28e8a21dbe319763ebe86",
+   "status": "OK",
+   "record": "SECTION5_PROTOCOL.md cited inputs"
+  },
+  {
+   "group": "B cited inputs",
+   "file": "section431_step3_all_in_one_results/a4_sec4_3_9_matrix_primary_view_v2.csv",
+   "path": "C:\\Users\\kakij\\Downloads\\section431_step3_all_in_one_results\\a4_sec4_3_9_matrix_primary_view_v2.csv",
+   "recorded": "74f2c14fe15b0b7957283e66624a6352bab26e731535053371b0f8fd51243f25",
+   "actual": "74f2c14fe15b0b7957283e66624a6352bab26e731535053371b0f8fd51243f25",
+   "status": "OK",
+   "record": "SECTION5_PROTOCOL.md cited inputs"
+  },
+  {
+   "group": "B cited inputs",
+   "file": "section431_step3_all_in_one_results/a4_sec4_3_9_matrix_sensitivity_view_v2.csv",
+   "path": "C:\\Users\\kakij\\Downloads\\section431_step3_all_in_one_results\\a4_sec4_3_9_matrix_sensitivity_view_v2.csv",
+   "recorded": "33f3cc2a9fcf8baa9ea53753375880a965377e23c88b65b4a76967255b14be53",
+   "actual": "33f3cc2a9fcf8baa9ea53753375880a965377e23c88b65b4a76967255b14be53",
+   "status": "OK",
+   "record": "SECTION5_PROTOCOL.md cited inputs"
+  },
+  {
+   "group": "B cited inputs",
+   "file": "section431_step3_all_in_one_results/a4_development_nested_folds_TRAIN.csv",
+   "path": "C:\\Users\\kakij\\Downloads\\section431_step3_all_in_one_results\\a4_development_nested_folds_TRAIN.csv",
+   "recorded": "06258e5a1645327a64aa07d155b59d20949c11c81ce657a26e4d44c27882adfc",
+   "actual": "06258e5a1645327a64aa07d155b59d20949c11c81ce657a26e4d44c27882adfc",
+   "status": "OK",
+   "record": "SECTION5_PROTOCOL.md cited inputs"
+  },
+  {
+   "group": "B cited inputs",
+   "file": "section431_step3_all_in_one_results/a4_folds_check.json",
+   "path": "C:\\Users\\kakij\\Downloads\\section431_step3_all_in_one_results\\a4_folds_check.json",
+   "recorded": "0cf4b5901cddfc17ef83947e94f92c8696d12240d15f2883cc4b05579326612d",
+   "actual": "0cf4b5901cddfc17ef83947e94f92c8696d12240d15f2883cc4b05579326612d",
+   "status": "OK",
+   "record": "SECTION5_PROTOCOL.md cited inputs"
+  },
+  {
+   "group": "B cited inputs",
+   "file": "section431_step3_all_in_one_results/a4_lm_threshold_calibration.json",
+   "path": "C:\\Users\\kakij\\Downloads\\section431_step3_all_in_one_results\\a4_lm_threshold_calibration.json",
+   "recorded": "c6c5c775fd43a92131f4ce86481d216ec528a65a9a07d42354a19f64db9e0253",
+   "actual": "c6c5c775fd43a92131f4ce86481d216ec528a65a9a07d42354a19f64db9e0253",
+   "status": "OK",
+   "record": "SECTION5_PROTOCOL.md cited inputs"
+  }
+ ]
+}

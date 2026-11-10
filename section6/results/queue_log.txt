@@ -1,0 +1,5 @@
+2026-11-09T22:44:13-05:00 [ps1 44664] waiting for the A25 post-hoc run (PID 43636)
+2026-11-09T22:57:44-05:00 [ps1 44664] A25 post-hoc finished; queue starts
+2026-11-09T22:57:44-05:00 [ps1 44664] finding-17 data-hash preflight: exit code 0
+2026-11-09T22:58:14-05:00 [ps1 44664] break export preflight (RAW 3 / LEGACY 29): exit code 0 after 0.5 min
+2026-11-09T22:59:06-05:00 [ps1 44664] break export: exit code 0 after 0.9 min
