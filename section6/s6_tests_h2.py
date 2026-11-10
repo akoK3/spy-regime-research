@@ -64,4 +64,34 @@ class TestE1(unittest.TestCase):
         self.assertEqual(H.e1({"LEGACY": E}, [unit(T=380)])["skipped"]["window_past_close"], 1)
 
 
+def cand_of(E, n):
+    d, s = np.meshgrid(np.arange(n), np.arange(5, 390, 5), indexing="ij"); d, s = d.ravel(), s.ravel()
+    return dict(day_idx=d, S=s, era=np.array(["LEGACY"] * len(d)), vol=np.array([R.spy_vol(E, a, b) for a, b in zip(d, s)], float))
+
+
+class TestP50(unittest.TestCase):
+    """A33: protocol 5.0 H2 test (signed cumulative return, matched placebo distribution of 10,000 draws, two-sided)."""
+    def test_cum_clock(self):
+        E = FakeEra(const=1e-3); self.assertAlmostEqual(H._cum(E, "TLT", 50, 115, 145), 0.03); self.assertTrue(np.isnan(H._cum(E, "TLT", 50, 370, 400)))
+        E.avail["TLT"][50] = False; self.assertTrue(np.isnan(H._cum(E, "TLT", 50, 115, 145)))
+
+    def test_matching_slot_and_own_session(self):
+        n = 60; E = FakeEra(n=n, const=0.0); E.R["SPY"][:] = 1e-3
+        for a in R.ASSETS: E.R[a][:, 200:] = 1.0; E.R[a][40, 95:115] = 5.0      # other slots' windows and the break session's own slot-3 candidates are large
+        u = dict(era="LEGACY", day_idx=40, T=115); c = {"LEGACY": cand_of(E, n)}
+        res = H.p50_test({"LEGACY": E}, c, [u] * 5, "TLT", 0, 30, B=500, seed=1)
+        self.assertEqual(res["M"], 0.0); self.assertEqual(res["placebo_mean"], 0.0); self.assertEqual(res["p"], 1.0)
+        self.assertEqual(res["mean_pool_size"], (n - 1) * 6)      # slot 3 on the 5-minute grid: S = 95..120, every other session, one decile
+
+    def test_null_and_planted_two_sided(self):
+        n = 400; E = FakeEra(n=n, seed=3); c = {"LEGACY": cand_of(E, n)}; us = [dict(era="LEGACY", day_idx=int(d), T=int(t)) for d, t in zip(range(5, n, 7), np.tile([60, 115, 200, 300], 100))]
+        r0 = H.p50_test({"LEGACY": E}, c, us, "TLT", 0, 30, B=2000, seed=2); self.assertGreater(r0["p"], 0.01)
+        for u in us: E.R["GOLD"][u["day_idx"], u["T"]:u["T"] + 30] -= 2e-4
+        E.__dict__.pop("_h2", None); r1 = H.p50_test({"LEGACY": E}, c, us, "GOLD", 0, 30, B=2000, seed=2)
+        self.assertLess(r1["p"], 0.01); self.assertLess(r1["p_lo"], 0.01); self.assertAlmostEqual(r1["M"] - r1["placebo_mean"], -30 * 2e-4, delta=0.002)
+
+    def test_power_task(self):
+        self.assertLess(H._ptask((0.4, 0, 600, 2000))[1], 0.0125); self.assertGreater(np.mean([H._ptask((0.0, i, 200, 1000))[1] for i in range(20)]), 0.2)
+
+
 if __name__ == "__main__": unittest.main()

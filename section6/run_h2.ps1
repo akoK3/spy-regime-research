@@ -1,12 +1,12 @@
-# H2 chain (AMENDMENT_A32, user instruction 2026-11-10), in order, stopping at the first failure:
+# H2 chain (AMENDMENT_A33: protocol 5.0 primary; user instruction 2026-11-10), in order, stopping at the first failure:
 #   0. finding-17 data-hash preflight
-#   1. A32 rule 5a synthetic check (s6_h2.py synth, then check: must pass)
-#   2. gate: A28-A32 ADOPTED with matching sidecars
-#   3. A32 rule 5b power, Gaussian HMM and HSMM (reported, not a gate unless it crashes)
+#   1. A33 rule 3 synthetic check (s6_h2.py synth, then check: must pass)
+#   2. gate: A28-A33 ADOPTED with matching sidecars
+#   3. A33 G11 power, Gaussian HMM and HSMM (reported, not a gate unless it crashes)
 #   4. H2 development run (TRAIN-span test segments only), Gaussian HMM and HSMM in parallel
 # Python output goes to files. Memory is logged at each step. No freeze, no O8, no era calibration, no evaluation-period read.
-#   Run: powershell -NoProfile -ExecutionPolicy Bypass -File <this file> [-Tag a32] [-SynthWorkers 6] [-PowerWorkers 3]
-param([string]$Tag = "a32", [int]$SynthWorkers = 6, [int]$PowerWorkers = 3)
+#   Run: powershell -NoProfile -ExecutionPolicy Bypass -File <this file> [-Tag a33] [-SynthWorkers 6] [-PowerWorkers 3]
+param([string]$Tag = "a33", [int]$SynthWorkers = 6, [int]$PowerWorkers = 3)
 $ErrorActionPreference = "Continue"
 $Here   = Split-Path -Parent $MyInvocation.MyCommand.Path
 $Root   = Split-Path -Parent $Here
@@ -30,13 +30,13 @@ Write-Log ("chain starts; {0}" -f (Free-MB))
 $code = Run-Py $S5 @((Join-Path $S5 "s5_preflight_data_hashes.py"), "--out", (Join-Path $S5 "results\breaks_preflight\data_hashes_h2.json")) "data_hashes"
 Write-Log ("step 0 data-hash preflight: exit {0}" -f $code); if ($code -ne 0) { Stop-Chain "data-hash preflight failed (exit $code)" 3 }
 
-$t = Get-Date; $code = Run-Py $Here @($H2, "synth", "--tag", $Tag, "--null-reps", "200", "--effect-reps", "40", "--nboot", "999", "--workers", "$SynthWorkers") "synth_$Tag"
+$t = Get-Date; $code = Run-Py $Here @($H2, "synth", "--tag", $Tag, "--null-reps", "200", "--effect-reps", "40", "--draws", "10000", "--workers", "$SynthWorkers") "synth_$Tag"
 Write-Log ("step 1 synthetic run: exit {0} after {1} min; {2}" -f $code, [math]::Round(((Get-Date) - $t).TotalMinutes, 1), (Free-MB)); if ($code -ne 0) { Stop-Chain "synthetic run crashed (exit $code)" 1 }
 $code = Run-Py $Here @($H2, "check", $Tag) "check_$Tag"
-Write-Log ("step 1 acceptance (A32 rule 5a): exit {0}" -f $code); if ($code -ne 0) { Stop-Chain "A32 rule 5a synthetic check FAILED (see results\h2_check_$Tag.stdout.txt); power and development run not started" 1 }
+Write-Log ("step 1 acceptance (A33 rule 3): exit {0}" -f $code); if ($code -ne 0) { Stop-Chain "A33 rule 3 synthetic check FAILED (see results\h2_check_$Tag.stdout.txt); power and development run not started" 1 }
 
-$code = Run-Py $Here @("-c", ('"' + "import sys; sys.path.insert(0, r'$S5'); import s5_amendment_manifest as AM; bad=[e['amendment'] for e in AM.manifest(('A28','A29','A30','A31','A32')) if not (e['present'] and e['status']=='ADOPTED' and e['sidecar_matches'])]; print('not adopted:', bad); sys.exit(1 if bad else 0)" + '"')) "gate"
-Write-Log ("step 2 gate (A28-A32 adopted): exit {0}" -f $code); if ($code -ne 0) { Stop-Chain "A28-A32 not all ADOPTED with matching sidecars" 2 }
+$code = Run-Py $Here @("-c", ('"' + "import sys; sys.path.insert(0, r'$S5'); import s5_amendment_manifest as AM; bad=[e['amendment'] for e in AM.manifest(('A28','A29','A30','A31','A32','A33')) if not (e['present'] and e['status']=='ADOPTED' and e['sidecar_matches'])]; print('not adopted:', bad); sys.exit(1 if bad else 0)" + '"')) "gate"
+Write-Log ("step 2 gate (A28-A33 adopted): exit {0}" -f $code); if ($code -ne 0) { Stop-Chain "A28-A33 not all ADOPTED with matching sidecars" 2 }
 
 $t = Get-Date; $ps = @{}
 foreach ($det in "gaussian_hmm", "hsmm") { $ps[$det] = Start-Py $Here @($H2, "power", $det, "--workers", "$PowerWorkers") "power_$det" }
