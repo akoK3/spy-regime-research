@@ -6,7 +6,7 @@
 #   4. H2 development run (TRAIN-span test segments only), Gaussian HMM and HSMM in parallel
 # Python output goes to files. Memory is logged at each step. No freeze, no O8, no era calibration, no evaluation-period read.
 #   Run: powershell -NoProfile -ExecutionPolicy Bypass -File <this file> [-Tag a33] [-SynthWorkers 6] [-PowerWorkers 3]
-param([string]$Tag = "a33", [int]$SynthWorkers = 6, [int]$PowerWorkers = 3)
+param([string]$Tag = "a33p08", [int]$SynthWorkers = 6, [int]$PowerWorkers = 3)
 $ErrorActionPreference = "Continue"
 $Here   = Split-Path -Parent $MyInvocation.MyCommand.Path
 $Root   = Split-Path -Parent $Here
@@ -35,8 +35,8 @@ Write-Log ("step 1 synthetic run: exit {0} after {1} min; {2}" -f $code, [math]:
 $code = Run-Py $Here @($H2, "check", $Tag) "check_$Tag"
 Write-Log ("step 1 acceptance (A33 rule 3): exit {0}" -f $code); if ($code -ne 0) { Stop-Chain "A33 rule 3 synthetic check FAILED (see results\h2_check_$Tag.stdout.txt); power and development run not started" 1 }
 
-$code = Run-Py $Here @("-c", ('"' + "import sys; sys.path.insert(0, r'$S5'); import s5_amendment_manifest as AM; bad=[e['amendment'] for e in AM.manifest(('A28','A29','A30','A31','A32','A33')) if not (e['present'] and e['status']=='ADOPTED' and e['sidecar_matches'])]; print('not adopted:', bad); sys.exit(1 if bad else 0)" + '"')) "gate"
-Write-Log ("step 2 gate (A28-A33 adopted): exit {0}" -f $code); if ($code -ne 0) { Stop-Chain "A28-A33 not all ADOPTED with matching sidecars" 2 }
+$code = Run-Py $Here @("-c", ('"' + "import sys; sys.path.insert(0, r'$S5'); import s5_amendment_manifest as AM; bad=[e['amendment'] for e in AM.manifest(('A28','A29','A30','A31','A32','A33','A33_1')) if not (e['present'] and e['status']=='ADOPTED' and e['sidecar_matches'])]; print('not adopted:', bad); sys.exit(1 if bad else 0)" + '"')) "gate"
+Write-Log ("step 2 gate (A28-A33, A33.1 adopted): exit {0}" -f $code); if ($code -ne 0) { Stop-Chain "A28-A33 not all ADOPTED with matching sidecars" 2 }
 
 $t = Get-Date; $ps = @{}
 foreach ($det in "gaussian_hmm", "hsmm") { $ps[$det] = Start-Py $Here @($H2, "power", $det, "--workers", "$PowerWorkers") "power_$det" }

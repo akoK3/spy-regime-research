@@ -8,7 +8,7 @@ Usage:
   s6_h2.py synth --tag TAG [--null-reps 200] [--effect-reps 40] [--draws 10000] [--workers 6]  (A33 rule 3; synthetic data only)
   s6_h2.py check TAG                                                                           (A33 rule 3c acceptance; exit 1 if any criterion fails)
   s6_h2.py power DETECTOR [--sims 200] [--draws 10000] [--workers 3]                            (A33 G11; break count only, no outcome read)
-  s6_h2.py development DETECTOR [--nboot 9999]                                                 (A33 6b; refuses unless A28-A33 are ADOPTED)
+  s6_h2.py development DETECTOR [--nboot 9999]                                                 (A33 6b; refuses unless A28-A33 and A33.1 are ADOPTED)
 No freeze, no O8, no era calibration, no evaluation-period read."""
 import sys, json, csv, time, hashlib, datetime, collections
 from pathlib import Path
@@ -18,8 +18,8 @@ import s6_lib as L, s6_run as R
 
 ASSETS = R.ASSETS; PRIOR = 20; MIN_PRIOR = 10; MIN_PLACEBO = 10; PCT = 90; ALPHA1 = 0.05 / 4
 WINDOWS = {"h5": (0, 5), "h15": (0, 15), "h30": (0, 30), "h60": (0, 60), "pre30": (-30, 0)}
-AMENDMENTS = ("A28", "A29", "A30", "A31", "A32", "A33")
-B50 = 10_000; POOL_SIM = 200; C_PLANT = dict(TLT=0.05, HYG=-0.05, GOLD=0.05, DOLLAR=0.0); D_GRID = (0.05, 0.1, 0.15, 0.2, 0.3, 0.4)      # A33 G1, G11, rule 3b
+AMENDMENTS = ("A28", "A29", "A30", "A31", "A32", "A33", "A33_1")
+B50 = 10_000; POOL_SIM = 200; C_PLANT = dict(TLT=0.08, HYG=-0.08, GOLD=0.08, DOLLAR=0.0); D_GRID = (0.05, 0.1, 0.15, 0.2, 0.3, 0.4)      # A33 G1, G11; rule 3b as amended by A33.1 (0.05 -> 0.08)
 
 
 # ---------- A32 rule 2 (exploratory under A33 rule 4): deseasonalised |return|
