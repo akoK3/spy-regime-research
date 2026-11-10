@@ -3,3 +3,10 @@
 2026-11-10T01:08:17-05:00 [ps1 43300] step 1 synthetic run: exit 0 after 23.9 min
 2026-11-10T01:08:18-05:00 [ps1 43300] step 1 acceptance (A31 rule 4b): exit 1
 2026-11-10T01:08:18-05:00 [ps1 43300] === CHAIN STOPPED: A31 rule 4 synthetic checks FAILED (see results\on_check_a31.stdout.txt); A31 not adopted; power and development run not started
+2026-11-10T10:06:49-05:00 [ps1 51152] chain starts
+2026-11-10T10:06:50-05:00 [ps1 51152] step 0 data-hash preflight: exit 0
+2026-11-10T10:30:58-05:00 [ps1 51152] step 1 synthetic run: exit 0 after 24.1 min
+2026-11-10T10:30:58-05:00 [ps1 51152] step 1 acceptance (A31 rule 4b): exit 0
+2026-11-10T10:30:59-05:00 [ps1 51152] step 2 A31 adoption: exit 0
+2026-11-10T10:30:59-05:00 [ps1 51152] step 3 gate (A28, A29, A30, A31 adopted): exit 1
+2026-11-10T10:30:59-05:00 [ps1 51152] === CHAIN STOPPED: A28/A29/A30/A31 not all ADOPTED with matching sidecars; power and development run not started

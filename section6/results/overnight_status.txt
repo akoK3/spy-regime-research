@@ -1,1 +1,1 @@
-STOPPED: A31 rule 4 synthetic checks FAILED (see results\on_check_a31.stdout.txt); A31 not adopted; power and development run not started
+STOPPED: A28/A29/A30/A31 not all ADOPTED with matching sidecars; power and development run not started

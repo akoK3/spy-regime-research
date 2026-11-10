@@ -1,0 +1,227 @@
+{
+ "tag": "a31r",
+ "passed": true,
+ "criteria": [
+  {
+   "criterion": "indep: H3_TLT rejection <= 0.081",
+   "value": 0.045,
+   "passed": true
+  },
+  {
+   "criterion": "indep: H3_HYG rejection <= 0.081",
+   "value": 0.035,
+   "passed": true
+  },
+  {
+   "criterion": "indep: H3_GOLD rejection <= 0.081",
+   "value": 0.025,
+   "passed": true
+  },
+  {
+   "criterion": "indep: H3_DOLLAR rejection <= 0.081",
+   "value": 0.01,
+   "passed": true
+  },
+  {
+   "criterion": "indep: H4a rejection <= 0.081",
+   "value": 0.03,
+   "passed": true
+  },
+  {
+   "criterion": "indep: H4b rejection <= 0.081",
+   "value": 0.005,
+   "passed": true
+  },
+  {
+   "criterion": "indep: A31 rule 3 control flag rate TLT <= 0.081",
+   "value": 0.06,
+   "passed": true
+  },
+  {
+   "criterion": "indep: A31 rule 3 control flag rate HYG <= 0.081",
+   "value": 0.06,
+   "passed": true
+  },
+  {
+   "criterion": "indep: A31 rule 3 control flag rate GOLD <= 0.081",
+   "value": 0.04,
+   "passed": true
+  },
+  {
+   "criterion": "indep: A31 rule 3 control flag rate DOLLAR <= 0.081",
+   "value": 0.045,
+   "passed": true
+  },
+  {
+   "criterion": "vol: H3_TLT rejection <= 0.081",
+   "value": 0.025,
+   "passed": true
+  },
+  {
+   "criterion": "vol: H3_HYG rejection <= 0.081",
+   "value": 0.055,
+   "passed": true
+  },
+  {
+   "criterion": "vol: H3_GOLD rejection <= 0.081",
+   "value": 0.05,
+   "passed": true
+  },
+  {
+   "criterion": "vol: H3_DOLLAR rejection <= 0.081",
+   "value": 0.04,
+   "passed": true
+  },
+  {
+   "criterion": "vol: H4a rejection <= 0.081",
+   "value": 0.045,
+   "passed": true
+  },
+  {
+   "criterion": "vol: H4b rejection <= 0.081",
+   "value": 0.0,
+   "passed": true
+  },
+  {
+   "criterion": "vol: A31 rule 3 control flag rate TLT <= 0.081",
+   "value": 0.055,
+   "passed": true
+  },
+  {
+   "criterion": "vol: A31 rule 3 control flag rate HYG <= 0.081",
+   "value": 0.05,
+   "passed": true
+  },
+  {
+   "criterion": "vol: A31 rule 3 control flag rate GOLD <= 0.081",
+   "value": 0.045,
+   "passed": true
+  },
+  {
+   "criterion": "vol: A31 rule 3 control flag rate DOLLAR <= 0.081",
+   "value": 0.07,
+   "passed": true
+  },
+  {
+   "criterion": "effect_h4: H4a |bias| <= 2 SE",
+   "value": [
+    -0.0007830526114290769,
+    0.004560890299418007
+   ],
+   "passed": true
+  },
+  {
+   "criterion": "effect_h4: H4a rejection >= 0.80",
+   "value": 1.0,
+   "passed": true
+  },
+  {
+   "criterion": "effect_h4: H4b |bias| <= 2 SE",
+   "value": [
+    -0.001324435989031343,
+    0.004381396592716617
+   ],
+   "passed": true
+  },
+  {
+   "criterion": "effect_h4: H4b rejection >= 0.80",
+   "value": 0.95,
+   "passed": true
+  },
+  {
+   "criterion": "effect_h3: H3_TLT |bias| <= max(2 SE, 0.10 x target)",
+   "value": [
+    -0.01057081152029731,
+    0.008072076501328511,
+    0.25243638511219785
+   ],
+   "passed": true
+  },
+  {
+   "criterion": "effect_h3: H3_HYG |bias| <= max(2 SE, 0.10 x target)",
+   "value": [
+    -0.010813697288867871,
+    0.008488057322577226,
+    0.1261240057667993
+   ],
+   "passed": true
+  },
+  {
+   "criterion": "effect_h3: H3_GOLD |bias| <= max(2 SE, 0.10 x target)",
+   "value": [
+    -0.007127888006794427,
+    0.007770938901440439,
+    0.2521331690063421
+   ],
+   "passed": true
+  },
+  {
+   "criterion": "effect_h3: H3_TLT rejection >= 0.80",
+   "value": 1.0,
+   "passed": true
+  },
+  {
+   "criterion": "effect_h3: H3_GOLD rejection >= 0.80",
+   "value": 1.0,
+   "passed": true
+  }
+ ],
+ "synth_sha256": "afc02b55e2d7b78167445e3aba9e4e0c8e21ea025573c8b49aa1dd0b1b29d939",
+ "provenance": {
+  "code": {
+   "files": {
+    "section6/s6_adopt_a31.py": "fbb6a9a0569efd30fa2d3faea3c70ccbc4e5c57e9f6e6519df5e7fe5f3841b1c",
+    "section6/s6_check_synth.py": "85f02938cf99f9569e77682b3f9812d75087fe9359c8684a6a0267035a98d612",
+    "section6/s6_coverage.py": "3d6752fe76172e3a595c17bad2f16376b6df6640a115e7be21da7296051bd7c0",
+    "section6/s6_fingerprint.py": "4d1999c758ef6f07441b76199bf4eda82da39bf53c908a82f71f77612bac7bd2",
+    "section6/s6_lib.py": "3b51fbce08e1856df8c03a39fd5d4b4c34c94afbde7784876e2fd12061aca8b1",
+    "section6/s6_power.py": "f821a29d3f682152fd05751dbe6e211fb6e5654e7aff1d8462c106a6a0e97220",
+    "section6/s6_run.py": "27880e09d0e2d1bea1c39b93fcc52e869eb0c06c924dfeb0b369283bd1233aa8",
+    "section6/s6_synth_validation.py": "fbbc8598a8efec2d968153371aa70cd2d55887c7b1b43cb98d6430dfd39d65fc",
+    "section6/s6_tests.py": "852724428c55c6fbdc48152fa3375eb58bfdeb56099da595db13a2c7f229d819",
+    "section5/s5_eval_loader.py": "e82b01de0d29a59bef50045592c8175e9b8a61ad77e19c5942ee135dc3f93139",
+    "section5/s5_amendment_manifest.py": "5a11a5adb3f511c13f5a0bfb2d9d500c610442cd1375fef5062c837be55bbde5",
+    "section5/s5_break_export.py": "b2956c2d813465ea829bdb2b6131ead9866a0376df5f674affd8f56609287ec3"
+   },
+   "code_version": "a0323ed24d68e896"
+  },
+  "amendments": [
+   {
+    "amendment": "A28",
+    "file": "AMENDMENT_A28.md",
+    "present": true,
+    "status": "ADOPTED",
+    "sha256": "7c6bd4bdee8bd839b1ff4c2346d81f15fd2b6b29af7a0d4b5e11738d9b673ac2",
+    "sidecar_sha256": "7c6bd4bdee8bd839b1ff4c2346d81f15fd2b6b29af7a0d4b5e11738d9b673ac2",
+    "sidecar_matches": true
+   },
+   {
+    "amendment": "A29",
+    "file": "AMENDMENT_A29.md",
+    "present": true,
+    "status": "ADOPTED",
+    "sha256": "304f27252b29d27649eeb68a0507f127fe24a602cd9556f5d43687bf24822715",
+    "sidecar_sha256": "304f27252b29d27649eeb68a0507f127fe24a602cd9556f5d43687bf24822715",
+    "sidecar_matches": true
+   },
+   {
+    "amendment": "A30",
+    "file": "AMENDMENT_A30.md",
+    "present": true,
+    "status": "ADOPTED",
+    "sha256": "1c421aa7ced0c8748648e9fe5fc723fa14c606a67943001fc482372d3990b9da",
+    "sidecar_sha256": "1c421aa7ced0c8748648e9fe5fc723fa14c606a67943001fc482372d3990b9da",
+    "sidecar_matches": true
+   },
+   {
+    "amendment": "A31",
+    "file": "AMENDMENT_A31.md",
+    "present": true,
+    "status": "DRAFT",
+    "sha256": "3f730d1dc5b40b35fc68dda1f06787ec9922f3f97437e772f7310c989c9d91b0",
+    "sidecar_sha256": null,
+    "sidecar_matches": false
+   }
+  ]
+ }
+}
