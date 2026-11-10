@@ -10,3 +10,12 @@
 2026-11-10T10:30:59-05:00 [ps1 51152] step 2 A31 adoption: exit 0
 2026-11-10T10:30:59-05:00 [ps1 51152] step 3 gate (A28, A29, A30, A31 adopted): exit 1
 2026-11-10T10:30:59-05:00 [ps1 51152] === CHAIN STOPPED: A28/A29/A30/A31 not all ADOPTED with matching sidecars; power and development run not started
+2026-11-10T10:32:19-05:00 [ps1 50616] chain starts
+2026-11-10T10:32:20-05:00 [ps1 50616] step 0 data-hash preflight: exit 0
+2026-11-10T10:32:20-05:00 [ps1 50616] steps 1-2 skipped (-FromStep 3); A31 adoption is checked by the gate
+2026-11-10T10:32:20-05:00 [ps1 50616] step 3 gate (A28, A29, A30, A31 adopted): exit 0
+2026-11-10T11:43:11-05:00 [ps1 8776] chain starts
+2026-11-10T11:43:14-05:00 [ps1 8776] step 0 data-hash preflight: exit 0
+2026-11-10T11:43:14-05:00 [ps1 8776] steps 1-2 skipped (-FromStep 5); A31 adoption is checked by the gate
+2026-11-10T11:43:14-05:00 [ps1 8776] step 3 gate (A28, A29, A30, A31 adopted): exit 0
+2026-11-10T11:43:14-05:00 [ps1 8776] step 4: waiting for the running power check, PIDs 45564, 50460
