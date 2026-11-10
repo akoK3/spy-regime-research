@@ -296,10 +296,12 @@ def sanity(E_by, br, units, cand_by, alarms_by, nboot, n_sets=200, seed=7, worke
     return dict(positive_control=dict(pos, passed=bool(pos["p"] is not None and pos["p"] < 0.05)), null_control=dict(n_sets=len(out), rejection_rate=rate, passed=bool(out) and all(v <= 0.10 for v in rate.values())))
 
 
-def placebo_filter_control(E_by, br, cand_by, nboot, seed=31, reference="random"):
-    """AMENDMENT_A31 rule 3: per asset, the H3 next-day regression (A28 3b controls) of filtered placebos (1) against 20 fully unfiltered random times per unit (0);
-    delta with its two-sided 95% basic week-block bootstrap interval; flagged when the interval excludes 0. A check: outside Holm and BH; never stops the run.
-    reference="matched_no_alarm_filter": the comparison set is drawn with the placebo matching but no alarm condition (synthetic diagnostic only, not A31)."""
+def placebo_filter_control(E_by, br, cand_by, nboot, seed=31, reference="matched_no_alarm_filter"):
+    """AMENDMENT_A31 rule 3 (revised 2026-11-10): per asset, the H3 next-day regression (A28 3b controls) of filtered placebos (1) against 20 times per unit drawn
+    with the same placebo matching but no alarm condition (0); delta with its two-sided 95% basic week-block bootstrap interval; flagged when the interval excludes 0.
+    A check: outside Holm and BH; never stops the run.
+    reference="random" (A31 3e, descriptive only): the comparison set is 20 fully unfiltered random times per unit; delta and interval reported, never flagged (flag None)."""
+    flagged = reference == "matched_no_alarm_filter"
     out = {}; rnd = {}
     for u in br:
         h = int(hashlib.sha256(f"rand|{u['era']}|{u['day']}|{u['S']}".encode()).hexdigest()[:8], 16); c = cand_by[u["era"]]
@@ -313,11 +315,72 @@ def placebo_filter_control(E_by, br, cand_by, nboot, seed=31, reference="random"
                 r = h3_row(E, a, di, S, T, "next_day")
                 if r is None or not np.isfinite(r["y"]) or not np.isfinite(r["X"]).all(): continue
                 ys.append(r["y"]); Xs.append(r["X"]); bs.append(b); days.append(E.days[di]); eras.append(u["era"])
-        if sum(bs) < 5 or len(bs) - sum(bs) < 5: out[a] = dict(delta=None, ci95=None, flag=None, n_filtered=int(sum(bs)), n_random=int(len(bs) - sum(bs))); continue
+        if sum(bs) < 5 or len(bs) - sum(bs) < 5: out[a] = dict(delta=None, ci95=None, interval_excludes_0=None, flag=None, n_filtered=int(sum(bs)), n_reference=int(len(bs) - sum(bs))); continue
         y = np.array(ys); X = np.array(Xs); b = np.array(bs, float)
         t, lo, hi, nv = L.week_block_ci(lambda ix: L.ols_gamma(y[ix], X[ix], b[ix]), days, eras, nboot, seed)
-        out[a] = dict(delta=t, ci95=[lo, hi], flag=bool(np.isfinite(lo) and (lo > 0 or hi < 0)), n_filtered=int(b.sum()), n_random=int(len(b) - b.sum()), n_valid_resamples=nv)
-    return dict(label="A31 rule 3 placebo-filter null control (check; outside Holm and BH)", by_asset=out, any_flag=any(bool(v.get("flag")) for v in out.values()))
+        ex = bool(np.isfinite(lo) and (lo > 0 or hi < 0))
+        out[a] = dict(delta=t, ci95=[lo, hi], interval_excludes_0=ex, flag=(ex if flagged else None), n_filtered=int(b.sum()), n_reference=int(len(b) - b.sum()), n_valid_resamples=nv)
+    lab = ("A31 rule 3 placebo-filter null control: filtered vs matched without the alarm exclusion (check; outside Holm and BH)" if flagged
+           else "A31 rule 3e: filtered vs fully unfiltered random times (descriptive only; never flagged; outside Holm and BH)")
+    return dict(label=lab, reference=reference, by_asset=out, any_flag=(any(bool(v.get("flag")) for v in out.values()) if flagged else None))
+
+
+A30_PCT = 90; A30_MIN_PLACEBO = 10; A30_BEFORE = 30; A30_AFTER = 60; A30_QS = (10, 25, 50, 75, 90)
+
+
+def first_exceedance(E, a, di, S, T, ref):
+    """AMENDMENT_A30 rule 2 for one window: ref = list of (day_idx, S) of the reference times (placebos). Bars of 5 minutes aligned to S over [S - 30, T + 60]
+    (rule 1c); per bar, |cumulative log return| against the 90th percentile of the same bar relative to each reference S (bars inside the session only; >= 10 values).
+    Returns (bar end of the first exceedance or None, number of evaluable bars)."""
+    nev = 0
+    for end in range(S - A30_BEFORE + L.STEP, T + A30_AFTER + 1, L.STEP):
+        x = abs_ret(E, a, di, end - L.STEP, end)
+        pv = [abs_ret(E, a, d, end - L.STEP - S + s, end - S + s) for d, s in ref if 0 <= end - L.STEP - S + s and end - S + s <= L.N_MIN]
+        pv = [v for v in pv if np.isfinite(v)]
+        if len(pv) < A30_MIN_PLACEBO or not np.isfinite(x): continue
+        nev += 1
+        if x > np.percentile(pv, A30_PCT): return end, nev
+    return None, nev
+
+
+def _a30_summary(recs):
+    """recs: per window dict(fed, t={asset: bar end or None or "na"}, S, T). Rule 3a-3b quantities."""
+    out = dict(n_windows=len(recs), by_asset={})
+    for a in ASSETS:
+        ev = [r for r in recs if r["t"][a] != "na"]; hit = [r for r in ev if r["t"][a] is not None]
+        dS = np.array([r["t"][a] - r["S"] for r in hit], float); dT = np.array([r["t"][a] - r["T"] for r in hit], float)
+        q = lambda v: (dict(mean=float(v.mean()), **{f"p{k}": float(np.percentile(v, k)) for k in A30_QS}) if len(v) else None)
+        out["by_asset"][a] = dict(n_evaluated=len(ev), n_unavailable=len(recs) - len(ev), n_with_exceedance=len(hit), share_with_exceedance=(len(hit) / len(ev) if ev else None),
+                                  rel_S=q(dS), rel_T=q(dT), counts_rel_S={str(int(k)): int(n) for k, n in zip(*np.unique(dS, return_counts=True))} if len(dS) else {},
+                                  counts_rel_T={str(int(k)): int(n) for k, n in zip(*np.unique(dT, return_counts=True))} if len(dT) else {},
+                                  share_spy_S_first=(float(np.mean([r["t"][a] is None or r["t"][a] > r["S"] for r in ev])) if ev else None))
+    allav = [r for r in recs if any(r["t"][a] != "na" for a in ASSETS)]
+    out["share_spy_S_first_all_available_assets"] = float(np.mean([all(r["t"][a] is None or r["t"][a] > r["S"] for a in ASSETS if r["t"][a] != "na") for r in allav])) if allav else None
+    out["n_windows_with_any_available_asset"] = len(allav)
+    return out
+
+
+def lead_lag(E_by, br):
+    """AMENDMENT_A30 (descriptive, secondary, no test, outside Holm and BH): for each confirmed calm-to-stressed break (burn-in passed), per asset the first 5-minute bar in
+    [S - 30, T + 60] whose |return| exceeds its placebo 90th percentile; distributions relative to S and T, the share of breaks where SPY's S comes first (t_a > S or no
+    exceedance), all, Fed and non-Fed (rule 3c); the chance reference (rule 3d): each placebo against the unit's other placebos. Regular hours only: a break whose window
+    starts before 09:30 or crosses the close is skipped (rule 1b). LEGACY offset 0 (rule 1d)."""
+    recs, chance, skipped = [], [], 0
+    for u in br:
+        S, T = u["S"], u["T"]
+        if S - A30_BEFORE < 0 or T + A30_AFTER > L.N_MIN: skipped += 1; continue
+        E = E_by[u["era"]]; di = u["day_idx"]; pls = [(p["day_idx"], p["S"]) for p in u.get("placebos", [])]
+        t = {a: (first_exceedance(E, a, di, S, T, pls)[0] if E.avail[a][di] else "na") for a in ASSETS}
+        recs.append(dict(fed=bool(u.get("fed")), t=t, S=S, T=T))
+        for j, (pd_, ps) in enumerate(pls):
+            if ps - A30_BEFORE < 0 or ps + (T - S) + A30_AFTER > L.N_MIN: continue
+            others = pls[:j] + pls[j + 1:]
+            tc = {a: (first_exceedance(E, a, pd_, ps, ps + (T - S), others)[0] if E.avail[a][pd_] else "na") for a in ASSETS}
+            chance.append(dict(fed=bool(u.get("fed")), t=tc, S=ps, T=ps + (T - S)))
+    split = lambda rr: dict(all=_a30_summary(rr), fed=_a30_summary([r for r in rr if r["fed"]]), non_fed=_a30_summary([r for r in rr if not r["fed"]]))
+    return dict(label="AMENDMENT_A30 lead-lag description (descriptive, secondary; no test; outside Holm and BH)", assets=list(ASSETS), n_breaks=len(br),
+                skipped_window_outside_regular_hours=skipped, breaks=split(recs), chance_reference_placebos=split(chance),
+                definitions=dict(window_min=[-A30_BEFORE, "T+60"], bar_min=L.STEP, pct=A30_PCT, min_placebo_values=A30_MIN_PLACEBO, spy_first="t_a > S or no exceedance; a bar ending at or before S counts as the asset first"))
 
 
 def counts(E_by, units):
@@ -360,7 +423,9 @@ def analyse(E_by, rows, sess, nboot, detector, all_rows=None, null_sets=200, wor
     res["secondary"] = secondary(E_by, br, runs, units, nboot)
     res["curve"] = curve(E_by, br); res["taxonomy"] = taxonomy(E_by, br)
     res["h3_prior_hour_before_S"] = {a: h3_test(E_by, br, a, "next_day", 0, ph_end="S") for a in ASSETS}      # A29 3c: descriptive, not tested
-    res["placebo_filter_control"] = placebo_filter_control(E_by, br, cand_by, nboot)                          # A31 rule 3
+    res["placebo_filter_control"] = placebo_filter_control(E_by, br, cand_by, nboot)                          # A31 rule 3 (revised): matched without the alarm exclusion
+    res["placebo_filter_unfiltered_descriptive"] = placebo_filter_control(E_by, br, cand_by, nboot, reference="random")      # A31 3e: descriptive only
+    res["a30_lead_lag"] = lead_lag(E_by, br)                                                                 # A30: descriptive, secondary, no Holm
     res["sanity"] = sanity(E_by, br, units, cand_by, alarms_by, nboot, null_sets, workers=workers)
     sec = [(k, v["p"]) for k, v in flatten_secondary(res) if v.get("p") is not None and np.isfinite(v["p"])]
     adj = L.bh([p for _, p in sec]) if sec else []; res["secondary_bh"] = {k: dict(p=p, p_bh=float(a), label="secondary") for (k, p), a in zip(sec, adj)}
@@ -377,8 +442,8 @@ def flatten_secondary(res):
         for k, v in items: yield k, v
 
 
-SECTION6_AMENDMENTS = ("A28", "A29", "A31")      # the amendments a Section 6 result depends on; recorded in every output (FABLE_AUDIT M3)
-REQUIRED_ADOPTED = ("A28", "A29", "A31")         # A29 4b; A31 (DRAFT): placebo rule; the development run waits for all three
+SECTION6_AMENDMENTS = ("A28", "A29", "A30", "A31")      # the amendments a Section 6 result depends on; recorded in every output (FABLE_AUDIT M3)
+REQUIRED_ADOPTED = ("A28", "A29", "A30", "A31")         # A29 4b, A30 5c, A31 5c: the development run waits for all four
 
 
 def a29_guard(names=REQUIRED_ADOPTED):

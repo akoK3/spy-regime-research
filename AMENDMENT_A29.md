@@ -1,6 +1,6 @@
 # Amendment A29 (Section 6: H4 AUC gain out of sample; H3/H4 interpretation rules)
 
-Dated 2026-11-10T04:12:35+00:00 UTC (2026-11-09T23:12:35-05:00 New York). Status: DRAFT (revised 2026-11-10T04:19:00Z), awaiting the user's approval. First draft (sha256 in the ledger row of 2026-11-10 04:12:35Z) written before its code; this revision of rules 1b, 1c and 1g follows a diagnostic made during the rule 2 smoke test (below) and precedes the rule 2 run. No Section 6 development result exists; the development run is held until A29 is adopted. Requested by the user on 2026-11-09 after the synthetic validation of the A28 code.
+Dated 2026-11-10T04:12:35+00:00 UTC (2026-11-09T23:12:35-05:00 New York). Status: ADOPTED 2026-11-10T15:01:53Z (user approval 2026-11-10: "A29: approved as drafted, keep rule 3c. Adopt, hash, ledger row."; the draft, sha256 1bcb5ee1df4b08e0..., is unchanged apart from this status line). First draft (sha256 in the ledger row of 2026-11-10 04:12:35Z) written before its code; this revision of rules 1b, 1c and 1g follows a diagnostic made during the rule 2 smoke test (below) and precedes the rule 2 run. No Section 6 development result exists; the development run is held until A29 is adopted. Requested by the user on 2026-11-09 after the synthetic validation of the A28 code.
 
 ## Evidence cited
 

@@ -217,4 +217,33 @@ class TestA31(unittest.TestCase):
         self.assertEqual(len(ix), 20); self.assertTrue(all(cand["day_idx"][i] < 20 and cand["S"][i] + 10 <= 390 for i in ix))
 
 
+    def test_rule3_reference_revised(self):
+        import inspect
+        self.assertEqual(inspect.signature(R.placebo_filter_control).parameters["reference"].default, "matched_no_alarm_filter")      # A31 rule 3 as revised 2026-11-10
+
+
+class TestA30(unittest.TestCase):
+    """AMENDMENT_A30: first 5-minute exceedance in [S - 30, T + 60], placebo 90th percentile, SPY-first share, regular hours only, Fed split, chance reference."""
+    def unit(self, S=100, T=115, fed=False):
+        return dict(era="LEGACY", day_idx=70, day="x", S=S, gap=T - S, T=T, fed=fed, placebos=[dict(day_idx=59 - k, S=S, gap=T - S, T=T) for k in range(20)])
+
+    def test_first_exceedance_and_spy_first(self):
+        E = FakeEra(); E.R["TLT"][70, :] = 0.0; E.R["TLT"][70, 120:125] = 0.01; E.R["HYG"][70, :] = 0.0; E.R["HYG"][70, 80:85] = 0.01
+        E.R["GOLD"][70, :] = 0.0; E.R["DOLLAR"][70, :] = 0.0
+        u = self.unit(); pls = [(p["day_idx"], p["S"]) for p in u["placebos"]]
+        self.assertEqual(R.first_exceedance(E, "TLT", 70, 100, 115, pls)[0], 125)      # returns of indices 120..124 are available at 125: the bar (120, 125]
+        self.assertEqual(R.first_exceedance(E, "HYG", 70, 100, 115, pls)[0], 85)
+        self.assertIsNone(R.first_exceedance(E, "GOLD", 70, 100, 115, pls)[0])
+        E.R["TLT"][70, 175:] = 1.0; self.assertEqual(R.first_exceedance(E, "TLT", 70, 100, 115, pls)[0], 125)      # values after T + 60 = 175 never read
+        res = R.lead_lag({"LEGACY": E}, [u]); a = res["breaks"]["all"]["by_asset"]
+        self.assertEqual(a["TLT"]["rel_S"]["p50"], 25); self.assertEqual(a["TLT"]["rel_T"]["p50"], 10); self.assertEqual(a["TLT"]["share_spy_S_first"], 1.0)
+        self.assertEqual(a["HYG"]["rel_S"]["p50"], -15); self.assertEqual(a["HYG"]["share_spy_S_first"], 0.0); self.assertEqual(a["GOLD"]["share_spy_S_first"], 1.0)
+        self.assertEqual(res["breaks"]["all"]["share_spy_S_first_all_available_assets"], 0.0); self.assertEqual(res["breaks"]["fed"]["n_windows"], 0)
+        self.assertGreater(res["chance_reference_placebos"]["all"]["n_windows"], 0)
+
+    def test_regular_hours_only(self):
+        E = FakeEra(); res = R.lead_lag({"LEGACY": E}, [self.unit(S=20, T=30), self.unit(S=300, T=340), self.unit(S=100, T=330)])
+        self.assertEqual(res["skipped_window_outside_regular_hours"], 2); self.assertEqual(res["breaks"]["all"]["n_windows"], 1)
+
+
 if __name__ == "__main__": unittest.main()

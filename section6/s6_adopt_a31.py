@@ -17,13 +17,13 @@ def main():
     t = A.read_text(encoding="utf-8"); m = re.search(r"Status: DRAFT \(revised [^)]*\), awaiting adoption\.", t)
     if not m or SIDE.exists(): print("refused: A31 is not the expected DRAFT or a sidecar exists"); return 3
     draft_sha = sha(A); now = datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
-    new = (f"Status: ADOPTED {now} (user pre-approval 2026-11-10: \"A31 is pre-approved per the spec below\"; rule 4 synthetic checks passed, "
+    new = (f"Status: ADOPTED {now} (user pre-approval 2026-11-10: \"A31 is pre-approved per the spec below\"; rule 3 as revised by the user's decision: \"Adopt A31\"; rule 4 synthetic checks passed, "
            f"section6/results/{chk.name} sha256 {sha(chk)[:16]}...; the draft, sha256 {draft_sha[:16]}..., is unchanged apart from this status line).")
-    A.write_text(t.replace(m.group(0), new), encoding="utf-8"); SIDE.write_text(f"{sha(A)}  {A.name}\n", encoding="ascii")
+    A.write_bytes(t.replace(m.group(0), new).encode("utf-8")); SIDE.write_text(f"{sha(A)}  {A.name}\n", encoding="ascii")
     s5 = ROOT / "section5"
     r = subprocess.run([sys.executable, str(s5 / "s5_ledger.py"), "add", "AMENDMENT_A31.md", "Amendment A31 (ADOPTED)",
-                        "Placebo exclusion by past alarms only; H4a = every calm-state streak start, label afterward, gap-0 placebos; placebo-filter null control (filtered vs fully unfiltered random times, H3 next-day, two-sided 95% week-block interval)",
-                        "User pre-approval 2026-11-10 of the specification; rule 4 synthetic checks passed", f"section6/results/{chk.name} {sha(chk)}; draft sha256 {draft_sha}"], cwd=s5, capture_output=True, text=True)
+                        "Placebo exclusion by past alarms only; H4a = every calm-state streak start, label afterward, gap-0 placebos; placebo-filter null control (filtered vs matched without the alarm exclusion, H3 next-day, two-sided 95% week-block interval); fully unfiltered comparison descriptive only",
+                        "User pre-approval 2026-11-10 of the specification and user decision 2026-11-10 on rule 3 (\"Adopt A31\"); rule 4 synthetic checks passed", f"section6/results/{chk.name} {sha(chk)}; draft sha256 {draft_sha}"], cwd=s5, capture_output=True, text=True)
     print(r.stdout, r.stderr)
     if r.returncode != 0: return 1
     r = subprocess.run([sys.executable, str(s5 / "s5_tests_ledger.py")], cwd=s5, capture_output=True, text=True); print(r.stdout[-300:], r.stderr[-300:]); return r.returncode

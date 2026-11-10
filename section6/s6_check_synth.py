@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """AMENDMENT_A31 rule 4b: acceptance of the synthetic checks, criteria fixed before the run. Reads section6/results/synth_validation_TAG.json; prints each criterion
 with its value; writes section6/results/synth_check_TAG.json (written once); exit 0 = all pass, 1 = any fails, 3 = file missing.
-  null ("indep", "vol"): each of the six primary tests rejects at 0.05 in <= 0.081 of replicates; the rule 3 control flags each asset in <= 0.081 of replicates.
+  null ("indep", "vol"): each of the six primary tests rejects at 0.05 in <= 0.081 of replicates; the rule 3 control (revised 2026-11-10: filtered vs matched without the alarm exclusion) flags each asset in <= 0.081 of replicates.
   effect_h4: H4a and H4b |bias| <= 2 SE of the target and rejection >= 0.80.
   effect_h3: TLT, HYG, gold |bias| <= max(2 SE, 0.10 x target); TLT and gold rejection >= 0.80.
 Usage: s6_check_synth.py TAG"""

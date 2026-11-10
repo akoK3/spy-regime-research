@@ -125,10 +125,10 @@ def replicate(args):
             tg[name] = dict(target=t, oracle_auc_minus_half=t0_, share_planted_with_C1=float(np.mean(np.isclose(c1, 1.0))) if c1 else None,
                             label_rate_planted=float(np.mean([y for y, zz in zip(ys, zs) if zz])) if c1 else None, label_rate_other=float(np.mean([y for y, zz in zip(ys, zs) if not zz])))
         out["targets"] = tg
-    fc = R.placebo_filter_control(E_by, br, cand_by, nboot)      # A31 rule 3
+    fc = R.placebo_filter_control(E_by, br, cand_by, nboot)      # A31 rule 3 (revised): filtered vs matched without the alarm exclusion
     out["filter_control"] = {a: dict(flag=v.get("flag"), delta=v.get("delta")) for a, v in fc["by_asset"].items()}
-    fm = R.placebo_filter_control(E_by, br, cand_by, nboot, reference="matched_no_alarm_filter")      # diagnostic: isolates the alarm condition
-    out["filter_control_matched"] = {a: dict(flag=v.get("flag"), delta=v.get("delta")) for a, v in fm["by_asset"].items()}
+    fm = R.placebo_filter_control(E_by, br, cand_by, nboot, reference="random")      # A31 3e: fully unfiltered, descriptive only
+    out["filter_control_unfiltered"] = {a: dict(interval_excludes_0=v.get("interval_excludes_0"), delta=v.get("delta")) for a, v in fm["by_asset"].items()}
     out["seconds"] = round(time.time() - t0, 1); return out
 
 
@@ -149,8 +149,8 @@ def summarise(reps):
                     if v: t[extra] = float(np.mean(v))
             d["tests"][k] = t
         d["filter_control_flag_rate"] = {a: float(np.mean([bool(r["filter_control"][a]["flag"]) for r in rr if "filter_control" in r])) for a in R.ASSETS}
-        d["filter_control_matched_flag_rate"] = {a: float(np.mean([bool(r["filter_control_matched"][a]["flag"]) for r in rr if "filter_control_matched" in r])) for a in R.ASSETS}
-        d["filter_control_matched_mean_delta"] = {a: float(np.nanmean([r["filter_control_matched"][a]["delta"] if r["filter_control_matched"][a]["delta"] is not None else np.nan for r in rr if "filter_control_matched" in r])) for a in R.ASSETS}
+        d["unfiltered_descriptive_interval_excludes_0_rate"] = {a: float(np.mean([bool(r["filter_control_unfiltered"][a]["interval_excludes_0"]) for r in rr if "filter_control_unfiltered" in r])) for a in R.ASSETS}
+        d["unfiltered_descriptive_mean_delta"] = {a: float(np.nanmean([r["filter_control_unfiltered"][a]["delta"] if r["filter_control_unfiltered"][a]["delta"] is not None else np.nan for r in rr if "filter_control_unfiltered" in r])) for a in R.ASSETS}
         d["filter_control_mean_delta"] = {a: float(np.nanmean([r["filter_control"][a]["delta"] if r["filter_control"][a]["delta"] is not None else np.nan for r in rr if "filter_control" in r])) for a in R.ASSETS}
         d["family_wise_any_holm_reject"] = float(np.mean([any(r["tests"][k].get("p_holm") is not None and r["tests"][k]["p_holm"] <= 0.05 for k in r["tests"]) for r in rr]))
         s[sc] = d

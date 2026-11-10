@@ -10,7 +10,7 @@ import sys, re, json, hashlib
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent; ROOT = HERE.parent
-AMENDMENTS = ("A21", "A22", "A23", "A24", "A25", "A26", "A27", "A28", "A29", "A31")      # A29, A31 added 2026-11-10 (FABLE_AUDIT L5; no A30 exists): the freeze waits for both
+AMENDMENTS = ("A21", "A22", "A23", "A24", "A25", "A26", "A27", "A28", "A29", "A30", "A31")      # A29, A31 added 2026-11-10 (FABLE_AUDIT L5); A30 added 2026-11-10 when written
 REQUIRED_RESULTS = {"A27": HERE / "results" / "a27" / "confirm_count.json", "A23": HERE / "results" / "a23" / "a23_results.json"}
 STATUS = re.compile(r"^.*?Status:\s*(ADOPTED|DRAFT)\b", re.M)
 
