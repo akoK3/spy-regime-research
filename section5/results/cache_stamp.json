@@ -1,0 +1,39 @@
+{
+ "label": "Section 5 feature-cache stamp (finding 14, outside the closure)",
+ "created_utc": "2026-11-10T05:24:37.090082+00:00",
+ "feature_code": [
+  "step3_all_in_one.py",
+  "step8_sections_4_3_4_to_4_3_9.py",
+  "step11_a4_rerun_4_3_4_7_8.py",
+  "section431_step3_verification/prototype_sources/section431_additions.py",
+  "section431_step3_verification/prototype_sources/section4_3_1_candidates.py",
+  "section5/s5_lib.py",
+  "section5/s5_fast.py",
+  "section5/s5_d2.py",
+  "section5/s5_d2_stable.py"
+ ],
+ "eras": {
+  "LEGACY": {
+   "key": "48cb0cac092769553386f30258438bdf2ff32f2dce674b76f57d365765ea88cf",
+   "inputs": [
+    "C:\\Users\\kakij\\Downloads\\section3_10_alignment_results\\canonical_panel_LEGACY_1m.csv.gz",
+    "C:\\Users\\kakij\\Downloads\\section3_4_etf_results\\etf_observed_SPY_LEGACY.csv.gz"
+   ],
+   "files": {
+    "LEGACY_features.npz": "4e130a78dfad6151529e5ae48e862822a6b00abbad2f2e45364a17dd3963ddff",
+    "LEGACY_bases.npz": "98f27526831bbc94c0b1ea517e0fcc60aea7369e1f9e0d98c2b88d134e81ec04"
+   }
+  },
+  "RAW": {
+   "key": "e112ab69b8f703e34b1ad2dadbc2938d63b6e412b770d2f18c89b61616e5b9bb",
+   "inputs": [
+    "C:\\Users\\kakij\\Downloads\\section3_10_alignment_results\\canonical_panel_RAW_1m.csv.gz",
+    "C:\\Users\\kakij\\Downloads\\section3_4_etf_results\\etf_observed_SPY_RAW.csv.gz"
+   ],
+   "files": {
+    "RAW_features.npz": "f18b696f129277b3631ffb0c9c91c48eb9b505813395d8a71bc0c9ef868f442b",
+    "RAW_bases.npz": "efbcc1da316d4ebbde3e20bde83d4f2876ade9c2f6b363f1186401b9851cbc7c"
+   }
+  }
+ }
+}

@@ -15,8 +15,12 @@ The file actually hashed for A is the one the loader opens: the relative path in
 (read as text, not imported), resolved like step3_all_in_one.file_path (ROOT/rel, else ROOT/<file name>). The
 script stops if that path differs from the path the frozen protocol names.
 
-Not covered: derived caches (section5 feature npz and pickles; no recorded hashes exist) and files whose hashes
-are already checked by guards (contamination list, completion records, amendments).
+  C. Section 5 feature caches (cache/{era}_features.npz, _bases.npz): results/cache_stamp.json written by
+     s5_cache_stamp.py (finding 14 key = sha256(feature code | panel | ETF file); added 2026-11-10, FABLE_AUDIT L6).
+     A changed cache, or changed feature code or input with an unchanged cache (stale), is a MISMATCH.
+
+Not covered: pickles, and files whose hashes are already checked by guards (contamination list, completion
+records, amendments).
 
 Usage:  python section5/s5_preflight_data_hashes.py [--out FILE.json]
 Exit:   0 all match / 1 a hash differs / 2 a file or a record is missing or inconsistent."""
@@ -92,13 +96,15 @@ def recorded():
 
 def main(argv=None):
     ap = argparse.ArgumentParser(); ap.add_argument("--out", help="write the check as JSON to this file"); a = ap.parse_args(argv)
+    import s5_cache_stamp as CS      # standard library only; outside the closure
     rows, worst = [], 0
-    for group, label, rec, path, note in recorded():
-        if path is None: status, actual = "MISSING", None; worst = max(worst, 2)
+    for group, label, rec, path, note in recorded() + CS.rows():
+        actual = path() if callable(path) else (sha(path) if path is not None else None)
+        if actual is None: status = "MISSING"; worst = max(worst, 2); path = None
         else:
-            actual = sha(path); status = "OK" if actual == rec else "MISMATCH"
+            status = "OK" if actual == rec else "MISMATCH"
             if status == "MISMATCH": worst = max(worst, 1)
-        rows.append(dict(group=group, file=label, path=str(path) if path else None, recorded=rec, actual=actual, status=status, record=note))
+        rows.append(dict(group=group, file=label, path=(str(path) if path is not None and not callable(path) else None), recorded=rec, actual=actual, status=status, record=note))
         print(f"{status:8s} {group:15s} {label}  recorded {rec[:16]}  actual {(actual or '-')[:16]}")
     verdict = {0: "PASS", 1: "FAIL (hash mismatch)", 2: "FAIL (file missing)"}[worst]
     print(f"data hash preflight: {verdict}; {sum(r['status'] == 'OK' for r in rows)}/{len(rows)} files match")

@@ -147,4 +147,45 @@ class TestA29(unittest.TestCase):
             with self.assertRaises(SystemExit): R.a29_guard()
 
 
+class TestAuditFixes(unittest.TestCase):
+    """FABLE_AUDIT 2026-11-10: M2 (Holm family fixed at 6), M3 (provenance, write once), M4 (registry scans section6), L4 / #14 (load_era cache, joint refused first)."""
+    def test_holm_family_fixed_at_6(self):
+        res = {k: dict(p=0.009) for k in R.PRIMARY}; res["H3_DOLLAR"] = dict(p=None)
+        R.holm_family(res); self.assertEqual({v["holm_m"] for v in res.values()}, {6}); self.assertEqual(res["H3_DOLLAR"]["p_used"], 1.0)
+        self.assertFalse(res["H3_DOLLAR"]["reject_0.05"]); self.assertAlmostEqual(res["H3_TLT"]["p_holm"], 0.054); self.assertFalse(res["H3_TLT"]["reject_0.05"])      # m = 6: 6 x 0.009 = 0.054, not rejected; the old m = 5 gave 0.045, rejected (FABLE_AUDIT M2)
+        self.assertFalse(res["H3_DOLLAR"]["evaluable"])
+
+    def test_provenance_and_write_once(self):
+        pv = R.provenance(); self.assertEqual(pv["code"]["code_version"], "a0323ed24d68e896"); self.assertIn("section6/s6_run.py", pv["code"]["files"])
+        self.assertEqual([e["amendment"] for e in pv["amendments"]], list(R.SECTION6_AMENDMENTS))
+        with tempfile.TemporaryDirectory() as td:
+            q = R.write_once(Path(td) / "x.json", dict(a=1)); self.assertTrue(q.with_suffix(".sha256").exists())
+            with self.assertRaises(SystemExit): R.write_once(q, dict(a=2))
+
+    def test_dev_run_needs_a28_a29_a31_adopted(self):
+        import s5_amendment_manifest as AM
+        if not all(e["present"] and e["status"] == "ADOPTED" and e["sidecar_matches"] for e in AM.manifest(R.REQUIRED_ADOPTED)):
+            with self.assertRaises(SystemExit): R.a29_guard()
+
+    def test_registry_scans_section6(self):
+        import s5_contamination as CT
+        reg = {k: v for k, v in CT.REGISTRY.items() if k != "section6/s6_run.py"}; self.assertIn("section6/s6_run.py", CT.unregistered(registry=reg)); self.assertTrue(CT.check_registry())
+
+    def test_joint_refused_before_read_and_cache_hit(self):
+        import s5_eval_loader as EL
+        with self.assertRaises(PermissionError): R.load_era("LEGACY", "joint")
+        with tempfile.TemporaryDirectory() as td:
+            td = Path(td); panel = td / "p.csv.gz"; panel.write_bytes(b"panel-v1"); cov = td / "cov.csv"; cov.write_text("era,day,asset,available\nLEGACY,2010-01-04,TLT,True\n")
+            n = 40; df = pd.DataFrame(dict(session_date_ny=np.repeat(["2010-01-04", "2010-01-05"], n), minute_index_in_session=np.tile(np.arange(n), 2)))
+            for a in ("SPY",) + R.ASSETS: df[f"{a}_return_eligible"] = 1; df[f"{a}_log_return_1m"] = 1e-3
+            calls = []; saved = (EL.PANELS, EL.load_development, R.COVER, R.HERE)
+            try:
+                EL.PANELS = {"LEGACY": panel}; EL.load_development = lambda era, cols: (calls.append(era), df)[1]; R.COVER = cov; R.HERE = td
+                (td / "s6_run.py").write_bytes((HERE / "s6_run.py").read_bytes()); (td / "s6_lib.py").write_bytes((HERE / "s6_lib.py").read_bytes())
+                e1 = R.load_era("LEGACY", "development"); e2 = R.load_era("LEGACY", "development"); self.assertEqual(len(calls), 1)
+                self.assertEqual(e1.days, e2.days); self.assertTrue(np.array_equal(e1.R["TLT"], e2.R["TLT"], equal_nan=True)); self.assertTrue(e2.avail["TLT"][0])
+                panel.write_bytes(b"panel-v2"); R.load_era("LEGACY", "development"); self.assertEqual(len(calls), 2)      # new panel hash: no stale hit
+            finally: EL.PANELS, EL.load_development, R.COVER, R.HERE = saved
+
+
 if __name__ == "__main__": unittest.main()

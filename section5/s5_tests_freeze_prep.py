@@ -33,7 +33,11 @@ class TestManifest(unittest.TestCase):
     def test_repository_amendments(self):
         man = AM.manifest()
         self.assertEqual([e["amendment"] for e in man], list(AM.AMENDMENTS))
-        for e in man: self.assertTrue(e["present"] and e["sidecar_matches"] and e["status"] == "ADOPTED", e)
+        for e in man:
+            if e["present"] and e["status"] == "ADOPTED": self.assertTrue(e["sidecar_matches"], e)      # adopted: sidecar equal
+        self.assertTrue({"A29", "A31"} <= set(AM.AMENDMENTS))                                             # FABLE_AUDIT L5
+        if not all(e["present"] and e["status"] == "ADOPTED" and e["sidecar_matches"] for e in man):
+            with self.assertRaises(PermissionError): AM.freeze_ready()                                       # a DRAFT or missing amendment blocks the freeze
 
     def test_freeze_carries_list(self):
         man = [dict(amendment="X1", sha256="ab")]; doc = FZ.build_freeze({}, {}, {}, {}, {}, "ph", man); self.assertEqual(doc["amendments"], man)
@@ -53,8 +57,9 @@ class TestEvalLoader(unittest.TestCase):
         self.done = self.r / "done.json"; self.done.write_text("{}"); fake_amendment(self.r, "X1"); self.man = AM.freeze_ready(("X1",), self.r, {"A27": self.done})
         self.fz = FZ.write_freeze(FZ.build_freeze({}, {}, {}, {}, {}, "ph", self.man), self.r); self.tok = EL.sha(self.fz); self.lock = self.r / "lock"; self.lock.write_text("x")
         self._fr = AM.freeze_ready; AM.freeze_ready = lambda: self.man
+        self._saved = (EL.PANELS, EL.LOCK, EL._preflight, EL.FINGERPRINT); EL.PANELS = {"LEGACY": self.panel, "RAW": self.panel}; EL.LOCK = self.lock; EL._preflight = lambda: 0
 
-    def tearDown(self): AM.freeze_ready = self._fr; self.td.cleanup()
+    def tearDown(self): AM.freeze_ready = self._fr; EL.PANELS, EL.LOCK, EL._preflight, EL.FINGERPRINT = self._saved; self.td.cleanup()
 
     def test_dev_spans(self): self.assertTrue(EL.check_dev_spans())
 
@@ -62,20 +67,29 @@ class TestEvalLoader(unittest.TestCase):
         df = EL.load_development("LEGACY", ["SPY_log_return_1m"], panel=self.panel); self.assertEqual(sorted(set(df["session_date_ny"])), ["2018-12-20", "2018-12-21"])
 
     def test_eval_allowed(self):
-        df = EL.load_eval("LEGACY", ["SPY_log_return_1m"], self.fz, self.tok, panel=self.panel, preflight=lambda: 0, lock=self.lock)
+        df = EL.load_eval("LEGACY", ["SPY_log_return_1m"], self.fz, self.tok)
         self.assertEqual(sorted(set(df["session_date_ny"])), ["2019-01-02", "2022-03-04"]); self.assertIn("ALLOWED", EL.ACCESS_LOG.read_text())
 
     def test_eval_refusals(self):
-        kw = dict(panel=self.panel, preflight=lambda: 0, lock=self.lock)
-        with self.assertRaisesRegex(PermissionError, "confirm_token"): EL.load_eval("LEGACY", [], self.fz, "0" * 64, **kw)
-        with self.assertRaisesRegex(PermissionError, "lock"): EL.load_eval("LEGACY", [], self.fz, self.tok, panel=self.panel, preflight=lambda: 0, lock=self.r / "nolock")
-        with self.assertRaisesRegex(PermissionError, "preflight"): EL.load_eval("LEGACY", [], self.fz, self.tok, panel=self.panel, preflight=lambda: 1, lock=self.lock)
-        with self.assertRaisesRegex(PermissionError, "fingerprint"): EL.load_eval("LEGACY", [], self.fz, self.tok, section6=True, fingerprint=self.r / "nofp.json", **kw)
+        kw = {}
+        with self.assertRaisesRegex(PermissionError, "confirm_token"): EL.load_eval("LEGACY", [], self.fz, "0" * 64)
+        EL.LOCK = self.r / "nolock"
+        with self.assertRaisesRegex(PermissionError, "lock"): EL.load_eval("LEGACY", [], self.fz, self.tok)
+        EL.LOCK = self.lock; EL._preflight = lambda: 1
+        with self.assertRaisesRegex(PermissionError, "preflight"): EL.load_eval("LEGACY", [], self.fz, self.tok)
+        EL._preflight = lambda: 0; EL.FINGERPRINT = self.r / "nofp.json"
+        with self.assertRaisesRegex(PermissionError, "fingerprint"): EL.load_eval("LEGACY", [], self.fz, self.tok, section6=True)
         AM.freeze_ready = lambda: self.man + [dict(amendment="X2")]
         with self.assertRaisesRegex(PermissionError, "amendment list"): EL.load_eval("LEGACY", [], self.fz, self.tok, **kw)
         self.fz.write_text(self.fz.read_text() + " ")
         with self.assertRaises(RuntimeError): EL.load_eval("LEGACY", [], self.fz, self.tok, **kw)
         self.assertEqual(EL.ACCESS_LOG.read_text().count("REFUSED"), 6)
+
+    def test_no_override_arguments(self):
+        import inspect
+        self.assertEqual(list(inspect.signature(EL.load_eval).parameters), ["era", "columns", "freeze_path", "confirm_token", "section6"])
+        self.assertEqual(list(inspect.signature(EL.eval_guard).parameters), ["era", "freeze_path", "confirm_token", "section6"])
+        with self.assertRaises(TypeError): EL.load_eval("LEGACY", [], self.fz, self.tok, preflight=lambda: 0)
 
 
 class TestBreakLoops(unittest.TestCase):

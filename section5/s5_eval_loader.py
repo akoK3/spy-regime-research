@@ -19,6 +19,9 @@ PANELS = {"LEGACY": ROOT / "section3_10_alignment_results" / "canonical_panel_LE
 DEV = {"LEGACY": ("2003-01-02", "2018-12-21"), "RAW": ("2022-03-07", "2024-12-23")}
 EVAL = {"LEGACY": ("2019-01-02", "2022-03-04"), "RAW": ("2025-01-02", "2026-10-12")}
 ACCESS_LOG = HERE / "results" / "eval_access_log.txt"
+sys.path.insert(0, str(HERE)); import s5_guard as _G
+LOCK = _G.LOCK                                 # the era-calibration lock path of s5_guard (A16 rule 5)
+FINGERPRINT = ROOT / "section6" / "results" / "s6_fingerprint.json"
 ASSETS = ("SPY", "TLT", "HYG", "GOLD", "DOLLAR")
 KEYS = ["utc_minute_start_assumed", "available_utc_assuming_minute_start", "session_date_ny", "minute_index_in_session"]
 
@@ -36,7 +39,7 @@ def check_dev_spans():
     return True
 
 
-def _read(era, columns, lo, hi, panel=None, chunksize=500_000):
+def _read(era, columns, lo, hi, panel=None, chunksize=500_000):      # panel: development reads only (load_development); load_eval never passes one
     import pandas as pd
     cols = list(dict.fromkeys(KEYS + list(columns or []))); out = []
     for ch in pd.read_csv(panel or PANELS[era], usecols=cols, chunksize=chunksize, dtype={"session_date_ny": str}):
@@ -57,27 +60,34 @@ def _log(msg):
     with open(ACCESS_LOG, "a", encoding="utf-8") as f: f.write(f"{datetime.datetime.now(datetime.timezone.utc).isoformat()} {msg}\n")
 
 
-def eval_guard(era, freeze_path, confirm_token, section6=False, preflight=None, lock=None, fingerprint=None):
-    import s5_freeze as FZ, s5_amendment_manifest as AM, s5_guard as G
+def _preflight():
+    """The finding-17 data-hash preflight, run as its own process; exit code."""
+    return subprocess.run([sys.executable, str(HERE / "s5_preflight_data_hashes.py")], capture_output=True, text=True).returncode
+
+
+def eval_guard(era, freeze_path, confirm_token, section6=False):
+    """No argument can relax a check (FABLE_AUDIT M1): the lock, the fingerprint, the panel paths and the preflight are module constants / functions; only tests patch them."""
+    import s5_freeze as FZ, s5_amendment_manifest as AM
     fz = FZ.verify_freeze(freeze_path)
     if confirm_token != sha(freeze_path): raise PermissionError("confirm_token must be the sha256 of the freeze file")
     now = AM.freeze_ready()
     if fz.get("amendments") != now: raise PermissionError("the amendment list differs from the one in the freeze document")
-    if not Path(lock or G.LOCK).exists(): raise PermissionError("era-calibration lock missing: the era calibration must precede the evaluation")
-    rc = (preflight or (lambda: subprocess.run([sys.executable, str(HERE / "s5_preflight_data_hashes.py")], capture_output=True, text=True).returncode))()
+    if not Path(LOCK).exists(): raise PermissionError("era-calibration lock missing: the era calibration must precede the evaluation")
+    rc = _preflight()
     if rc != 0: raise PermissionError(f"finding-17 data-hash preflight failed (exit {rc})")
     if section6:
-        fp = Path(fingerprint or (ROOT / "section6" / "results" / "s6_fingerprint.json")); side = fp.with_suffix(".sha256")
+        fp = Path(FINGERPRINT); side = fp.with_suffix(".sha256")
         if not fp.exists() or not side.exists() or side.read_text().split()[0] != sha(fp): raise PermissionError("Section 6 fingerprint missing or differs from its sidecar (A28 rule 6e)")
     if era not in EVAL: raise PermissionError(f"unknown era {era}")
     return fz
 
 
-def load_eval(era, columns, freeze_path, confirm_token, section6=False, panel=None, **kw):
+def load_eval(era, columns, freeze_path, confirm_token, section6=False):
+    """Evaluation-period rows; the signature has no override (no panel, lock, fingerprint or preflight argument)."""
     _log(f"REQUEST era={era} columns={list(columns or [])} freeze={Path(freeze_path).name} section6={section6}")
-    try: eval_guard(era, freeze_path, confirm_token, section6, **kw)
+    try: eval_guard(era, freeze_path, confirm_token, section6)
     except Exception as e: _log(f"REFUSED era={era}: {e}"); raise
-    _log(f"ALLOWED era={era}"); lo, hi = EVAL[era]; return _read(era, columns, lo, hi, panel)
+    _log(f"ALLOWED era={era}"); lo, hi = EVAL[era]; return _read(era, columns, lo, hi)
 
 
 if __name__ == "__main__": print(check_dev_spans())

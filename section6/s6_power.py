@@ -51,7 +51,8 @@ def main():
     res["mde"] = dict(H3_gamma_sd_units=next((g for g in G_GRID if res["H3"][str(g)] >= 0.8), None),
                       **{f"{k}_auc_gain": next((res[k][str(b)]["mean_auc_gain"] for b in B_GRID if res[k][str(b)]["power"] >= 0.8), None) for k in ("H4a", "H4b")})
     res.update(generated=datetime.datetime.now(datetime.timezone.utc).isoformat(), breaks_sha256=hashlib.sha256(BREAKS.read_bytes()).hexdigest(), assumptions=dict(week_sd=WEEK_SD, base_rate=BASE))
-    (HERE / "results").mkdir(exist_ok=True); (HERE / "results" / f"power_{det}.json").write_text(json.dumps(res, indent=1), encoding="utf-8"); print(json.dumps(res["mde"])); return 0
+    import s6_run as R
+    res["provenance"] = R.provenance(); R.write_once(HERE / "results" / f"power_{det}.json", res); print(json.dumps(res["mde"])); return 0
 
 
 if __name__ == "__main__": sys.exit(main())

@@ -29,14 +29,33 @@ class EraData:
             X = np.full((n, L.N_MIN), np.nan); el = df[f"{a}_return_eligible"].to_numpy() == 1; X[si[el], mi[el]] = df[f"{a}_log_return_1m"].to_numpy()[el]; self.R[a] = X
         self.avail = {a: np.array([avail.get((era, d, a), False) for d in self.days]) for a in ASSETS}; self.drv = L.deseasonalised_rv(self.R["SPY"])
 
+    @classmethod
+    def from_arrays(cls, era, days, R, avail):
+        E = cls.__new__(cls); E.era = era; E.days = list(days); E.ix = {d: i for i, d in enumerate(E.days)}; E.R = dict(R)
+        E.avail = {a: np.array([avail.get((era, d, a), False) for d in E.days]) for a in ASSETS}; E.drv = L.deseasonalised_rv(E.R["SPY"]); return E
 
-def load_era(era, period, freeze=None, token=None):
+
+def era_cache_code():
+    """Hash of the code that turns panel rows into EraData arrays (finding 14 key component)."""
+    return hashlib.sha256(b"".join((d / f).read_bytes() for d, f in ((HERE, "s6_run.py"), (HERE, "s6_lib.py"), (ROOT / "section5", "s5_eval_loader.py")))).hexdigest()
+
+
+def load_era(era, period, freeze=None, token=None, cache=True):
+    """Development EraData. Return matrices are cached through s6_lib.Cache (finding 14: key = column | code hash | panel hash), so a changed panel or
+    changed code never gives a stale hit. The joint period is refused before any read (FABLE_AUDIT L4)."""
+    if period != "development": raise PermissionError("joint period: evaluation-period coverage must be computed through the guarded loader first")
     import s5_eval_loader as EL, pandas as pd
+    cov = pd.read_csv(COVER); av = {(r.era, r.day, r.asset): bool(r.available) for r in cov.itertuples()}
+    C = L.Cache(HERE / "cache"); code = era_cache_code(); panel = hashlib.sha256(Path(EL.PANELS[era]).read_bytes()).hexdigest()
+    names = [f"{era}|days"] + [f"{era}|{a}|R" for a in ("SPY",) + ASSETS]; got = {n: C.get(n, code, panel) for n in names} if cache else {}
+    if cache and all(v is not None for v in got.values()):
+        return EraData.from_arrays(era, [str(d) for d in got[f"{era}|days"]], {a: got[f"{era}|{a}|R"] for a in ("SPY",) + ASSETS}, av)
     cols = [f"{a}_{k}" for a in ("SPY",) + ASSETS for k in ("return_eligible", "log_return_1m")]
-    df = EL.load_development(era, cols) if period == "development" else EL.load_eval(era, cols, freeze, token, section6=True)
-    cov = pd.read_csv(COVER) if period == "development" else None
-    if cov is None: raise PermissionError("joint period: evaluation-period coverage must be computed through the guarded loader first")
-    av = {(r.era, r.day, r.asset): bool(r.available) for r in cov.itertuples()}; return EraData(era, df, av)
+    E = EraData(era, EL.load_development(era, cols), av)
+    if cache:
+        C.put(f"{era}|days", code, panel, np.array(E.days))
+        for a in ("SPY",) + ASSETS: C.put(f"{era}|{a}|R", code, panel, E.R[a])
+    return E
 
 
 def load_breaks(detector):
@@ -153,10 +172,20 @@ def primary(E_by, units, nboot, off=0, seed=0, subset=None):
     res = {f"H3_{a}": h3_test(E_by, br, a, "next_day", nboot, off, seed) for a in ASSETS}
     res["H4a"] = h4_test(E_by, runs, "S", lambda u: float(u["kind"] == "confirmed"), nboot, off, seed)
     res["H4b"] = h4_test(E_by, br, "T0", real_fn(E_by), nboot, off, seed)
-    ps = [res[k]["p"] for k in res]; ok = [i for i, p in enumerate(ps) if p is not None and np.isfinite(p)]
-    adj = L.holm([ps[i] for i in ok]) if ok else []
-    for j, i in enumerate(ok): k = list(res)[i]; res[k]["p_holm"] = float(adj[j]); res[k]["reject_0.05"] = bool(adj[j] <= 0.05)
+    holm_family(res)
     return res, br, runs
+
+
+PRIMARY = tuple(f"H3_{a}" for a in ASSETS) + ("H4a", "H4b")
+
+
+def holm_family(res):
+    """A28 5b: the family is always the 6 primary tests (m = 6). A test that is not evaluable enters with p = 1 and is never rejected (A15 rule 6a; FABLE_AUDIT M2)."""
+    used = [res[k]["p"] if res[k].get("p") is not None and np.isfinite(res[k]["p"]) else 1.0 for k in PRIMARY]; adj = L.holm(used)
+    for k, pu, a in zip(PRIMARY, used, adj):
+        ev = res[k].get("p") is not None and np.isfinite(res[k]["p"])
+        res[k].update(p_used=float(pu), evaluable=bool(ev), holm_m=len(PRIMARY), p_holm=float(a), **{"reject_0.05": bool(ev and a <= 0.05)})
+    return res
 
 
 def secondary(E_by, br, runs, units, nboot, seed=0):
@@ -276,10 +305,30 @@ def flatten_secondary(res):
         for k, v in items: yield k, v
 
 
-def a29_guard():
-    a = ROOT / "AMENDMENT_A29.md"; s = ROOT / "AMENDMENT_A29.sha256"
-    if not s.exists() or s.read_text().split()[0] != hashlib.sha256(a.read_bytes()).hexdigest() or "Status: ADOPTED" not in a.read_text(encoding="utf-8"):
-        raise SystemExit("A29 4b: the Section 6 run is held until AMENDMENT_A29.md is ADOPTED and equals its sidecar")
+SECTION6_AMENDMENTS = ("A28", "A29", "A31")      # the amendments a Section 6 result depends on; recorded in every output (FABLE_AUDIT M3)
+REQUIRED_ADOPTED = ("A28", "A29", "A31")         # A29 4b; A31 (DRAFT): placebo rule; the development run waits for all three
+
+
+def a29_guard(names=REQUIRED_ADOPTED):
+    """Refuses unless every amendment in `names` is ADOPTED (manifest regex, not a substring test) and equals its sidecar."""
+    import s5_amendment_manifest as AM
+    bad = [f"{e['amendment']}: " + ("missing" if not e["present"] else f"{e['status']}, sidecar {'matches' if e['sidecar_matches'] else 'missing or differs'}")
+           for e in AM.manifest(names) if not (e["present"] and e["status"] == "ADOPTED" and e["sidecar_matches"])]
+    if bad: raise SystemExit("the Section 6 run is held until these amendments are ADOPTED and equal their sidecars: " + "; ".join(bad))
+
+
+def provenance():
+    """Code and amendment record written into every Section 6 output (FABLE_AUDIT M3): sha256 of every Section 6 script and helper, the code version, the amendment manifest."""
+    import s6_fingerprint as FP, s5_amendment_manifest as AM
+    return dict(code=FP.current(), amendments=AM.manifest(SECTION6_AMENDMENTS))
+
+
+def write_once(path, obj):
+    """Writes a result with a sha256 sidecar; refuses to overwrite an existing result (FABLE_AUDIT M3)."""
+    path = Path(path)
+    if path.exists(): raise SystemExit(f"{path} exists: Section 6 results are written once; move it aside with a ledger row to rerun")
+    path.parent.mkdir(parents=True, exist_ok=True); path.write_text(json.dumps(obj, indent=1, default=float), encoding="utf-8")
+    path.with_suffix(".sha256").write_text(f"{hashlib.sha256(path.read_bytes()).hexdigest()}  {path.name}\n", encoding="ascii"); return path
 
 
 def main():
@@ -287,6 +336,7 @@ def main():
     period, det = sys.argv[1], sys.argv[2]
     if det not in FAMILIES[:3]: print("DETECTOR must be an H1 family (gaussian_hmm, student_t_hmm, hsmm)"); return 3
     a29_guard()
+    if (OUT / f"s6_{period}_{det}.json").exists(): print("result exists; written once"); return 3
     if period == "joint": print("joint evaluation: refused until the 5.12 freeze, the 5.13 outputs and the Section 6 fingerprint exist"); return 3
     nboot = int(sys.argv[sys.argv.index("--nboot") + 1]) if "--nboot" in sys.argv else L.NBOOT
     allrows = list(csv.DictReader(open(BREAKS / "breaks.csv", encoding="utf-8")))
@@ -295,8 +345,8 @@ def main():
     rows = [x for x in allrows if x["family"] == det]; sess = json.loads((BREAKS / "sessions.json").read_text(encoding="utf-8"))
     E_by = {era: load_era(era, period) for era in ("LEGACY", "RAW")}
     res = analyse(E_by, rows, sess, nboot, det, allrows)
-    res.update(period=period, generated=datetime.datetime.now(datetime.timezone.utc).isoformat(), nboot=nboot, amendment_sha256=hashlib.sha256((ROOT / "AMENDMENT_A28.md").read_bytes()).hexdigest())
-    OUT.mkdir(parents=True, exist_ok=True); p = OUT / f"s6_{period}_{det}.json"; p.write_text(json.dumps(res, indent=1, default=float), encoding="utf-8"); print(f"written {p}"); return 0
+    res.update(period=period, generated=datetime.datetime.now(datetime.timezone.utc).isoformat(), nboot=nboot, provenance=provenance())
+    p = write_once(OUT / f"s6_{period}_{det}.json", res); print(f"written {p}"); return 0
 
 
 if __name__ == "__main__": sys.exit(main())

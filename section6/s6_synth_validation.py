@@ -167,7 +167,7 @@ def main():
     res = dict(label="Section 6 synthetic validation (synthetic data only; s6_run.primary as on disk; H4 statistic per AMENDMENT_A29 rule 1 when tagged a29)", generated=datetime.datetime.now(datetime.timezone.utc).isoformat(), nboot=nboot,
                planted=dict(gamma=GAMMA, q=Q, jump_sd=JUMP_SD, spy_next_day_factor=SPY_NEXT), code_sha256={p.name: hashlib.sha256(p.read_bytes()).hexdigest() for p in (HERE / "s6_lib.py", HERE / "s6_run.py", Path(__file__))},
                summary=summarise(reps))
-    out_p.write_text(json.dumps(res, indent=1), encoding="utf-8"); print(json.dumps(res["summary"], indent=1)); return 0
+    res["provenance"] = R.provenance(); R.write_once(out_p, res); print(json.dumps(res["summary"], indent=1)); return 0
 
 
 if __name__ == "__main__": sys.exit(main())

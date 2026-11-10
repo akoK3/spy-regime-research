@@ -37,6 +37,9 @@ REGISTRY = {
     "s5_posthoc_a25_abs.py": "POST_MAIN_RUN",      # post hoc, descriptive: absolute H1(a) pAUC at the A25 delays (LEGACY confirmatory folds)
     "s5_break_export.py": "POST_MAIN_RUN", "s5_tests_freeze_prep.py": "LIBRARY",      # freeze prep: SPY break export of the development test segments (A28 inputs)
     "s5_amendment_manifest.py": "LIBRARY", "s5_eval_loader.py": "LIBRARY",      # freeze prep: A26 2b amendment list; guarded panel readers (development / evaluation)
+    # FABLE_AUDIT M4 (2026-11-10): Section 6 (AMENDMENT_A28 / A29). Development data only through s5_eval_loader.load_development; evaluation only through load_eval after the freeze.
+    "section6/s6_lib.py": "LIBRARY", "section6/s6_run.py": "POST_MAIN_RUN", "section6/s6_coverage.py": "LABEL_FREE", "section6/s6_power.py": "LABEL_FREE",
+    "section6/s6_synth_validation.py": "LIBRARY", "section6/s6_fingerprint.py": "LIBRARY", "section6/s6_tests.py": "LIBRARY",
     "s5_power_observed_n.py": "POST_MAIN_RUN",      # O9 L1: H1(a) MDE with the observed 22 folds
     "s5_posthoc_grid_pauc.py": "POST_MAIN_RUN",      # post hoc, descriptive: absolute H1(a) pAUC feature and baseline, 1-min vs 5-min (A22 3g setups)
     "s5_d7_nan_diag.py": "LABEL_FREE",      # post hoc: why D7 (A21) found undefined variance ratios on 47 LEGACY days; no detector, no outcome
@@ -55,15 +58,20 @@ REGISTRY = {
 # A15 rule 6d: LABEL_FREE = no detector or regime model, no outcome (counts, splice specs, feature or preprocessing computation); MAIN_RUN = the run the list protects.
 NOT_TOUCHING = ("LIBRARY", "DESCRIPTIVE", "LABEL_FREE", "MAIN_RUN", "POST_MAIN_RUN")      # A17 rule 6: POST_MAIN_RUN = analyses of the main run's folds after the H1 fold scores
 # A15 rule 3: data loading = these calls; a plain raw string, no control characters (the pattern before A15 held two backspace bytes and matched nothing).
-DATA_LOAD = re.compile(r"\b(?:fold_segments|load_era|era_context|splice_batch|DataBackend|EraBackend|MainBackend)\(|\b(?:D2|F|s5_d2|s5_fast)\._init\b")      # A16 rule 3
+DATA_LOAD = re.compile(r"\b(?:fold_segments|load_era|era_context|splice_batch|DataBackend|EraBackend|MainBackend|load_development|load_eval)\(|\b(?:D2|F|s5_d2|s5_fast)\._init\b|canonical_panel_|\bPANELS\b")      # A16 rule 3; FABLE_AUDIT M4 (2026-11-10): the guarded panel loaders and any direct reference to the canonical panels
 
 
-def unregistered(folder=HERE, registry=REGISTRY):
-    """Scripts in `folder` (writer scripts excepted) that load data but are not in the registry."""
-    return sorted(f.name for f in Path(folder).glob("*.py") if not f.name.startswith("write_") and DATA_LOAD.search(f.read_text(encoding="utf-8", errors="ignore")) and f.name not in registry)
+SCAN = ((HERE, ""), (HERE.parent / "section6", "section6/"))      # FABLE_AUDIT M4: Section 6 scripts are scanned too (registry keys "section6/<name>")
 
 
-def check_registry(folder=HERE, registry=REGISTRY):
+def unregistered(folder=None, registry=REGISTRY):
+    """Scripts (writer scripts excepted) that load data but are not in the registry: in `folder` if given (keys = file names), else in every SCAN folder."""
+    scan = SCAN if folder is None else ((Path(folder), ""),)
+    return sorted(pre + f.name for d, pre in scan if Path(d).exists() for f in Path(d).glob("*.py")
+                  if not f.name.startswith("write_") and DATA_LOAD.search(f.read_text(encoding="utf-8", errors="ignore")) and pre + f.name not in registry)
+
+
+def check_registry(folder=None, registry=REGISTRY):
     bad = unregistered(folder, registry)
     if bad: raise AssertionError(f"scripts load data but are not in the contamination registry: {bad}")
     return True
