@@ -1,0 +1,712 @@
+{
+ "label": "A28 rule 6b label-free coverage check (development spans only)",
+ "generated": "2026-11-10T03:42:43.145279+00:00",
+ "panel_sha256": {
+  "LEGACY": "b5967d9691c547a3b8a277f97fe2a95e1b1c4a49e4d6476c008a08076ce098df",
+  "RAW": "f1b1c498dc76c7ef11e53a31fec655abacaf6458d8f3b9dd1827f9dd8ec91184"
+ },
+ "rule": {
+  "min_usable": 0.8,
+  "max_gap_min": 30,
+  "max_stale_quotes": 0.25,
+  "status": "approved by the user 2026-11-09"
+ },
+ "script_sha256": "3d6752fe76172e3a595c17bad2f16376b6df6640a115e7be21da7296051bd7c0",
+ "by_asset_era_year": {
+  "DOLLAR": {
+   "LEGACY": {
+    "2003": {
+     "n_sessions": 252,
+     "n_available": 0,
+     "median_usable": 0.0,
+     "median_zero": null,
+     "median_max_gap": 389.0
+    },
+    "2004": {
+     "n_sessions": 252,
+     "n_available": 0,
+     "median_usable": 0.0,
+     "median_zero": null,
+     "median_max_gap": 389.0
+    },
+    "2005": {
+     "n_sessions": 252,
+     "n_available": 0,
+     "median_usable": 0.0,
+     "median_zero": null,
+     "median_max_gap": 389.0
+    },
+    "2006": {
+     "n_sessions": 251,
+     "n_available": 0,
+     "median_usable": 0.0,
+     "median_zero": null,
+     "median_max_gap": 389.0
+    },
+    "2007": {
+     "n_sessions": 251,
+     "n_available": 0,
+     "median_usable": 0.0,
+     "median_zero": null,
+     "median_max_gap": 389.0
+    },
+    "2008": {
+     "n_sessions": 253,
+     "n_available": 0,
+     "median_usable": 0.0,
+     "median_zero": null,
+     "median_max_gap": 389.0
+    },
+    "2009": {
+     "n_sessions": 252,
+     "n_available": 0,
+     "median_usable": 0.0,
+     "median_zero": null,
+     "median_max_gap": 389.0
+    },
+    "2010": {
+     "n_sessions": 252,
+     "n_available": 0,
+     "median_usable": 0.0,
+     "median_zero": null,
+     "median_max_gap": 389.0
+    },
+    "2011": {
+     "n_sessions": 252,
+     "n_available": 0,
+     "median_usable": 0.0,
+     "median_zero": null,
+     "median_max_gap": 389.0
+    },
+    "2012": {
+     "n_sessions": 250,
+     "n_available": 0,
+     "median_usable": 0.0,
+     "median_zero": null,
+     "median_max_gap": 389.0
+    },
+    "2013": {
+     "n_sessions": 252,
+     "n_available": 0,
+     "median_usable": 0.0,
+     "median_zero": null,
+     "median_max_gap": 389.0
+    },
+    "2014": {
+     "n_sessions": 252,
+     "n_available": 0,
+     "median_usable": 0.0,
+     "median_zero": null,
+     "median_max_gap": 389.0
+    },
+    "2015": {
+     "n_sessions": 252,
+     "n_available": 0,
+     "median_usable": 0.0,
+     "median_zero": null,
+     "median_max_gap": 389.0
+    },
+    "2016": {
+     "n_sessions": 252,
+     "n_available": 0,
+     "median_usable": 0.0,
+     "median_zero": null,
+     "median_max_gap": 389.0
+    },
+    "2017": {
+     "n_sessions": 251,
+     "n_available": 15,
+     "median_usable": 0.0,
+     "median_zero": 0.07969151670951156,
+     "median_max_gap": 389.0
+    },
+    "2018": {
+     "n_sessions": 246,
+     "n_available": 217,
+     "median_usable": 1.0,
+     "median_zero": 0.16452442159383032,
+     "median_max_gap": 0.0
+    }
+   },
+   "RAW": {
+    "2022": {
+     "n_sessions": 208,
+     "n_available": 190,
+     "median_usable": 1.0,
+     "median_zero": 0.015424164524421594,
+     "median_max_gap": 0.0
+    },
+    "2023": {
+     "n_sessions": 250,
+     "n_available": 233,
+     "median_usable": 1.0,
+     "median_zero": 0.02570694087403599,
+     "median_max_gap": 0.0
+    },
+    "2024": {
+     "n_sessions": 247,
+     "n_available": 226,
+     "median_usable": 1.0,
+     "median_zero": 0.038560411311053984,
+     "median_max_gap": 0.0
+    }
+   }
+  },
+  "GOLD": {
+   "LEGACY": {
+    "2003": {
+     "n_sessions": 252,
+     "n_available": 0,
+     "median_usable": 0.0,
+     "median_zero": null,
+     "median_max_gap": 389.0
+    },
+    "2004": {
+     "n_sessions": 252,
+     "n_available": 0,
+     "median_usable": 0.0,
+     "median_zero": null,
+     "median_max_gap": 389.0
+    },
+    "2005": {
+     "n_sessions": 252,
+     "n_available": 0,
+     "median_usable": 0.0,
+     "median_zero": null,
+     "median_max_gap": 389.0
+    },
+    "2006": {
+     "n_sessions": 251,
+     "n_available": 0,
+     "median_usable": 0.0,
+     "median_zero": null,
+     "median_max_gap": 389.0
+    },
+    "2007": {
+     "n_sessions": 251,
+     "n_available": 180,
+     "median_usable": 1.0,
+     "median_zero": 0.028277634961439587,
+     "median_max_gap": 0.0
+    },
+    "2008": {
+     "n_sessions": 253,
+     "n_available": 247,
+     "median_usable": 1.0,
+     "median_zero": 0.002570694087403599,
+     "median_max_gap": 0.0
+    },
+    "2009": {
+     "n_sessions": 252,
+     "n_available": 249,
+     "median_usable": 1.0,
+     "median_zero": 0.002570694087403599,
+     "median_max_gap": 0.0
+    },
+    "2010": {
+     "n_sessions": 252,
+     "n_available": 250,
+     "median_usable": 1.0,
+     "median_zero": 0.002570694087403599,
+     "median_max_gap": 0.0
+    },
+    "2011": {
+     "n_sessions": 252,
+     "n_available": 250,
+     "median_usable": 1.0,
+     "median_zero": 0.0,
+     "median_max_gap": 0.0
+    },
+    "2012": {
+     "n_sessions": 250,
+     "n_available": 242,
+     "median_usable": 1.0,
+     "median_zero": 0.002570694087403599,
+     "median_max_gap": 0.0
+    },
+    "2013": {
+     "n_sessions": 252,
+     "n_available": 245,
+     "median_usable": 1.0,
+     "median_zero": 0.005141388174807198,
+     "median_max_gap": 0.0
+    },
+    "2014": {
+     "n_sessions": 252,
+     "n_available": 245,
+     "median_usable": 1.0,
+     "median_zero": 0.007712082262210797,
+     "median_max_gap": 0.0
+    },
+    "2015": {
+     "n_sessions": 252,
+     "n_available": 245,
+     "median_usable": 1.0,
+     "median_zero": 0.012853470437017995,
+     "median_max_gap": 0.0
+    },
+    "2016": {
+     "n_sessions": 252,
+     "n_available": 249,
+     "median_usable": 1.0,
+     "median_zero": 0.007712082262210797,
+     "median_max_gap": 0.0
+    },
+    "2017": {
+     "n_sessions": 251,
+     "n_available": 249,
+     "median_usable": 1.0,
+     "median_zero": 0.007712082262210797,
+     "median_max_gap": 0.0
+    },
+    "2018": {
+     "n_sessions": 246,
+     "n_available": 243,
+     "median_usable": 1.0,
+     "median_zero": 0.010282776349614395,
+     "median_max_gap": 0.0
+    }
+   },
+   "RAW": {
+    "2022": {
+     "n_sessions": 208,
+     "n_available": 206,
+     "median_usable": 1.0,
+     "median_zero": 0.002570694087403599,
+     "median_max_gap": 0.0
+    },
+    "2023": {
+     "n_sessions": 250,
+     "n_available": 248,
+     "median_usable": 1.0,
+     "median_zero": 0.005141388174807198,
+     "median_max_gap": 0.0
+    },
+    "2024": {
+     "n_sessions": 247,
+     "n_available": 244,
+     "median_usable": 1.0,
+     "median_zero": 0.002570694087403599,
+     "median_max_gap": 0.0
+    }
+   }
+  },
+  "HYG": {
+   "LEGACY": {
+    "2003": {
+     "n_sessions": 252,
+     "n_available": 0,
+     "median_usable": 0.0,
+     "median_zero": null,
+     "median_max_gap": 389.0
+    },
+    "2004": {
+     "n_sessions": 252,
+     "n_available": 0,
+     "median_usable": 0.0,
+     "median_zero": null,
+     "median_max_gap": 389.0
+    },
+    "2005": {
+     "n_sessions": 252,
+     "n_available": 0,
+     "median_usable": 0.0,
+     "median_zero": null,
+     "median_max_gap": 389.0
+    },
+    "2006": {
+     "n_sessions": 251,
+     "n_available": 0,
+     "median_usable": 0.0,
+     "median_zero": null,
+     "median_max_gap": 389.0
+    },
+    "2007": {
+     "n_sessions": 251,
+     "n_available": 0,
+     "median_usable": 0.005141388174807198,
+     "median_zero": 0.5,
+     "median_max_gap": 248.0
+    },
+    "2008": {
+     "n_sessions": 253,
+     "n_available": 6,
+     "median_usable": 0.07712082262210797,
+     "median_zero": 0.46153846153846156,
+     "median_max_gap": 66.0
+    },
+    "2009": {
+     "n_sessions": 252,
+     "n_available": 71,
+     "median_usable": 0.7416452442159382,
+     "median_zero": 0.43268749506072024,
+     "median_max_gap": 9.0
+    },
+    "2010": {
+     "n_sessions": 252,
+     "n_available": 141,
+     "median_usable": 0.8136246786632391,
+     "median_zero": 0.5563323153273525,
+     "median_max_gap": 7.0
+    },
+    "2011": {
+     "n_sessions": 252,
+     "n_available": 215,
+     "median_usable": 0.8894601542416453,
+     "median_zero": 0.5250215984481719,
+     "median_max_gap": 7.0
+    },
+    "2012": {
+     "n_sessions": 250,
+     "n_available": 245,
+     "median_usable": 0.9305912596401028,
+     "median_zero": 0.5407731840273218,
+     "median_max_gap": 7.0
+    },
+    "2013": {
+     "n_sessions": 252,
+     "n_available": 245,
+     "median_usable": 0.9177377892030848,
+     "median_zero": 0.5916743355167,
+     "median_max_gap": 6.0
+    },
+    "2014": {
+     "n_sessions": 252,
+     "n_available": 242,
+     "median_usable": 0.9331619537275064,
+     "median_zero": 0.614128867694355,
+     "median_max_gap": 5.0
+    },
+    "2015": {
+     "n_sessions": 252,
+     "n_available": 250,
+     "median_usable": 0.9305912596401028,
+     "median_zero": 0.5493243243243243,
+     "median_max_gap": 6.0
+    },
+    "2016": {
+     "n_sessions": 252,
+     "n_available": 250,
+     "median_usable": 0.9434447300771208,
+     "median_zero": 0.4858302541255993,
+     "median_max_gap": 6.0
+    },
+    "2017": {
+     "n_sessions": 251,
+     "n_available": 249,
+     "median_usable": 0.9665809768637532,
+     "median_zero": 0.6229050279329609,
+     "median_max_gap": 4.0
+    },
+    "2018": {
+     "n_sessions": 246,
+     "n_available": 244,
+     "median_usable": 0.967866323907455,
+     "median_zero": 0.5816343631594287,
+     "median_max_gap": 4.0
+    }
+   },
+   "RAW": {
+    "2022": {
+     "n_sessions": 208,
+     "n_available": 176,
+     "median_usable": 0.9203084832904884,
+     "median_zero": 0.1826354648556761,
+     "median_max_gap": 4.0
+    },
+    "2023": {
+     "n_sessions": 250,
+     "n_available": 175,
+     "median_usable": 0.8586118251928021,
+     "median_zero": 0.2616041442240669,
+     "median_max_gap": 6.0
+    },
+    "2024": {
+     "n_sessions": 247,
+     "n_available": 199,
+     "median_usable": 0.87146529562982,
+     "median_zero": 0.375886524822695,
+     "median_max_gap": 6.0
+    }
+   }
+  },
+  "SPY": {
+   "LEGACY": {
+    "2003": {
+     "n_sessions": 252,
+     "n_available": 247,
+     "median_usable": 0.9562982005141388,
+     "median_zero": 0.18562654284706712,
+     "median_max_gap": 6.0
+    },
+    "2004": {
+     "n_sessions": 252,
+     "n_available": 251,
+     "median_usable": 0.9524421593830334,
+     "median_zero": 0.23378819644826904,
+     "median_max_gap": 6.0
+    },
+    "2005": {
+     "n_sessions": 252,
+     "n_available": 251,
+     "median_usable": 0.9485861182519281,
+     "median_zero": 0.24578638386516427,
+     "median_max_gap": 7.0
+    },
+    "2006": {
+     "n_sessions": 251,
+     "n_available": 249,
+     "median_usable": 0.9537275064267352,
+     "median_zero": 0.22727272727272727,
+     "median_max_gap": 6.0
+    },
+    "2007": {
+     "n_sessions": 251,
+     "n_available": 246,
+     "median_usable": 0.9562982005141388,
+     "median_zero": 0.16054451486790663,
+     "median_max_gap": 6.0
+    },
+    "2008": {
+     "n_sessions": 253,
+     "n_available": 249,
+     "median_usable": 0.9640102827763496,
+     "median_zero": 0.09018567639257294,
+     "median_max_gap": 5.0
+    },
+    "2009": {
+     "n_sessions": 252,
+     "n_available": 250,
+     "median_usable": 0.9562982005141388,
+     "median_zero": 0.15131110269041304,
+     "median_max_gap": 5.5
+    },
+    "2010": {
+     "n_sessions": 252,
+     "n_available": 251,
+     "median_usable": 0.9575835475578407,
+     "median_zero": 0.1677489616732281,
+     "median_max_gap": 6.0
+    },
+    "2011": {
+     "n_sessions": 252,
+     "n_available": 251,
+     "median_usable": 0.961439588688946,
+     "median_zero": 0.12852672617215555,
+     "median_max_gap": 5.0
+    },
+    "2012": {
+     "n_sessions": 250,
+     "n_available": 247,
+     "median_usable": 0.9562982005141388,
+     "median_zero": 0.17567804535889642,
+     "median_max_gap": 6.0
+    },
+    "2013": {
+     "n_sessions": 252,
+     "n_available": 249,
+     "median_usable": 0.9588688946015425,
+     "median_zero": 0.17170363884758505,
+     "median_max_gap": 6.0
+    },
+    "2014": {
+     "n_sessions": 252,
+     "n_available": 249,
+     "median_usable": 0.9588688946015425,
+     "median_zero": 0.14594594594594595,
+     "median_max_gap": 6.0
+    },
+    "2015": {
+     "n_sessions": 252,
+     "n_available": 250,
+     "median_usable": 0.9640102827763496,
+     "median_zero": 0.10000073046552568,
+     "median_max_gap": 5.0
+    },
+    "2016": {
+     "n_sessions": 252,
+     "n_available": 251,
+     "median_usable": 0.9640102827763496,
+     "median_zero": 0.11168831168831168,
+     "median_max_gap": 5.0
+    },
+    "2017": {
+     "n_sessions": 251,
+     "n_available": 249,
+     "median_usable": 0.9562982005141388,
+     "median_zero": 0.15730337078651685,
+     "median_max_gap": 5.0
+    },
+    "2018": {
+     "n_sessions": 246,
+     "n_available": 244,
+     "median_usable": 0.9640102827763496,
+     "median_zero": 0.063622210690192,
+     "median_max_gap": 5.0
+    }
+   },
+   "RAW": {
+    "2022": {
+     "n_sessions": 208,
+     "n_available": 207,
+     "median_usable": 1.0,
+     "median_zero": 0.017994858611825194,
+     "median_max_gap": 0.0
+    },
+    "2023": {
+     "n_sessions": 250,
+     "n_available": 248,
+     "median_usable": 1.0,
+     "median_zero": 0.02313624678663239,
+     "median_max_gap": 0.0
+    },
+    "2024": {
+     "n_sessions": 247,
+     "n_available": 244,
+     "median_usable": 1.0,
+     "median_zero": 0.023255813953488372,
+     "median_max_gap": 0.0
+    }
+   }
+  },
+  "TLT": {
+   "LEGACY": {
+    "2003": {
+     "n_sessions": 252,
+     "n_available": 1,
+     "median_usable": 0.18637532133676094,
+     "median_zero": 0.33647798742138363,
+     "median_max_gap": 48.0
+    },
+    "2004": {
+     "n_sessions": 252,
+     "n_available": 0,
+     "median_usable": 0.2647814910025707,
+     "median_zero": 0.42857142857142855,
+     "median_max_gap": 32.0
+    },
+    "2005": {
+     "n_sessions": 252,
+     "n_available": 0,
+     "median_usable": 0.34704370179948585,
+     "median_zero": 0.4032258064516129,
+     "median_max_gap": 25.0
+    },
+    "2006": {
+     "n_sessions": 251,
+     "n_available": 1,
+     "median_usable": 0.42930591259640105,
+     "median_zero": 0.45901639344262296,
+     "median_max_gap": 20.0
+    },
+    "2007": {
+     "n_sessions": 251,
+     "n_available": 31,
+     "median_usable": 0.6015424164524421,
+     "median_zero": 0.4235314161101268,
+     "median_max_gap": 13.0
+    },
+    "2008": {
+     "n_sessions": 253,
+     "n_available": 220,
+     "median_usable": 0.8946015424164524,
+     "median_zero": 0.2656716417910448,
+     "median_max_gap": 8.0
+    },
+    "2009": {
+     "n_sessions": 252,
+     "n_available": 249,
+     "median_usable": 0.9280205655526992,
+     "median_zero": 0.2119798971482001,
+     "median_max_gap": 7.0
+    },
+    "2010": {
+     "n_sessions": 252,
+     "n_available": 246,
+     "median_usable": 0.9383033419023136,
+     "median_zero": 0.2748493745603572,
+     "median_max_gap": 7.0
+    },
+    "2011": {
+     "n_sessions": 252,
+     "n_available": 251,
+     "median_usable": 0.9460154241645244,
+     "median_zero": 0.21812765000642426,
+     "median_max_gap": 6.0
+    },
+    "2012": {
+     "n_sessions": 250,
+     "n_available": 246,
+     "median_usable": 0.9408740359897172,
+     "median_zero": 0.21448871664446328,
+     "median_max_gap": 6.0
+    },
+    "2013": {
+     "n_sessions": 252,
+     "n_available": 249,
+     "median_usable": 0.9357326478149101,
+     "median_zero": 0.25478921450876774,
+     "median_max_gap": 7.0
+    },
+    "2014": {
+     "n_sessions": 252,
+     "n_available": 248,
+     "median_usable": 0.9408740359897172,
+     "median_zero": 0.2643344496259898,
+     "median_max_gap": 6.0
+    },
+    "2015": {
+     "n_sessions": 252,
+     "n_available": 250,
+     "median_usable": 0.9537275064267352,
+     "median_zero": 0.1765558583106267,
+     "median_max_gap": 6.0
+    },
+    "2016": {
+     "n_sessions": 252,
+     "n_available": 251,
+     "median_usable": 0.9562982005141388,
+     "median_zero": 0.18741391184573003,
+     "median_max_gap": 5.5
+    },
+    "2017": {
+     "n_sessions": 251,
+     "n_available": 249,
+     "median_usable": 0.9434447300771208,
+     "median_zero": 0.2554347826086957,
+     "median_max_gap": 6.0
+    },
+    "2018": {
+     "n_sessions": 246,
+     "n_available": 244,
+     "median_usable": 0.9537275064267352,
+     "median_zero": 0.261472008917513,
+     "median_max_gap": 6.0
+    }
+   },
+   "RAW": {
+    "2022": {
+     "n_sessions": 208,
+     "n_available": 145,
+     "median_usable": 0.8740359897172236,
+     "median_zero": 0.06976744186046512,
+     "median_max_gap": 5.0
+    },
+    "2023": {
+     "n_sessions": 250,
+     "n_available": 184,
+     "median_usable": 0.8881748071979434,
+     "median_zero": 0.10256410256410256,
+     "median_max_gap": 4.0
+    },
+    "2024": {
+     "n_sessions": 247,
+     "n_available": 178,
+     "median_usable": 0.8868894601542416,
+     "median_zero": 0.1362126245847176,
+     "median_max_gap": 4.0
+    }
+   }
+  }
+ }
+}

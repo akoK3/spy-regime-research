@@ -6,15 +6,15 @@ DEVELOPMENT spans only (s5_eval_loader.load_development: LEGACY 2003-01-02..2018
   stale_share    GOLD / DOLLAR: share of slots with the causal flat-quote-age >= 15 min flag; ETFs: NaN (no such flag)
   max_gap_min    longest run of consecutive slots without an eligible return
 Computed without break times, alarms, detector output or any outcome. Before it runs: A28 must be ADOPTED and equal its sidecar (rule 6a: hashed before any coverage check).
-The availability rule (rule 1e) is applied by available() with the constants below; they are this script's proposal, written before the check runs, pending the user's
-approval (A28 does not state numbers); a changed rule is reported as a deviation (6g).
+The availability rule (rule 1e) is applied by available() with the constants below; this script proposed them before the check ran and the user approved them
+on 2026-11-09 (A28 does not state numbers); a changed rule is reported as a deviation (6g).
 Output: section6/results/coverage/coverage_sessions.csv, coverage_summary.json (by asset, era and year). Usage: s6_coverage.py"""
 import sys, json, hashlib, datetime
 from pathlib import Path
 import numpy as np
 HERE = Path(__file__).resolve().parent; ROOT = HERE.parent; sys.path.insert(0, str(ROOT / "section5"))
 OUT = HERE / "results" / "coverage"; ASSETS = ("SPY", "TLT", "HYG", "GOLD", "DOLLAR"); QUOTES = ("GOLD", "DOLLAR")
-MIN_USABLE = 0.80; MAX_GAP = 30; MAX_STALE = 0.25          # proposal, pending approval
+MIN_USABLE = 0.80; MAX_GAP = 30; MAX_STALE = 0.25          # approved by the user 2026-11-09
 
 
 def a28_guard():
@@ -60,7 +60,7 @@ def main():
         summ.setdefault(a, {}).setdefault(e, {})[y] = dict(n_sessions=int(len(g)), n_available=int(g["available"].sum()), median_usable=float(g["usable_share"].median()),
                                                           median_zero=float(g["zero_share"].median()) if g["zero_share"].notna().any() else None, median_max_gap=float(g["max_gap_min"].median()))
     res = dict(label="A28 rule 6b label-free coverage check (development spans only)", generated=datetime.datetime.now(datetime.timezone.utc).isoformat(), panel_sha256=hashes,
-               rule=dict(min_usable=MIN_USABLE, max_gap_min=MAX_GAP, max_stale_quotes=MAX_STALE, status="proposal pending user approval"), script_sha256=hashlib.sha256(Path(__file__).read_bytes()).hexdigest(), by_asset_era_year=summ)
+               rule=dict(min_usable=MIN_USABLE, max_gap_min=MAX_GAP, max_stale_quotes=MAX_STALE, status="approved by the user 2026-11-09"), script_sha256=hashlib.sha256(Path(__file__).read_bytes()).hexdigest(), by_asset_era_year=summ)
     (OUT / "coverage_summary.json").write_text(json.dumps(res, indent=1), encoding="utf-8"); print(f"coverage: {len(rows)} asset-sessions; written to {OUT}"); return 0
 
 

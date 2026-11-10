@@ -377,8 +377,11 @@
 !/section6/
 /section6/*
 !/section6/*.py
+!/section6/*.ps1
 !/section6/results/
 /section6/results/*
 !/section6/results/*.json
 !/section6/results/*.sha256
 !/section6/results/coverage/
+!/section6/results/*.jsonl
+!/section6/results/*_log.txt
