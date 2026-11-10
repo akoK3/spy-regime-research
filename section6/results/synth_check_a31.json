@@ -1,0 +1,218 @@
+{
+ "tag": "a31",
+ "passed": false,
+ "criteria": [
+  {
+   "criterion": "indep: H3_TLT rejection <= 0.081",
+   "value": 0.045,
+   "passed": true
+  },
+  {
+   "criterion": "indep: H3_HYG rejection <= 0.081",
+   "value": 0.035,
+   "passed": true
+  },
+  {
+   "criterion": "indep: H3_GOLD rejection <= 0.081",
+   "value": 0.025,
+   "passed": true
+  },
+  {
+   "criterion": "indep: H3_DOLLAR rejection <= 0.081",
+   "value": 0.01,
+   "passed": true
+  },
+  {
+   "criterion": "indep: H4a rejection <= 0.081",
+   "value": 0.03,
+   "passed": true
+  },
+  {
+   "criterion": "indep: H4b rejection <= 0.081",
+   "value": 0.005,
+   "passed": true
+  },
+  {
+   "criterion": "indep: A31 rule 3 control flag rate TLT <= 0.081",
+   "value": 0.41,
+   "passed": false
+  },
+  {
+   "criterion": "indep: A31 rule 3 control flag rate HYG <= 0.081",
+   "value": 0.415,
+   "passed": false
+  },
+  {
+   "criterion": "indep: A31 rule 3 control flag rate GOLD <= 0.081",
+   "value": 0.405,
+   "passed": false
+  },
+  {
+   "criterion": "indep: A31 rule 3 control flag rate DOLLAR <= 0.081",
+   "value": 0.225,
+   "passed": false
+  },
+  {
+   "criterion": "vol: H3_TLT rejection <= 0.081",
+   "value": 0.025,
+   "passed": true
+  },
+  {
+   "criterion": "vol: H3_HYG rejection <= 0.081",
+   "value": 0.055,
+   "passed": true
+  },
+  {
+   "criterion": "vol: H3_GOLD rejection <= 0.081",
+   "value": 0.05,
+   "passed": true
+  },
+  {
+   "criterion": "vol: H3_DOLLAR rejection <= 0.081",
+   "value": 0.04,
+   "passed": true
+  },
+  {
+   "criterion": "vol: H4a rejection <= 0.081",
+   "value": 0.045,
+   "passed": true
+  },
+  {
+   "criterion": "vol: H4b rejection <= 0.081",
+   "value": 0.0,
+   "passed": true
+  },
+  {
+   "criterion": "vol: A31 rule 3 control flag rate TLT <= 0.081",
+   "value": 0.63,
+   "passed": false
+  },
+  {
+   "criterion": "vol: A31 rule 3 control flag rate HYG <= 0.081",
+   "value": 0.55,
+   "passed": false
+  },
+  {
+   "criterion": "vol: A31 rule 3 control flag rate GOLD <= 0.081",
+   "value": 0.57,
+   "passed": false
+  },
+  {
+   "criterion": "vol: A31 rule 3 control flag rate DOLLAR <= 0.081",
+   "value": 0.275,
+   "passed": false
+  },
+  {
+   "criterion": "effect_h4: H4a |bias| <= 2 SE",
+   "value": [
+    -0.0007830526114290769,
+    0.004560890299418007
+   ],
+   "passed": true
+  },
+  {
+   "criterion": "effect_h4: H4a rejection >= 0.80",
+   "value": 1.0,
+   "passed": true
+  },
+  {
+   "criterion": "effect_h4: H4b |bias| <= 2 SE",
+   "value": [
+    -0.001324435989031343,
+    0.004381396592716617
+   ],
+   "passed": true
+  },
+  {
+   "criterion": "effect_h4: H4b rejection >= 0.80",
+   "value": 0.95,
+   "passed": true
+  },
+  {
+   "criterion": "effect_h3: H3_TLT |bias| <= max(2 SE, 0.10 x target)",
+   "value": [
+    -0.01057081152029731,
+    0.008072076501328511,
+    0.25243638511219785
+   ],
+   "passed": true
+  },
+  {
+   "criterion": "effect_h3: H3_HYG |bias| <= max(2 SE, 0.10 x target)",
+   "value": [
+    -0.010813697288867871,
+    0.008488057322577226,
+    0.1261240057667993
+   ],
+   "passed": true
+  },
+  {
+   "criterion": "effect_h3: H3_GOLD |bias| <= max(2 SE, 0.10 x target)",
+   "value": [
+    -0.007127888006794427,
+    0.007770938901440439,
+    0.2521331690063421
+   ],
+   "passed": true
+  },
+  {
+   "criterion": "effect_h3: H3_TLT rejection >= 0.80",
+   "value": 1.0,
+   "passed": true
+  },
+  {
+   "criterion": "effect_h3: H3_GOLD rejection >= 0.80",
+   "value": 1.0,
+   "passed": true
+  }
+ ],
+ "synth_sha256": "c254ac4ffb5f3c63095d778e8c5b0168ea7ad889fdc5160725ac0ee29a2a5b95",
+ "provenance": {
+  "code": {
+   "files": {
+    "section6/s6_adopt_a31.py": "40f7398ed761fe69aef1c11f2d62a2acf0e54e841984301f04e07b041ed1bdb6",
+    "section6/s6_check_synth.py": "c728a4f1f0e68b7d7daab0972476de84ab26121dd3891db1c5d567f9523c163e",
+    "section6/s6_coverage.py": "3d6752fe76172e3a595c17bad2f16376b6df6640a115e7be21da7296051bd7c0",
+    "section6/s6_fingerprint.py": "4d1999c758ef6f07441b76199bf4eda82da39bf53c908a82f71f77612bac7bd2",
+    "section6/s6_lib.py": "3b51fbce08e1856df8c03a39fd5d4b4c34c94afbde7784876e2fd12061aca8b1",
+    "section6/s6_power.py": "f821a29d3f682152fd05751dbe6e211fb6e5654e7aff1d8462c106a6a0e97220",
+    "section6/s6_run.py": "594a59b094e9f0db8d912e468499117613a82894d35f93da9d91e72470c77f30",
+    "section6/s6_synth_validation.py": "5518464c1359bbdc4624242f993fff1a0387276c0c50fb493c1ecbb81971eb65",
+    "section6/s6_tests.py": "647d5b2f15dfbfdbf527ef28d63eaafa4e1d82a882b71bc0da3ef3ca44acf89c",
+    "section5/s5_eval_loader.py": "e82b01de0d29a59bef50045592c8175e9b8a61ad77e19c5942ee135dc3f93139",
+    "section5/s5_amendment_manifest.py": "8a35aa542caebf1a678dbd2e94d5620e427f32b63f6eebbdc7ff248e9d55f171",
+    "section5/s5_break_export.py": "b2956c2d813465ea829bdb2b6131ead9866a0376df5f674affd8f56609287ec3"
+   },
+   "code_version": "a0323ed24d68e896"
+  },
+  "amendments": [
+   {
+    "amendment": "A28",
+    "file": "AMENDMENT_A28.md",
+    "present": true,
+    "status": "ADOPTED",
+    "sha256": "7c6bd4bdee8bd839b1ff4c2346d81f15fd2b6b29af7a0d4b5e11738d9b673ac2",
+    "sidecar_sha256": "7c6bd4bdee8bd839b1ff4c2346d81f15fd2b6b29af7a0d4b5e11738d9b673ac2",
+    "sidecar_matches": true
+   },
+   {
+    "amendment": "A29",
+    "file": "AMENDMENT_A29.md",
+    "present": true,
+    "status": "DRAFT",
+    "sha256": "1bcb5ee1df4b08e0a6488a7450f521f729bc1b1970240f85d803add5bc16e2f7",
+    "sidecar_sha256": null,
+    "sidecar_matches": false
+   },
+   {
+    "amendment": "A31",
+    "file": "AMENDMENT_A31.md",
+    "present": true,
+    "status": "DRAFT",
+    "sha256": "723b388b4ed20c30fe1e19a98f4a0360877e42a94bd787a87d9e765c1b5a51f2",
+    "sidecar_sha256": null,
+    "sidecar_matches": false
+   }
+  ]
+ }
+}
