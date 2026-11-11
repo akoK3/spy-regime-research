@@ -47,6 +47,7 @@ REGISTRY = {
     "section6/s6_hyg_gap.py": "LABEL_FREE",      # HYG data-gap diagnosis: counts of unusable windows and data-quality shares only
     "s5_power_observed_n.py": "POST_MAIN_RUN",      # O9 L1: H1(a) MDE with the observed 22 folds
     "s5_posthoc_grid_pauc.py": "POST_MAIN_RUN",      # post hoc, descriptive: absolute H1(a) pAUC feature and baseline, 1-min vs 5-min (A22 3g setups)
+    "s5_hf_cleaning_check.py": "LABEL_FREE", "s5_tests_hf_cleaning.py": "LIBRARY",      # vendor check: HF Raw vs Clean SPY, same release, fresh downloads outside the study data
     "s5_d7_nan_diag.py": "LABEL_FREE",      # post hoc: why D7 (A21) found undefined variance ratios on 47 LEGACY days; no detector, no outcome
     "s5_preflight_data_hashes.py": "LABEL_FREE",      # audit-1 #17: SHA-256 of input data files against recorded hashes; no detector, no outcome
     "s5_d8c.py": "DESCRIPTIVE",      # A22 rule 1: D8c overlap breakdown, same status as D8      # A21 rule 3f: Step 2 for liquidity (preflight on RAW 3 and LEGACY 29 only)
