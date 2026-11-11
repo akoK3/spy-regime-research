@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """AMENDMENT_A36 rule 5: the Section 5 side of the joint evaluation driver (protocol 5.13), outside the frozen result-module closure (code version a0323ed24d68e896).
-It supplies fit_fn and run_fn to s5_eval_label.run_confirmatory_labelled (which wraps the frozen s5_freeze.run_confirmatory). Closure functions are called, never edited.
+It supplies fit_fn and run_fn to s5_eval_label.run_confirmatory_labelled (which wraps the frozen 5.13 writer of s5_freeze). Closure functions are called, never edited.
 
 Per era:
   panel      TRAIN span followed by the evaluation span (A36 4a); the 5 embargo sessions between them are never read (1e). The evaluation span is opened only after
@@ -64,11 +64,17 @@ def panel(era, freeze_path, token):
     check_partitions(era, [str(d["day"][i]) for i in d["first"]], n_tr); return d, n_tr
 
 
-def context(era, d):
-    """As s5_backend.era_context, from a panel dict already in memory: A20 pool, deseasonalised target, grid rows, splice bases. No cache file."""
+def context(era, d, boundary=None):
+    """As s5_backend.era_context, from a panel dict already in memory: A20 pool, deseasonalised target, grid rows, splice bases. No cache file.
+    boundary (PREFREEZE_AUDIT L6): the index of the first session after the embargo gap (the first evaluation session of a joined panel). An overnight-type feature
+    there would span the 5 embargo sessions (a 7-session return), so every feature whose name contains "overnight" is set to NaN on that session. None of the
+    A20 pool or its bases is overnight-type; the causal 20-session baselines run across the gap as A36 4a states (disclosed)."""
     import s5_lib as L, s5_d2_stable as S, s5_fast as F
     primary, _, _ = L.pools(); cols = L.a20_pool(primary); bn = F.bases_for(cols)
     feats = L.compute_features(d, list(dict.fromkeys(cols + ["lee_mykland_approx60"] + bn)))
+    if boundary is not None and 0 < int(boundary) < len(d["first"]):
+        a, b = int(d["first"][boundary]), int(d["end"][boundary])
+        for k in [k for k in feats if "overnight" in k]: feats[k] = np.array(feats[k], float, copy=True); feats[k][a:b] = np.nan
     d["features"] = {c: feats[c] for c in cols + ["lee_mykland_approx60"]}; dv = S.des_variance(d); d["dv"] = dv
     native = [L.session_grid(d, i, cols) for i in range(len(d["first"]))]; Mx = np.full((len(native), 78), np.nan)
     for i, r in enumerate(native): Mx[i, :len(r["X"])] = r["X"][:, 0]
@@ -245,7 +251,7 @@ def fit_fn(era, setup, thresholds):
 
 def build_eval_state(era, d, n_tr, bundles):
     """Context of the joined panel and the evaluation backend holding the frozen preprocessing and models (A37 2b)."""
-    ctx = context(era, d); full, _ = segments(n_tr, len(d["first"])); preps = {id(b["prep"]): b["prep"] for b in bundles.values()}
+    ctx = context(era, d, boundary=n_tr); full, _ = segments(n_tr, len(d["first"])); preps = {id(b["prep"]): b["prep"] for b in bundles.values()}
     models = {}
     for fam, b in bundles.items(): models[(fam, tuple(b["features"]), tuple(sorted(b["params"].items())))] = b["feature"]; models[(fam, (), tuple(sorted(b["base_params"].items())))] = b["baseline"]
     prep = next(iter(bundles.values()))["prep"]
@@ -271,8 +277,8 @@ def run_fn(era, st, setup, thresholds, minutes=None):
         r = dict(features=list(feats), params=m["params"], base_params=m["base_params"], model_sha256=b["sha256"],
                  thresholds=dict(b["thresholds"], feature_frozen=thr_f, note="the frozen feature threshold is the one used; the baseline threshold was set by A11 on TRAIN at the freeze (A37 1b)"))
         lf, kf = db.qlike_on(fam, mf, feats, "test"); lb, kb = db.qlike_on(fam, mb, (), "test"); xb, xf, common = V.align(np.asarray(lb, float), np.asarray(kb), np.asarray(lf, float), np.asarray(kf))
-        ok = np.isfinite(xb) & np.isfinite(xf); b = ci_mean_diff(xb[ok], xf[ok], (np.asarray(common)[ok] // 1000))
-        r["H1b"] = dict(b, definition="mean QLIKE(baseline) - mean QLIKE(features), common decision bars; clusters = sessions", pct_of_baseline=(float(100 * b["effect"] / b["mean1"]) if b["effect"] is not None and b["mean1"] else None))
+        ok = np.isfinite(xb) & np.isfinite(xf); h1b = ci_mean_diff(xb[ok], xf[ok], (np.asarray(common)[ok] // 1000))      # PREFREEZE_AUDIT L9: no rebinding of the bundle b
+        r["H1b"] = dict(h1b, definition="mean QLIKE(baseline) - mean QLIKE(features), common decision bars; clusters = sessions", pct_of_baseline=(float(100 * h1b["effect"] / h1b["mean1"]) if h1b["effect"] is not None and h1b["mean1"] else None))
         sp = db._splices()
         if sp["n_stable"] < MIN_STABLE: r["H1a"] = dict(effect=None, ci95=None, skipped=f"{sp['n_stable']} < {MIN_STABLE} stable evaluation days", n_stable_days=sp["n_stable"])
         elif not sp["specs"]: r["H1a"] = dict(effect=None, ci95=None, failed=sp["why"] or "splice construction returned no specs", n_stable_days=sp["n_stable"])

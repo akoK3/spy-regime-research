@@ -81,3 +81,11 @@ Invalid resamples in the development run (9,999 resamples; A29 1d counted them a
 ## Governs
 
 The H4 bootstrap p-value; the rerun of the 7d null control; the H3/H4 primary detector when the Gaussian HMM fails that control. A28, A29 and A31 are otherwise unchanged. H2, A30, A34 and every Section 5 result are unchanged. No freeze, no O8, no era calibration under this amendment.
+
+## Disclosure added 2026-11-11 (PREFREEZE_AUDIT L1; on the user's instruction; the rules above are unchanged)
+
+- **Rule 1a can only lower the 7d null-control rejection rates.** For any set of resamples, the valid-only p, (1 + E) / (V + 1), is at least the A29 1d p, (1 + E) / (B + 1), because V <= B.
+- **The rerun shows this.** The Gaussian HMM's H4b null rejection rate moved from 0.105 under the A29 1d convention (equal to the development run) to 0.065 under rule 1a (`section6/results/a35_null_control_gaussian_hmm.json`). The other five tests did not change.
+- **So the Gaussian HMM passes the 7d null control partly because of the convention change.** Rule 3 was written before the rerun, but given rule 1a the outcome was largely set when rule 1a was adopted. The write-up states this.
+- **No minimum V is set.** Every H4 p now reports V / B (`valid_share`, `s6_run.h4_test`), and V / B below 0.9 is flagged (`low_valid_share`), on the development and the evaluation runs alike.
+- Text before this note: sha256 `bf84069e620e5b839c2f98b259b0740ef982b4a999a4f9252eb587808a21e1b3`.

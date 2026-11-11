@@ -10,7 +10,8 @@ The panels hold development AND evaluation sessions. Two entry points:
       4. the audit-1 finding 17 preflight passes now (s5_preflight_data_hashes.py exit 0; the panel is the file whose hash the frozen 4.3.0 protocol records);
       5. for Section 6 calls (section6=True): the Section 6 fingerprint file exists, verifies (AMENDMENT_A28 rule 6e) and equals the code on disk (AMENDMENT_A36 rule 7c).
   authorise(era, freeze_path, confirm_token, section6, what): the same guard and log for a read that another audited loader performs (the 5.13 panel of
-      s5_eval513, AMENDMENT_A36 rule 7d); returns the evaluation span. Nothing may open an evaluation span without load_eval or authorise.
+      s5_eval513, AMENDMENT_A36 rule 7d); returns the evaluation span. Nothing may open an evaluation span without load_eval, authorise or authorise_a38.
+  authorise_a38(kind, freeze_path, confirm_token, what): the A38 rule 1 reads (HF Raw / Clean SPY on the RAW evaluation span), after the official 5.13 RAW result.
     Every call, allowed or refused, is appended to results/eval_access_log.txt before any row is read.
 Evaluation periods: LEGACY 2019-01-02..2022-03-04 (4.3.0-A1), RAW 2025-01-02..2026-10-12 (4.3.0 freeze v2). Nothing here writes a freeze or a lock."""
 import sys, re, json, hashlib, datetime, subprocess
@@ -114,6 +115,28 @@ def authorise(era, freeze_path, confirm_token, section6=False, what=""):
     try: eval_guard(era, freeze_path, confirm_token, section6)
     except Exception as e: _log(f"REFUSED era={era}: {e}"); raise
     _log(f"ALLOWED era={era}"); EVAL_READS.append((era, bool(section6))); return EVAL[era]
+
+
+A38_RESULTS = HERE / "results"                 # where the official 5.13 RAW result lies (tests patch it)
+
+
+def authorise_a38(kind, freeze_path, confirm_token, what=""):
+    """AMENDMENT_A38 rule 5a (PREFREEZE_AUDIT M4): the guard and access log for the A38 rule 1 reads (SPY from the 2026-11-11 HF Raw / Clean files on the study grid of
+    the RAW evaluation span). Every check of the Section 6 guard (freeze, token, amendment list, lock, data-hash preflight, Section 6 fingerprint), plus: A38 ADOPTED
+    and equal to its sidecar; the official 5.13 RAW result exists and carries the A26 label. It needs neither the labelled 5.13 entry nor section6=True; it is logged
+    as A38. The file hash and the one-shot marker are checked by s5_a38.run_file."""
+    _log(f"REQUEST A38 kind={kind} what={what!r} freeze={Path(freeze_path).name}")
+    try:
+        import s5_amendment_manifest as AM, s5_eval_label as EV, s5_freeze as FZ
+        if kind not in ("raw", "clean"): raise PermissionError(f"unknown A38 file kind {kind}")
+        _checks("RAW", freeze_path, confirm_token, section6=True, need_active=False)
+        e = AM.manifest(("A38",))[0]
+        if not (e["present"] and e["status"] == "ADOPTED" and e["sidecar_matches"]): raise PermissionError("AMENDMENT_A38 is not ADOPTED with a matching sidecar")
+        off = Path(A38_RESULTS) / f"{FZ.EVAL_PREFIX}RAW.json"
+        if not off.exists(): raise PermissionError("A38 5a: the official 5.13 RAW result must exist before the A38 reads")
+        EV.verify_labelled(A38_RESULTS)
+    except Exception as ex: _log(f"REFUSED A38 kind={kind}: {ex}"); raise
+    _log(f"ALLOWED A38 kind={kind}"); EVAL_READS.append(("RAW", f"a38:{kind}")); return EVAL["RAW"]
 
 
 def load_eval(era, columns, freeze_path, confirm_token, section6=False):

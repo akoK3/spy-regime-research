@@ -189,7 +189,7 @@ def analyse(E_by, rows, sess, nboot, detector, all_rows=None, B=B50, per_era=Fal
     if all_rows is not None:      # A33 5b (S2, as A32 4b): the rule 1 test with every detector's breaks
         dep = {}
         for fam in R.FAMILIES:
-            fc, _, fcand = units50(E_by, [x for x in all_rows if x["family"] == fam], sess); dep[fam] = p50_primary(E_by, fcand, fc, f"{fam}|dep", B)
+            fc, _, fcand = units50(E_by, [x for x in all_rows if x["family"] == fam], sess); dep[fam] = res["primary"] if fam == detector else p50_primary(E_by, fcand, fc, f"{fam}|dep", B)      # FABLE_REAUDIT L3 / PREFREEZE_AUDIT L8: the analysed detector reuses its primary result
         res["detector_dependence"] = dep; res["verdict_agreement"] = {fam: {a: dep[fam][f"H2_{a}"]["reject_0.05"] for a in ASSETS} for fam in dep}
     if per_era:
         res["by_era"] = {e: p50_primary(E_by, cand_by, [u for u in c2s if u["era"] == e], f"{detector}|era|{e}", B) for e in E_by}

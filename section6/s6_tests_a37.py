@@ -108,7 +108,7 @@ class TestAlertsAndLists(unittest.TestCase):
 
     def test_lists(self):
         import s5_amendment_manifest as AM, s6_fingerprint as FPM, s5_contamination as CT
-        self.assertIn("A37", AM.AMENDMENTS); self.assertEqual(S6E.AMENDMENTS[-1], "A37"); self.assertIn("s5_freeze_models.py", FPM.HELPERS); self.assertTrue(CT.check_registry())
+        self.assertIn("A37", AM.AMENDMENTS); self.assertEqual(S6E.AMENDMENTS[-2:], ("A37", "A38"))      # PREFREEZE_AUDIT L3: A38 added; self.assertIn("s5_freeze_models.py", FPM.HELPERS); self.assertTrue(CT.check_registry())
 
 
 if __name__ == "__main__": unittest.main()

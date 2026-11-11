@@ -71,10 +71,7 @@ class FreezeBackend:
 
 
 def freeze_with_models(backend, summ, results_dir, amendments):
-    """The 5.12 freeze under A37: completion record verified, models fitted and saved (TRAIN only), then the unchanged s5_run.freeze_step with the wrapper."""
-    import s5_guard as G, s5_run as RUN, s5_freeze as FZ
-    if (Path(results_dir) / "section5_freeze.json").exists(): raise FileExistsError("a freeze exists")
-    if list(Path(results_dir).glob(FZ.EVAL_PREFIX + "*")): raise RuntimeError("evaluation output exists; the freeze must precede it (5.12)")
-    G.verify_completion(Path(summ["run_dir"]) / G.COMPLETION, require_main=(getattr(backend, "kind", None) == "main"))
-    models = write_models(summ["final_setups"])
-    return RUN.freeze_step(FreezeBackend(backend, models), summ, results_dir, amendments)
+    """The 5.12 freeze under A37. PREFREEZE_AUDIT H1/M1: delegates to the single freeze driver s5_freeze_run.freeze (prechecks before the fit, staged models, the
+    threshold comparison before the document is written, the move after it). Returns (freeze path, doc)."""
+    import s5_freeze_run as FR
+    p, doc, _ = FR.freeze(backend, summ, results_dir, amendments); return p, doc

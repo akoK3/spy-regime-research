@@ -44,10 +44,12 @@ REGISTRY = {
     "section6/s6_a34.py": "POST_MAIN_RUN", "section6/s6_tests_a34.py": "LIBRARY", "s5_eval_label.py": "LIBRARY",      # A34 (per-asset pools; A26 label enforcement)
     "section6/s6_a35.py": "POST_MAIN_RUN", "section6/s6_tests_a35.py": "LIBRARY",      # A35: rerun of the A28 7d null control (development data; H4 p on valid resamples)
     "s5_eval513.py": "EVALUATION", "s5_freeze_models.py": "POST_MAIN_RUN", "section6/s6_tests_a37.py": "LIBRARY", "s5_h1c_eval_times.py": "LABEL_FREE", "section6/s6_eval.py": "EVALUATION", "section6/s6_eval_synth.py": "LIBRARY", "section6/s6_tests_a36.py": "LIBRARY",      # A36: the joint evaluation driver (evaluation periods only, after the freeze; no fold is touched); FOMC times read no market data
+    "section6/s6_dress_rehearsal.py": "POST_MAIN_RUN",      # PREFREEZE_AUDIT M3: development-only dress rehearsal (fake evaluation tails inside TRAIN; temp lock and outputs)
     "section6/s6_hyg_gap.py": "LABEL_FREE",      # HYG data-gap diagnosis: counts of unusable windows and data-quality shares only
     "s5_power_observed_n.py": "POST_MAIN_RUN",      # O9 L1: H1(a) MDE with the observed 22 folds
     "s5_posthoc_grid_pauc.py": "POST_MAIN_RUN",      # post hoc, descriptive: absolute H1(a) pAUC feature and baseline, 1-min vs 5-min (A22 3g setups)
     "s5_hf_cleaning_check.py": "LABEL_FREE", "s5_tests_hf_cleaning.py": "LIBRARY",      # vendor check: HF Raw vs Clean SPY, same release, fresh downloads outside the study data
+    "s5_feature_parity.py": "LABEL_FREE", "s5_a38.py": "EVALUATION", "s5_freeze_run.py": "MAIN_RUN", "s5_tests_freeze_run.py": "LIBRARY", "s5_tests_a38.py": "LIBRARY",      # PREFREEZE_AUDIT H1, M1, M2, M4
     "s5_d7_nan_diag.py": "LABEL_FREE",      # post hoc: why D7 (A21) found undefined variance ratios on 47 LEGACY days; no detector, no outcome
     "s5_preflight_data_hashes.py": "LABEL_FREE",      # audit-1 #17: SHA-256 of input data files against recorded hashes; no detector, no outcome
     "s5_d8c.py": "DESCRIPTIVE",      # A22 rule 1: D8c overlap breakdown, same status as D8      # A21 rule 3f: Step 2 for liquidity (preflight on RAW 3 and LEGACY 29 only)
@@ -64,7 +66,7 @@ REGISTRY = {
 # A15 rule 6d: LABEL_FREE = no detector or regime model, no outcome (counts, splice specs, feature or preprocessing computation); MAIN_RUN = the run the list protects.
 NOT_TOUCHING = ("LIBRARY", "DESCRIPTIVE", "LABEL_FREE", "MAIN_RUN", "POST_MAIN_RUN", "EVALUATION")      # A17 rule 6: POST_MAIN_RUN = analyses of the main run's folds after the H1 fold scores
 # A15 rule 3: data loading = these calls; a plain raw string, no control characters (the pattern before A15 held two backspace bytes and matched nothing).
-DATA_LOAD = re.compile(r"\b(?:fold_segments|load_era|era_context|splice_batch|DataBackend|EraBackend|MainBackend|load_development|load_eval)\(|\b(?:D2|F|s5_d2|s5_fast)\._init\b|canonical_panel_|\bPANELS\b")      # A16 rule 3; FABLE_AUDIT M4 (2026-11-10): the guarded panel loaders and any direct reference to the canonical panels
+DATA_LOAD = re.compile(r"\b(?:fold_segments|load_era|era_context|splice_batch|DataBackend|EraBackend|MainBackend|load_development|load_eval)\(|\b(?:D2|F|s5_d2|s5_fast)\._init\b|canonical_panel_|\bPANELS\b|hfdatalibrary_")      # A16 rule 3; FABLE_AUDIT M4 (2026-11-10): the guarded panel loaders and any direct reference to the canonical panels
 
 
 SCAN = ((HERE, ""), (HERE.parent / "section6", "section6/"))      # FABLE_AUDIT M4: Section 6 scripts are scanned too (registry keys "section6/<name>")

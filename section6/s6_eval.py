@@ -20,7 +20,8 @@ import numpy as np
 HERE = Path(__file__).resolve().parent; ROOT = HERE.parent; sys.path.insert(0, str(HERE)); sys.path.insert(0, str(ROOT / "section5"))
 import s6_lib as L, s6_run as R
 
-AMENDMENTS = ("A28", "A29", "A30", "A31", "A32", "A33", "A33_1", "A34", "A35", "A36", "A37"); ERAS = ("LEGACY", "RAW"); N_HIST = 60
+AMENDMENTS = ("A28", "A29", "A30", "A31", "A32", "A33", "A33_1", "A34", "A35", "A36", "A37", "A38");      # PREFREEZE_AUDIT L3: A38 governs the reading of 5.13 RAW
+ERAS = ("LEGACY", "RAW"); N_HIST = 60
 S5RES = ROOT / "section5" / "results"; OUT = HERE / "results"; H1_ORDER = ("gaussian_hmm", "student_t_hmm", "hsmm")
 
 
@@ -54,6 +55,9 @@ def h34_primary(fz, status=a35_status):
         if not status(d)[1]: raise PermissionError(f"the A35 rerun of {d} does not reproduce the development run (A35 2d): work stops")
     if not status("hsmm")[0]: raise PermissionError("the HSMM failed the A35 rerun of the 7d null control: A28 7d applies as written, work stops and the user decides (A35 3d)")
     if det == "gaussian_hmm" and not status("gaussian_hmm")[0]: det = "hsmm"; why = "the Gaussian HMM failed the A35 rerun of the 7d null control: the HSMM is the H3/H4 primary (A35 3a)"
+    if det not in ("gaussian_hmm", "hsmm"):      # PREFREEZE_AUDIT L7: e.g. the A28 1b fallback chose the Student-t HMM, which has no development 7d check or A35 rerun
+        ok, rep = status(det)                     # raises when the rerun record does not exist
+        if not rep or not ok: raise PermissionError(f"the H3/H4 detector {det} has no passing, reproducing A35 rerun of the 7d null control: work stops and the user decides")
     return det, why
 
 
@@ -102,7 +106,8 @@ def breaks(s5res=None):
 def alerts_of(res):
     """AMENDMENT_A37 rule 4: the evaluation-period positive control of A28 7d(i) failed or could not be evaluated. Placed first in the result and in the report."""
     pc = ((res.get("sanity") or {}).get("positive_control")) or {}; out = []
-    if pc.get("p") is None: out.append(dict(level="ALERT", check="A28 7d(i) positive control (Fed breaks raise TLT rest-of-day RV)", status="not evaluable", n_breaks=pc.get("n_breaks")))
+    p = pc.get("p"); ev = p is not None and bool(np.isfinite(p))      # PREFREEZE_AUDIT L2: a non-finite p is "not evaluable"
+    if not ev: out.append(dict(level="ALERT", check="A28 7d(i) positive control (Fed breaks raise TLT rest-of-day RV)", status="not evaluable", n_breaks=pc.get("n_breaks")))
     elif not pc.get("passed"): out.append(dict(level="ALERT", check="A28 7d(i) positive control (Fed breaks raise TLT rest-of-day RV)", status="FAILED", p=pc.get("p"), gamma=pc.get("gamma"), n_breaks=pc.get("n_breaks")))
     return out
 

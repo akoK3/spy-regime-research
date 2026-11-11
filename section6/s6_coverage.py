@@ -18,6 +18,14 @@ MIN_USABLE = 0.80; MAX_GAP = 30; MAX_STALE = 0.25          # approved by the use
 
 
 def a28_guard():
+    """FABLE_REAUDIT L7 / PREFREEZE_AUDIT L8: A28 ADOPTED by the manifest regex (not a substring test) and equal to its sidecar."""
+    sys.path.insert(0, str(HERE.parent / "section5")); import s5_amendment_manifest as AM
+    e = AM.manifest(("A28",))[0]
+    if not (e["present"] and e["status"] == "ADOPTED" and e["sidecar_matches"]): raise PermissionError("AMENDMENT_A28.md not ADOPTED or differs from its sidecar")
+    return True
+
+
+def _a28_guard_old():
     a = ROOT / "AMENDMENT_A28.md"; s = ROOT / "AMENDMENT_A28.sha256"
     if not s.exists() or s.read_text().split()[0] != hashlib.sha256(a.read_bytes()).hexdigest() or "Status: ADOPTED" not in a.read_text(encoding="utf-8"): raise PermissionError("AMENDMENT_A28.md not adopted or differs from its sidecar")
 
@@ -46,6 +54,7 @@ def available(m, asset):
 def main():
     import pandas as pd, s5_eval_loader as EL
     a28_guard(); OUT.mkdir(parents=True, exist_ok=True); rows = []
+    if (OUT / "coverage_sessions.csv").exists(): raise SystemExit("coverage_sessions.csv exists: written once (FABLE_REAUDIT L7); the evaluation reads it for history availability")
     cols = [f"{a}_{k}" for a in ASSETS for k in ("return_eligible", "log_return_1m")] + [f"{a}_causal_flat_age_ge15_flag" for a in QUOTES]
     hashes = {}
     for era in ("LEGACY", "RAW"):

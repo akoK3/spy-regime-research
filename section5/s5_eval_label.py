@@ -19,15 +19,17 @@ from pathlib import Path
 HERE = Path(__file__).resolve().parent; ROOT = HERE.parent
 LABEL = "adaptive/exploratory (previously exposed period)"
 ACTIVE = False                                  # True only inside run_confirmatory_labelled
-WRITER_CALL = re.compile(r"\brun_confirmatory\(")
-ALLOWED_CALLERS = ("section5/s5_freeze.py", "section5/s5_eval_label.py", "section5/s5_dry_run.py", "section5/s5_tests_build.py")      # definition; this wrapper; stub-only dry run and unit tests
+WRITER_CALL = re.compile(r"\brun_confirmatory\b(?!_labelled)")      # PREFREEZE_AUDIT L4: any reference (a call with spaces, an alias, getattr by name), not only "run_confirmatory("
+ALLOWED_CALLERS = ("section5/s5_freeze.py", "section5/s5_eval_label.py", "section5/s5_dry_run.py", "section5/s5_tests_build.py",      # definition; this wrapper; stub-only dry run and unit tests
+                   "section5/s5_run.py", "section5/s5_machinery_run.py", "section5/write_amendment_a10.py")      # PREFREEZE_AUDIT L4: name mentioned in text only (closure docstring, temp-dir rehearsal, amendment writer)
+TEST_FILE = re.compile(r"^(section5/|section6/)?s[56]_tests_[A-Za-z0-9_]+\.py$")      # unit tests patch the writer on temporary directories (no data)
 SCAN = ((HERE, "section5/"), (ROOT / "section6", "section6/"), (ROOT, ""))
 
 
 def direct_callers(scan=SCAN, allowed=ALLOWED_CALLERS):
     """Scripts that call the 5.13 writer directly (not through run_confirmatory_labelled)."""
     return sorted(pre + f.name for d, pre in scan if Path(d).exists() for f in Path(d).glob("*.py")
-                  if pre + f.name not in allowed and WRITER_CALL.search(f.read_text(encoding="utf-8", errors="ignore")))
+                  if pre + f.name not in allowed and not TEST_FILE.match(pre + f.name) and WRITER_CALL.search(f.read_text(encoding="utf-8", errors="ignore")))
 
 
 def ready(root=ROOT):

@@ -37,13 +37,17 @@ def release_date(p):
 
 def load(p, kind):
     p = Path(p)
+    def chunks(f):      # PREFREEZE_AUDIT L5: rows outside LO..HI (e.g. 2025-2026, the RAW evaluation period) are discarded chunk by chunk while streaming, never kept
+        for ch in pd.read_csv(f, chunksize=200_000):
+            ch.columns = [c.strip() for c in ch.columns]; dd = ch["datetime"].astype(str).str[:10]; keep = (dd >= LO) & (dd <= HI)
+            if keep.any(): yield ch.loc[keep]
     if p.suffix.lower() == ".zip":
         with zipfile.ZipFile(p) as z:
             name = next((n for n in z.namelist() if n.lower().endswith(f"spy_{kind}_1min.csv")), None)
             if name is None: raise SystemExit(f"SPY_{kind}_1min.csv not found in {p.name}")
-            df = pd.read_csv(io.BytesIO(z.read(name)))
-    else: df = pd.read_csv(p)
-    df.columns = [c.strip() for c in df.columns]; df["datetime"] = pd.to_datetime(df["datetime"])
+            with z.open(name) as f: df = pd.concat(list(chunks(f)), ignore_index=True)
+    else: df = pd.concat(list(chunks(p)), ignore_index=True)
+    df["datetime"] = pd.to_datetime(df["datetime"])
     d = df["datetime"].dt.strftime("%Y-%m-%d"); hm = df["datetime"].dt.hour * 60 + df["datetime"].dt.minute
     return df[(d >= LO) & (d <= HI) & (hm >= 570) & (hm <= 959)].sort_values("datetime", kind="stable").reset_index(drop=True)
 

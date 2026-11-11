@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """A26 rule 2b/2c: the amendment list of the 5.12 freeze document, produced outside the code-version closure.
-Checked (A26 2c): the existing freeze path receives it without any closure change. s5_run.freeze_step(backend, summ, results_dir, amendments) passes `amendments` unchanged to
+Checked (A26 2c): the existing freeze path receives it without any closure change. the freeze step of s5_run (called only by s5_freeze_run.py) passes `amendments` unchanged to
 s5_freeze.build_freeze, which stores it as doc["amendments"] (JSON); the list below is passed as that argument. No module of s5_guard.result_modules changes.
 Each entry: file name, status at freeze time (ADOPTED / DRAFT, from the "Status:" line), sha256 of the file on disk, sha256 in its sidecar, equal (bool).
 freeze_ready() refuses (PermissionError) when: any listed amendment is missing, has no sidecar, differs from its sidecar or is a DRAFT (A26 2b: the freeze and the 5.13 run

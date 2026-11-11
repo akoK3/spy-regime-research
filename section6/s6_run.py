@@ -161,7 +161,8 @@ def h4_test(E_by, units, point, label_fn, nboot=L.NBOOT, off=0, seed=0):
     X = np.array(X); c = np.array(c); y = np.array(y, float); folds = L.cv_folds(days, eras)        # A29 1a: folds fixed on the original weeks; resampled rows keep them (1d)
     g, p, nv, p_all = L.week_block_bootstrap(lambda ix: L.auc_gain_cv(X[ix], c[ix], y[ix], folds[ix]), days, eras, nboot, seed, valid_only=True)      # AMENDMENT_A35 rule 1: p on valid resamples only
     _, a1, a0 = L.auc_gain_cv(X, c, y, folds, parts=True); fin = lambda v: float(v) if np.isfinite(v) else None
-    return dict(n=len(y), n_pos=int(np.nansum(y)), gain=g, p=fin(p), n_valid_resamples=nv, p_a29_1d_descriptive=fin(p_all), statistic="A29 out-of-fold AUC gain (5 week folds, per-fold AUC, weighted mean); p on valid resamples only (A35 rule 1)",
+    vs = (nv / nboot) if nboot else None      # PREFREEZE_AUDIT L1: report V/B beside every H4 p; a share below 0.9 is flagged (valid-only p conditions on validity)
+    return dict(n=len(y), n_pos=int(np.nansum(y)), gain=g, p=fin(p), n_valid_resamples=nv, valid_share=vs, low_valid_share=bool(vs is not None and vs < 0.9), p_a29_1d_descriptive=fin(p_all), statistic="A29 out-of-fold AUC gain (5 week folds, per-fold AUC, weighted mean); p on valid resamples only (A35 rule 1)",
                 oof_auc_with_C=a1, oof_auc_spy_only=a0, gain_in_sample_descriptive=L.auc_gain(X, c, y))      # A29 1g: descriptive
 
 
@@ -296,7 +297,8 @@ def sanity(E_by, br, units, cand_by, alarms_by, nboot, n_sets=200, seed=7, worke
     fed = [u for u in br if u.get("fed")]; pos = h3_test(E_by, fed, "TLT", "rest_of_day", nboot, 0, seed)
     out = run_tasks(E_by, [("null", s) for s in range(n_sets)], workers, dict(units=units, cand_by=cand_by, alarms_by=alarms_by, nboot=nboot, seed=seed))
     rate = {k: float(np.mean([o[k] for o in out])) if out else None for k in PRIMARY}
-    return dict(positive_control=dict(pos, passed=bool(pos["p"] is not None and pos["p"] < 0.05)), null_control=dict(n_sets=len(out), rejection_rate=rate, passed=bool(out) and all(v <= 0.10 for v in rate.values())))
+    ev = pos.get("p") is not None and bool(np.isfinite(pos["p"]))      # PREFREEZE_AUDIT L2: a NaN p is "not evaluable", never "failed"
+    return dict(positive_control=dict(pos, evaluable=ev, passed=bool(ev and pos["p"] < 0.05), status=("passed" if ev and pos["p"] < 0.05 else "failed" if ev else "not evaluable")), null_control=dict(n_sets=len(out), rejection_rate=rate, passed=bool(out) and all(v <= 0.10 for v in rate.values())))
 
 
 def placebo_filter_control(E_by, br, cand_by, nboot, seed=31, reference="matched_no_alarm_filter"):
@@ -471,13 +473,17 @@ def provenance():
     return dict(code=FP.current(), amendments=AM.manifest(SECTION6_AMENDMENTS))
 
 
+EVAL_INPUT = __import__("re").compile(r"(?<![A-Za-z0-9])(?:s6_|h2_|a34_)?evaluation_(?:LEGACY|RAW|gaussian_hmm|student_t_hmm|hsmm|bocpd)\.json|coverage_evaluation\.json|a38_filter_check\.json")
+
+
 def write_once(path, obj):
     """Writes a result with a sha256 sidecar; refuses to overwrite an existing result (FABLE_AUDIT M3); refuses an evaluation-period result without the A26 label (A34 3a).
     FABLE_REAUDIT M3: "evaluation-period" is decided by what the process read, not only by the `period` field of the result: once s5_eval_loader has allowed any
     evaluation-period read in this process (EVAL_READS), every result written here must carry the label, whatever `period` says."""
     path = Path(path); el = sys.modules.get("s5_eval_loader"); ev_read = bool(el is not None and getattr(el, "EVAL_READS", None))
     labelled = isinstance(obj, dict) and obj.get("a26_label") == LABEL_EVAL and obj.get("confirmatory") is False
-    if (ev_read or (isinstance(obj, dict) and obj.get("period") not in (None, "development"))) and not labelled:
+    cites = bool(EVAL_INPUT.search(json.dumps(obj, default=str))) if isinstance(obj, (dict, list)) else False      # PREFREEZE_AUDIT L4: a payload derived from an evaluation result
+    if (ev_read or cites or (isinstance(obj, dict) and obj.get("period") not in (None, "development"))) and not labelled:
         raise PermissionError(f"{path.name}: an evaluation-period result must carry a26_label = {LABEL_EVAL!r} and confirmatory = False (AMENDMENT_A34 rule 3a, A26 1d)")
     if path.exists(): raise SystemExit(f"{path} exists: Section 6 results are written once; move it aside with a ledger row to rerun")
     path.parent.mkdir(parents=True, exist_ok=True); path.write_text(json.dumps(obj, indent=1, default=float), encoding="utf-8")

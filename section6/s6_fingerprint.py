@@ -7,7 +7,7 @@ Usage: s6_fingerprint.py write | verify. Not run before the user says so (it pre
 import sys, json, hashlib, datetime
 from pathlib import Path
 HERE = Path(__file__).resolve().parent; ROOT = HERE.parent; sys.path.insert(0, str(ROOT / "section5"))
-FP = HERE / "results" / "s6_fingerprint.json"; HELPERS = ("s5_eval_loader.py", "s5_amendment_manifest.py", "s5_break_export.py", "s5_eval_label.py", "s5_eval513.py", "s5_h1c_eval_times.py", "s5_a17_a18_common.py", "s5_freeze_models.py"); CODE_VERSION = "a0323ed24d68e896"      # A36 7b: HELPERS now holds the Section 5 helpers of the evaluation path
+FP = HERE / "results" / "s6_fingerprint.json"; HELPERS = ("s5_eval_loader.py", "s5_amendment_manifest.py", "s5_break_export.py", "s5_eval_label.py", "s5_eval513.py", "s5_h1c_eval_times.py", "s5_a17_a18_common.py", "s5_freeze_models.py", "s5_a38.py"); CODE_VERSION = "a0323ed24d68e896"      # A36 7b: HELPERS now holds the Section 5 helpers of the evaluation path
 
 
 def sha(p): return hashlib.sha256(Path(p).read_bytes()).hexdigest()
