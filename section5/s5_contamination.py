@@ -52,6 +52,7 @@ REGISTRY = {
     "s5_feature_parity.py": "LABEL_FREE", "s5_a38.py": "EVALUATION", "s5_freeze_run.py": "MAIN_RUN", "s5_tests_freeze_run.py": "LIBRARY", "s5_tests_a38.py": "LIBRARY",      # PREFREEZE_AUDIT H1, M1, M2, M4
     "s5_d7_nan_diag.py": "LABEL_FREE",      # post hoc: why D7 (A21) found undefined variance ratios on 47 LEGACY days; no detector, no outcome
     "s5_preflight_data_hashes.py": "LABEL_FREE",      # audit-1 #17: SHA-256 of input data files against recorded hashes; no detector, no outcome
+    "s5_fomc_clock.py": "LABEL_FREE",      # 2026-11-11 timing check: SPY |1-min return| around stored FOMC release times, TRAIN sessions only; no detector, no outcome
     "s5_d8c.py": "DESCRIPTIVE",      # A22 rule 1: D8c overlap breakdown, same status as D8      # A21 rule 3f: Step 2 for liquidity (preflight on RAW 3 and LEGACY 29 only)
     "s5_d7.py": "POST_MAIN_RUN", "s5_tests_d7.py": "LIBRARY",      # A19 rule 2h: test segments already scored by the main run
     "s5_d8b.py": "DESCRIPTIVE",      # A19.1: D8 sensitivity, same status as D8
