@@ -1,3 +1,80 @@
+# Report, 2026-11-11: data provenance and freeze-readiness checks (read-only; nothing changed)
+
+## (a) Why 2002-12-30 and 2002-12-31 are excluded
+
+- **Record:** the frozen split protocol `frozen_documents/protocol_20261029T032641Z.json` (sha256 `3d6f0c96fce1c05f8e94d1a8c6e6b14a5b5b1c9f013e6a95dd1e96498cbfff8b`, equals its sidecar).
+  - Its `exclusions` list gives: first_session 2002-12-30, last_session 2002-12-31, reason **"Two-session legacy stub; excluded without inspecting outcomes"**.
+  - The same entry is repeated in amendment 4.3.0-A1 (`protocol_amendment_4_3_0_A1_20261029T034121Z.json`, sha256 `a57d55cc...`, equals its sidecar).
+- **Frozen report** (`frozen_documents/REPORT.md`, "Final historical boundaries"): "The two legacy sessions 2002-12-30/31 are excluded. The draft calendar development start remains 2003-01-01; the first actual trading session is January 2. ... No favorable outcome was used to move these dates."
+- **Context:** the HF/PiTrading SPY history starts on 2002-12-30, so those two sessions are an isolated stub before the 2003 calendar start. The LEGACY development span is 2003-01-02 to 2022-03-04 (4,827 sessions).
+
+## (b) LEGACY provider, HF version and source file
+
+- **Provider:** PiTrading. The rows carry `source` = `pitrading`, distributed inside the HF Data Library file.
+- **HF version: Clean.** The panel uses the pitrading rows only. The other versions:
+  - LEGACY uses neither HF Raw nor any Filled version;
+  - HF does not distribute a Filled version ("This library does not distribute a gap-filled version", Data Versions page);
+  - no Raw file we hold contains pitrading rows.
+- **Source files.** The LEGACY ETF step (`section3_4_etf_cleaning.py`; recorded in `section3_4_etf_results/summary.json`, `dataset/*_LEGACY/source`) read the extracted copies below, keeping rows with `source` = `pitrading`:
+
+  | File | Bytes | SHA-256 (recorded in `section2_audit_results/inventory.csv`) |
+  |---|---|---|
+  | `C:\Users\kakij\OneDrive\Desktop\data\raw\SPY_clean_1min.csv` | 145,098,632 | `718a1219bae3d8021ba473d4a3db73431dab45b183360121f08a780567454369` |
+  | `...\TLT_clean_1min.csv` | 124,315,432 | `cd1336671d202f4845b2b91d1e1b53cf937e238700be556c63381acbcae815df` |
+  | `...\HYG_clean_1min.csv` | 100,147,742 | `35e6540d4d9792c997dee736dda03872269246fbfdeb01bf67135bddb0364770` |
+
+- **Origin of those copies:** each is byte-identical to the member of the same name in `C:\Users\kakij\Downloads\hfdatalibrary_clean_1min_5tickers_2026-10-03.zip` (545,272,441 bytes). The zip's recorded SHA-256 (`b6754832051ad5ff0a265439e35e100cc1fbef56cd3c067ff9b3ed50aa5d55ce`, Section 2 inventory) equals its current hash.
+- **SPY in that file:** 1,819,919 pitrading bars (2002-12-30 to 2022-03-04) and 434,064 iex bars (2022-03-07 onward, not used for LEGACY).
+- **Naming caution:** Section 2 labels the zip "HF IEX CLEAN" and the copies "HF legacy/PiTrading-processed". In our code "LEGACY" and "RAW" are era names: the LEGACY era uses the HF **Clean** file, and the RAW era uses the HF **Raw** IEX files.
+
+## (c) Does HF Raw contain pre-March-2022 rows? No (docs and metadata only; no new download)
+
+- **Docs** (`hfdatalibrary.com/pages/docs`): "Begin March 7, 2022 — IEX Exchange HIST data only"; "every bar is `iex`". PiTrading is not mentioned.
+- **Data Versions page:** Raw is "One-minute bars built from IEX trades between 09:30 and 16:00 ET". Only Raw and Clean exist; no Filled version is distributed.
+- **API** (`api.hfdatalibrary.com/v1/symbols/SPY`): Raw 9,025,023 bytes, Clean 8,816,589 bytes, both last modified 2026-11-10. The endpoints report sizes and timestamps only, no coverage dates or sources.
+- **Files already held** (inspected, not downloaded for this): every Raw SPY file starts 2022-03-07 and is all `iex`:
+  - 2026-10-13: 448,465 bars;
+  - 2026-11-11: 456,265 bars.
+- **Consequence:** HF offers no unfiltered PiTrading series. The 2026-10-03 Clean download, and the OneDrive copies of it, are the only record of the LEGACY history from HF.
+
+## (d) Does the Zenodo record have downloadable files? Only a README
+
+- **Record:** concept DOI 10.5281/zenodo.19501604, "HF Data Library: High-Frequency U.S. Equity Data (1-Minute OHLCV)", open access, read through the Zenodo API.
+- **Versions:**
+  - 1.0 (record 19501605, 2026-04-10);
+  - 1.1 (23149900, 2026-10-05);
+  - 1.2 (23288426, 2026-10-10, latest).
+- **Files:** each version holds **one file only**, `zenodo_README.md` (about 5 kB). There are no CSV, Parquet or zip data files; the data are distributed through hfdatalibrary.com.
+- **Coverage:** all three descriptions state coverage from March 7, 2022. Versions 1.0 and 1.1 add "Earlier history is no longer offered."
+
+## (e) Refit timing and the H3/H4 detector: both done, in code, tested
+
+**Refit timing (AMENDMENT_A37, adopted 2026-11-11T02:14:37Z; commit 81eb166):**
+- **At the freeze:** `section5/s5_freeze_models.py` fits the final setups and baselines of all four families on TRAIN sessions only, through the audited loader, checked against the split manifest.
+  - The baseline A11 threshold is also computed on TRAIN.
+  - The pickles and a manifest are hashed into the freeze document (`input_hashes["frozen_models"]`).
+- **At evaluation:** `section5/s5_eval513.py` only loads and checks these models (`load_frozen`).
+  - Its backend raises "no model is fitted on the evaluation path (A37 2b)" on any fit outside the frozen set, and refuses selection, fold scoring and era thresholds.
+  - `fit_fn` hands over the loaded state, and `run_fn` starts with the guarded evaluation read, so the one-shot marker is written immediately before the first evaluation read.
+- **Tests:** `section6/s6_tests_a37.py` 9/9 pass on 2026-11-11 (rerun now). They cover backend delegation, load refusals, the fit refusal, fit_fn hand-over, the precheck reading nothing, write-once, and alerts.
+- **Not run yet:** no frozen models exist (`section5/results/frozen_models/` is absent) because no freeze has been written.
+
+**H3/H4 detector (A28 1b, A35 rule 3, A36 2d), not hard-coded:**
+- `section6/s6_eval.py::h34_primary(fz)` reads the detector from the freeze document: `fz["h2_primary_detector"]`, set by `s5_freeze.h2_primary` (A9 item 2).
+  - If none is set, the fallback is the H1 family with the lowest median validation QLIKE in the freeze, ties to the simpler model; BOCPD never.
+  - A35 rule 3 is then applied from the stored null-control reruns (`section6/results/a35_null_control_{gaussian_hmm,hsmm}.json`, each checked against its sidecar). A Gaussian HMM that failed is replaced by the HSMM; an HSMM that failed, or a rerun that does not reproduce, stops the work.
+  - The guards log the chosen detector and the reason.
+- **Tests:** `section6/s6_tests_a36.py` 18/18 pass (rerun now). `test_h34_primary` covers every branch: freeze detector kept; Gaussian replaced by HSMM on failure; Student-t and HSMM kept; the 3d and 2d stops; the fallback tie to the simpler model.
+- **The literal family names** in `s6_eval.py` appear only in the A35 replacement rule ("gaussian_hmm" -> "hsmm") and the H1 ordering tuple, as A35 3a specifies. No detector is fixed for H3/H4.
+- **The development runs used both Gaussian HMM and HSMM** by approval (ledger 2026-11-10 03:42Z), because no freeze existed. The evaluation path takes the detector from the freeze.
+
+## Not changed
+
+- No file, test, amendment or result was modified for this report. The two test files were only run.
+- Note: A35-A37 were written and adopted in another session on 2026-11-10/11. A38 (filter checks of H1) was adopted on 2026-11-11 04:33Z (commit 7263a5a).
+
+---
+
 # Report, 2026-11-10 23:15 New York: A35 null-control rerun finished; A37
 
 ## Bottom line
