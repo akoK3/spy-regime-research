@@ -1,0 +1,311 @@
+{
+ "label": "LABEL-FREE vendor check (HF Data Library Raw vs Clean, SPY); no study data, no result module",
+ "window": {
+  "dates": [
+   "2022-03-07",
+   "2024-12-23"
+  ],
+  "times": "09:30-15:59 ET"
+ },
+ "inputs": {
+  "raw": {
+   "file": "hfdatalibrary_raw_1min_1tickers_2026-11-11.zip",
+   "sha256": "b6e9da59a38deca77be6d5819c3608645dfe87ec785ca98c6eb45b2554b2feaf",
+   "release": "2026-11-11"
+  },
+  "clean": {
+   "file": "hfdatalibrary_clean_1min_1tickers_2026-11-11.zip",
+   "sha256": "58f8f11245f398937cd23ab2d06ec5b170c4f7598521cfe402bc6bf2ac624c9d",
+   "release": "2026-11-11"
+  }
+ },
+ "counts": {
+  "raw_bars": 273659,
+  "clean_bars": 266535,
+  "raw_duplicate_rows": 0,
+  "clean_duplicate_rows": 0,
+  "sessions_raw": 705,
+  "removed": 7124,
+  "removed_share_of_raw": 0.02603239798435279,
+  "added": 0,
+  "added_share_of_clean": 0.0,
+  "changed": 0,
+  "changed_share_of_raw": 0.0,
+  "changed_by_field": {
+   "Open": 0,
+   "High": 0,
+   "Low": 0,
+   "Close": 0,
+   "Volume": 0
+  },
+  "removed_by_documented_step": {
+   "8_or_unexplained": 7124
+  },
+  "raw_source_values": {
+   "iex": 273659
+  },
+  "clean_source_values": {
+   "iex": 266535
+  }
+ },
+ "reversal": {
+  "removed_all": {
+   "n_flagged": 6947,
+   "n_kept": 259799,
+   "n_flagged_above_kept_max": 0,
+   "bins": 13,
+   "by_k": {
+    "1": {
+     "reversal": {
+      "flagged_rate": 0.5984343287909539,
+      "kept_rate_same_size": 0.4993011347130194,
+      "difference": 0.09913319407793447,
+      "ci95": [
+       0.0869585866554304,
+       0.11184092076821815
+      ],
+      "n_flagged_used": 6898
+     },
+     "strong_reversal": {
+      "flagged_rate": 0.423601043780806,
+      "kept_rate_same_size": 0.32892704178763665,
+      "difference": 0.09467400199316936,
+      "ci95": [
+       0.08319437785696196,
+       0.10740265371499146
+      ],
+      "n_flagged_used": 6898
+     }
+    },
+    "2": {
+     "reversal": {
+      "flagged_rate": 0.6359796067006556,
+      "kept_rate_same_size": 0.5003561908912519,
+      "difference": 0.13562341580940362,
+      "ci95": [
+       0.12449401481078969,
+       0.14762752145633457
+      ],
+      "n_flagged_used": 6865
+     },
+     "strong_reversal": {
+      "flagged_rate": 0.5227967953386745,
+      "kept_rate_same_size": 0.374480348853956,
+      "difference": 0.14831644648471842,
+      "ci95": [
+       0.13719635451430942,
+       0.1604021853993086
+      ],
+      "n_flagged_used": 6865
+     }
+    },
+    "3": {
+     "reversal": {
+      "flagged_rate": 0.6571512223686137,
+      "kept_rate_same_size": 0.49909751323198237,
+      "difference": 0.1580537091366313,
+      "ci95": [
+       0.14712201207985917,
+       0.1700712289037042
+      ],
+      "n_flagged_used": 6831
+     },
+     "strong_reversal": {
+      "flagged_rate": 0.5778070560679257,
+      "kept_rate_same_size": 0.39325212341935106,
+      "difference": 0.18455493264857456,
+      "ci95": [
+       0.17335589008105692,
+       0.19636740018383905
+      ],
+      "n_flagged_used": 6831
+     }
+    },
+    "4": {
+     "reversal": {
+      "flagged_rate": 0.6789233710839828,
+      "kept_rate_same_size": 0.49643617215821906,
+      "difference": 0.18248719892576393,
+      "ci95": [
+       0.1716360270200407,
+       0.19456452121148496
+      ],
+      "n_flagged_used": 6799
+     },
+     "strong_reversal": {
+      "flagged_rate": 0.6189145462568024,
+      "kept_rate_same_size": 0.40443353209415106,
+      "difference": 0.21448101416265133,
+      "ci95": [
+       0.20325104623381546,
+       0.226646463166112
+      ],
+      "n_flagged_used": 6799
+     }
+    },
+    "5": {
+     "reversal": {
+      "flagged_rate": 0.6911048827260659,
+      "kept_rate_same_size": 0.49746041814638337,
+      "difference": 0.19364446457968243,
+      "ci95": [
+       0.18298773146699185,
+       0.2050246593944992
+      ],
+      "n_flagged_used": 6779
+     },
+     "strong_reversal": {
+      "flagged_rate": 0.6450803953385456,
+      "kept_rate_same_size": 0.41318818285569203,
+      "difference": 0.2318922124828535,
+      "ci95": [
+       0.22130417614746736,
+       0.24351472200685387
+      ],
+      "n_flagged_used": 6779
+     }
+    }
+   }
+  },
+  "removed_step8_or_unexplained": {
+   "n_flagged": 6947,
+   "n_kept": 259799,
+   "n_flagged_above_kept_max": 0,
+   "bins": 13,
+   "by_k": {
+    "1": {
+     "reversal": {
+      "flagged_rate": 0.5984343287909539,
+      "kept_rate_same_size": 0.4993011347130194,
+      "difference": 0.09913319407793447,
+      "ci95": [
+       0.0869585866554304,
+       0.11184092076821815
+      ],
+      "n_flagged_used": 6898
+     },
+     "strong_reversal": {
+      "flagged_rate": 0.423601043780806,
+      "kept_rate_same_size": 0.32892704178763665,
+      "difference": 0.09467400199316936,
+      "ci95": [
+       0.08319437785696196,
+       0.10740265371499146
+      ],
+      "n_flagged_used": 6898
+     }
+    },
+    "2": {
+     "reversal": {
+      "flagged_rate": 0.6359796067006556,
+      "kept_rate_same_size": 0.5003561908912519,
+      "difference": 0.13562341580940362,
+      "ci95": [
+       0.12449401481078969,
+       0.14762752145633457
+      ],
+      "n_flagged_used": 6865
+     },
+     "strong_reversal": {
+      "flagged_rate": 0.5227967953386745,
+      "kept_rate_same_size": 0.374480348853956,
+      "difference": 0.14831644648471842,
+      "ci95": [
+       0.13719635451430942,
+       0.1604021853993086
+      ],
+      "n_flagged_used": 6865
+     }
+    },
+    "3": {
+     "reversal": {
+      "flagged_rate": 0.6571512223686137,
+      "kept_rate_same_size": 0.49909751323198237,
+      "difference": 0.1580537091366313,
+      "ci95": [
+       0.14712201207985917,
+       0.1700712289037042
+      ],
+      "n_flagged_used": 6831
+     },
+     "strong_reversal": {
+      "flagged_rate": 0.5778070560679257,
+      "kept_rate_same_size": 0.39325212341935106,
+      "difference": 0.18455493264857456,
+      "ci95": [
+       0.17335589008105692,
+       0.19636740018383905
+      ],
+      "n_flagged_used": 6831
+     }
+    },
+    "4": {
+     "reversal": {
+      "flagged_rate": 0.6789233710839828,
+      "kept_rate_same_size": 0.49643617215821906,
+      "difference": 0.18248719892576393,
+      "ci95": [
+       0.1716360270200407,
+       0.19456452121148496
+      ],
+      "n_flagged_used": 6799
+     },
+     "strong_reversal": {
+      "flagged_rate": 0.6189145462568024,
+      "kept_rate_same_size": 0.40443353209415106,
+      "difference": 0.21448101416265133,
+      "ci95": [
+       0.20325104623381546,
+       0.226646463166112
+      ],
+      "n_flagged_used": 6799
+     }
+    },
+    "5": {
+     "reversal": {
+      "flagged_rate": 0.6911048827260659,
+      "kept_rate_same_size": 0.49746041814638337,
+      "difference": 0.19364446457968243,
+      "ci95": [
+       0.18298773146699185,
+       0.2050246593944992
+      ],
+      "n_flagged_used": 6779
+     },
+     "strong_reversal": {
+      "flagged_rate": 0.6450803953385456,
+      "kept_rate_same_size": 0.41318818285569203,
+      "difference": 0.2318922124828535,
+      "ci95": [
+       0.22130417614746736,
+       0.24351472200685387
+      ],
+      "n_flagged_used": 6779
+     }
+    }
+   }
+  },
+  "changed": {
+   "n_flagged": 0,
+   "note": "too few bars"
+  },
+  "definition": "reversal: sign of the next-k-bar move opposite to the move into the bar; strong: at least half of the move undone; size-matched by |r| bins of kept bars; day-cluster bootstrap 999"
+ },
+ "hf_documentation": {
+  "source": "https://hfdatalibrary.com/pages/docs",
+  "read": "2026-11-10",
+  "clean_steps": [
+   "1 remove bars outside 09:30-16:00 ET",
+   "2 remove bars with Open, High, Low or Close <= 0",
+   "3 remove bars with High < Low",
+   "4 remove bars with Open or Close outside [Low, High]",
+   "5 remove duplicate timestamps, keep first",
+   "6 remove bars with zero volume",
+   "7 remove bars with |log return| > 25% relative to the previous close (backward-looking)",
+   "8 Brownlees-Gallo: remove bars with |close - median| > 3 x MAD over a 50-bar CENTERED window (uses later bars)"
+  ],
+  "notes": "steps applied in order; a bar failing any step is removed; prices split-adjusted only; the page does not describe Filled; Raw is described on a separate Data Versions page"
+ },
+ "generated": "2026-11-11T04:18:09.084269+00:00",
+ "script_sha256": "d5165916aba0d70544928a66eef5c174ce51295477d99aa1c8198fdef2e78edc"
+}
