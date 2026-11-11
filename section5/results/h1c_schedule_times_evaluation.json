@@ -1,0 +1,400 @@
+{
+ "source": "AMENDMENT_A36 rule 3 (A11 item 3 and A12 item 2 extended to the evaluation periods)",
+ "written_utc": "2026-11-11T01:32:42.336979+00:00",
+ "periods": {
+  "LEGACY": [
+   "2019-01-02",
+   "2022-03-04"
+  ],
+  "RAW": [
+   "2025-01-02",
+   "2026-10-12"
+  ]
+ },
+ "date_pages": {
+  "cal.htm": "c6e04512d6e5b340e5dc6981b30d83b64940089e638a939a5ff5533592bf88e1",
+  "h2019.htm": "b5b1f4778cabe1ae0f87d1144bea20efb89fe224232d97ce4c775aff71f1a25f",
+  "h2020.htm": "239c2f2b42830d6b5bad2aa064b90a5e95efaa875d30b1217af7b57c06af0757"
+ },
+ "dates_parsed_by_year": {
+  "2019": [
+   "2019-01-30",
+   "2019-03-20",
+   "2019-05-01",
+   "2019-06-19",
+   "2019-07-31",
+   "2019-09-18",
+   "2019-10-30",
+   "2019-12-11"
+  ],
+  "2020": [
+   "2020-01-29",
+   "2020-04-29",
+   "2020-06-10",
+   "2020-07-29",
+   "2020-09-16",
+   "2020-11-05",
+   "2020-12-16"
+  ],
+  "2021": [
+   "2021-01-27",
+   "2021-03-17",
+   "2021-04-28",
+   "2021-06-16",
+   "2021-07-28",
+   "2021-09-22",
+   "2021-11-03",
+   "2021-12-15"
+  ],
+  "2022": [
+   "2022-01-26",
+   "2022-03-16",
+   "2022-05-04",
+   "2022-06-15",
+   "2022-07-27",
+   "2022-09-21",
+   "2022-11-02",
+   "2022-12-14"
+  ],
+  "2025": [
+   "2025-01-29",
+   "2025-03-19",
+   "2025-05-07",
+   "2025-06-18",
+   "2025-07-30",
+   "2025-09-17",
+   "2025-10-29",
+   "2025-12-10"
+  ],
+  "2026": [
+   "2026-01-28",
+   "2026-03-18",
+   "2026-04-29",
+   "2026-06-17",
+   "2026-07-29",
+   "2026-09-16",
+   "2026-10-28"
+  ]
+ },
+ "rule_2013_plus_consistent": true,
+ "n_fed_pages_stating_time_2013_plus": 96,
+ "exceptions_to_schedule_rule": [],
+ "counts": {
+  "meetings": 38,
+  "time": 38,
+  "excluded": 0,
+  "by_basis": {
+   "statement page states the time": 38
+  },
+  "by_period": {
+   "LEGACY": 24,
+   "RAW": 14
+  }
+ },
+ "meetings": {
+  "2019-01-30": {
+   "status": "time",
+   "time_et": "14:00",
+   "minute_after_0930": 270,
+   "basis": "statement page states the time",
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20190130a.htm",
+   "page_sha256": "4e6aff376d525589a504cd5656ab8ed4fb402f99a8405819996e13c2d122de68"
+  },
+  "2019-03-20": {
+   "status": "time",
+   "time_et": "14:00",
+   "minute_after_0930": 270,
+   "basis": "statement page states the time",
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20190320a.htm",
+   "page_sha256": "67368a8a177bac14f88de158b4e31e5da3838cee883fa2361fce8043f662f213"
+  },
+  "2019-05-01": {
+   "status": "time",
+   "time_et": "14:00",
+   "minute_after_0930": 270,
+   "basis": "statement page states the time",
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20190501a.htm",
+   "page_sha256": "871492e92566c54f30d391a03ba9a8511a7ac6915d744b0f659e565e74b0e693"
+  },
+  "2019-06-19": {
+   "status": "time",
+   "time_et": "14:00",
+   "minute_after_0930": 270,
+   "basis": "statement page states the time",
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20190619a.htm",
+   "page_sha256": "db6c99d86ea6704b92179aaef82b5c935c180ec9c838ddd0f1bf4cdf102cf84e"
+  },
+  "2019-07-31": {
+   "status": "time",
+   "time_et": "14:00",
+   "minute_after_0930": 270,
+   "basis": "statement page states the time",
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20190731a.htm",
+   "page_sha256": "de7d522823636d7533a9df52c6b38e11ff3b134d792b19b96cb56333cefc8f9e"
+  },
+  "2019-09-18": {
+   "status": "time",
+   "time_et": "14:00",
+   "minute_after_0930": 270,
+   "basis": "statement page states the time",
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20190918a.htm",
+   "page_sha256": "2f05b180d3dd123732d5a29cf345c8546600e6e6c585b76d3d0ebb00372d0f0c"
+  },
+  "2019-10-30": {
+   "status": "time",
+   "time_et": "14:00",
+   "minute_after_0930": 270,
+   "basis": "statement page states the time",
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20191030a.htm",
+   "page_sha256": "c893e86f4cdd2ab59123007a85ed6329476f806b3ccbf3e53478c62fe23efae4"
+  },
+  "2019-12-11": {
+   "status": "time",
+   "time_et": "14:00",
+   "minute_after_0930": 270,
+   "basis": "statement page states the time",
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20191211a.htm",
+   "page_sha256": "2f0684fae35590b9497f5eb3222edaa726a06c10206126ce12b3220fd1067eb8"
+  },
+  "2020-01-29": {
+   "status": "time",
+   "time_et": "14:00",
+   "minute_after_0930": 270,
+   "basis": "statement page states the time",
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20200129a.htm",
+   "page_sha256": "1c057bbc0b702af7acdf23a0bee37f5a89db159c10374ad07d911cd2a3523559"
+  },
+  "2020-04-29": {
+   "status": "time",
+   "time_et": "14:00",
+   "minute_after_0930": 270,
+   "basis": "statement page states the time",
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20200429a.htm",
+   "page_sha256": "0d8ac2ff476e72ebd6eb72d3b8314837df5b479b4a098b7d2ecd6df9dd3dd53b"
+  },
+  "2020-06-10": {
+   "status": "time",
+   "time_et": "14:00",
+   "minute_after_0930": 270,
+   "basis": "statement page states the time",
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20200610a.htm",
+   "page_sha256": "45e9624a9db53532e3d059360b3b87315869841c01420f53b63c3dd43b8f5d0e"
+  },
+  "2020-07-29": {
+   "status": "time",
+   "time_et": "14:00",
+   "minute_after_0930": 270,
+   "basis": "statement page states the time",
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20200729a.htm",
+   "page_sha256": "94b871f3b9398424f4a82610ca635430220420cb759a9d9658d8982271699a0e"
+  },
+  "2020-09-16": {
+   "status": "time",
+   "time_et": "14:00",
+   "minute_after_0930": 270,
+   "basis": "statement page states the time",
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20200916a.htm",
+   "page_sha256": "22b29307783f23bde55d47988fc25149e812fbeb92283449b31f75f96740cc77"
+  },
+  "2020-11-05": {
+   "status": "time",
+   "time_et": "14:00",
+   "minute_after_0930": 270,
+   "basis": "statement page states the time",
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20201105a.htm",
+   "page_sha256": "468818f262f7b7dd4824e71037a7e0b705782c52bdd7c62bfa78f6e35f177469"
+  },
+  "2020-12-16": {
+   "status": "time",
+   "time_et": "14:00",
+   "minute_after_0930": 270,
+   "basis": "statement page states the time",
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20201216a.htm",
+   "page_sha256": "fbff2ebf992260e6a237c40110b4ac9c2795c9d5b3ddb62c8ac501bfaf19928c"
+  },
+  "2021-01-27": {
+   "status": "time",
+   "time_et": "14:00",
+   "minute_after_0930": 270,
+   "basis": "statement page states the time",
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20210127a.htm",
+   "page_sha256": "d1bb8343cacf4bc385727c710c2512eb15fe560fe1ac79ff77c6e131062fe313"
+  },
+  "2021-03-17": {
+   "status": "time",
+   "time_et": "14:00",
+   "minute_after_0930": 270,
+   "basis": "statement page states the time",
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20210317a.htm",
+   "page_sha256": "70b6399196f8229efcbfb0f5c4acc15a7525afc09413570f460aa524962adbc6"
+  },
+  "2021-04-28": {
+   "status": "time",
+   "time_et": "14:00",
+   "minute_after_0930": 270,
+   "basis": "statement page states the time",
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20210428a.htm",
+   "page_sha256": "6aa62b17d0399f25c73c02bf78dd339ad8648ea16c843867edb6d9e0bbebd947"
+  },
+  "2021-06-16": {
+   "status": "time",
+   "time_et": "14:00",
+   "minute_after_0930": 270,
+   "basis": "statement page states the time",
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20210616a.htm",
+   "page_sha256": "2d9299008fb9124ca7196684c416cba56951720eaa1ddb90b9144f21a6733a9f"
+  },
+  "2021-07-28": {
+   "status": "time",
+   "time_et": "14:00",
+   "minute_after_0930": 270,
+   "basis": "statement page states the time",
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20210728a.htm",
+   "page_sha256": "f3ffeec44b5bb52eecdf0030b3688995d57a0b11b27ffb2c5c279b6d180f2b00"
+  },
+  "2021-09-22": {
+   "status": "time",
+   "time_et": "14:00",
+   "minute_after_0930": 270,
+   "basis": "statement page states the time",
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20210922a.htm",
+   "page_sha256": "51e1f8018b9bb2cb4e1b4ae3f2e1efba237ed85d9b25c08f3bc3aa0d8ea7a1ac"
+  },
+  "2021-11-03": {
+   "status": "time",
+   "time_et": "14:00",
+   "minute_after_0930": 270,
+   "basis": "statement page states the time",
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20211103a.htm",
+   "page_sha256": "a6640d68c39bf7cb2187657e9732431cdeb9a8057ed24f150cd4c8a8793ae3ab"
+  },
+  "2021-12-15": {
+   "status": "time",
+   "time_et": "14:00",
+   "minute_after_0930": 270,
+   "basis": "statement page states the time",
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20211215a.htm",
+   "page_sha256": "88365e0e8cd6f8c0a4c2b3005af99a3aae18bac0500f52089f5ade178f30672f"
+  },
+  "2022-01-26": {
+   "status": "time",
+   "time_et": "14:00",
+   "minute_after_0930": 270,
+   "basis": "statement page states the time",
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20220126a.htm",
+   "page_sha256": "cfa4dab30427d149c198d29b488adfd4f0c002a388672789201d5d9ad5740209"
+  },
+  "2025-01-29": {
+   "status": "time",
+   "time_et": "14:00",
+   "minute_after_0930": 270,
+   "basis": "statement page states the time",
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20250129a.htm",
+   "page_sha256": "22178e1726da6c3d09120fadf98f756aa9667edd7eb1a66500f6a9a1f77fac87"
+  },
+  "2025-03-19": {
+   "status": "time",
+   "time_et": "14:00",
+   "minute_after_0930": 270,
+   "basis": "statement page states the time",
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20250319a.htm",
+   "page_sha256": "c4604cbbc1f657559793158ddd308e239d631d5bd9963e27f79f1e2fbed80385"
+  },
+  "2025-05-07": {
+   "status": "time",
+   "time_et": "14:00",
+   "minute_after_0930": 270,
+   "basis": "statement page states the time",
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20250507a.htm",
+   "page_sha256": "b81c1b32ea655204d891b83c2781e0dd200781da9af2289686c64374e502633d"
+  },
+  "2025-06-18": {
+   "status": "time",
+   "time_et": "14:00",
+   "minute_after_0930": 270,
+   "basis": "statement page states the time",
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20250618a.htm",
+   "page_sha256": "6c3e19dca5126dbd94ce257fa368f760b04f4004ae573f3f0432973e6ec701d5"
+  },
+  "2025-07-30": {
+   "status": "time",
+   "time_et": "14:00",
+   "minute_after_0930": 270,
+   "basis": "statement page states the time",
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20250730a.htm",
+   "page_sha256": "9e9ec7fe68d2d7fa35498bf1b8f3879ff3c5880d0e209f1e200f06a9ecfdf8d9"
+  },
+  "2025-09-17": {
+   "status": "time",
+   "time_et": "14:00",
+   "minute_after_0930": 270,
+   "basis": "statement page states the time",
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20250917a.htm",
+   "page_sha256": "fe7b00ca7f8d345c554aae74374f641d3f84f25d63dc1a8271871f32d5e60428"
+  },
+  "2025-10-29": {
+   "status": "time",
+   "time_et": "14:00",
+   "minute_after_0930": 270,
+   "basis": "statement page states the time",
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20251029a.htm",
+   "page_sha256": "e55c1b129e201dfd46987ef5f06ce4644adf6b18944aad9c9eba0e50690af842"
+  },
+  "2025-12-10": {
+   "status": "time",
+   "time_et": "14:00",
+   "minute_after_0930": 270,
+   "basis": "statement page states the time",
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20251210a.htm",
+   "page_sha256": "66aa3900d06e9b7450fca265c8f8e56219172bfa34223dfa61522b4515d63568"
+  },
+  "2026-01-28": {
+   "status": "time",
+   "time_et": "14:00",
+   "minute_after_0930": 270,
+   "basis": "statement page states the time",
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260128a.htm",
+   "page_sha256": "cbf72542f10e0c672eae2114ba5983e6130d2baedf80b4c4da951479445e9189"
+  },
+  "2026-03-18": {
+   "status": "time",
+   "time_et": "14:00",
+   "minute_after_0930": 270,
+   "basis": "statement page states the time",
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260318a.htm",
+   "page_sha256": "c7c1f9a3c4ff46f7c0816042ebc751dba3810c00964da62b06b16e10f76fddb4"
+  },
+  "2026-04-29": {
+   "status": "time",
+   "time_et": "14:00",
+   "minute_after_0930": 270,
+   "basis": "statement page states the time",
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260429a.htm",
+   "page_sha256": "f9b03ee90ae712c05c0d667ff2da49f6d6a4affd54987776a56e2c284865cee6"
+  },
+  "2026-06-17": {
+   "status": "time",
+   "time_et": "14:00",
+   "minute_after_0930": 270,
+   "basis": "statement page states the time",
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260617a.htm",
+   "page_sha256": "92297dc9b2e5a4f724dae93a63d4e128854650cd576fa0ab4853e915313e493f"
+  },
+  "2026-07-29": {
+   "status": "time",
+   "time_et": "14:00",
+   "minute_after_0930": 270,
+   "basis": "statement page states the time",
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260729a.htm",
+   "page_sha256": "a8b039663dcb9042d4fa561a24c3fe30dba19148fbef44b251de5e3ec9b7734e"
+  },
+  "2026-09-16": {
+   "status": "time",
+   "time_et": "14:00",
+   "minute_after_0930": 270,
+   "basis": "statement page states the time",
+   "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260916a.htm",
+   "page_sha256": "640287cfd26a38f8288ed8f49fe0ce5a3f570f6d3e1bf6ea183072b2dd001d6a"
+  }
+ }
+}

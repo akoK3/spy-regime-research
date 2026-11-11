@@ -1,3 +1,116 @@
+# Report, 2026-11-10 night: re-audit follow-up (A35, A36 and the joint evaluation driver, A32 restored, disclosures, label guards)
+
+## Bottom line
+
+- **A35(a): done.** H4 bootstrap p-values use valid resamples only.
+- **A35(b): running detached** since 19:52 New York; about 75 of 200 sets done per detector at 20:58. Rule (c) was adopted before it started. This report is updated when it finishes.
+- **A32: adopted text restored** (the only post-adoption change was the date stamp).
+- **A31 control: disclosed as not specific to the filter**, with one correction to the order's wording (below).
+- **A36: adopted on your six decisions and in the freeze manifest.** The joint driver is written. Unit tests pass 18/18. The synthetic end-to-end run passes 14/14.
+- **Evaluation FOMC list: built and hashed** before any evaluation read (38 meetings, all 14:00).
+- **Label guards: closed where the frozen code allows; the rest disclosed.**
+- All data-free suites pass. Code version `a0323ed24d68e896` is unchanged. `freeze_ready: yes` on A21-A36.
+- **No evaluation-period row has been read.** No access log, no evaluation output, no lock, no fingerprint and no freeze exist.
+- Committed and pushed: everything from this session except the rerun's result, which follows in a second commit when it finishes.
+
+## Needs you
+
+Nothing blocks. Two things to know: (1) the choices listed under A36 below were mine, inside your decisions; (2) the rerun result decides which of A35 3a / 3c / 3d applies, and the driver reads it from the result file.
+
+## A36 (`AMENDMENT_A36.md`, adopted 2026-11-11 01:11:23Z) and the joint driver
+
+Your six decisions, as implemented:
+
+| Decision | Rule | Implementation |
+|---|---|---|
+| 1. Evaluation-only; eras combined by era terms; each era alone as secondary | 1b-1d | Tests run on evaluation units only. The two eras are combined exactly as LEGACY and RAW are in development. Each era alone is computed for the H2 family and the six H3/H4 tests and joins BH, never Holm. |
+| 2. Full analyses, all labelled | 2a-2c | The whole development set is mirrored. Not repeated: the 2007+ sensitivity, which equals the primary on these periods. Sanity checks are reported, not gates, since nothing follows the evaluation. |
+| 3. BOCPD secondary | 2d | BOCPD enters detector dependence only. |
+| 4. Look-back | 4a-4d | Section 5 features run their causal baselines across the TRAIN / evaluation boundary. Section 6 puts the last 60 TRAIN sessions before each evaluation era as history. Units, candidates, placebo draws, cut points, pools and alarms come from evaluation sessions only. |
+| 5. FOMC times | 3a-3d | Same parsers and order of evidence as development; built first; the builder refuses after any allowed evaluation read. |
+| 6. One joint driver | 5, 6, 7 | `section6/s6_eval.py run FREEZE TOKEN`: guards, 5.13 per era, evaluation coverage, Section 6. |
+
+**Choices I made inside your decisions. Each is stated in A36; say if any should change.**
+- **Embargo sessions are never read** (rule 1e). Histories skip the five sessions between TRAIN and each evaluation period.
+- **Baseline threshold** (rule 5c). The freeze stores an era threshold for the feature model only. H1(c) needs one for the baseline, so it is set by the same A11 rule on TRAIN data. The feature threshold is recomputed the same way as a reproduction check; the frozen value is the one used.
+- **Intervals** (rule 5g). 95% percentile, day-cluster bootstrap, 2,000 resamples: stable days for H1(a), sessions for H1(b), events for H1(c). No p-value, fold test, Holm or verdict is computed on the evaluation periods.
+- **Burn-in.** With 60 history sessions, every evaluation unit passes the 60-session burn-in. Early breaks still have few earlier candidates, so some have no placebos.
+- **Fingerprint** (rule 7c, re-audit L9). A Section 6 evaluation read is now refused when any fingerprinted file differs from the fingerprint. The fingerprint also covers the Section 5 helpers of this path.
+
+**Code** (all outside the frozen closure; closure classes are subclassed, not edited):
+- `section5/s5_eval513.py`: the 5.13 `fit_fn` / `run_fn`. Loads TRAIN then evaluation, fits the frozen setups on full TRAIN, computes H1(a), (b), (c) with intervals, and exports the breaks Section 6 needs.
+- `section6/s6_eval.py`: the driver. The H3/H4 primary detector follows A28 1b and A35 rule 3, read from the rerun's result file.
+- `section5/s5_h1c_eval_times.py`: the FOMC list builder.
+- `section6/s6_eval_synth.py`: the synthetic end-to-end run.
+- Small additions to `s6_run.analyse` and `s6_h2.analyse` (evaluation options; defaults leave the development run unchanged) and to `s5_eval_loader` (`authorise`, `fingerprint_check`).
+
+**Synthetic end-to-end run** (`section6/results/a36_synth_e2e.json`; 190 TRAIN + 110 evaluation sessions per era, generated; 24 minutes): PASS 14/14.
+- Both 5.13 results and the three Section 6 results are written once, labelled, with sidecars.
+- No p-value appears in the 5.13 results.
+- **Thresholds calibrated on TRAIN alone are reproduced exactly on the joined panel**, for all four families and both eras. That shows evaluation rows do not leak into TRAIN quantities.
+- Breaks, units, candidates and placebos lie in evaluation sessions only.
+- One ALLOWED log line per read; a second run reads nothing; the marker blocks a second 5.13; an unlabelled write is refused after a read.
+- The real access log does not exist afterwards.
+- A first, smaller try was stopped by the new fingerprint guard because I added a test file while it ran. That is the guard working as written; the recorded run is on unchanged code.
+
+**Evaluation FOMC list** (`section5/results/h1c_schedule_times_evaluation.json`, sha256 `39136645...`):
+- 38 scheduled meetings with a statement: LEGACY 24, RAW 14.
+- All 38 statement pages state 14:00; none excluded. With development, 96 Fed pages state a time from 2013 on, all 14:00.
+- The two unscheduled March 2020 statements are not scheduled meetings and are not events, as in development.
+
+**Not yet exercised on real data, by design:** the driver itself. On real panels the 5.13 step refits four families on every TRAIN session per era, so expect hours. The one-shot marker is written before the fit, so a crash in that step consumes the era's run; the synthetic run is the safeguard against that.
+
+## A35 (`AMENDMENT_A35.md`, adopted 2026-11-11 00:13:42Z)
+
+- **Rule 1 (a).** For every H4 test, p = (1 + exceedances among valid resamples) / (V + 1). V = 0 means not evaluable (p = 1 in Holm). Each H4 result also reports V and the old-convention p.
+  - H3 is unchanged (9,997-9,999 valid resamples).
+  - Earlier results are not recomputed; A35's table gives their H4 p-values under the new rule (largest change: Gaussian H4b 0.577 to 0.652). No verdict differs. Power was not rerun.
+- **Rule 2 (b).** The rerun: 200 sets, seed 7, same seeds throughout, 9,999 resamples, both detectors, limit 0.10. Added check: the old-convention rates from the same resamples must equal the stored development-run rates exactly.
+- **Rule 3 (c), written before the rerun.** Gaussian over 0.10 on any test: ineligible as H3/H4 primary, HSMM is the H3/H4 primary, Gaussian stays eligible for H2. Gaussian passes: nothing changes. HSMM over 0.10: A28 7d applies as written (you did not specify this case; I kept the existing rule).
+
+**Rerun: pending.** Started 19:52 New York by `section6/run_a35.ps1` (preflight PASS 17/17, gate passed). Progress: `section6/results/a35_log.txt`; finished sets: `a35_null_reps_{detector}.jsonl`.
+
+## A32
+
+- The only post-adoption change was the "Dated" stamp. File and sidecar are back to the adopted bytes (`d222539c...`), the hash A33 cites.
+- Disclosed: results written between the two states record A32 as `7bc90d60...`; same text apart from the stamp.
+
+## A31 control (`SECTION6_DISCLOSED_LIMITATIONS.md`, S6-D1)
+
+- **Correction to the order's wording.** The 12.5-22.5% flag rate is with H4 planted and no filter bias. With no effect at all, the control flags 4.0-7.0%, which is calibrated.
+- **Disclosed.** The comparison set holds times just after real alarms, which carry the break's own effect. When breaks move the assets, the control flags the break, not the filter.
+- The earlier report sentence that read the Gaussian TLT flag as a filter bias of 0.03 is withdrawn.
+
+## Label guards (re-audit M3)
+
+Closed, outside the frozen closure:
+- a Section 5 evaluation read is refused outside `run_confirmatory_labelled`;
+- Section 6 writes require the label once any evaluation read has been allowed in the process;
+- every evaluation read is refused while any script calls the 5.13 writer directly;
+- a non-dict `run_fn` result is wrapped, not refused (re-audit L8).
+
+Not closed, disclosed in S6-D2: the 5.13 writer stays callable; direct panel reads bypass the guards; `s6_coverage.py` does not use `write_once`; the guards are module attributes; tables, figures and sentences are labelled by hand.
+
+## Tests (data-free)
+
+| Suite | Result |
+|---|---|
+| `s5_tests_ledger.py` | 2/2 |
+| `s5_tests_freeze_prep.py` | 13/13 |
+| `s5_tests_a15.py` | 19/19 |
+| `s6_tests.py` | 30/30 |
+| `s6_tests_h2.py` | 10/10 |
+| `s6_tests_a34.py` | 5/5 |
+| `s6_tests_a35.py` (new) | 10/10 |
+| `s6_tests_a36.py` (new) | 18/18 |
+
+## Not done from the re-audit
+
+- L1: the registry scan is now called at run time by `s6_a35.py` and `s6_eval.py`; the other Section 6 runners still do not call it.
+- L3, L4, L6, L7, L10: unchanged.
+
+---
+
 # Report, 2026-11-10 late: A34 (per-asset placebo pools; A26 label enforced in code)
 
 ## Bottom line

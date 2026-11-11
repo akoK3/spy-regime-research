@@ -1,12 +1,13 @@
 #!/usr/bin/env python3
 """AMENDMENT_A28 rule 6e: fingerprint of the Section 6 code before the joint evaluation. sha256 of every section6/*.py, of the Section 5 helpers Section 6 uses
-(s5_eval_loader.py, s5_amendment_manifest.py, s5_break_export.py) and the result-module code version (must be a0323ed24d68e896). Written once with a sidecar; never
+(s5_eval_loader.py, s5_amendment_manifest.py, s5_break_export.py; AMENDMENT_A36 7b: also s5_eval_label.py, s5_eval513.py,
+s5_h1c_eval_times.py, s5_a17_a18_common.py) and the result-module code version (must be a0323ed24d68e896). Written once with a sidecar; never
 overwritten (a later change is a deviation, reported with its reason: verify() lists the files that differ).
 Usage: s6_fingerprint.py write | verify. Not run before the user says so (it precedes the joint evaluation only)."""
 import sys, json, hashlib, datetime
 from pathlib import Path
 HERE = Path(__file__).resolve().parent; ROOT = HERE.parent; sys.path.insert(0, str(ROOT / "section5"))
-FP = HERE / "results" / "s6_fingerprint.json"; HELPERS = ("s5_eval_loader.py", "s5_amendment_manifest.py", "s5_break_export.py"); CODE_VERSION = "a0323ed24d68e896"
+FP = HERE / "results" / "s6_fingerprint.json"; HELPERS = ("s5_eval_loader.py", "s5_amendment_manifest.py", "s5_break_export.py", "s5_eval_label.py", "s5_eval513.py", "s5_h1c_eval_times.py", "s5_a17_a18_common.py"); CODE_VERSION = "a0323ed24d68e896"      # A36 7b: HELPERS now holds the Section 5 helpers of the evaluation path
 
 
 def sha(p): return hashlib.sha256(Path(p).read_bytes()).hexdigest()

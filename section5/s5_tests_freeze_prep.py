@@ -35,7 +35,7 @@ class TestManifest(unittest.TestCase):
         self.assertEqual([e["amendment"] for e in man], list(AM.AMENDMENTS))
         for e in man:
             if e["present"] and e["status"] == "ADOPTED": self.assertTrue(e["sidecar_matches"], e)      # adopted: sidecar equal
-        self.assertTrue({"A29", "A30", "A31", "A32", "A33", "A33_1", "A34"} <= set(AM.AMENDMENTS))          # FABLE_AUDIT L5; A30, A32, A33, A33.1, A34 added when written
+        self.assertTrue({"A29", "A30", "A31", "A32", "A33", "A33_1", "A34", "A35", "A36"} <= set(AM.AMENDMENTS))          # FABLE_AUDIT L5; A30, A32, A33, A33.1, A34 added when written
         if not all(e["present"] and e["status"] == "ADOPTED" and e["sidecar_matches"] for e in man):
             with self.assertRaises(PermissionError): AM.freeze_ready()                                       # a DRAFT or missing amendment blocks the freeze
 
@@ -58,8 +58,9 @@ class TestEvalLoader(unittest.TestCase):
         self.fz = FZ.write_freeze(FZ.build_freeze({}, {}, {}, {}, {}, "ph", self.man), self.r); self.tok = EL.sha(self.fz); self.lock = self.r / "lock"; self.lock.write_text("x")
         self._fr = AM.freeze_ready; AM.freeze_ready = lambda: self.man
         self._saved = (EL.PANELS, EL.LOCK, EL._preflight, EL.FINGERPRINT); EL.PANELS = {"LEGACY": self.panel, "RAW": self.panel}; EL.LOCK = self.lock; EL._preflight = lambda: 0
+        import s5_eval_label as EV; self.EV = EV; EV.ACTIVE = True; self._reads = list(EL.EVAL_READS)      # FABLE_REAUDIT M3: a Section 5 evaluation read needs the labelled 5.13 entry to be active
 
-    def tearDown(self): AM.freeze_ready = self._fr; EL.PANELS, EL.LOCK, EL._preflight, EL.FINGERPRINT = self._saved; self.td.cleanup()
+    def tearDown(self): AM.freeze_ready = self._fr; EL.PANELS, EL.LOCK, EL._preflight, EL.FINGERPRINT = self._saved; self.EV.ACTIVE = False; EL.EVAL_READS[:] = self._reads; self.td.cleanup()
 
     def test_dev_spans(self): self.assertTrue(EL.check_dev_spans())
 
@@ -69,6 +70,12 @@ class TestEvalLoader(unittest.TestCase):
     def test_eval_allowed(self):
         df = EL.load_eval("LEGACY", ["SPY_log_return_1m"], self.fz, self.tok)
         self.assertEqual(sorted(set(df["session_date_ny"])), ["2019-01-02", "2022-03-04"]); self.assertIn("ALLOWED", EL.ACCESS_LOG.read_text())
+        self.assertEqual(EL.EVAL_READS[-1], ("LEGACY", False))                                              # the read is recorded for the Section 6 write guard
+
+    def test_eval_refused_outside_labelled_entry(self):
+        self.EV.ACTIVE = False
+        with self.assertRaisesRegex(PermissionError, "run_confirmatory_labelled"): EL.load_eval("LEGACY", ["SPY_log_return_1m"], self.fz, self.tok)
+        self.assertIn("REFUSED", EL.ACCESS_LOG.read_text()); self.assertEqual(EL.EVAL_READS, self._reads)
 
     def test_eval_refusals(self):
         kw = {}

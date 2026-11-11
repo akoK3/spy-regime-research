@@ -43,7 +43,7 @@ def sim_h4(units, beta, rng, nboot):
     days = [d for d, _ in units]; eras = [e for _, e in units]; n = len(units)
     C = rng.binomial(4, 0.1, n) / 4; X = rng.normal(0, 1, (n, 2)); a = np.log(BASE / (1 - BASE)) - beta * C.mean(); y = (rng.random(n) < 1 / (1 + np.exp(-(a + beta * C + 0.3 * X[:, 0])))).astype(float)
     folds = L.cv_folds(days, eras)
-    g, p, _ = L.week_block_bootstrap(lambda ix: L.auc_gain_cv(X[ix], C[ix], y[ix], folds[ix]), days, eras, nboot, int(rng.integers(1 << 30))); return p, g
+    g, p, _, _ = L.week_block_bootstrap(lambda ix: L.auc_gain_cv(X[ix], C[ix], y[ix], folds[ix]), days, eras, nboot, int(rng.integers(1 << 30)), valid_only=True); return p, g      # AMENDMENT_A35 rule 1 (1f: power not rerun)
 
 
 def main():

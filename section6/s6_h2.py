@@ -179,7 +179,8 @@ def units_for(E_by, rows, sess):
     return R.unit_lists(units)[0]
 
 
-def analyse(E_by, rows, sess, nboot, detector, all_rows=None, B=B50):
+def analyse(E_by, rows, sess, nboot, detector, all_rows=None, B=B50, per_era=False):
+    """per_era=True (AMENDMENT_A36 1d): the primary family is also computed on each era alone; those p-values are secondary and join the BH family."""
     c2s, s2c, cand_by = units50(E_by, rows, sess)
     res = dict(detector=detector, label="H2 (AMENDMENT_A33: protocol 5.0 primary; development data)", n_breaks=len(c2s), n_breaks_by_era=dict(collections.Counter(u["era"] for u in c2s)))
     res["primary"] = p50_primary(E_by, cand_by, c2s, f"{detector}|primary", B)
@@ -190,6 +191,9 @@ def analyse(E_by, rows, sess, nboot, detector, all_rows=None, B=B50):
         for fam in R.FAMILIES:
             fc, _, fcand = units50(E_by, [x for x in all_rows if x["family"] == fam], sess); dep[fam] = p50_primary(E_by, fcand, fc, f"{fam}|dep", B)
         res["detector_dependence"] = dep; res["verdict_agreement"] = {fam: {a: dep[fam][f"H2_{a}"]["reject_0.05"] for a in ASSETS} for fam in dep}
+    if per_era:
+        res["by_era"] = {e: p50_primary(E_by, cand_by, [u for u in c2s if u["era"] == e], f"{detector}|era|{e}", B) for e in E_by}
+        sec.update({f"by_era.{e}.{k}": v for e, d in res["by_era"].items() for k, v in d.items()})
     bh = [(k, v["p"]) for k, v in sec.items() if v.get("p") is not None]
     bh += [(f"S2.{fam}.{k}", v["p"]) for fam, d in res.get("detector_dependence", {}).items() if fam != detector for k, v in d.items() if v.get("p") is not None]
     adj = L.bh([p for _, p in bh]) if bh else []; res["secondary_bh"] = {k: dict(p=p, p_bh=float(q), label="secondary") for (k, p), q in zip(bh, adj)}

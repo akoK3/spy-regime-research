@@ -159,9 +159,9 @@ def h4_test(E_by, units, point, label_fn, nboot=L.NBOOT, off=0, seed=0):
         E = E_by[u["era"]]; X.append(spy_info(E, u, point)); c.append(c_score(E_by, u, point, off)); y.append(lab); days.append(u["day"]); eras.append(u["era"])
     if len(y) < 10: return dict(n=len(y), gain=None, p=None)
     X = np.array(X); c = np.array(c); y = np.array(y, float); folds = L.cv_folds(days, eras)        # A29 1a: folds fixed on the original weeks; resampled rows keep them (1d)
-    g, p, nv = L.week_block_bootstrap(lambda ix: L.auc_gain_cv(X[ix], c[ix], y[ix], folds[ix]), days, eras, nboot, seed)
-    _, a1, a0 = L.auc_gain_cv(X, c, y, folds, parts=True)
-    return dict(n=len(y), n_pos=int(np.nansum(y)), gain=g, p=p, n_valid_resamples=nv, statistic="A29 out-of-fold AUC gain (5 week folds, per-fold AUC, weighted mean)",
+    g, p, nv, p_all = L.week_block_bootstrap(lambda ix: L.auc_gain_cv(X[ix], c[ix], y[ix], folds[ix]), days, eras, nboot, seed, valid_only=True)      # AMENDMENT_A35 rule 1: p on valid resamples only
+    _, a1, a0 = L.auc_gain_cv(X, c, y, folds, parts=True); fin = lambda v: float(v) if np.isfinite(v) else None
+    return dict(n=len(y), n_pos=int(np.nansum(y)), gain=g, p=fin(p), n_valid_resamples=nv, p_a29_1d_descriptive=fin(p_all), statistic="A29 out-of-fold AUC gain (5 week folds, per-fold AUC, weighted mean); p on valid resamples only (A35 rule 1)",
                 oof_auc_with_C=a1, oof_auc_spy_only=a0, gain_in_sample_descriptive=L.auc_gain(X, c, y))      # A29 1g: descriptive
 
 
@@ -188,7 +188,8 @@ def primary(E_by, units, nboot, off=0, seed=0, subset=None):
 
 
 PRIMARY = tuple(f"H3_{a}" for a in ASSETS) + ("H4a", "H4b")
-SUBSETS = {"y2007": lambda u: u["day"] >= Y2007, "fed": lambda u: bool(u.get("fed")), "non_fed": lambda u: not u.get("fed")}
+SUBSETS = {"y2007": lambda u: u["day"] >= Y2007, "fed": lambda u: bool(u.get("fed")), "non_fed": lambda u: not u.get("fed"),
+           "era_LEGACY": lambda u: u["era"] == "LEGACY", "era_RAW": lambda u: u["era"] == "RAW"}      # era_*: AMENDMENT_A36 1d (each evaluation era alone, secondary)
 
 
 # ---------- worker pool (development run): workers hold E_by once; tasks are primary() calls and A28 7d null sets
@@ -204,7 +205,7 @@ def _wtask(t):
     if kind == "primary":
         _, units, nboot, off, seed, subset = t; return primary(_W["E"], units, nboot, off, seed, subset)[0]
     if kind == "null":
-        _, s = t; return null_set(_W["E"], _W["units"], _W["cand_by"], _W["alarms_by"], _W["nboot"], s, _W["seed"])
+        _, s = t; return null_set(_W["E"], _W["units"], _W["cand_by"], _W["alarms_by"], _W["nboot"], s, _W["seed"], _W.get("detail", False))
     raise ValueError(kind)
 
 
@@ -273,9 +274,10 @@ def taxonomy(E_by, br):
     return dict(order=list(ASSETS), legend="+/- moved beyond the placebo 90th percentile, 0 within, . unavailable", counts=dict(pat.most_common()))
 
 
-def null_set(E_by, units, cand_by, alarms_by, nboot, s, seed=7):
+def null_set(E_by, units, cand_by, alarms_by, nboot, s, seed=7, detail=False):
     """One A28 7d(ii) null set: every unit (breaks and H4a units, burn-in passed) replaced by one time drawn like its placebos; placebos drawn for it by the rule in force.
-    Returns {test: rejected at 0.05}."""
+    Returns {test: rejected at 0.05}; detail=True (AMENDMENT_A35 rule 2d): {test: dict(p, p_a29_1d)} where p_a29_1d is the p-value under the A29 1d convention
+    from the same resamples (equal to p for H3)."""
     sd = lambda *k: int(hashlib.sha256("|".join(map(str, k)).encode()).hexdigest()[:8], 16); fake = []
     for u in [x for x in units if x["burn_in_ok"] and (x.get("role") == "h4a" or x["direction"] == "calm_to_stressed")]:
         c = cand_by[u["era"]]; ix = L.draw_placebos(u, c, alarms_by[u["era"]], n=1, seed=sd("null", s, u["day"], u["S"], u["kind"], u.get("role")))
@@ -284,6 +286,7 @@ def null_set(E_by, units, cand_by, alarms_by, nboot, s, seed=7):
     for f in fake:
         c = cand_by[f["era"]]; f["placebos"] = [dict(day_idx=int(c["day_idx"][i]), S=int(c["S"][i]), gap=f["gap"], T=int(c["S"][i]) + f["gap"]) for i in L.draw_placebos(f, c, alarms_by[f["era"]], seed=sd("nullpl", s, f["day"], f["S"], f.get("role")))]
     res, _, _ = primary(E_by, fake, nboot, 0, seed + s)
+    if detail: return {k: dict(p=res[k]["p"], p_a29_1d=res[k].get("p_a29_1d_descriptive", res[k]["p"])) for k in PRIMARY}
     return {k: bool(res[k]["p"] is not None and res[k]["p"] <= 0.05) for k in PRIMARY}
 
 
@@ -397,25 +400,33 @@ def counts(E_by, units):
     return out
 
 
-def analyse(E_by, rows, sess, nboot, detector, all_rows=None, null_sets=200, workers=1):
-    units, cand_by, alarms_by = [], {}, {}
+def analyse(E_by, rows, sess, nboot, detector, all_rows=None, null_sets=200, workers=1, fed_fn=None, evaluation=False):
+    """fed_fn: sets u["fed"] on a list of units (default fed_flags: the development H1(c) events). evaluation=True (AMENDMENT_A36): the 2007+ sensitivity is not
+    repeated (2b: identical to the primary there) and the six primary tests are also run on each era alone, as secondary (1d)."""
+    fed_fn = fed_fn or fed_flags; units, cand_by, alarms_by = [], {}, {}
     for era, E in E_by.items():
         u, c, al = build(E, rows, sess); units += attach_placebos(u, c, al); cand_by[era], alarms_by[era] = c, al
-    fed_flags(units)
+    fed_fn(units)
     res = dict(detector=detector, counts=counts(E_by, units))
-    tasks = [("primary", units, nboot, 0, 0, None), ("primary", units, nboot, 0, 0, "y2007"), ("primary", units, nboot, 0, 0, "fed"), ("primary", units, nboot, 0, 0, "non_fed")]
+    tasks = [("primary", units, nboot, 0, 0, None)] + ([] if evaluation else [("primary", units, nboot, 0, 0, "y2007")]) + [("primary", units, nboot, 0, 0, "fed"), ("primary", units, nboot, 0, 0, "non_fed")]
+    eras_alone = [e for e in ("LEGACY", "RAW") if e in E_by] if evaluation else []
+    tasks += [("primary", units, nboot, 0, 0, f"era_{e}") for e in eras_alone]
     if "LEGACY" in E_by: tasks += [("primary", units, nboot, o, 0, None) for o in (-1, 1)]
     fams = []
     if all_rows is not None:      # rule 7a: other detectors, and the alternative anchor T = 0 at S
         for fam in FAMILIES:
             fr = [x for x in all_rows if x["family"] == fam]; uu = []
             for era, E in E_by.items(): u, c, al = build(E, fr, sess); uu += attach_placebos(u, c, al)
-            fed_flags(uu); tasks.append(("primary", uu, nboot, 0, 0, None)); fams.append(fam)
+            fed_fn(uu); tasks.append(("primary", uu, nboot, 0, 0, None)); fams.append(fam)
         uu = []
         for era, E in E_by.items(): u, c, al = build(E, rows, sess, anchor="S"); uu += attach_placebos(u, c, al)
         tasks.append(("primary", uu, nboot, 0, 0, None))
     out = run_tasks(E_by, tasks, workers); k = 0
-    res["primary"] = out[k]; k += 1; res["sens_2007"] = out[k]; k += 1; res["fed_split"] = dict(fed=out[k], non_fed=out[k + 1]); k += 2
+    res["primary"] = out[k]; k += 1
+    if evaluation: res["sens_2007_note"] = "not repeated: every evaluation session is after 2007-04-11, so the 2007+ sensitivity equals the primary (A36 2b)"
+    else: res["sens_2007"] = out[k]; k += 1
+    res["fed_split"] = dict(fed=out[k], non_fed=out[k + 1]); k += 2
+    if eras_alone: res["by_era"] = {e: out[k + j] for j, e in enumerate(eras_alone)}; k += len(eras_alone)
     if "LEGACY" in E_by: res["legacy_offsets"] = {"-1": out[k], "1": out[k + 1]}; k += 2
     if all_rows is not None:
         res["detector_dependence"] = {f: out[k + j] for j, f in enumerate(fams)}; k += len(fams); res["anchor_T0_at_S"] = out[k]; k += 1
@@ -434,7 +445,7 @@ def analyse(E_by, rows, sess, nboot, detector, all_rows=None, null_sets=200, wor
 
 def flatten_secondary(res):
     for k, v in res["secondary"].items(): yield k, v
-    for grp in ("sens_2007", "fed_split", "legacy_offsets", "detector_dependence", "anchor_T0_at_S"):
+    for grp in ("sens_2007", "fed_split", "by_era", "legacy_offsets", "detector_dependence", "anchor_T0_at_S"):
         g = res.get(grp)
         if not g: continue
         if grp in ("sens_2007", "anchor_T0_at_S"): items = [(f"{grp}.{k}", v) for k, v in g.items()]
@@ -442,8 +453,8 @@ def flatten_secondary(res):
         for k, v in items: yield k, v
 
 
-SECTION6_AMENDMENTS = ("A28", "A29", "A30", "A31")      # the amendments a Section 6 result depends on; recorded in every output (FABLE_AUDIT M3)
-REQUIRED_ADOPTED = ("A28", "A29", "A30", "A31")         # A29 4b, A30 5c, A31 5c: the development run waits for all four
+SECTION6_AMENDMENTS = ("A28", "A29", "A30", "A31", "A35")      # the amendments a Section 6 result depends on; recorded in every output (FABLE_AUDIT M3); A35: H4 p-value
+REQUIRED_ADOPTED = ("A28", "A29", "A30", "A31", "A35")         # A29 4b, A30 5c, A31 5c, A35 4b: the run waits for all of them
 
 
 def a29_guard(names=REQUIRED_ADOPTED):
@@ -461,9 +472,12 @@ def provenance():
 
 
 def write_once(path, obj):
-    """Writes a result with a sha256 sidecar; refuses to overwrite an existing result (FABLE_AUDIT M3); refuses an evaluation-period result without the A26 label (A34 3a)."""
-    path = Path(path)
-    if isinstance(obj, dict) and obj.get("period") not in (None, "development") and not (obj.get("a26_label") == LABEL_EVAL and obj.get("confirmatory") is False):
+    """Writes a result with a sha256 sidecar; refuses to overwrite an existing result (FABLE_AUDIT M3); refuses an evaluation-period result without the A26 label (A34 3a).
+    FABLE_REAUDIT M3: "evaluation-period" is decided by what the process read, not only by the `period` field of the result: once s5_eval_loader has allowed any
+    evaluation-period read in this process (EVAL_READS), every result written here must carry the label, whatever `period` says."""
+    path = Path(path); el = sys.modules.get("s5_eval_loader"); ev_read = bool(el is not None and getattr(el, "EVAL_READS", None))
+    labelled = isinstance(obj, dict) and obj.get("a26_label") == LABEL_EVAL and obj.get("confirmatory") is False
+    if (ev_read or (isinstance(obj, dict) and obj.get("period") not in (None, "development"))) and not labelled:
         raise PermissionError(f"{path.name}: an evaluation-period result must carry a26_label = {LABEL_EVAL!r} and confirmatory = False (AMENDMENT_A34 rule 3a, A26 1d)")
     if path.exists(): raise SystemExit(f"{path} exists: Section 6 results are written once; move it aside with a ledger row to rerun")
     path.parent.mkdir(parents=True, exist_ok=True); path.write_text(json.dumps(obj, indent=1, default=float), encoding="utf-8")

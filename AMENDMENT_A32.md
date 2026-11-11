@@ -1,6 +1,6 @@
 # Amendment A32 (H2 specified: deseasonalised absolute cross-asset response after calm-to-stressed breaks; S1, S2, E1, E2)
 
-Dated 2026-11-10T21:32:10+00:00 UTC (2026-11-10T16:32:10-05:00 New York). Status: ADOPTED 2026-11-10T21:32:49Z (user pre-approval 2026-11-10: "Draft and adopt A32 (H2), pre-approved as specified"; the draft, sha256 ee45753d96d752c7..., is unchanged apart from this status line). Written before its code.
+Dated 2026-11-10T21:33:00+00:00 UTC (2026-11-10T16:33:00-05:00 New York). Status: ADOPTED 2026-11-10T21:32:49Z (user pre-approval 2026-11-10: "Draft and adopt A32 (H2), pre-approved as specified"; the draft, sha256 ee45753d96d752c7..., is unchanged apart from this status line). Written before its code.
 - **Requested and pre-approved by the user on 2026-11-10:**
 
   > Draft and adopt A32 (H2), pre-approved as specified unless you must deviate:

@@ -42,6 +42,8 @@ REGISTRY = {
     "section6/s6_synth_validation.py": "LIBRARY", "section6/s6_fingerprint.py": "LIBRARY", "section6/s6_tests.py": "LIBRARY",
     "section6/s6_posthoc_h3_ci.py": "POST_MAIN_RUN", "section6/s6_h2.py": "POST_MAIN_RUN", "section6/s6_tests_h2.py": "LIBRARY",      # A32 (H2)
     "section6/s6_a34.py": "POST_MAIN_RUN", "section6/s6_tests_a34.py": "LIBRARY", "s5_eval_label.py": "LIBRARY",      # A34 (per-asset pools; A26 label enforcement)
+    "section6/s6_a35.py": "POST_MAIN_RUN", "section6/s6_tests_a35.py": "LIBRARY",      # A35: rerun of the A28 7d null control (development data; H4 p on valid resamples)
+    "s5_eval513.py": "EVALUATION", "s5_h1c_eval_times.py": "LABEL_FREE", "section6/s6_eval.py": "EVALUATION", "section6/s6_eval_synth.py": "LIBRARY", "section6/s6_tests_a36.py": "LIBRARY",      # A36: the joint evaluation driver (evaluation periods only, after the freeze; no fold is touched); FOMC times read no market data
     "section6/s6_hyg_gap.py": "LABEL_FREE",      # HYG data-gap diagnosis: counts of unusable windows and data-quality shares only
     "s5_power_observed_n.py": "POST_MAIN_RUN",      # O9 L1: H1(a) MDE with the observed 22 folds
     "s5_posthoc_grid_pauc.py": "POST_MAIN_RUN",      # post hoc, descriptive: absolute H1(a) pAUC feature and baseline, 1-min vs 5-min (A22 3g setups)
@@ -59,7 +61,7 @@ REGISTRY = {
     "cold_audit_1/x1_folds.py": "LABEL_FREE", "cold_audit_1/x1b.py": "LABEL_FREE", "cold_audit_1/x2_causal.py": "LABEL_FREE",     # counts, splice specs, features; no detector
 }
 # A15 rule 6d: LABEL_FREE = no detector or regime model, no outcome (counts, splice specs, feature or preprocessing computation); MAIN_RUN = the run the list protects.
-NOT_TOUCHING = ("LIBRARY", "DESCRIPTIVE", "LABEL_FREE", "MAIN_RUN", "POST_MAIN_RUN")      # A17 rule 6: POST_MAIN_RUN = analyses of the main run's folds after the H1 fold scores
+NOT_TOUCHING = ("LIBRARY", "DESCRIPTIVE", "LABEL_FREE", "MAIN_RUN", "POST_MAIN_RUN", "EVALUATION")      # A17 rule 6: POST_MAIN_RUN = analyses of the main run's folds after the H1 fold scores
 # A15 rule 3: data loading = these calls; a plain raw string, no control characters (the pattern before A15 held two backspace bytes and matched nothing).
 DATA_LOAD = re.compile(r"\b(?:fold_segments|load_era|era_context|splice_batch|DataBackend|EraBackend|MainBackend|load_development|load_eval)\(|\b(?:D2|F|s5_d2|s5_fast)\._init\b|canonical_panel_|\bPANELS\b")      # A16 rule 3; FABLE_AUDIT M4 (2026-11-10): the guarded panel loaders and any direct reference to the canonical panels
 

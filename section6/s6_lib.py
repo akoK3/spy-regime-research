@@ -43,17 +43,21 @@ def week_blocks(days, eras):
     return {e: [np.array(v) for _, v in sorted(w.items())] for e, w in out.items()}
 
 
-def week_block_bootstrap(stat_fn, days, eras, nboot=NBOOT, seed=0):
+def week_block_bootstrap(stat_fn, days, eras, nboot=NBOOT, seed=0, valid_only=False):
     """Centred one-sided bootstrap p for H0: statistic <= 0 (add-one): p = (1 + #{T*_b - T >= T}) / (B + 1). Each resample draws, within each era separately, as many
-    calendar weeks as that era has, with replacement; stat_fn(row_index_array) -> float (NaN resamples count as not exceeding). Returns (T, p, n_valid)."""
+    calendar weeks as that era has, with replacement; stat_fn(row_index_array) -> float (NaN resamples count as not exceeding). Returns (T, p, n_valid).
+    valid_only=True (AMENDMENT_A35 rule 1, H4 only): p = (1 + #{valid b: T*_b - T >= T}) / (V + 1), V = number of finite resamples (NaN if V = 0); returns
+    (T, p, V, p_all) where p_all is the p-value under the earlier convention (divisor B + 1) from the same resamples, descriptive."""
     blocks = week_blocks(days, eras); t = float(stat_fn(np.arange(len(days))))
-    if not np.isfinite(t): return t, np.nan, 0
+    if not np.isfinite(t): return (t, np.nan, 0, np.nan) if valid_only else (t, np.nan, 0)
     rng = np.random.default_rng(seed); exceed = 0; nv = 0
     for _ in range(nboot):
         idx = np.concatenate([np.concatenate([bl[j] for j in rng.integers(0, len(bl), len(bl))]) for e, bl in sorted(blocks.items())])
         s = stat_fn(idx)
         if np.isfinite(s): nv += 1; exceed += (s - t) >= t
-    return t, (1 + exceed) / (nboot + 1), nv
+    p_all = (1 + exceed) / (nboot + 1)
+    if valid_only: return t, ((1 + exceed) / (nv + 1) if nv else np.nan), nv, p_all
+    return t, p_all, nv
 
 
 def week_block_ci(stat_fn, days, eras, nboot=NBOOT, seed=0, level=0.95):
