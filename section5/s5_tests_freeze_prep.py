@@ -35,7 +35,7 @@ class TestManifest(unittest.TestCase):
         self.assertEqual([e["amendment"] for e in man], list(AM.AMENDMENTS))
         for e in man:
             if e["present"] and e["status"] == "ADOPTED": self.assertTrue(e["sidecar_matches"], e)      # adopted: sidecar equal
-        self.assertTrue({"A29", "A30", "A31", "A32", "A33", "A33_1", "A34", "A35", "A36", "A37"} <= set(AM.AMENDMENTS))          # FABLE_AUDIT L5; A30, A32, A33, A33.1, A34 added when written
+        self.assertTrue({"A29", "A30", "A31", "A32", "A33", "A33_1", "A34", "A35", "A36", "A37", "A38"} <= set(AM.AMENDMENTS))          # FABLE_AUDIT L5; A30, A32, A33, A33.1, A34 added when written
         if not all(e["present"] and e["status"] == "ADOPTED" and e["sidecar_matches"] for e in man):
             with self.assertRaises(PermissionError): AM.freeze_ready()                                       # a DRAFT or missing amendment blocks the freeze
 

@@ -1,6 +1,6 @@
 # Amendment A38 (filter checks of H1 before the freeze: primary, HF Clean vs Raw on the RAW evaluation period; secondary, the RAW-era effects)
 
-Dated 2026-11-11T04:32:00+00:00 UTC (2026-11-10T23:32:00-05:00 New York). Status: DRAFT (revised 2026-11-11T04:32Z), awaiting the user's approval. Written before the 5.12 freeze, before any evaluation-period output exists and before its code.
+Dated 2026-11-11T04:32:00+00:00 UTC (2026-11-10T23:32:00-05:00 New York). Status: ADOPTED 2026-11-11T04:33:42Z (user approval 2026-11-11: "approved as drafted. Adopt, hash, ledger row, add to freeze manifest", given as "A37" for this draft; the draft, sha256 dbdb257ebd02f7ee..., is unchanged apart from this status line). Written before the 5.12 freeze, before any evaluation-period output exists and before its code.
 - **Requested by the user on 2026-11-10:** "Draft A37 (interpretation rule, before freeze): the RAW-era evaluation (2025-2026, unfiltered IEX) is reported as the filter-free check. The H1 conclusion is called robust to the LEGACY Clean filter only if the RAW-era effect has the same sign with its 95% interval excluding 0; otherwise LEGACY-era results are reported as possibly filter-dependent."
 - **Numbered A38, not A37.** A35, A36 and A37 already exist and are adopted. A37 covers the TRAIN refits at the freeze (commit 81eb166).
 - **Revised on the user's instruction of 2026-11-11** before adoption. The first draft (sha256 `cf9d7c6b1198499be1339bdeb366d02645ca963991822f52e6e7bafc1d829226`, ledger row of 2026-11-11 04:28Z) is superseded:
