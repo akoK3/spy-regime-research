@@ -1,0 +1,22 @@
+2026-11-10T19:52:14-05:00 [a35 29220] chain starts; workers 2 x 3; 4103 MB free of 16069 MB
+2026-11-10T19:52:15-05:00 [a35 29220] step 0 data-hash preflight: exit 0
+2026-11-10T19:52:15-05:00 [a35 29220] step 1 gate (A28-A35, A33.1 adopted): exit 0
+2026-11-10T19:52:23-05:00 [a35 29220] step 2 warm-up (development panels, Section 6 cache): exit 0 after 0.1 min; 4093 MB free of 16069 MB
+2026-11-10T19:52:23-05:00 [a35 29220] step 3 null-control rerun started: PIDs 48820, 48396
+2026-11-10T20:07:23-05:00 [a35 29220] step 3 after 15 min: 3578 MB free of 16069 MB
+2026-11-10T20:22:23-05:00 [a35 29220] step 3 after 30 min: 3600 MB free of 16069 MB
+2026-11-10T20:37:24-05:00 [a35 29220] step 3 after 45 min: 3306 MB free of 16069 MB
+2026-11-10T20:52:24-05:00 [a35 29220] step 3 after 60 min: 3984 MB free of 16069 MB
+2026-11-10T21:07:24-05:00 [a35 29220] step 3 after 75 min: 4033 MB free of 16069 MB
+2026-11-10T21:22:25-05:00 [a35 29220] step 3 after 90 min: 3952 MB free of 16069 MB
+2026-11-10T21:37:25-05:00 [a35 29220] step 3 after 105 min: 4063 MB free of 16069 MB
+2026-11-10T21:52:25-05:00 [a35 29220] step 3 after 120 min: 3211 MB free of 16069 MB
+2026-11-10T22:07:26-05:00 [a35 29220] step 3 after 135 min: 4046 MB free of 16069 MB
+2026-11-10T22:22:26-05:00 [a35 29220] step 3 after 150 min: 3987 MB free of 16069 MB
+2026-11-10T22:37:26-05:00 [a35 29220] step 3 after 165 min: 4277 MB free of 16069 MB
+2026-11-10T22:52:27-05:00 [a35 29220] step 3 after 180 min: 4380 MB free of 16069 MB
+2026-11-10T23:07:27-05:00 [a35 29220] step 3 after 195 min: 4455 MB free of 16069 MB
+2026-11-10T23:14:27-05:00 [a35 29220] step 3 null-control rerun gaussian_hmm: exit 0
+2026-11-10T23:14:27-05:00 [a35 29220] step 3 null-control rerun hsmm: exit 0
+2026-11-10T23:14:27-05:00 [a35 29220] step 3: 202.1 min; 2938 MB free of 16069 MB
+2026-11-10T23:14:27-05:00 [a35 29220] === A35 CHAIN DONE. No freeze, no O8, no era calibration.

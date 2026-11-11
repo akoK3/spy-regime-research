@@ -1,3 +1,48 @@
+# Report, 2026-11-10 23:15 New York: A35 null-control rerun finished; A37
+
+## Bottom line
+
+- **A35(b) rerun: both detectors pass. A35 rule 3c applies: nothing changes.** The Gaussian HMM stays the H3/H4 primary (A28 1b stands). Rules 3a and 3d do not apply.
+- **Reproduction check (rule 2d) passes for both.** The rates under the old p convention equal the stored development-run rates exactly.
+- **A37: adopted 2026-11-11 02:14:37Z and in the freeze manifest (A21-A37, `freeze_ready: yes`).** TRAIN refits happen at the 5.12 freeze; the evaluation step only loads the frozen, hashed models; the one-shot marker is written immediately before the first evaluation read. Unit tests 9/9; synthetic end-to-end 20/20.
+- **Evaluation positive-control alert:** built into the driver. A failed or unevaluable A28 7d(i) positive control becomes the first field of the evaluation file and the first item of the report. No evaluation has run, so there is no such alert.
+- `FABLE_AUDIT.md` and `FABLE_REAUDIT.md` are whitelisted and committed (`81eb166`).
+- **No freeze. No evaluation-period row has been read.** No O8, no era calibration.
+
+## Needs you
+
+Nothing blocks. The next step under the protocol is the 5.12 freeze, which I have not done.
+
+## A35(b) 7d null-control rerun (200 null sets per detector, seed 7, 9,999 resamples, limit 0.10; 202 min)
+
+| Test | Gaussian HMM | HSMM |
+|---|---|---|
+| H3 TLT | 0.040 | 0.025 |
+| H3 HYG | 0.055 | 0.010 |
+| H3 GOLD | 0.005 | 0.000 |
+| H3 DOLLAR | 0.065 | 0.040 |
+| H4a | 0.045 | 0.000 |
+| H4b | 0.065 | 0.040 |
+| Passed | yes | yes |
+| Reproduces development run | yes | yes |
+
+- The Gaussian H4b rate was 10.5% under the old convention (NaN resamples counted as non-exceedances). With valid resamples only (A35(a)) it is 6.5%. Re-audit finding M1 is resolved by A35 as adopted before the rerun.
+- Files: `section6/results/a35_null_control_{gaussian_hmm,hsmm}.json` (with sidecars), per-set rows `a35_null_reps_{gaussian_hmm,hsmm}.jsonl`, log `a35_log.txt`. Ledger rows added with `s5_ledger.py add`; ledger tests pass.
+
+## A37 (`AMENDMENT_A37.md`, sha `cd3cfdea...`)
+
+- `section5/s5_freeze_models.py`: per era and family, the final setup and the return-only baseline are fitted on every TRAIN session (checked against the split manifest), saved once with a manifest and sidecar, and the hashes go into the freeze document as `input_hashes["frozen_models"]` via a delegating backend wrapper. No frozen closure module changed (code version `a0323ed24d68e896`).
+- `section5/s5_eval513.py`: `load_frozen` checks file hashes, setups, TRAIN sessions and the manifest; a preflight runs before the marker; the evaluation backend refuses any fit.
+- `EL.precheck` logs PRECHECK only (no read, no ALLOWED).
+- Synthetic end-to-end: 40 fits at the freeze, 0 during evaluation; a tampered model is refused before any marker; the alert fired on the synthetic positive control (0 Fed breaks, not evaluable), as designed.
+- Caveat: the driver has only run on synthetic data. On real data, 5.13 work after the read can still fail and use up that era's one run (A37 3c, by design).
+
+## Note
+
+Another session committed `cc8948d` (HF Data Library Raw vs Clean check) during the rerun. I did not touch it.
+
+---
+
 # Report, 2026-11-10 night: re-audit follow-up (A35, A36 and the joint evaluation driver, A32 restored, disclosures, label guards)
 
 ## Bottom line
