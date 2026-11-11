@@ -158,7 +158,7 @@ class TestGuards(unittest.TestCase):
 
     def test_driver_refuses_without_freeze_and_lists(self):
         import s5_amendment_manifest as AM
-        self.assertEqual(S6E.AMENDMENTS[-1], "A36"); self.assertIn("A36", AM.AMENDMENTS); self.assertEqual(S6E.N_HIST, 60)
+        self.assertIn("A36", S6E.AMENDMENTS); self.assertIn("A36", AM.AMENDMENTS); self.assertEqual(S6E.N_HIST, 60)
         with self.assertRaises(Exception): S6E.guards(Path("no_such_freeze.json"))
 
 

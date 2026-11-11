@@ -3,6 +3,8 @@
   0. guards: A28-A36 ADOPTED with matching sidecars; contamination registry; the freeze verifies and the token is its sha256; the evaluation FOMC list exists with
      its sidecar (rule 3c); the Section 6 fingerprint exists and equals the code on disk (rule 7c); the H2 and H3/H4 primary detectors are determined (rule 2d).
   1. Section 5 5.13 per era through s5_eval_label.run_confirmatory_labelled with s5_eval513.fit_fn / run_fn (rule 5): effects with intervals, no p; break export.
+     AMENDMENT_A37: before each era's one-shot marker, s5_eval513.preflight loads and checks the models frozen at 5.12 and runs the guard's checks without a read;
+     after the marker, fit_fn only hands that state over and run_fn starts with the guarded evaluation read. Nothing is fitted here.
   2. label-free coverage of the evaluation sessions (rule 6a), before any break time or asset outcome is used there.
   3. Section 6 on the evaluation periods (rules 1, 2, 4, 6): H3/H4 (s6_run.analyse, evaluation=True), H2 (s6_h2.analyse, per_era=True), A34 parts.
 Every result carries the A26 label and confirmatory = False; every evaluation read goes through s5_eval_loader (guard, access log). A finished step is not repeated
@@ -18,7 +20,7 @@ import numpy as np
 HERE = Path(__file__).resolve().parent; ROOT = HERE.parent; sys.path.insert(0, str(HERE)); sys.path.insert(0, str(ROOT / "section5"))
 import s6_lib as L, s6_run as R
 
-AMENDMENTS = ("A28", "A29", "A30", "A31", "A32", "A33", "A33_1", "A34", "A35", "A36"); ERAS = ("LEGACY", "RAW"); N_HIST = 60
+AMENDMENTS = ("A28", "A29", "A30", "A31", "A32", "A33", "A33_1", "A34", "A35", "A36", "A37"); ERAS = ("LEGACY", "RAW"); N_HIST = 60
 S5RES = ROOT / "section5" / "results"; OUT = HERE / "results"; H1_ORDER = ("gaussian_hmm", "student_t_hmm", "hsmm")
 
 
@@ -97,6 +99,14 @@ def breaks(s5res=None):
     return rows, sess
 
 
+def alerts_of(res):
+    """AMENDMENT_A37 rule 4: the evaluation-period positive control of A28 7d(i) failed or could not be evaluated. Placed first in the result and in the report."""
+    pc = ((res.get("sanity") or {}).get("positive_control")) or {}; out = []
+    if pc.get("p") is None: out.append(dict(level="ALERT", check="A28 7d(i) positive control (Fed breaks raise TLT rest-of-day RV)", status="not evaluable", n_breaks=pc.get("n_breaks")))
+    elif not pc.get("passed"): out.append(dict(level="ALERT", check="A28 7d(i) positive control (Fed breaks raise TLT rest-of-day RV)", status="FAILED", p=pc.get("p"), gamma=pc.get("gamma"), n_breaks=pc.get("n_breaks")))
+    return out
+
+
 def fed_fn_of(minutes):
     """A36 3d: S within the 60 minutes after the release on an evaluation FOMC day."""
     def f(units):
@@ -125,6 +135,8 @@ def section6(freeze, token, det34, det2, minutes, nboot=L.NBOOT, null_sets=200, 
     if not targets["s6"].exists():
         res = R.analyse(E_by, pick(det34), sess, nboot, det34, allrows, null_sets=null_sets, workers=workers, fed_fn=fed_fn_of(minutes), evaluation=True)
         res.update(common, nboot=nboot, null_sets=null_sets, generated=stamp(), sanity_note="reported, not a gate, on the evaluation periods (A36 2c)")
+        al = alerts_of(res); res = dict(alerts=al, **res)                                     # A37 rule 4: first key of the file
+        for a in al: log(f"ALERT: {a['check']}: {a['status']}")
         R.write_once(targets["s6"], label(res)); log(f"written {targets['s6'].name}")
     if det2 is not None and not targets["h2"].exists():
         res = H.analyse(E_by, pick(det2), sess, nboot, det2, allrows, B=draws, per_era=True); res.update(common, nboot_exploratory=nboot, draws_primary=draws, generated=stamp())
@@ -150,13 +162,18 @@ def run(freeze, token, nboot=L.NBOOT, null_sets=200, workers=1, draws=None):
         res = S5RES / f"{FZ.EVAL_PREFIX}{era}.json"; marker = S5RES / f"{FZ.EVAL_PREFIX}{era}_RAN.marker"
         if res.exists(): log(f"5.13 {era}: result exists (one run per era)"); continue
         if marker.exists(): raise SystemExit(f"5.13 {era}: the one-shot marker exists without a result: that run started and did not finish; no re-run (5.13); the user decides")
-        S513._AUTH[era] = (str(freeze), token); log(f"5.13 {era}: start")
+        st = S513.preflight(era, freeze, token)                                            # A37 2a: everything that can fail, before the marker
+        dev = {f: b["thresholds"]["frozen_threshold_reproduced"] for f, b in st["bundles"].items()}
+        log(f"5.13 {era}: frozen models verified ({len(st['bundles'])} families); feature thresholds reproduced at the freeze: {dev}")
+        S513._AUTH[era] = (str(freeze), token); S513._PRELOADED[era] = st; log(f"5.13 {era}: start (marker, then the evaluation read)")
         try: EV.run_confirmatory_labelled(freeze, S5RES, [era], S513.fit_fn, S513.run_fn, token)
-        finally: S513._AUTH.pop(era, None)
+        finally: S513._AUTH.pop(era, None); S513._PRELOADED.pop(era, None)
         G.write_side(res); log(f"5.13 {era}: written {res.name}")
     EV.verify_labelled(S5RES)
     t = section6(freeze, token, det34, det2, minutes, nboot, null_sets, workers, draws)   # 2-3. coverage, then Section 6 (A36 rule 6)
-    log("DONE: " + ", ".join(p.name for p in t.values())); return 0
+    al = json.loads(t["s6"].read_text(encoding="utf-8")).get("alerts") or []
+    for a in al: log(f"ALERT (report it first, A37 rule 4): {a['check']}: {a['status']}")
+    log("DONE: " + ", ".join(p.name for p in t.values()) + (f"; {len(al)} ALERT(S)" if al else "; no alert")); return 0
 
 
 def plan(freeze):

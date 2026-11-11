@@ -70,9 +70,22 @@ def _preflight():
 
 def eval_guard(era, freeze_path, confirm_token, section6=False):
     """No argument can relax a check (FABLE_AUDIT M1): the lock, the fingerprint, the panel paths and the preflight are module constants / functions; only tests patch them."""
+    return _checks(era, freeze_path, confirm_token, section6, need_active=True)
+
+
+def precheck(era, freeze_path, confirm_token, section6=False):
+    """AMENDMENT_A37 rule 2a: every check of eval_guard, run before the one-shot marker, except that the labelled 5.13 entry need not be active yet. Reads nothing; logged as
+    PRECHECK (never ALLOWED) and not recorded in EVAL_READS."""
+    _log(f"PRECHECK era={era} freeze={Path(freeze_path).name} section6={section6}")
+    try: fz = _checks(era, freeze_path, confirm_token, section6, need_active=False)
+    except Exception as e: _log(f"PRECHECK FAILED era={era}: {e}"); raise
+    _log(f"PRECHECK PASSED era={era}"); return fz
+
+
+def _checks(era, freeze_path, confirm_token, section6, need_active):
     import s5_freeze as FZ, s5_amendment_manifest as AM, s5_eval_label as EV
     EV.ready()      # AMENDMENT_A34 rule 3b: the A26 label module is in place before any evaluation-period read; FABLE_REAUDIT M3: and no script calls the 5.13 writer directly
-    if not section6 and not EV.ACTIVE: raise PermissionError("a Section 5 evaluation-period read is allowed only inside s5_eval_label.run_confirmatory_labelled (A26 1d, A34 3b)")
+    if need_active and not section6 and not EV.ACTIVE: raise PermissionError("a Section 5 evaluation-period read is allowed only inside s5_eval_label.run_confirmatory_labelled (A26 1d, A34 3b)")
     fz = FZ.verify_freeze(freeze_path)
     if confirm_token != sha(freeze_path): raise PermissionError("confirm_token must be the sha256 of the freeze file")
     now = AM.freeze_ready()

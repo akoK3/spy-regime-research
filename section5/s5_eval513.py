@@ -6,10 +6,10 @@ Per era:
   panel      TRAIN span followed by the evaluation span (A36 4a); the 5 embargo sessions between them are never read (1e). The evaluation span is opened only after
              s5_eval_loader.authorise (the evaluation guard and the access log; 7d). Features and their causal 20-session baselines are computed on the joined panel
              by the Section 4 code (s5_lib.compute_features); no era-named cache is read or written (the Section 5 caches hold TRAIN rows only).
-  fit        per family, the frozen final setup and the return-only baseline with its frozen parameters on every TRAIN session (3 starts, seed 0: DataBackend.fit);
-             preprocessing fitted on TRAIN rows only (5b). No retuning.
-  thresholds feature model: the frozen era-level threshold. Baseline: the same A11 rule on TRAIN only (fit sessions 0..n-64, 5 embargo, last 58 calibration; A7
-             bisection). The feature threshold is recomputed the same way; a difference from the frozen value is reported, the frozen value is used (5c).
+  models     AMENDMENT_A37: fitted at the 5.12 freeze by s5_freeze_models (TRAIN only) and hashed into the freeze; here they are only loaded and checked (load_frozen,
+             preflight, before the one-shot marker). fit_fn hands over the loaded state; run_fn starts with the guarded evaluation read. Nothing is fitted here.
+  thresholds feature model: the frozen era-level threshold. Baseline: the A11 threshold computed on TRAIN at the freeze (A37 1b). The feature threshold recomputed
+             at the freeze is compared with the frozen value; a difference is reported, the frozen value is used.
   H1(a)      pAUC(features) - pAUC(baseline) on splices of the stable evaluation days (main-run builders, seed 4242); skipped under 8 stable days (5d).
   H1(b)      mean QLIKE(baseline) - mean QLIKE(features) on common decision bars, and as a percentage of the baseline (5e).
   H1(c)      hit rates in [release, release + 60 min] on evaluation FOMC days with a time and a full session; reference rates on the other sessions (5f).
@@ -84,9 +84,20 @@ def _backend_class():
         caller checks the partitions), splice bases from the context instead of the era-named cache, no selection and no fold scoring."""
         kind = "evaluation"
 
-        def __init__(self, era, ctx, seg):
+        def __init__(self, era, ctx, seg, prep=None, models=None):
+            """prep / models (AMENDMENT_A37 rule 2b): the frozen preprocessing and {(family, subset, ((param, value), ...)): model} of the freeze; with models given, fit()
+            never fits."""
             if ctx["era"] != era: raise ValueError("context of another era")
             self.era, self.fold, self.id = era, -2, f"{era}|EVAL"; self.min_days = MIN_STABLE; self._shared = ctx; self._seg = seg; self._ctx = None; self._fits = {}; self._seqs = {}; self._splice = None
+            self._prep = prep; self._frozen = models is not None
+            for (fam, sub, par), m in (models or {}).items(): self._fits[(fam, tuple(sub), tuple(sorted(dict(par).items())), 3)] = m
+
+        def fit(self, family, subset, params, starts):
+            if self._frozen:
+                key = (family, tuple(subset), tuple(sorted(dict(params).items())), starts)
+                if key not in self._fits: raise PermissionError(f"no model is fitted on the evaluation path (A37 2b): {family} {tuple(subset)} {dict(params)} is not a frozen model")
+                return self._fits[key]
+            return super().fit(family, subset, params, starts)
 
         def _segments(self, d): return self._seg
 
@@ -94,7 +105,7 @@ def _backend_class():
             ctx = self._shared; d, dv, cols, native, Mx = ctx["d"], ctx["dv"], ctx["cols"], ctx["native"], ctx["Mx"]; names = [L.RET_NAME] + cols; seg = self._seg
             to_des = lambda r, sess: dict(r, X=F.deseason(r["X"], F.ret5_scale(Mx, sess)))
             rows = {k: [to_des(native[i], i) for i in seg[k]] for k in ("train", "val", "test")}
-            prep = L.Prep().fit(np.vstack([r["X"] for r in rows["train"]]), names)
+            prep = self._prep if self._prep is not None else L.Prep().fit(np.vstack([r["X"] for r in rows["train"]]), names)      # A37 2b: the frozen preprocessing
             mk = lambda r, sub: L.build_sequence(dict(r, X=prep.transform(r["X"])[:, [prep.keep.index(L.RET_NAME)] + [prep.keep.index(x) for x in sub]]))
             return dict(d=d, seg=seg, dv=dv, cols=cols, names=names, rows=rows, prep=prep, mk=mk, to_des=to_des, used=set(map(int, np.r_[seg["train"], seg["val"], seg["test"]])), kept=set(prep.keep))
 
@@ -193,32 +204,72 @@ def calibrate(state, family, features, params):
     r = state["cal"].final_thresholds(state["era"], family, dict(features=list(features), params=dict(params))); return float(r["threshold"]), float(r["validation_rate"])
 
 
-def fit_fn(era, setup, thresholds):
-    """5.13 fit: only the frozen setup is used. Returns the state run_fn needs (panel context, backends, fitted models)."""
-    import s5_h1 as H
-    if era not in _AUTH: raise PermissionError("the joint driver did not register the freeze for this era (s5_eval513._AUTH)")
-    missing = [f for f in H.FAMILIES if f not in setup or f not in thresholds]
-    if missing: raise PermissionError(f"{era}: the freeze has no setup or threshold for {missing}")
-    d, n_tr = panel(era, *_AUTH[era]); st = build_state(era, d, n_tr); db = st["full"]; st["models"] = {}
+_PRELOADED = {}      # era -> the state preflight() loaded and verified (AMENDMENT_A37 rule 3a: fit_fn only hands it over)
+
+
+def load_frozen(era, fz, frozen_dir=None):
+    """AMENDMENT_A37 rule 2a: the era's frozen model files, each checked against the freeze document (sha256), the manifest against its sidecar, every setup against the
+    freeze's final setup; the feature-threshold reproduction recorded (frozen value used). No data is read, nothing is fitted. Returns dict(era, bundles={family: bundle})."""
+    import pickle, s5_h1 as H, s5_freeze_models as FM
+    rec = (fz.get("input_hashes") or {}).get("frozen_models")
+    if not rec: raise PermissionError("the freeze document records no frozen models (A37 1e): the evaluation step cannot fit")
+    d = Path(frozen_dir or FM.FROZEN_DIR); mp = FM.manifest_path(d); side = mp.with_suffix(".sha256")
+    if not mp.exists() or not side.exists() or side.read_text().split()[0] != sha(mp) or sha(mp) != rec["manifest_sha256"]: raise PermissionError("frozen-model manifest missing or differs from the freeze (A37 2a)")
+    out = {}
     for fam in H.FAMILIES:
-        s = setup[fam]; feats = tuple(s["features"]); bp = dict(s.get("base_params") or s["params"])
-        st["models"][fam] = dict(feature=db.fit(fam, feats, dict(s["params"]), 3), baseline=db.fit(fam, (), bp, 3), features=feats, params=dict(s["params"]), base_params=bp)
+        name = FM.file_name(era, fam); p = d / name
+        if name not in rec["files"] or not p.exists() or sha(p) != rec["files"][name]: raise PermissionError(f"frozen model {name} missing or differs from the freeze (A37 2a)")
+        b = pickle.loads(p.read_bytes()); s = fz["setups"][era][fam]; part = partitions(era); tr = sorted(x for x, q in part.items() if q == "TRAIN")
+        if (b["n_train"], b["train_first"], b["train_last"]) != (len(tr), tr[0], tr[-1]): raise PermissionError(f"frozen model {name}: its TRAIN sessions differ from the split manifest (A37 1c)")
+        if b["era"] != era or b["family"] != fam or list(b["features"]) != list(s["features"]) or dict(b["params"]) != dict(s["params"]) or dict(b["base_params"]) != dict(s.get("base_params") or s["params"]):
+            raise PermissionError(f"frozen model {name}: its setup differs from the freeze's final setup (A37 2a)")
+        thr_f = float(fz["thresholds"][era][fam]["threshold"]); b["thresholds"] = dict(b["thresholds"], feature_frozen=thr_f, frozen_threshold_reproduced=bool(abs(b["thresholds"]["feature_recomputed"] - thr_f) <= 1e-9))
+        b["sha256"] = rec["files"][name]; out[fam] = b
+    return dict(era=era, bundles=out)
+
+
+def preflight(era, freeze_path, token, frozen_dir=None):
+    """Everything that can fail before the one-shot marker (A37 rule 2a): freeze and token, frozen models, FOMC list, and the evaluation guard's checks without a read."""
+    import s5_freeze as FZ, s5_eval_loader as EL
+    fz = FZ.verify_freeze(freeze_path)
+    if token != FZ.sha(freeze_path): raise PermissionError("confirm_token must be the sha256 of the freeze file")
+    st = load_frozen(era, fz, frozen_dir); fomc_minutes(); EL.precheck(era, freeze_path, token, section6=False); return st
+
+
+def fit_fn(era, setup, thresholds):
+    """5.13 fit under A37 rule 3a: the frozen runner has just written the marker. Nothing is fitted and nothing is read: the state preflight() loaded is handed over."""
+    st = _PRELOADED.get(era)
+    if st is None: raise PermissionError("no frozen models were loaded for this era before the marker (A37 2a; s5_eval513.preflight)")
     return st
 
 
+def build_eval_state(era, d, n_tr, bundles):
+    """Context of the joined panel and the evaluation backend holding the frozen preprocessing and models (A37 2b)."""
+    ctx = context(era, d); full, _ = segments(n_tr, len(d["first"])); preps = {id(b["prep"]): b["prep"] for b in bundles.values()}
+    models = {}
+    for fam, b in bundles.items(): models[(fam, tuple(b["features"]), tuple(sorted(b["params"].items())))] = b["feature"]; models[(fam, (), tuple(sorted(b["base_params"].items())))] = b["baseline"]
+    prep = next(iter(bundles.values()))["prep"]
+    if any(p.keep != prep.keep or p.mu != prep.mu for p in preps.values()): raise PermissionError("the frozen models of one era carry different preprocessing")
+    return dict(era=era, ctx=ctx, n_train=n_tr, full=_backend_class()(era, ctx, full, prep=prep, models=models))
+
+
 def run_fn(era, st, setup, thresholds, minutes=None):
-    """5.13 run on the evaluation sessions of one era: effects with intervals (no p), alarms, breaks. The result is labelled by the caller (s5_eval_label)."""
+    """5.13 run on the evaluation sessions of one era: effects with intervals (no p), alarms, breaks. The result is labelled by the caller (s5_eval_label).
+    A37 rule 3a: the first action is the guarded evaluation read; the models are the frozen ones (st from preflight); nothing is fitted."""
     import s5_h1 as H, s5_eval as V, s5_a6 as A, s5_a17_a18_common as CM, s5_break_export as BX
-    db = st["full"]; d = db.c["d"]; seg = db.c["seg"]; day = lambda i: str(d["day"][d["first"][int(i)]]); minutes = fomc_minutes() if minutes is None else minutes
+    if era not in _AUTH: raise PermissionError("the joint driver did not register the freeze for this era (s5_eval513._AUTH)")
+    dd, n_tr = panel(era, *_AUTH[era])                                                   # the first evaluation-data read, right after the marker
+    bundles = st["bundles"]; minutes = fomc_minutes() if minutes is None else minutes; est = build_eval_state(era, dd, n_tr, bundles)
+    db = est["full"]; d = db.c["d"]; seg = db.c["seg"]; day = lambda i: str(d["day"][d["first"][int(i)]])
     ev_days = [day(i) for i in seg["test"]]; full_days = {day(i) for i in seg["test"] if int(d["end"][i] - d["first"][i]) == FULL}
-    out = dict(kind="section5_513_evaluation", era=era, amendment="A36 rule 5", n_train_sessions=int(st["n_train"]), n_evaluation_sessions=len(ev_days), first_evaluation_day=ev_days[0], last_evaluation_day=ev_days[-1],
-               statistics="effect sizes with 95% percentile day-cluster bootstrap intervals (2,000 resamples, seed 513); no p-value, no fold test, no Holm (A36 5g)", families={}, breaks=[], sessions=sorted(ev_days))
+    out = dict(kind="section5_513_evaluation", era=era, amendment="A36 rule 5 as amended by A37", n_train_sessions=int(n_tr), n_evaluation_sessions=len(ev_days), first_evaluation_day=ev_days[0], last_evaluation_day=ev_days[-1],
+               statistics="effect sizes with 95% percentile day-cluster bootstrap intervals (2,000 resamples, seed 513); no p-value, no fold test, no Holm (A36 5g)",
+               models="frozen at 5.12 and loaded, sha256 checked against the freeze (A37); nothing fitted on the evaluation path", families={}, breaks=[], sessions=sorted(ev_days))
     for fam in H.FAMILIES:
-        m = st["models"][fam]; mf, mb, feats = m["feature"], m["baseline"], m["features"]; thr_f = float(thresholds[fam]["threshold"])
-        thr_b, rate_b = calibrate(st, fam, (), m["base_params"]); thr_r, rate_r = calibrate(st, fam, feats, m["params"])
-        r = dict(features=list(feats), params=m["params"], base_params=m["base_params"],
-                 thresholds=dict(feature_frozen=thr_f, baseline_a11=thr_b, baseline_calibration_rate=rate_b, feature_recomputed=thr_r, feature_recomputed_rate=rate_r,
-                                 frozen_threshold_reproduced=bool(abs(thr_r - thr_f) <= 1e-9), note="the frozen feature threshold is the one used (A36 5c)"))
+        b = bundles[fam]; mf, mb, feats = b["feature"], b["baseline"], tuple(b["features"]); thr_f = float(thresholds[fam]["threshold"]); thr_b = float(b["thresholds"]["baseline_a11"])
+        m = dict(params=dict(b["params"]), base_params=dict(b["base_params"]))
+        r = dict(features=list(feats), params=m["params"], base_params=m["base_params"], model_sha256=b["sha256"],
+                 thresholds=dict(b["thresholds"], feature_frozen=thr_f, note="the frozen feature threshold is the one used; the baseline threshold was set by A11 on TRAIN at the freeze (A37 1b)"))
         lf, kf = db.qlike_on(fam, mf, feats, "test"); lb, kb = db.qlike_on(fam, mb, (), "test"); xb, xf, common = V.align(np.asarray(lb, float), np.asarray(kb), np.asarray(lf, float), np.asarray(kf))
         ok = np.isfinite(xb) & np.isfinite(xf); b = ci_mean_diff(xb[ok], xf[ok], (np.asarray(common)[ok] // 1000))
         r["H1b"] = dict(b, definition="mean QLIKE(baseline) - mean QLIKE(features), common decision bars; clusters = sessions", pct_of_baseline=(float(100 * b["effect"] / b["mean1"]) if b["effect"] is not None and b["mean1"] else None))
