@@ -1,3 +1,115 @@
+# Report, 2026-11-11: PREFREEZE_AUDIT fixes (no real freeze)
+
+## Bottom line
+
+- **All six items are done.** Code commit 2d548e0.
+- **The full dress rehearsal is running detached** (step 4; started 12:42 New York). The development-only smoke version **passed end to end**. The full result is added at the end of this report when it finishes.
+- **Code version is a0323ed24d68e896, unchanged.**
+  - **Disclosed:** I briefly edited `s5_main.py`'s docstring (audit H1 asked for it). That file is in the frozen closure, and the code-version test caught it at once. I restored it byte for byte from git before anything else ran.
+  - The H1 ban test now lists `s5_main.py` as a text-only mention. **The audit's "fix the `s5_main.py` docstring" cannot be done** without changing the code version.
+- No real freeze, no lock, no evaluation-period read. The real lock, freeze, frozen-model directory, access log and fingerprint do not exist, and were checked untouched by the rehearsal.
+
+## 1. H1: single freeze driver (`section5/s5_freeze_run.py`)
+
+- **The only sanctioned 5.12 entry:** `freeze(backend, summ, results_dir, amendments)`. `run --confirm section5_freeze.json` does the real freeze. `check` is read-only.
+- **Pinned to MR2:** `load_summary()` reads `main_run_2` only.
+- **`s5_freeze_models.freeze_with_models` now delegates** to the driver.
+- **Ban test** (`s5_tests_freeze_run.py`): fails if any script other than these calls `freeze_step(`:
+  - the definition and the driver;
+  - the temp-dir rehearsals (`s5_dry_run`, `s5_machinery_run`, `s5_rehearsal`);
+  - the unit tests;
+  - `s5_main.py` (docstring text only; closure).
+- **Rehearsed in a temp directory:** the real composition (driver → staged `write_models` → unchanged `s5_run.freeze_step` → move) with a stub main backend. 7/7 tests pass. The real composition on development data passed in the smoke dress rehearsal (section 4).
+- **`check` on the real MR2 run** (read-only, no fit, no write):
+  - prechecks pass;
+  - H1 passing families: HSMM and Gaussian HMM;
+  - expected H2 primary detector: `gaussian_hmm`;
+  - no lock exists.
+
+## 2. M1: atomic, retryable freeze
+
+The order is:
+1. **Prechecks before any fit:** no freeze and no evaluation output; the amendment list equals `freeze_ready()`; the completion record verifies; protocol, contamination, code-version and fold checks; a setup for every era and family.
+2. **Feature parity** (M2).
+3. **TRAIN refits into a staging directory.** A staged set that verifies (manifest sidecar, hashes, setups, code version, TRAIN sessions) is **reused, never refitted**. An unverifiable one is discarded and refitted.
+4. **`freeze_step` with the era calibration**, through a wrapper that adds the staged hashes and checks every era threshold (M2). A mismatch stops **before** the freeze document is written.
+5. **Only then**, move the staged models to `frozen_models/`, recheck their hashes against the document, and require `load_frozen` to succeed for both eras.
+6. **Crash recovery:** a crash between 4 and 5 is completed by a rerun. An unverifiable freeze file refuses.
+
+The era calibration's lock does not block a retry: `calibrate` appends to it and does not refuse.
+
+**Tests:**
+- a crash in the era calibration, then a retry: the staged models are reused (no second fit), the freeze is written and the models are moved;
+- a threshold mismatch: no document;
+- prechecks fail before any fit;
+- an interrupted move is completed by a rerun;
+- unverifiable staging is refitted.
+
+## 3. M2: feature path vs main-run context
+
+- **Now, on development data** (`section5/results/feature_parity.json`): **passed for both eras.**
+  - RAW: 705 TRAIN sessions. LEGACY: 4,022.
+  - Every A20-pool column, the Lee-Mykland input, the deseasonalised target, the 5-minute return matrix and every session's grid rows are equal (NaN masks identical; values within 1e-10).
+- **Inside the freeze driver:** the same check before fitting, and the era-threshold comparison before the document is written.
+  - Smoke rehearsal: all four RAW era thresholds equal the 5.13-path recomputation exactly (difference 0.0; tolerance 0.001, or 0.5 for BOCPD).
+
+## 4. M3: dress rehearsal (development data only; `section6/s6_dress_rehearsal.py`)
+
+- **Setup:** per era, the real TRAIN sessions are split into fake TRAIN (all but the last 125), 5 fake embargo sessions and a 120-session fake evaluation tail. Spans, split map, lock, fingerprint, access log, FOMC list (the development schedule on the fake tail) and every output are redirected to a temporary directory.
+- **What runs, on real code and real loaders:** the freeze driver on the real main backend (MR2 completion record and setups, era calibration on the main-run context cut to fake TRAIN), then the joint driver (5.13 via the labelled entry, coverage, H3/H4, H2, A34), then the A38 entry.
+- **Smoke run** (RAW only, 30-session tail, 199 resamples; `dress_rehearsal_smoke.json`): **PASSED in 51 minutes.**
+
+  | Stage | Time | Outcome |
+  |---|---|---|
+  | Freeze driver | 2,641 s, of which 2,373 s fitting | parity passed; thresholds equal; models moved; lock only in temp |
+  | 5.13 RAW | 2.5 min | labelled; sessions equal the fake tail exactly; frozen thresholds reproduced for all four families |
+  | Section 6 | about 6 s | H3/H4, H2, A34 and coverage written and labelled. The positive control is reported **"not evaluable"** (one Fed break in 30 sessions), which exercises the L2 fix |
+  | A38 | 256 s | both HF files through `authorise_a38` (2 ALLOWED A38 log lines), labelled output |
+  | Real paths | | untouched |
+
+- **Full run, detached** (both eras, 120-session tails, 9,999 resamples, 200 null sets, 10,000 H2 draws, 3 workers): started 12:42 New York.
+  - From the smoke timings, LEGACY's fits on about 3,900 sessions should take several hours.
+  - Its result goes to `section6/results/dress_rehearsal.json`, and is added below.
+
+## 5. M4: the A38 entry (`section5/s5_a38.py`; tests `s5_tests_a38.py` 8/8)
+
+- **HF panel builder:** the study grid (Section 3.10 canonical sessions and minutes), with prices from the HF file.
+  - A bar is observed when it is on the grid, its source is `iex`, and its OHLCV passes the Section 3.4 validity rule.
+  - The return into a bar is eligible when the bar and the previous minute are both observed.
+  - **Checked exactly:** on RAW TRAIN, the builder run on the study's own Raw file reproduces the canonical RAW panel. Over 705 sessions, close, range, volume, open, high, low, return values and eligibility masks are identical; 19 off-grid HF rows are dropped.
+- **Guard:** `s5_eval_loader.authorise_a38` runs every Section 6 guard check (freeze, token, amendment list, lock, data-hash preflight, fingerprint), plus A38 adopted and the official RAW result present and labelled. It is logged as A38, and needs neither the labelled 5.13 entry nor a `section6=True` pretence.
+- **Per-file safeguards:** a hash check against A38's recorded hashes, then a one-shot marker immediately before that file's first evaluation read. Arrays are saved after each run, so the comparison never re-reads.
+- **Statistics:**
+  - Delta = Clean minus Raw for H1(a) (Raw run's splices reused) and H1(b) (bars common to both runs and both models);
+  - paired day-cluster intervals (2,000 resamples, seed 513) and MDE = 2.8 x bootstrap SD;
+  - the rule 1f reading; the rule 2 labels with an approximate MDE; the rule 1g reproducibility comparison.
+- **Registered** as EVALUATION. **`hfdatalibrary_`** is added to the registry's data-load pattern. `s5_a38.py` is in `s6_fingerprint.HELPERS`. All of this is written **before** the freeze and before any RAW result exists.
+
+## 6. Lows
+
+| # | Fix |
+|---|---|
+| L1 | A dated disclosure note appended to `AMENDMENT_A35.md` (rules unchanged; sidecar rewritten; ledger row): rule 1a can only lower the null rejection rates, Gaussian H4b moved 0.105 → 0.065, and the Gaussian pass is partly due to the convention change. Every H4 p now reports `valid_share` = V/B and flags it below 0.9 (`low_valid_share`) |
+| L2 | A NaN or None positive-control p is reported as "not evaluable", never "failed" (`s6_run.sanity` and `s6_eval.alerts_of`) |
+| L3 | A38 added to the driver's amendment list (results' provenance records it) |
+| L4 | The 5.13-writer scan matches any reference (alias, `getattr`, spaced call), not just `run_confirmatory(`. `write_once` refuses an unlabelled payload that cites an evaluation result file |
+| L5 | `hfdatalibrary_` is in the registry pattern. The HF cleaning check now discards out-of-window rows while streaming (its 2026-11-11 result is unchanged; not rerun) |
+| L6 | Overnight-type features are set to NaN on the first session after the embargo gap. None is in the A20 pool or its bases, so nothing the models use changes. The 20-session baselines spanning the gap are as A36 4a states (disclosed) |
+| L7 | A detector chosen by the A28 1b fallback (e.g. Student-t) needs its own passing, reproducing A35 rerun, or work stops for your decision |
+| L8 | FABLE_REAUDIT L3 closed: H2 detector dependence reuses the analysed detector's primary result. FABLE_REAUDIT L7 closed: the coverage guard uses the manifest regex, and `coverage_sessions.csv` is write-once |
+| L9 | No rebinding of the model bundle inside the 5.13 loop |
+
+**Tests (all pass):**
+- Section 5: freeze prep 13, freeze driver 7, A38 8, HF check 3, ledger 2.
+- Section 6: base 30, H2 10, A34 5, A35 10, A36 18, A37 9.
+
+## Before the real freeze
+
+1. Read the full dress-rehearsal result (below when done).
+2. Then `s5_freeze_run.py run --confirm section5_freeze.json`, then the Section 6 fingerprint, then `s6_eval.py run`, then `s5_a38.py run`. Each is only on your instruction.
+
+---
+
 # Report, 2026-11-11: data provenance and freeze-readiness checks (read-only; nothing changed)
 
 ## (a) Why 2002-12-30 and 2002-12-31 are excluded
