@@ -127,10 +127,13 @@ def compare(raw, clean, nboot=2000, seed=513):
         cl = com // 1000; e_r = boot_mean_diff(br[ir], fr[ir], cl, nboot, seed); e_c = boot_mean_diff(bc[ic], fc[ic], cl, nboot, seed)
         d_b = boot_mean_diff(bc[ic] - fc[ic], br[ir] - fr[ir], cl, nboot, seed)
         r = dict(H1b=dict(raw=e_r, clean=e_c, delta=d_b, n_common_bars=int(len(com)), n_bars_raw_only=int(len(kr) - len(com)), n_bars_clean_only=int(len(kc) - len(com))))
-        ma, mc = raw["families"][fam].get("h1a"), clean["families"][fam].get("h1a")
+        ma, mc = raw["families"][fam].get("h1a"), clean["families"][fam].get("h1a"); dr = clean.get("splice_drop")
         if ma and mc:
-            r["H1a"] = dict(raw=boot_pauc([(1, ma["feature"], ma["baseline"])], nboot, seed), clean=boot_pauc([(1, mc["feature"], mc["baseline"])], nboot, seed),
-                            delta=boot_pauc([(1, mc["feature"], mc["baseline"]), (-1, ma["feature"], ma["baseline"])], nboot, seed))
+            mk = (lambda m: subset_h1a(m, dr["keep_null"], dr["keep_brk"])) if dr else (lambda m: m)      # A38 N2: the Raw run on the kept specifications only
+            ka = dict(feature=mk(ma["feature"]), baseline=mk(ma["baseline"]))
+            r["H1a"] = dict(raw=boot_pauc([(1, ka["feature"], ka["baseline"])], nboot, seed), clean=boot_pauc([(1, mc["feature"], mc["baseline"])], nboot, seed),
+                            delta=boot_pauc([(1, mc["feature"], mc["baseline"]), (-1, ka["feature"], ka["baseline"])], nboot, seed),
+                            raw_all_specs_reference=(boot_pauc([(1, ma["feature"], ma["baseline"])], nboot, seed) if dr else None))
         else: r["H1a"] = dict(delta=None, note=raw["families"][fam].get("h1a_note") or clean["families"][fam].get("h1a_note") or "not evaluable")
         dl = [x["delta"] for x in (r["H1a"], r["H1b"]) if x.get("delta")]
         sens = any(x["ci95"] is not None and np.isfinite(x["ci95"][0]) and (x["ci95"][0] > 0 or x["ci95"][1] < 0) for x in dl)
@@ -164,11 +167,60 @@ def secondary(official, fz):
     return out
 
 
+# ---------- A38 note N1-N4 (2026-11-12): Raw splices that cannot be built on the Clean panel
+SPEC_FIELDS = dict(plain=("kind", "cell", "iA", "iB", "g"), regime=("kind", "cell", "iA", "iB", "g", "f", "dur"))
+
+
+def check_raw_specs(raw_specs):
+    """N4, ahead of the Clean marker: the saved Raw run holds its splice specifications, each with the fields the screen and the builder need."""
+    if not isinstance(raw_specs, dict) or "specs" not in raw_specs or "n_stable" not in raw_specs: raise RuntimeError("A38 N4: the saved Raw run holds no splice specifications")
+    for i, s in enumerate(raw_specs["specs"]):
+        need = SPEC_FIELDS.get(s.get("kind"))
+        if need is None or any(k not in s for k in need): raise RuntimeError(f"A38 N4: Raw splice specification {i} is incomplete: {s}")
+    return len(raw_specs["specs"])
+
+
+def spec_end(s): return (int(s["g"]) + int(s["dur"])) if s.get("kind") == "regime" and s.get("dur") is not None else None
+
+
+def screen_specs(d, specs):
+    """N1 on a panel: True where s5_d2.finite_ok holds (the rule that drew the specifications on the Raw panel)."""
+    import s5_d2 as D2
+    return [bool(D2.finite_ok(d, int(s["iA"]), int(s["iB"]), int(s["g"]), spec_end(s))) for s in specs]
+
+
+def build_kept(specs, ok, work):
+    """N1-N3: build every screened specification inside error handling; returns (kept specs, rows, keep mask, dropped records). Never raises for a splice."""
+    kept, rows, keep, dropped = [], [], [], []
+    for i, (s, k) in enumerate(zip(specs, ok)):
+        if k:
+            try: rows.append(work(s)); kept.append(s); keep.append(True); continue
+            except Exception as ex: dropped.append(dict(index=i, cell=str(s.get("cell")), why=f"build error: {type(ex).__name__}: {ex}"[:300]))
+        else: dropped.append(dict(index=i, cell=str(s.get("cell")), why="not buildable on the Clean panel (s5_d2.finite_ok)"))
+        keep.append(False)
+    return kept, rows, keep, dropped
+
+
+def drop_summary(specs, keep, dropped):
+    """N3: counts and shares, split into null and break splices."""
+    isn = [s.get("cell") == "null" for s in specs]; n = len(specs); nd = n - sum(keep)
+    nn = sum(isn); nb = n - nn; dn = sum(1 for s, k in zip(isn, keep) if s and not k); db_ = nd - dn
+    return dict(n_specs=n, n_dropped=nd, share_dropped=(nd / n if n else None), null=dict(n=nn, dropped=dn, share=(dn / nn if nn else None)),
+                brk=dict(n=nb, dropped=db_, share=(db_ / nb if nb else None)), dropped=dropped)
+
+
+def subset_h1a(m, keep_null, keep_brk):
+    """The Raw run's H1(a) matrices (null counts, null days, break hits, break days) restricted to the kept specifications (N2)."""
+    kn, kb = np.asarray(keep_null, bool), np.asarray(keep_brk, bool)
+    return (np.asarray(m[0])[kn], np.asarray(m[1])[kn], np.asarray(m[2])[kb], np.asarray(m[3])[kb])
+
+
 # ---------- one file's run (the guarded read happens here)
 def run_file(kind, freeze, token, bundles, raw_specs=None, res=None):
     import s5_eval_loader as EL, s5_eval513 as S513, s5_d2 as D2
     res = Path(res or RES); spec = HF[kind]
     if sha(spec["file"]) != spec["sha256"]: raise PermissionError(f"{Path(spec['file']).name} differs from the hash AMENDMENT_A38 records")
+    if kind == "clean": check_raw_specs(raw_specs)      # A38 N4: ahead of the Clean authorisation and marker
     EL.authorise_a38(kind, freeze, token, what=f"A38 1a: SPY from {Path(spec['file']).name}; study grid of the RAW evaluation span")      # guard + access log (no read yet)
     mk = marker(kind, res)
     if mk.exists(): raise SystemExit(f"A38 {kind}: the one-shot marker exists without saved arrays; no second run (A38 5a); the user decides")
@@ -177,14 +229,20 @@ def run_file(kind, freeze, token, bundles, raw_specs=None, res=None):
     n_tr = len(g_tr["first"]); n0 = len(g_tr["t"]); grid = dict(t=np.r_[g_tr["t"], g_ev["t"]], day=np.r_[g_tr["day"], g_ev["day"]], slot=np.r_[g_tr["slot"], g_ev["slot"]],
                                                               first=np.r_[g_tr["first"], g_ev["first"] + n0], end=np.r_[g_tr["end"], g_ev["end"] + n0])
     d, cnt = build_panel(ERA, grid, read_hf(spec["file"], spec["member"], f, el)); S513.check_partitions(ERA, [str(d["day"][i]) for i in d["first"]], n_tr)
-    est = S513.build_eval_state(ERA, d, n_tr, bundles); db = est["full"]
-    if raw_specs is not None:      # A38 1d: the Raw run's splice specifications, applied unchanged
-        c = db.c; D2._W.update(d=c["d"], cols=c["cols"], bases=db._shared["bases"], dv=c["dv"]); db._splice = dict(n_stable=raw_specs["n_stable"], specs=raw_specs["specs"], rows=[D2._work(s) for s in raw_specs["specs"]], why=None)
-    sp = db._splices(); out = dict(kind=kind, file=Path(spec["file"]).name, sha256=spec["sha256"], panel_counts=cnt, n_train=n_tr, n_stable=sp["n_stable"], families={})
+    ok = screen_specs(d, raw_specs["specs"]) if raw_specs is not None else None      # A38 N1/N4: the screen runs first, on the Clean panel, before any model
+    est = S513.build_eval_state(ERA, d, n_tr, bundles); db = est["full"]; drop = None
+    if raw_specs is not None:      # A38 1d with note N1-N3: the Raw run's splice specifications; those not buildable on the Clean panel are dropped (from both runs, in compare)
+        c = db.c; D2._W.update(d=c["d"], cols=c["cols"], bases=db._shared["bases"], dv=c["dv"])
+        kept, rows, keep, dropped = build_kept(raw_specs["specs"], ok, D2._work); drop = drop_summary(raw_specs["specs"], keep, dropped)
+        drop["keep_null"] = [k for s, k in zip(raw_specs["specs"], keep) if s.get("cell") == "null"]; drop["keep_brk"] = [k for s, k in zip(raw_specs["specs"], keep) if s.get("cell") != "null"]
+        db._splice = dict(n_stable=raw_specs["n_stable"], specs=kept, rows=rows, why=None)
+    sp = db._splices(); out = dict(kind=kind, file=Path(spec["file"]).name, sha256=spec["sha256"], panel_counts=cnt, n_train=n_tr, n_stable=sp["n_stable"], families={}, splice_drop=drop)
+    has_both = bool(sp["specs"]) and any(s.get("cell") == "null" for s in sp["specs"]) and any(s.get("cell") != "null" for s in sp["specs"])
     for fam, b in bundles.items():
         mf, mb, feats = b["feature"], b["baseline"], tuple(b["features"]); lf, kf = db.qlike_on(fam, mf, feats, "test"); lb, kb = db.qlike_on(fam, mb, (), "test")
         x = dict(lf=np.asarray(lf, float), kf=np.asarray(kf), lb=np.asarray(lb, float), kb=np.asarray(kb))
-        if sp["specs"] and sp["n_stable"] >= S513.MIN_STABLE: x["h1a"] = dict(feature=db.h1a_matrices(fam, mf, feats), baseline=db.h1a_matrices(fam, mb, ()))
+        if raw_specs is not None and not has_both: x["h1a_note"] = "A38 N3: no null or no break splice kept on the Clean panel"
+        elif sp["specs"] and sp["n_stable"] >= S513.MIN_STABLE: x["h1a"] = dict(feature=db.h1a_matrices(fam, mf, feats), baseline=db.h1a_matrices(fam, mb, ()))
         else: x["h1a_note"] = f"{sp['n_stable']} stable days" if sp["n_stable"] < S513.MIN_STABLE else (sp["why"] or "no splice specs")
         out["families"][fam] = x
     out["specs"] = dict(n_stable=sp["n_stable"], specs=sp["specs"]) if raw_specs is None else None
@@ -217,6 +275,7 @@ def run(freeze, token, res=None, nboot=2000, seed=513):
     official = json.loads(off.read_text(encoding="utf-8"))
     rep = dict(label="AMENDMENT_A38 filter checks of H1 on the RAW evaluation period", period="evaluation", a26_label=EV.LABEL, confirmatory=False,
                primary_rule1=dict(by_family=compare(runs["raw"], runs["clean"], nboot, seed), panel_counts={k: v["panel_counts"] for k, v in runs.items()}, n_stable_days=runs["raw"]["n_stable"],
+                                  splice_drop_note_N3={k: v for k, v in (runs["clean"].get("splice_drop") or {}).items() if k not in ("keep_null", "keep_brk")},
                                   note="HF's documented Clean filter on IEX data: the closest available proxy for the processing of the LEGACY rows, not the same thing (A38 background, 4b)"),
                secondary_rule2=secondary(official, fz),
                reproducibility_rule1g=reproducibility(official, runs["raw"], nboot, seed),

@@ -11,7 +11,7 @@ span constants, the split map, the lock path and every output directory redirect
   4. the A38 entry (s5_a38.run) on the RAW fake evaluation tail, with the 2026-11-11 HF Raw and Clean files.
 The evaluation FOMC list is the development schedule restricted to the fake evaluation days. EraData for the Section 6 history is cut to the fake TRAIN.
 Recorded: each stage's outcome and time, the main process's peak memory, the checks below. Output (written once): section6/results/dress_rehearsal.json.
-Usage: s6_dress_rehearsal.py [--smoke] [--keep]   (--smoke: RAW only, a 30-session tail, few resamples: a plumbing test)"""
+Usage: s6_dress_rehearsal.py [--smoke] [--keep] | --a38-only TEMP_DIR   (--smoke: RAW only, a 30-session tail, few resamples: a plumbing test)"""
 import sys, json, time, shutil, tempfile, datetime, traceback, gc, ctypes
 from pathlib import Path
 import numpy as np
@@ -129,9 +129,79 @@ def run(smoke=False, keep=False):
     return out
 
 
+A38_OLD_SHA = "23610a4a4a375bbaf9398e3a96bc43c875352e949563a3fddee52448c5b73f5d"      # AMENDMENT_A38.md before its note of 2026-11-12 (the hash the rehearsal's temporary freeze records)
+
+
+def run_a38_only(td):
+    """Rerun ONLY the A38 stage of a failed full rehearsal (user order 2026-11-11, after A38 note N1-N4), in its kept temporary folder, with the same redirections.
+    Two temporary-folder substitutions, both disclosed in the output: (1) the temporary Section 6 fingerprint is rewritten for the current code (s5_a38.py changed after
+    the rehearsal wrote it; in the real order the fingerprint is written after this change); (2) the amendment-list check compares against the temporary freeze's list,
+    allowed only if the sole difference is AMENDMENT_A38's hash (old = the text before the note, new = ADOPTED with a matching sidecar). The crashed run's Clean marker is
+    renamed, not deleted (in a real run it would block a second Clean read, by design)."""
+    import s5_eval_loader as EL, s5_eval513 as S513, s5_freeze_models as FM, s5_guard as G, s5_amendment_manifest as AM, s5_a38 as A38, s5_freeze as FZ, s5_eval_label as EV, s6_fingerprint as FPM
+    td = Path(td); s5res = td / "s5_results"; fzp = s5res / "section5_freeze.json"; eras = ("LEGACY", "RAW"); tail = TAIL
+    for q in (fzp, s5res / f"{FZ.EVAL_PREFIX}RAW.json", s5res / "a38" / "raw.pkl", td / "ERA_CALIBRATION.lock", td / "frozen_models"):
+        if not Path(q).exists(): raise SystemExit(f"{q} missing: not a kept full-rehearsal folder")
+    if (s5res / A38.RESULT_NAME).exists(): raise SystemExit("A38 result already exists in the temporary folder")
+    real = dict(lock=G.LOCK, freeze=ROOT / "section5" / "results" / "section5_freeze.json", frozen=FM.FROZEN_DIR, log=EL.ACCESS_LOG, fp=EL.FINGERPRINT)
+    before = {k: Path(v).exists() for k, v in real.items()}
+    split = {}
+    for era in eras:
+        tr = sorted(x for x, q in S513.partitions(era).items() if q == "TRAIN"); split[era] = dict(train=tr[:-(tail + EMB)], embargo=tr[-(tail + EMB):-tail], eval=tr[-tail:])
+    part = {era: {**{d: "TRAIN" for d in s["train"]}, **{d: "EMBARGO" for d in s["embargo"]}, **{d: "EVALUATION_EXPOSED" for d in s["eval"]}} for era, s in split.items()}
+    dev_real, eval_real = dict(EL.DEV), dict(EL.EVAL)
+    fake_dev = {e: (s["train"][0], s["train"][-1]) for e, s in split.items()}; fake_eval = {e: (s["eval"][0], s["eval"][-1]) for e, s in split.items()}
+    fz = json.loads(fzp.read_text(encoding="utf-8")); now = AM.freeze_ready()
+    diff = [(a.get("amendment"), a.get("sha256"), b.get("sha256")) for a, b in zip(fz["amendments"], now) if a != b]
+    a38now = AM.manifest(("A38",))[0]
+    if len(fz["amendments"]) != len(now) or [x[0] for x in diff] != ["A38"] or diff[0][1] != A38_OLD_SHA or not (a38now["status"] == "ADOPTED" and a38now["sidecar_matches"]):
+        raise SystemExit(f"amendment lists differ beyond the A38 note: {diff}")
+    subs = dict(fingerprint_rewritten=True, amendment_list_substituted=dict(A38_in_temp_freeze=A38_OLD_SHA, A38_now=a38now["sha256"]))
+    mk = A38.marker("clean", s5res); renamed = None
+    if mk.exists(): renamed = mk.with_name(mk.name + ".crashed_run_2026-11-11"); mk.rename(renamed)
+    subs["crashed_clean_marker_renamed_to"] = renamed.name if renamed else None
+    fp = td / "s6_fingerprint.json"; fp.write_text(json.dumps(dict(FPM.current(), created_utc="dress rehearsal (A38-only rerun)"), indent=1)); G.write_side(fp)
+    saved = dict(G=G.LOCK, EL=(EL.LOCK, EL.DEV, EL.EVAL, EL.check_dev_spans, EL.FINGERPRINT, EL.ACCESS_LOG, list(EL.EVAL_READS), EL.A38_RESULTS), S513=(S513.partitions, S513.FOMC_EVAL),
+                 FM=FM.FROZEN_DIR, AM=AM.freeze_ready)
+    lock = td / "ERA_CALIBRATION.lock"; t0 = time.time(); checks = {}
+    try:
+        G.LOCK = lock; EL.LOCK = lock; EL.DEV = {**dev_real, **fake_dev}; EL.EVAL = {**eval_real, **fake_eval}; EL.check_dev_spans = lambda: True
+        EL.FINGERPRINT = fp; EL.ACCESS_LOG = td / "eval_access_log.txt"; EL.EVAL_READS[:] = []; EL.A38_RESULTS = s5res
+        S513.partitions = lambda era: part[era]; S513.FOMC_EVAL = td / "fomc_fake_eval.json"; FM.FROZEN_DIR = td / "frozen_models"
+        AM.freeze_ready = lambda *a, **k: fz["amendments"]
+        assert G.LOCK != real["lock"] and FM.FROZEN_DIR != real["frozen"] and EL.ACCESS_LOG != real["log"]
+        log0 = EL.ACCESS_LOG.read_text(encoding="utf-8")
+        A38.run(fzp, FZ.sha(fzp), res=s5res, nboot=2000)
+        a38 = json.loads((s5res / A38.RESULT_NAME).read_text(encoding="utf-8")); fam = a38["primary_rule1"]["by_family"]
+        checks["a38_labelled"] = a38.get("a26_label") == EV.LABEL and a38.get("confirmatory") is False
+        checks["h1a_evaluated"] = {f: v["H1a"].get("delta") is not None for f, v in fam.items()}
+        checks["splice_drop"] = a38["primary_rule1"].get("splice_drop_note_N3")
+        checks["n_stable_days"] = a38["primary_rule1"].get("n_stable_days")
+        checks["by_family"] = {f: dict(reading=v["reading"], H1a=v["H1a"], H1b_delta=v["H1b"]["delta"], H1b_n_common_bars=v["H1b"]["n_common_bars"]) for f, v in fam.items()}
+        checks["secondary_rule2"] = {f: v["label"] for f, v in a38["secondary_rule2"].items()}
+        new = EL.ACCESS_LOG.read_text(encoding="utf-8")[len(log0):]; checks["access_log_this_run"] = dict(allowed_a38=new.count("ALLOWED A38"), refused=new.count("REFUSED"))
+        ok = True; err = None
+    except BaseException as e:
+        ok = False; err = "".join(traceback.format_exception(e))[-4000:]
+    finally:
+        G.LOCK = saved["G"]; EL.LOCK, EL.DEV, EL.EVAL, EL.check_dev_spans, EL.FINGERPRINT, EL.ACCESS_LOG = saved["EL"][:6]; EL.EVAL_READS[:] = saved["EL"][6]; EL.A38_RESULTS = saved["EL"][7]
+        S513.partitions, S513.FOMC_EVAL = saved["S513"]; S513._AUTH.clear(); S513._PRELOADED.clear(); FM.FROZEN_DIR = saved["FM"]; AM.freeze_ready = saved["AM"]
+    after = {k: Path(v).exists() for k, v in real.items()}; checks["real_paths_untouched"] = before == after
+    passed = bool(ok and checks.get("a38_labelled") and checks.get("real_paths_untouched") and checks.get("h1a_evaluated") and all(checks["h1a_evaluated"].values()))
+    return dict(label="Dress rehearsal, A38 stage only (DEVELOPMENT DATA ONLY; fake RAW evaluation tail inside TRAIN), after AMENDMENT_A38 note N1-N4", temp_dir=str(td),
+                passed=passed, error=err, seconds=round(time.time() - t0, 1), substitutions=subs, checks=checks, peak_mb_main_process=peak_mb(),
+                generated=datetime.datetime.now(datetime.timezone.utc).isoformat(), code=FPM.current())
+
+
 def main():
     import s5_guard as G
-    a = sys.argv[1:]; smoke = "--smoke" in a; out_p = HERE / "results" / ("dress_rehearsal_smoke.json" if smoke else "dress_rehearsal.json")
+    a = sys.argv[1:]
+    if a[:1] == ["--a38-only"]:
+        out_p = HERE / "results" / "dress_rehearsal_a38.json"
+        if out_p.exists(): print("result exists; written once"); return 3
+        res = run_a38_only(a[1]); out_p.write_text(json.dumps(res, indent=1, default=str), encoding="utf-8"); G.write_side(out_p)
+        print(json.dumps({k: res[k] for k in ("passed", "error", "seconds")}, indent=1, default=str)[:5000]); return 0 if res["passed"] else 1
+    smoke = "--smoke" in a; out_p = HERE / "results" / ("dress_rehearsal_smoke.json" if smoke else "dress_rehearsal.json")
     if out_p.exists(): print("result exists; written once"); return 3
     res = run(smoke=smoke, keep="--keep" in a)
     out_p.write_text(json.dumps(res, indent=1, default=str), encoding="utf-8"); G.write_side(out_p)

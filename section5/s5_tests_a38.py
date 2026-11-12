@@ -105,4 +105,53 @@ class TestGuards(unittest.TestCase):
         self.assertEqual(CT.REGISTRY.get("s5_a38.py"), "EVALUATION"); self.assertIn("s5_a38.py", FPM.HELPERS); self.assertTrue(CT.DATA_LOAD.search("hfdatalibrary_raw"))
 
 
+class TestNoteN(unittest.TestCase):
+    """AMENDMENT_A38 note N1-N4 (2026-11-12): Raw splices not buildable on the Clean panel are dropped from both runs; the check of the saved Raw run precedes the marker."""
+    def panel(self):
+        g = grid(days=("2024-07-01", "2024-07-02", "2024-07-03")); d, _ = A.build_panel("RAW", g, hf_rows(days=("2024-07-01", "2024-07-02", "2024-07-03"), drop={("2024-07-02", 100)}))
+        return d
+
+    def specs(self):
+        return [dict(kind="plain", cell="null", iA=0, iB=2, g=100), dict(kind="plain", cell="null", iA=0, iB=1, g=100),            # B's close at the splice point missing
+                dict(kind="regime", cell=(2, "up", None), iA=2, iB=0, g=150, f=1.2, dur=None), dict(kind="regime", cell=(2, "up", 30), iA=0, iB=2, g=70, f=1.2, dur=30),
+                dict(kind="regime", cell=(2, "up", 30), iA=1, iB=0, g=70, f=1.2, dur=30)]                                         # A's bar at g + dur = 100 missing
+
+    def test_screen_matches_finite_ok_and_drops(self):
+        d = self.panel(); sp = self.specs(); ok = A.screen_specs(d, sp)
+        self.assertEqual(ok, [True, False, True, True, False])
+        boom = lambda s: (_ for _ in ()).throw(AssertionError("x")) if s["iA"] == 2 else dict(row=s["iA"])                            # a build error is also a drop, never a raise
+        kept, rows, keep, dropped = A.build_kept(sp, ok, boom)
+        self.assertEqual(keep, [True, False, False, True, False]); self.assertEqual(len(rows), 2); self.assertEqual(len(dropped), 3); self.assertTrue(dropped[1]["why"].startswith("build error"))
+        s = A.drop_summary(sp, keep, dropped)
+        self.assertEqual((s["n_specs"], s["n_dropped"], s["null"]["dropped"], s["brk"]["dropped"]), (5, 3, 1, 2)); self.assertAlmostEqual(s["share_dropped"], 0.6)
+
+    def test_make_splice_never_reached_for_unbuildable(self):
+        import s5_eval as V
+        d = self.panel(); sp = self.specs()[1]
+        with self.assertRaises(AssertionError): V.make_splice(d, sp["iA"], sp["iB"], sp["g"], hist=0)                                 # the crash of the dress rehearsal
+        self.assertEqual(A.screen_specs(d, [sp]), [False])
+
+    def test_compare_restricts_raw_to_kept_specs(self):
+        rng = np.random.default_rng(3); G = 5
+        def mats(nn, nb, shift=0.0): return (rng.poisson(1, (nn, G)).astype(float), np.arange(nn) % 9, np.clip(rng.uniform(0, 1, (nb, G)) + shift, 0, 1), np.arange(nb) % 9)
+        keys = np.array([s * 1000 + b for s in range(20) for b in range(10)]); lb = rng.gamma(2, 1, len(keys))
+        raw_m = dict(feature=mats(12, 30), baseline=mats(12, 30)); kn = [True] * 10 + [False] * 2; kb = [True] * 25 + [False] * 5
+        sub = dict(feature=A.subset_h1a(raw_m["feature"], kn, kb), baseline=A.subset_h1a(raw_m["baseline"], kn, kb))
+        raw = dict(families={"gaussian_hmm": dict(lb=lb, kb=keys, lf=lb - 0.1, kf=keys, h1a=raw_m)})
+        clean = dict(families={"gaussian_hmm": dict(lb=lb, kb=keys, lf=lb - 0.1, kf=keys, h1a=sub)}, splice_drop=dict(keep_null=kn, keep_brk=kb))
+        r = A.compare(raw, clean, 200)["gaussian_hmm"]["H1a"]
+        self.assertAlmostEqual(r["delta"]["effect"], 0.0); self.assertEqual(r["raw"]["n_null"], 10); self.assertEqual(r["raw"]["n_break"], 25)
+        self.assertEqual(r["raw_all_specs_reference"]["n_break"], 30)
+
+    def test_clean_run_checks_raw_specs_before_authorisation(self):
+        with tempfile.TemporaryDirectory() as td:
+            td = Path(td); f = td / "hf.zip"; f.write_bytes(b"x"); saved = (dict(A.HF), EL.authorise_a38); called = []
+            try:
+                A.HF["clean"] = dict(file=f, member="SPY_clean_1min.csv", sha256=A.sha(f)); EL.authorise_a38 = lambda *a, **k: called.append(1)
+                for bad in (None, dict(n_stable=9), dict(n_stable=9, specs=[dict(kind="regime", cell="x", iA=0, iB=1, g=5)])):
+                    with self.assertRaises(RuntimeError): A.run_file("clean", td / "fz.json", "t", {}, raw_specs=bad, res=td)
+                self.assertEqual(called, []); self.assertFalse(A.marker("clean", td).exists())
+            finally: A.HF.clear(); A.HF.update(saved[0]); EL.authorise_a38 = saved[1]
+
+
 if __name__ == "__main__": unittest.main()
