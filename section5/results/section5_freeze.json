@@ -1,0 +1,532 @@
+{
+ "kind": "section5_freeze",
+ "created_utc": "2026-11-12T08:22:26.854061+00:00",
+ "protocol_sha256": "15be2570a592279e71f3f76fbe62113b4c3263a9d9e4715eaf4d61294eaf4df3",
+ "amendments": [
+  {
+   "amendment": "A21",
+   "file": "AMENDMENT_A21.md",
+   "present": true,
+   "status": "ADOPTED",
+   "sha256": "b4ed40509480b6a69e621c3be309ab28d397e8e2b53b25bd459d4da305b5eda0",
+   "sidecar_sha256": "b4ed40509480b6a69e621c3be309ab28d397e8e2b53b25bd459d4da305b5eda0",
+   "sidecar_matches": true
+  },
+  {
+   "amendment": "A22",
+   "file": "AMENDMENT_A22.md",
+   "present": true,
+   "status": "ADOPTED",
+   "sha256": "3ce7b683a1369659b14b22c068bcc25c6a7b14a7a6b15758946c7050f8a15217",
+   "sidecar_sha256": "3ce7b683a1369659b14b22c068bcc25c6a7b14a7a6b15758946c7050f8a15217",
+   "sidecar_matches": true
+  },
+  {
+   "amendment": "A23",
+   "file": "AMENDMENT_A23.md",
+   "present": true,
+   "status": "ADOPTED",
+   "sha256": "c81f5c0523e7dc578f66e19f24ea199fe0331429ba050ee66d33063ee871a411",
+   "sidecar_sha256": "c81f5c0523e7dc578f66e19f24ea199fe0331429ba050ee66d33063ee871a411",
+   "sidecar_matches": true
+  },
+  {
+   "amendment": "A24",
+   "file": "AMENDMENT_A24.md",
+   "present": true,
+   "status": "ADOPTED",
+   "sha256": "45ff565e8ca78abf8756379250dbc66586eb101a0aca342055207347db951651",
+   "sidecar_sha256": "45ff565e8ca78abf8756379250dbc66586eb101a0aca342055207347db951651",
+   "sidecar_matches": true
+  },
+  {
+   "amendment": "A25",
+   "file": "AMENDMENT_A25.md",
+   "present": true,
+   "status": "ADOPTED",
+   "sha256": "c71d9ea0369739ee72b93e58199a1ef1fc5501fc352287bef624472bd82c1247",
+   "sidecar_sha256": "c71d9ea0369739ee72b93e58199a1ef1fc5501fc352287bef624472bd82c1247",
+   "sidecar_matches": true
+  },
+  {
+   "amendment": "A26",
+   "file": "AMENDMENT_A26.md",
+   "present": true,
+   "status": "ADOPTED",
+   "sha256": "50bcbc04433f8c1d4ad7ad48bda4c29dcb2807bc6fa814b4cb33183cf4b6c5ea",
+   "sidecar_sha256": "50bcbc04433f8c1d4ad7ad48bda4c29dcb2807bc6fa814b4cb33183cf4b6c5ea",
+   "sidecar_matches": true
+  },
+  {
+   "amendment": "A27",
+   "file": "AMENDMENT_A27.md",
+   "present": true,
+   "status": "ADOPTED",
+   "sha256": "8325cfdbe71a9033b4bc53e1f1c6d93fd1d7d917ba14745ff6ab29564be6cd19",
+   "sidecar_sha256": "8325cfdbe71a9033b4bc53e1f1c6d93fd1d7d917ba14745ff6ab29564be6cd19",
+   "sidecar_matches": true
+  },
+  {
+   "amendment": "A28",
+   "file": "AMENDMENT_A28.md",
+   "present": true,
+   "status": "ADOPTED",
+   "sha256": "7c6bd4bdee8bd839b1ff4c2346d81f15fd2b6b29af7a0d4b5e11738d9b673ac2",
+   "sidecar_sha256": "7c6bd4bdee8bd839b1ff4c2346d81f15fd2b6b29af7a0d4b5e11738d9b673ac2",
+   "sidecar_matches": true
+  },
+  {
+   "amendment": "A29",
+   "file": "AMENDMENT_A29.md",
+   "present": true,
+   "status": "ADOPTED",
+   "sha256": "304f27252b29d27649eeb68a0507f127fe24a602cd9556f5d43687bf24822715",
+   "sidecar_sha256": "304f27252b29d27649eeb68a0507f127fe24a602cd9556f5d43687bf24822715",
+   "sidecar_matches": true
+  },
+  {
+   "amendment": "A30",
+   "file": "AMENDMENT_A30.md",
+   "present": true,
+   "status": "ADOPTED",
+   "sha256": "1c421aa7ced0c8748648e9fe5fc723fa14c606a67943001fc482372d3990b9da",
+   "sidecar_sha256": "1c421aa7ced0c8748648e9fe5fc723fa14c606a67943001fc482372d3990b9da",
+   "sidecar_matches": true
+  },
+  {
+   "amendment": "A31",
+   "file": "AMENDMENT_A31.md",
+   "present": true,
+   "status": "ADOPTED",
+   "sha256": "1efd5a1f338b31c6f7459c8d328c854450eed6800052d2be261f83d240ef036f",
+   "sidecar_sha256": "1efd5a1f338b31c6f7459c8d328c854450eed6800052d2be261f83d240ef036f",
+   "sidecar_matches": true
+  },
+  {
+   "amendment": "A32",
+   "file": "AMENDMENT_A32.md",
+   "present": true,
+   "status": "ADOPTED",
+   "sha256": "d222539ced84ceb2d4336d3c3c35f73bf57300fc82794f3694f8b7447c424c1b",
+   "sidecar_sha256": "d222539ced84ceb2d4336d3c3c35f73bf57300fc82794f3694f8b7447c424c1b",
+   "sidecar_matches": true
+  },
+  {
+   "amendment": "A33",
+   "file": "AMENDMENT_A33.md",
+   "present": true,
+   "status": "ADOPTED",
+   "sha256": "f101adce416ed256499fe779f5c0152de4c26d6bfbd9324a7a2546ecf9506747",
+   "sidecar_sha256": "f101adce416ed256499fe779f5c0152de4c26d6bfbd9324a7a2546ecf9506747",
+   "sidecar_matches": true
+  },
+  {
+   "amendment": "A33_1",
+   "file": "AMENDMENT_A33_1.md",
+   "present": true,
+   "status": "ADOPTED",
+   "sha256": "c87e7aea319e3b121996d9893397a03f483038afee73223a17e4b1f75cdb355b",
+   "sidecar_sha256": "c87e7aea319e3b121996d9893397a03f483038afee73223a17e4b1f75cdb355b",
+   "sidecar_matches": true
+  },
+  {
+   "amendment": "A34",
+   "file": "AMENDMENT_A34.md",
+   "present": true,
+   "status": "ADOPTED",
+   "sha256": "a2c58b4560eba9320fd78564a5d7f39031c09f4825cca822d75c0d2ec9484faa",
+   "sidecar_sha256": "a2c58b4560eba9320fd78564a5d7f39031c09f4825cca822d75c0d2ec9484faa",
+   "sidecar_matches": true
+  },
+  {
+   "amendment": "A35",
+   "file": "AMENDMENT_A35.md",
+   "present": true,
+   "status": "ADOPTED",
+   "sha256": "dc5289d6a46178427f3acf04d0327628628bde3d3bbe099cf3298fe33dcabc7f",
+   "sidecar_sha256": "dc5289d6a46178427f3acf04d0327628628bde3d3bbe099cf3298fe33dcabc7f",
+   "sidecar_matches": true
+  },
+  {
+   "amendment": "A36",
+   "file": "AMENDMENT_A36.md",
+   "present": true,
+   "status": "ADOPTED",
+   "sha256": "f110e14f3633d764d8048bb67b192c6fff9b68d2540c85d0297d53448ff227db",
+   "sidecar_sha256": "f110e14f3633d764d8048bb67b192c6fff9b68d2540c85d0297d53448ff227db",
+   "sidecar_matches": true
+  },
+  {
+   "amendment": "A37",
+   "file": "AMENDMENT_A37.md",
+   "present": true,
+   "status": "ADOPTED",
+   "sha256": "cd3cfdea7d75c3a0b9f5f819395cc6b4da37631b89572e0a9c7525a6e5af5b2e",
+   "sidecar_sha256": "cd3cfdea7d75c3a0b9f5f819395cc6b4da37631b89572e0a9c7525a6e5af5b2e",
+   "sidecar_matches": true
+  },
+  {
+   "amendment": "A38",
+   "file": "AMENDMENT_A38.md",
+   "present": true,
+   "status": "ADOPTED",
+   "sha256": "067c1de7bc508ff5f079387977c037e83bcb000bf1f3c5990853f96d725ae532",
+   "sidecar_sha256": "067c1de7bc508ff5f079387977c037e83bcb000bf1f3c5990853f96d725ae532",
+   "sidecar_matches": true
+  }
+ ],
+ "setups": {
+  "LEGACY": {
+   "gaussian_hmm": {
+    "n_features": 1,
+    "features": [
+     "rv10_partial90__sadj"
+    ],
+    "params": {
+     "K": 4
+    },
+    "frequency": {
+     "intrabar_range_log__sadj": 4,
+     "relative_volume20": 3,
+     "rv10_partial90__sadj": 23,
+     "rv5_strict__sadj": 1
+    },
+    "base_params": {
+     "K": 4
+    }
+   },
+   "student_t_hmm": {
+    "n_features": 1,
+    "features": [
+     "rv10_partial90__sadj"
+    ],
+    "params": {
+     "K": 4
+    },
+    "frequency": {
+     "downside5_strict__sadj": 1,
+     "intrabar_range_log__sadj": 8,
+     "relative_volume20": 2,
+     "rv10_partial90__sadj": 10,
+     "rv5_strict__sadj": 1
+    },
+    "base_params": {
+     "K": 4
+    }
+   },
+   "hsmm": {
+    "n_features": 1,
+    "features": [
+     "rv10_partial90__sadj"
+    ],
+    "params": {
+     "K": 3
+    },
+    "frequency": {
+     "downside5_strict__sadj": 1,
+     "intrabar_range_log__sadj": 6,
+     "momentum30_endpoint": 1,
+     "relative_volume20": 3,
+     "rv10_partial90__sadj": 27,
+     "rv5_strict__sadj": 1
+    },
+    "base_params": {
+     "K": 3
+    }
+   },
+   "bocpd": {
+    "n_features": 0,
+    "features": [],
+    "params": {
+     "lam": 12
+    },
+    "frequency": {},
+    "base_params": {
+     "lam": 12
+    }
+   }
+  },
+  "RAW": {
+   "gaussian_hmm": {
+    "n_features": 1,
+    "features": [
+     "rv10_partial90__sadj"
+    ],
+    "params": {
+     "K": 4
+    },
+    "frequency": {
+     "intrabar_range_log__sadj": 1,
+     "rv10_partial90__sadj": 3
+    },
+    "base_params": {
+     "K": 4
+    }
+   },
+   "student_t_hmm": {
+    "n_features": 1,
+    "features": [
+     "rv10_partial90__sadj"
+    ],
+    "params": {
+     "K": 4
+    },
+    "frequency": {
+     "intrabar_range_log__sadj": 1,
+     "rv10_partial90__sadj": 2
+    },
+    "base_params": {
+     "K": 4
+    }
+   },
+   "hsmm": {
+    "n_features": 1,
+    "features": [
+     "rv10_partial90__sadj"
+    ],
+    "params": {
+     "K": 3
+    },
+    "frequency": {
+     "intrabar_range_log__sadj": 1,
+     "rv10_partial90__sadj": 3
+    },
+    "base_params": {
+     "K": 3
+    }
+   },
+   "bocpd": {
+    "n_features": 0,
+    "features": [],
+    "params": {
+     "lam": 12
+    },
+    "frequency": {
+     "momentum30_endpoint": 1
+    },
+    "base_params": {
+     "lam": 12
+    }
+   }
+  }
+ },
+ "thresholds": {
+  "LEGACY": {
+   "gaussian_hmm": {
+    "rule": "A7: bisection to 0.2 alarms per session on real validation sessions",
+    "fold": "ERA",
+    "threshold": 16.42730712890625,
+    "validation_rate": 0.1896551724137931,
+    "open_candidate_share_at_close": 0.017241379310344827,
+    "numeric_era_threshold": "set here (A11 item 1)",
+    "n_fit": 3959,
+    "n_embargo": 5,
+    "n_calibration": 58,
+    "fit_last_day": "2018-09-21",
+    "calibration_first_day": "2018-10-01",
+    "calibration_last_day": "2018-12-21"
+   },
+   "student_t_hmm": {
+    "rule": "A7: bisection to 0.2 alarms per session on real validation sessions",
+    "fold": "ERA",
+    "threshold": 11.81304931640625,
+    "validation_rate": 0.1896551724137931,
+    "open_candidate_share_at_close": 0.034482758620689655,
+    "numeric_era_threshold": "set here (A11 item 1)",
+    "n_fit": 3959,
+    "n_embargo": 5,
+    "n_calibration": 58,
+    "fit_last_day": "2018-09-21",
+    "calibration_first_day": "2018-10-01",
+    "calibration_last_day": "2018-12-21"
+   },
+   "hsmm": {
+    "rule": "A7: bisection to 0.2 alarms per session on real validation sessions",
+    "fold": "ERA",
+    "threshold": 15.743408203125,
+    "validation_rate": 0.1896551724137931,
+    "open_candidate_share_at_close": 0.017241379310344827,
+    "numeric_era_threshold": "set here (A11 item 1)",
+    "n_fit": 3959,
+    "n_embargo": 5,
+    "n_calibration": 58,
+    "fit_last_day": "2018-09-21",
+    "calibration_first_day": "2018-10-01",
+    "calibration_last_day": "2018-12-21"
+   },
+   "bocpd": {
+    "rule": "A7: bisection to 0.2 alarms per session on real validation sessions",
+    "fold": "ERA",
+    "threshold": 51.30078125,
+    "validation_rate": 0.15517241379310345,
+    "open_candidate_share_at_close": 0.034482758620689655,
+    "numeric_era_threshold": "set here (A11 item 1)",
+    "n_fit": 3959,
+    "n_embargo": 5,
+    "n_calibration": 58,
+    "fit_last_day": "2018-09-21",
+    "calibration_first_day": "2018-10-01",
+    "calibration_last_day": "2018-12-21"
+   }
+  },
+  "RAW": {
+   "gaussian_hmm": {
+    "rule": "A7: bisection to 0.2 alarms per session on real validation sessions",
+    "fold": "ERA",
+    "threshold": 16.98211669921875,
+    "validation_rate": 0.1896551724137931,
+    "open_candidate_share_at_close": 0.017241379310344827,
+    "numeric_era_threshold": "set here (A11 item 1)",
+    "n_fit": 642,
+    "n_embargo": 5,
+    "n_calibration": 58,
+    "fit_last_day": "2024-09-24",
+    "calibration_first_day": "2024-10-02",
+    "calibration_last_day": "2024-12-23"
+   },
+   "student_t_hmm": {
+    "rule": "A7: bisection to 0.2 alarms per session on real validation sessions",
+    "fold": "ERA",
+    "threshold": 14.1632080078125,
+    "validation_rate": 0.1896551724137931,
+    "open_candidate_share_at_close": 0.0,
+    "numeric_era_threshold": "set here (A11 item 1)",
+    "n_fit": 642,
+    "n_embargo": 5,
+    "n_calibration": 58,
+    "fit_last_day": "2024-09-24",
+    "calibration_first_day": "2024-10-02",
+    "calibration_last_day": "2024-12-23"
+   },
+   "hsmm": {
+    "rule": "A7: bisection to 0.2 alarms per session on real validation sessions",
+    "fold": "ERA",
+    "threshold": 11.5850830078125,
+    "validation_rate": 0.1896551724137931,
+    "open_candidate_share_at_close": 0.017241379310344827,
+    "numeric_era_threshold": "set here (A11 item 1)",
+    "n_fit": 642,
+    "n_embargo": 5,
+    "n_calibration": 58,
+    "fit_last_day": "2024-09-24",
+    "calibration_first_day": "2024-10-02",
+    "calibration_last_day": "2024-12-23"
+   },
+   "bocpd": {
+    "rule": "A7: bisection to 0.2 alarms per session on real validation sessions",
+    "fold": "ERA",
+    "threshold": 54.078125,
+    "validation_rate": 0.1896551724137931,
+    "open_candidate_share_at_close": 0.017241379310344827,
+    "numeric_era_threshold": "set here (A11 item 1)",
+    "n_fit": 642,
+    "n_embargo": 5,
+    "n_calibration": 58,
+    "fit_last_day": "2024-09-24",
+    "calibration_first_day": "2024-10-02",
+    "calibration_last_day": "2024-12-23"
+   }
+  }
+ },
+ "input_hashes": {
+  "SECTION5_PROTOCOL.md": "15be2570a592279e71f3f76fbe62113b4c3263a9d9e4715eaf4d61294eaf4df3",
+  "AMENDMENT_A10.md": "73d0a99fdb9d5e5a753bba8f1a85c3f2ecc5629a5b03ae8f3d6bcfe8f52c4763",
+  "AMENDMENT_A11.md": "297551fb2e58b1f84939e66a6b67104e4c71db6ad30bb2534a7fd5ac6235f97c",
+  "AMENDMENT_A12.md": "dd90c6b22b85851c61e1a88be82d294ecd95d9f8893c2f246fd78278927ff96a",
+  "AMENDMENT_A13.md": "301be6ed93fdf80d9a3841664faf8398d2a8b5d30073ad00ba9f88d20e7c5755",
+  "AMENDMENT_A14.md": "1707ec30b9ad3f1a9b76d70e63807b92dd37179e47288191982677bed83709de",
+  "AMENDMENT_A14_1.md": "d7cdaef27c572a4890aaf7306b2dc5f5f4a674bb58b8120e200062d81bd95ada",
+  "AMENDMENT_A14_2.md": "d4f27c5d2b439a18629730c1cdce0bb4a867a04cef7a27f37bd8a903b9e248fd",
+  "AMENDMENT_A15.md": "15de695a9f16445a17271773e37e9089ff852f5304fd2ca90549b3e9267ddc2d",
+  "AMENDMENT_A16.md": "35b2b802a59d855229816be3d8919aef5b871c4304376d1b891d2318ffac7bf0",
+  "AMENDMENT_A17.md": "3778a860320e11db1de520162adf36899cd3dd1b249bb8f9050b8f5f3566f874",
+  "AMENDMENT_A18.md": "f9b8f371090c2db2e6467c250622b527c9bbf255b09e37d6478379d07a9673b0",
+  "AMENDMENT_A19.md": "ecfd437ee575bfc3d6c256e4db48c024b8006aedf9163dd57595cbbcd21569ec",
+  "AMENDMENT_A19_1.md": "bffed0e9f8acf7aea9d98ae83950624d7cb3f4b95e37c15997fccda584eed0a0",
+  "AMENDMENT_A19_2.md": "619d32de48aeaa8a1fd9054fcb676982a84c7028fc27d1c673a38af001480b27",
+  "AMENDMENT_A19_3.md": "7269d2cb5034cec52e9f42a006e26f93e7662825c3a89f065df4553735a8f7e2",
+  "AMENDMENT_A20.md": "828e14b7d8b3445eb499fdcd7a32e1e0a5bd41dfc80b5d3224186c6a85481160",
+  "AMENDMENT_A6.md": "db787ec0071b5b6c0ff4048cd281bf54e95e0c60b5f25e89fb6f02d55d5744a5",
+  "AMENDMENT_A7.md": "e64c8647fd3fac01ff2a64de71f25c53e6b9c8814271df9e66b3ab01835d8267",
+  "AMENDMENT_A8.md": "c22db3add937f4b47ff9fb7054a95e32e6a5a7722803e3bfc3d1023ed8d22931",
+  "AMENDMENT_A8_1.md": "bd7a854ed681c16b5bddadda1791fb66087aeecc63e4341e05c95da8de48fbd8",
+  "AMENDMENT_A8_2.md": "c85e40ba4484d648e44a2eda9f4900f29ffbf0bff0751b38c2f878455e96c157",
+  "AMENDMENT_A8_3.md": "8867dc3e526285ce24768480bbfe200d1e37f68a2e86bbeea425dc31740d52a1",
+  "AMENDMENT_A8_4.md": "f57a8734aaf28fd1bac378edc7ec0f13a8f48dc7ea375e491b42612bb56d89e5",
+  "AMENDMENT_A9.md": "d915f7c90a38a0236a3962857235d7e1096b16f54065bb8104d3795ee4947bb0",
+  "section431_step3_all_in_one_results/a4_development_nested_folds_TRAIN.csv": "06258e5a1645327a64aa07d155b59d20949c11c81ce657a26e4d44c27882adfc",
+  "section431_step3_all_in_one_results/a4_folds_check.json": "0cf4b5901cddfc17ef83947e94f92c8696d12240d15f2883cc4b05579326612d",
+  "section431_step3_all_in_one_results/a4_lm_threshold_calibration.json": "c6c5c775fd43a92131f4ce86481d216ec528a65a9a07d42354a19f64db9e0253",
+  "section431_step3_all_in_one_results/a4_sec4_3_9_frozen_matrix_v2.csv": "9378f93f79e358f98d9dcad3992c269cb9a823a15bf28e8a21dbe319763ebe86",
+  "section431_step3_all_in_one_results/a4_sec4_3_9_matrix_primary_view_v2.csv": "74f2c14fe15b0b7957283e66624a6352bab26e731535053371b0f8fd51243f25",
+  "section431_step3_all_in_one_results/a4_sec4_3_9_matrix_sensitivity_view_v2.csv": "33f3cc2a9fcf8baa9ea53753375880a965377e23c88b65b4a76967255b14be53",
+  "folds_csv": "06258e5a1645327a64aa07d155b59d20949c11c81ce657a26e4d44c27882adfc",
+  "split_manifest": "e87c0f9c2be93a052cd371d408072723b98f5ebf165c70bc9d94a2f70eb346ae",
+  "section5/results/contamination_list.json": "f6d67a57ca30184bc6f2f00f5a4e3aafa0d8808a6e90784def110cdaf19d067b",
+  "section5/results/h1c_schedule_times.json": "053f7372d1c560ce2205f8d72be8295f4db83ad002a1894749946a7d16047957",
+  "LEGACY_panel:canonical_panel_LEGACY_1m.csv.gz": "b5967d9691c547a3b8a277f97fe2a95e1b1c4a49e4d6476c008a08076ce098df",
+  "LEGACY_etf:etf_observed_SPY_LEGACY.csv.gz": "7cd10dfb3e5896b9574a53f35914ce43053705cff9c5ef7029ccb2b88a6c83f7",
+  "RAW_panel:canonical_panel_RAW_1m.csv.gz": "f1b1c498dc76c7ef11e53a31fec655abacaf6458d8f3b9dd1827f9dd8ec91184",
+  "RAW_etf:etf_observed_SPY_RAW.csv.gz": "6c37b2798d3cc5740d71de94c34343d315fa274b95e50a5a7df081c1b7a5928d",
+  "frozen_models": {
+   "manifest_sha256": "edb78798544a8896c88f5a6b02857591d96f6764ed0d7f498685cbdbc0ac06dd",
+   "files": {
+    "LEGACY_gaussian_hmm.pkl": "568ef2191736a8ca966d193a390b65e2298cf26a3c540de52e6464af0535b66b",
+    "LEGACY_student_t_hmm.pkl": "71854ee4a6e694f7a4532c98c352a0d2affde609c2824f612d42e14dc7d8144c",
+    "LEGACY_hsmm.pkl": "e22fbd3e8e0d327d4b4a00ced70a9d3616d7c382a1e048fe5d4bbe7684f19cea",
+    "LEGACY_bocpd.pkl": "34ccab2ad51c971c589a92d230e2bfa2c4ed6a808468feaefa8c4a6af3569356",
+    "RAW_gaussian_hmm.pkl": "b0848a4bd67497e9810fe72f45529ef41435aef120c9aa94df8fedfe2779750a",
+    "RAW_student_t_hmm.pkl": "a21f6f8bc0f5f137e547aee03441c0e4b0b1ad4c43f3a9331aa19961dc3af2e4",
+    "RAW_hsmm.pkl": "1fb119caaf92f1a5ea68baf575226e86d1fa4568638511277e82942edfa00802",
+    "RAW_bocpd.pkl": "76368ac2277f868d7c2f95a59fa822dda2d15ede331704383fbceba512751f72"
+   },
+   "rule": "AMENDMENT_A37 rule 1"
+  }
+ },
+ "h1_verdicts": {
+  "hsmm": {
+   "p": 9.999000099990002e-05,
+   "p_used": 9.999000099990002e-05,
+   "p_adj": 0.00029997000299970003,
+   "reject": true
+  },
+  "gaussian_hmm": {
+   "p": 0.0006999300069993001,
+   "p_used": 0.0006999300069993001,
+   "p_adj": 0.0013998600139986002,
+   "reject": true
+  },
+  "student_t_hmm": {
+   "p": 0.10338966103389662,
+   "p_used": 0.10338966103389662,
+   "p_adj": 0.10338966103389662,
+   "reject": false
+  },
+  "bocpd": {
+   "p": 1.0,
+   "p_adj": NaN,
+   "reject": false,
+   "secondary": true
+  }
+ },
+ "median_validation_qlike": {
+  "gaussian_hmm": 0.2105517314340395,
+  "student_t_hmm": 0.20578336917623882,
+  "hsmm": 0.21749715424282526,
+  "bocpd": 0.33138132359848316
+ },
+ "h1_passing_families": [
+  "hsmm",
+  "gaussian_hmm"
+ ],
+ "h2_primary_detector": "gaussian_hmm",
+ "contamination_sha256": "f6d67a57ca30184bc6f2f00f5a4e3aafa0d8808a6e90784def110cdaf19d067b",
+ "code_version": "a0323ed24d68e896",
+ "completion_record_sha256": "19812f9f619f029b949bdc9e123c78007a4e71bf668f214569a5bbe12577079a",
+ "failed_h1a": {
+  "gaussian_hmm": {},
+  "student_t_hmm": {},
+  "hsmm": {},
+  "bocpd": {}
+ }
+}

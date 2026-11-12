@@ -1,0 +1,122 @@
+{
+ "kind": "freeze_run_record",
+ "started": "2026-11-12T04:09:25.001433+00:00",
+ "completion_record_sha256": "19812f9f619f029b949bdc9e123c78007a4e71bf668f214569a5bbe12577079a",
+ "feature_parity": {
+  "LEGACY": {
+   "passed": true,
+   "failed": [],
+   "sessions": {
+    "equal": true,
+    "n_main": 4022,
+    "n_513": 4022,
+    "first": [
+     "2003-01-02"
+    ],
+    "last": [
+     "2018-12-21"
+    ]
+   }
+  },
+  "RAW": {
+   "passed": true,
+   "failed": [],
+   "sessions": {
+    "equal": true,
+    "n_main": 705,
+    "n_513": 705,
+    "first": [
+     "2022-03-07"
+    ],
+    "last": [
+     "2024-12-23"
+    ]
+   }
+  }
+ },
+ "fit_seconds": 13129.5,
+ "staging": "fitted",
+ "threshold_comparison": [
+  {
+   "era": "LEGACY",
+   "family": "gaussian_hmm",
+   "era_threshold": 16.42730712890625,
+   "recomputed_513_path": 16.42730712890625,
+   "abs_diff": 0.0,
+   "tolerance": 0.001,
+   "ok": true
+  },
+  {
+   "era": "LEGACY",
+   "family": "student_t_hmm",
+   "era_threshold": 11.81304931640625,
+   "recomputed_513_path": 11.81304931640625,
+   "abs_diff": 0.0,
+   "tolerance": 0.001,
+   "ok": true
+  },
+  {
+   "era": "LEGACY",
+   "family": "hsmm",
+   "era_threshold": 15.743408203125,
+   "recomputed_513_path": 15.743408203125,
+   "abs_diff": 0.0,
+   "tolerance": 0.001,
+   "ok": true
+  },
+  {
+   "era": "LEGACY",
+   "family": "bocpd",
+   "era_threshold": 51.30078125,
+   "recomputed_513_path": 51.30078125,
+   "abs_diff": 0.0,
+   "tolerance": 0.5,
+   "ok": true
+  },
+  {
+   "era": "RAW",
+   "family": "gaussian_hmm",
+   "era_threshold": 16.98211669921875,
+   "recomputed_513_path": 16.98211669921875,
+   "abs_diff": 0.0,
+   "tolerance": 0.001,
+   "ok": true
+  },
+  {
+   "era": "RAW",
+   "family": "student_t_hmm",
+   "era_threshold": 14.1632080078125,
+   "recomputed_513_path": 14.1632080078125,
+   "abs_diff": 0.0,
+   "tolerance": 0.001,
+   "ok": true
+  },
+  {
+   "era": "RAW",
+   "family": "hsmm",
+   "era_threshold": 11.5850830078125,
+   "recomputed_513_path": 11.5850830078125,
+   "abs_diff": 0.0,
+   "tolerance": 0.001,
+   "ok": true
+  },
+  {
+   "era": "RAW",
+   "family": "bocpd",
+   "era_threshold": 54.078125,
+   "recomputed_513_path": 54.078125,
+   "abs_diff": 0.0,
+   "tolerance": 0.5,
+   "ok": true
+  }
+ ],
+ "freeze_sha256": "846c1aaafaf1cb02911bc680c0b197f97e17b00386695fc0f6eb0b26b02e3a94",
+ "frozen_models_manifest_sha256": "edb78798544a8896c88f5a6b02857591d96f6764ed0d7f498685cbdbc0ac06dd",
+ "h2_primary_detector": "gaussian_hmm",
+ "h1_passing_families": [
+  "hsmm",
+  "gaussian_hmm"
+ ],
+ "seconds": 15181.9,
+ "finished": "2026-11-12T08:22:26.909046+00:00"
+}

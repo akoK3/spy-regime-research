@@ -1,3 +1,32 @@
+# Report, 2026-11-12 09:00 New York: the real 5.12 freeze (stopped at the freeze, as ordered)
+
+## Bottom line
+
+- **The freeze is written and passed every check.** `section5/results/section5_freeze.json` (sha256 846c1aaa...), with sidecar, run record and lock. Started 23:09 on 11 Nov, finished 03:22 on 12 Nov (4 h 13 min; fitting 3 h 39 min). Nothing was written to the error log.
+- **Detector chosen by the freeze rule (H2 primary): Gaussian HMM.** The families that pass H1 are the HSMM (Holm-adjusted p 0.0003) and the Gaussian HMM (0.0014). Student-t fails (0.103), and BOCPD is secondary. Of the two that pass, the Gaussian HMM has the lower median validation QLIKE (0.2106 against 0.2175).
+- **All 8 thresholds matched.** Each era threshold equals the one recomputed on the 5.13 path at the fit, difference 0.0 in all 8 pairs (tolerance 0.001; BOCPD 0.5).
+- **Not run, as ordered:** the Section 6 fingerprint, `s6_eval.py`, and A38. No evaluation-period data were read.
+
+## Thresholds (era threshold = 5.13 recomputation)
+
+| Family | LEGACY | RAW |
+|---|---|---|
+| Gaussian HMM | 16.4273 | 16.9821 |
+| Student-t HMM | 11.8130 | 14.1632 |
+| HSMM | 15.7434 | 11.5851 |
+| BOCPD | 51.3008 | 54.0781 |
+
+## Other checks in the run record
+
+- Feature parity passed in both eras: LEGACY 4,022 TRAIN sessions (2003-01-02 to 2018-12-21), RAW 705 (2022-03-07 to 2024-12-23).
+- The staging models were fitted fresh, not reused. They were moved to `section5/results/frozen_models/` (8 models; manifest sha256 edb78798...), and their hashes were checked against the freeze document.
+- The freeze document lists 19 amendments, and the code version is a0323ed24d68e896. The `ERA_CALIBRATION.lock` lock now exists (`section5/results/`).
+- `frozen_models/` is git-ignored, so it is on this machine only. Like the LEGACY zip, it has no backup.
+
+**Next, only on your instruction:** `s6_fingerprint.py write`, then `s6_eval.py run FREEZE TOKEN`, then `s5_a38.py run FREEZE TOKEN`.
+
+---
+
 # Report, 2026-11-11 21:00 New York: A38 fix and A38-only rehearsal rerun (development data only; no real freeze)
 
 ## Bottom line
