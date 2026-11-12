@@ -1,3 +1,37 @@
+# Report, 2026-11-11 20:45 New York: full dress rehearsal result (development data only; no real freeze)
+
+## Bottom line
+
+- **The full dress rehearsal did not pass. It crashed in its last stage, the A38 Clean-file run. Blocker B1 stays open.**
+- **Every earlier stage passed.** Result: `section6/results/dress_rehearsal.json` (`passed: false`; 7 h 49 min; peak memory 2.5 GB). Real paths untouched.
+- **Cause of the crash.** The Clean run reuses the Raw run's splice specifications (A38 rule 1d). HF's Clean filter removes about 2.6% of bars, so some spliced endpoint bars are missing on the Clean panel. `s5_eval.make_splice` (closure) asserts that both endpoint closes are finite and positive, and failed. The Clean one-shot marker had been written before the crash. **In the real run this would have lost A38's primary check for good** (residual R2).
+- **Your decision (option 1):** a dated note to A38. Splices that cannot be built on the Clean panel are dropped from both runs, so the comparison stays paired, and the count and share dropped are reported. The build-every-splice check goes ahead of the Clean marker. Then only the A38 part is rerun.
+
+## Stages
+
+| Stage | Time | Outcome |
+|---|---|---|
+| Freeze driver (both eras) | 5 h 29 min | Parity passed; staged fits; all 8 era thresholds equal to the 5.13-path recomputation; models moved; lock only in the temporary folder |
+| 5.13 LEGACY and RAW (120-session fake tails) | 25 min | Labelled; sessions equal the fake tails; frozen thresholds reproduced for all 8 era-family pairs; **H1(a) evaluated in both eras** (12 and 28 stable days) |
+| Section 6 (9,999 resamples, 200 null sets, 10,000 draws, 3 workers) | 1 h 46 min | Coverage, H3/H4, H2 and A34 written and labelled |
+| A38 | crashed | Raw run done and saved; Clean run crashed at the splice rebuild, after its marker |
+
+- **Alert, as designed (A37 rule 4):** the A28 7d(i) positive control failed (p = 0.57; only 6 Fed breaks in the fake tails). It is a reported check, not a gate.
+- H1(a) effects on the fake tails (development data; not results): Gaussian HMM +0.10 (LEGACY) and +0.11 (RAW); HSMM +0.03 and +0.08. They are reported only to show the path ran.
+
+## B1 pass condition, item by item
+
+| Condition | Met |
+|---|---|
+| `passed: true` | **No** |
+| H1(a) evaluated in both eras, in 5.13 | Yes |
+| H1(a) evaluated in A38 | **No** (crash) |
+| Frozen thresholds reproduced, all 8 pairs | Yes |
+| Real paths untouched | Yes |
+| No error | **No** |
+
+---
+
 # Report, 2026-11-11: PREFREEZE_AUDIT fixes (no real freeze)
 
 ## Bottom line
