@@ -94,3 +94,27 @@ Dated 2026-11-11T04:32:00+00:00 UTC (2026-11-10T23:32:00-05:00 New York). Status
 ## Governs
 
 The filter checks of the H1 conclusions (primary: HF Clean vs Raw on the RAW evaluation period; secondary: the RAW-era effects), their power reporting and their reading. No development test, statistic or verdict changes. No freeze, no O8, no era calibration under this amendment.
+
+## Note added 2026-11-12T01:45Z (2026-11-11 20:45 New York): Raw splices that cannot be built on the Clean panel (user decision; written before its code)
+
+**Trigger.** The full dress rehearsal (development data only; `section6/results/dress_rehearsal.json`, ledger row of 2026-11-12) crashed in the Clean run. The Clean run reuses the Raw run's splice specifications (rule 1d). HF's Clean filter removes bars, so for some specifications an endpoint bar is missing on the Clean panel, and the splice builder (`s5_eval.make_splice`, in the frozen closure) refused. The Clean one-shot marker had already been written. No evaluation-period data were involved. The user chose: "Option 1: ... splices whose endpoints can't be built on the Clean panel are dropped from both runs, keeping the comparison paired; report the count and share dropped. Move a build-every-splice check ahead of the Clean one-shot marker."
+
+**N1. Buildable.** A Raw-run splice specification is buildable on the Clean panel if `s5_d2.finite_ok` holds for it on the Clean panel. This is the rule that drew the specifications on the Raw panel: the closes at the splice point of sessions A and B and the next close of B are present, the two returns around the splice point are eligible, and for a regime splice of limited duration the same at its end. For a buildable specification the splice is then built. If the build still raises an error, the specification is also treated as not buildable, and the error is recorded.
+
+**N2. Dropped from both runs; the comparison stays paired.** Specifications that are not buildable on the Clean panel are dropped from the Clean run and from the Raw run alike, before any statistic of rule 1:
+  - the Raw-run H1(a) effect, the Clean-run H1(a) effect and Delta(a) are computed on the kept specifications only, with the same day draws for both runs (rule 1e);
+  - the Raw-run H1(a) effect on all of its specifications is reported beside them, as a reference only;
+  - H1(b) is unchanged (it already uses the bars common to both runs, rule 1d);
+  - rule 1g (reproducibility against the official RAW evaluation) uses the Raw run on all of its specifications, as before.
+
+**N3. Reported.** The number of specifications, the number and share dropped, split into null and break splices, and the reason for each dropped one (not buildable, or build error). If no null or no break splice is kept, H1(a) and Delta(a) are not evaluable for the Clean comparison, and this is reported; rule 2 and the H1(b) comparison are unaffected.
+
+**N4. Order: what can run ahead of the Clean marker.**
+  - Whether a specification is buildable on the Clean panel can only be known from the Clean panel, which is the evaluation-period read that the Clean marker must immediately precede (rule 5a). A check on the Clean data therefore cannot run ahead of the marker without reading evaluation data before it.
+  - **Ahead of the marker:** before the Clean file is authorised and its marker written, the code checks that the saved Raw run is present and verifies, that it holds the splice specifications, and that every specification has the fields the screen and the builder need (session A, session B, splice point, kind, cell, and for regime splices the scale and duration). If this fails, no marker is written.
+  - **Immediately after the read:** the N1 screen runs on the Clean panel first, before any model is applied. Every buildable specification is then built inside the N1 error handling. A specification that cannot be built is dropped and recorded (N2, N3), and the run continues. So an unbuildable splice can no longer end the Clean run after its marker.
+  - Other failures after the marker (for example in scoring) still end the run, by design (rule 5a).
+
+**Unchanged.** Rules 1-5 otherwise, the files and hashes, the guards, the one-shot markers, the statistics and their settings, rule 2 and its labels. No result module changes (code version a0323ed24d68e896).
+
+Text before this note: sha256 `23610a4a4a375bbaf9398e3a96bc43c875352e949563a3fddee52448c5b73f5d`.
