@@ -1,0 +1,1214 @@
+{
+ "label": "Dress rehearsal, A38 stage only (DEVELOPMENT DATA ONLY; fake RAW evaluation tail inside TRAIN), after AMENDMENT_A38 note N1-N4",
+ "temp_dir": "C:\\Users\\kakij\\AppData\\Local\\Temp\\dress_rehearsal_rafk05cr",
+ "passed": true,
+ "error": null,
+ "seconds": 370.8,
+ "substitutions": {
+  "fingerprint_rewritten": true,
+  "amendment_list_substituted": {
+   "A38_in_temp_freeze": "23610a4a4a375bbaf9398e3a96bc43c875352e949563a3fddee52448c5b73f5d",
+   "A38_now": "067c1de7bc508ff5f079387977c037e83bcb000bf1f3c5990853f96d725ae532"
+  },
+  "crashed_clean_marker_renamed_to": "a38_clean_RAN.marker.crashed_run_2026-11-11"
+ },
+ "checks": {
+  "a38_labelled": true,
+  "h1a_evaluated": {
+   "gaussian_hmm": true,
+   "student_t_hmm": true,
+   "hsmm": true,
+   "bocpd": true
+  },
+  "splice_drop": {
+   "n_specs": 1360,
+   "n_dropped": 169,
+   "share_dropped": 0.12426470588235294,
+   "null": {
+    "n": 400,
+    "dropped": 32,
+    "share": 0.08
+   },
+   "brk": {
+    "n": 960,
+    "dropped": 137,
+    "share": 0.14270833333333333
+   },
+   "dropped": [
+    {
+     "index": 22,
+     "cell": "null",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 25,
+     "cell": "null",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 33,
+     "cell": "null",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 39,
+     "cell": "null",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 54,
+     "cell": "null",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 78,
+     "cell": "null",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 105,
+     "cell": "null",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 125,
+     "cell": "null",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 130,
+     "cell": "null",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 136,
+     "cell": "null",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 142,
+     "cell": "null",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 162,
+     "cell": "null",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 174,
+     "cell": "null",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 181,
+     "cell": "null",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 185,
+     "cell": "null",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 189,
+     "cell": "null",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 198,
+     "cell": "null",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 203,
+     "cell": "null",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 204,
+     "cell": "null",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 239,
+     "cell": "null",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 246,
+     "cell": "null",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 276,
+     "cell": "null",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 278,
+     "cell": "null",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 283,
+     "cell": "null",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 285,
+     "cell": "null",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 289,
+     "cell": "null",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 290,
+     "cell": "null",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 307,
+     "cell": "null",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 341,
+     "cell": "null",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 356,
+     "cell": "null",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 385,
+     "cell": "null",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 392,
+     "cell": "null",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 400,
+     "cell": "(1.5, 'up', None)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 409,
+     "cell": "(1.5, 'up', None)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 426,
+     "cell": "(1.5, 'up', 30)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 427,
+     "cell": "(1.5, 'up', 30)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 429,
+     "cell": "(1.5, 'up', 30)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 447,
+     "cell": "(1.5, 'up', 30)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 457,
+     "cell": "(1.5, 'up', 60)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 459,
+     "cell": "(1.5, 'up', 60)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 462,
+     "cell": "(1.5, 'up', 60)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 468,
+     "cell": "(1.5, 'up', 60)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 471,
+     "cell": "(1.5, 'up', 60)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 476,
+     "cell": "(1.5, 'up', 120)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 480,
+     "cell": "(1.5, 'up', 120)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 481,
+     "cell": "(1.5, 'up', 120)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 492,
+     "cell": "(1.5, 'up', 120)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 504,
+     "cell": "(1.5, 'down', None)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 515,
+     "cell": "(1.5, 'down', None)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 517,
+     "cell": "(1.5, 'down', None)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 521,
+     "cell": "(1.5, 'down', 30)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 531,
+     "cell": "(1.5, 'down', 30)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 533,
+     "cell": "(1.5, 'down', 30)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 537,
+     "cell": "(1.5, 'down', 30)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 539,
+     "cell": "(1.5, 'down', 30)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 542,
+     "cell": "(1.5, 'down', 30)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 543,
+     "cell": "(1.5, 'down', 30)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 544,
+     "cell": "(1.5, 'down', 60)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 559,
+     "cell": "(1.5, 'down', 60)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 564,
+     "cell": "(1.5, 'down', 60)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 565,
+     "cell": "(1.5, 'down', 60)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 569,
+     "cell": "(1.5, 'down', 120)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 571,
+     "cell": "(1.5, 'down', 120)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 572,
+     "cell": "(1.5, 'down', 120)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 573,
+     "cell": "(1.5, 'down', 120)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 582,
+     "cell": "(1.5, 'down', 120)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 585,
+     "cell": "(1.5, 'down', 120)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 587,
+     "cell": "(1.5, 'down', 120)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 591,
+     "cell": "(1.5, 'down', 120)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 605,
+     "cell": "(2, 'up', None)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 611,
+     "cell": "(2, 'up', None)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 621,
+     "cell": "(2, 'up', 30)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 626,
+     "cell": "(2, 'up', 30)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 637,
+     "cell": "(2, 'up', 30)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 639,
+     "cell": "(2, 'up', 30)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 640,
+     "cell": "(2, 'up', 60)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 642,
+     "cell": "(2, 'up', 60)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 652,
+     "cell": "(2, 'up', 60)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 660,
+     "cell": "(2, 'up', 60)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 663,
+     "cell": "(2, 'up', 60)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 669,
+     "cell": "(2, 'up', 120)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 672,
+     "cell": "(2, 'up', 120)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 696,
+     "cell": "(2, 'down', None)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 702,
+     "cell": "(2, 'down', None)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 704,
+     "cell": "(2, 'down', None)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 706,
+     "cell": "(2, 'down', None)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 712,
+     "cell": "(2, 'down', 30)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 721,
+     "cell": "(2, 'down', 30)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 727,
+     "cell": "(2, 'down', 30)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 734,
+     "cell": "(2, 'down', 30)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 736,
+     "cell": "(2, 'down', 60)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 741,
+     "cell": "(2, 'down', 60)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 746,
+     "cell": "(2, 'down', 60)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 747,
+     "cell": "(2, 'down', 60)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 749,
+     "cell": "(2, 'down', 60)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 753,
+     "cell": "(2, 'down', 60)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 758,
+     "cell": "(2, 'down', 60)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 762,
+     "cell": "(2, 'down', 120)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 763,
+     "cell": "(2, 'down', 120)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 768,
+     "cell": "(2, 'down', 120)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 769,
+     "cell": "(2, 'down', 120)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 770,
+     "cell": "(2, 'down', 120)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 772,
+     "cell": "(2, 'down', 120)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 775,
+     "cell": "(2, 'down', 120)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 796,
+     "cell": "(3, 'up', None)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 809,
+     "cell": "(3, 'up', 30)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 810,
+     "cell": "(3, 'up', 30)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 816,
+     "cell": "(3, 'up', 30)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 825,
+     "cell": "(3, 'up', 30)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 838,
+     "cell": "(3, 'up', 60)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 844,
+     "cell": "(3, 'up', 60)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 856,
+     "cell": "(3, 'up', 120)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 859,
+     "cell": "(3, 'up', 120)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 865,
+     "cell": "(3, 'up', 120)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 868,
+     "cell": "(3, 'up', 120)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 881,
+     "cell": "(3, 'down', None)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 888,
+     "cell": "(3, 'down', None)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 902,
+     "cell": "(3, 'down', None)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 908,
+     "cell": "(3, 'down', 30)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 931,
+     "cell": "(3, 'down', 60)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 933,
+     "cell": "(3, 'down', 60)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 942,
+     "cell": "(3, 'down', 60)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 950,
+     "cell": "(3, 'down', 60)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 951,
+     "cell": "(3, 'down', 60)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 962,
+     "cell": "(3, 'down', 120)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 965,
+     "cell": "(3, 'down', 120)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 975,
+     "cell": "(3, 'down', 120)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 976,
+     "cell": "(5, 'up', None)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 1000,
+     "cell": "(5, 'up', 30)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 1002,
+     "cell": "(5, 'up', 30)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 1008,
+     "cell": "(5, 'up', 30)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 1037,
+     "cell": "(5, 'up', 60)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 1055,
+     "cell": "(5, 'up', 120)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 1069,
+     "cell": "(5, 'up', 120)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 1076,
+     "cell": "(5, 'down', None)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 1086,
+     "cell": "(5, 'down', None)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 1099,
+     "cell": "(5, 'down', 30)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 1105,
+     "cell": "(5, 'down', 30)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 1107,
+     "cell": "(5, 'down', 30)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 1112,
+     "cell": "(5, 'down', 30)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 1115,
+     "cell": "(5, 'down', 30)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 1118,
+     "cell": "(5, 'down', 30)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 1124,
+     "cell": "(5, 'down', 60)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 1142,
+     "cell": "(5, 'down', 60)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 1157,
+     "cell": "(5, 'down', 120)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 1159,
+     "cell": "(5, 'down', 120)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 1170,
+     "cell": "(10, 'up', None)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 1195,
+     "cell": "(10, 'up', 30)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 1204,
+     "cell": "(10, 'up', 30)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 1210,
+     "cell": "(10, 'up', 30)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 1217,
+     "cell": "(10, 'up', 60)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 1225,
+     "cell": "(10, 'up', 60)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 1227,
+     "cell": "(10, 'up', 60)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 1237,
+     "cell": "(10, 'up', 60)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 1238,
+     "cell": "(10, 'up', 60)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 1239,
+     "cell": "(10, 'up', 60)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 1259,
+     "cell": "(10, 'up', 120)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 1294,
+     "cell": "(10, 'down', 30)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 1297,
+     "cell": "(10, 'down', 30)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 1300,
+     "cell": "(10, 'down', 30)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 1308,
+     "cell": "(10, 'down', 30)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 1311,
+     "cell": "(10, 'down', 30)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 1323,
+     "cell": "(10, 'down', 60)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 1333,
+     "cell": "(10, 'down', 60)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 1335,
+     "cell": "(10, 'down', 60)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 1338,
+     "cell": "(10, 'down', 120)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 1339,
+     "cell": "(10, 'down', 120)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 1350,
+     "cell": "(10, 'down', 120)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 1358,
+     "cell": "(10, 'down', 120)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    }
+   ]
+  },
+  "n_stable_days": 28,
+  "by_family": {
+   "gaussian_hmm": {
+    "reading": "no detectable filter effect (both intervals include 0; see the MDE)",
+    "H1a": {
+     "raw": {
+      "effect": 0.10369670875376402,
+      "ci95": [
+       0.04760133564248308,
+       0.17829991908321874
+      ],
+      "sd": 0.03293676572161768,
+      "mde": 0.09222294402052951,
+      "n_null": 368,
+      "n_break": 823,
+      "n_days": 28,
+      "n_valid_resamples": 2000
+     },
+     "clean": {
+      "effect": 0.0789661366157747,
+      "ci95": [
+       0.022154507065013845,
+       0.15385699789383994
+      ],
+      "sd": 0.03289215865245911,
+      "mde": 0.09209804422688551,
+      "n_null": 368,
+      "n_break": 823,
+      "n_days": 28,
+      "n_valid_resamples": 2000
+     },
+     "delta": {
+      "effect": -0.02473057213798932,
+      "ci95": [
+       -0.05483548123716747,
+       0.00398699808371346
+      ],
+      "sd": 0.014844149407077428,
+      "mde": 0.041563618339816796,
+      "n_null": 368,
+      "n_break": 823,
+      "n_days": 28,
+      "n_valid_resamples": 2000
+     },
+     "raw_all_specs_reference": {
+      "effect": 0.10821354166666663,
+      "ci95": [
+       0.055648752000494316,
+       0.17919050200492923
+      ],
+      "sd": 0.031134174047137204,
+      "mde": 0.08717568733198416,
+      "n_null": 400,
+      "n_break": 960,
+      "n_days": 28,
+      "n_valid_resamples": 2000
+     }
+    },
+    "H1b_delta": {
+     "effect": 0.00026412683835339343,
+     "ci95": [
+      -0.005078716585215827,
+      0.005696859776097488
+     ],
+     "sd": 0.002765202723722304,
+     "mde": 0.00774256762642245,
+     "n": 7308,
+     "n_clusters": 119
+    },
+    "H1b_n_common_bars": 7308
+   },
+   "student_t_hmm": {
+    "reading": "no detectable filter effect (both intervals include 0; see the MDE)",
+    "H1a": {
+     "raw": {
+      "effect": 0.10599476992973744,
+      "ci95": [
+       0.03531283983743063,
+       0.18573047076994958
+      ],
+      "sd": 0.03769913174353607,
+      "mde": 0.10555756888190099,
+      "n_null": 368,
+      "n_break": 823,
+      "n_days": 28,
+      "n_valid_resamples": 2000
+     },
+     "clean": {
+      "effect": 0.09896191029637065,
+      "ci95": [
+       0.018641211420682133,
+       0.18857740012598506
+      ],
+      "sd": 0.04301054262870721,
+      "mde": 0.12042951936038018,
+      "n_null": 368,
+      "n_break": 823,
+      "n_days": 28,
+      "n_valid_resamples": 2000
+     },
+     "delta": {
+      "effect": -0.007032859633366792,
+      "ci95": [
+       -0.039546945592435497,
+       0.02300481028720114
+      ],
+      "sd": 0.015745083646290122,
+      "mde": 0.044086234209612336,
+      "n_null": 368,
+      "n_break": 823,
+      "n_days": 28,
+      "n_valid_resamples": 2000
+     },
+     "raw_all_specs_reference": {
+      "effect": 0.1062239583333333,
+      "ci95": [
+       0.036715603204803327,
+       0.1839219688512844
+      ],
+      "sd": 0.03717299819377554,
+      "mde": 0.10408439494257152,
+      "n_null": 400,
+      "n_break": 960,
+      "n_days": 28,
+      "n_valid_resamples": 2000
+     }
+    },
+    "H1b_delta": {
+     "effect": -0.0017994964600414809,
+     "ci95": [
+      -0.010047860578922353,
+      0.005724613744837907
+     ],
+     "sd": 0.004063335228340624,
+     "mde": 0.011377338639353746,
+     "n": 7308,
+     "n_clusters": 119
+    },
+    "H1b_n_common_bars": 7308
+   },
+   "hsmm": {
+    "reading": "filter-sensitive on IEX data (a 95% interval of Delta excludes 0)",
+    "H1a": {
+     "raw": {
+      "effect": 0.07420492366210577,
+      "ci95": [
+       0.03212617871283655,
+       0.1388517873102847
+      ],
+      "sd": 0.027715145932137402,
+      "mde": 0.07760240860998473,
+      "n_null": 368,
+      "n_break": 823,
+      "n_days": 28,
+      "n_valid_resamples": 2000
+     },
+     "clean": {
+      "effect": 0.04500369802947857,
+      "ci95": [
+       -0.00646009047286569,
+       0.11564390983077572
+      ],
+      "sd": 0.03204811811718555,
+      "mde": 0.08973473072811955,
+      "n_null": 368,
+      "n_break": 823,
+      "n_days": 28,
+      "n_valid_resamples": 2000
+     },
+     "delta": {
+      "effect": -0.029201225632627198,
+      "ci95": [
+       -0.058582954640487045,
+       -0.006918423054080611
+      ],
+      "sd": 0.013013040088097906,
+      "mde": 0.03643651224667414,
+      "n_null": 368,
+      "n_break": 823,
+      "n_days": 28,
+      "n_valid_resamples": 2000
+     },
+     "raw_all_specs_reference": {
+      "effect": 0.0788697916666666,
+      "ci95": [
+       0.03465612149053688,
+       0.14304498748944683
+      ],
+      "sd": 0.02777832325825048,
+      "mde": 0.07777930512310134,
+      "n_null": 400,
+      "n_break": 960,
+      "n_days": 28,
+      "n_valid_resamples": 2000
+     }
+    },
+    "H1b_delta": {
+     "effect": -0.0018830737246108777,
+     "ci95": [
+      -0.007394082790798248,
+      0.0032897713175858386
+     ],
+     "sd": 0.002745391318580274,
+     "mde": 0.007687095692024766,
+     "n": 7308,
+     "n_clusters": 119
+    },
+    "H1b_n_common_bars": 7308
+   },
+   "bocpd": {
+    "reading": "no detectable filter effect (both intervals include 0; see the MDE)",
+    "H1a": {
+     "raw": {
+      "effect": 0.0,
+      "ci95": [
+       0.0,
+       0.0
+      ],
+      "sd": 0.0,
+      "mde": 0.0,
+      "n_null": 368,
+      "n_break": 823,
+      "n_days": 28,
+      "n_valid_resamples": 2000
+     },
+     "clean": {
+      "effect": 0.0,
+      "ci95": [
+       0.0,
+       0.0
+      ],
+      "sd": 0.0,
+      "mde": 0.0,
+      "n_null": 368,
+      "n_break": 823,
+      "n_days": 28,
+      "n_valid_resamples": 2000
+     },
+     "delta": {
+      "effect": 0.0,
+      "ci95": [
+       0.0,
+       0.0
+      ],
+      "sd": 0.0,
+      "mde": 0.0,
+      "n_null": 368,
+      "n_break": 823,
+      "n_days": 28,
+      "n_valid_resamples": 2000
+     },
+     "raw_all_specs_reference": {
+      "effect": 0.0,
+      "ci95": [
+       0.0,
+       0.0
+      ],
+      "sd": 0.0,
+      "mde": 0.0,
+      "n_null": 400,
+      "n_break": 960,
+      "n_days": 28,
+      "n_valid_resamples": 2000
+     }
+    },
+    "H1b_delta": {
+     "effect": 0.0,
+     "ci95": [
+      0.0,
+      0.0
+     ],
+     "sd": 0.0,
+     "mde": 0.0,
+     "n": 7541,
+     "n_clusters": 119
+    },
+    "H1b_n_common_bars": 7541
+   }
+  },
+  "secondary_rule2": {
+   "gaussian_hmm": "robust to the LEGACY Clean filter",
+   "student_t_hmm": null,
+   "hsmm": "robust to the LEGACY Clean filter",
+   "bocpd": null
+  },
+  "access_log_this_run": {
+   "allowed_a38": 1,
+   "refused": 0
+  },
+  "real_paths_untouched": true
+ },
+ "peak_mb_main_process": 411,
+ "generated": "2026-11-12T01:51:26.113781+00:00",
+ "code": {
+  "files": {
+   "section6/s6_a34.py": "88e3e3dbed77b5be4b5a4dcdc63f899c595af7101ba2bd05c96c68258c0c5c63",
+   "section6/s6_a35.py": "fbbc0b556e08de1f31b6ec388f5129b80cf18945ee9b32bfac73e0b00023929e",
+   "section6/s6_adopt_a31.py": "fbb6a9a0569efd30fa2d3faea3c70ccbc4e5c57e9f6e6519df5e7fe5f3841b1c",
+   "section6/s6_check_synth.py": "85f02938cf99f9569e77682b3f9812d75087fe9359c8684a6a0267035a98d612",
+   "section6/s6_coverage.py": "adecb24a4c285ea204e171f562c21397bea001f854459992e976546f0c8883d9",
+   "section6/s6_dress_rehearsal.py": "4b7302354ab6bd4a2655df272860be1d30d3bf0944cd5eb03f9e6407bbf103f0",
+   "section6/s6_eval.py": "1e9e41f8a94837c829a179f94896b2505b99548b6936ff2614e6fe3b57b91c48",
+   "section6/s6_eval_synth.py": "cfbe8673f7d887a299755a9bd2a73fb83e9aec34656f5ef960fc6e076b15a272",
+   "section6/s6_fingerprint.py": "45af26ef609a99fdd2681a19ed045ac05e9afedb1fda09d89ec20648ca990413",
+   "section6/s6_h2.py": "d289172a1d95a00e5f5f582b8077c1e1dfbb4e89266382306cdfc9f7d3db071a",
+   "section6/s6_hyg_gap.py": "cbd0ccf3ee17fddbfd70f4d1faad03b4f522257fde98dbc615becae18b9489d9",
+   "section6/s6_lib.py": "3280ce3b24f6d56e1e5c036c62e73179cfd66ce6f5ec26306f84476614544167",
+   "section6/s6_posthoc_h3_ci.py": "c06fc0a86121fdfa4b3c3661b9a5f40a98c03b4a5c53807b0bf5de3c1ec13aa6",
+   "section6/s6_power.py": "909e0ea16bd29189c0f1cbafc04755f30aad716a6460d33b5fb1a39da35b0798",
+   "section6/s6_run.py": "c06276dd226102c300f0afe5ef7fbb9ee9a0d2da687de1bc5240ed2e1c5e80f4",
+   "section6/s6_synth_validation.py": "fbbc8598a8efec2d968153371aa70cd2d55887c7b1b43cb98d6430dfd39d65fc",
+   "section6/s6_tests.py": "852724428c55c6fbdc48152fa3375eb58bfdeb56099da595db13a2c7f229d819",
+   "section6/s6_tests_a34.py": "b5b43582b401137a12a0104f6ea325970ff94447e8d4fb49a68bd5ac3602419d",
+   "section6/s6_tests_a35.py": "beefc8af2654fe486f2debd32c9443796359621e538b2543450ec36100953292",
+   "section6/s6_tests_a36.py": "169506cf384a5b86fe4ca55776e1d9a22c064fc282cb1df49fe9b1b5c8ce9e31",
+   "section6/s6_tests_a37.py": "192c6584eeb1ed4dc472445e8746dd0b514cc1bfab8be28f37842312a1306149",
+   "section6/s6_tests_h2.py": "ad67eb05073b07fed117d98a1b16dcb6d3e5d495afdd0c1e3e1b5aa38153f498",
+   "section5/s5_eval_loader.py": "13b31b61db32ee1471891f1791abb9aaa9e0a19c7722097ab808822367c32bbf",
+   "section5/s5_amendment_manifest.py": "4ef30761772e7635c8e8496ec9293a7432bf148f23e629d47a04373461ab0c84",
+   "section5/s5_break_export.py": "b2956c2d813465ea829bdb2b6131ead9866a0376df5f674affd8f56609287ec3",
+   "section5/s5_eval_label.py": "129e8016ffb0cb39b05cd017bee6c991a38a6e875dc3832bf91ab527b7a6540e",
+   "section5/s5_eval513.py": "ad344bbaa657484a81cabe395981c03bf43f60d60be02c7b9a5905b00aadb172",
+   "section5/s5_h1c_eval_times.py": "28f76553512c89f79cfa68a28d42bd5c7765c19ee195f47a53892d3e7ac342f9",
+   "section5/s5_a17_a18_common.py": "81eb453b8dce5c61306653a543a67df493280994f23c9f13cf5257a12a2a32b4",
+   "section5/s5_freeze_models.py": "01c886f4555c53b2907276fff0457298f047f99ba5ca1d6f634b2d116ebf0f0b",
+   "section5/s5_a38.py": "28761bf5eff5dc897a01fbbe0f099ae84532ed14a77a4103b86794da57c217d2"
+  },
+  "code_version": "a0323ed24d68e896"
+ }
+}

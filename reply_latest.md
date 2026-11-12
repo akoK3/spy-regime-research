@@ -1,3 +1,41 @@
+# Report, 2026-11-11 21:00 New York: A38 fix and A38-only rehearsal rerun (development data only; no real freeze)
+
+## Bottom line
+
+- **The A38-only rerun PASSED** (`section6/results/dress_rehearsal_a38.json`; 6 min). With the full rehearsal's earlier stages, every B1 condition is now met, in two runs.
+- **A38 note N1-N4** (commit d647c8e, before the code): Raw splices that cannot be built on the Clean panel are dropped from both runs, so H1(a) stays paired; the count, share and reasons are reported.
+- **Code** (commit dd96fa2): `s5_a38.py` only; tests 12/12; all suites pass; code version a0323ed24d68e896.
+- **One deviation from your order, forced by A38 rule 5a.** Whether a splice can be built on the Clean panel is only known from the Clean data, and the Clean marker must come immediately before that read. So the check on the Clean data cannot precede the marker. What runs ahead of the marker: the saved Raw run and every splice specification are checked; if that fails, no marker is written. Right after the read, the screen runs first, and every kept splice is built inside error handling. An unbuildable splice is now dropped and recorded, never a crash.
+
+## A38-only rerun (fake RAW tail, 120 sessions, 28 stable days)
+
+- **Dropped:** 169 of 1,360 splices (12.4%): 32 of 400 null (8.0%), 137 of 960 break (14.3%). Every one failed the endpoint rule (`s5_d2.finite_ok`); no build errors.
+- **H1(a) evaluated for all four families**, on the Clean run and on the Raw run restricted to the same splices.
+- Labelled; 1 ALLOWED A38 read, 0 refused; real paths untouched.
+- Rule 1 readings on the fake tail (development data; plumbing only, not results): Gaussian HMM, Student-t HMM, BOCPD "no detectable filter effect"; HSMM "filter-sensitive" (Delta(a) -0.029, 95% interval -0.059 to -0.007).
+
+**Disclosed substitutions, temporary folder only:**
+- The temporary Section 6 fingerprint was rewritten for the changed code. In the real order the fingerprint is written after this change.
+- The amendment-list check compared against the temporary freeze's list, allowed only because the sole difference is A38's hash (before and after the note).
+- The crashed run's Clean marker was renamed, not deleted. In a real run it would block a second Clean read, by design.
+- The Raw run was reused from the saved file of the full rehearsal (written by the previous code; the Raw path did not change).
+
+## B1 pass condition, now
+
+| Condition | Met |
+|---|---|
+| H1(a) evaluated in both eras, in 5.13 | Yes (full run) |
+| H1(a) evaluated in A38 | Yes (A38-only rerun) |
+| Frozen thresholds reproduced, all 8 pairs | Yes (full run) |
+| Real paths untouched | Yes (both) |
+| No error | Yes in the A38-only rerun; the full run's only error was the A38 crash now fixed |
+
+**Note for the paper:** 14% of break splices are dropped in the Clean comparison. The Clean filter removes bars near some splice points, so the paired H1(a) Delta is on a subset (reported beside the Raw run on all splices).
+
+**Next, only on your instruction:** the real freeze (`s5_freeze_run.py run --confirm section5_freeze.json`), then the fingerprint, `s6_eval.py run`, `s5_a38.py run`.
+
+---
+
 # Report, 2026-11-11 20:45 New York: full dress rehearsal result (development data only; no real freeze)
 
 ## Bottom line
