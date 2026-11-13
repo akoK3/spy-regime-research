@@ -135,7 +135,8 @@ Earlier rehearsal (development data, temporary folder): full dress rehearsal fre
 | Item | Location | SHA-256 | Note |
 |---|---|---|---|
 | Frozen models + manifest + sidecar, freeze document + sidecar (12 files) | `C:\Users\kakij\Downloads\freeze_backup_20261112.zip` | `478c90491911b539142797dbe9b3c87fba07c7d77acd193523a0f4b2ec0e00b4` | Same disk as the originals; git-ignored |
+| Copy of the freeze backup (30,278 bytes) | `G:\My Drive\research_backups\freeze_backup_20261112.zip` (Google Drive) | `478c90491911b539142797dbe9b3c87fba07c7d77acd193523a0f4b2ec0e00b4` | Copied 2026-11-12 NY; the copy's SHA-256 was verified equal to the original |
 | Code, results, amendments, ledger | GitHub `akoK3/spy-regime-research` | per commit | Data and frozen models not included |
-| LEGACY source zip `hfdatalibrary_clean_1min_5tickers_2026-10-03.zip` | `C:\Users\kakij\Downloads` only | `b6754832...` | **No backup**; only partial extracted CSVs (SPY, TLT, HYG) in `OneDrive\Desktop\data\raw` |
+| LEGACY source zip `hfdatalibrary_clean_1min_5tickers_2026-10-03.zip` (545,272,441 bytes) | `C:\Users\kakij\Downloads`; backup copy `G:\My Drive\research_backups\hfdatalibrary_clean_1min_5tickers_2026-10-03.zip` (Google Drive) | `b6754832051ad5ff0a265439e35e100cc1fbef56cd3c067ff9b3ed50aa5d55ce` | Copied 2026-11-12 NY; the copy's SHA-256 was verified equal to the original. Partial extracted CSVs (SPY, TLT, HYG) also in `OneDrive\Desktop\data\raw` |
 
 Ledger of every step: `METHODS_LEDGER.md` (with `METHODS_LEDGER.sha256`).
