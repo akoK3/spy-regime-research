@@ -1,0 +1,526 @@
+{
+ "detector": "gaussian_hmm",
+ "label": "AMENDMENT_A34 recomputed parts (post-diagnosis (AMENDMENT_A34; specified after the label-free HYG diagnosis); development data)",
+ "n_breaks": 218,
+ "placebos_per_break": {
+  "TLT": {
+   "p10": 20.0,
+   "p50": 20.0,
+   "p90": 20.0
+  },
+  "HYG": {
+   "p10": 20.0,
+   "p50": 20.0,
+   "p90": 20.0
+  },
+  "GOLD": {
+   "p10": 20.0,
+   "p50": 20.0,
+   "p90": 20.0
+  },
+  "DOLLAR": {
+   "p10": 20.0,
+   "p50": 20.0,
+   "p90": 20.0
+  }
+ },
+ "exploratory_a32": {
+  "label": "EXPLORATORY (A33 rule 4), uncorrected; per-asset placebo pools; post-diagnosis (AMENDMENT_A34; specified after the label-free HYG diagnosis)",
+  "tests": {
+   "X_TLT_h30": {
+    "n_breaks": 204,
+    "window": [
+     0,
+     30
+    ],
+    "mean_d_break": 1.2440916835121278,
+    "mean_d_placebo": 0.9305525816997743,
+    "G": 0.31353910181235356,
+    "p": 0.0027,
+    "n_valid_resamples": 9999
+   },
+   "X_HYG_h30": {
+    "n_breaks": 182,
+    "window": [
+     0,
+     30
+    ],
+    "mean_d_break": 1.0628351357859338,
+    "mean_d_placebo": 0.8782298050929692,
+    "G": 0.18460533069296473,
+    "p": 0.023,
+    "n_valid_resamples": 9999
+   },
+   "X_GOLD_h30": {
+    "n_breaks": 204,
+    "window": [
+     0,
+     30
+    ],
+    "mean_d_break": 1.4056022554279406,
+    "mean_d_placebo": 0.906814430161627,
+    "G": 0.4987878252663138,
+    "p": 0.0005,
+    "n_valid_resamples": 9999
+   },
+   "X_DOLLAR_h30": {
+    "n_breaks": 189,
+    "window": [
+     0,
+     30
+    ],
+    "mean_d_break": 1.3794011953888528,
+    "mean_d_placebo": 0.8909780166196828,
+    "G": 0.48842317876917,
+    "p": 0.0004,
+    "n_valid_resamples": 9999
+   },
+   "X_TLT_h5": {
+    "n_breaks": 209,
+    "window": [
+     0,
+     5
+    ],
+    "mean_d_break": 1.4722996554444479,
+    "mean_d_placebo": 1.0156069777597934,
+    "G": 0.4566926776846547,
+    "p": 0.0001,
+    "n_valid_resamples": 9999
+   },
+   "X_HYG_h5": {
+    "n_breaks": 185,
+    "window": [
+     0,
+     5
+    ],
+    "mean_d_break": 1.1767329840491854,
+    "mean_d_placebo": 0.9313912044960142,
+    "G": 0.24534177955317107,
+    "p": 0.0019,
+    "n_valid_resamples": 9999
+   },
+   "X_GOLD_h5": {
+    "n_breaks": 210,
+    "window": [
+     0,
+     5
+    ],
+    "mean_d_break": 1.7257951129790827,
+    "mean_d_placebo": 1.0634172529289088,
+    "G": 0.6623778600501742,
+    "p": 0.0001,
+    "n_valid_resamples": 9999
+   },
+   "X_DOLLAR_h5": {
+    "n_breaks": 196,
+    "window": [
+     0,
+     5
+    ],
+    "mean_d_break": 1.5108643789114677,
+    "mean_d_placebo": 0.9749594825399213,
+    "G": 0.5359048963715471,
+    "p": 0.0001,
+    "n_valid_resamples": 9999
+   },
+   "X_TLT_h15": {
+    "n_breaks": 206,
+    "window": [
+     0,
+     15
+    ],
+    "mean_d_break": 1.1614225204102382,
+    "mean_d_placebo": 0.9460052290522701,
+    "G": 0.2154172913579682,
+    "p": 0.0084,
+    "n_valid_resamples": 9999
+   },
+   "X_HYG_h15": {
+    "n_breaks": 184,
+    "window": [
+     0,
+     15
+    ],
+    "mean_d_break": 1.1022648916721836,
+    "mean_d_placebo": 0.8913407219754674,
+    "G": 0.21092416969671637,
+    "p": 0.0042,
+    "n_valid_resamples": 9999
+   },
+   "X_GOLD_h15": {
+    "n_breaks": 206,
+    "window": [
+     0,
+     15
+    ],
+    "mean_d_break": 1.3454227523305509,
+    "mean_d_placebo": 0.945574657951651,
+    "G": 0.39984809437889984,
+    "p": 0.0003,
+    "n_valid_resamples": 9999
+   },
+   "X_DOLLAR_h15": {
+    "n_breaks": 192,
+    "window": [
+     0,
+     15
+    ],
+    "mean_d_break": 1.3315895934803572,
+    "mean_d_placebo": 0.9298181025899089,
+    "G": 0.4017714908904481,
+    "p": 0.0014,
+    "n_valid_resamples": 9999
+   },
+   "X_TLT_h60": {
+    "n_breaks": 194,
+    "window": [
+     0,
+     60
+    ],
+    "mean_d_break": 1.1916455461823765,
+    "mean_d_placebo": 0.9543325979598654,
+    "G": 0.23731294822251128,
+    "p": 0.0047,
+    "n_valid_resamples": 9999
+   },
+   "X_HYG_h60": {
+    "n_breaks": 170,
+    "window": [
+     0,
+     60
+    ],
+    "mean_d_break": 1.013417142640059,
+    "mean_d_placebo": 0.8535374153682406,
+    "G": 0.15987972727181823,
+    "p": 0.021,
+    "n_valid_resamples": 9999
+   },
+   "X_GOLD_h60": {
+    "n_breaks": 193,
+    "window": [
+     0,
+     60
+    ],
+    "mean_d_break": 1.2735225583617737,
+    "mean_d_placebo": 0.8661807912188066,
+    "G": 0.4073417671429669,
+    "p": 0.0004,
+    "n_valid_resamples": 9999
+   },
+   "X_DOLLAR_h60": {
+    "n_breaks": 180,
+    "window": [
+     0,
+     60
+    ],
+    "mean_d_break": 1.3105665353015514,
+    "mean_d_placebo": 0.8842550860933878,
+    "G": 0.4263114492081639,
+    "p": 0.0003,
+    "n_valid_resamples": 9999
+   },
+   "X_TLT_pre30": {
+    "n_breaks": 210,
+    "window": [
+     -30,
+     0
+    ],
+    "mean_d_break": 1.7836333148021384,
+    "mean_d_placebo": 0.924090411007079,
+    "G": 0.8595429037950595,
+    "p": null,
+    "label": "descriptive, not tested"
+   },
+   "X_HYG_pre30": {
+    "n_breaks": 188,
+    "window": [
+     -30,
+     0
+    ],
+    "mean_d_break": 1.806350794246917,
+    "mean_d_placebo": 0.9143340458000373,
+    "G": 0.8920167484468798,
+    "p": null,
+    "label": "descriptive, not tested"
+   },
+   "X_GOLD_pre30": {
+    "n_breaks": 210,
+    "window": [
+     -30,
+     0
+    ],
+    "mean_d_break": 2.0644486899790757,
+    "mean_d_placebo": 0.9281558045441319,
+    "G": 1.1362928854349439,
+    "p": null,
+    "label": "descriptive, not tested"
+   },
+   "X_DOLLAR_pre30": {
+    "n_breaks": 196,
+    "window": [
+     -30,
+     0
+    ],
+    "mean_d_break": 2.2199658664641797,
+    "mean_d_placebo": 0.9156795481503844,
+    "G": 1.3042863183137952,
+    "p": null,
+    "label": "descriptive, not tested"
+   }
+  }
+ },
+ "h3_sensitivity": {
+  "label": "A34 2c H3 next-day with per-asset placebo pools: SECONDARY sensitivity, BH of 4, outside Holm; the H3 primary is unchanged; post-diagnosis (AMENDMENT_A34; specified after the label-free HYG diagnosis)",
+  "tests": {
+   "H3_TLT": {
+    "n_breaks": 208,
+    "n_placebos": 4238,
+    "gamma": -0.042691675462520486,
+    "p": 0.8307,
+    "n_valid_resamples": 9999,
+    "p_bh": 1.0
+   },
+   "H3_HYG": {
+    "n_breaks": 184,
+    "n_placebos": 4058,
+    "gamma": -0.08536407490052389,
+    "p": 0.9587,
+    "n_valid_resamples": 9999,
+    "p_bh": 1.0
+   },
+   "H3_GOLD": {
+    "n_breaks": 206,
+    "n_placebos": 4114,
+    "gamma": -0.12892327052111172,
+    "p": 0.9953,
+    "n_valid_resamples": 9999,
+    "p_bh": 1.0
+   },
+   "H3_DOLLAR": {
+    "n_breaks": 157,
+    "n_placebos": 3230,
+    "gamma": -0.2392523427941324,
+    "p": 1.0,
+    "n_valid_resamples": 9999,
+    "p_bh": 1.0
+   }
+  }
+ },
+ "E1": {
+  "label": "A34 2b E1 footprint taxonomy with per-asset placebo pools (descriptive; post-diagnosis (AMENDMENT_A34; specified after the label-free HYG diagnosis))",
+  "window": [
+   0,
+   30
+  ],
+  "n_breaks": 187,
+  "n_placebos": 3670,
+  "skipped": {
+   "window_past_close": 7,
+   "tlt_or_hyg_not_evaluable": 24
+  },
+  "breaks": {
+   "flight_to_safety": {
+    "n": 3,
+    "share": 0.016042780748663103
+   },
+   "credit_stress": {
+    "n": 8,
+    "share": 0.0427807486631016
+   },
+   "dollar_driven": {
+    "n": 17,
+    "share": 0.09090909090909091
+   },
+   "spy_only": {
+    "n": 95,
+    "share": 0.5080213903743316
+   },
+   "other": {
+    "n": 64,
+    "share": 0.3422459893048128
+   }
+  },
+  "placebos": {
+   "flight_to_safety": {
+    "n": 29,
+    "share": 0.00790190735694823
+   },
+   "credit_stress": {
+    "n": 200,
+    "share": 0.05449591280653951
+   },
+   "dollar_driven": {
+    "n": 181,
+    "share": 0.049318801089918256
+   },
+   "spy_only": {
+    "n": 2274,
+    "share": 0.6196185286103543
+   },
+   "other": {
+    "n": 986,
+    "share": 0.2686648501362398
+   }
+  }
+ },
+ "history_sessions_per_era": 60,
+ "n_sessions": {
+  "LEGACY": 800,
+  "RAW": 445
+ },
+ "provenance": {
+  "code": {
+   "files": {
+    "section6/s6_a34.py": "88e3e3dbed77b5be4b5a4dcdc63f899c595af7101ba2bd05c96c68258c0c5c63",
+    "section6/s6_a35.py": "fbbc0b556e08de1f31b6ec388f5129b80cf18945ee9b32bfac73e0b00023929e",
+    "section6/s6_adopt_a31.py": "fbb6a9a0569efd30fa2d3faea3c70ccbc4e5c57e9f6e6519df5e7fe5f3841b1c",
+    "section6/s6_check_synth.py": "85f02938cf99f9569e77682b3f9812d75087fe9359c8684a6a0267035a98d612",
+    "section6/s6_coverage.py": "adecb24a4c285ea204e171f562c21397bea001f854459992e976546f0c8883d9",
+    "section6/s6_dress_rehearsal.py": "4b7302354ab6bd4a2655df272860be1d30d3bf0944cd5eb03f9e6407bbf103f0",
+    "section6/s6_eval.py": "1e9e41f8a94837c829a179f94896b2505b99548b6936ff2614e6fe3b57b91c48",
+    "section6/s6_eval_synth.py": "cfbe8673f7d887a299755a9bd2a73fb83e9aec34656f5ef960fc6e076b15a272",
+    "section6/s6_fingerprint.py": "45af26ef609a99fdd2681a19ed045ac05e9afedb1fda09d89ec20648ca990413",
+    "section6/s6_h2.py": "d289172a1d95a00e5f5f582b8077c1e1dfbb4e89266382306cdfc9f7d3db071a",
+    "section6/s6_hyg_gap.py": "cbd0ccf3ee17fddbfd70f4d1faad03b4f522257fde98dbc615becae18b9489d9",
+    "section6/s6_lib.py": "3280ce3b24f6d56e1e5c036c62e73179cfd66ce6f5ec26306f84476614544167",
+    "section6/s6_posthoc_h3_ci.py": "c06fc0a86121fdfa4b3c3661b9a5f40a98c03b4a5c53807b0bf5de3c1ec13aa6",
+    "section6/s6_power.py": "909e0ea16bd29189c0f1cbafc04755f30aad716a6460d33b5fb1a39da35b0798",
+    "section6/s6_run.py": "c06276dd226102c300f0afe5ef7fbb9ee9a0d2da687de1bc5240ed2e1c5e80f4",
+    "section6/s6_synth_validation.py": "fbbc8598a8efec2d968153371aa70cd2d55887c7b1b43cb98d6430dfd39d65fc",
+    "section6/s6_tests.py": "852724428c55c6fbdc48152fa3375eb58bfdeb56099da595db13a2c7f229d819",
+    "section6/s6_tests_a34.py": "b5b43582b401137a12a0104f6ea325970ff94447e8d4fb49a68bd5ac3602419d",
+    "section6/s6_tests_a35.py": "beefc8af2654fe486f2debd32c9443796359621e538b2543450ec36100953292",
+    "section6/s6_tests_a36.py": "169506cf384a5b86fe4ca55776e1d9a22c064fc282cb1df49fe9b1b5c8ce9e31",
+    "section6/s6_tests_a37.py": "192c6584eeb1ed4dc472445e8746dd0b514cc1bfab8be28f37842312a1306149",
+    "section6/s6_tests_h2.py": "ad67eb05073b07fed117d98a1b16dcb6d3e5d495afdd0c1e3e1b5aa38153f498",
+    "section5/s5_eval_loader.py": "13b31b61db32ee1471891f1791abb9aaa9e0a19c7722097ab808822367c32bbf",
+    "section5/s5_amendment_manifest.py": "4ef30761772e7635c8e8496ec9293a7432bf148f23e629d47a04373461ab0c84",
+    "section5/s5_break_export.py": "b2956c2d813465ea829bdb2b6131ead9866a0376df5f674affd8f56609287ec3",
+    "section5/s5_eval_label.py": "129e8016ffb0cb39b05cd017bee6c991a38a6e875dc3832bf91ab527b7a6540e",
+    "section5/s5_eval513.py": "ad344bbaa657484a81cabe395981c03bf43f60d60be02c7b9a5905b00aadb172",
+    "section5/s5_h1c_eval_times.py": "28f76553512c89f79cfa68a28d42bd5c7765c19ee195f47a53892d3e7ac342f9",
+    "section5/s5_a17_a18_common.py": "81eb453b8dce5c61306653a543a67df493280994f23c9f13cf5257a12a2a32b4",
+    "section5/s5_freeze_models.py": "01c886f4555c53b2907276fff0457298f047f99ba5ca1d6f634b2d116ebf0f0b",
+    "section5/s5_a38.py": "28761bf5eff5dc897a01fbbe0f099ae84532ed14a77a4103b86794da57c217d2"
+   },
+   "code_version": "a0323ed24d68e896"
+  },
+  "amendments": [
+   {
+    "amendment": "A28",
+    "file": "AMENDMENT_A28.md",
+    "present": true,
+    "status": "ADOPTED",
+    "sha256": "7c6bd4bdee8bd839b1ff4c2346d81f15fd2b6b29af7a0d4b5e11738d9b673ac2",
+    "sidecar_sha256": "7c6bd4bdee8bd839b1ff4c2346d81f15fd2b6b29af7a0d4b5e11738d9b673ac2",
+    "sidecar_matches": true
+   },
+   {
+    "amendment": "A29",
+    "file": "AMENDMENT_A29.md",
+    "present": true,
+    "status": "ADOPTED",
+    "sha256": "304f27252b29d27649eeb68a0507f127fe24a602cd9556f5d43687bf24822715",
+    "sidecar_sha256": "304f27252b29d27649eeb68a0507f127fe24a602cd9556f5d43687bf24822715",
+    "sidecar_matches": true
+   },
+   {
+    "amendment": "A30",
+    "file": "AMENDMENT_A30.md",
+    "present": true,
+    "status": "ADOPTED",
+    "sha256": "1c421aa7ced0c8748648e9fe5fc723fa14c606a67943001fc482372d3990b9da",
+    "sidecar_sha256": "1c421aa7ced0c8748648e9fe5fc723fa14c606a67943001fc482372d3990b9da",
+    "sidecar_matches": true
+   },
+   {
+    "amendment": "A31",
+    "file": "AMENDMENT_A31.md",
+    "present": true,
+    "status": "ADOPTED",
+    "sha256": "1efd5a1f338b31c6f7459c8d328c854450eed6800052d2be261f83d240ef036f",
+    "sidecar_sha256": "1efd5a1f338b31c6f7459c8d328c854450eed6800052d2be261f83d240ef036f",
+    "sidecar_matches": true
+   },
+   {
+    "amendment": "A32",
+    "file": "AMENDMENT_A32.md",
+    "present": true,
+    "status": "ADOPTED",
+    "sha256": "d222539ced84ceb2d4336d3c3c35f73bf57300fc82794f3694f8b7447c424c1b",
+    "sidecar_sha256": "d222539ced84ceb2d4336d3c3c35f73bf57300fc82794f3694f8b7447c424c1b",
+    "sidecar_matches": true
+   },
+   {
+    "amendment": "A33",
+    "file": "AMENDMENT_A33.md",
+    "present": true,
+    "status": "ADOPTED",
+    "sha256": "f101adce416ed256499fe779f5c0152de4c26d6bfbd9324a7a2546ecf9506747",
+    "sidecar_sha256": "f101adce416ed256499fe779f5c0152de4c26d6bfbd9324a7a2546ecf9506747",
+    "sidecar_matches": true
+   },
+   {
+    "amendment": "A33_1",
+    "file": "AMENDMENT_A33_1.md",
+    "present": true,
+    "status": "ADOPTED",
+    "sha256": "c87e7aea319e3b121996d9893397a03f483038afee73223a17e4b1f75cdb355b",
+    "sidecar_sha256": "c87e7aea319e3b121996d9893397a03f483038afee73223a17e4b1f75cdb355b",
+    "sidecar_matches": true
+   },
+   {
+    "amendment": "A34",
+    "file": "AMENDMENT_A34.md",
+    "present": true,
+    "status": "ADOPTED",
+    "sha256": "a2c58b4560eba9320fd78564a5d7f39031c09f4825cca822d75c0d2ec9484faa",
+    "sidecar_sha256": "a2c58b4560eba9320fd78564a5d7f39031c09f4825cca822d75c0d2ec9484faa",
+    "sidecar_matches": true
+   },
+   {
+    "amendment": "A35",
+    "file": "AMENDMENT_A35.md",
+    "present": true,
+    "status": "ADOPTED",
+    "sha256": "dc5289d6a46178427f3acf04d0327628628bde3d3bbe099cf3298fe33dcabc7f",
+    "sidecar_sha256": "dc5289d6a46178427f3acf04d0327628628bde3d3bbe099cf3298fe33dcabc7f",
+    "sidecar_matches": true
+   },
+   {
+    "amendment": "A36",
+    "file": "AMENDMENT_A36.md",
+    "present": true,
+    "status": "ADOPTED",
+    "sha256": "f110e14f3633d764d8048bb67b192c6fff9b68d2540c85d0297d53448ff227db",
+    "sidecar_sha256": "f110e14f3633d764d8048bb67b192c6fff9b68d2540c85d0297d53448ff227db",
+    "sidecar_matches": true
+   },
+   {
+    "amendment": "A37",
+    "file": "AMENDMENT_A37.md",
+    "present": true,
+    "status": "ADOPTED",
+    "sha256": "cd3cfdea7d75c3a0b9f5f819395cc6b4da37631b89572e0a9c7525a6e5af5b2e",
+    "sidecar_sha256": "cd3cfdea7d75c3a0b9f5f819395cc6b4da37631b89572e0a9c7525a6e5af5b2e",
+    "sidecar_matches": true
+   },
+   {
+    "amendment": "A38",
+    "file": "AMENDMENT_A38.md",
+    "present": true,
+    "status": "ADOPTED",
+    "sha256": "067c1de7bc508ff5f079387977c037e83bcb000bf1f3c5990853f96d725ae532",
+    "sidecar_sha256": "067c1de7bc508ff5f079387977c037e83bcb000bf1f3c5990853f96d725ae532",
+    "sidecar_matches": true
+   }
+  ],
+  "freeze_sha256": "846c1aaafaf1cb02911bc680c0b197f97e17b00386695fc0f6eb0b26b02e3a94",
+  "fomc_list_sha256": "391366459f83a89e2442f05479774b49f8efac1479a92daf9ceda0e0d36b6865"
+ },
+ "nboot": 9999,
+ "generated": "2026-11-13T00:49:46.536753+00:00",
+ "period": "evaluation",
+ "a26_label": "adaptive/exploratory (previously exposed period)",
+ "confirmatory": false
+}

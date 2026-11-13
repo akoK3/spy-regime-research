@@ -1,3 +1,83 @@
+# Report, 2026-11-12 20:30 New York: evaluation chain complete (5.13, Section 6, A38)
+
+## Bottom line
+
+- **The chain finished without error.** Fingerprint, `s6_eval.py run`, and `s5_a38.py run` all exited 0. Every stderr log is empty, and Section 6 raised no alert. Start 09:01, end 20:09 NY. Paused 09:25-11:33, 12:54-14:22 and 17:52-18:08 (all on your request).
+- **All evaluation results carry the A26 label "adaptive/exploratory (previously exposed period)", confirmatory = false.**
+- **H1 out of sample (5.13): the feature models beat the baseline in both eras** for Gaussian HMM, Student-t HMM and HSMM, on H1(a) and H1(b). All 95% intervals exclude 0. BOCPD is 0 by construction: its frozen model selected no features, so it is the baseline.
+- **H2 (primary detector gaussian_hmm): no asset rejects.** Holm of 4, smallest adjusted p = GOLD 0.213.
+- **H3/H4: nothing rejects.** Holm of 6, every adjusted p = 1.0. All four H3 gammas are negative.
+- **A38: "no detectable filter effect" for all four families.** Rule 2: Gaussian HMM and HSMM are labelled "robust to the LEGACY Clean filter".
+
+## 5.13: H1 on the evaluation periods (effect, 95% day-cluster interval; 2,000 resamples)
+
+LEGACY 2019-01-02..2022-03-04, 800 sessions. RAW 2025-01-02..2026-10-12, 445 sessions.
+
+| Family | H1(a) pAUC gain, LEGACY | H1(a), RAW | H1(b) QLIKE gain, LEGACY | H1(b), RAW | H1(c) FOMC hit-rate gain, LEGACY (n 24) | H1(c), RAW (n 14) |
+|---|---|---|---|---|---|---|
+| Gaussian HMM | 0.084 (0.053, 0.116) | 0.194 (0.152, 0.241) | 0.049 (0.036, 0.065) | 0.118 (0.083, 0.159) | 0.42 (0.21, 0.63) | 0.14 (0.00, 0.36) |
+| Student-t HMM | 0.087 (0.058, 0.117) | 0.204 (0.166, 0.242) | 0.031 (0.021, 0.043) | 0.041 (0.029, 0.056) | 0.42 (0.17, 0.63) | -0.29 (-0.57, 0.00) |
+| HSMM | 0.049 (0.027, 0.075) | 0.186 (0.152, 0.219) | 0.102 (0.085, 0.120) | 0.091 (0.068, 0.117) | 0.38 (0.13, 0.58) | 0.14 (-0.21, 0.50) |
+| BOCPD | 0 | 0 | 0 | 0 | 0 | 0 |
+
+No fitted model was flagged. By design, 5.13 reports no p-values (A36 5g).
+
+## Section 6, primary detector gaussian_hmm
+
+**Breaks:** 218 confirmed calm-to-stressed (LEGACY 171, RAW 47). None was removed by burn-in.
+
+**H2, primary (window 0-30 min, Holm of 4):**
+
+| Asset | Breaks | p | Holm p |
+|---|---|---|---|
+| TLT | 208 | 0.986 | 1.0 |
+| HYG | 191 | 0.550 | 1.0 |
+| GOLD | 206 | 0.053 | 0.213 |
+| DOLLAR | 193 | 0.930 | 1.0 |
+
+By era: smallest per-era p is LEGACY GOLD 0.059 and RAW DOLLAR 0.038 (Holm 0.150). Nothing rejects.
+
+**H3/H4, primary (Holm of 6):**
+
+| Test | n | Statistic | p | Holm p |
+|---|---|---|---|---|
+| H3 TLT | 208 | gamma -0.053 | 0.872 | 1.0 |
+| H3 HYG | 184 | gamma -0.095 | 0.974 | 1.0 |
+| H3 GOLD | 206 | gamma -0.106 | 0.987 | 1.0 |
+| H3 DOLLAR | 157 | gamma -0.212 | 1.000 | 1.0 |
+| H4a | 294 | AUC gain -0.012 | 0.857 | 1.0 |
+| H4b | 218 | AUC gain -0.028 | 0.853 | 1.0 |
+
+**Secondary (BH; not confirmatory):**
+- In the H2 family, two survive BH: HYG pre-30 (BH p 0.008) and DOLLAR pre-30 (BH p 0.016). These measure the 30 minutes before the break, not the response after it.
+- In the H3/H4 family, nothing survives BH. The smallest raw p is FOMC-day H4b at 0.021 (BH 0.79).
+- A34 per-asset placebo sensitivity for H3: every BH p = 1.0, so the primary result is unchanged.
+
+## A38 (RAW evaluation period; Clean vs Raw filter)
+
+- **Splices:** 1,360 total; 136 dropped (10.0%), none buildable on the Clean panel. There are 115 stable days.
+- **H1(a) Clean minus Raw, with 95% interval and MDE:**
+
+  | Family | Delta | 95% interval | MDE |
+  |---|---|---|---|
+  | Gaussian HMM | -0.014 | (-0.037, 0.010) | 0.034 |
+  | Student-t HMM | -0.001 | (-0.030, 0.035) | 0.047 |
+  | HSMM | -0.011 | (-0.042, 0.022) | 0.045 |
+  | BOCPD | 0 | 0 | 0 |
+
+- **H1(b):** every interval includes 0.
+- **Reading (A38 rule 4):** "No detectable filter effect" does not show that processing the LEGACY rows had no effect.
+
+## Files
+
+- `section5/results/evaluation_{LEGACY,RAW}.json` and `section6/results/coverage_evaluation.json`.
+- `section6/results/{s6,h2,a34}_evaluation_gaussian_hmm.json` and `section5/results/a38_filter_check.json`, each with a sha256 sidecar.
+- One-shot markers are written, so these runs cannot be repeated.
+
+**Next, per the queue:** direction-rule agreement diagnostic; break-label counts; Section 6 and Section 5 disclosed-limitations notes; `REPRODUCIBILITY_FACTS.md` pending items. The Bloomberg comparison waits for your go-ahead.
+
+---
+
 # Report, 2026-11-12 09:00 New York: the real 5.12 freeze (stopped at the freeze, as ordered)
 
 ## Bottom line

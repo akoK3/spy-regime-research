@@ -1,0 +1,20 @@
+2026-11-12T14:01:21.272557+00:00 PRECHECK era=LEGACY freeze=section5_freeze.json section6=False
+2026-11-12T14:01:23.977983+00:00 PRECHECK PASSED era=LEGACY
+2026-11-12T14:01:24.089644+00:00 REQUEST era=LEGACY what='5.13 panel: SPY canonical panel and ETF file, evaluation span' freeze=section5_freeze.json section6=False
+2026-11-12T14:01:25.134437+00:00 ALLOWED era=LEGACY
+2026-11-12T14:18:40.962440+00:00 PRECHECK era=RAW freeze=section5_freeze.json section6=False
+2026-11-12T14:18:41.921153+00:00 PRECHECK PASSED era=RAW
+2026-11-12T14:18:42.059615+00:00 REQUEST era=RAW what='5.13 panel: SPY canonical panel and ETF file, evaluation span' freeze=section5_freeze.json section6=False
+2026-11-12T14:18:43.035698+00:00 ALLOWED era=RAW
+2026-11-12T16:38:01.301493+00:00 REQUEST era=LEGACY what="columns=['SPY_return_eligible', 'SPY_log_return_1m', 'TLT_return_eligible', 'TLT_log_return_1m', 'HYG_return_eligible', 'HYG_log_return_1m', 'GOLD_return_eligible', 'GOLD_log_return_1m', 'DOLLAR_return_eligible', 'DOLLAR_log_return_1m', 'GOLD_causal_flat_age_ge15_flag', 'DOLLAR_causal_flat_age_ge15_flag']" freeze=section5_freeze.json section6=True
+2026-11-12T16:38:02.737368+00:00 ALLOWED era=LEGACY
+2026-11-12T16:38:06.258844+00:00 REQUEST era=RAW what="columns=['SPY_return_eligible', 'SPY_log_return_1m', 'TLT_return_eligible', 'TLT_log_return_1m', 'HYG_return_eligible', 'HYG_log_return_1m', 'GOLD_return_eligible', 'GOLD_log_return_1m', 'DOLLAR_return_eligible', 'DOLLAR_log_return_1m', 'GOLD_causal_flat_age_ge15_flag', 'DOLLAR_causal_flat_age_ge15_flag']" freeze=section5_freeze.json section6=True
+2026-11-12T16:38:07.357808+00:00 ALLOWED era=RAW
+2026-11-12T16:38:10.705132+00:00 REQUEST era=LEGACY what="columns=['SPY_return_eligible', 'SPY_log_return_1m', 'TLT_return_eligible', 'TLT_log_return_1m', 'HYG_return_eligible', 'HYG_log_return_1m', 'GOLD_return_eligible', 'GOLD_log_return_1m', 'DOLLAR_return_eligible', 'DOLLAR_log_return_1m']" freeze=section5_freeze.json section6=True
+2026-11-12T16:38:11.807310+00:00 ALLOWED era=LEGACY
+2026-11-12T16:38:15.839099+00:00 REQUEST era=RAW what="columns=['SPY_return_eligible', 'SPY_log_return_1m', 'TLT_return_eligible', 'TLT_log_return_1m', 'HYG_return_eligible', 'HYG_log_return_1m', 'GOLD_return_eligible', 'GOLD_log_return_1m', 'DOLLAR_return_eligible', 'DOLLAR_log_return_1m']" freeze=section5_freeze.json section6=True
+2026-11-12T16:38:16.942376+00:00 ALLOWED era=RAW
+2026-11-13T00:49:55.232499+00:00 REQUEST A38 kind=raw what='A38 1a: SPY from hfdatalibrary_raw_1min_1tickers_2026-11-11.zip; study grid of the RAW evaluation span' freeze=section5_freeze.json
+2026-11-13T00:49:58.917862+00:00 ALLOWED A38 kind=raw
+2026-11-13T01:01:25.042780+00:00 REQUEST A38 kind=clean what='A38 1a: SPY from hfdatalibrary_clean_1min_1tickers_2026-11-11.zip; study grid of the RAW evaluation span' freeze=section5_freeze.json
+2026-11-13T01:01:26.218229+00:00 ALLOWED A38 kind=clean

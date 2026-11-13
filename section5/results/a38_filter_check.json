@@ -1,0 +1,1262 @@
+{
+ "label": "AMENDMENT_A38 filter checks of H1 on the RAW evaluation period",
+ "period": "evaluation",
+ "a26_label": "adaptive/exploratory (previously exposed period)",
+ "confirmatory": false,
+ "primary_rule1": {
+  "by_family": {
+   "gaussian_hmm": {
+    "H1b": {
+     "raw": {
+      "effect": 0.11441348326459047,
+      "ci95": [
+       0.08264515262525421,
+       0.15453275628641153
+      ],
+      "sd": 0.01845026730883227,
+      "mde": 0.05166074846473036,
+      "n": 27667,
+      "n_clusters": 445
+     },
+     "clean": {
+      "effect": 0.1103233063659112,
+      "ci95": [
+       0.07875710903218766,
+       0.14928431899335629
+      ],
+      "sd": 0.018260354367223123,
+      "mde": 0.05112899222822474,
+      "n": 27667,
+      "n_clusters": 445
+     },
+     "delta": {
+      "effect": -0.004090176898679232,
+      "ci95": [
+       -0.008450898591388986,
+       0.0005220868860525374
+      ],
+      "sd": 0.0023429463000671186,
+      "mde": 0.006560249640187932,
+      "n": 27667,
+      "n_clusters": 445
+     },
+     "n_common_bars": 27667,
+     "n_bars_raw_only": 705,
+     "n_bars_clean_only": 0
+    },
+    "H1a": {
+     "raw": {
+      "effect": 0.1871270098149873,
+      "ci95": [
+       0.14407158103615478,
+       0.23579458349022184
+      ],
+      "sd": 0.02367418865151697,
+      "mde": 0.06628772822424751,
+      "n_null": 367,
+      "n_break": 857,
+      "n_days": 115,
+      "n_valid_resamples": 2000
+     },
+     "clean": {
+      "effect": 0.17341082732680702,
+      "ci95": [
+       0.13518278101785425,
+       0.21824898010733773
+      ],
+      "sd": 0.021488466226796153,
+      "mde": 0.06016770543502922,
+      "n_null": 367,
+      "n_break": 857,
+      "n_days": 115,
+      "n_valid_resamples": 2000
+     },
+     "delta": {
+      "effect": -0.013716182488180295,
+      "ci95": [
+       -0.03702176127484618,
+       0.009505138049295396
+      ],
+      "sd": 0.012145135026192145,
+      "mde": 0.034006378073338006,
+      "n_null": 367,
+      "n_break": 857,
+      "n_days": 115,
+      "n_valid_resamples": 2000
+     },
+     "raw_all_specs_reference": {
+      "effect": 0.19444270833333333,
+      "ci95": [
+       0.15193881360573452,
+       0.24064298203429862
+      ],
+      "sd": 0.02342816241822537,
+      "mde": 0.06559885477103103,
+      "n_null": 400,
+      "n_break": 960,
+      "n_days": 115,
+      "n_valid_resamples": 2000
+     }
+    },
+    "reading": "no detectable filter effect (both intervals include 0; see the MDE)"
+   },
+   "student_t_hmm": {
+    "H1b": {
+     "raw": {
+      "effect": 0.0403334113884969,
+      "ci95": [
+       0.02787673546856164,
+       0.054243135161097564
+      ],
+      "sd": 0.0067636079685623,
+      "mde": 0.01893810231197444,
+      "n": 27667,
+      "n_clusters": 445
+     },
+     "clean": {
+      "effect": 0.03696315645931728,
+      "ci95": [
+       0.02475900491959675,
+       0.05030023481366872
+      ],
+      "sd": 0.006508632358170173,
+      "mde": 0.018224170602876483,
+      "n": 27667,
+      "n_clusters": 445
+     },
+     "delta": {
+      "effect": -0.0033702549291796773,
+      "ci95": [
+       -0.008577782833548351,
+       0.0021689890483555076
+      ],
+      "sd": 0.002779354210659875,
+      "mde": 0.007782191789847649,
+      "n": 27667,
+      "n_clusters": 445
+     },
+     "n_common_bars": 27667,
+     "n_bars_raw_only": 705,
+     "n_bars_clean_only": 0
+    },
+    "H1a": {
+     "raw": {
+      "effect": 0.2027254315319583,
+      "ci95": [
+       0.16431108392340577,
+       0.24257327652336869
+      ],
+      "sd": 0.019979759347754714,
+      "mde": 0.05594332617371319,
+      "n_null": 367,
+      "n_break": 857,
+      "n_days": 115,
+      "n_valid_resamples": 2000
+     },
+     "clean": {
+      "effect": 0.2016698514239203,
+      "ci95": [
+       0.16400971747369264,
+       0.24087128899382448
+      ],
+      "sd": 0.019344492598434227,
+      "mde": 0.05416457927561583,
+      "n_null": 367,
+      "n_break": 857,
+      "n_days": 115,
+      "n_valid_resamples": 2000
+     },
+     "delta": {
+      "effect": -0.0010555801080379956,
+      "ci95": [
+       -0.03038283654187783,
+       0.03500026157366396
+      ],
+      "sd": 0.016626068981213705,
+      "mde": 0.04655299314739837,
+      "n_null": 367,
+      "n_break": 857,
+      "n_days": 115,
+      "n_valid_resamples": 2000
+     },
+     "raw_all_specs_reference": {
+      "effect": 0.20425,
+      "ci95": [
+       0.16578721722379736,
+       0.24201091857953355
+      ],
+      "sd": 0.019789637906069524,
+      "mde": 0.05541098613699466,
+      "n_null": 400,
+      "n_break": 960,
+      "n_days": 115,
+      "n_valid_resamples": 2000
+     }
+    },
+    "reading": "no detectable filter effect (both intervals include 0; see the MDE)"
+   },
+   "hsmm": {
+    "H1b": {
+     "raw": {
+      "effect": 0.08906609282039984,
+      "ci95": [
+       0.0680185217605278,
+       0.1137779520561497
+      ],
+      "sd": 0.011928672101269933,
+      "mde": 0.03340028188355581,
+      "n": 27667,
+      "n_clusters": 445
+     },
+     "clean": {
+      "effect": 0.08800230760665638,
+      "ci95": [
+       0.06698324969349978,
+       0.11236763115881086
+      ],
+      "sd": 0.011893246490288084,
+      "mde": 0.033301090172806636,
+      "n": 27667,
+      "n_clusters": 445
+     },
+     "delta": {
+      "effect": -0.0010637852137434902,
+      "ci95": [
+       -0.0051788092325958344,
+       0.003029863338370051
+      ],
+      "sd": 0.0020714275684917695,
+      "mde": 0.005799997191776954,
+      "n": 27667,
+      "n_clusters": 445
+     },
+     "n_common_bars": 27667,
+     "n_bars_raw_only": 705,
+     "n_bars_clean_only": 0
+    },
+    "H1a": {
+     "raw": {
+      "effect": 0.19448745544784263,
+      "ci95": [
+       0.1569805066984701,
+       0.22920858552439707
+      ],
+      "sd": 0.018963701358998455,
+      "mde": 0.05309836380519567,
+      "n_null": 367,
+      "n_break": 857,
+      "n_days": 115,
+      "n_valid_resamples": 2000
+     },
+     "clean": {
+      "effect": 0.1832417119474499,
+      "ci95": [
+       0.14510078820041108,
+       0.21686088587018656
+      ],
+      "sd": 0.018581476329741116,
+      "mde": 0.052028133723275125,
+      "n_null": 367,
+      "n_break": 857,
+      "n_days": 115,
+      "n_valid_resamples": 2000
+     },
+     "delta": {
+      "effect": -0.01124574350039273,
+      "ci95": [
+       -0.04213431651790322,
+       0.022222656613068142
+      ],
+      "sd": 0.01623765306618045,
+      "mde": 0.04546542858530526,
+      "n_null": 367,
+      "n_break": 857,
+      "n_days": 115,
+      "n_valid_resamples": 2000
+     },
+     "raw_all_specs_reference": {
+      "effect": 0.1858385416666667,
+      "ci95": [
+       0.15190910010583727,
+       0.2188116121011268
+      ],
+      "sd": 0.01749727139002547,
+      "mde": 0.04899235989207131,
+      "n_null": 400,
+      "n_break": 960,
+      "n_days": 115,
+      "n_valid_resamples": 2000
+     }
+    },
+    "reading": "no detectable filter effect (both intervals include 0; see the MDE)"
+   },
+   "bocpd": {
+    "H1b": {
+     "raw": {
+      "effect": 0.0,
+      "ci95": [
+       0.0,
+       0.0
+      ],
+      "sd": 0.0,
+      "mde": 0.0,
+      "n": 28519,
+      "n_clusters": 445
+     },
+     "clean": {
+      "effect": 0.0,
+      "ci95": [
+       0.0,
+       0.0
+      ],
+      "sd": 0.0,
+      "mde": 0.0,
+      "n": 28519,
+      "n_clusters": 445
+     },
+     "delta": {
+      "effect": 0.0,
+      "ci95": [
+       0.0,
+       0.0
+      ],
+      "sd": 0.0,
+      "mde": 0.0,
+      "n": 28519,
+      "n_clusters": 445
+     },
+     "n_common_bars": 28519,
+     "n_bars_raw_only": 743,
+     "n_bars_clean_only": 0
+    },
+    "H1a": {
+     "raw": {
+      "effect": 0.0,
+      "ci95": [
+       0.0,
+       0.0
+      ],
+      "sd": 0.0,
+      "mde": 0.0,
+      "n_null": 367,
+      "n_break": 857,
+      "n_days": 115,
+      "n_valid_resamples": 2000
+     },
+     "clean": {
+      "effect": 0.0,
+      "ci95": [
+       0.0,
+       0.0
+      ],
+      "sd": 0.0,
+      "mde": 0.0,
+      "n_null": 367,
+      "n_break": 857,
+      "n_days": 115,
+      "n_valid_resamples": 2000
+     },
+     "delta": {
+      "effect": 0.0,
+      "ci95": [
+       0.0,
+       0.0
+      ],
+      "sd": 0.0,
+      "mde": 0.0,
+      "n_null": 367,
+      "n_break": 857,
+      "n_days": 115,
+      "n_valid_resamples": 2000
+     },
+     "raw_all_specs_reference": {
+      "effect": 0.0,
+      "ci95": [
+       0.0,
+       0.0
+      ],
+      "sd": 0.0,
+      "mde": 0.0,
+      "n_null": 400,
+      "n_break": 960,
+      "n_days": 115,
+      "n_valid_resamples": 2000
+     }
+    },
+    "reading": "no detectable filter effect (both intervals include 0; see the MDE)"
+   }
+  },
+  "panel_counts": {
+   "raw": {
+    "rows": 448465,
+    "on_grid": 446647,
+    "off_grid": 1818,
+    "invalid_ohlcv": 0,
+    "duplicates": 0,
+    "observed_minutes": 446647,
+    "grid_minutes": 447060,
+    "eligible_returns": 445410
+   },
+   "clean": {
+    "rows": 436912,
+    "on_grid": 435166,
+    "off_grid": 1746,
+    "invalid_ohlcv": 0,
+    "duplicates": 0,
+    "observed_minutes": 435166,
+    "grid_minutes": 447060,
+    "eligible_returns": 428633
+   }
+  },
+  "n_stable_days": 115,
+  "splice_drop_note_N3": {
+   "n_specs": 1360,
+   "n_dropped": 136,
+   "share_dropped": 0.1,
+   "null": {
+    "n": 400,
+    "dropped": 33,
+    "share": 0.0825
+   },
+   "brk": {
+    "n": 960,
+    "dropped": 103,
+    "share": 0.10729166666666666
+   },
+   "dropped": [
+    {
+     "index": 4,
+     "cell": "null",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 32,
+     "cell": "null",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 65,
+     "cell": "null",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 99,
+     "cell": "null",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 107,
+     "cell": "null",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 122,
+     "cell": "null",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 131,
+     "cell": "null",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 135,
+     "cell": "null",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 139,
+     "cell": "null",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 158,
+     "cell": "null",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 163,
+     "cell": "null",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 171,
+     "cell": "null",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 173,
+     "cell": "null",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 178,
+     "cell": "null",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 184,
+     "cell": "null",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 201,
+     "cell": "null",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 204,
+     "cell": "null",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 208,
+     "cell": "null",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 218,
+     "cell": "null",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 224,
+     "cell": "null",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 226,
+     "cell": "null",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 228,
+     "cell": "null",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 251,
+     "cell": "null",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 265,
+     "cell": "null",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 276,
+     "cell": "null",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 287,
+     "cell": "null",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 297,
+     "cell": "null",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 308,
+     "cell": "null",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 330,
+     "cell": "null",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 332,
+     "cell": "null",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 348,
+     "cell": "null",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 366,
+     "cell": "null",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 397,
+     "cell": "null",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 405,
+     "cell": "(1.5, 'up', None)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 406,
+     "cell": "(1.5, 'up', None)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 409,
+     "cell": "(1.5, 'up', None)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 445,
+     "cell": "(1.5, 'up', 30)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 464,
+     "cell": "(1.5, 'up', 60)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 470,
+     "cell": "(1.5, 'up', 60)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 474,
+     "cell": "(1.5, 'up', 120)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 482,
+     "cell": "(1.5, 'up', 120)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 487,
+     "cell": "(1.5, 'up', 120)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 489,
+     "cell": "(1.5, 'up', 120)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 490,
+     "cell": "(1.5, 'up', 120)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 532,
+     "cell": "(1.5, 'down', 30)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 535,
+     "cell": "(1.5, 'down', 30)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 551,
+     "cell": "(1.5, 'down', 60)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 569,
+     "cell": "(1.5, 'down', 120)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 573,
+     "cell": "(1.5, 'down', 120)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 591,
+     "cell": "(1.5, 'down', 120)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 593,
+     "cell": "(2, 'up', None)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 607,
+     "cell": "(2, 'up', None)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 617,
+     "cell": "(2, 'up', 30)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 618,
+     "cell": "(2, 'up', 30)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 623,
+     "cell": "(2, 'up', 30)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 625,
+     "cell": "(2, 'up', 30)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 626,
+     "cell": "(2, 'up', 30)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 633,
+     "cell": "(2, 'up', 30)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 634,
+     "cell": "(2, 'up', 30)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 643,
+     "cell": "(2, 'up', 60)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 647,
+     "cell": "(2, 'up', 60)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 666,
+     "cell": "(2, 'up', 120)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 670,
+     "cell": "(2, 'up', 120)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 671,
+     "cell": "(2, 'up', 120)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 674,
+     "cell": "(2, 'up', 120)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 677,
+     "cell": "(2, 'up', 120)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 727,
+     "cell": "(2, 'down', 30)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 728,
+     "cell": "(2, 'down', 30)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 754,
+     "cell": "(2, 'down', 60)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 757,
+     "cell": "(2, 'down', 60)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 791,
+     "cell": "(3, 'up', None)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 809,
+     "cell": "(3, 'up', 30)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 818,
+     "cell": "(3, 'up', 30)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 821,
+     "cell": "(3, 'up', 30)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 833,
+     "cell": "(3, 'up', 60)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 836,
+     "cell": "(3, 'up', 60)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 852,
+     "cell": "(3, 'up', 60)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 854,
+     "cell": "(3, 'up', 60)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 858,
+     "cell": "(3, 'up', 120)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 894,
+     "cell": "(3, 'down', None)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 896,
+     "cell": "(3, 'down', None)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 900,
+     "cell": "(3, 'down', None)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 902,
+     "cell": "(3, 'down', None)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 906,
+     "cell": "(3, 'down', 30)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 909,
+     "cell": "(3, 'down', 30)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 921,
+     "cell": "(3, 'down', 30)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 923,
+     "cell": "(3, 'down', 30)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 925,
+     "cell": "(3, 'down', 30)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 929,
+     "cell": "(3, 'down', 60)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 930,
+     "cell": "(3, 'down', 60)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 934,
+     "cell": "(3, 'down', 60)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 953,
+     "cell": "(3, 'down', 120)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 958,
+     "cell": "(3, 'down', 120)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 959,
+     "cell": "(3, 'down', 120)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 972,
+     "cell": "(3, 'down', 120)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 1011,
+     "cell": "(5, 'up', 30)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 1019,
+     "cell": "(5, 'up', 30)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 1032,
+     "cell": "(5, 'up', 60)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 1035,
+     "cell": "(5, 'up', 60)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 1043,
+     "cell": "(5, 'up', 60)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 1053,
+     "cell": "(5, 'up', 120)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 1093,
+     "cell": "(5, 'down', None)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 1102,
+     "cell": "(5, 'down', 30)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 1104,
+     "cell": "(5, 'down', 30)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 1111,
+     "cell": "(5, 'down', 30)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 1113,
+     "cell": "(5, 'down', 30)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 1125,
+     "cell": "(5, 'down', 60)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 1127,
+     "cell": "(5, 'down', 60)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 1133,
+     "cell": "(5, 'down', 60)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 1137,
+     "cell": "(5, 'down', 60)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 1139,
+     "cell": "(5, 'down', 60)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 1140,
+     "cell": "(5, 'down', 60)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 1141,
+     "cell": "(5, 'down', 60)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 1142,
+     "cell": "(5, 'down', 60)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 1147,
+     "cell": "(5, 'down', 120)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 1150,
+     "cell": "(5, 'down', 120)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 1154,
+     "cell": "(5, 'down', 120)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 1180,
+     "cell": "(10, 'up', None)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 1201,
+     "cell": "(10, 'up', 30)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 1208,
+     "cell": "(10, 'up', 30)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 1222,
+     "cell": "(10, 'up', 60)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 1228,
+     "cell": "(10, 'up', 60)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 1232,
+     "cell": "(10, 'up', 60)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 1234,
+     "cell": "(10, 'up', 60)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 1242,
+     "cell": "(10, 'up', 120)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 1245,
+     "cell": "(10, 'up', 120)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 1260,
+     "cell": "(10, 'up', 120)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 1292,
+     "cell": "(10, 'down', 30)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 1293,
+     "cell": "(10, 'down', 30)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 1296,
+     "cell": "(10, 'down', 30)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 1310,
+     "cell": "(10, 'down', 30)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 1311,
+     "cell": "(10, 'down', 30)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 1321,
+     "cell": "(10, 'down', 60)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 1326,
+     "cell": "(10, 'down', 60)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 1344,
+     "cell": "(10, 'down', 120)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    },
+    {
+     "index": 1356,
+     "cell": "(10, 'down', 120)",
+     "why": "not buildable on the Clean panel (s5_d2.finite_ok)"
+    }
+   ]
+  },
+  "note": "HF's documented Clean filter on IEX data: the closest available proxy for the processing of the LEGACY rows, not the same thing (A38 background, 4b)"
+ },
+ "secondary_rule2": {
+  "gaussian_hmm": {
+   "H1a": {
+    "effect": 0.19444270833333333,
+    "ci95": [
+     0.15193881360573452,
+     0.24064298203429862
+    ],
+    "mde_approx": 0.0633601203061172,
+    "skipped": null
+   },
+   "H1b": {
+    "effect": 0.11762977557273452,
+    "ci95": [
+     0.08285978776638313,
+     0.15948295505553634
+    ],
+    "mde_approx": 0.05473083377796657,
+    "skipped": null
+   },
+   "development_verdict_reject": true,
+   "label": "robust to the LEGACY Clean filter"
+  },
+  "student_t_hmm": {
+   "H1a": {
+    "effect": 0.20425,
+    "ci95": [
+     0.16578721722379736,
+     0.24201091857953355
+    ],
+    "mde_approx": 0.05444550096838299,
+    "skipped": null
+   },
+   "H1b": {
+    "effect": 0.041417046239629496,
+    "ci95": [
+     0.02892777481450022,
+     0.0558850360334364
+    ],
+    "mde_approx": 0.019255186584954412,
+    "skipped": null
+   },
+   "development_verdict_reject": false,
+   "label": null
+  },
+  "hsmm": {
+   "H1a": {
+    "effect": 0.1858385416666667,
+    "ci95": [
+     0.15190910010583727,
+     0.2188116121011268
+    ],
+    "mde_approx": 0.047787508568063936,
+    "skipped": null
+   },
+   "H1b": {
+    "effect": 0.09053441744261054,
+    "ci95": [
+     0.06804747219447209,
+     0.1170733173884198
+    ],
+    "mde_approx": 0.035018460852819795,
+    "skipped": null
+   },
+   "development_verdict_reject": true,
+   "label": "robust to the LEGACY Clean filter"
+  },
+  "bocpd": {
+   "H1a": {
+    "effect": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ],
+    "mde_approx": 0.0,
+    "skipped": null
+   },
+   "H1b": {
+    "effect": 0.0,
+    "ci95": [
+     0.0,
+     0.0
+    ],
+    "mde_approx": 0.0,
+    "skipped": null
+   },
+   "development_verdict_reject": false,
+   "label": null
+  }
+ },
+ "reproducibility_rule1g": {
+  "gaussian_hmm": {
+   "official": {
+    "H1a": 0.19444270833333333,
+    "H1b": 0.11762977557273452
+   },
+   "raw_file_2026_11_11": {
+    "H1a": 0.19444270833333333,
+    "H1b": 0.11762977557273167
+   },
+   "difference": {
+    "H1a": 0.0,
+    "H1b": -2.8449465006019636e-15
+   }
+  },
+  "student_t_hmm": {
+   "official": {
+    "H1a": 0.20425,
+    "H1b": 0.041417046239629496
+   },
+   "raw_file_2026_11_11": {
+    "H1a": 0.20425,
+    "H1b": 0.041417046239631314
+   },
+   "difference": {
+    "H1a": 0.0,
+    "H1b": 1.817990202823694e-15
+   }
+  },
+  "hsmm": {
+   "official": {
+    "H1a": 0.1858385416666667,
+    "H1b": 0.09053441744261054
+   },
+   "raw_file_2026_11_11": {
+    "H1a": 0.1858385416666667,
+    "H1b": 0.09053441744260626
+   },
+   "difference": {
+    "H1a": 0.0,
+    "H1b": -4.274358644806853e-15
+   }
+  },
+  "bocpd": {
+   "official": {
+    "H1a": 0.0,
+    "H1b": 0.0
+   },
+   "raw_file_2026_11_11": {
+    "H1a": 0.0,
+    "H1b": 0.0
+   },
+   "difference": {
+    "H1a": 0.0,
+    "H1b": 0.0
+   }
+  }
+ },
+ "reading": "A38 rule 4: 'possibly filter-dependent' is not a finding of dependence and may reflect limited power in the RAW evaluation period (see each MDE); 'robust' and 'no detectable filter effect' do not show that the processing of the LEGACY rows had no effect.",
+ "freeze_sha256": "846c1aaafaf1cb02911bc680c0b197f97e17b00386695fc0f6eb0b26b02e3a94",
+ "generated": "2026-11-13T01:09:10.914441+00:00"
+}
