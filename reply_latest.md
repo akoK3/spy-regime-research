@@ -1,3 +1,70 @@
+# Report, 2026-11-12 21:00 New York: audit corrections, post-evaluation queue, Bloomberg comparison
+
+## Bottom line
+
+- **Audit flags F1 and F2 are corrected.** The ledger has an appended correction row; old rows are unchanged. The fixes and additions to the evaluation report below are in commit 978c9ce:
+  - corrected the two numbers;
+  - added the alarm rates beside H1(c);
+  - added a list of tests that were not evaluable or nearly empty.
+- **`REPRODUCIBILITY_FACTS.md`:**
+  - the pending items are filled;
+  - it explains why there are 3 allowed reads per era;
+  - it explains how the 5.13 files link to the freeze;
+  - it notes that two result files contain NaN (not strict JSON);
+  - it records the extra read made for the Bloomberg check.
+- **Direction rule (development data).** On the A28 1b calm-to-stressed breaks of Gaussian HMM and HSMM, protocol 5.5 agrees on **85.9%** of the 1,135 breaks where it is defined; 14 more are undefined. This is now disclosed as S6-D4, together with the label counts. Commit 3351f94.
+- **Section 5 disclosures:**
+  - D5: the A19 rule 4 VIX sensitivity was pre-registered but never run;
+  - D6: the July–September 2026 daily HMM pilot gave prior exposure to both evaluation periods.
+
+  Commit 3351f94.
+- **Bloomberg comparison (run).** The panel and Bloomberg both **label a bar by its start minute**. Returns agree closely for SPY and less closely for HYG.
+
+## Bloomberg vs the RAW panel, 2026-03-18..2026-09-30 (136 sessions in both)
+
+**Setup:**
+- Bloomberg data: Book1 (SPY) and Book2 (HYG), 1-minute trade bars.
+- Panel data: `canonical_panel_RAW_1m.csv.gz`, read through the guard. The access log records one ALLOWED RAW read at 01:45:42Z.
+- The panel holds returns only, no prices, so the comparison uses 1-minute close-to-close log returns.
+
+**Timestamp convention.** Panel minute m was matched to Bloomberg bar m + k:
+
+| k (minutes) | -2 | -1 | **0** | +1 | +2 |
+|---|---|---|---|---|---|
+| SPY correlation | -0.002 | 0.049 | **0.950** | 0.020 | -0.001 |
+| HYG correlation | -0.009 | 0.120 | **0.795** | 0.008 | -0.004 |
+
+The match is clearly at k = 0. Bloomberg's regular-hours bars run from 09:30 to 15:59 in all 136 sessions, so Bloomberg labels each bar by its start minute. The panel's `utc_minute_start_assumed` therefore uses the same convention. **This supports the Section 3 minute-start assumption for RAW** over this window.
+
+**Return agreement at k = 0:**
+
+| | SPY | HYG |
+|---|---|---|
+| Matched minutes | 52,904 | 43,958 |
+| Correlation | 0.950 | 0.795 |
+| Median absolute difference | 0.45 bp | 0.62 bp |
+| 99th percentile of the difference | 3.4 bp | 2.5 bp |
+| Share of minutes within 1 bp | 79.8% | 84.7% |
+| Minutes with a difference of 10 bp or more | 11 | 0 |
+| Per-session sum of matched returns: median / maximum difference | 1.1 / 5.4 bp | 2.5 / 13.8 bp |
+
+**Reading:**
+- The two sources are the same series on the same clock, but they are not identical.
+- The minute-level differences fit a single-venue trade feed compared with Bloomberg's consolidated trade bars. This is an interpretation: the files do not show venue.
+- HYG's median difference of 0.62 bp is about half a cent on a $78 share (one cent is about 1.3 bp).
+- RAW has 43,977 eligible HYG minutes against 52,988 Bloomberg bars.
+
+**Not done:**
+- No price levels were compared, because the panel has no prices.
+- No result was recomputed.
+- This is a data check only.
+
+Output: `section5/results/bloomberg_comparison.json` (with sidecar). Script: `diagnostics/bloomberg_compare.py`, whose hash was recorded in the ledger before the run. A dry run on a synthetic panel recovered a planted −1 minute shift.
+
+**Still open:** the LEGACY source zip `hfdatalibrary_clean_1min_5tickers_2026-10-03.zip` has no backup.
+
+---
+
 # Report, 2026-11-12 20:30 New York: evaluation chain complete (5.13, Section 6, A38)
 
 ## Bottom line

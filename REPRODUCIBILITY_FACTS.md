@@ -117,6 +117,8 @@ Earlier rehearsal (development data, temporary folder): full dress rehearsal fre
   - one Section 6 data read (`eval_era`, line 88; A36 4b).
 
   A38 has one Raw read and one Clean read. No read was repeated.
+
+  **Later read, after all evaluation results.** One further ALLOWED RAW read is logged at 2026-11-13 01:45:42Z (Section 6 guard; SPY and HYG return columns). It is the post-evaluation Bloomberg data check (`diagnostics/bloomberg_compare.py`, hashed in the ledger before the run; output `section5/results/bloomberg_comparison.json`). It changes no result. The log now has 11 ALLOWED lines and still no REFUSED line.
 - **How the 5.13 files are linked to the freeze.** `evaluation_LEGACY.json` and `evaluation_RAW.json` do not record the freeze hash or the code version themselves. They are linked to the freeze in two ways:
   - the one-shot markers `evaluation_{LEGACY,RAW}_RAN.marker` contain the freeze SHA-256;
   - each family's `model_sha256` in the 5.13 files equals a frozen-model hash recorded in the freeze (all 8 present in `frozen_models/`).

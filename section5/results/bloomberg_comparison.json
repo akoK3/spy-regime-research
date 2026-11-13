@@ -1,0 +1,426 @@
+{
+ "label": "DESCRIPTIVE post-evaluation data check (not part of any hypothesis test; evaluation-period data read through the guard after all evaluation results were written)",
+ "window": [
+  "2026-03-18",
+  "2026-09-30"
+ ],
+ "freeze_sha256": "846c1aaafaf1cb02911bc680c0b197f97e17b00386695fc0f6eb0b26b02e3a94",
+ "panel": "section3_10_alignment_results\\canonical_panel_RAW_1m.csv.gz",
+ "panel_sha256": "f1b1c498dc76c7ef11e53a31fec655abacaf6458d8f3b9dd1827f9dd8ec91184",
+ "panel_minute_label": "utc_minute_start_assumed (Section 3 minute-start assumption), converted to New York time",
+ "assets": {
+  "SPY": {
+   "book": {
+    "file": "Book1.xlsx",
+    "sha256": "9ed251afe70d5f5ac01911cfa8973101445f0403503451c3044f99ef82f061bc",
+    "ticker": "SPY US Equity",
+    "bar_type": "Trade",
+    "header": [
+     "Dates",
+     "Open",
+     "Close",
+     "High",
+     "Low",
+     "Value",
+     "Volume"
+    ],
+    "rows": 53323,
+    "first": "2026-03-18 09:30:00",
+    "last": "2026-09-30 16:14:00",
+    "sessions": 136,
+    "rth_bars": 53040,
+    "bars_outside_0930_1559": 283,
+    "outside_times": [
+     [
+      "16:00",
+      11
+     ],
+     [
+      "16:09",
+      136
+     ],
+     [
+      "16:14",
+      136
+     ]
+    ],
+    "first_bar_time_counts": {
+     "09:30": 136
+    },
+    "last_bar_time_counts": {
+     "15:59": 136
+    },
+    "bars_with_open_ne_previous_close_share": 0.7559163768335098
+   },
+   "panel": {
+    "sessions": 136,
+    "return_eligible_minutes": 52904,
+    "sessions_with_eligible_returns": 136
+   },
+   "sessions_only_in_panel": [],
+   "sessions_only_in_bloomberg": [],
+   "lag_scan": {
+    "definition": "panel return at New York minute m vs Bloomberg close-to-close return of the bar labelled m + k",
+    "by_k": {
+     "-3": {
+      "n": 52496,
+      "corr": -0.008741298345616476,
+      "share_absdiff_lt_1e_6": 0.011658031088082901,
+      "median_absdiff_bp": 2.0781599731684666
+     },
+     "-2": {
+      "n": 52632,
+      "corr": -0.0015737189399529774,
+      "share_absdiff_lt_1e_6": 0.010392916856665147,
+      "median_absdiff_bp": 2.073500521295088
+     },
+     "-1": {
+      "n": 52768,
+      "corr": 0.0491811325792762,
+      "share_absdiff_lt_1e_6": 0.01053668890236507,
+      "median_absdiff_bp": 2.004996128102821
+     },
+     "0": {
+      "n": 52904,
+      "corr": 0.9504386003361682,
+      "share_absdiff_lt_1e_6": 0.05173521850899743,
+      "median_absdiff_bp": 0.4528935268696869
+     },
+     "1": {
+      "n": 52768,
+      "corr": 0.01958477716287746,
+      "share_absdiff_lt_1e_6": 0.01093465736810188,
+      "median_absdiff_bp": 2.0559158350066022
+     },
+     "2": {
+      "n": 52632,
+      "corr": -0.0007536133860011097,
+      "share_absdiff_lt_1e_6": 0.011057911536707706,
+      "median_absdiff_bp": 2.0601900916545306
+     },
+     "3": {
+      "n": 52496,
+      "corr": -0.009728641523090857,
+      "share_absdiff_lt_1e_6": 0.009810271258762573,
+      "median_absdiff_bp": 2.080047254092697
+     }
+    },
+    "best_k": 0
+   },
+   "agreement_at_best_k": {
+    "n": 52904,
+    "corr": 0.9504386003361682,
+    "absdiff_bp_quantiles": {
+     "0.5": 0.452893526869687,
+     "0.9": 1.4763423837833713,
+     "0.99": 3.40728309905672,
+     "0.999": 6.348018873102669
+    },
+    "share_absdiff_lt_0_1bp": 0.12422501134129744,
+    "share_absdiff_lt_1bp": 0.7977468622410404,
+    "share_absdiff_ge_5bp": 0.002665204899440496,
+    "n_absdiff_ge_10bp": 11,
+    "largest": [
+     {
+      "minute": "2026-06-11 13:30:00",
+      "panel": 0.0022297009370547,
+      "bloomberg": 0.00017725782196539102
+     },
+     {
+      "minute": "2026-06-17 15:50:00",
+      "panel": -0.0007427464402662,
+      "bloomberg": 0.0007026362660204173
+     },
+     {
+      "minute": "2026-06-17 15:55:00",
+      "panel": 0.001957647938165,
+      "bloomberg": 0.0005397528063246119
+     },
+     {
+      "minute": "2026-07-29 15:55:00",
+      "panel": -0.0010609790065813,
+      "bloomberg": 0.00017807365447351347
+     },
+     {
+      "minute": "2026-04-06 09:59:00",
+      "panel": 0.0009875943765331,
+      "bloomberg": -0.0002204175020419594
+     },
+     {
+      "minute": "2026-07-29 15:54:00",
+      "panel": 0.0002600068437502,
+      "bloomberg": -0.0009447978630137389
+     },
+     {
+      "minute": "2026-06-11 13:31:00",
+      "panel": -0.0020317588515322,
+      "bloomberg": -0.0008593116488101098
+     },
+     {
+      "minute": "2026-06-17 15:49:00",
+      "panel": -0.0010793746072695,
+      "bloomberg": -0.0022278189424438633
+     },
+     {
+      "minute": "2026-06-10 15:49:00",
+      "panel": 0.0007845458639113,
+      "bloomberg": -0.0003305102281687596
+     },
+     {
+      "minute": "2026-06-17 15:54:00",
+      "panel": 1.351433533138836e-05,
+      "bloomberg": 0.0010938925429898778
+     }
+    ]
+   },
+   "session_sums": {
+    "n_sessions": 136,
+    "absdiff_bp_quantiles": {
+     "0.5": 1.1029738343212954,
+     "0.9": 3.3121382126135286,
+     "0.99": 4.60969082971444
+    },
+    "max_absdiff_bp": 5.396106906521018,
+    "worst": [
+     {
+      "day": "2026-07-27",
+      "panel_bp": -80.74506863918177,
+      "bloomberg_bp": -75.34896173266075,
+      "n": 389
+     },
+     {
+      "day": "2026-06-04",
+      "panel_bp": 67.33496625190304,
+      "bloomberg_bp": 71.9737481258036,
+      "n": 389
+     },
+     {
+      "day": "2026-07-31",
+      "panel_bp": 24.400719995376885,
+      "bloomberg_bp": 28.956384600174232,
+      "n": 389
+     },
+     {
+      "day": "2026-08-28",
+      "panel_bp": -36.2020702257256,
+      "bloomberg_bp": -31.794466001316074,
+      "n": 389
+     },
+     {
+      "day": "2026-03-20",
+      "panel_bp": -112.3994996567682,
+      "bloomberg_bp": -116.50498152405207,
+      "n": 389
+     }
+    ]
+   }
+  },
+  "HYG": {
+   "book": {
+    "file": "Book2.xlsx",
+    "sha256": "12f6f1b5d5748ba15af81949cb789c006dd849cd14a8147f4756393f14f40992",
+    "ticker": "HYG US Equity",
+    "bar_type": "Trade",
+    "header": [
+     "Dates",
+     "Open",
+     "Close",
+     "High",
+     "Low",
+     "Value",
+     "Volume"
+    ],
+    "rows": 53264,
+    "first": "2026-03-18 09:30:00",
+    "last": "2026-09-30 16:14:00",
+    "sessions": 136,
+    "rth_bars": 52988,
+    "bars_outside_0930_1559": 276,
+    "outside_times": [
+     [
+      "16:00",
+      4
+     ],
+     [
+      "16:09",
+      136
+     ],
+     [
+      "16:14",
+      136
+     ]
+    ],
+    "first_bar_time_counts": {
+     "09:30": 136
+    },
+    "last_bar_time_counts": {
+     "15:59": 136
+    },
+    "bars_with_open_ne_previous_close_share": 0.40185216749048347
+   },
+   "panel": {
+    "sessions": 136,
+    "return_eligible_minutes": 43977,
+    "sessions_with_eligible_returns": 136
+   },
+   "sessions_only_in_panel": [],
+   "sessions_only_in_bloomberg": [],
+   "lag_scan": {
+    "definition": "panel return at New York minute m vs Bloomberg close-to-close return of the bar labelled m + k",
+    "by_k": {
+     "-3": {
+      "n": 43531,
+      "corr": -0.01273944684831274,
+      "share_absdiff_lt_1e_6": 0.22645930486320093,
+      "median_absdiff_bp": 0.6308551243309112
+     },
+     "-2": {
+      "n": 43668,
+      "corr": -0.008658757146045352,
+      "share_absdiff_lt_1e_6": 0.22579463222497023,
+      "median_absdiff_bp": 0.6310541762101923
+     },
+     "-1": {
+      "n": 43812,
+      "corr": 0.11978853553288034,
+      "share_absdiff_lt_1e_6": 0.24646215648680728,
+      "median_absdiff_bp": 0.6293464239476918
+     },
+     "0": {
+      "n": 43958,
+      "corr": 0.7946945170597486,
+      "share_absdiff_lt_1e_6": 0.4025660858091815,
+      "median_absdiff_bp": 0.6240054914494186
+     },
+     "1": {
+      "n": 43806,
+      "corr": 0.008452984711454541,
+      "share_absdiff_lt_1e_6": 0.23076747477514495,
+      "median_absdiff_bp": 0.6307327754588657
+     },
+     "2": {
+      "n": 43651,
+      "corr": -0.0043339830406476255,
+      "share_absdiff_lt_1e_6": 0.22432475773750887,
+      "median_absdiff_bp": 0.6310541762101923
+     },
+     "3": {
+      "n": 43512,
+      "corr": -0.012974488883745468,
+      "share_absdiff_lt_1e_6": 0.22409909909909909,
+      "median_absdiff_bp": 0.6309347300113217
+     }
+    },
+    "best_k": 0
+   },
+   "agreement_at_best_k": {
+    "n": 43958,
+    "corr": 0.7946945170597486,
+    "absdiff_bp_quantiles": {
+     "0.5": 0.6240054914494186,
+     "0.9": 1.2544297053053952,
+     "0.99": 2.4851998674973563,
+     "0.999": 3.8100612308679978
+    },
+    "share_absdiff_lt_0_1bp": 0.4118704217662314,
+    "share_absdiff_lt_1bp": 0.846740070066882,
+    "share_absdiff_ge_5bp": 0.0002502388643705355,
+    "n_absdiff_ge_10bp": 0,
+    "largest": [
+     {
+      "minute": "2026-06-11 13:29:00",
+      "panel": 0.0003135484301234,
+      "bloomberg": 0.001066131611441124
+     },
+     {
+      "minute": "2026-04-23 13:56:00",
+      "panel": 0.0005601718006624,
+      "bloomberg": -0.00012444776321218984
+     },
+     {
+      "minute": "2026-09-16 15:59:00",
+      "panel": -0.0002549069603402,
+      "bloomberg": 0.0003823848112362328
+     },
+     {
+      "minute": "2026-03-19 15:59:00",
+      "panel": 0.0003138830497535,
+      "bloomberg": -0.0003138633464767195
+     },
+     {
+      "minute": "2026-03-20 14:28:00",
+      "panel": 0.0002528764711919,
+      "bloomberg": -0.0003173501416464352
+     },
+     {
+      "minute": "2026-06-11 13:30:00",
+      "panel": 0.0006268020764322,
+      "bloomberg": 6.26782412691882e-05
+     },
+     {
+      "minute": "2026-04-13 15:59:00",
+      "panel": -0.0004984423779208,
+      "bloomberg": 6.229947358973334e-05
+     },
+     {
+      "minute": "2026-03-24 13:07:00",
+      "panel": -0.0003789553509634,
+      "bloomberg": 0.00012633440734370697
+     },
+     {
+      "minute": "2026-03-23 14:33:00",
+      "panel": 0.0,
+      "bloomberg": 0.0005033662725049093
+     },
+     {
+      "minute": "2026-03-23 11:29:00",
+      "panel": -0.0006283380665414,
+      "bloomberg": -0.00012568340367184803
+     }
+    ]
+   },
+   "session_sums": {
+    "n_sessions": 136,
+    "absdiff_bp_quantiles": {
+     "0.5": 2.4969920581663603,
+     "0.9": 6.2101529542802165,
+     "0.99": 8.3694039715845
+    },
+    "max_absdiff_bp": 13.791135873133724,
+    "worst": [
+     {
+      "day": "2026-06-10",
+      "panel_bp": -6.906046503832343,
+      "bloomberg_bp": -20.697182376966065,
+      "n": 325
+     },
+     {
+      "day": "2026-08-06",
+      "panel_bp": -6.920831997974805,
+      "bloomberg_bp": 1.4606316611027883,
+      "n": 267
+     },
+     {
+      "day": "2026-07-16",
+      "panel_bp": 2.508190542260953,
+      "bloomberg_bp": 10.85519795135828,
+      "n": 274
+     },
+     {
+      "day": "2026-07-24",
+      "panel_bp": -10.725215166038197,
+      "bloomberg_bp": -2.6379216171885287,
+      "n": 284
+     },
+     {
+      "day": "2026-06-18",
+      "panel_bp": -3.1238086612070153,
+      "bloomberg_bp": 4.375488443246928,
+      "n": 351
+     }
+    ]
+   }
+  }
+ },
+ "generated": "2026-11-13T01:45:46.419415+00:00"
+}

@@ -18,3 +18,5 @@
 2026-11-13T00:49:58.917862+00:00 ALLOWED A38 kind=raw
 2026-11-13T01:01:25.042780+00:00 REQUEST A38 kind=clean what='A38 1a: SPY from hfdatalibrary_clean_1min_1tickers_2026-11-11.zip; study grid of the RAW evaluation span' freeze=section5_freeze.json
 2026-11-13T01:01:26.218229+00:00 ALLOWED A38 kind=clean
+2026-11-13T01:45:41.176239+00:00 REQUEST era=RAW what="columns=['SPY_return_eligible', 'SPY_log_return_1m', 'HYG_return_eligible', 'HYG_log_return_1m']" freeze=section5_freeze.json section6=True
+2026-11-13T01:45:42.408227+00:00 ALLOWED era=RAW
