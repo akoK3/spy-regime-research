@@ -43,3 +43,45 @@ Not closed:
 - **H4 p-values in the development results.** `s6_development_{gaussian_hmm,hsmm}.json` were written under the A29 1d convention and are not recomputed (A35 1f). Their H4 p-values under A35 rule 1 are in the table of `AMENDMENT_A35.md`. No verdict differs.
 - **Power.** The A29 1f power check was not rerun under A35 rule 1. Its simulated data have no missing values, so invalid resamples are rare there.
 - **A32 hash in provenance blocks.** Result files written between 2026-11-10 21:44Z and 23:31Z (`h2_*`, `hyg_gap`, `a34_*`) record `AMENDMENT_A32.md` as `7bc90d60...`. That was the text with the corrected date stamp. The adopted text, `d222539c...`, was restored on 2026-11-11; the two differ in the "Dated" stamp only.
+
+## S6-D4. "Calm-to-stressed" in Section 6 follows A28 1b, not protocol 5.5 (post-evaluation, 2026-11-13)
+
+**What differs.** The breaks feeding H2-H4 are labelled by the A28 1b definition, "entry into the higher-variance state" (`AMENDMENT_A28.md:18`, adopted 2026-11-09 19:22Z). The break export (`section5/s5_break_export.py`) applies it:
+- the new state is the argmax state at the confirming update;
+- the old state is the reference state of the event rule;
+- the label is calm_to_stressed when new > old in the family's variance order;
+- BOCPD uses the predictive-variance ratio.
+
+Protocol 5.5 defines direction differently (`SECTION5_PROTOCOL.md:64`; `section5/s5_events.py:74-82`): the ratio of mean squared SPY 1-minute returns over (T_d, T_c] to the 60 bars before T_d, with > 1 meaning calm to stressed. No amendment or ledger row says that A28 1b replaces 5.5 for Section 6. The export rule was committed in 01ac960 and recorded at `METHODS_LEDGER.md:488` without a description of the rule.
+
+**What the label means.** "Calm-to-stressed" means any move to a higher-variance state, not only a move out of the calmest state. In the development export, 280 of the 600 Gaussian HMM confirmed calm-to-stressed breaks start in state 0; the other 320 start in state 1 or 2.
+
+**How far the two rules agree** (`section5/results/direction_rule_agreement.json`; descriptive, development data only):
+- Protocol 5.5 was applied to all 1,149 confirmed calm-to-stressed Gaussian HMM and HSMM breaks of `section5/results/breaks/breaks.csv`.
+- **975 (84.9%) are also calm-to-stressed under 5.5, 160 are stressed-to-calm under 5.5, and 14 are undefined** (fewer than 30 valid reference bars). Agreement on the 1,135 defined breaks is 85.9%.
+
+| Family, era | Breaks | 5.5 calm-to-stressed | 5.5 stressed-to-calm | Undefined | Agreement of defined |
+|---|---|---|---|---|---|
+| Gaussian HMM, LEGACY | 586 | 488 | 92 | 6 | 84.1% |
+| Gaussian HMM, RAW | 14 | 11 | 3 | 0 | 78.6% |
+| HSMM, LEGACY | 536 | 467 | 61 | 8 | 88.4% |
+| HSMM, RAW | 13 | 9 | 4 | 0 | 69.2% |
+
+| Gaussian HMM, by old state | Breaks | Agreement of defined |
+|---|---|---|
+| Old state 0 | 280 | 79.0% |
+| Old state 1 | 277 | 86.9% |
+| Old state 2 | 43 | 97.7% |
+
+Median 5.5 ratio: 1.91 (interquartile range 1.26-3.12).
+
+**Label counts of confirmed breaks in the development export** (all four detectors; no confirmed break is labelled same_state or left without a direction):
+
+| Detector | LEGACY calm-to-stressed / stressed-to-calm | RAW calm-to-stressed / stressed-to-calm |
+|---|---|---|
+| Gaussian HMM | 586 / 120 | 14 / 2 |
+| Student-t HMM | 493 / 185 | 14 / 0 |
+| HSMM | 536 / 88 | 13 / 0 |
+| BOCPD (variance ratio) | 409 / 162 | 17 / 9 |
+
+**Consequence.** The evaluation used the A28 1b labels throughout. About one in seven of these breaks would carry the other direction under protocol 5.5. No Section 6 result is recomputed under 5.5.
