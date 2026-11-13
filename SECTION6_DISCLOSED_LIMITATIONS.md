@@ -85,3 +85,23 @@ Median 5.5 ratio: 1.91 (interquartile range 1.26-3.12).
 | BOCPD (variance ratio) | 409 / 162 | 17 / 9 |
 
 **Consequence.** The evaluation used the A28 1b labels throughout. About one in seven of these breaks would carry the other direction under protocol 5.5. No Section 6 result is recomputed under 5.5.
+
+## S6-D5. The A28 7d(ii) null control failed on the evaluation periods (post-evaluation, 2026-11-13)
+
+**The check.** 200 sets of random times, drawn like placebos, replace the breaks. Each of the six primary H3/H4 tests must reject at 0.05 in at most 10% of sets (A28 7d(ii); H4 p on valid resamples, A35 rule 1).
+
+| Test | H3 TLT | H3 HYG | H3 gold | H3 USD | H4a | H4b |
+|---|---|---|---|---|---|---|
+| Evaluation rejection rate (Gaussian HMM, 200 sets) | **0.110** | 0.050 | **0.305** | 0.060 | 0.010 | 0.030 |
+| Development rejection rate (Gaussian HMM, A35 rerun) | 0.040 | 0.055 | 0.005 | 0.065 | 0.045 | 0.065 |
+
+Sources: `section6/results/s6_evaluation_gaussian_hmm.json` key `sanity.null_control`; `section6/results/a35_null_control_gaussian_hmm.json`.
+
+**Status of the failure.**
+- On the evaluation periods the sanity checks are reported, not gates (A36 2c): "Nothing follows the evaluation, so a failed check there is stated beside the results". The result file records `passed` = false and `sanity_note` = "reported, not a gate, on the evaluation periods (A36 2c)".
+- In development the same control passed for the Gaussian HMM (under A35 rule 1) and for the HSMM. It was the gate before the evaluation.
+- The evaluation positive control passed: Fed breaks, TLT rest-of-day, n 27, gamma +0.479, p 0.0014.
+
+**What it means for the results.** On the evaluation data, the H3 next-day test for gold, and to a lesser degree for TLT, rejects random times more often than its nominal level. No primary H3 test rejected: the H3 p-values are TLT 0.872 and gold 0.987, all Holm 1.0. So the failure does not bear on any rejection, but it does mean the H3 gold and TLT tests are not shown to be calibrated on these periods.
+
+**How it was reported.** The failure was not in the evaluation report as first written (`reply_latest.md`, 2026-11-12) or in `POST_EVAL_AUDIT.md`. It was first stated in `SECTION7_FACTS.md` and added to the report on 2026-11-13.

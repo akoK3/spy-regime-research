@@ -135,6 +135,17 @@ By era: smallest per-era p is LEGACY GOLD 0.059 and RAW DOLLAR 0.038 (Holm 0.150
 - In the H3/H4 family (76 tests), nothing survives BH. The smallest raw p is the BOCPD detector's H3 GOLD: p 0.018, gamma +0.134, n 155, BH 0.795 (Holm within that detector 0.108). The next is FOMC-day H4b, p 0.021, BH 0.795. *(Corrected 2026-11-13: this line first gave FOMC-day H4b as the smallest; ledger correction row.)*
 - A34 per-asset placebo sensitivity for H3: every BH p = 1.0, so the primary result is unchanged.
 
+**Sanity checks on the evaluation periods (reported, not gates; A36 2c).** *(Added 2026-11-13: missing from this report as first written; ledger row; disclosure S6-D5.)*
+- **The A28 7d(ii) null control failed.** It replaces the breaks with 200 sets of random times and requires each test to reject in at most 10% of sets. Rejection rates at 0.05:
+
+  | Test | H3 TLT | H3 HYG | H3 gold | H3 USD | H4a | H4b |
+  |---|---|---|---|---|---|---|
+  | Rejection rate | **0.110** | 0.050 | **0.305** | 0.060 | 0.010 | 0.030 |
+
+  The Gaussian HMM's development control passed under A35 rule 1 (H4b 0.065; all others at most 0.065).
+- **The positive control passed:** Fed breaks, TLT rest-of-day, n 27, gamma +0.479, p 0.0014.
+- **The A31 rule 3 filter control flagged TLT** (delta +0.028, 95% +0.007 to +0.049), as in development (S6-D1).
+
 **Not evaluable or near-empty tests (none is primary):**
 
 | Test | Status |
