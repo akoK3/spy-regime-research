@@ -17,10 +17,25 @@ LEGACY 2019-01-02..2022-03-04, 800 sessions. RAW 2025-01-02..2026-10-12, 445 ses
 |---|---|---|---|---|---|---|
 | Gaussian HMM | 0.084 (0.053, 0.116) | 0.194 (0.152, 0.241) | 0.049 (0.036, 0.065) | 0.118 (0.083, 0.159) | 0.42 (0.21, 0.63) | 0.14 (0.00, 0.36) |
 | Student-t HMM | 0.087 (0.058, 0.117) | 0.204 (0.166, 0.242) | 0.031 (0.021, 0.043) | 0.041 (0.029, 0.056) | 0.42 (0.17, 0.63) | -0.29 (-0.57, 0.00) |
-| HSMM | 0.049 (0.027, 0.075) | 0.186 (0.152, 0.219) | 0.102 (0.085, 0.120) | 0.091 (0.068, 0.117) | 0.38 (0.13, 0.58) | 0.14 (-0.21, 0.50) |
+| HSMM | 0.049 (0.027, 0.075) | 0.186 (0.152, 0.219) | 0.101 (0.085, 0.120) | 0.091 (0.068, 0.117) | 0.38 (0.13, 0.58) | 0.14 (-0.21, 0.50) |
 | BOCPD | 0 | 0 | 0 | 0 | 0 | 0 |
 
-No fitted model was flagged. By design, 5.13 reports no p-values (A36 5g).
+No fitted model was flagged. By design, 5.13 reports no p-values (A36 5g). *(Corrected 2026-11-13: HSMM H1(b) LEGACY is 0.101, file value 0.10146. It was first written as 0.102 here, in ledger row `METHODS_LEDGER.md:683` and in commit 34ec7d1.)*
+
+**Realized alarm rates per session, beside H1(c)** (feature model vs baseline; both thresholds were calibrated on TRAIN to about 0.19 per session):
+
+| Family | H1(c) LEGACY | Alarms LEGACY, feature / baseline | H1(c) RAW | Alarms RAW, feature / baseline |
+|---|---|---|---|---|
+| Gaussian HMM | 0.42 | 0.214 / 0.141 | 0.14 | 0.137 / 0.276 |
+| Student-t HMM | 0.42 | 0.215 / 0.168 | -0.29 | 0.117 / 0.310 |
+| HSMM | 0.38 | 0.159 / 0.101 | 0.14 | 0.200 / 0.306 |
+| BOCPD | 0 | 0.186 / 0.186 | 0 | 0.187 / 0.187 |
+
+H1(c) is a gain in hit rate at fixed thresholds, so it depends on these alarm rates.
+- In LEGACY the feature models alarm more often than the baseline.
+- In RAW they alarm less often, and the baselines run well above the 0.19 calibration rate.
+
+So the RAW H1(c) gains are measured against a baseline that alarms about twice as often. H1(a) is a pAUC and does not depend on these thresholds.
 
 ## Section 6, primary detector gaussian_hmm
 
@@ -50,8 +65,26 @@ By era: smallest per-era p is LEGACY GOLD 0.059 and RAW DOLLAR 0.038 (Holm 0.150
 
 **Secondary (BH; not confirmatory):**
 - In the H2 family, two survive BH: HYG pre-30 (BH p 0.008) and DOLLAR pre-30 (BH p 0.016). These measure the 30 minutes before the break, not the response after it.
-- In the H3/H4 family, nothing survives BH. The smallest raw p is FOMC-day H4b at 0.021 (BH 0.79).
+- In the H3/H4 family (76 tests), nothing survives BH. The smallest raw p is the BOCPD detector's H3 GOLD: p 0.018, gamma +0.134, n 155, BH 0.795 (Holm within that detector 0.108). The next is FOMC-day H4b, p 0.021, BH 0.795. *(Corrected 2026-11-13: this line first gave FOMC-day H4b as the smallest; ledger correction row.)*
 - A34 per-asset placebo sensitivity for H3: every BH p = 1.0, so the primary result is unchanged.
+
+**Not evaluable or near-empty tests (none is primary):**
+
+| Test | Status |
+|---|---|
+| Section 6, H4b with T0 anchored at S | Not evaluable: 0 valid resamples (valid share 0.0); gain NaN, p null |
+| Section 6, detector dependence, BOCPD H4a | Not evaluable: n 0 |
+| Section 6, FOMC-day H4a | Evaluated, but flagged low valid share (0.326); n 11 (8 positive); out-of-fold AUC 0.5 and 0.5 |
+| Section 6, secondary H3 stressed-to-calm HYG | Near-empty: n 1, p null |
+| H2, secondary stressed-to-calm HYG (30 min) | Near-empty: n 4; statistic and p null |
+| H2 E1 footprint | 184 breaks used; 7 skipped (window past close), 27 skipped (TLT or HYG not evaluable) |
+| A34 E1 footprint | 187 breaks used; 7 and 24 skipped, for the same two reasons |
+
+Descriptive by design, not tested (p null):
+- Section 6 H3 prior hour before S (4 assets);
+- A32 exploratory pre-30 X tests in H2 and A34 (4 each).
+
+**Asset availability:** RAW HYG is unavailable on 177 of 445 evaluation sessions (40%). This is why RAW H2 HYG uses only 25 breaks.
 
 ## A38 (RAW evaluation period; Clean vs Raw filter)
 
@@ -74,7 +107,7 @@ By era: smallest per-era p is LEGACY GOLD 0.059 and RAW DOLLAR 0.038 (Holm 0.150
 - `section6/results/{s6,h2,a34}_evaluation_gaussian_hmm.json` and `section5/results/a38_filter_check.json`, each with a sha256 sidecar.
 - One-shot markers are written, so these runs cannot be repeated.
 
-**Next, per the queue:** direction-rule agreement diagnostic; break-label counts; Section 6 and Section 5 disclosed-limitations notes; `REPRODUCIBILITY_FACTS.md` pending items. The Bloomberg comparison waits for your go-ahead.
+**Audit:** see `POST_EVAL_AUDIT.md`. Flags F1 and F2 are corrected above.
 
 ---
 

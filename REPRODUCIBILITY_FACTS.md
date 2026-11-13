@@ -1,6 +1,6 @@
 # Reproducibility facts
 
-Written 2026-11-12 (New York), while the joint evaluation (`s6_eval.py run`) was still running Section 6; A38 had not yet run. Facts only, each with its source. Items that change when the evaluation and A38 finish are marked **(pending)**.
+Written 2026-11-12 (New York), while the joint evaluation (`s6_eval.py run`) was still running Section 6; A38 had not yet run. Facts only, each with its source. Items that were pending at that time were filled on 2026-11-13, after the chain finished (2026-11-13 01:09:11Z).
 
 ## 1. Repository
 
@@ -10,7 +10,7 @@ Written 2026-11-12 (New York), while the joint evaluation (`s6_eval.py run`) was
 | Branch | `main` | `git status` |
 | Commit at the time of writing | `af1b7918dd86f7605b1c12d8e59f52bb7352815d` (2026-11-12 12:22:48 -0500) | `git log -1` |
 | Commit of the freeze | `3b9e68d` (freeze document, run record, lock, ledger row); `c49d728` (ledger sidecar) | `git log` |
-| Final commit after the evaluation and A38 | **(pending)** | |
+| Commit of the evaluation results and A38 | `34ec7d1` (results, sidecars, fingerprint, access log, ledger rows); later commits: corrections and post-evaluation notes | `git log` |
 
 Not in git (git-ignored, local only): the canonical panels, the source zip files, and `section5/results/frozen_models/` (`.gitignore`; `git check-ignore`).
 
@@ -92,8 +92,8 @@ AMD Ryzen 7 7435HS, 16 logical processors, 15.7 GB RAM (`Win32_Processor`, `Win3
 |---|---|---|---|---|---|
 | 1 | `python s5_freeze_run.py run --confirm section5_freeze.json` (`section5/`) | 2026-11-12 04:09:25Z | 08:22:26Z | 4 h 13 min (fitting 3 h 39 min) | `section5_freeze.json`, `freeze_run_record.json`, `frozen_models/`, `ERA_CALIBRATION.lock` |
 | 2 | `python s6_fingerprint.py write` (`section6/`) | 14:01:11Z | 14:01:12Z | 1 s | `section6/results/s6_fingerprint.json` |
-| 3 | `python s6_eval.py run <abs path>\section5\results\section5_freeze.json 846c1aaafaf1cb02911bc680c0b197f97e17b00386695fc0f6eb0b26b02e3a94` (`section6/`) | 14:01:12Z | **(pending)** | 5.13 LEGACY written 14:18:40Z; 5.13 RAW written 16:38:01Z (process suspended 14:25-16:33Z on the user's request, so about 12 min of RAW computing); Section 6 running | `section5/results/evaluation_LEGACY.json`, `evaluation_RAW.json`; `section6/results/coverage_evaluation.json`; further Section 6 files **(pending)** |
-| 4 | `python s5_a38.py run <abs path>\section5\results\section5_freeze.json 846c1aaa...` (`section5/`), only if step 3 exits 0 | **(pending)** | | | `section5/results/a38_filter_check.json` |
+| 3 | `python s6_eval.py run <abs path>\section5\results\section5_freeze.json 846c1aaafaf1cb02911bc680c0b197f97e17b00386695fc0f6eb0b26b02e3a94` (`section6/`) | 14:01:12Z | 2026-11-13 00:49:46Z, exit 0 | 10 h 49 min wall time. Suspended on the user's request 14:25-16:33Z, 17:54-19:22Z and 22:52-23:08Z (3 h 52 min), so about 6 h 57 min active. 5.13 LEGACY written 14:18:40Z; 5.13 RAW 16:38:01Z; Section 6 files written 00:48:41-00:49:46Z; no alert; stderr empty | `section5/results/evaluation_LEGACY.json`, `evaluation_RAW.json`; `section6/results/coverage_evaluation.json`, `s6_evaluation_gaussian_hmm.json`, `h2_evaluation_gaussian_hmm.json`, `a34_evaluation_gaussian_hmm.json` |
+| 4 | `python s5_a38.py run <abs path>\section5\results\section5_freeze.json 846c1aaa...` (`section5/`), only if step 3 exits 0 | 2026-11-13 00:49:46Z | 01:09:11Z, exit 0 | 19 min 25 s; stderr empty | `section5/results/a38_filter_check.json` |
 
 Steps 2-4 run as one detached chain (a runner script outside the repository) that stops at the first non-zero exit; its log is `section6/results/eval_chain_status.txt`, with per-step stdout/stderr in `section6/results/eval_chain_*_stdout.txt` / `_stderr.txt`. The freeze's stdout/stderr: `section5/results/freeze_run_stdout.txt` / `freeze_run_stderr.txt` (stderr empty).
 
@@ -105,9 +105,28 @@ Earlier rehearsal (development data, temporary folder): full dress rehearsal fre
 - **Pre-marker check** (A37 rule 2a): `precheck` runs the same checks without reading, before any marker.
 - **One-shot markers**, written immediately before the first evaluation read and containing the freeze SHA-256:
   - `section5/results/evaluation_LEGACY_RAN.marker` and `evaluation_RAW_RAN.marker` (path `section6/s6_eval.py:167`). Both exist. A marker without a result stops the driver.
-  - A38: `section5/results/a38/a38_raw_RAN.marker` and `a38_clean_RAN.marker` (`section5/s5_a38.py:30`). **(pending)**
+  - A38: `section5/results/a38_raw_RAN.marker` (2026-11-13 00:49:58Z) and `section5/results/a38_clean_RAN.marker` (01:01:26Z) (`section5/s5_a38.py:30`). Both exist and contain the freeze SHA-256.
 - **Written once**: the freeze, the record, the fingerprint (`section6/s6_fingerprint.py` `write` refuses if it exists), the evaluation results and the A38 result (`write_once`).
 - **Code version** `a0323ed24d68e896` is checked by the freeze and the fingerprint (`section6/s6_fingerprint.py` `CODE_VERSION`).
+
+## 7a. Notes from the post-evaluation audit (`POST_EVAL_AUDIT.md`, 2026-11-13)
+
+- **Allowed evaluation reads: 3 per era, by design.** `section5/results/eval_access_log.txt` has 10 ALLOWED lines and no REFUSED lines. Per era there is:
+  - one 5.13 read (SPY panel and ETF file, evaluation span; A36 4a);
+  - one Section 6 coverage read (`section6/s6_eval.py` `coverage`, line 72; A36 6a; runs only while `coverage_evaluation.json` does not exist);
+  - one Section 6 data read (`eval_era`, line 88; A36 4b).
+
+  A38 has one Raw read and one Clean read. No read was repeated.
+- **How the 5.13 files are linked to the freeze.** `evaluation_LEGACY.json` and `evaluation_RAW.json` do not record the freeze hash or the code version themselves. They are linked to the freeze in two ways:
+  - the one-shot markers `evaluation_{LEGACY,RAW}_RAN.marker` contain the freeze SHA-256;
+  - each family's `model_sha256` in the 5.13 files equals a frozen-model hash recorded in the freeze (all 8 present in `frozen_models/`).
+
+  `a38_filter_check.json` records the freeze hash but not the code version. The Section 6 files record both.
+- **Non-strict JSON.** Two result files contain `NaN` tokens:
+  - `section6/results/s6_evaluation_gaussian_hmm.json`: 5 tokens, in the not-evaluable `anchor_T0_at_S` H4b entry;
+  - `section6/results/coverage_evaluation.json`: 3,873 tokens, metrics of missing data.
+
+  Python's `json` reads both files; strict JSON parsers reject them. The other evaluation files contain no NaN or Infinity.
 
 ## 8. Backups
 
