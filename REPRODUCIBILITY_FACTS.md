@@ -56,8 +56,23 @@ Source files (Section 2 inventory, `section2_audit_results/inventory.csv`, 2026-
 | `hfdatalibrary_raw_1min_1tickers_2026-10-13.zip` | `a70a4d4cac85036e89746de1820bb0c066d581dddb2ee5310f057ac54ec0da37` | RAW era (SPY Raw) |
 | `TLT_raw_1min.csv` | `c2b79b08235f21fb1c2f514f87a58bbfdbaebc3999566342696c496eb98bf0d1` | TLT RAW |
 | `HYG_raw_1min.csv` | `543a7c194539c96844b266064b95f2b5dc12ec184e605caf93fe846128a7b9bf` | HYG RAW |
-| `xauusd-m1-bid-2007-04-11-2026-10-02 - Copy.csv` | `6ab53e9dd2ecc668e14d951738ab20ac1c14cf0c86721664d00a7cb5c45ce198` | gold |
-| `dollaridxusd-m1-bid-2017-12-01-2026-10-02.csv` | `d8f2dbcc13ed3a0b335afe415a42127c53b3a49140d9800829e06c834e77320d` | USD index |
+| `xauusd-m1-bid-2007-04-11-2026-10-02 - Copy.csv` | `6ab53e9dd2ecc668e14d951738ab20ac1c14cf0c86721664d00a7cb5c45ce198` | gold (bid side) |
+| `xauusd-m1-ask-2007-04-11-2026-10-02.csv` | `dfadecccb5b08bc0a75d39f84f250d4c79c66f814c1f35a207b4376564e0e8ed` (**computed 2026-11-12, not recorded at the Section 3.5 run**) | gold (ask side) |
+| `dollaridxusd-m1-bid-2017-12-01-2026-10-02.csv` | `d8f2dbcc13ed3a0b335afe415a42127c53b3a49140d9800829e06c834e77320d` | USD index (bid side) |
+| `dollaridxusd-m1-ask-2017-12-01-2026-10-02.csv` | `764966e3cbdbe9ed4607ecbe584e43f9f4d787ef7f1c4b6ffbd82879e8a2d163` (**computed 2026-11-12, not recorded at the Section 3.5 run**) | USD index (ask side) |
+
+**Gold and USD use the bid/ask midpoint.** Section 3.5 (`section3_5_quote_quality.py:32-38,142-147`) reads both the bid and the ask file and uses (bid close + ask close) / 2 on paired minutes. The panel returns are built from that midpoint; `SECTION7_FACTS.md` section 1 traces the full chain.
+
+**The ask files were not hashed at the time.** They are not in the Section 2 inventory, and the Section 3.5 run record (`section3_5_quote_quality_results/summary.json`, key `assets.{GOLD,DOLLAR}.quote_files.ask`) lists their path and row counts but no hash. Both files are in `OneDrive\Desktop\data\raw\`.
+
+**Row-count check against that record (2026-11-12).** The data rows in each file now, excluding the header, equal the record's `total`:
+
+| File | Rows now | Record `total` |
+|---|---|---|
+| Gold ask | 8,504,432 | 8,504,432 |
+| USD ask | 2,696,661 | 2,696,661 |
+
+The record's regular-hours counts (`in_rth` 1,889,774 and 803,292) were not recomputed. Matching row totals are consistent with the files being unchanged since the Section 3.5 run, but they do not prove it.
 
 A38 files (`AMENDMENT_A38.md:33-34`; checked in `section5/s5_a38.py` `HF` before each read):
 

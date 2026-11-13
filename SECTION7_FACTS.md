@@ -23,7 +23,35 @@
 
 Sources: `Section_2_Data_Sources_Decision_Notebook.md:16-20,24`; `REPRODUCIBILITY_FACTS.md` section 3.
 - Gold and USD are labelled "Provisional" in the Section 2 table.
-- The two Dukascopy file names contain "bid". The Section 2 notebook and A28 1a state that the mid quote is used.
+
+**Gold and USD prices are the bid/ask midpoint.** This was checked in the code on 2026-11-13, read-only. Only the bid files are listed in the Section 2 inventory and in `REPRODUCIBILITY_FACTS.md`, but the panel's gold and USD returns are built from both the bid and the ask files. The chain is:
+
+1. **Section 3.5** (`section3_5_quote_quality.py`):
+   - It reads both sides of each instrument: `xauusd-m1-bid-...` and `xauusd-m1-ask-2007-04-11-2026-10-02.csv`; `dollaridxusd-m1-bid-...` and `dollaridxusd-m1-ask-2017-12-01-2026-10-02.csv` (lines 32-38). It reads the columns `timestamp, open, high, low, close` (line 92).
+   - Midpoint = (bid close + ask close) / 2, only on exact-minute paired minutes where both sides are valid (`compute_quality`, lines 142-147). It is written as `mid_close` (line 304). Bid-only and ask-only minutes are marked BID_ONLY / ASK_ONLY (lines 172-173), so they have no midpoint.
+   - The run record `section3_5_quote_quality_results/summary.json` names both source files per asset (key `assets.{GOLD,DOLLAR}.quote_files.bid/ask`). It gives `midpoint_definition` = "(bid CLOSE + ask CLOSE)/2 only for exact-minute matched, valid side OHLC; indicative asynchronous quote proxy".
+2. **Section 3.6** (`section3_6_return_construction.py`):
+   - For GOLD and DOLLAR it reads `mid_close` from the 3.5 output (lines 177, 186; input path line 152) and computes log(price_t / price_{t-1}) on eligible endpoints (line 94).
+   - The endpoint mask is `baseline_paired_non_crossed` (line 187). The price type is recorded as `INDICATIVE_PAIRED_CLOSE_MIDPOINT` (line 260).
+3. **Section 3.10** (`section3_10_run/section3_10_cross_asset_alignment.py`):
+   - It reads `log_return_1m` and the eligibility fields from `section3_6_return_results/returns_1m_{GOLD,DOLLAR}.csv.gz` (lines 106, 113) and requires `source_epoch` = "dukascopy" (lines 120-122).
+   - It writes them unchanged as `GOLD_log_return_1m` / `DOLLAR_log_return_1m` and `*_return_eligible` (lines 313-314). The file `section3_final_run/reference_sources/section3_10_cross_asset_alignment.py` is byte-identical.
+4. **Section 6** reads only `{asset}_return_eligible` and `{asset}_log_return_1m` from the canonical panel:
+   - development: `section6/s6_run.py:53`, used at line 29;
+   - evaluation: `section6/s6_eval.py:87`;
+   - coverage: `section6/s6_coverage.py:43,58` and `s6_eval.py:70`, which also read `{GOLD,DOLLAR}_causal_flat_age_ge15_flag`.
+
+   It uses the baseline mask `*_return_eligible`, **not** `GOLD/DOLLAR_strict_quote_return_eligible`. The strict mask (spread at most 50 bp and joint flat age below 15) is not used by any Section 6 test.
+
+**Hash gap.** The ask files are not in the Section 2 inventory. Their SHA-256 on disk (`OneDrive\Desktop\data\raw\`) was computed 2026-11-12 (New York) and was not recorded at the Section 3.5 run. Both hashes are now in `REPRODUCIBILITY_FACTS.md` section 3:
+- `xauusd-m1-ask-2007-04-11-2026-10-02.csv`: `dfadecccb5b08bc0a75d39f84f250d4c79c66f814c1f35a207b4376564e0e8ed`;
+- `dollaridxusd-m1-ask-2017-12-01-2026-10-02.csv`: `764966e3cbdbe9ed4607ecbe584e43f9f4d787ef7f1c4b6ffbd82879e8a2d163`.
+
+**Row-count check.** The Section 3.5 run record lists paths and row counts but no hashes. The data rows in each file now (excluding the header) equal the record's `total`:
+- gold ask: 8,504,432;
+- dollar ask: 2,696,661.
+
+The record's regular-hours counts (1,889,774 and 803,292) were not recomputed. Matching totals are consistent with the files being unchanged since that run, but do not prove it.
 
 **Measurement (A28 1a, 1c).**
 - Volatility is measured on NYSE regular hours (09:30-16:00 ET) for every asset, from 1-minute log returns.
