@@ -201,7 +201,9 @@ def tables(res):
         for fam in FAMS:
             r = res["development"][era]["confirmatory"][fam]; a, b = r["feature"]["pauc_mean"], r["baseline"]["pauc_mean"]
             L.append(f"| {era} | {fam} | {r['n_folds_scored']}/{r['n_folds']} | {f3(a)} | {f3(b)} | {f3(None if a is None or b is None else a - b)} |")
-    L += ["", "pAUC = area under hit rate vs null alarm rate for alarm rates 0-0.5, divided by 0.5 (protocol 5.0). A detector with no skill scores about 0.25.", "",
+    L += ["", "pAUC = area under the curve of hit rate (share of break splices hit within 60 min) against null alarm rate (confirmed alarms per null "
+          "spliced session) for null alarm rates 0-0.5, divided by 0.5 (protocol 5.0). The two axes are in different units, so there is no simple "
+          "chance level; the baseline column is the returns-only reference.", "",
           "## 2. Detection at the calibrated threshold, by planted variance ratio and direction (development, confirmatory folds, feature model)", "",
           "Hit = T_d after onset and T_c within 60 min (the H1(a) hit). Delay = minutes from onset to T_c: median [IQR] (n). 'Any' = first confirmation after onset before the session end.", ""]
     for era in ("LEGACY", "RAW"):
