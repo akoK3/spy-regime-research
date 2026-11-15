@@ -1,0 +1,2089 @@
+{
+ "label": "POST HOC sensitivity, run after the 5.12 freeze and the evaluation; changes no frozen, MR2 or evaluation result. MR2 5.8 forward selection with 3 starts (seed 0, starts 0-2) instead of 1; development folds only",
+ "code_version": "a0323ed24d68e896",
+ "script_sha256": "4d9c07e073afd70edb5fa80d450846ac6527010bfae70a031d4fce53bdfc6507",
+ "mr2_completion_sha256": "19812f9f619f029b949bdc9e123c78007a4e71bf668f214569a5bbe12577079a",
+ "freeze_sha256": "846c1aaafaf1cb02911bc680c0b197f97e17b00386695fc0f6eb0b26b02e3a94",
+ "units_sha256": {
+  "LEGACY_0_gaussian_hmm.json": "862205e470fd4b17a4694ce5d51f594fe4863f04e5f08da030d06022ac40bfbc",
+  "LEGACY_0_hsmm.json": "a2293d3a31ab248fcb3109a9377c20127a0c759ff24c840baff9db63cdb942b2",
+  "LEGACY_0_student_t_hmm.json": "449aaf8757b95f05c6262b2bf570be74dc9aaffbd74210083296879425c723e8",
+  "LEGACY_10_gaussian_hmm.json": "5ab0b0edd0bae54de00f0a1e971f1dc2e09e325e971d14995fd45f527771c463",
+  "LEGACY_10_hsmm.json": "f16f70fbb1d453733622ece83f06e1fe42bfc763358c4ae823e9a8cb30f80482",
+  "LEGACY_10_student_t_hmm.json": "d567ed2a9e3667a7b630020464c2d7f567f34c76b19c527403e90649cd611e2b",
+  "LEGACY_11_gaussian_hmm.json": "f4322d10949cc9e463751de5fcb8c57452dca334fda495d90c1333e89cb3501e",
+  "LEGACY_11_hsmm.json": "a4e03b9b0fb1c3fd1360d15b08515a5958b1968f30bd224cb91a6f05c5a0e31d",
+  "LEGACY_11_student_t_hmm.json": "7ee2121121702c471260d7743d8c20726400c27d9c482116d9028a2dfe9e3dfc",
+  "LEGACY_12_gaussian_hmm.json": "70351511eef1ff5bbe10df1de34750347670a809e00b3be7e71e804e8ec81189",
+  "LEGACY_12_hsmm.json": "c5123f3e9946847321cebbe8933ffd738a30300dcc8c6fc9c9197383cd0f60b9",
+  "LEGACY_12_student_t_hmm.json": "c3b7e6f978c3c7afd90f9c2fe5c8800ab37535817b24dafc3814b7d6f8a3c3b0",
+  "LEGACY_13_gaussian_hmm.json": "2382fea69d0637a33e027b126f7b4e96776dda1bb3ec7e545ceadcc1218a5d08",
+  "LEGACY_13_hsmm.json": "a845ae8460a5d348e230946fe0b0a0242c3d27e99780ba0909300fc3623d0c55",
+  "LEGACY_13_student_t_hmm.json": "70847251221790f35e89c14b35be830380be581fc05cc13d13fd6367f0cd761e",
+  "LEGACY_14_gaussian_hmm.json": "72fff4b01a39e87f6219bb878dd7b46276914995a2b9b0ae3afc2b07b79c1ad5",
+  "LEGACY_14_hsmm.json": "e24e8887c3998a688dc57b013acffad0aba0d7a7473a980648c8d3d1453f61f9",
+  "LEGACY_14_student_t_hmm.json": "696765e30f6e9a9293e4ec4e802a1f42e8537a617c27ff0c2637b36b00f346e6",
+  "LEGACY_15_gaussian_hmm.json": "6b8b0fe34a6f8cb8c35d7ddad269fce1e728f4ddf73895368c9bcdc702dc5a0b",
+  "LEGACY_15_hsmm.json": "90582c66e50699c21675f62fdae407f62055d28658d2bc87cac5b9e98ad4fa68",
+  "LEGACY_15_student_t_hmm.json": "2dcf3fa9e9edcd1a0d56467114a6ac47c03c4385aa68c7c75a6266f2961dea82",
+  "LEGACY_16_gaussian_hmm.json": "2bf2e3b6cb8841d1fc5a4a4508179a2d0b2432c352733d115fe7d25661277fe9",
+  "LEGACY_16_hsmm.json": "36e38de7090c0ec4f136bd645f72eb6bb1186efc928763939c65fa2b7f4a4814",
+  "LEGACY_16_student_t_hmm.json": "16bcdd904a42c99aa687e42313e86a41c558e0a8d97b5038662c9e7862a6a081",
+  "LEGACY_17_gaussian_hmm.json": "edb3ad614b5424d139b6d4a4f438e87eab1f664c5596e6fa592740b18d67faef",
+  "LEGACY_17_hsmm.json": "e46f4238da7de953bd263b89be9ff0ee9779293aa8de9c2853ed56447b33d0da",
+  "LEGACY_17_student_t_hmm.json": "db69bf7aec267db283fd5d106041020dbf67172e28aa6a0d0e843343d229d550",
+  "LEGACY_18_gaussian_hmm.json": "925054be9d57b34dd1360619ee0204b469637444471f728be333ecb531a52d12",
+  "LEGACY_18_hsmm.json": "9a07929527a12411a4f1fa2481670db309a0b0f495a047d1af064441194aadd2",
+  "LEGACY_18_student_t_hmm.json": "564d648990af12f222cab8bc166c1af46890595a25f38200388535244f586c4b",
+  "LEGACY_19_gaussian_hmm.json": "a91ff4be3c64d14528b0ca4514fb56da6f3e25c1018dfc3c5ad878f84968feab",
+  "LEGACY_19_hsmm.json": "31471e1378f460d3ffa750d7683927adf4a1a47f7638b5ea80025b649d9e1542",
+  "LEGACY_19_student_t_hmm.json": "268ff0cbc5a0c16e4cdad66ab685b2c90d412c9767233ecfa49c187b450ed963",
+  "LEGACY_1_gaussian_hmm.json": "b48319c7817d3eebdfbd857431f9fee872d54d7ee36cbe59cfbcd0aed8ad3354",
+  "LEGACY_1_hsmm.json": "f062582b4931b068b7f2bc84359ee5c2e5b148364340e0fe7c54d60bcbf55192",
+  "LEGACY_1_student_t_hmm.json": "196b9bbdcb68c893639487c67125695058301cc1b68736b33a2bf706781621c8",
+  "LEGACY_20_gaussian_hmm.json": "3671103987f81cd3341e0fe56b557388428b0ee38a841c041bcc3c8e33c8ab15",
+  "LEGACY_20_hsmm.json": "162c36d76b7fde4220f43018d7f44c5d259f74f217229b07101b76c1faa74730",
+  "LEGACY_20_student_t_hmm.json": "77371c2f7364e4dbbfd0e8e289a58da750528f06ca439e7c546dbb5e7efbb451",
+  "LEGACY_21_gaussian_hmm.json": "4c7ce7db7655df9a9da0d18901339c102b0d144217d74c16e07368f43c2a9691",
+  "LEGACY_21_hsmm.json": "72426845bd93f8247d65ed7434def0c1fd5641bc49c8df7a64ee52e8fdd88173",
+  "LEGACY_21_student_t_hmm.json": "c029d54fdcff628788bd3370d2d131d7e960d92e8fad5f406237f132487fd5f7",
+  "LEGACY_22_gaussian_hmm.json": "4b40d07ab714552fa11aa8116606a79faeaaed7e40ca6e3bd13ac5a0fba9f1b9",
+  "LEGACY_22_hsmm.json": "12126778cd27ea0a118dd9f304f48ee618cd65be97e3ccf5e630aa86ee497d5a",
+  "LEGACY_22_student_t_hmm.json": "84d0f18748c98f319999a739db5d30dd3a16e45f49b2b7db76cc452fdf28f0e8",
+  "LEGACY_23_gaussian_hmm.json": "73fd78ef8d2013785ff83a5e924eab168ff2de89ad067d508e018fb44a9b7110",
+  "LEGACY_23_hsmm.json": "9806d9c6aa224ed77b891df68677d17cc4cf6873784d14618d0313d3591949b3",
+  "LEGACY_23_student_t_hmm.json": "5716f18d907d7c515841c6d5a199c83e24898d56e8fe61f1127df2d9836457b1",
+  "LEGACY_24_gaussian_hmm.json": "047b142ad6edd29c85b18c96e751161ea7241b7d7f33f3c1643f7ad95774aa57",
+  "LEGACY_24_hsmm.json": "b6289ccfe8f460a3847d5ae53fd81c837ec25edc9408373666c7dfa97cc75a55",
+  "LEGACY_24_student_t_hmm.json": "63cd055a6b35848fb69341c329b6c24b9ed7ab3da38f0e77d095d1dde190cf41",
+  "LEGACY_25_gaussian_hmm.json": "09f3c8975aacb96324278dce5b967dce3682922018773d615a35a3e9dd24625c",
+  "LEGACY_25_hsmm.json": "635c9b105429d420de46ccca7bc7c3cf06886e8710a48d07f59e891e64faa619",
+  "LEGACY_25_student_t_hmm.json": "f9524922fe6970d82ae4c4dde7c7397eda68ce1e617d276e29f2e6ecfc81d416",
+  "LEGACY_26_gaussian_hmm.json": "6748b97d8304e7a5809fac1188716f0fc824fa1afb7e83b2276069c482873696",
+  "LEGACY_26_hsmm.json": "27dfdc191e47d849a019845893941d7710ca77622d30ba01c186451ea8228892",
+  "LEGACY_26_student_t_hmm.json": "9135d3e072ac4cc9ed8205f13a20f22202bee5d7249820f5fb1f99b566c6777b",
+  "LEGACY_27_gaussian_hmm.json": "c74d339157126ea640719b73063e246c97f92761e8677c2e52235e0938422dad",
+  "LEGACY_27_hsmm.json": "a3292c1b8c2c317f005ce276ed7934116fe4773569d4219668cc09735d8e1fa8",
+  "LEGACY_27_student_t_hmm.json": "dc65f4133015c315981a8405956b867a8941603b3029965c962e2a8bf201849a",
+  "LEGACY_28_gaussian_hmm.json": "f4b666f81d482696cbd21b40fbdd713cfb5100d48d04b251668e3e6dade6483e",
+  "LEGACY_28_hsmm.json": "18cdf574d574d2bc7a1565f36a4475582a2540dcd5678c67516d6ba1ae373ff3",
+  "LEGACY_28_student_t_hmm.json": "69d85d03c03a067256030aee87ce27f7357a5351e4e852eb1b9552e842ea1399",
+  "LEGACY_29_gaussian_hmm.json": "9e90527ce0271aaa8a67c64c1827d211a315a1aaa3a1c0b13e262d35a4861056",
+  "LEGACY_29_hsmm.json": "ec986db215929dc4104829c9e044f29418aa98ad343b89251ff341a4373130d4",
+  "LEGACY_29_student_t_hmm.json": "3072e424dc57a23fef1ec73d931960cb1ff81585abcc964566ebd1ceed39f7de",
+  "LEGACY_2_gaussian_hmm.json": "82f4411d57c806cf58c4b8028bb85c692bc9441ef15703fbe82f0bfec9f152f3",
+  "LEGACY_2_hsmm.json": "81d5345e46b7e24039fe1bedad89d26e92dd8ce5db0749a3f538d8253908034b",
+  "LEGACY_2_student_t_hmm.json": "ed47cf03788fc547a3b85ec294453b93cb538b489b066b37a52b574b265c95a5",
+  "LEGACY_3_gaussian_hmm.json": "826091f91ffc381b46a50e7ff5572d7917d4039e6082049e26128b8e4f23c91f",
+  "LEGACY_3_hsmm.json": "f43f7fc4105f7bb1859cdd75adfb1f53c9b1d3e441b3ed8d33621a046119ec25",
+  "LEGACY_3_student_t_hmm.json": "f8dfadae79805c81d85b8b8e171d3e941a5b0432aefcca795bafc33b12ae8fc2",
+  "LEGACY_4_gaussian_hmm.json": "abbb69c4dce8df5ee916f34d369c8234304f299c27d32aeecd9bea3e7dbfc7f6",
+  "LEGACY_4_hsmm.json": "1c313f9b3a9766fa66d1da1524e4e72f84b15c937afb6521e817449fd44eb5b6",
+  "LEGACY_4_student_t_hmm.json": "98cdcc5cde853c82ddea3bf6c2b0ee0f818d776ec0ddb5fa0d65d7e395f4a886",
+  "LEGACY_5_gaussian_hmm.json": "a3fa122aa0d66bca160f87b77e20f0ce81561ab3a5f5c91d83af405ea09ef26c",
+  "LEGACY_5_hsmm.json": "6e3189dd7cfae721aa40528626b66ce2d185f050b039692e76d8754ab8619f08",
+  "LEGACY_5_student_t_hmm.json": "6a239ea235c455705751c57ca030e0da612b042806ff376a7fe17b9fe69d4838",
+  "LEGACY_6_gaussian_hmm.json": "cb1fc496b77b0fd00380aa0061e50492937f1ae5220f96d479c13e0d45782c1f",
+  "LEGACY_6_hsmm.json": "abe7df7ad3f7d21f10e3067e54a569c454590f5f153bc438da48366c886d62a1",
+  "LEGACY_6_student_t_hmm.json": "69c7ec7bd5752b17aad4d42d28aac0c3f3090f192b0b370ce34d0b9ec08ce0ab",
+  "LEGACY_7_gaussian_hmm.json": "c1e4f0d63a99b19001b4fe785db5c511f559b785a6d4f3e79c1f41c7b2819d14",
+  "LEGACY_7_hsmm.json": "c19a266542f134e2f92e444673538b2292fdf8a851bd2081777443589de12fbf",
+  "LEGACY_7_student_t_hmm.json": "c1b361451af02dd86f049e5c683a9d49c13429f0f2d1b04e9f6b4ba7d89f4670",
+  "LEGACY_8_gaussian_hmm.json": "5063c98907dd0b49dcec28ef59b7063005f75e46219648db1f901d946bd4d349",
+  "LEGACY_8_hsmm.json": "27619ede04271c264aa101cdd477fe03c3a645aaab4d075cfd9fb31cc79b0d13",
+  "LEGACY_8_student_t_hmm.json": "c29900f1b7debff105f5d8f51bb499a45cdc4bce69ca2ebf7405d4131b58b1fe",
+  "LEGACY_9_gaussian_hmm.json": "cc644c23d78ed2c85b015a149dc6dbb6097b6f66236a08fd68f40fea56cbc942",
+  "LEGACY_9_hsmm.json": "e28e9c25cc1ab72a1e4ff68bda5ecfed4b2928ce1c9354fceada99f2415ac4b0",
+  "LEGACY_9_student_t_hmm.json": "233780242a5b97651997f43c60d37b6b067fe9c745793faec07233d066578566",
+  "RAW_0_gaussian_hmm.json": "0050371599ab6e2565c26381b7a1105146ded8fda74249bc95e5db2f026ad2d7",
+  "RAW_0_hsmm.json": "a715a87460ba4ced2b47d1f267458bf66615e3b2f9901bf0353688eca914143b",
+  "RAW_0_student_t_hmm.json": "f8284411c1af76735719400829e6ddca4b7f91aa41b26ef238cbbafc033ad3cf",
+  "RAW_1_gaussian_hmm.json": "4cd1c17f3d3c7ce1d035f13266a61a2d1326064dc60b56e1617255dbef33966d",
+  "RAW_1_hsmm.json": "c9eeee2824cbb2b214771f7517bedcf442029f98ea7b48c178b270eb0d1816f1",
+  "RAW_1_student_t_hmm.json": "62a17f0e4a8b1d8e3ff4ef2c88bd6de7ff3b8cba10dd2f726f5d2c748c8de7fa",
+  "RAW_2_gaussian_hmm.json": "0638527f7097aeae8cd5c3928bf7c6d24a79b629f92b3da94744f5b663f52337",
+  "RAW_2_hsmm.json": "0057046440701c38d03a29431e3ebfcee1148dee3eb247a7bca4d31a2af48e2a",
+  "RAW_2_student_t_hmm.json": "bae1bf5a4d711a2f2a588e22b0c78c42fc19ee15514148a6a8fdb9f281a45aa2",
+  "RAW_3_gaussian_hmm.json": "47a037adaf8467a4be6071d8e643a67f95923ef9b3af108bedc07bcbf32d2506",
+  "RAW_3_hsmm.json": "6f00e0951d8bd0367fea18dd04fd4c582260fd093ecac64c552ce297a0edc60b",
+  "RAW_3_student_t_hmm.json": "c27f85c5f7bade51d5f62b292d7df0ff35875584b26cf09f5367c2c5c9bea666"
+ },
+ "per_fold": {
+  "gaussian_hmm": {
+   "LEGACY|0": {
+    "starts1": [
+     "rv10_partial90__sadj"
+    ],
+    "starts3": [
+     "rv10_partial90__sadj"
+    ],
+    "changed": false,
+    "order_only": false,
+    "K1": {
+     "K": 4
+    },
+    "K3": {
+     "K": 4
+    },
+    "confirmatory": true
+   },
+   "LEGACY|1": {
+    "starts1": [
+     "rv10_partial90__sadj"
+    ],
+    "starts3": [
+     "rv10_partial90__sadj"
+    ],
+    "changed": false,
+    "order_only": false,
+    "K1": {
+     "K": 4
+    },
+    "K3": {
+     "K": 4
+    },
+    "confirmatory": true
+   },
+   "LEGACY|2": {
+    "starts1": [
+     "rv10_partial90__sadj",
+     "intrabar_range_log__sadj"
+    ],
+    "starts3": [
+     "rv10_partial90__sadj",
+     "intrabar_range_log__sadj"
+    ],
+    "changed": false,
+    "order_only": false,
+    "K1": {
+     "K": 4
+    },
+    "K3": {
+     "K": 4
+    },
+    "confirmatory": true
+   },
+   "LEGACY|3": {
+    "starts1": [
+     "rv10_partial90__sadj"
+    ],
+    "starts3": [
+     "rv10_partial90__sadj"
+    ],
+    "changed": false,
+    "order_only": false,
+    "K1": {
+     "K": 4
+    },
+    "K3": {
+     "K": 4
+    },
+    "confirmatory": true
+   },
+   "LEGACY|4": {
+    "starts1": [
+     "rv10_partial90__sadj"
+    ],
+    "starts3": [
+     "rv10_partial90__sadj"
+    ],
+    "changed": false,
+    "order_only": false,
+    "K1": {
+     "K": 4
+    },
+    "K3": {
+     "K": 4
+    },
+    "confirmatory": true
+   },
+   "LEGACY|5": {
+    "starts1": [
+     "rv10_partial90__sadj"
+    ],
+    "starts3": [
+     "rv10_partial90__sadj"
+    ],
+    "changed": false,
+    "order_only": false,
+    "K1": {
+     "K": 4
+    },
+    "K3": {
+     "K": 4
+    },
+    "confirmatory": true
+   },
+   "LEGACY|6": {
+    "starts1": [
+     "rv10_partial90__sadj"
+    ],
+    "starts3": [
+     "rv10_partial90__sadj"
+    ],
+    "changed": false,
+    "order_only": false,
+    "K1": {
+     "K": 4
+    },
+    "K3": {
+     "K": 4
+    },
+    "confirmatory": true
+   },
+   "LEGACY|7": {
+    "starts1": [],
+    "starts3": [],
+    "changed": false,
+    "order_only": false,
+    "K1": {
+     "K": 3
+    },
+    "K3": {
+     "K": 3
+    },
+    "confirmatory": true
+   },
+   "LEGACY|8": {
+    "starts1": [
+     "rv10_partial90__sadj"
+    ],
+    "starts3": [
+     "rv10_partial90__sadj"
+    ],
+    "changed": false,
+    "order_only": false,
+    "K1": {
+     "K": 4
+    },
+    "K3": {
+     "K": 4
+    },
+    "confirmatory": true
+   },
+   "LEGACY|9": {
+    "starts1": [
+     "intrabar_range_log__sadj"
+    ],
+    "starts3": [
+     "intrabar_range_log__sadj"
+    ],
+    "changed": false,
+    "order_only": false,
+    "K1": {
+     "K": 3
+    },
+    "K3": {
+     "K": 3
+    },
+    "confirmatory": true
+   },
+   "LEGACY|10": {
+    "starts1": [
+     "rv10_partial90__sadj"
+    ],
+    "starts3": [
+     "rv10_partial90__sadj"
+    ],
+    "changed": false,
+    "order_only": false,
+    "K1": {
+     "K": 4
+    },
+    "K3": {
+     "K": 4
+    },
+    "confirmatory": true
+   },
+   "LEGACY|11": {
+    "starts1": [
+     "rv5_strict__sadj"
+    ],
+    "starts3": [
+     "rv5_strict__sadj"
+    ],
+    "changed": false,
+    "order_only": false,
+    "K1": {
+     "K": 4
+    },
+    "K3": {
+     "K": 4
+    },
+    "confirmatory": true
+   },
+   "LEGACY|12": {
+    "starts1": [
+     "rv10_partial90__sadj"
+    ],
+    "starts3": [
+     "rv10_partial90__sadj"
+    ],
+    "changed": false,
+    "order_only": false,
+    "K1": {
+     "K": 4
+    },
+    "K3": {
+     "K": 4
+    },
+    "confirmatory": true
+   },
+   "LEGACY|13": {
+    "starts1": [
+     "rv10_partial90__sadj"
+    ],
+    "starts3": [
+     "rv10_partial90__sadj"
+    ],
+    "changed": false,
+    "order_only": false,
+    "K1": {
+     "K": 4
+    },
+    "K3": {
+     "K": 4
+    },
+    "confirmatory": true
+   },
+   "LEGACY|14": {
+    "starts1": [
+     "rv10_partial90__sadj"
+    ],
+    "starts3": [
+     "rv10_partial90__sadj"
+    ],
+    "changed": false,
+    "order_only": false,
+    "K1": {
+     "K": 4
+    },
+    "K3": {
+     "K": 4
+    },
+    "confirmatory": true
+   },
+   "LEGACY|15": {
+    "starts1": [
+     "rv10_partial90__sadj"
+    ],
+    "starts3": [
+     "rv10_partial90__sadj"
+    ],
+    "changed": false,
+    "order_only": false,
+    "K1": {
+     "K": 4
+    },
+    "K3": {
+     "K": 4
+    },
+    "confirmatory": true
+   },
+   "LEGACY|16": {
+    "starts1": [
+     "rv10_partial90__sadj"
+    ],
+    "starts3": [
+     "rv10_partial90__sadj"
+    ],
+    "changed": false,
+    "order_only": false,
+    "K1": {
+     "K": 4
+    },
+    "K3": {
+     "K": 4
+    },
+    "confirmatory": true
+   },
+   "LEGACY|17": {
+    "starts1": [],
+    "starts3": [],
+    "changed": false,
+    "order_only": false,
+    "K1": {
+     "K": 3
+    },
+    "K3": {
+     "K": 3
+    },
+    "confirmatory": true
+   },
+   "LEGACY|18": {
+    "starts1": [
+     "rv10_partial90__sadj"
+    ],
+    "starts3": [
+     "rv10_partial90__sadj"
+    ],
+    "changed": false,
+    "order_only": false,
+    "K1": {
+     "K": 4
+    },
+    "K3": {
+     "K": 4
+    },
+    "confirmatory": true
+   },
+   "LEGACY|19": {
+    "starts1": [
+     "rv10_partial90__sadj",
+     "intrabar_range_log__sadj"
+    ],
+    "starts3": [
+     "rv10_partial90__sadj",
+     "intrabar_range_log__sadj"
+    ],
+    "changed": false,
+    "order_only": false,
+    "K1": {
+     "K": 4
+    },
+    "K3": {
+     "K": 4
+    },
+    "confirmatory": true
+   },
+   "LEGACY|20": {
+    "starts1": [
+     "relative_volume20"
+    ],
+    "starts3": [],
+    "changed": true,
+    "order_only": false,
+    "K1": {
+     "K": 4
+    },
+    "K3": {
+     "K": 3
+    },
+    "confirmatory": true
+   },
+   "LEGACY|21": {
+    "starts1": [
+     "rv10_partial90__sadj",
+     "relative_volume20"
+    ],
+    "starts3": [
+     "rv10_partial90__sadj",
+     "relative_volume20"
+    ],
+    "changed": false,
+    "order_only": false,
+    "K1": {
+     "K": 4
+    },
+    "K3": {
+     "K": 4
+    },
+    "confirmatory": true
+   },
+   "LEGACY|22": {
+    "starts1": [
+     "rv10_partial90__sadj"
+    ],
+    "starts3": [
+     "rv10_partial90__sadj"
+    ],
+    "changed": false,
+    "order_only": false,
+    "K1": {
+     "K": 4
+    },
+    "K3": {
+     "K": 4
+    },
+    "confirmatory": true
+   },
+   "LEGACY|23": {
+    "starts1": [],
+    "starts3": [],
+    "changed": false,
+    "order_only": false,
+    "K1": {
+     "K": 4
+    },
+    "K3": {
+     "K": 4
+    },
+    "confirmatory": false
+   },
+   "LEGACY|24": {
+    "starts1": [
+     "rv10_partial90__sadj"
+    ],
+    "starts3": [
+     "rv10_partial90__sadj"
+    ],
+    "changed": false,
+    "order_only": false,
+    "K1": {
+     "K": 4
+    },
+    "K3": {
+     "K": 4
+    },
+    "confirmatory": false
+   },
+   "LEGACY|25": {
+    "starts1": [],
+    "starts3": [],
+    "changed": false,
+    "order_only": false,
+    "K1": {
+     "K": 3
+    },
+    "K3": {
+     "K": 3
+    },
+    "confirmatory": true
+   },
+   "LEGACY|26": {
+    "starts1": [
+     "rv10_partial90__sadj",
+     "relative_volume20"
+    ],
+    "starts3": [
+     "rv10_partial90__sadj",
+     "relative_volume20"
+    ],
+    "changed": false,
+    "order_only": false,
+    "K1": {
+     "K": 4
+    },
+    "K3": {
+     "K": 4
+    },
+    "confirmatory": true
+   },
+   "LEGACY|27": {
+    "starts1": [
+     "rv10_partial90__sadj"
+    ],
+    "starts3": [
+     "rv10_partial90__sadj"
+    ],
+    "changed": false,
+    "order_only": false,
+    "K1": {
+     "K": 4
+    },
+    "K3": {
+     "K": 4
+    },
+    "confirmatory": false
+   },
+   "LEGACY|28": {
+    "starts1": [
+     "intrabar_range_log__sadj",
+     "rv10_partial90__sadj"
+    ],
+    "starts3": [
+     "intrabar_range_log__sadj",
+     "rv10_partial90__sadj"
+    ],
+    "changed": false,
+    "order_only": false,
+    "K1": {
+     "K": 3
+    },
+    "K3": {
+     "K": 3
+    },
+    "confirmatory": false
+   },
+   "LEGACY|29": {
+    "starts1": [
+     "rv10_partial90__sadj"
+    ],
+    "starts3": [
+     "rv10_partial90__sadj"
+    ],
+    "changed": false,
+    "order_only": false,
+    "K1": {
+     "K": 4
+    },
+    "K3": {
+     "K": 4
+    },
+    "confirmatory": false
+   },
+   "RAW|0": {
+    "starts1": [
+     "intrabar_range_log__sadj"
+    ],
+    "starts3": [
+     "intrabar_range_log__sadj"
+    ],
+    "changed": false,
+    "order_only": false,
+    "K1": {
+     "K": 4
+    },
+    "K3": {
+     "K": 4
+    },
+    "confirmatory": true
+   },
+   "RAW|1": {
+    "starts1": [
+     "rv10_partial90__sadj"
+    ],
+    "starts3": [
+     "rv10_partial90__sadj"
+    ],
+    "changed": false,
+    "order_only": false,
+    "K1": {
+     "K": 4
+    },
+    "K3": {
+     "K": 4
+    },
+    "confirmatory": false
+   },
+   "RAW|2": {
+    "starts1": [
+     "rv10_partial90__sadj"
+    ],
+    "starts3": [
+     "rv10_partial90__sadj"
+    ],
+    "changed": false,
+    "order_only": false,
+    "K1": {
+     "K": 3
+    },
+    "K3": {
+     "K": 3
+    },
+    "confirmatory": false
+   },
+   "RAW|3": {
+    "starts1": [
+     "rv10_partial90__sadj"
+    ],
+    "starts3": [
+     "rv10_partial90__sadj"
+    ],
+    "changed": false,
+    "order_only": false,
+    "K1": {
+     "K": 4
+    },
+    "K3": {
+     "K": 4
+    },
+    "confirmatory": false
+   }
+  },
+  "student_t_hmm": {
+   "LEGACY|0": {
+    "starts1": [
+     "rv10_partial90__sadj",
+     "intrabar_range_log__sadj"
+    ],
+    "starts3": [
+     "rv10_partial90__sadj",
+     "intrabar_range_log__sadj"
+    ],
+    "changed": false,
+    "order_only": false,
+    "K1": {
+     "K": 4
+    },
+    "K3": {
+     "K": 4
+    },
+    "confirmatory": true
+   },
+   "LEGACY|1": {
+    "starts1": [
+     "rv10_partial90__sadj"
+    ],
+    "starts3": [
+     "rv10_partial90__sadj"
+    ],
+    "changed": false,
+    "order_only": false,
+    "K1": {
+     "K": 4
+    },
+    "K3": {
+     "K": 4
+    },
+    "confirmatory": true
+   },
+   "LEGACY|2": {
+    "starts1": [
+     "rv10_partial90__sadj",
+     "intrabar_range_log__sadj"
+    ],
+    "starts3": [
+     "rv10_partial90__sadj",
+     "intrabar_range_log__sadj"
+    ],
+    "changed": false,
+    "order_only": false,
+    "K1": {
+     "K": 4
+    },
+    "K3": {
+     "K": 4
+    },
+    "confirmatory": true
+   },
+   "LEGACY|3": {
+    "starts1": [
+     "rv10_partial90__sadj"
+    ],
+    "starts3": [
+     "rv10_partial90__sadj"
+    ],
+    "changed": false,
+    "order_only": false,
+    "K1": {
+     "K": 4
+    },
+    "K3": {
+     "K": 4
+    },
+    "confirmatory": true
+   },
+   "LEGACY|4": {
+    "starts1": [],
+    "starts3": [],
+    "changed": false,
+    "order_only": false,
+    "K1": {
+     "K": 3
+    },
+    "K3": {
+     "K": 3
+    },
+    "confirmatory": true
+   },
+   "LEGACY|5": {
+    "starts1": [
+     "rv10_partial90__sadj"
+    ],
+    "starts3": [
+     "rv10_partial90__sadj"
+    ],
+    "changed": false,
+    "order_only": false,
+    "K1": {
+     "K": 4
+    },
+    "K3": {
+     "K": 4
+    },
+    "confirmatory": true
+   },
+   "LEGACY|6": {
+    "starts1": [],
+    "starts3": [],
+    "changed": false,
+    "order_only": false,
+    "K1": {
+     "K": 3
+    },
+    "K3": {
+     "K": 3
+    },
+    "confirmatory": true
+   },
+   "LEGACY|7": {
+    "starts1": [],
+    "starts3": [],
+    "changed": false,
+    "order_only": false,
+    "K1": {
+     "K": 4
+    },
+    "K3": {
+     "K": 4
+    },
+    "confirmatory": true
+   },
+   "LEGACY|8": {
+    "starts1": [],
+    "starts3": [],
+    "changed": false,
+    "order_only": false,
+    "K1": {
+     "K": 3
+    },
+    "K3": {
+     "K": 3
+    },
+    "confirmatory": true
+   },
+   "LEGACY|9": {
+    "starts1": [],
+    "starts3": [],
+    "changed": false,
+    "order_only": false,
+    "K1": {
+     "K": 4
+    },
+    "K3": {
+     "K": 4
+    },
+    "confirmatory": true
+   },
+   "LEGACY|10": {
+    "starts1": [
+     "rv10_partial90__sadj",
+     "intrabar_range_log__sadj"
+    ],
+    "starts3": [
+     "rv10_partial90__sadj",
+     "intrabar_range_log__sadj"
+    ],
+    "changed": false,
+    "order_only": false,
+    "K1": {
+     "K": 4
+    },
+    "K3": {
+     "K": 4
+    },
+    "confirmatory": true
+   },
+   "LEGACY|11": {
+    "starts1": [
+     "downside5_strict__sadj"
+    ],
+    "starts3": [
+     "downside5_strict__sadj"
+    ],
+    "changed": false,
+    "order_only": false,
+    "K1": {
+     "K": 3
+    },
+    "K3": {
+     "K": 3
+    },
+    "confirmatory": true
+   },
+   "LEGACY|12": {
+    "starts1": [
+     "rv5_strict__sadj"
+    ],
+    "starts3": [
+     "rv5_strict__sadj"
+    ],
+    "changed": false,
+    "order_only": false,
+    "K1": {
+     "K": 4
+    },
+    "K3": {
+     "K": 4
+    },
+    "confirmatory": true
+   },
+   "LEGACY|13": {
+    "starts1": [
+     "intrabar_range_log__sadj"
+    ],
+    "starts3": [
+     "intrabar_range_log__sadj"
+    ],
+    "changed": false,
+    "order_only": false,
+    "K1": {
+     "K": 4
+    },
+    "K3": {
+     "K": 4
+    },
+    "confirmatory": true
+   },
+   "LEGACY|14": {
+    "starts1": [
+     "rv10_partial90__sadj"
+    ],
+    "starts3": [],
+    "changed": true,
+    "order_only": false,
+    "K1": {
+     "K": 4
+    },
+    "K3": {
+     "K": 4
+    },
+    "confirmatory": true
+   },
+   "LEGACY|15": {
+    "starts1": [],
+    "starts3": [],
+    "changed": false,
+    "order_only": false,
+    "K1": {
+     "K": 3
+    },
+    "K3": {
+     "K": 3
+    },
+    "confirmatory": true
+   },
+   "LEGACY|16": {
+    "starts1": [
+     "intrabar_range_log__sadj"
+    ],
+    "starts3": [
+     "intrabar_range_log__sadj"
+    ],
+    "changed": false,
+    "order_only": false,
+    "K1": {
+     "K": 4
+    },
+    "K3": {
+     "K": 4
+    },
+    "confirmatory": true
+   },
+   "LEGACY|17": {
+    "starts1": [],
+    "starts3": [],
+    "changed": false,
+    "order_only": false,
+    "K1": {
+     "K": 2
+    },
+    "K3": {
+     "K": 2
+    },
+    "confirmatory": true
+   },
+   "LEGACY|18": {
+    "starts1": [],
+    "starts3": [],
+    "changed": false,
+    "order_only": false,
+    "K1": {
+     "K": 4
+    },
+    "K3": {
+     "K": 4
+    },
+    "confirmatory": true
+   },
+   "LEGACY|19": {
+    "starts1": [
+     "rv10_partial90__sadj",
+     "relative_volume20"
+    ],
+    "starts3": [
+     "rv10_partial90__sadj",
+     "relative_volume20"
+    ],
+    "changed": false,
+    "order_only": false,
+    "K1": {
+     "K": 4
+    },
+    "K3": {
+     "K": 4
+    },
+    "confirmatory": true
+   },
+   "LEGACY|20": {
+    "starts1": [
+     "relative_volume20"
+    ],
+    "starts3": [
+     "relative_volume20"
+    ],
+    "changed": false,
+    "order_only": false,
+    "K1": {
+     "K": 3
+    },
+    "K3": {
+     "K": 3
+    },
+    "confirmatory": true
+   },
+   "LEGACY|21": {
+    "starts1": [],
+    "starts3": [],
+    "changed": false,
+    "order_only": false,
+    "K1": {
+     "K": 4
+    },
+    "K3": {
+     "K": 4
+    },
+    "confirmatory": true
+   },
+   "LEGACY|22": {
+    "starts1": [
+     "rv10_partial90__sadj"
+    ],
+    "starts3": [
+     "rv10_partial90__sadj"
+    ],
+    "changed": false,
+    "order_only": false,
+    "K1": {
+     "K": 4
+    },
+    "K3": {
+     "K": 4
+    },
+    "confirmatory": true
+   },
+   "LEGACY|23": {
+    "starts1": [],
+    "starts3": [],
+    "changed": false,
+    "order_only": false,
+    "K1": {
+     "K": 4
+    },
+    "K3": {
+     "K": 4
+    },
+    "confirmatory": false
+   },
+   "LEGACY|24": {
+    "starts1": [
+     "intrabar_range_log__sadj"
+    ],
+    "starts3": [],
+    "changed": true,
+    "order_only": false,
+    "K1": {
+     "K": 4
+    },
+    "K3": {
+     "K": 4
+    },
+    "confirmatory": false
+   },
+   "LEGACY|25": {
+    "starts1": [
+     "intrabar_range_log__sadj"
+    ],
+    "starts3": [],
+    "changed": true,
+    "order_only": false,
+    "K1": {
+     "K": 4
+    },
+    "K3": {
+     "K": 4
+    },
+    "confirmatory": true
+   },
+   "LEGACY|26": {
+    "starts1": [],
+    "starts3": [],
+    "changed": false,
+    "order_only": false,
+    "K1": {
+     "K": 3
+    },
+    "K3": {
+     "K": 3
+    },
+    "confirmatory": true
+   },
+   "LEGACY|27": {
+    "starts1": [],
+    "starts3": [],
+    "changed": false,
+    "order_only": false,
+    "K1": {
+     "K": 4
+    },
+    "K3": {
+     "K": 4
+    },
+    "confirmatory": false
+   },
+   "LEGACY|28": {
+    "starts1": [
+     "intrabar_range_log__sadj"
+    ],
+    "starts3": [
+     "intrabar_range_log__sadj"
+    ],
+    "changed": false,
+    "order_only": false,
+    "K1": {
+     "K": 4
+    },
+    "K3": {
+     "K": 4
+    },
+    "confirmatory": false
+   },
+   "LEGACY|29": {
+    "starts1": [
+     "rv10_partial90__sadj"
+    ],
+    "starts3": [
+     "rv10_partial90__sadj"
+    ],
+    "changed": false,
+    "order_only": false,
+    "K1": {
+     "K": 4
+    },
+    "K3": {
+     "K": 4
+    },
+    "confirmatory": false
+   },
+   "RAW|0": {
+    "starts1": [
+     "intrabar_range_log__sadj"
+    ],
+    "starts3": [
+     "intrabar_range_log__sadj"
+    ],
+    "changed": false,
+    "order_only": false,
+    "K1": {
+     "K": 3
+    },
+    "K3": {
+     "K": 3
+    },
+    "confirmatory": true
+   },
+   "RAW|1": {
+    "starts1": [
+     "rv10_partial90__sadj"
+    ],
+    "starts3": [
+     "rv10_partial90__sadj"
+    ],
+    "changed": false,
+    "order_only": false,
+    "K1": {
+     "K": 4
+    },
+    "K3": {
+     "K": 4
+    },
+    "confirmatory": false
+   },
+   "RAW|2": {
+    "starts1": [],
+    "starts3": [],
+    "changed": false,
+    "order_only": false,
+    "K1": {
+     "K": 4
+    },
+    "K3": {
+     "K": 4
+    },
+    "confirmatory": false
+   },
+   "RAW|3": {
+    "starts1": [
+     "rv10_partial90__sadj"
+    ],
+    "starts3": [
+     "rv10_partial90__sadj"
+    ],
+    "changed": false,
+    "order_only": false,
+    "K1": {
+     "K": 4
+    },
+    "K3": {
+     "K": 4
+    },
+    "confirmatory": false
+   }
+  },
+  "hsmm": {
+   "LEGACY|0": {
+    "starts1": [
+     "rv10_partial90__sadj"
+    ],
+    "starts3": [
+     "rv10_partial90__sadj"
+    ],
+    "changed": false,
+    "order_only": false,
+    "K1": {
+     "K": 3
+    },
+    "K3": {
+     "K": 3
+    },
+    "confirmatory": true
+   },
+   "LEGACY|1": {
+    "starts1": [
+     "rv10_partial90__sadj",
+     "intrabar_range_log__sadj"
+    ],
+    "starts3": [
+     "rv10_partial90__sadj",
+     "intrabar_range_log__sadj"
+    ],
+    "changed": false,
+    "order_only": false,
+    "K1": {
+     "K": 3
+    },
+    "K3": {
+     "K": 3
+    },
+    "confirmatory": true
+   },
+   "LEGACY|2": {
+    "starts1": [
+     "rv10_partial90__sadj",
+     "intrabar_range_log__sadj"
+    ],
+    "starts3": [
+     "rv10_partial90__sadj",
+     "intrabar_range_log__sadj"
+    ],
+    "changed": false,
+    "order_only": false,
+    "K1": {
+     "K": 3
+    },
+    "K3": {
+     "K": 3
+    },
+    "confirmatory": true
+   },
+   "LEGACY|3": {
+    "starts1": [
+     "rv10_partial90__sadj"
+    ],
+    "starts3": [
+     "rv10_partial90__sadj"
+    ],
+    "changed": false,
+    "order_only": false,
+    "K1": {
+     "K": 3
+    },
+    "K3": {
+     "K": 3
+    },
+    "confirmatory": true
+   },
+   "LEGACY|4": {
+    "starts1": [
+     "rv10_partial90__sadj"
+    ],
+    "starts3": [
+     "rv10_partial90__sadj"
+    ],
+    "changed": false,
+    "order_only": false,
+    "K1": {
+     "K": 3
+    },
+    "K3": {
+     "K": 3
+    },
+    "confirmatory": true
+   },
+   "LEGACY|5": {
+    "starts1": [
+     "rv10_partial90__sadj"
+    ],
+    "starts3": [
+     "rv10_partial90__sadj"
+    ],
+    "changed": false,
+    "order_only": false,
+    "K1": {
+     "K": 3
+    },
+    "K3": {
+     "K": 3
+    },
+    "confirmatory": true
+   },
+   "LEGACY|6": {
+    "starts1": [
+     "rv10_partial90__sadj"
+    ],
+    "starts3": [
+     "rv10_partial90__sadj"
+    ],
+    "changed": false,
+    "order_only": false,
+    "K1": {
+     "K": 3
+    },
+    "K3": {
+     "K": 3
+    },
+    "confirmatory": true
+   },
+   "LEGACY|7": {
+    "starts1": [
+     "rv10_partial90__sadj"
+    ],
+    "starts3": [
+     "rv10_partial90__sadj"
+    ],
+    "changed": false,
+    "order_only": false,
+    "K1": {
+     "K": 3
+    },
+    "K3": {
+     "K": 3
+    },
+    "confirmatory": true
+   },
+   "LEGACY|8": {
+    "starts1": [
+     "rv10_partial90__sadj"
+    ],
+    "starts3": [
+     "rv10_partial90__sadj"
+    ],
+    "changed": false,
+    "order_only": false,
+    "K1": {
+     "K": 3
+    },
+    "K3": {
+     "K": 3
+    },
+    "confirmatory": true
+   },
+   "LEGACY|9": {
+    "starts1": [
+     "rv10_partial90__sadj"
+    ],
+    "starts3": [
+     "rv10_partial90__sadj"
+    ],
+    "changed": false,
+    "order_only": false,
+    "K1": {
+     "K": 3
+    },
+    "K3": {
+     "K": 3
+    },
+    "confirmatory": true
+   },
+   "LEGACY|10": {
+    "starts1": [
+     "rv10_partial90__sadj",
+     "intrabar_range_log__sadj"
+    ],
+    "starts3": [
+     "rv10_partial90__sadj",
+     "intrabar_range_log__sadj"
+    ],
+    "changed": false,
+    "order_only": false,
+    "K1": {
+     "K": 3
+    },
+    "K3": {
+     "K": 3
+    },
+    "confirmatory": true
+   },
+   "LEGACY|11": {
+    "starts1": [
+     "rv10_partial90__sadj",
+     "momentum30_endpoint"
+    ],
+    "starts3": [
+     "rv10_partial90__sadj",
+     "momentum30_endpoint"
+    ],
+    "changed": false,
+    "order_only": false,
+    "K1": {
+     "K": 3
+    },
+    "K3": {
+     "K": 3
+    },
+    "confirmatory": true
+   },
+   "LEGACY|12": {
+    "starts1": [
+     "rv10_partial90__sadj"
+    ],
+    "starts3": [
+     "rv10_partial90__sadj"
+    ],
+    "changed": false,
+    "order_only": false,
+    "K1": {
+     "K": 3
+    },
+    "K3": {
+     "K": 3
+    },
+    "confirmatory": true
+   },
+   "LEGACY|13": {
+    "starts1": [
+     "rv10_partial90__sadj"
+    ],
+    "starts3": [
+     "rv10_partial90__sadj"
+    ],
+    "changed": false,
+    "order_only": false,
+    "K1": {
+     "K": 3
+    },
+    "K3": {
+     "K": 3
+    },
+    "confirmatory": true
+   },
+   "LEGACY|14": {
+    "starts1": [
+     "rv10_partial90__sadj"
+    ],
+    "starts3": [
+     "rv10_partial90__sadj"
+    ],
+    "changed": false,
+    "order_only": false,
+    "K1": {
+     "K": 3
+    },
+    "K3": {
+     "K": 3
+    },
+    "confirmatory": true
+   },
+   "LEGACY|15": {
+    "starts1": [
+     "rv10_partial90__sadj"
+    ],
+    "starts3": [
+     "rv10_partial90__sadj"
+    ],
+    "changed": false,
+    "order_only": false,
+    "K1": {
+     "K": 3
+    },
+    "K3": {
+     "K": 3
+    },
+    "confirmatory": true
+   },
+   "LEGACY|16": {
+    "starts1": [
+     "rv10_partial90__sadj"
+    ],
+    "starts3": [
+     "rv10_partial90__sadj"
+    ],
+    "changed": false,
+    "order_only": false,
+    "K1": {
+     "K": 3
+    },
+    "K3": {
+     "K": 3
+    },
+    "confirmatory": true
+   },
+   "LEGACY|17": {
+    "starts1": [
+     "downside5_strict__sadj"
+    ],
+    "starts3": [
+     "downside5_strict__sadj"
+    ],
+    "changed": false,
+    "order_only": false,
+    "K1": {
+     "K": 2
+    },
+    "K3": {
+     "K": 2
+    },
+    "confirmatory": true
+   },
+   "LEGACY|18": {
+    "starts1": [
+     "rv10_partial90__sadj"
+    ],
+    "starts3": [
+     "rv10_partial90__sadj"
+    ],
+    "changed": false,
+    "order_only": false,
+    "K1": {
+     "K": 3
+    },
+    "K3": {
+     "K": 3
+    },
+    "confirmatory": true
+   },
+   "LEGACY|19": {
+    "starts1": [
+     "rv10_partial90__sadj",
+     "intrabar_range_log__sadj"
+    ],
+    "starts3": [
+     "rv10_partial90__sadj",
+     "intrabar_range_log__sadj"
+    ],
+    "changed": false,
+    "order_only": false,
+    "K1": {
+     "K": 3
+    },
+    "K3": {
+     "K": 3
+    },
+    "confirmatory": true
+   },
+   "LEGACY|20": {
+    "starts1": [
+     "relative_volume20",
+     "rv5_strict__sadj"
+    ],
+    "starts3": [
+     "relative_volume20",
+     "rv5_strict__sadj"
+    ],
+    "changed": false,
+    "order_only": false,
+    "K1": {
+     "K": 3
+    },
+    "K3": {
+     "K": 3
+    },
+    "confirmatory": true
+   },
+   "LEGACY|21": {
+    "starts1": [
+     "rv10_partial90__sadj",
+     "relative_volume20"
+    ],
+    "starts3": [
+     "rv10_partial90__sadj",
+     "relative_volume20"
+    ],
+    "changed": false,
+    "order_only": false,
+    "K1": {
+     "K": 3
+    },
+    "K3": {
+     "K": 3
+    },
+    "confirmatory": true
+   },
+   "LEGACY|22": {
+    "starts1": [
+     "rv10_partial90__sadj"
+    ],
+    "starts3": [
+     "rv10_partial90__sadj"
+    ],
+    "changed": false,
+    "order_only": false,
+    "K1": {
+     "K": 3
+    },
+    "K3": {
+     "K": 3
+    },
+    "confirmatory": true
+   },
+   "LEGACY|23": {
+    "starts1": [
+     "rv10_partial90__sadj"
+    ],
+    "starts3": [
+     "rv10_partial90__sadj"
+    ],
+    "changed": false,
+    "order_only": false,
+    "K1": {
+     "K": 3
+    },
+    "K3": {
+     "K": 3
+    },
+    "confirmatory": false
+   },
+   "LEGACY|24": {
+    "starts1": [
+     "rv10_partial90__sadj"
+    ],
+    "starts3": [
+     "rv10_partial90__sadj"
+    ],
+    "changed": false,
+    "order_only": false,
+    "K1": {
+     "K": 3
+    },
+    "K3": {
+     "K": 3
+    },
+    "confirmatory": false
+   },
+   "LEGACY|25": {
+    "starts1": [
+     "intrabar_range_log__sadj"
+    ],
+    "starts3": [
+     "intrabar_range_log__sadj"
+    ],
+    "changed": false,
+    "order_only": false,
+    "K1": {
+     "K": 3
+    },
+    "K3": {
+     "K": 3
+    },
+    "confirmatory": true
+   },
+   "LEGACY|26": {
+    "starts1": [
+     "rv10_partial90__sadj",
+     "relative_volume20"
+    ],
+    "starts3": [
+     "rv10_partial90__sadj",
+     "relative_volume20"
+    ],
+    "changed": false,
+    "order_only": false,
+    "K1": {
+     "K": 3
+    },
+    "K3": {
+     "K": 3
+    },
+    "confirmatory": true
+   },
+   "LEGACY|27": {
+    "starts1": [
+     "rv10_partial90__sadj"
+    ],
+    "starts3": [
+     "rv10_partial90__sadj"
+    ],
+    "changed": false,
+    "order_only": false,
+    "K1": {
+     "K": 3
+    },
+    "K3": {
+     "K": 3
+    },
+    "confirmatory": false
+   },
+   "LEGACY|28": {
+    "starts1": [
+     "intrabar_range_log__sadj",
+     "rv10_partial90__sadj"
+    ],
+    "starts3": [
+     "intrabar_range_log__sadj",
+     "rv10_partial90__sadj"
+    ],
+    "changed": false,
+    "order_only": false,
+    "K1": {
+     "K": 3
+    },
+    "K3": {
+     "K": 3
+    },
+    "confirmatory": false
+   },
+   "LEGACY|29": {
+    "starts1": [
+     "rv10_partial90__sadj"
+    ],
+    "starts3": [
+     "rv10_partial90__sadj"
+    ],
+    "changed": false,
+    "order_only": false,
+    "K1": {
+     "K": 3
+    },
+    "K3": {
+     "K": 3
+    },
+    "confirmatory": false
+   },
+   "RAW|0": {
+    "starts1": [
+     "intrabar_range_log__sadj"
+    ],
+    "starts3": [
+     "intrabar_range_log__sadj"
+    ],
+    "changed": false,
+    "order_only": false,
+    "K1": {
+     "K": 3
+    },
+    "K3": {
+     "K": 3
+    },
+    "confirmatory": true
+   },
+   "RAW|1": {
+    "starts1": [
+     "rv10_partial90__sadj"
+    ],
+    "starts3": [
+     "rv10_partial90__sadj"
+    ],
+    "changed": false,
+    "order_only": false,
+    "K1": {
+     "K": 3
+    },
+    "K3": {
+     "K": 3
+    },
+    "confirmatory": false
+   },
+   "RAW|2": {
+    "starts1": [
+     "rv10_partial90__sadj"
+    ],
+    "starts3": [
+     "rv10_partial90__sadj"
+    ],
+    "changed": false,
+    "order_only": false,
+    "K1": {
+     "K": 3
+    },
+    "K3": {
+     "K": 3
+    },
+    "confirmatory": false
+   },
+   "RAW|3": {
+    "starts1": [
+     "rv10_partial90__sadj"
+    ],
+    "starts3": [
+     "rv10_partial90__sadj"
+    ],
+    "changed": false,
+    "order_only": false,
+    "K1": {
+     "K": 3
+    },
+    "K3": {
+     "K": 3
+    },
+    "confirmatory": false
+   }
+  }
+ },
+ "n_changed": {
+  "gaussian_hmm": 1,
+  "student_t_hmm": 3,
+  "hsmm": 0
+ },
+ "n_changed_set_not_order": {
+  "gaussian_hmm": 1,
+  "student_t_hmm": 3,
+  "hsmm": 0
+ },
+ "final_setups": {
+  "LEGACY": {
+   "gaussian_hmm": {
+    "mr2": {
+     "n_features": 1,
+     "features": [
+      "rv10_partial90__sadj"
+     ],
+     "params": {
+      "K": 4
+     },
+     "frequency": {
+      "intrabar_range_log__sadj": 4,
+      "relative_volume20": 3,
+      "rv10_partial90__sadj": 23,
+      "rv5_strict__sadj": 1
+     },
+     "base_params": {
+      "K": 4
+     }
+    },
+    "starts3": {
+     "n_features": 1,
+     "features": [
+      "rv10_partial90__sadj"
+     ],
+     "params": {
+      "K": 4
+     },
+     "frequency": {
+      "intrabar_range_log__sadj": 4,
+      "relative_volume20": 2,
+      "rv10_partial90__sadj": 23,
+      "rv5_strict__sadj": 1
+     },
+     "base_params": {
+      "K": 4
+     }
+    },
+    "features_same": true,
+    "params_same": true
+   },
+   "student_t_hmm": {
+    "mr2": {
+     "n_features": 1,
+     "features": [
+      "rv10_partial90__sadj"
+     ],
+     "params": {
+      "K": 4
+     },
+     "frequency": {
+      "downside5_strict__sadj": 1,
+      "intrabar_range_log__sadj": 8,
+      "relative_volume20": 2,
+      "rv10_partial90__sadj": 10,
+      "rv5_strict__sadj": 1
+     },
+     "base_params": {
+      "K": 4
+     }
+    },
+    "starts3": {
+     "n_features": 1,
+     "features": [
+      "rv10_partial90__sadj"
+     ],
+     "params": {
+      "K": 4
+     },
+     "frequency": {
+      "downside5_strict__sadj": 1,
+      "intrabar_range_log__sadj": 6,
+      "relative_volume20": 2,
+      "rv10_partial90__sadj": 9,
+      "rv5_strict__sadj": 1
+     },
+     "base_params": {
+      "K": 4
+     }
+    },
+    "features_same": true,
+    "params_same": true
+   },
+   "hsmm": {
+    "mr2": {
+     "n_features": 1,
+     "features": [
+      "rv10_partial90__sadj"
+     ],
+     "params": {
+      "K": 3
+     },
+     "frequency": {
+      "downside5_strict__sadj": 1,
+      "intrabar_range_log__sadj": 6,
+      "momentum30_endpoint": 1,
+      "relative_volume20": 3,
+      "rv10_partial90__sadj": 27,
+      "rv5_strict__sadj": 1
+     },
+     "base_params": {
+      "K": 3
+     }
+    },
+    "starts3": {
+     "n_features": 1,
+     "features": [
+      "rv10_partial90__sadj"
+     ],
+     "params": {
+      "K": 3
+     },
+     "frequency": {
+      "downside5_strict__sadj": 1,
+      "intrabar_range_log__sadj": 6,
+      "momentum30_endpoint": 1,
+      "relative_volume20": 3,
+      "rv10_partial90__sadj": 27,
+      "rv5_strict__sadj": 1
+     },
+     "base_params": {
+      "K": 3
+     }
+    },
+    "features_same": true,
+    "params_same": true
+   }
+  },
+  "RAW": {
+   "gaussian_hmm": {
+    "mr2": {
+     "n_features": 1,
+     "features": [
+      "rv10_partial90__sadj"
+     ],
+     "params": {
+      "K": 4
+     },
+     "frequency": {
+      "intrabar_range_log__sadj": 1,
+      "rv10_partial90__sadj": 3
+     },
+     "base_params": {
+      "K": 4
+     }
+    },
+    "starts3": {
+     "n_features": 1,
+     "features": [
+      "rv10_partial90__sadj"
+     ],
+     "params": {
+      "K": 4
+     },
+     "frequency": {
+      "intrabar_range_log__sadj": 1,
+      "rv10_partial90__sadj": 3
+     },
+     "base_params": {
+      "K": 4
+     }
+    },
+    "features_same": true,
+    "params_same": true
+   },
+   "student_t_hmm": {
+    "mr2": {
+     "n_features": 1,
+     "features": [
+      "rv10_partial90__sadj"
+     ],
+     "params": {
+      "K": 4
+     },
+     "frequency": {
+      "intrabar_range_log__sadj": 1,
+      "rv10_partial90__sadj": 2
+     },
+     "base_params": {
+      "K": 4
+     }
+    },
+    "starts3": {
+     "n_features": 1,
+     "features": [
+      "rv10_partial90__sadj"
+     ],
+     "params": {
+      "K": 4
+     },
+     "frequency": {
+      "intrabar_range_log__sadj": 1,
+      "rv10_partial90__sadj": 2
+     },
+     "base_params": {
+      "K": 4
+     }
+    },
+    "features_same": true,
+    "params_same": true
+   },
+   "hsmm": {
+    "mr2": {
+     "n_features": 1,
+     "features": [
+      "rv10_partial90__sadj"
+     ],
+     "params": {
+      "K": 3
+     },
+     "frequency": {
+      "intrabar_range_log__sadj": 1,
+      "rv10_partial90__sadj": 3
+     },
+     "base_params": {
+      "K": 3
+     }
+    },
+    "starts3": {
+     "n_features": 1,
+     "features": [
+      "rv10_partial90__sadj"
+     ],
+     "params": {
+      "K": 3
+     },
+     "frequency": {
+      "intrabar_range_log__sadj": 1,
+      "rv10_partial90__sadj": 3
+     },
+     "base_params": {
+      "K": 3
+     }
+    },
+    "features_same": true,
+    "params_same": true
+   }
+  }
+ },
+ "freeze_features": {
+  "LEGACY": {
+   "gaussian_hmm": [
+    "rv10_partial90__sadj"
+   ],
+   "student_t_hmm": [
+    "rv10_partial90__sadj"
+   ],
+   "hsmm": [
+    "rv10_partial90__sadj"
+   ]
+  },
+  "RAW": {
+   "gaussian_hmm": [
+    "rv10_partial90__sadj"
+   ],
+   "student_t_hmm": [
+    "rv10_partial90__sadj"
+   ],
+   "hsmm": [
+    "rv10_partial90__sadj"
+   ]
+  }
+ },
+ "minutes": 548.315896375974,
+ "generated": "2026-11-15T03:51:58.962652+00:00"
+}

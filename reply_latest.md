@@ -1,3 +1,41 @@
+# Post-hoc block, 2026-11-14 22:52 New York: 3-start feature-selection sensitivity (POST HOC; descriptive)
+
+**POST HOC.** This was run after the 5.12 freeze and the evaluation. It changes no frozen, MR2 or evaluation result. The script, `diagnostics/mr2_starts3_sensitivity.py`, was hashed in the ledger before the run (row of 2026-11-14 02:08:19Z).
+
+**Question (your order of 2026-11-13).** Does the 1-start rule of the 5.8 forward selection drive which features are selected?
+
+**What was run.** The MR2 greedy forward selection was rerun with 3 k-means++ starts per fit (seed 0, starts 0-2) instead of 1:
+- on all 34 development folds, for the Gaussian HMM, Student-t HMM and HSMM (102 fold-family units);
+- K re-tuned only where the selected set changed;
+- development data only (inner train and validation).
+
+**Checks.**
+- Every unit's 1-start returns-only validation QLIKE equalled the MR2 trace exactly.
+- The feature caches were unchanged.
+- `final_setup` on the MR2 fold setups reproduced `main_run_2/run_summary.json` for every era and family.
+- 548 minutes, 2 workers.
+
+**Result 1: the era final setups don't change.** All 6 era-family cells are identical to the freeze: `rv10_partial90__sadj`, with K = 4 for the Gaussian HMM and Student-t HMM and K = 3 for the HSMM, in both eras.
+
+**Result 2: 4 of 102 fold selections change.** All are in LEGACY, and in every case 3 starts select *no* feature where 1 start selected one:
+
+| Family | Fold | 1 start | 3 starts | Fold type |
+|---|---|---|---|---|
+| Gaussian HMM | LEGACY 20 | `relative_volume20`, K 4 | none (returns only), K 3 | confirmatory |
+| Student-t HMM | LEGACY 14 | `rv10_partial90__sadj`, K 4 | none, K 4 | confirmatory |
+| Student-t HMM | LEGACY 24 | `intrabar_range_log__sadj`, K 4 | none, K 4 | contaminated |
+| Student-t HMM | LEGACY 25 | `intrabar_range_log__sadj`, K 4 | none, K 4 | confirmatory |
+
+The HSMM didn't change in any fold, and no RAW fold changed in any family.
+
+**Reading.** At the era level, the 1-start rule doesn't drive the selection. At the fold level, a single local optimum occasionally made a marginal feature look worth adding (the 1% gain rule); with 3 starts, the returns-only model fits about as well. The confirmatory H1 results were computed on the MR2 (1-start) setups, as pre-registered, and are not recomputed here.
+
+**Files.**
+- `section5/results/posthoc_mr2_starts3.json` (sha256 `cfe664828cc8179e3706d7bf026c3c843105fae717733da27066de8d9a92ef9a`), with its sidecar;
+- per-unit files `section5/results/posthoc_mr2_starts3/units/` (hashes in the result file);
+- log `section5/results/posthoc_mr2_starts3/log.txt`;
+- ledger result row of 2026-11-14.
+
 # Report, 2026-11-12 21:00 New York: audit corrections, post-evaluation queue, Bloomberg comparison
 
 ## Bottom line
