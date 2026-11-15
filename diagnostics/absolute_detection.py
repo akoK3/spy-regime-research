@@ -184,7 +184,7 @@ def combine():
                code_version=G.code_version(), script_sha256=sha(__file__), units_sha256={p.name: sha(p) for p in files}, development=dev, development_realised_test_alarm_rates=rates,
                development_fomc=fomc, evaluation=ev, minutes=sum(u.get("minutes", 0) for u in us), generated=datetime.datetime.now(datetime.timezone.utc).isoformat())
     FINAL.write_text(json.dumps(res, indent=1, default=float), encoding="utf-8"); FINAL.with_suffix(".sha256").write_text(f"{sha(FINAL)}  {FINAL.name}\n", encoding="ascii")
-    TABLES.write_text(tables(res), encoding="utf-8"); TABLES.with_suffix(".sha256").write_text(f"{sha(TABLES)}  {TABLES.name}\n", encoding="ascii")
+    TABLES.write_text(tables(res), encoding="utf-8"); TABLES.with_name(TABLES.name + ".sha256").write_text(f"{sha(TABLES)}  {TABLES.name}\n", encoding="ascii")
     print(TABLES.read_text(encoding="utf-8")); return 0
 
 
