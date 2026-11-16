@@ -1,0 +1,31 @@
+{
+ "fig1_h1a_pauc_gain": {
+  "section5/results/main_run_2/run_summary.json": "a1c69277213a3ff8ee827994620b70d1ff91eaa1ab7a4aa682114077807348fc",
+  "section5/results/main_run_2/run_complete.json": "19812f9f619f029b949bdc9e123c78007a4e71bf668f214569a5bbe12577079a",
+  "section5/results/evaluation_LEGACY.json": "211e876e36030846c2d27add537f6a034aeb0f78de0639c6b8fba5c2f2706d63",
+  "section5/results/evaluation_RAW.json": "1159e8aad0ff022fe1e0544ae6dc12bf1720f50960955cab4061698644054051"
+ },
+ "fig2_fomc_hit_rates": {
+  "section5/results/mr2/a17/a17_results.json": "9c8d29f150f9668701bba0080458b9291740e17c404c8dd164f7cc196beb07d4",
+  "section5/results/evaluation_LEGACY.json": "211e876e36030846c2d27add537f6a034aeb0f78de0639c6b8fba5c2f2706d63",
+  "section5/results/evaluation_RAW.json": "1159e8aad0ff022fe1e0544ae6dc12bf1720f50960955cab4061698644054051"
+ },
+ "fig3_detection_by_break_size": {
+  "section5/results/posthoc_absolute_detection.json": "218bfc5e431cc13de303f412d1d016fcc1219b6a524ce6f6abf5f846ed291c52"
+ },
+ "fig4_h3_gamma": {
+  "section6/results/s6_development_gaussian_hmm.json": "831c8ec5972e8f39a6112b75e9c72b439c8a6f096c20ded26895518fe0a1207e",
+  "section6/results/s6_development_hsmm.json": "504a22ebbfb48805b06630c171bda271b6fd719129642eb09f6a05833be02ba8",
+  "section6/results/s6_evaluation_gaussian_hmm.json": "76f4d16a1016fc6f8b3a89a00ab66aedada6064ef7b8a11c99b95e89632d49e7",
+  "section6/results/posthoc/h3_ci_a29_3b.json": "b9b6ab50d9fb976793d0760515a097970d8309f64ee7370c3ba0dd81f6f1260f"
+ },
+ "fig5_a30_timing": {
+  "section6/results/s6_development_gaussian_hmm.json": "831c8ec5972e8f39a6112b75e9c72b439c8a6f096c20ded26895518fe0a1207e",
+  "section6/results/s6_evaluation_gaussian_hmm.json": "76f4d16a1016fc6f8b3a89a00ab66aedada6064ef7b8a11c99b95e89632d49e7"
+ },
+ "fig6_seasonality": {
+  "section5/results/session_bars.json": "e86300302c5c1b18435684f902573729076358c3eb772a44b85c596d400d8ab6",
+  "section5/cache/LEGACY_features.npz": "4e130a78dfad6151529e5ae48e862822a6b00abbad2f2e45364a17dd3963ddff",
+  "section5/cache/RAW_features.npz": "f18b696f129277b3631ffb0c9c91c48eb9b505813395d8a71bc0c9ef868f442b"
+ }
+}
