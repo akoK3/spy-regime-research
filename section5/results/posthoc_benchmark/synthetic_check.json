@@ -1,0 +1,59 @@
+{
+ "label": "POST HOC benchmark: synthetic checks (simulated data only)",
+ "checks": {
+  "B1": {
+   "threshold": {
+    "threshold": 0.4169921875,
+    "info": "ok",
+    "validation_rate": 0.2,
+    "n_val": 300
+   },
+   "null_test_alarm_rate": 0.16,
+   "hit60_ratio3": 0.37333333333333335,
+   "hit60_ratio10": 0.9133333333333333,
+   "hit60_null_placebo": 0.03,
+   "pass_rate": true,
+   "pass_detect": true
+  },
+  "B1b": {
+   "threshold": {
+    "threshold": 1.30126953125,
+    "info": "ok",
+    "validation_rate": 0.2,
+    "n_val": 300
+   },
+   "null_test_alarm_rate": 0.21333333333333335,
+   "hit60_ratio3": 0.9833333333333333,
+   "hit60_ratio10": 1.0,
+   "hit60_null_placebo": 0.03,
+   "pass_rate": true,
+   "pass_detect": true
+  },
+  "machinery_equivalence": {
+   "sweep_vs_loop_counts": true,
+   "sweep_vs_loop_hits": true,
+   "loop_vs_detect_old_state_logodds": true,
+   "sweep_vs_sweep_old_state": true,
+   "thresholds": 81,
+   "embedded_thresholds": 31,
+   "sessions": 300
+  },
+  "har_ols": {
+   "beta": [
+    0.0994180146266421,
+    0.4003989577994955,
+    0.3001069052708468,
+    0.19984133877862634
+   ],
+   "true": [
+    0.1,
+    0.4,
+    0.3,
+    0.2
+   ],
+   "passed": true
+  }
+ },
+ "passed": true,
+ "script_sha256": "1367986b9c386bb07ceffd91fd569bf0f955fc93867e651956aae870111e89f0"
+}

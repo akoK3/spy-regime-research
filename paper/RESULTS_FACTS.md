@@ -8,7 +8,7 @@
   - H1(a): pAUC of the feature model minus pAUC of the returns-only baseline, on synthetic splices of stable test days.
   - H1(b): mean QLIKE of the baseline minus mean QLIKE of the feature model (next 60 min).
   - H1(c): FOMC hit rate of the feature model minus that of the baseline, in [release, release + 60 min].
-- **Development p-values.** p = 0.0001 is the floor of the block bootstrap with 9,999 resamples. "p_IU" is the intersection-union p, the larger of the H1(a) and H1(b) p-values. Holm is applied over G, T and H (m = 3); BOCPD is outside Holm.
+- **Development p-values.** p = 0.0001 is the floor of the block bootstrap with 10,000 resamples (add-one correction: 1/10,001; `section5/s5_run.py:56`, `s5_stats.py:18`). "p_IU" is the intersection-union p, the larger of the H1(a) and H1(b) p-values. Holm is applied over G, T and H (m = 3); BOCPD is outside Holm.
 - **Development folds.**
   - 34 folds: LEGACY 0–29 and RAW 0–3.
   - 8 are contaminated and excluded from the confirmatory tests: LEGACY 23, 24, 27, 28, 29 and RAW 1, 2, 3.

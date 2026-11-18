@@ -126,14 +126,14 @@ Earlier rehearsal (development data, temporary folder): full dress rehearsal fre
 
 ## 7a. Notes from the post-evaluation audit (`POST_EVAL_AUDIT.md`, 2026-11-13)
 
-- **Allowed evaluation reads: 3 per era, by design.** `section5/results/eval_access_log.txt` has 10 ALLOWED lines and no REFUSED lines. Per era there is:
+- **Allowed evaluation reads: 3 per era, by design.** `section5/results/eval_access_log.txt` had 8 ALLOWED lines and no REFUSED lines before the Bloomberg read (6 for the two eras plus 2 for A38). Per era there is:
   - one 5.13 read (SPY panel and ETF file, evaluation span; A36 4a);
   - one Section 6 coverage read (`section6/s6_eval.py` `coverage`, line 72; A36 6a; runs only while `coverage_evaluation.json` does not exist);
   - one Section 6 data read (`eval_era`, line 88; A36 4b).
 
   A38 has one Raw read and one Clean read. No read was repeated.
 
-  **Later read, after all evaluation results.** One further ALLOWED RAW read is logged at 2026-11-13 01:45:42Z (Section 6 guard; SPY and HYG return columns). It is the post-evaluation Bloomberg data check (`diagnostics/bloomberg_compare.py`, hashed in the ledger before the run; output `section5/results/bloomberg_comparison.json`). It changes no result. The log now has 11 ALLOWED lines and still no REFUSED line.
+  **Later read, after all evaluation results.** One further ALLOWED RAW read is logged at 2026-11-13 01:45:42Z (Section 6 guard; SPY and HYG return columns). It is the post-evaluation Bloomberg data check (`diagnostics/bloomberg_compare.py`, hashed in the ledger before the run; output `section5/results/bloomberg_comparison.json`). It changes no result. The log now has 9 ALLOWED lines and still no REFUSED line.
 - **How the 5.13 files are linked to the freeze.** `evaluation_LEGACY.json` and `evaluation_RAW.json` do not record the freeze hash or the code version themselves. They are linked to the freeze in two ways:
   - the one-shot markers `evaluation_{LEGACY,RAW}_RAN.marker` contain the freeze SHA-256;
   - each family's `model_sha256` in the 5.13 files equals a frozen-model hash recorded in the freeze (all 8 present in `frozen_models/`).
