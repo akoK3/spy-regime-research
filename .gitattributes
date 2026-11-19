@@ -1,0 +1,4 @@
+# Check out every file byte-for-byte as committed, on every platform and git config.
+# Many files are identified by SHA-256 (sidecars, freeze, ledger); line-ending conversion (core.autocrlf=true,
+# the Git for Windows default) would change their bytes and make the hash guards refuse to run.
+* -text

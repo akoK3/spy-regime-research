@@ -415,11 +415,13 @@
 !/section6/results/*.jsonl
 !/section6/results/*_log.txt
 !/README.md
+!/.gitattributes
 !/REPRODUCE.md
 
 # Public-release files (release-prep branch, 2026-11-19): docs, licences, lockfiles, data manifest, paper tables and checks.
 # Market data stays ignored (data/ and the canonical panel folders are covered by /* above).
 !/README.md
+!/.gitattributes
 !/DATA.md
 !/DATA_SHA256SUMS
 !/LICENSE
