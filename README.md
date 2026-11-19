@@ -51,7 +51,8 @@ py -3.12 -m venv .venv                       # Linux/macOS: python3.12 -m venv .
 
 `reproduce_paper.py` regenerates Tables 3, 4, 5, A3, A4 and A5 (`paper/tables/TABLES.md`, with every value's source
 file and key in `tables.json`) and the six figures (`paper/figures/`), then runs `paper/check_paper_values.py`, which
-compares 223 table values with the manuscript (`paper/expected_values.json`) and each regenerated figure with its
+compares 237 values with the manuscript (`paper/expected_values.json`: the 223 table values plus the 14 benchmark
+numbers quoted in §6.2, which are also checked against `section5/results/posthoc_benchmark/BENCHMARK_FACTS.md`) and each regenerated figure with its
 committed inputs and PNG. Tables A1 and A2 are text tables with no computed values.
 
 | What | Needs data? | Runtime on the reference laptop |
@@ -77,7 +78,10 @@ Figure numbering: the files are named in the order they were made, not the paper
 **Verify without rerunning:** `REPRODUCE.md` §3. **Rerun the analysis:** `REPRODUCE.md` §4–5 (the guards refuse a rerun
 in place by design; use a fresh copy at the freeze commit `3b9e68d`). **Tests:** each `section5/s5_tests*.py` and
 `section6/s6_tests*.py` runs standalone (`unittest`, no pytest), from its own directory; several write their report
-into `section5/results/`, so run them in a fresh copy.
+into `section5/results/`, so run them in a fresh copy. In a fresh copy, 311 of the 322 tests pass. The other 11
+(in `s5_tests_a14`, `_a15`, `_a16` and `s5_tests_run`) are refused by design, because they start model selection or
+scoring and the post-freeze lock `section5/results/ERA_CALIBRATION.lock` (A16 rule 5) forbids that; with the lock
+moved aside in a throwaway copy they pass.
 
 ## Data
 
@@ -92,8 +96,12 @@ redistributed, and fetch notes; `DATA_SHA256SUMS` holds the expected SHA-256 of 
 | FOMC statement times | Federal Reserve Board; Lucca and Moench (2015) | Yes, derived schedules committed |
 | Bloomberg 1-min bars (post-evaluation timing check only) | Bloomberg | No; summary statistics only |
 
-Current downloads may differ from the files used: the HF Data Library is updated regularly, and the PiTrading history
-used for 2003–2022 is no longer distributed. The exact copies are identified by their hashes and retained by the author.
+**Limit: the pre-2022 data cannot be re-obtained.** The LEGACY era (2003-01-02 to 2022-03-04, all development folds
+except RAW and the 2019–2022 evaluation period) rests on the PiTrading rows of the HF Data Library Clean file
+downloaded on 2026-10-03. The provider has withdrawn that history and no longer distributes it, so nobody can download
+it again; it can only be verified against its SHA-256 (`b6754832…`, `DATA_SHA256SUMS`) using the copy the author
+retains. The RAW-era files can still be downloaded, but the library is updated regularly, so current downloads may
+differ from the hashed files.
 
 ## Pre-registration, amendments and code version
 
@@ -103,12 +111,14 @@ used for 2003–2022 is no longer distributed. The exact copies are identified b
 | Section 4.3.0 frozen protocol v2 (`frozen_documents/protocol_20261029T032641Z.json`) | `3d6f0c96fce1c05f8e94d1a8c6e6b14a5b5b1c9f013e6a95dd1e96498cbfff8b` |
 | Section 5 detection protocol (`SECTION5_PROTOCOL.md`; superseded versions `SECTION5_PROTOCOL_v*_FROZEN_*.md`) | `15be2570a592279e71f3f76fbe62113b4c3263a9d9e4715eaf4d61294eaf4df3` |
 | Freeze document / evaluation token (`section5/results/section5_freeze.json`) | `846c1aaafaf1cb02911bc680c0b197f97e17b00386695fc0f6eb0b26b02e3a94` |
-| Frozen-model manifest (8 models; `section5/results/frozen_models/manifest.json`, not in git) | `edb78798544a8896c88f5a6b02857591d96f6764ed0d7f498685cbdbc0ac06dd` |
+| Frozen-model manifest (8 models; `section5/results/frozen_models/manifest.json`) | `edb78798544a8896c88f5a6b02857591d96f6764ed0d7f498685cbdbc0ac06dd` |
 | Methods ledger at this commit (`METHODS_LEDGER.md`) | `17720db7a95e32f20fb6fd3b449eb47bdc09676941b7a48b047e278d9422b60a` |
 | Forward-test pre-registration v2.1 (MarketLens `regime/FORWARD_TEST_PREREGISTRATION_v2_1.md`; supersedes v2 `05e5ee40…`, v1 `7f0da937…`) | `f1e2a1332fa1b212db2d8947fce8dfbcc7f9fac4bb9bd3b3bcfd989c0015ed1a` |
 
-Amendments (each `AMENDMENT_*.md` has a `.sha256` sidecar; all 44 verified 2026-11-19; the 19 in force at the freeze
-are listed with their hashes in `section5_freeze.json`, key `amendments`):
+Amendments: 43 adopted amendments, A6 to A38, adopted between 2026-11-01 17:48Z and 2026-11-11 04:33Z (the paper's
+"43 amendments between 1 and 11 November"), plus the A6 draft of 2026-11-01 02:31Z, which was never applied and is
+kept on record (ledger row of that time; superseded by A6). Each file has a `.sha256` sidecar; all 44 matched on
+2026-11-19. The 19 in force at the freeze are listed with their hashes in `section5_freeze.json`, key `amendments`.
 
 | Amendment | SHA-256 | Amendment | SHA-256 |
 |---|---|---|---|
@@ -133,7 +143,7 @@ are listed with their hashes in `section5_freeze.json`, key `amendments`):
 | A18 | `f9b8f371090c2db2e6467c250622b527c9bbf255b09e37d6478379d07a9673b0` | A36 | `f110e14f3633d764d8048bb67b192c6fff9b68d2540c85d0297d53448ff227db` |
 | A19 | `ecfd437ee575bfc3d6c256e4db48c024b8006aedf9163dd57595cbbcd21569ec` | A37 | `cd3cfdea7d75c3a0b9f5f819395cc6b4da37631b89572e0a9c7525a6e5af5b2e` |
 | A19.1 | `bffed0e9f8acf7aea9d98ae83950624d7cb3f4b95e37c15997fccda584eed0a0` | A38 | `067c1de7bc508ff5f079387977c037e83bcb000bf1f3c5990853f96d725ae532` |
-| A19.2 | `619d32de48aeaa8a1fd9054fcb676982a84c7028fc27d1c673a38af001480b27` | A6 draft (superseded) | `379f0c01bd9c19d0432e59d597a16840d6fe4be83e5a4c62c44554f58a298c00` |
+| A19.2 | `619d32de48aeaa8a1fd9054fcb676982a84c7028fc27d1c673a38af001480b27` | A6 draft (not applied) | `379f0c01bd9c19d0432e59d597a16840d6fe4be83e5a4c62c44554f58a298c00` |
 
 Key commits: freeze `3b9e68d`; evaluation results `34ec7d1`; later commits add only corrections and post-evaluation notes.
 
@@ -151,17 +161,21 @@ Key commits: freeze `3b9e68d`; evaluation results `34ec7d1`; later commits add o
 
 ## Known gaps
 
-- The Section 2–3 scripts that build the canonical panels from the vendor files are not in this repository yet, so the
-  panels can be verified by hash but not rebuilt from public downloads.
-- The LEGACY source (PiTrading rows of the HF Data Library Clean file of 2026-10-03) is no longer distributed.
-- The frozen models (`section5/results/frozen_models/`) are not in git; their manifest hash is above.
+- The Section 2–3 scripts that build the canonical panels from the vendor files are not in this repository: they are
+  outside the result-code closure behind code version `a0323ed24d68e896`, and no record holds their hashes, so they
+  could not be verified against it. The panels can be verified by hash but not rebuilt from public downloads. (The
+  Section 3 run record shows those scripts ran under Python 3.14.3, numpy 2.3.5 and pandas 2.3.3, not the lockfile
+  environment.)
+- The LEGACY source (PiTrading rows of the HF Data Library Clean file of 2026-10-03) is no longer distributed (see Data).
+- The frozen models are `section5/results/frozen_models/*.pkl` (Python pickles). Load them only after checking their
+  SHA-256 against `manifest.json`; unpickling runs code.
 - Some committed records contain absolute paths from the author's machine (Windows user folder); they are left
   unchanged because those records are hashed.
 
 ## Licence
 
-Code: MIT (`LICENSE`). Documents, result files and figures: CC BY 4.0 (`LICENSE-docs.md`). No data is licensed here;
-the providers' terms apply (`DATA.md`).
+Code: MIT (`LICENSE`). Documents, result files, frozen models and figures: CC BY 4.0; the full licence text is in
+`LICENSE-docs.md`. No data is licensed here; the providers' terms apply (`DATA.md`).
 
 ## Citation
 

@@ -85,3 +85,20 @@ Every value and its source key are in `tables.json`. Tables A1 and A2 are text t
 | downside5_strict__sadj | 89.3 / 97.0 |
 | downside10_strict__sadj | 82.7 / 95.6 |
 | rv10_partial90__sadj | 84.8 / 95.7 |
+
+## Benchmark numbers quoted in §6.2 (post hoc; development, confirmatory folds).
+
+| Quantity | Value | BENCHMARK_FACTS.md |
+|---|---|---|
+| pAUC, volatility-change rule B1 | 0.333 | 0.333 |
+| pAUC, Gaussian HMM feature model | 0.220 | 0.220 |
+| pAUC, Student-t HMM feature model | 0.182 | 0.182 |
+| pAUC, HSMM feature model | 0.235 | 0.235 |
+| FOMC hit rate, B1 (%) | 49.0 | 0.490 |
+| FOMC hit rate, Gaussian HMM (%) | 62.2 | 0.622 |
+| FOMC hit rate, HSMM (%) | 62.2 | 0.622 |
+| QLIKE, HAR on the Gaussian HMM's bars | 0.1825 | 0.1825 |
+| QLIKE, feature detectors (range over G, T, H) | 0.2233 to 0.2278 | 0.2233 to 0.2278 |
+| Folds where HAR beats Gaussian HMM on QLIKE | 25 of 26 | detector better in share 0.04 |
+| Folds where HAR beats Student-t HMM on QLIKE | 25 of 26 | detector better in share 0.04 |
+| Folds where HAR beats HSMM on QLIKE | 25 of 26 | detector better in share 0.04 |

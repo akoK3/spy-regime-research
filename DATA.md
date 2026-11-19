@@ -42,7 +42,10 @@ paths are recorded in `section2_audit_results/inventory.csv` (not in git).
 | Path | Built from | How to rebuild |
 |---|---|---|
 | `section5/cache/{LEGACY,RAW}_features.npz`, `_bases.npz` | canonical files (§1) | Built automatically by the Section 5 loader on first use; checked against `section5/results/cache_stamp.json`. Needed for `fig6_seasonality` and any model refit. |
-| `section5/results/frozen_models/` (8 pickles + `manifest.json`) | freeze run | Rerun the freeze (REPRODUCE.md §4) in a fresh copy, or obtain the backup (hash in `REPRODUCIBILITY_FACTS.md` §8). |
+
+
+The frozen models (`section5/results/frozen_models/`, 8 pickles + `manifest.json`) are committed; each was checked
+against the manifest and the `model_sha256` in `evaluation_{LEGACY,RAW}.json` before it was added.
 
 ## 4. What is committed instead of data
 

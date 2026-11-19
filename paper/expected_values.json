@@ -1,5 +1,5 @@
 {
- "source": "Manuscript 'Is SPY an Intraday Tripwire?' (Research-Final-v19 docx, 2026-11-17), Tables 3, 4, 5, A3, A4, A5, values as printed",
+ "source": "Manuscript 'Is SPY an Intraday Tripwire?' (Research-Final-v19 docx, 2026-11-17), Tables 3, 4, 5, A3, A4, A5, values as printed; benchmark values from the §6.2 text (pAUC 0.333/0.220/0.182/0.235, FOMC 49%/62%, QLIKE 0.1825 vs 0.2233 to 0.2278 at the 4-decimal precision of BENCHMARK_FACTS.md, HAR better in 25 of 26 folds)",
  "rule": "numeric: |computed - paper| <= half a unit in the last printed digit (round half up); text: exact; range: computed lies in [lo, hi] at printed precision",
  "values": [
   {
@@ -901,6 +901,76 @@
   {
    "id": "A5.rv10_partial90__sadj.cov_raw",
    "paper": "95.7"
+  },
+  {
+   "id": "BM.pauc.B1",
+   "paper": "0.333",
+   "where": "paper §6.2 text"
+  },
+  {
+   "id": "BM.pauc.gaussian_hmm",
+   "paper": "0.220",
+   "where": "paper §6.2 text"
+  },
+  {
+   "id": "BM.pauc.student_t_hmm",
+   "paper": "0.182",
+   "where": "paper §6.2 text"
+  },
+  {
+   "id": "BM.pauc.hsmm",
+   "paper": "0.235",
+   "where": "paper §6.2 text"
+  },
+  {
+   "id": "BM.fomc.B1_pct",
+   "paper": "49",
+   "where": "paper §6.2 text"
+  },
+  {
+   "id": "BM.fomc.gaussian_hmm_pct",
+   "paper": "62",
+   "where": "paper §6.2 text"
+  },
+  {
+   "id": "BM.fomc.hsmm_pct",
+   "paper": "62",
+   "where": "paper §6.2 text"
+  },
+  {
+   "id": "BM.qlike.HAR_same_bars",
+   "paper": "0.1825",
+   "where": "paper §6.2 text"
+  },
+  {
+   "id": "BM.qlike.detector_min",
+   "paper": "0.2233",
+   "where": "paper §6.2 text"
+  },
+  {
+   "id": "BM.qlike.detector_max",
+   "paper": "0.2278",
+   "where": "paper §6.2 text"
+  },
+  {
+   "id": "BM.n_confirmatory_folds",
+   "paper": "26",
+   "where": "paper §6.2 text"
+  },
+  {
+   "id": "BM.har_better_folds.gaussian_hmm",
+   "paper": "25",
+   "where": "paper §6.2 text"
+  },
+  {
+   "id": "BM.har_better_folds.student_t_hmm",
+   "paper": "25",
+   "where": "paper §6.2 text"
+  },
+  {
+   "id": "BM.har_better_folds.hsmm",
+   "paper": "25",
+   "where": "paper §6.2 text"
   }
  ]
 }

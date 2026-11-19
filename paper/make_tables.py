@@ -231,11 +231,70 @@ def table_a5():
     return "Table A5. Primary feature pool: coverage of TRAIN minutes (from the frozen matrix v2).", rows
 
 
+# ---------------------------------------------------------------- Benchmark numbers quoted in the paper's text (§6.2)
+def benchmark():
+    """Post hoc benchmark (development, confirmatory folds). Each value comes from posthoc_benchmark.json; the number
+    printed in BENCHMARK_FACTS.md for the same quantity is stored as "facts" so the checker can compare both."""
+    import re
+    BD = R5 / "posthoc_benchmark"; src = BD / "posthoc_benchmark.json"; b = L(src); ab = b["absolute"]["confirmatory"]
+    facts_md = (BD / "BENCHMARK_FACTS.md").read_text(encoding="utf-8")
+    a17 = R5 / "mr2" / "a17" / "a17_results.json"; h1c = L(a17)["h1c"]
+
+    def fact(pattern, group=1):
+        m = re.search(pattern, facts_md, re.M)
+        return m.group(group) if m else None
+
+    def putf(vid, value, s, key, facts):
+        put(vid, value, s, key); VALUES[vid]["facts"] = facts; VALUES[vid]["facts_source"] = rel(BD / "BENCHMARK_FACTS.md")
+        return value
+
+    rows = ["| Quantity | Value | BENCHMARK_FACTS.md |", "|---|---|---|"]
+    v = putf("BM.pauc.B1", ab["B1"]["pauc_mean"], src, "absolute.confirmatory.B1.pauc_mean", fact(r"^\| B1 \| ([0-9.]+) \|$"))
+    rows.append(f"| pAUC, volatility-change rule B1 | {f(v)} | {VALUES['BM.pauc.B1']['facts']} |")
+    names = {"gaussian_hmm": "Gaussian HMM", "student_t_hmm": "Student-t HMM", "hsmm": "HSMM"}
+    for fam, nm in names.items():
+        v = putf(f"BM.pauc.{fam}", ab[fam]["pauc_feature_mean"], src, f"absolute.confirmatory.{fam}.pauc_feature_mean",
+                 fact(rf"^\| {re.escape(nm)}, feature / baseline \| ([0-9.]+) /"))
+        rows.append(f"| pAUC, {nm} feature model | {f(v)} | {VALUES[f'BM.pauc.{fam}']['facts']} |")
+    v = putf("BM.fomc.B1_pct", 100 * b["fomc"]["B1"]["hit_rate"], src, "fomc.B1.hit_rate (x100)", fact(r"^\| B1 \| ([0-9.]+) \("))
+    VALUES["BM.fomc.B1_pct"]["facts_scale"] = 100
+    rows.append(f"| FOMC hit rate, B1 (%) | {f(v, 1)} | {VALUES['BM.fomc.B1_pct']['facts']} |")
+    for fam in ("gaussian_hmm", "hsmm"):
+        v = putf(f"BM.fomc.{fam}_pct", 100 * h1c[fam]["f3"]["hit_rate"], a17, f"h1c.{fam}.f3.hit_rate (x100)",
+                 fact(rf"^\| {re.escape(names[fam])} \| ([0-9.]+) \| \d+ / \d+ /"))
+        VALUES[f"BM.fomc.{fam}_pct"]["facts_scale"] = 100
+        rows.append(f"| FOMC hit rate, {names[fam]} (%) | {f(v, 1)} | {VALUES[f'BM.fomc.{fam}_pct']['facts']} |")
+    v = putf("BM.qlike.HAR_same_bars", ab["gaussian_hmm"]["qlike_HAR_same_bars_fold_mean"], src,
+             "absolute.confirmatory.gaussian_hmm.qlike_HAR_same_bars_fold_mean", fact(r"^\| Gaussian HMM \| [0-9.]+ \| ([0-9.]+) \|"))
+    rows.append(f"| QLIKE, HAR on the Gaussian HMM's bars | {f(v, 4)} | {VALUES['BM.qlike.HAR_same_bars']['facts']} |")
+    det = {fam: ab[fam]["qlike_detector_fold_mean"] for fam in names}
+    dfacts = {fam: fact(rf"^\| {re.escape(nm)} \| ([0-9.]+) \| [0-9.]+ \|") for fam, nm in names.items()}
+    lo, hi = min(det, key=det.get), max(det, key=det.get)
+    putf("BM.qlike.detector_min", det[lo], src, f"absolute.confirmatory.{lo}.qlike_detector_fold_mean (min over G, T, H)", dfacts[lo])
+    putf("BM.qlike.detector_max", det[hi], src, f"absolute.confirmatory.{hi}.qlike_detector_fold_mean (max over G, T, H)", dfacts[hi])
+    rows.append(f"| QLIKE, feature detectors (range over G, T, H) | {f(det[lo], 4)} to {f(det[hi], 4)} | {dfacts[lo]} to {dfacts[hi]} |")
+    units = [L(p) for p in sorted((BD / "units").glob("*.json"))]; conf = [u for u in units if u["confirmatory"]]
+    put("BM.n_confirmatory_folds", len(conf), BD / "units", "count(units/*.json with confirmatory = true)")
+    for fam, nm in names.items():
+        k = sum(1 for u in conf if u["families"][fam]["h1b_vs_HAR"]["effect"] < 0)
+        share = b["comparison"][fam]["h1b_vs_HAR"]["confirmatory"]["sign_consistency"]
+        put(f"BM.har_better_folds.{fam}", k, BD / "units", f"count(units/*.json confirmatory, families.{fam}.h1b_vs_HAR.effect < 0)")
+        # BENCHMARK_FACTS.md §3 prints the share of folds where the detector is better; HAR-better = n - share * n.
+        sec3 = facts_md[facts_md.index("## 3. Forecasting"):facts_md.index("## 4.")]
+        m = re.search(rf"^\| {re.escape(nm)} \| [−-][0-9.]+ / [0-9.]+ / ([0-9.]+) \|", sec3, re.M)
+        VALUES[f"BM.har_better_folds.{fam}"]["facts"] = m.group(1) if m else None
+        VALUES[f"BM.har_better_folds.{fam}"]["facts_kind"] = "detector_better_share"
+        VALUES[f"BM.har_better_folds.{fam}"]["facts_source"] = rel(BD / "BENCHMARK_FACTS.md")
+        VALUES[f"BM.har_better_folds.{fam}"]["detector_better_share"] = share
+        rows.append(f"| Folds where HAR beats {nm} on QLIKE | {k} of {len(conf)} | detector better in share {VALUES[f'BM.har_better_folds.{fam}']['facts']} |")
+    return "Benchmark numbers quoted in §6.2 (post hoc; development, confirmatory folds).", rows
+
+
 def main():
     OUT.mkdir(parents=True, exist_ok=True)
     md = ["# Paper tables (generated)", "", "Generated by `paper/make_tables.py` from stored result files; do not edit by hand.",
           "Every value and its source key are in `tables.json`. Tables A1 and A2 are text tables and are not generated.", ""]
-    for fn in (table3, table4, table5, table_a3, table_a4, table_a5):
+    for fn in (table3, table4, table5, table_a3, table_a4, table_a5, benchmark):
         title, rows = fn(); md += [f"## {title}", ""] + rows + [""]
     (OUT / "TABLES.md").write_text("\n".join(md), encoding="utf-8")
     (OUT / "tables.json").write_text(json.dumps(VALUES, indent=1, sort_keys=True, default=str), encoding="utf-8")

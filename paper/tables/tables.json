@@ -304,6 +304,97 @@
   "source": "section431_step3_all_in_one_results/a4_sec4_3_9_frozen_matrix_v2.csv#rv5_strict__sadj.coverage_RAW_pct",
   "value": 97.018
  },
+ "BM.fomc.B1_pct": {
+  "facts": "0.490",
+  "facts_scale": 100,
+  "facts_source": "section5/results/posthoc_benchmark/BENCHMARK_FACTS.md",
+  "source": "section5/results/posthoc_benchmark/posthoc_benchmark.json#fomc.B1.hit_rate (x100)",
+  "value": 48.97959183673469
+ },
+ "BM.fomc.gaussian_hmm_pct": {
+  "facts": "0.622",
+  "facts_scale": 100,
+  "facts_source": "section5/results/posthoc_benchmark/BENCHMARK_FACTS.md",
+  "source": "section5/results/mr2/a17/a17_results.json#h1c.gaussian_hmm.f3.hit_rate (x100)",
+  "value": 62.244897959183675
+ },
+ "BM.fomc.hsmm_pct": {
+  "facts": "0.622",
+  "facts_scale": 100,
+  "facts_source": "section5/results/posthoc_benchmark/BENCHMARK_FACTS.md",
+  "source": "section5/results/mr2/a17/a17_results.json#h1c.hsmm.f3.hit_rate (x100)",
+  "value": 62.244897959183675
+ },
+ "BM.har_better_folds.gaussian_hmm": {
+  "detector_better_share": 0.038461538461538464,
+  "facts": "0.04",
+  "facts_kind": "detector_better_share",
+  "facts_source": "section5/results/posthoc_benchmark/BENCHMARK_FACTS.md",
+  "source": "section5/results/posthoc_benchmark/units#count(units/*.json confirmatory, families.gaussian_hmm.h1b_vs_HAR.effect < 0)",
+  "value": 25
+ },
+ "BM.har_better_folds.hsmm": {
+  "detector_better_share": 0.038461538461538464,
+  "facts": "0.04",
+  "facts_kind": "detector_better_share",
+  "facts_source": "section5/results/posthoc_benchmark/BENCHMARK_FACTS.md",
+  "source": "section5/results/posthoc_benchmark/units#count(units/*.json confirmatory, families.hsmm.h1b_vs_HAR.effect < 0)",
+  "value": 25
+ },
+ "BM.har_better_folds.student_t_hmm": {
+  "detector_better_share": 0.038461538461538464,
+  "facts": "0.04",
+  "facts_kind": "detector_better_share",
+  "facts_source": "section5/results/posthoc_benchmark/BENCHMARK_FACTS.md",
+  "source": "section5/results/posthoc_benchmark/units#count(units/*.json confirmatory, families.student_t_hmm.h1b_vs_HAR.effect < 0)",
+  "value": 25
+ },
+ "BM.n_confirmatory_folds": {
+  "source": "section5/results/posthoc_benchmark/units#count(units/*.json with confirmatory = true)",
+  "value": 26
+ },
+ "BM.pauc.B1": {
+  "facts": "0.333",
+  "facts_source": "section5/results/posthoc_benchmark/BENCHMARK_FACTS.md",
+  "source": "section5/results/posthoc_benchmark/posthoc_benchmark.json#absolute.confirmatory.B1.pauc_mean",
+  "value": 0.3329538352272728
+ },
+ "BM.pauc.gaussian_hmm": {
+  "facts": "0.220",
+  "facts_source": "section5/results/posthoc_benchmark/BENCHMARK_FACTS.md",
+  "source": "section5/results/posthoc_benchmark/posthoc_benchmark.json#absolute.confirmatory.gaussian_hmm.pauc_feature_mean",
+  "value": 0.220454071969697
+ },
+ "BM.pauc.hsmm": {
+  "facts": "0.235",
+  "facts_source": "section5/results/posthoc_benchmark/BENCHMARK_FACTS.md",
+  "source": "section5/results/posthoc_benchmark/posthoc_benchmark.json#absolute.confirmatory.hsmm.pauc_feature_mean",
+  "value": 0.2350497159090909
+ },
+ "BM.pauc.student_t_hmm": {
+  "facts": "0.182",
+  "facts_source": "section5/results/posthoc_benchmark/BENCHMARK_FACTS.md",
+  "source": "section5/results/posthoc_benchmark/posthoc_benchmark.json#absolute.confirmatory.student_t_hmm.pauc_feature_mean",
+  "value": 0.18245667613636363
+ },
+ "BM.qlike.HAR_same_bars": {
+  "facts": "0.1825",
+  "facts_source": "section5/results/posthoc_benchmark/BENCHMARK_FACTS.md",
+  "source": "section5/results/posthoc_benchmark/posthoc_benchmark.json#absolute.confirmatory.gaussian_hmm.qlike_HAR_same_bars_fold_mean",
+  "value": 0.18245023381285938
+ },
+ "BM.qlike.detector_max": {
+  "facts": "0.2278",
+  "facts_source": "section5/results/posthoc_benchmark/BENCHMARK_FACTS.md",
+  "source": "section5/results/posthoc_benchmark/posthoc_benchmark.json#absolute.confirmatory.hsmm.qlike_detector_fold_mean (max over G, T, H)",
+  "value": 0.2278438547145797
+ },
+ "BM.qlike.detector_min": {
+  "facts": "0.2233",
+  "facts_source": "section5/results/posthoc_benchmark/BENCHMARK_FACTS.md",
+  "source": "section5/results/posthoc_benchmark/posthoc_benchmark.json#absolute.confirmatory.student_t_hmm.qlike_detector_fold_mean (min over G, T, H)",
+  "value": 0.22330923992768062
+ },
  "T3.bocpd.fomc_baseline": {
   "source": "section5/results/mr2/a17/a17_results.json#h1c.bocpd.base.hit_rate",
   "value": 0.3979591836734694

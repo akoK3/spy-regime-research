@@ -69,6 +69,23 @@ def check_tables(expected_path):
             how = "file not present (data or git-ignored); not checked"; ok = None
         rows.append({"id": e["id"], "paper": e["paper"], "computed": g, "pass": ok, "rule": how,
                      "source": got.get(e["id"], {}).get("source")})
+    # Second comparison for values that also appear in a facts file (BENCHMARK_FACTS.md): facts text vs the result file.
+    for vid, rec in sorted(got.items()):
+        if "facts" not in rec:
+            continue
+        ft = rec["facts"]
+        if ft is None:
+            rows.append({"id": vid + "#facts", "paper": None, "computed": rec["value"], "pass": False, "rule": "number not found in facts file"}); continue
+        if rec.get("facts_kind") == "detector_better_share":
+            # facts prints the share of folds where the detector is better; HAR-better count must equal n - share*n.
+            n = got["BM.n_confirmatory_folds"]["value"]; share = rec["detector_better_share"]
+            ok, how = check_value({"paper": ft}, share)
+            ok = ok and rec["value"] == n - round(share * n)
+            how += f"; HAR-better {rec['value']} == {n} - round({share:.4f} * {n})"
+            rows.append({"id": vid + "#facts", "paper": ft, "computed": share, "pass": ok, "rule": how, "source": rec["facts_source"]}); continue
+        val = rec["value"] / rec.get("facts_scale", 1)
+        ok, how = check_value({"paper": ft}, val)
+        rows.append({"id": vid + "#facts", "paper": ft, "computed": val, "pass": ok, "rule": how, "source": rec["facts_source"]})
     return rows
 
 
