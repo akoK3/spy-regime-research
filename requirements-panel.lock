@@ -1,0 +1,17 @@
+# Panel-build environment (panel_build/: Section 2 audits and Section 3.2-3.10 scripts). NOT the research environment.
+# Python 3.14.3 (64-bit, Windows). numpy 2.3.5, pandas 2.3.3 and pandas_market_calendars 5.5.0 are recorded in the
+# Section 3 run records (section3_final_closeout_results/environment.json, section3_2_timestamp_results/summary.json).
+# The other pins are the versions installed in that interpreter (scoop python 3.14.3), all installed on or before
+# 2026-10-07, before the first Section 2 run (2026-10-14), and not changed since; they were not recorded at run time.
+# Install: python3.14 -m venv .venv-panel && .venv-panel\Scripts\pip install -r requirements-panel.lock
+exchange-calendars==4.13.2
+korean-lunar-calendar==0.4.0
+numpy==2.3.5
+pandas==2.3.3
+pandas-market-calendars==5.5.0
+pyluach==2.3.0
+python-dateutil==2.9.0.post0
+pytz==2026.1.post1
+six==1.17.0
+toolz==1.2.0
+tzdata==2025.3

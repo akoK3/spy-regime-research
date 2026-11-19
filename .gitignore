@@ -443,3 +443,5 @@
 !/paper/figures_reference_stats.json
 !/paper/tables/
 !/section5/results/frozen_models/
+!/requirements-panel.lock
+!/panel_build/

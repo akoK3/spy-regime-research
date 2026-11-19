@@ -153,6 +153,7 @@ Key commits: freeze `3b9e68d`; evaluation results `34ec7d1`; later commits add o
 |---|---|
 | `step*.py`, `write_*.py`, `section431_step3_all_in_one_results/`, `frozen_documents/`, `SECTION4_COMPLETE.md`, `FEATURES_REFERENCE.md` | Section 4: causal feature construction, audits, the frozen feature matrix and nested folds |
 | `SECTION5_PROTOCOL.md`, `AMENDMENT_A6.md`…`AMENDMENT_A38.md` | Section 5 protocol and every amendment, each with a `.sha256` sidecar |
+| `panel_build/` | Sections 2–3: data audit and canonical-panel build from the vendor files (own environment, `requirements-panel.lock`; not in the code version) |
 | `section5/` | Detection code (models `s5_models.py`, events `s5_events.py`, guards `s5_guard.py`, freeze `s5_freeze*.py`, evaluation `s5_eval513.py`) and results `section5/results/` |
 | `section6/` | Cross-asset tests H2–H4 (`s6_*.py`) and results |
 | `paper/` | `RESULTS_FACTS.md` (every result number with its source), `make_tables.py`, `make_figures.py`, `check_paper_values.py`, figures and tables |
@@ -161,11 +162,10 @@ Key commits: freeze `3b9e68d`; evaluation results `34ec7d1`; later commits add o
 
 ## Known gaps
 
-- The Section 2–3 scripts that build the canonical panels from the vendor files are not in this repository: they are
-  outside the result-code closure behind code version `a0323ed24d68e896`, and no record holds their hashes, so they
-  could not be verified against it. The panels can be verified by hash but not rebuilt from public downloads. (The
-  Section 3 run record shows those scripts ran under Python 3.14.3, numpy 2.3.5 and pandas 2.3.3, not the lockfile
-  environment.)
+- The Section 2–3 scripts that build the canonical panels are in `panel_build/`, unchanged and with a dated SHA-256
+  manifest. They are NOT part of code version `a0323ed24d68e896` and were not tracked before 2026-11-19; they ran
+  under Python 3.14.3, numpy 2.3.5 and pandas 2.3.3 (`requirements-panel.lock`), and they assume the author's folder
+  layout. Their outputs are accepted only if they match `DATA_SHA256SUMS` (`panel_build/PANEL_BUILD.md`).
 - The LEGACY source (PiTrading rows of the HF Data Library Clean file of 2026-10-03) is no longer distributed (see Data).
 - The frozen models are `section5/results/frozen_models/*.pkl` (Python pickles). Load them only after checking their
   SHA-256 against `manifest.json`; unpickling runs code.

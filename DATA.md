@@ -17,9 +17,9 @@ hashes (`section5/s5_preflight_data_hashes.py`).
 | `section3_4_etf_results/etf_observed_SPY_LEGACY.csv.gz` | `7cd10dfb…c83f7` | SPY observed bars, LEGACY |
 | `section3_4_etf_results/etf_observed_SPY_RAW.csv.gz` | `6c37b279…7928d` | SPY observed bars, RAW |
 
-These are derived from the source files in §2. **The Section 2–3 scripts that build them are not yet in this
-repository** (see "Known gaps" in `README.md`), so at present the canonical files can be verified but not rebuilt from
-public downloads.
+These are derived from the source files in §2 by the Section 2–3 scripts in `panel_build/` (see
+`panel_build/PANEL_BUILD.md`; separate environment `requirements-panel.lock`; not part of code version
+`a0323ed24d68e896`). A rebuild is accepted only if its outputs match `DATA_SHA256SUMS`.
 
 ## 2. Source datasets
 
@@ -32,6 +32,7 @@ public downloads.
 | Dukascopy XAU/USD 1-min bid and ask, 2007-04-11..2026-10-02 | Gold (bid/ask midpoint) | Dukascopy Bank SA historical data feed | **No.** We found no published licence permitting redistribution; treat as not redistributable. | Download bid and ask 1-min candles for this span from Dukascopy and check the hashes. The ask files were hashed on 2026-11-12, after first use (paper Appendix F.2). |
 | Dukascopy Dollar Index (DOLLAR.IDX/USD) 1-min bid and ask, 2017-12-01..2026-10-02 | USD (bid/ask midpoint) | Dukascopy | **No** (as above) | As above. |
 | FOMC statement dates and times | H1(c), H3 positive control, Fed splits | Federal Reserve Board web pages (`fomccalendars.htm`, `fomchistorical{YEAR}.htm`); Lucca and Moench (2015) schedule | **Yes.** US government works are public domain; the derived schedules are committed (`section5/results/h1c_schedule_times*.json`, `fomc_clock.json`, `d6_fomc_dates.json`). | Nothing to fetch. |
+| Issuer distribution pages (SSGA, iShares), a PiTrading page, Yahoo Finance dividend data | Section 3.8 corporate-action verification only (`panel_build/`); does not feed the panels | fetched live by the scripts | **No** (third-party pages; nothing stored in git) | Fetched automatically when the 3.8 scripts run; results may differ over time. |
 | Bloomberg Book1/Book2 1-min bars, 2026-03-18..2026-09-30 | Post-evaluation timing check only (no result depends on it) | Bloomberg terminal | **No** (licensed) | Not reproducible without a Bloomberg licence. Only summary statistics are committed (`section5/results/bloomberg_comparison.json`). |
 
 Place source files under `data/source/` (git-ignored) to use `sha256sum -c DATA_SHA256SUMS`. Their original local
