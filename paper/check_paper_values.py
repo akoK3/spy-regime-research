@@ -6,10 +6,12 @@ Checks
   1. Tables: every entry of paper/expected_values.json against paper/tables/tables.json (written by make_tables.py).
      numeric: |computed - printed| <= half a unit in the printed last digit, plus 1e-9 (printed values round half up);
      hashes and other text: exact; "range" entries: computed value, at printed precision, lies in [lo, hi].
-  2. Figures: for each of the six figures, (a) the PNG and PDF exist in paper/figures/, (b) the input-file hashes in
-     paper/figures/figure_sources.json equal the files on disk, (c) paper/figures/figure_stats.json equals the committed
-     reference paper/figures_reference_stats.json to 1e-12, (d) the PNG bytes equal paper/figures_png/<name>.png
-     (reported, not failed, if only (d) differs: PNG bytes depend on the matplotlib/freetype build).
+  2. Figures: for each of the six figures, (a) it was regenerated in this run (paper/tables/figure_run.json, written by
+     reproduce_paper.py), (b) the PNG and PDF exist in paper/figures/, (c) the input-file hashes in
+     paper/figures/figure_sources.json equal the files on disk OR the PNG bytes equal paper/figures_png/<name>.png
+     (a rebuilt feature cache for fig6 has a new file hash even with identical columns), and (d) for fig1/fig2,
+     paper/figures/figure_stats.json equals the committed reference paper/figures_reference_stats.json to 1e-12.
+     PDFs are not byte-compared (matplotlib embeds a creation date).
 
 Usage: python paper/check_paper_values.py [--expected FILE] [--skip-figures]
 Exit:  0 all pass / 1 a value differs / 2 an input is missing."""
