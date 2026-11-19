@@ -59,7 +59,7 @@ committed inputs and PNG. Tables A1 and A2 are text tables with no computed valu
 |---|---|---|
 | Environment install from `requirements-paper.lock` | no | about 1.5 min |
 | Tables + figures 1–5 + checks | no | about 6 s |
-| Feature cache for Figure 6 (`--build-cache`, once) | yes (DATA.md §1) | about 14 min (LEGACY 11.5 min, RAW 2.7 min; about 1.4 GB RAM) |
+| Feature cache for Figure 6 (`--build-cache`, once) | yes (DATA.md §1) | 14 min alone, up to 27 min with other jobs running (LEGACY 11.5–24 min, RAW 2.7 min; about 1.4 GB RAM) |
 | Full rerun of the freeze, evaluation and A38 (`REPRODUCE.md` §4) | yes, in a fresh copy at the freeze commit | about 15.5 h (freeze 4 h 13 min; evaluation about 7 h active; A38 19 min) plus earlier development runs |
 
 Reference machine: AMD Ryzen 7 7435HS, 15.7 GB RAM, Windows 11, single process.
