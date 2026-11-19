@@ -1,0 +1,15 @@
+# Research environment used for every result (paper Appendix F.3). Python 3.12.10, 64-bit, Windows 11.
+# Exact pins from pip freeze of research_hmm_env (2026-11-19). hmmlearn is installed but not imported by any result code.
+# Install: py -3.12 -m venv .venv && .venv\Scripts\pip install -r requirements.lock
+cloudpickle==3.1.2
+hmmlearn==0.3.3
+joblib==1.6.0
+narwhals==2.27.1
+numpy==2.5.4
+pandas==3.1.0
+python-dateutil==3.0.0
+scikit-learn==1.9.1
+scipy==1.18.1
+six==1.17.0
+threadpoolctl==3.7.0
+tzdata==2026.5

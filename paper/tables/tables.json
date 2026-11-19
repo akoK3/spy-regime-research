@@ -1,0 +1,919 @@
+{
+ "A3.canonical_panel_legacy": {
+  "source": "sha256(section3_10_alignment_results/canonical_panel_LEGACY_1m.csv.gz)",
+  "value": "b5967d9691c547a3b8a277f97fe2a95e1b1c4a49e4d6476c008a08076ce098df"
+ },
+ "A3.canonical_panel_raw": {
+  "source": "sha256(section3_10_alignment_results/canonical_panel_RAW_1m.csv.gz)",
+  "value": "f1b1c498dc76c7ef11e53a31fec655abacaf6458d8f3b9dd1827f9dd8ec91184"
+ },
+ "A3.code_version": {
+  "source": "section5/results/section5_freeze.json#code_version",
+  "value": "a0323ed24d68e896"
+ },
+ "A3.completion_record": {
+  "source": "sha256(section5/results/main_run_2/run_complete.json)",
+  "value": "19812f9f619f029b949bdc9e123c78007a4e71bf668f214569a5bbe12577079a"
+ },
+ "A3.contamination_registry": {
+  "source": "section5/results/section5_freeze.json#contamination_sha256",
+  "value": "f6d67a57ca30184bc6f2f00f5a4e3aafa0d8808a6e90784def110cdaf19d067b"
+ },
+ "A3.cross_asset_fingerprint": {
+  "source": "sha256(section6/results/s6_fingerprint.json)",
+  "value": "815c77623d6f14896becaef56356f2f55df5bfc9292281c4da6af876349e5de8"
+ },
+ "A3.detection_protocol": {
+  "source": "sha256(SECTION5_PROTOCOL.md)",
+  "value": "15be2570a592279e71f3f76fbe62113b4c3263a9d9e4715eaf4d61294eaf4df3"
+ },
+ "A3.era_calibration_lock": {
+  "source": "sha256(section5/results/ERA_CALIBRATION.lock)",
+  "value": "db42bedef5c28b915e042a2494b60657d2be62948ba9453bd73b6daf2aad6e67"
+ },
+ "A3.evaluation_fomc_schedule": {
+  "source": "sha256(section5/results/h1c_schedule_times_evaluation.json)",
+  "value": "391366459f83a89e2442f05479774b49f8efac1479a92daf9ceda0e0d36b6865"
+ },
+ "A3.feature_construction_development_folds": {
+  "source": "sha256(section431_step3_all_in_one_results/a4_development_nested_folds_TRAIN.csv)",
+  "value": "06258e5a1645327a64aa07d155b59d20949c11c81ce657a26e4d44c27882adfc"
+ },
+ "A3.feature_construction_frozen_matrix": {
+  "source": "sha256(section431_step3_all_in_one_results/a4_sec4_3_9_frozen_matrix_v2.csv)",
+  "value": "9378f93f79e358f98d9dcad3992c269cb9a823a15bf28e8a21dbe319763ebe86"
+ },
+ "A3.freeze_document": {
+  "source": "sha256(section5/results/section5_freeze.json)",
+  "value": "846c1aaafaf1cb02911bc680c0b197f97e17b00386695fc0f6eb0b26b02e3a94"
+ },
+ "A3.freeze_run_record": {
+  "source": "sha256(section5/results/freeze_run_record.json)",
+  "value": "26d865e97d0da4ff4ad94362001522aa807d180447028cc73ccf04150837fae2"
+ },
+ "A3.frozen_model_manifest": {
+  "source": "sha256(section5/results/frozen_models/manifest.json)",
+  "value": "edb78798544a8896c88f5a6b02857591d96f6764ed0d7f498685cbdbc0ac06dd"
+ },
+ "A3.spy_file_legacy": {
+  "source": "sha256(section3_4_etf_results/etf_observed_SPY_LEGACY.csv.gz)",
+  "value": "7cd10dfb3e5896b9574a53f35914ce43053705cff9c5ef7029ccb2b88a6c83f7"
+ },
+ "A3.spy_file_raw": {
+  "source": "sha256(section3_4_etf_results/etf_observed_SPY_RAW.csv.gz)",
+  "value": "6c37b2798d3cc5740d71de94c34343d315fa274b95e50a5a7df081c1b7a5928d"
+ },
+ "A4.DOLLAR.LEGACY.development.n": {
+  "source": "section6/results/coverage/coverage_sessions.csv#available (era=LEGACY, asset=DOLLAR)",
+  "value": 232
+ },
+ "A4.DOLLAR.LEGACY.development.share": {
+  "source": "section6/results/coverage/coverage_sessions.csv#available share",
+  "value": 5.768274490303332
+ },
+ "A4.DOLLAR.LEGACY.evaluation.n": {
+  "source": "section6/results/coverage_evaluation.json#available (era=LEGACY, asset=DOLLAR)",
+  "value": 714
+ },
+ "A4.DOLLAR.LEGACY.evaluation.share": {
+  "source": "section6/results/coverage_evaluation.json#available share",
+  "value": 89.25
+ },
+ "A4.DOLLAR.RAW.development.n": {
+  "source": "section6/results/coverage/coverage_sessions.csv#available (era=RAW, asset=DOLLAR)",
+  "value": 649
+ },
+ "A4.DOLLAR.RAW.development.share": {
+  "source": "section6/results/coverage/coverage_sessions.csv#available share",
+  "value": 92.05673758865248
+ },
+ "A4.DOLLAR.RAW.evaluation.n": {
+  "source": "section6/results/coverage_evaluation.json#available (era=RAW, asset=DOLLAR)",
+  "value": 403
+ },
+ "A4.DOLLAR.RAW.evaluation.share": {
+  "source": "section6/results/coverage_evaluation.json#available share",
+  "value": 90.56179775280899
+ },
+ "A4.GOLD.LEGACY.development.n": {
+  "source": "section6/results/coverage/coverage_sessions.csv#available (era=LEGACY, asset=GOLD)",
+  "value": 2894
+ },
+ "A4.GOLD.LEGACY.development.share": {
+  "source": "section6/results/coverage/coverage_sessions.csv#available share",
+  "value": 71.95425161611139
+ },
+ "A4.GOLD.LEGACY.evaluation.n": {
+  "source": "section6/results/coverage_evaluation.json#available (era=LEGACY, asset=GOLD)",
+  "value": 784
+ },
+ "A4.GOLD.LEGACY.evaluation.share": {
+  "source": "section6/results/coverage_evaluation.json#available share",
+  "value": 98.0
+ },
+ "A4.GOLD.RAW.development.n": {
+  "source": "section6/results/coverage/coverage_sessions.csv#available (era=RAW, asset=GOLD)",
+  "value": 698
+ },
+ "A4.GOLD.RAW.development.share": {
+  "source": "section6/results/coverage/coverage_sessions.csv#available share",
+  "value": 99.00709219858156
+ },
+ "A4.GOLD.RAW.evaluation.n": {
+  "source": "section6/results/coverage_evaluation.json#available (era=RAW, asset=GOLD)",
+  "value": 434
+ },
+ "A4.GOLD.RAW.evaluation.share": {
+  "source": "section6/results/coverage_evaluation.json#available share",
+  "value": 97.52808988764045
+ },
+ "A4.HYG.LEGACY.development.n": {
+  "source": "section6/results/coverage/coverage_sessions.csv#available (era=LEGACY, asset=HYG)",
+  "value": 2158
+ },
+ "A4.HYG.LEGACY.development.share": {
+  "source": "section6/results/coverage/coverage_sessions.csv#available share",
+  "value": 53.65489806066633
+ },
+ "A4.HYG.LEGACY.evaluation.n": {
+  "source": "section6/results/coverage_evaluation.json#available (era=LEGACY, asset=HYG)",
+  "value": 794
+ },
+ "A4.HYG.LEGACY.evaluation.share": {
+  "source": "section6/results/coverage_evaluation.json#available share",
+  "value": 99.25
+ },
+ "A4.HYG.RAW.development.n": {
+  "source": "section6/results/coverage/coverage_sessions.csv#available (era=RAW, asset=HYG)",
+  "value": 550
+ },
+ "A4.HYG.RAW.development.share": {
+  "source": "section6/results/coverage/coverage_sessions.csv#available share",
+  "value": 78.01418439716312
+ },
+ "A4.HYG.RAW.evaluation.n": {
+  "source": "section6/results/coverage_evaluation.json#available (era=RAW, asset=HYG)",
+  "value": 268
+ },
+ "A4.HYG.RAW.evaluation.share": {
+  "source": "section6/results/coverage_evaluation.json#available share",
+  "value": 60.2247191011236
+ },
+ "A4.TLT.LEGACY.development.n": {
+  "source": "section6/results/coverage/coverage_sessions.csv#available (era=LEGACY, asset=TLT)",
+  "value": 2736
+ },
+ "A4.TLT.LEGACY.development.share": {
+  "source": "section6/results/coverage/coverage_sessions.csv#available share",
+  "value": 68.02585778219792
+ },
+ "A4.TLT.LEGACY.evaluation.n": {
+  "source": "section6/results/coverage_evaluation.json#available (era=LEGACY, asset=TLT)",
+  "value": 794
+ },
+ "A4.TLT.LEGACY.evaluation.share": {
+  "source": "section6/results/coverage_evaluation.json#available share",
+  "value": 99.25
+ },
+ "A4.TLT.RAW.development.n": {
+  "source": "section6/results/coverage/coverage_sessions.csv#available (era=RAW, asset=TLT)",
+  "value": 507
+ },
+ "A4.TLT.RAW.development.share": {
+  "source": "section6/results/coverage/coverage_sessions.csv#available share",
+  "value": 71.91489361702128
+ },
+ "A4.TLT.RAW.evaluation.n": {
+  "source": "section6/results/coverage_evaluation.json#available (era=RAW, asset=TLT)",
+  "value": 395
+ },
+ "A4.TLT.RAW.evaluation.share": {
+  "source": "section6/results/coverage_evaluation.json#available share",
+  "value": 88.76404494382022
+ },
+ "A4.rule": {
+  "source": "section6/results/coverage/coverage_summary.json#rule",
+  "value": {
+   "max_gap_min": 30,
+   "max_stale_quotes": 0.25,
+   "min_usable": 0.8,
+   "status": "approved by the user 2026-11-09"
+  }
+ },
+ "A5.abs_return_1m__sadj.cov_legacy": {
+  "source": "section431_step3_all_in_one_results/a4_sec4_3_9_frozen_matrix_v2.csv#abs_return_1m__sadj.coverage_LEGACY_pct",
+  "value": 94.698
+ },
+ "A5.abs_return_1m__sadj.cov_raw": {
+  "source": "section431_step3_all_in_one_results/a4_sec4_3_9_frozen_matrix_v2.csv#abs_return_1m__sadj.coverage_RAW_pct",
+  "value": 98.143
+ },
+ "A5.close_location_proxy.cov_legacy": {
+  "source": "section431_step3_all_in_one_results/a4_sec4_3_9_frozen_matrix_v2.csv#close_location_proxy.coverage_LEGACY_pct",
+  "value": 96.325
+ },
+ "A5.close_location_proxy.cov_raw": {
+  "source": "section431_step3_all_in_one_results/a4_sec4_3_9_frozen_matrix_v2.csv#close_location_proxy.coverage_RAW_pct",
+  "value": 99.672
+ },
+ "A5.downside10_strict__sadj.cov_legacy": {
+  "source": "section431_step3_all_in_one_results/a4_sec4_3_9_frozen_matrix_v2.csv#downside10_strict__sadj.coverage_LEGACY_pct",
+  "value": 82.735
+ },
+ "A5.downside10_strict__sadj.cov_raw": {
+  "source": "section431_step3_all_in_one_results/a4_sec4_3_9_frozen_matrix_v2.csv#downside10_strict__sadj.coverage_RAW_pct",
+  "value": 95.617
+ },
+ "A5.downside5_strict__sadj.cov_legacy": {
+  "source": "section431_step3_all_in_one_results/a4_sec4_3_9_frozen_matrix_v2.csv#downside5_strict__sadj.coverage_LEGACY_pct",
+  "value": 89.255
+ },
+ "A5.downside5_strict__sadj.cov_raw": {
+  "source": "section431_step3_all_in_one_results/a4_sec4_3_9_frozen_matrix_v2.csv#downside5_strict__sadj.coverage_RAW_pct",
+  "value": 97.018
+ },
+ "A5.intrabar_range_log__sadj.cov_legacy": {
+  "source": "section431_step3_all_in_one_results/a4_sec4_3_9_frozen_matrix_v2.csv#intrabar_range_log__sadj.coverage_LEGACY_pct",
+  "value": 96.678
+ },
+ "A5.intrabar_range_log__sadj.cov_raw": {
+  "source": "section431_step3_all_in_one_results/a4_sec4_3_9_frozen_matrix_v2.csv#intrabar_range_log__sadj.coverage_RAW_pct",
+  "value": 98.427
+ },
+ "A5.momentum10_endpoint.cov_legacy": {
+  "source": "section431_step3_all_in_one_results/a4_sec4_3_9_frozen_matrix_v2.csv#momentum10_endpoint.coverage_LEGACY_pct",
+  "value": 91.645
+ },
+ "A5.momentum10_endpoint.cov_raw": {
+  "source": "section431_step3_all_in_one_results/a4_sec4_3_9_frozen_matrix_v2.csv#momentum10_endpoint.coverage_RAW_pct",
+  "value": 97.247
+ },
+ "A5.momentum15_endpoint.cov_legacy": {
+  "source": "section431_step3_all_in_one_results/a4_sec4_3_9_frozen_matrix_v2.csv#momentum15_endpoint.coverage_LEGACY_pct",
+  "value": 90.356
+ },
+ "A5.momentum15_endpoint.cov_raw": {
+  "source": "section431_step3_all_in_one_results/a4_sec4_3_9_frozen_matrix_v2.csv#momentum15_endpoint.coverage_RAW_pct",
+  "value": 95.96
+ },
+ "A5.momentum30_endpoint.cov_legacy": {
+  "source": "section431_step3_all_in_one_results/a4_sec4_3_9_frozen_matrix_v2.csv#momentum30_endpoint.coverage_LEGACY_pct",
+  "value": 86.707
+ },
+ "A5.momentum30_endpoint.cov_raw": {
+  "source": "section431_step3_all_in_one_results/a4_sec4_3_9_frozen_matrix_v2.csv#momentum30_endpoint.coverage_RAW_pct",
+  "value": 92.102
+ },
+ "A5.momentum5_endpoint.cov_legacy": {
+  "source": "section431_step3_all_in_one_results/a4_sec4_3_9_frozen_matrix_v2.csv#momentum5_endpoint.coverage_LEGACY_pct",
+  "value": 93.166
+ },
+ "A5.momentum5_endpoint.cov_raw": {
+  "source": "section431_step3_all_in_one_results/a4_sec4_3_9_frozen_matrix_v2.csv#momentum5_endpoint.coverage_RAW_pct",
+  "value": 98.533
+ },
+ "A5.relative_volume20.cov_legacy": {
+  "source": "section431_step3_all_in_one_results/a4_sec4_3_9_frozen_matrix_v2.csv#relative_volume20.coverage_LEGACY_pct",
+  "value": 96.678
+ },
+ "A5.relative_volume20.cov_raw": {
+  "source": "section431_step3_all_in_one_results/a4_sec4_3_9_frozen_matrix_v2.csv#relative_volume20.coverage_RAW_pct",
+  "value": 98.427
+ },
+ "A5.return_1m.cov_legacy": {
+  "source": "section431_step3_all_in_one_results/a4_sec4_3_9_frozen_matrix_v2.csv#return_1m.coverage_LEGACY_pct",
+  "value": 95.238
+ },
+ "A5.return_1m.cov_raw": {
+  "source": "section431_step3_all_in_one_results/a4_sec4_3_9_frozen_matrix_v2.csv#return_1m.coverage_RAW_pct",
+  "value": 99.562
+ },
+ "A5.rv10_partial90__sadj.cov_legacy": {
+  "source": "section431_step3_all_in_one_results/a4_sec4_3_9_frozen_matrix_v2.csv#rv10_partial90__sadj.coverage_LEGACY_pct",
+  "value": 84.826
+ },
+ "A5.rv10_partial90__sadj.cov_raw": {
+  "source": "section431_step3_all_in_one_results/a4_sec4_3_9_frozen_matrix_v2.csv#rv10_partial90__sadj.coverage_RAW_pct",
+  "value": 95.67
+ },
+ "A5.rv5_strict__sadj.cov_legacy": {
+  "source": "section431_step3_all_in_one_results/a4_sec4_3_9_frozen_matrix_v2.csv#rv5_strict__sadj.coverage_LEGACY_pct",
+  "value": 89.255
+ },
+ "A5.rv5_strict__sadj.cov_raw": {
+  "source": "section431_step3_all_in_one_results/a4_sec4_3_9_frozen_matrix_v2.csv#rv5_strict__sadj.coverage_RAW_pct",
+  "value": 97.018
+ },
+ "T3.bocpd.fomc_baseline": {
+  "source": "section5/results/mr2/a17/a17_results.json#h1c.bocpd.base.hit_rate",
+  "value": 0.3979591836734694
+ },
+ "T3.bocpd.fomc_feature": {
+  "source": "section5/results/mr2/a17/a17_results.json#h1c.bocpd.f3.hit_rate",
+  "value": 0.3979591836734694
+ },
+ "T3.bocpd.h1a_mean": {
+  "source": "section5/results/main_run_2/run_summary.json#family_results.bocpd.confirmatory.H1a.mean",
+  "value": 0.0
+ },
+ "T3.bocpd.h1a_sign": {
+  "source": "section5/results/main_run_2/run_summary.json#family_results.bocpd.confirmatory.H1a.sign_consistency",
+  "value": 0.0
+ },
+ "T3.bocpd.h1b_mean": {
+  "source": "section5/results/main_run_2/run_summary.json#family_results.bocpd.confirmatory.H1b.mean",
+  "value": 0.0
+ },
+ "T3.bocpd.h1b_sign": {
+  "source": "section5/results/main_run_2/run_summary.json#family_results.bocpd.confirmatory.H1b.sign_consistency",
+  "value": 0.0
+ },
+ "T3.bocpd.p_iu": {
+  "source": "section5/results/main_run_2/run_summary.json#family_results.bocpd.confirmatory.p_iu",
+  "value": 1.0
+ },
+ "T3.gaussian_hmm.fomc_baseline": {
+  "source": "section5/results/mr2/a17/a17_results.json#h1c.gaussian_hmm.base.hit_rate",
+  "value": 0.37755102040816324
+ },
+ "T3.gaussian_hmm.fomc_feature": {
+  "source": "section5/results/mr2/a17/a17_results.json#h1c.gaussian_hmm.f3.hit_rate",
+  "value": 0.6224489795918368
+ },
+ "T3.gaussian_hmm.h1a_mean": {
+  "source": "section5/results/main_run_2/run_summary.json#family_results.gaussian_hmm.confirmatory.H1a.mean",
+  "value": 0.10485132575757575
+ },
+ "T3.gaussian_hmm.h1a_sign": {
+  "source": "section5/results/main_run_2/run_summary.json#family_results.gaussian_hmm.confirmatory.H1a.sign_consistency",
+  "value": 0.8636363636363636
+ },
+ "T3.gaussian_hmm.h1b_mean": {
+  "source": "section5/results/main_run_2/run_summary.json#family_results.gaussian_hmm.confirmatory.H1b.mean",
+  "value": 0.02564376146221938
+ },
+ "T3.gaussian_hmm.h1b_sign": {
+  "source": "section5/results/main_run_2/run_summary.json#family_results.gaussian_hmm.confirmatory.H1b.sign_consistency",
+  "value": 0.8461538461538461
+ },
+ "T3.gaussian_hmm.holm_p": {
+  "source": "section5/results/main_run_2/run_summary.json#holm.confirmatory.gaussian_hmm.p_adj",
+  "value": 0.0013998600139986002
+ },
+ "T3.gaussian_hmm.p_iu": {
+  "source": "section5/results/main_run_2/run_summary.json#family_results.gaussian_hmm.confirmatory.p_iu",
+  "value": 0.0006999300069993001
+ },
+ "T3.hsmm.fomc_baseline": {
+  "source": "section5/results/mr2/a17/a17_results.json#h1c.hsmm.base.hit_rate",
+  "value": 0.35714285714285715
+ },
+ "T3.hsmm.fomc_feature": {
+  "source": "section5/results/mr2/a17/a17_results.json#h1c.hsmm.f3.hit_rate",
+  "value": 0.6224489795918368
+ },
+ "T3.hsmm.h1a_mean": {
+  "source": "section5/results/main_run_2/run_summary.json#family_results.hsmm.confirmatory.H1a.mean",
+  "value": 0.11073626893939395
+ },
+ "T3.hsmm.h1a_sign": {
+  "source": "section5/results/main_run_2/run_summary.json#family_results.hsmm.confirmatory.H1a.sign_consistency",
+  "value": 0.9545454545454546
+ },
+ "T3.hsmm.h1b_mean": {
+  "source": "section5/results/main_run_2/run_summary.json#family_results.hsmm.confirmatory.H1b.mean",
+  "value": 0.034192498900670644
+ },
+ "T3.hsmm.h1b_sign": {
+  "source": "section5/results/main_run_2/run_summary.json#family_results.hsmm.confirmatory.H1b.sign_consistency",
+  "value": 0.9230769230769231
+ },
+ "T3.hsmm.holm_p": {
+  "source": "section5/results/main_run_2/run_summary.json#holm.confirmatory.hsmm.p_adj",
+  "value": 0.00029997000299970003
+ },
+ "T3.hsmm.p_iu": {
+  "source": "section5/results/main_run_2/run_summary.json#family_results.hsmm.confirmatory.p_iu",
+  "value": 9.999000099990002e-05
+ },
+ "T3.student_t_hmm.fomc_baseline": {
+  "source": "section5/results/mr2/a17/a17_results.json#h1c.student_t_hmm.base.hit_rate",
+  "value": 0.25510204081632654
+ },
+ "T3.student_t_hmm.fomc_feature": {
+  "source": "section5/results/mr2/a17/a17_results.json#h1c.student_t_hmm.f3.hit_rate",
+  "value": 0.46938775510204084
+ },
+ "T3.student_t_hmm.h1a_mean": {
+  "source": "section5/results/main_run_2/run_summary.json#family_results.student_t_hmm.confirmatory.H1a.mean",
+  "value": 0.06815743371212121
+ },
+ "T3.student_t_hmm.h1a_sign": {
+  "source": "section5/results/main_run_2/run_summary.json#family_results.student_t_hmm.confirmatory.H1a.sign_consistency",
+  "value": 0.6363636363636364
+ },
+ "T3.student_t_hmm.h1b_mean": {
+  "source": "section5/results/main_run_2/run_summary.json#family_results.student_t_hmm.confirmatory.H1b.mean",
+  "value": 0.00499371143899663
+ },
+ "T3.student_t_hmm.h1b_sign": {
+  "source": "section5/results/main_run_2/run_summary.json#family_results.student_t_hmm.confirmatory.H1b.sign_consistency",
+  "value": 0.4230769230769231
+ },
+ "T3.student_t_hmm.holm_p": {
+  "source": "section5/results/main_run_2/run_summary.json#holm.confirmatory.student_t_hmm.p_adj",
+  "value": 0.10338966103389662
+ },
+ "T3.student_t_hmm.p_iu": {
+  "source": "section5/results/main_run_2/run_summary.json#family_results.student_t_hmm.confirmatory.p_iu",
+  "value": 0.10338966103389662
+ },
+ "T4.LEGACY.gaussian_hmm.fomc_baseline": {
+  "source": "section5/results/evaluation_LEGACY.json#families.gaussian_hmm.H1c.baseline.hit_rate",
+  "value": 0.2916666666666667
+ },
+ "T4.LEGACY.gaussian_hmm.fomc_feature": {
+  "source": "section5/results/evaluation_LEGACY.json#families.gaussian_hmm.H1c.feature.hit_rate",
+  "value": 0.7083333333333334
+ },
+ "T4.LEGACY.gaussian_hmm.h1a": {
+  "source": "section5/results/evaluation_LEGACY.json#families.gaussian_hmm.H1a.effect",
+  "value": 0.08432291666666668
+ },
+ "T4.LEGACY.gaussian_hmm.h1a_hi": {
+  "source": "section5/results/evaluation_LEGACY.json#families.gaussian_hmm.H1a.ci95[1]",
+  "value": 0.1163873340004895
+ },
+ "T4.LEGACY.gaussian_hmm.h1a_lo": {
+  "source": "section5/results/evaluation_LEGACY.json#families.gaussian_hmm.H1a.ci95[0]",
+  "value": 0.05318642444732273
+ },
+ "T4.LEGACY.gaussian_hmm.h1b": {
+  "source": "section5/results/evaluation_LEGACY.json#families.gaussian_hmm.H1b.effect",
+  "value": 0.049230557971578603
+ },
+ "T4.LEGACY.gaussian_hmm.h1b_hi": {
+  "source": "section5/results/evaluation_LEGACY.json#families.gaussian_hmm.H1b.ci95[1]",
+  "value": 0.0651725594248462
+ },
+ "T4.LEGACY.gaussian_hmm.h1b_lo": {
+  "source": "section5/results/evaluation_LEGACY.json#families.gaussian_hmm.H1b.ci95[0]",
+  "value": 0.03602364516122681
+ },
+ "T4.LEGACY.gaussian_hmm.qlike_pct": {
+  "source": "section5/results/evaluation_LEGACY.json#families.gaussian_hmm.H1b.pct_of_baseline",
+  "value": 12.56734023230401
+ },
+ "T4.LEGACY.hsmm.fomc_baseline": {
+  "source": "section5/results/evaluation_LEGACY.json#families.hsmm.H1c.baseline.hit_rate",
+  "value": 0.2916666666666667
+ },
+ "T4.LEGACY.hsmm.fomc_feature": {
+  "source": "section5/results/evaluation_LEGACY.json#families.hsmm.H1c.feature.hit_rate",
+  "value": 0.6666666666666666
+ },
+ "T4.LEGACY.hsmm.h1a": {
+  "source": "section5/results/evaluation_LEGACY.json#families.hsmm.H1a.effect",
+  "value": 0.04924479166666665
+ },
+ "T4.LEGACY.hsmm.h1a_hi": {
+  "source": "section5/results/evaluation_LEGACY.json#families.hsmm.H1a.ci95[1]",
+  "value": 0.074816077256972
+ },
+ "T4.LEGACY.hsmm.h1a_lo": {
+  "source": "section5/results/evaluation_LEGACY.json#families.hsmm.H1a.ci95[0]",
+  "value": 0.026600130237109356
+ },
+ "T4.LEGACY.hsmm.h1b": {
+  "source": "section5/results/evaluation_LEGACY.json#families.hsmm.H1b.effect",
+  "value": 0.10145668641888672
+ },
+ "T4.LEGACY.hsmm.h1b_hi": {
+  "source": "section5/results/evaluation_LEGACY.json#families.hsmm.H1b.ci95[1]",
+  "value": 0.11981131690688819
+ },
+ "T4.LEGACY.hsmm.h1b_lo": {
+  "source": "section5/results/evaluation_LEGACY.json#families.hsmm.H1b.ci95[0]",
+  "value": 0.08519833209712395
+ },
+ "T4.LEGACY.hsmm.qlike_pct": {
+  "source": "section5/results/evaluation_LEGACY.json#families.hsmm.H1b.pct_of_baseline",
+  "value": 21.527625177381612
+ },
+ "T4.LEGACY.student_t_hmm.fomc_baseline": {
+  "source": "section5/results/evaluation_LEGACY.json#families.student_t_hmm.H1c.baseline.hit_rate",
+  "value": 0.2916666666666667
+ },
+ "T4.LEGACY.student_t_hmm.fomc_feature": {
+  "source": "section5/results/evaluation_LEGACY.json#families.student_t_hmm.H1c.feature.hit_rate",
+  "value": 0.7083333333333334
+ },
+ "T4.LEGACY.student_t_hmm.h1a": {
+  "source": "section5/results/evaluation_LEGACY.json#families.student_t_hmm.H1a.effect",
+  "value": 0.08681770833333337
+ },
+ "T4.LEGACY.student_t_hmm.h1a_hi": {
+  "source": "section5/results/evaluation_LEGACY.json#families.student_t_hmm.H1a.ci95[1]",
+  "value": 0.11709459764217803
+ },
+ "T4.LEGACY.student_t_hmm.h1a_lo": {
+  "source": "section5/results/evaluation_LEGACY.json#families.student_t_hmm.H1a.ci95[0]",
+  "value": 0.05792164230714511
+ },
+ "T4.LEGACY.student_t_hmm.h1b": {
+  "source": "section5/results/evaluation_LEGACY.json#families.student_t_hmm.H1b.effect",
+  "value": 0.03127245721524907
+ },
+ "T4.LEGACY.student_t_hmm.h1b_hi": {
+  "source": "section5/results/evaluation_LEGACY.json#families.student_t_hmm.H1b.ci95[1]",
+  "value": 0.04328052228055602
+ },
+ "T4.LEGACY.student_t_hmm.h1b_lo": {
+  "source": "section5/results/evaluation_LEGACY.json#families.student_t_hmm.H1b.ci95[0]",
+  "value": 0.02060712169753065
+ },
+ "T4.LEGACY.student_t_hmm.qlike_pct": {
+  "source": "section5/results/evaluation_LEGACY.json#families.student_t_hmm.H1b.pct_of_baseline",
+  "value": 8.362200752320637
+ },
+ "T4.RAW.gaussian_hmm.fomc_baseline": {
+  "source": "section5/results/evaluation_RAW.json#families.gaussian_hmm.H1c.baseline.hit_rate",
+  "value": 0.5714285714285714
+ },
+ "T4.RAW.gaussian_hmm.fomc_feature": {
+  "source": "section5/results/evaluation_RAW.json#families.gaussian_hmm.H1c.feature.hit_rate",
+  "value": 0.7142857142857143
+ },
+ "T4.RAW.gaussian_hmm.h1a": {
+  "source": "section5/results/evaluation_RAW.json#families.gaussian_hmm.H1a.effect",
+  "value": 0.19444270833333333
+ },
+ "T4.RAW.gaussian_hmm.h1a_hi": {
+  "source": "section5/results/evaluation_RAW.json#families.gaussian_hmm.H1a.ci95[1]",
+  "value": 0.24064298203429862
+ },
+ "T4.RAW.gaussian_hmm.h1a_lo": {
+  "source": "section5/results/evaluation_RAW.json#families.gaussian_hmm.H1a.ci95[0]",
+  "value": 0.15193881360573452
+ },
+ "T4.RAW.gaussian_hmm.h1b": {
+  "source": "section5/results/evaluation_RAW.json#families.gaussian_hmm.H1b.effect",
+  "value": 0.11762977557273452
+ },
+ "T4.RAW.gaussian_hmm.h1b_hi": {
+  "source": "section5/results/evaluation_RAW.json#families.gaussian_hmm.H1b.ci95[1]",
+  "value": 0.15948295505553634
+ },
+ "T4.RAW.gaussian_hmm.h1b_lo": {
+  "source": "section5/results/evaluation_RAW.json#families.gaussian_hmm.H1b.ci95[0]",
+  "value": 0.08285978776638313
+ },
+ "T4.RAW.gaussian_hmm.qlike_pct": {
+  "source": "section5/results/evaluation_RAW.json#families.gaussian_hmm.H1b.pct_of_baseline",
+  "value": 27.141458433137785
+ },
+ "T4.RAW.hsmm.fomc_baseline": {
+  "source": "section5/results/evaluation_RAW.json#families.hsmm.H1c.baseline.hit_rate",
+  "value": 0.6428571428571429
+ },
+ "T4.RAW.hsmm.fomc_feature": {
+  "source": "section5/results/evaluation_RAW.json#families.hsmm.H1c.feature.hit_rate",
+  "value": 0.7857142857142857
+ },
+ "T4.RAW.hsmm.h1a": {
+  "source": "section5/results/evaluation_RAW.json#families.hsmm.H1a.effect",
+  "value": 0.1858385416666667
+ },
+ "T4.RAW.hsmm.h1a_hi": {
+  "source": "section5/results/evaluation_RAW.json#families.hsmm.H1a.ci95[1]",
+  "value": 0.2188116121011268
+ },
+ "T4.RAW.hsmm.h1a_lo": {
+  "source": "section5/results/evaluation_RAW.json#families.hsmm.H1a.ci95[0]",
+  "value": 0.15190910010583727
+ },
+ "T4.RAW.hsmm.h1b": {
+  "source": "section5/results/evaluation_RAW.json#families.hsmm.H1b.effect",
+  "value": 0.09053441744261054
+ },
+ "T4.RAW.hsmm.h1b_hi": {
+  "source": "section5/results/evaluation_RAW.json#families.hsmm.H1b.ci95[1]",
+  "value": 0.1170733173884198
+ },
+ "T4.RAW.hsmm.h1b_lo": {
+  "source": "section5/results/evaluation_RAW.json#families.hsmm.H1b.ci95[0]",
+  "value": 0.06804747219447209
+ },
+ "T4.RAW.hsmm.qlike_pct": {
+  "source": "section5/results/evaluation_RAW.json#families.hsmm.H1b.pct_of_baseline",
+  "value": 20.857862883907444
+ },
+ "T4.RAW.student_t_hmm.fomc_baseline": {
+  "source": "section5/results/evaluation_RAW.json#families.student_t_hmm.H1c.baseline.hit_rate",
+  "value": 0.7857142857142857
+ },
+ "T4.RAW.student_t_hmm.fomc_feature": {
+  "source": "section5/results/evaluation_RAW.json#families.student_t_hmm.H1c.feature.hit_rate",
+  "value": 0.5
+ },
+ "T4.RAW.student_t_hmm.h1a": {
+  "source": "section5/results/evaluation_RAW.json#families.student_t_hmm.H1a.effect",
+  "value": 0.20425
+ },
+ "T4.RAW.student_t_hmm.h1a_hi": {
+  "source": "section5/results/evaluation_RAW.json#families.student_t_hmm.H1a.ci95[1]",
+  "value": 0.24201091857953355
+ },
+ "T4.RAW.student_t_hmm.h1a_lo": {
+  "source": "section5/results/evaluation_RAW.json#families.student_t_hmm.H1a.ci95[0]",
+  "value": 0.16578721722379736
+ },
+ "T4.RAW.student_t_hmm.h1b": {
+  "source": "section5/results/evaluation_RAW.json#families.student_t_hmm.H1b.effect",
+  "value": 0.041417046239629496
+ },
+ "T4.RAW.student_t_hmm.h1b_hi": {
+  "source": "section5/results/evaluation_RAW.json#families.student_t_hmm.H1b.ci95[1]",
+  "value": 0.0558850360334364
+ },
+ "T4.RAW.student_t_hmm.h1b_lo": {
+  "source": "section5/results/evaluation_RAW.json#families.student_t_hmm.H1b.ci95[0]",
+  "value": 0.02892777481450022
+ },
+ "T4.RAW.student_t_hmm.qlike_pct": {
+  "source": "section5/results/evaluation_RAW.json#families.student_t_hmm.H1b.pct_of_baseline",
+  "value": 11.578283950475303
+ },
+ "T5.dev_gaussian_hmm.H2_DOLLAR.n": {
+  "source": "section6/results/h2_development_gaussian_hmm.json#primary.H2_DOLLAR.n_breaks",
+  "value": 13
+ },
+ "T5.dev_gaussian_hmm.H2_DOLLAR.p": {
+  "source": "section6/results/h2_development_gaussian_hmm.json#primary.H2_DOLLAR.p",
+  "value": 0.6401359864013598
+ },
+ "T5.dev_gaussian_hmm.H2_GOLD.n": {
+  "source": "section6/results/h2_development_gaussian_hmm.json#primary.H2_GOLD.n_breaks",
+  "value": 418
+ },
+ "T5.dev_gaussian_hmm.H2_GOLD.p": {
+  "source": "section6/results/h2_development_gaussian_hmm.json#primary.H2_GOLD.p",
+  "value": 0.036996300369963
+ },
+ "T5.dev_gaussian_hmm.H2_HYG.n": {
+  "source": "section6/results/h2_development_gaussian_hmm.json#primary.H2_HYG.n_breaks",
+  "value": 280
+ },
+ "T5.dev_gaussian_hmm.H2_HYG.p": {
+  "source": "section6/results/h2_development_gaussian_hmm.json#primary.H2_HYG.p",
+  "value": 0.9523047695230477
+ },
+ "T5.dev_gaussian_hmm.H2_TLT.n": {
+  "source": "section6/results/h2_development_gaussian_hmm.json#primary.H2_TLT.n_breaks",
+  "value": 397
+ },
+ "T5.dev_gaussian_hmm.H2_TLT.p": {
+  "source": "section6/results/h2_development_gaussian_hmm.json#primary.H2_TLT.p",
+  "value": 0.9039096090390961
+ },
+ "T5.dev_gaussian_hmm.H3_DOLLAR.gamma": {
+  "source": "section6/results/s6_development_gaussian_hmm.json#primary.H3_DOLLAR.gamma",
+  "value": -0.28213751239946694
+ },
+ "T5.dev_gaussian_hmm.H3_DOLLAR.p": {
+  "source": "section6/results/s6_development_gaussian_hmm.json#primary.H3_DOLLAR.p",
+  "value": 0.733
+ },
+ "T5.dev_gaussian_hmm.H3_GOLD.ci_hi": {
+  "source": "section6/results/posthoc/h3_ci_a29_3b.json#by_detector.gaussian_hmm.GOLD.ci95[1]",
+  "value": -0.1286181672978008
+ },
+ "T5.dev_gaussian_hmm.H3_GOLD.ci_lo": {
+  "source": "section6/results/posthoc/h3_ci_a29_3b.json#by_detector.gaussian_hmm.GOLD.ci95[0]",
+  "value": -0.24223268286280572
+ },
+ "T5.dev_gaussian_hmm.H3_GOLD.gamma": {
+  "source": "section6/results/s6_development_gaussian_hmm.json#primary.H3_GOLD.gamma",
+  "value": -0.18506425297607812
+ },
+ "T5.dev_gaussian_hmm.H3_GOLD.p": {
+  "source": "section6/results/s6_development_gaussian_hmm.json#primary.H3_GOLD.p",
+  "value": 1.0
+ },
+ "T5.dev_gaussian_hmm.H3_HYG.gamma": {
+  "source": "section6/results/s6_development_gaussian_hmm.json#primary.H3_HYG.gamma",
+  "value": -0.07110697477270138
+ },
+ "T5.dev_gaussian_hmm.H3_HYG.p": {
+  "source": "section6/results/s6_development_gaussian_hmm.json#primary.H3_HYG.p",
+  "value": 0.9748
+ },
+ "T5.dev_gaussian_hmm.H3_TLT.ci_hi": {
+  "source": "section6/results/posthoc/h3_ci_a29_3b.json#by_detector.gaussian_hmm.TLT.ci95[1]",
+  "value": -0.10695679544897832
+ },
+ "T5.dev_gaussian_hmm.H3_TLT.ci_lo": {
+  "source": "section6/results/posthoc/h3_ci_a29_3b.json#by_detector.gaussian_hmm.TLT.ci95[0]",
+  "value": -0.21983232693054383
+ },
+ "T5.dev_gaussian_hmm.H3_TLT.gamma": {
+  "source": "section6/results/s6_development_gaussian_hmm.json#primary.H3_TLT.gamma",
+  "value": -0.1643802197850805
+ },
+ "T5.dev_gaussian_hmm.H3_TLT.p": {
+  "source": "section6/results/s6_development_gaussian_hmm.json#primary.H3_TLT.p",
+  "value": 1.0
+ },
+ "T5.dev_gaussian_hmm.H4a.gain": {
+  "source": "section6/results/s6_development_gaussian_hmm.json#primary.H4a.gain",
+  "value": 0.015700763444399187
+ },
+ "T5.dev_gaussian_hmm.H4a.p": {
+  "source": "section6/results/s6_development_gaussian_hmm.json#primary.H4a.p,n_valid_resamples (A35 rule 1, derived)",
+  "value": 0.2944467467882304
+ },
+ "T5.dev_gaussian_hmm.H4b.gain": {
+  "source": "section6/results/s6_development_gaussian_hmm.json#primary.H4b.gain",
+  "value": -0.00868899085749095
+ },
+ "T5.dev_gaussian_hmm.H4b.p": {
+  "source": "section6/results/s6_development_gaussian_hmm.json#primary.H4b.p,n_valid_resamples (A35 rule 1, derived)",
+  "value": 0.6523410992988011
+ },
+ "T5.dev_hsmm.H2_DOLLAR.n": {
+  "source": "section6/results/h2_development_hsmm.json#primary.H2_DOLLAR.n_breaks",
+  "value": 12
+ },
+ "T5.dev_hsmm.H2_DOLLAR.p": {
+  "source": "section6/results/h2_development_hsmm.json#primary.H2_DOLLAR.p",
+  "value": 0.08199180081991801
+ },
+ "T5.dev_hsmm.H2_GOLD.n": {
+  "source": "section6/results/h2_development_hsmm.json#primary.H2_GOLD.n_breaks",
+  "value": 364
+ },
+ "T5.dev_hsmm.H2_GOLD.p": {
+  "source": "section6/results/h2_development_hsmm.json#primary.H2_GOLD.p",
+  "value": 0.067993200679932
+ },
+ "T5.dev_hsmm.H2_HYG.n": {
+  "source": "section6/results/h2_development_hsmm.json#primary.H2_HYG.n_breaks",
+  "value": 242
+ },
+ "T5.dev_hsmm.H2_HYG.p": {
+  "source": "section6/results/h2_development_hsmm.json#primary.H2_HYG.p",
+  "value": 0.46055394460553944
+ },
+ "T5.dev_hsmm.H2_TLT.n": {
+  "source": "section6/results/h2_development_hsmm.json#primary.H2_TLT.n_breaks",
+  "value": 335
+ },
+ "T5.dev_hsmm.H2_TLT.p": {
+  "source": "section6/results/h2_development_hsmm.json#primary.H2_TLT.p",
+  "value": 0.0851914808519148
+ },
+ "T5.dev_hsmm.H3_DOLLAR.gamma": {
+  "source": "section6/results/s6_development_hsmm.json#primary.H3_DOLLAR.gamma",
+  "value": -0.21343617481398347
+ },
+ "T5.dev_hsmm.H3_DOLLAR.p": {
+  "source": "section6/results/s6_development_hsmm.json#primary.H3_DOLLAR.p",
+  "value": 0.7548
+ },
+ "T5.dev_hsmm.H3_GOLD.ci_hi": {
+  "source": "section6/results/posthoc/h3_ci_a29_3b.json#by_detector.hsmm.GOLD.ci95[1]",
+  "value": -0.08894865303131053
+ },
+ "T5.dev_hsmm.H3_GOLD.ci_lo": {
+  "source": "section6/results/posthoc/h3_ci_a29_3b.json#by_detector.hsmm.GOLD.ci95[0]",
+  "value": -0.22345722851977678
+ },
+ "T5.dev_hsmm.H3_GOLD.gamma": {
+  "source": "section6/results/s6_development_hsmm.json#primary.H3_GOLD.gamma",
+  "value": -0.15601514993186022
+ },
+ "T5.dev_hsmm.H3_GOLD.p": {
+  "source": "section6/results/s6_development_hsmm.json#primary.H3_GOLD.p",
+  "value": 1.0
+ },
+ "T5.dev_hsmm.H3_HYG.gamma": {
+  "source": "section6/results/s6_development_hsmm.json#primary.H3_HYG.gamma",
+  "value": -0.042957993239121924
+ },
+ "T5.dev_hsmm.H3_HYG.p": {
+  "source": "section6/results/s6_development_hsmm.json#primary.H3_HYG.p",
+  "value": 0.8442
+ },
+ "T5.dev_hsmm.H3_TLT.ci_hi": {
+  "source": "section6/results/posthoc/h3_ci_a29_3b.json#by_detector.hsmm.TLT.ci95[1]",
+  "value": -0.07010067772540302
+ },
+ "T5.dev_hsmm.H3_TLT.ci_lo": {
+  "source": "section6/results/posthoc/h3_ci_a29_3b.json#by_detector.hsmm.TLT.ci95[0]",
+  "value": -0.20578797416112618
+ },
+ "T5.dev_hsmm.H3_TLT.gamma": {
+  "source": "section6/results/s6_development_hsmm.json#primary.H3_TLT.gamma",
+  "value": -0.1392230930073233
+ },
+ "T5.dev_hsmm.H3_TLT.p": {
+  "source": "section6/results/s6_development_hsmm.json#primary.H3_TLT.p",
+  "value": 1.0
+ },
+ "T5.dev_hsmm.H4a.gain": {
+  "source": "section6/results/s6_development_hsmm.json#primary.H4a.gain",
+  "value": 0.013174110198612156
+ },
+ "T5.dev_hsmm.H4a.p": {
+  "source": "section6/results/s6_development_hsmm.json#primary.H4a.p,n_valid_resamples (A35 rule 1, derived)",
+  "value": 0.189539202891276
+ },
+ "T5.dev_hsmm.H4b.gain": {
+  "source": "section6/results/s6_development_hsmm.json#primary.H4b.gain",
+  "value": 0.049944934010758495
+ },
+ "T5.dev_hsmm.H4b.p": {
+  "source": "section6/results/s6_development_hsmm.json#primary.H4b.p,n_valid_resamples (A35 rule 1, derived)",
+  "value": 0.08713607268222176
+ },
+ "T5.eval_gaussian_hmm.H2_DOLLAR.n": {
+  "source": "section6/results/h2_evaluation_gaussian_hmm.json#primary.H2_DOLLAR.n_breaks",
+  "value": 193
+ },
+ "T5.eval_gaussian_hmm.H2_DOLLAR.p": {
+  "source": "section6/results/h2_evaluation_gaussian_hmm.json#primary.H2_DOLLAR.p",
+  "value": 0.9301069893010699
+ },
+ "T5.eval_gaussian_hmm.H2_GOLD.n": {
+  "source": "section6/results/h2_evaluation_gaussian_hmm.json#primary.H2_GOLD.n_breaks",
+  "value": 206
+ },
+ "T5.eval_gaussian_hmm.H2_GOLD.p": {
+  "source": "section6/results/h2_evaluation_gaussian_hmm.json#primary.H2_GOLD.p",
+  "value": 0.05319468053194681
+ },
+ "T5.eval_gaussian_hmm.H2_HYG.n": {
+  "source": "section6/results/h2_evaluation_gaussian_hmm.json#primary.H2_HYG.n_breaks",
+  "value": 191
+ },
+ "T5.eval_gaussian_hmm.H2_HYG.p": {
+  "source": "section6/results/h2_evaluation_gaussian_hmm.json#primary.H2_HYG.p",
+  "value": 0.54994500549945
+ },
+ "T5.eval_gaussian_hmm.H2_TLT.n": {
+  "source": "section6/results/h2_evaluation_gaussian_hmm.json#primary.H2_TLT.n_breaks",
+  "value": 208
+ },
+ "T5.eval_gaussian_hmm.H2_TLT.p": {
+  "source": "section6/results/h2_evaluation_gaussian_hmm.json#primary.H2_TLT.p",
+  "value": 0.9863013698630136
+ },
+ "T5.eval_gaussian_hmm.H3_DOLLAR.gamma": {
+  "source": "section6/results/s6_evaluation_gaussian_hmm.json#primary.H3_DOLLAR.gamma",
+  "value": -0.21213401563337556
+ },
+ "T5.eval_gaussian_hmm.H3_DOLLAR.p": {
+  "source": "section6/results/s6_evaluation_gaussian_hmm.json#primary.H3_DOLLAR.p",
+  "value": 0.9999
+ },
+ "T5.eval_gaussian_hmm.H3_GOLD.gamma": {
+  "source": "section6/results/s6_evaluation_gaussian_hmm.json#primary.H3_GOLD.gamma",
+  "value": -0.10600501283272411
+ },
+ "T5.eval_gaussian_hmm.H3_GOLD.p": {
+  "source": "section6/results/s6_evaluation_gaussian_hmm.json#primary.H3_GOLD.p",
+  "value": 0.9869
+ },
+ "T5.eval_gaussian_hmm.H3_HYG.gamma": {
+  "source": "section6/results/s6_evaluation_gaussian_hmm.json#primary.H3_HYG.gamma",
+  "value": -0.09547978216712832
+ },
+ "T5.eval_gaussian_hmm.H3_HYG.p": {
+  "source": "section6/results/s6_evaluation_gaussian_hmm.json#primary.H3_HYG.p",
+  "value": 0.9744
+ },
+ "T5.eval_gaussian_hmm.H3_TLT.gamma": {
+  "source": "section6/results/s6_evaluation_gaussian_hmm.json#primary.H3_TLT.gamma",
+  "value": -0.05262056775606987
+ },
+ "T5.eval_gaussian_hmm.H3_TLT.p": {
+  "source": "section6/results/s6_evaluation_gaussian_hmm.json#primary.H3_TLT.p",
+  "value": 0.8721
+ },
+ "T5.eval_gaussian_hmm.H4a.gain": {
+  "source": "section6/results/s6_evaluation_gaussian_hmm.json#primary.H4a.gain",
+  "value": -0.012282683382360412
+ },
+ "T5.eval_gaussian_hmm.H4a.p": {
+  "source": "section6/results/s6_evaluation_gaussian_hmm.json#primary.H4a.p",
+  "value": 0.8567
+ },
+ "T5.eval_gaussian_hmm.H4b.gain": {
+  "source": "section6/results/s6_evaluation_gaussian_hmm.json#primary.H4b.gain",
+  "value": -0.028087134533295848
+ },
+ "T5.eval_gaussian_hmm.H4b.p": {
+  "source": "section6/results/s6_evaluation_gaussian_hmm.json#primary.H4b.p",
+  "value": 0.8534
+ }
+}

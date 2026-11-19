@@ -1,0 +1,11 @@
+# Research environment plus the figure toolchain (paper/make_figures.py). matplotlib computes nothing that enters a result.
+# Exact pins: matplotlib 3.11.2 and its dependency closure as used to make the committed figures (2026-11-17).
+-r requirements.lock
+matplotlib==3.11.2
+contourpy==1.4.0
+cycler==0.12.1
+fonttools==4.68.0
+kiwisolver==1.5.1
+packaging==26.3
+pillow==13.0.0
+pyparsing==3.3.3

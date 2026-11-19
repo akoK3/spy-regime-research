@@ -416,3 +416,27 @@
 !/section6/results/*_log.txt
 !/README.md
 !/REPRODUCE.md
+
+# Public-release files (release-prep branch, 2026-11-19): docs, licences, lockfiles, data manifest, paper tables and checks.
+# Market data stays ignored (data/ and the canonical panel folders are covered by /* above).
+!/README.md
+!/DATA.md
+!/DATA_SHA256SUMS
+!/LICENSE
+!/LICENSE-docs.md
+!/CITATION.cff
+!/.python-version
+!/requirements.lock
+!/requirements-paper.lock
+!/reproduce_paper.py
+!/paper/
+/paper/*
+!/paper/RESULTS_FACTS.md
+!/paper/make_figures.py
+!/paper/figures/
+!/paper/figures_png/
+!/paper/make_tables.py
+!/paper/check_paper_values.py
+!/paper/expected_values.json
+!/paper/figures_reference_stats.json
+!/paper/tables/

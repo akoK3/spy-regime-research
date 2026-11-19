@@ -1,0 +1,27 @@
+cff-version: 1.2.0
+message: "If you use this code or these results, please cite the paper and this repository."
+title: "spy-regime-research: code, protocol, amendments and results for 'Is SPY an Intraday Tripwire?'"
+type: software
+authors:
+  - family-names: Jvarsheishvili
+    given-names: Akaki
+    affiliation: "Department of Computer Science, Caldwell University"
+repository-code: "https://github.com/akoK3/spy-regime-research"
+license: MIT
+keywords:
+  - regime detection
+  - hidden Markov models
+  - change-point detection
+  - intraday volatility
+  - cross-asset spillovers
+  - pre-registration
+preferred-citation:
+  type: article
+  title: "Is SPY an Intraday Tripwire? Detecting Volatility Regime Shifts and Testing Their Cross-Market Reach"
+  authors:
+    - family-names: Jvarsheishvili
+      given-names: Akaki
+      affiliation: "Department of Computer Science, Caldwell University"
+  year: 2026
+  status: preprint
+  notes: "Preprint; add the DOI or URL when posted. Code version a0323ed24d68e896; freeze commit 3b9e68d; evaluation results commit 34ec7d1."
