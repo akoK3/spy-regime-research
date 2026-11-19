@@ -78,7 +78,7 @@ Figure numbering: the files are named in the order they were made, not the paper
 **Verify without rerunning:** `REPRODUCE.md` §3. **Rerun the analysis:** `REPRODUCE.md` §4–5 (the guards refuse a rerun
 in place by design; use a fresh copy at the freeze commit `3b9e68d`). **Tests:** each `section5/s5_tests*.py` and
 `section6/s6_tests*.py` runs standalone (`unittest`, no pytest), from its own directory; several write their report
-into `section5/results/`, so run them in a fresh copy. In a fresh copy, 311 of the 322 tests pass. The other 11
+into `section5/results/`, so run them in a fresh copy. In a fresh copy, 309 of the 320 tests pass. The other 11
 (in `s5_tests_a14`, `_a15`, `_a16` and `s5_tests_run`) are refused by design, because they start model selection or
 scoring and the post-freeze lock `section5/results/ERA_CALIBRATION.lock` (A16 rule 5) forbids that; with the lock
 moved aside in a throwaway copy they pass.
