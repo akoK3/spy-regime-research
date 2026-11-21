@@ -112,7 +112,7 @@ differ from the hashed files.
 | Section 5 detection protocol (`SECTION5_PROTOCOL.md`; superseded versions `SECTION5_PROTOCOL_v*_FROZEN_*.md`) | `15be2570a592279e71f3f76fbe62113b4c3263a9d9e4715eaf4d61294eaf4df3` |
 | Freeze document / evaluation token (`section5/results/section5_freeze.json`) | `846c1aaafaf1cb02911bc680c0b197f97e17b00386695fc0f6eb0b26b02e3a94` |
 | Frozen-model manifest (8 models; `section5/results/frozen_models/manifest.json`) | `edb78798544a8896c88f5a6b02857591d96f6764ed0d7f498685cbdbc0ac06dd` |
-| Methods ledger at this commit (`METHODS_LEDGER.md`) | `779db1f53bab182306ddd63c6d654378e3d567be29d024b9099b6f42170004b7` |
+| Methods ledger at this commit (`METHODS_LEDGER.md`) | `9dd14b91513dafbb3680c43072240c35d29b14621831c51fa13c7f0ee5366088` |
 | Forward-test pre-registration v2.1 (MarketLens `regime/FORWARD_TEST_PREREGISTRATION_v2_1.md`; supersedes v2 `05e5ee40…`, v1 `7f0da937…`) | `f1e2a1332fa1b212db2d8947fce8dfbcc7f9fac4bb9bd3b3bcfd989c0015ed1a` |
 
 Amendments: 43 adopted amendments, A6 to A38, adopted between 2026-11-01 17:48Z and 2026-11-11 04:33Z (the paper's
