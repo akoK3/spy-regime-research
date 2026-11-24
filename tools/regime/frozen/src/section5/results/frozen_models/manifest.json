@@ -1,0 +1,19 @@
+{
+ "kind": "a37_frozen_models",
+ "created_utc": "2026-11-12T08:02:42.520278+00:00",
+ "code_version": "a0323ed24d68e896",
+ "eras": [
+  "LEGACY",
+  "RAW"
+ ],
+ "files": {
+  "LEGACY_gaussian_hmm.pkl": "568ef2191736a8ca966d193a390b65e2298cf26a3c540de52e6464af0535b66b",
+  "LEGACY_student_t_hmm.pkl": "71854ee4a6e694f7a4532c98c352a0d2affde609c2824f612d42e14dc7d8144c",
+  "LEGACY_hsmm.pkl": "e22fbd3e8e0d327d4b4a00ced70a9d3616d7c382a1e048fe5d4bbe7684f19cea",
+  "LEGACY_bocpd.pkl": "34ccab2ad51c971c589a92d230e2bfa2c4ed6a808468feaefa8c4a6af3569356",
+  "RAW_gaussian_hmm.pkl": "b0848a4bd67497e9810fe72f45529ef41435aef120c9aa94df8fedfe2779750a",
+  "RAW_student_t_hmm.pkl": "a21f6f8bc0f5f137e547aee03441c0e4b0b1ad4c43f3a9331aa19961dc3af2e4",
+  "RAW_hsmm.pkl": "1fb119caaf92f1a5ea68baf575226e86d1fa4568638511277e82942edfa00802",
+  "RAW_bocpd.pkl": "76368ac2277f868d7c2f95a59fa822dda2d15ede331704383fbceba512751f72"
+ }
+}

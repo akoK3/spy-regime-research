@@ -60,4 +60,4 @@ So repeating steps 1–4 in this checkout is refused by design. To reproduce, ru
 
 ## 6. Independent check
 
-The MarketLens repository (private; `tools/acceptance_repro.py`) reloads the RAW panel and copies of the frozen model and code. It reproduces every Gaussian HMM run in `section5/results/evaluation_RAW.json` exactly (344 runs, 445 sessions). That read happened outside the guard and is disclosed in the ledger row of 2026-11-14.
+`tools/acceptance_repro.py` was written separately from the research code, in the MarketLens repository, and is copied here unchanged apart from a provenance header; its MarketLens dependencies and hash-locked copies of the frozen model and code are in `tools/regime/`. It reloads the RAW panel and copies of the frozen model and code. Run it from the repository root with `python tools/acceptance_repro.py .` once the RAW panel and SPY file of §2 are in place; it writes `acceptance/acceptance_report.json`. It reproduces every Gaussian HMM run in `section5/results/evaluation_RAW.json` exactly (344 runs, 445 sessions). That read happened outside the guard and is disclosed in the ledger row of 2026-11-14.

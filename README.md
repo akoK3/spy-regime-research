@@ -2,7 +2,7 @@
 
 Code, pre-registered protocol, amendments, frozen-model records and results for the preprint
 **"Is SPY an Intraday Tripwire? Detecting Volatility Regime Shifts and Testing Their Cross-Market Reach"**
-(Akaki Jvarsheishvili, Caldwell University, 2026).
+by Akaki Jvarsheishvili and Cagla Yildirim, Ph.D.
 
 ## Purpose
 
@@ -54,6 +54,9 @@ file and key in `tables.json`) and the six figures (`paper/figures/`), then runs
 compares 237 values with the manuscript (`paper/expected_values.json`: the 223 table values plus the 14 benchmark
 numbers quoted in §6.2, which are also checked against `section5/results/posthoc_benchmark/BENCHMARK_FACTS.md`) and each regenerated figure with its
 committed inputs and PNG. Tables A1 and A2 are text tables with no computed values.
+
+A separately written implementation, `tools/acceptance_repro.py`, reproduces all 344 Gaussian HMM runs of the RAW
+evaluation exactly; see `REPRODUCE.md` §6.
 
 | What | Needs data? | Runtime on the reference laptop |
 |---|---|---|
@@ -181,13 +184,10 @@ Code: MIT (`LICENSE`). Documents, result files, frozen models and figures: CC BY
 
 See `CITATION.cff`. Until the preprint has a DOI:
 
-> Jvarsheishvili, A. (2026). *Is SPY an Intraday Tripwire? Detecting Volatility Regime Shifts and Testing Their
+> Jvarsheishvili, A., & Yildirim, C. (2026). *Is SPY an Intraday Tripwire? Detecting Volatility Regime Shifts and Testing Their
 > Cross-Market Reach.* Preprint. Code and records: https://github.com/akoK3/spy-regime-research (code version
 > `a0323ed24d68e896`).
 
 ## Use of AI tools
 
-Generative AI tools (Anthropic's Claude) drafted and edited much of the prose, which the author revised, and assisted
-with drafting and reviewing analysis code and with finding and checking citations. The author designed the study,
-established the evaluation protocol, made all final methodological decisions, reviewed all generated material, and
-takes responsibility for the work.
+Generative AI tools were used throughout this project, under the first author's direction. Anthropic's Claude (through Claude Code and the Claude chat interface) drafted and edited much of the prose, which the first author revised; wrote and reviewed analysis code; launched analysis runs; wrote audits of the results; and assisted with finding and checking citations. Every commit in the research repository carries a Claude co-author trailer. OpenAI's ChatGPT was used for data preparation and for reviewing drafts. The first author designed the study, established the evaluation protocol, made all final methodological decisions and reviewed all generated material. The authors take responsibility for the work.

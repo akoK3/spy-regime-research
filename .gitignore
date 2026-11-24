@@ -445,3 +445,6 @@
 !/section5/results/frozen_models/
 !/requirements-panel.lock
 !/panel_build/
+# Independent reproduction script (copied from MarketLens, 2026-11-24) and its dependencies; never caches or its report.
+!/tools/
+/tools/**/__pycache__/
