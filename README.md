@@ -39,14 +39,14 @@ seen in earlier exploratory work.
 
 ## Reproduce the paper's tables and figures
 
-Requirements: Python 3.12.10 (64-bit; `.python-version`), about 1 GB of disk, no data for tables and figures 1–5.
+Requirements: Python 3.12.10 (64-bit; `.python-version`), about 1 GB of disk, no data for the tables and Figures 2–6.
 
 ```
 git clone https://github.com/akoK3/spy-regime-research.git
 cd spy-regime-research
 py -3.12 -m venv .venv                       # Linux/macOS: python3.12 -m venv .venv
 .venv\Scripts\pip install -r requirements-paper.lock   # Linux/macOS: .venv/bin/pip ...
-.venv\Scripts\python reproduce_paper.py      # add --build-cache once the data of DATA.md §1 is in place (Figure 6)
+.venv\Scripts\python reproduce_paper.py      # add --build-cache once the data of DATA.md §1 is in place (Figure 1)
 ```
 
 `reproduce_paper.py` regenerates Tables 3, 4, 5, A3, A4 and A5 (`paper/tables/TABLES.md`, with every value's source
@@ -61,8 +61,8 @@ evaluation exactly; see `REPRODUCE.md` §6.
 | What | Needs data? | Runtime on the reference laptop |
 |---|---|---|
 | Environment install from `requirements-paper.lock` | no | about 1.5 min |
-| Tables + figures 1–5 + checks | no | about 6 s |
-| Feature cache for Figure 6 (`--build-cache`, once) | yes (DATA.md §1) | 14 min alone, up to 27 min with other jobs running (LEGACY 11.5–24 min, RAW 2.7 min; about 1.4 GB RAM) |
+| Tables + Figures 2–6 + checks | no | about 6 s |
+| Feature cache for Figure 1 (`--build-cache`, once) | yes (DATA.md §1) | 14 min alone, up to 27 min with other jobs running (LEGACY 11.5–24 min, RAW 2.7 min; about 1.4 GB RAM) |
 | Full rerun of the freeze, evaluation and A38 (`REPRODUCE.md` §4) | yes, in a fresh copy at the freeze commit | about 15.5 h (freeze 4 h 13 min; evaluation about 7 h active; A38 19 min) plus earlier development runs |
 
 Reference machine: AMD Ryzen 7 7435HS, 15.7 GB RAM, Windows 11, single process.
