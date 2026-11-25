@@ -4,6 +4,9 @@ Code, pre-registered protocol, amendments, frozen-model records and results for 
 **"Is SPY an Intraday Tripwire? Detecting Volatility Regime Shifts and Testing Their Cross-Market Reach"**
 by Akaki Jvarsheishvili and Cagla Yildirim, Ph.D.
 
+> **Start here:** the paper is at https://doi.org/10.5281/zenodo.24512827. To verify or rerun the results, see `REPRODUCE.md`;
+> for the data sources and their terms, see `DATA.md`.
+
 ## Purpose
 
 The study asks two questions about intraday SPY volatility regimes:
@@ -182,12 +185,12 @@ Code: MIT (`LICENSE`). Documents, result files, frozen models and figures: CC BY
 
 ## Citation
 
-See `CITATION.cff`. Until the preprint has a DOI:
+See `CITATION.cff`. Preprint:
 
 > Jvarsheishvili, A., & Yildirim, C. (2026). *Is SPY an Intraday Tripwire? Detecting Volatility Regime Shifts and Testing Their
-> Cross-Market Reach.* Preprint. Code and records: https://github.com/akoK3/spy-regime-research (code version
-> `a0323ed24d68e896`).
+> Cross-Market Reach.* Zenodo. https://doi.org/10.5281/zenodo.24512827. Code and records:
+> https://github.com/akoK3/spy-regime-research (code version `a0323ed24d68e896`).
 
 ## Use of AI tools
 
-Generative AI tools were used throughout this project, under the first author's direction. Anthropic's Claude (through Claude Code and the Claude chat interface) drafted and edited much of the prose, which the first author revised; wrote and reviewed analysis code; launched analysis runs; wrote audits of the results; and assisted with finding and checking citations. Every commit in the research repository carries a Claude co-author trailer. OpenAI's ChatGPT was used for data preparation and for reviewing drafts. The first author designed the study, established the evaluation protocol, made all final methodological decisions and reviewed all generated material. The authors take responsibility for the work.
+Generative AI tools were used throughout this project, under the first author's direction. Anthropic's Claude (through Claude Code and the Claude chat interface) drafted and edited a sizeable part of the prose, which the first author revised; wrote and reviewed analysis code; launched analysis runs; wrote audits of the results; and assisted with finding and checking citations. OpenAI's ChatGPT was used for data preparation and for reviewing drafts. The first author designed the study, established the evaluation protocol, made all final methodological decisions and reviewed all generated material. The authors take responsibility for the work.

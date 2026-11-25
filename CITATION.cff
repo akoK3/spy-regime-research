@@ -28,4 +28,8 @@ preferred-citation:
       given-names: Cagla
   year: 2026
   status: preprint
-  notes: "Preprint; add the DOI or URL when posted. Code version a0323ed24d68e896; freeze commit 3b9e68d; evaluation results commit 34ec7d1."
+  doi: "10.5281/zenodo.24512827"
+  url: "https://doi.org/10.5281/zenodo.24512827"
+  publisher:
+    name: Zenodo
+  notes: "Code version a0323ed24d68e896; freeze commit 3b9e68d; evaluation results commit 34ec7d1."
